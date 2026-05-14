@@ -1,0 +1,3 @@
+# Valid WorkflowState: accepted status with comment
+workflowStatus: Accepted
+comment: Trade accepted by clearing house

@@ -1,0 +1,6 @@
+# Valid CreditLimitUtilisation: with executed and pending positions
+executed:
+  shortPosition: 1000000.0
+  longPosition: 2000000.0
+pending:
+  longPosition: 500000.0

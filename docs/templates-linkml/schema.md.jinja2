@@ -1,0 +1,73 @@
+# {{ schema.name }} {% if schema.deprecated %} <span style="color: red;"><strong> (DEPRECATED) </strong></span> {% endif %}
+
+{{ schema.description }}
+
+URI: {{ schema.id }}
+
+{#- ============================================================
+    CDM custom: render rosetta_functions from schema-level
+    annotations as structured function-signature cards.
+    ============================================================ -#}
+{%- if schema.annotations %}
+{%- if 'rosetta_functions' in schema.annotations %}
+{%- set funcs = schema.annotations['rosetta_functions'].value -%}
+{%- if funcs is iterable and funcs is not string and funcs|length > 0 %}
+
+## Rosetta Functions
+
+{% for func in funcs %}
+<details>
+<summary><code>{{ func.name }}</code>{% if func.description is defined and func.description %} — {{ func.description|truncate(120, True) }}{% endif %}</summary>
+
+{% if func.description is defined and func.description -%}
+{{ func.description }}
+{%- endif %}
+
+{% if func.inputs is defined and func.inputs %}
+**Inputs**
+
+| Parameter | Type | Cardinality |
+| --- | --- | --- |
+{% for p in func.inputs -%}
+| `{{ p.name }}` | {{ p.type }} | {{ p.cardinality }} |
+{% endfor %}
+{% endif -%}
+
+{% if func.output is defined and func.output %}
+**Output**
+
+| Parameter | Type | Cardinality |
+| --- | --- | --- |
+| `{{ func.output.name }}` | {{ func.output.type }} | {{ func.output.cardinality }} |
+{% endif -%}
+
+{% if func.code_implementation is defined and func.code_implementation -%}
+> ⚠️ This function has `[codeImplementation]` — the body is provided externally.
+{% endif -%}
+
+</details>
+
+{% endfor %}
+{% endif -%}
+{% endif -%}
+
+{#- Render remaining flat annotations if any -#}
+{%- set ns = namespace(has_flat=false) -%}
+{%- for a in schema.annotations -%}
+  {%- if a|string|first != '_' and a|string != 'rosetta_functions' -%}
+    {%- set ns.has_flat = true -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if ns.has_flat %}
+### Other Annotations
+
+| property | value |
+| --- | --- |
+{% for a in schema.annotations -%}
+{%- if a|string|first != '_' and a|string != 'rosetta_functions' -%}
+| {{ a }} | {{ schema.annotations[a].value }} |
+{% endif -%}
+{% endfor %}
+{% endif -%}
+{% endif -%}

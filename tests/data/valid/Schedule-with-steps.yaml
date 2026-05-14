@@ -1,0 +1,7 @@
+# Valid Schedule: initial value with dated steps
+value: 0.05
+datedValue:
+  - date: "2025-06-15"
+    value: 0.045
+  - date: "2026-06-15"
+    value: 0.04

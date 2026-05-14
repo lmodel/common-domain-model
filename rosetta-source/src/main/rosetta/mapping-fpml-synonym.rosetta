@@ -1,0 +1,748 @@
+namespace cdm.synonyms
+
+synonym source FpML_5_10 extends EXTERNAL {
+    Account:
+        + partyReference
+        + accountNumber
+        + accountName
+        + accountType
+        + accountBeneficiary
+        + servicingParty
+    AccrualFactor:
+        + value
+        + calculationTerms
+    AccrualFactorCalculationTerms:
+        + tenorTillMaturity
+        + dayCountFraction
+        + interpolationTerms
+    AdditionalDisruptionEvents:
+        + changeInLaw
+        + failureToDeliver
+        + insolvencyFiling
+        + hedgingDisruption
+        + increasedCostOfHedging
+        + foreignOwnershipEvent
+        + lossOfStockBorrow
+        + maximumStockLoanRate
+        + increasedCostOfStockBorrow
+        + initialStockLoanRate
+        + determiningParty
+        + additionalBespokeTerms
+    AdditionalFixedPayments:
+        + interestShortfallReimbursement
+        + principalShortfallReimbursement
+        + writedownReimbursement
+    AdditionalObligations:
+        + party
+        + additionalObligations
+    AdditionalRepresentation:
+        + partyElection
+        + customElection
+    AdditionalRepresentationElection:
+        + party
+        + isApplicable
+        + additionalLanguage
+    AdditionalRepresentations:
+        + additionalRepresentation
+        + regulatoryComplianceRepresentation
+    AdditionalRightsEvent:
+        + isApplicable
+        + qualification
+    AdditionalTerminationEvent:
+        + name
+        + applicableParty
+    AdditionalType:
+        + standardValue
+        + customValue
+    Address:
+        + street
+        + city
+        + state
+        + country
+        + postalCode
+    AddtlAttrbts:
+        + rskRdcgTx
+        + sctiesFincgTxInd
+    AdjustableDate:
+        + unadjustedDate
+        + dateAdjustments
+        + dateAdjustmentsReference
+        + adjustedDate
+    AdjustableDates:
+        + unadjustedDate
+        + dateAdjustments
+        + adjustedDate
+    AdjustableOrAdjustedDate:
+        + unadjustedDate
+        + dateAdjustments
+        + adjustedDate
+    AdjustableOrAdjustedOrRelativeDate:
+        + unadjustedDate
+        + dateAdjustments
+        + adjustedDate
+        + relativeDate
+    AdjustableOrRelativeDate:
+        + adjustableDate
+        + relativeDate
+    AdjustableOrRelativeDates:
+        + adjustableDates
+        + relativeDates
+    AdjustableRelativeOrPeriodicDates:
+        + adjustableDates
+        + relativeDates
+        + periodicDates
+    AdjustmentFactor:
+        + value
+        + calculationTerms
+    AdjustmentFactorCalculationTerms:
+        + shareForShareRatio
+        + shareForRightsRatio
+        + rightsSubscriptionPrice
+        + dividendRatio
+        + spinOff
+        + merger
+        + accrualFactor
+        + lastFixingPriceBeforeAdjustment
+        + dividendObservation
+        + bespokeCalculationFormula
+    AgencyRatingCriteria:
+        + creditNotation
+        + mismatchResolution
+        + referenceAgency
+        + boundary
+    Aggregation:
+        + aggregationType
+        + loansCanBeGrouped
+        + otherDetails
+    AggregationParameters:
+        + dateTime
+        + totalPosition
+        + positionStatus
+        + party
+        + product
+        + productQualifier
+        + tradeReference
+    Agreement:
+        + creditSupportAgreementElections
+        + collateralTransferAgreementElections
+        + securityAgreementElections
+        + masterAgreementSchedule
+        + transactionAdditionalTerms
+        + masterAgreementElections
+    AgreementName:
+        + agreementType
+        + creditSupportAgreementType
+        + creditSupportAgreementMarginType
+        + contractualDefinitionsType
+        + contractualTermsSupplement
+        + contractualMatrix
+        + masterAgreementType
+        + masterConfirmationType
+        + masterConfirmationAnnexType
+        + otherAgreement
+        + brokerConfirmationType
+    AgreementTerms:
+        + agreement
+        + clauseLibrary
+        + counterparty
+    AmendmentEffectiveDate:
+        + date
+        + specificDate
+        + customProvision
+    AncillaryEntity:
+        + ancillaryParty
+        + legalEntity
+    AncillaryParty:
+        + role
+        + partyReference
+        + onBehalfOf
+    ApplicableRegime:
+        + regime
+        + additionalRegime
+        + regimeTerms
+        + additionalType
+        + additionalTerms
+    AppropriatedCollateralValuation:
+        + isSpecified
+        + election
+    AssetBase:
+        + identifier
+        + taxonomy
+        + isExchangeListed
+        + exchange
+        + relatedExchange
+        + assetType
+    AssetDeliveryInformation:
+        + periods
+        + location
+        + deliveryCapacity
+        + commodityGrade
+    AssetDeliveryPeriods:
+        + profile
+        + startDate
+        + endDate
+    AssetDeliveryProfile:
+        + loadType
+        + block
+        + bankHolidaysTreatment
+    AssetDeliveryProfileBlock:
+        + startTime
+        + endTime
+        + dayOfWeek
+        + deliveryCapacity
+        + priceTimeIntervalQuantity
+    AssetFlow:
+        + payerReceiver
+        + assetFlowType
+    AssetFlowBase:
+        + quantity
+        + asset
+        + settlementDate
+        + paymentDiscounting
+    AssetIdentifier:
+        + identifier
+        + identifierType
+    AssetLeg:
+        + settlementDate
+        + deliveryMethod
+    AssetMaturity:
+        + maturityType
+        + maturityRange
+    AssetPayout:
+        + assetLeg
+        + underlier
+        + minimumFee
+        + dividendTerms
+        + tradeType
+    AssetType:
+        + assetType
+        + securityType
+        + debtType
+        + equityType
+        + fundType
+        + otherAssetType
+    AssignedIdentifier:
+        + identifier
+        + version
+    AutomaticEarlyTermination:
+        + fallbackAET
+        + indemnity
+        + partyElection
+    AutomaticEarlyTerminationElection:
+        + party
+        + isApplicable
+    AutomaticExercise:
+        + thresholdRate
+        + isApplicable
+    AvailableInventory:
+        + availableInventoryType
+        + messageInformation
+        + party
+        + partyRole
+        + availableInventoryRecord
+    AvailableInventoryRecord:
+        + expirationDateTime
+        + collateral
+        + partyRole
+        + quantity
+        + interestRate
+    AverageTradingVolume:
+        + period
+        + methodology
+    AveragingCalculation:
+        + averagingMethod
+        + precision
+    AveragingCalculationMethod:
+        + isWeighted
+        + calculationMethod
+    AveragingFeature:
+        + averagingCalculation
+        + averagingInOut
+        + strikeFactor
+        + averagingPeriodIn
+        + averagingPeriodOut
+    AveragingPeriod:
+        + schedule
+        + averagingDateTimes
+        + averagingObservations
+        + marketDisruption
+    AveragingSchedule:
+        + startDate
+        + endDate
+        + averagingPeriodFrequency
+    AveragingStrikeFeature:
+        + averagingCalculation
+        + observationTerms
+    Barrier:
+        + knockIn
+        + knockOut
+    BaseAndEligibleCurrency:
+        + baseCurrency
+        + baseCurrencyTerminationCurrency
+        + baseCurrencyOther
+        + eligibleCurrency
+        + eligibleCurrencyInclBaseCurrency
+        + eligibleCurrencyOther
+    BaseCurrency:
+        + baseCurrency
+        + baseCurrencyMustBeFreelyConvertible
+        + baseCurrencyIfOriginalNotFreelyConvertible
+    BasketConstituent:
+        + quantity
+        + initialValuationPrice
+        + interimValuationPrice
+        + finalValuationPrice
+    BasketReferenceInformation:
+        + basketName
+        + basketId
+        + referencePool
+        + nthToDefault
+        + mthToDefault
+        + tranche
+    BespokeCalculationDate:
+        + isApplicable
+        + calculationDateImTerms
+    BespokeCalculationTime:
+        + asCalculationAgent
+        + bespokeCalculationTimeTerms
+    BespokeTransferTiming:
+        + isApplicable
+        + bespokeTransferTimingTerms
+    BillingInstruction:
+        + sendingParty
+        + receivingParty
+        + billingStartDate
+        + billingEndDate
+        + billingRecordInstruction
+        + billingSummary
+    BillingRecord:
+        + tradeState
+        + recordTransfer
+        + recordStartDate
+        + recordEndDate
+        + minimumFee
+    BillingRecordInstruction:
+        + tradeState
+        + observation
+        + recordStartDate
+        + recordEndDate
+        + settlementDate
+    BillingSummary:
+        + summaryTransfer
+        + summaryAmountType
+    BondReference:
+        + bond
+        + conditionPrecedentBond
+        + discrepancyClause
+        + couponRate
+    BoundedCorrelation:
+        + minimumBoundaryPercent
+        + maximumBoundaryPercent
+    BoundedVariance:
+        + realisedVarianceMethod
+        + daysInRangeAdjustment
+        + upperBarrier
+        + lowerBarrier
+    BusinessCenterTime:
+        + hourMinuteTime
+        + businessCenter
+    BusinessCenters:
+        + businessCenter
+        + commodityBusinessCalendar
+        + businessCentersReference
+    BusinessDateRange:
+        + businessDayConvention
+        + businessCenters
+    BusinessDayAdjustments:
+        + businessDayConvention
+        + businessCenters
+    BusinessDayOffset:
+        + businessCenters
+        + fixingOffsetDefinition
+        + fixingOffsetReason
+    BusinessEvent:
+        + eventQualifier
+        + after
+    BusinessUnit:
+        + name
+        + identifier
+        + contactInformation
+    BuyerSeller:
+        + buyer
+        + seller
+    CSADeliveryAmount:
+        + deliveryAmount
+        + additionalLanguage
+    CSAMinimumTransferAmountVariableSet:
+        + name
+        + value
+        + amount
+        + amountIsInfinity
+    CSAThresholdVariableSet:
+        + name
+        + value
+        + amount
+    CSAValuationDate:
+        + date
+        + day
+        + calendarDay
+        + frequency
+        + additionalLanguage
+    CalculateTransferInstruction:
+        + tradeState
+        + payout
+        + resets
+        + payerReceiver
+        + quantity
+        + date
+    CalculatedRateDetails:
+        + observations
+        + weightedRates
+        + growthFactor
+        + compoundedGrowth
+        + aggregateValue
+        + aggregateWeight
+        + calculatedRate
+    CalculatedRateObservationDatesAndWeights:
+        + observationDates
+        + weights
+    CalculatedRateObservations:
+        + observationDates
+        + weights
+        + observedRates
+        + processedRates
+    CalculationAgent:
+        + calculationAgentParty
+        + calculationAgentPartyEnum
+        + calculationAgentBusinessCenter
+    CalculationAgentTerms:
+        + party
+        + bespokeCalculationAgentTerms
+    CalculationAndTimingCollateralTransferAgreement:
+        + calculationAgentTerms
+        + bespokeCalculationDate
+        + bespokeCalculationTime
+        + calculationDateLocation
+        + cashSettlementDay
+        + securitiesSettlementDay
+    CalculationAndTimingInitialMargin:
+        + calculationAgentTerms
+        + bespokeCalculationDate
+        + bespokeCalculationTime
+        + calculationDateLocation
+        + cashSettlementDay
+        + securitiesSettlementDay
+    CalculationAndTimingLegacy:
+        + valuationDate
+        + valuationTime
+        + valuationAgent
+    CalculationAndTimingVariationMargin:
+        + valuationDate
+        + valuationTime
+        + valuationAgent
+        + valuationDateLocation
+    CalculationCurrencyElection:
+        + party
+        + isBaseCurrency
+        + currency
+    CalculationFrequency:
+        + period
+        + monthOfYear
+        + dayOfMonth
+        + dayOfWeek
+        + weekOfMonth
+        + offsetDays
+        + dateLocation
+        + businessCenter
+    CalculationPeriod:
+        + unadjustedStartDate
+        + unadjustedEndDate
+        + calculationPeriodNumberOfDays
+        + notionalAmount
+        + fxLinkedNotionalAmount
+        + floatingRateDefinition
+        + fixedRate
+        + dayCountYearFraction
+        + forecastAmount
+        + forecastRate
+    CalculationPeriodBase:
+        + adjustedStartDate
+        + adjustedEndDate
+    CalculationPeriodData:
+        + startDate
+        + endDate
+        + daysInPeriod
+        + daysInLeapYearPeriod
+        + isFirstPeriod
+        + isLastPeriod
+    CalculationPeriodDates:
+        + effectiveDate
+        + terminationDate
+        + calculationPeriodDatesAdjustments
+        + firstPeriodStartDate
+        + firstRegularPeriodStartDate
+        + firstCompoundingPeriodEndDate
+        + lastRegularPeriodEndDate
+        + stubPeriodType
+        + calculationPeriodFrequency
+    CalculationPeriodFrequency:
+        + rollConvention
+        + balanceOfFirstPeriod
+    CalculationScheduleDeliveryPeriods:
+        + deliveryCapacity
+        + priceTimeIntervalQuantity
+    CancelableProvision:
+        + exerciseNotice
+        + followUpConfirmation
+        + cancelableProvisionAdjustedDates
+        + finalCalculationPeriodDateAdjustment
+        + initialFee
+        + callingParty
+        + earliestDate
+        + expirationDate
+        + effectiveDate
+        + effectivePeriod
+        + earliestCancellationTime
+        + latestCancelationTime
+        + exerciseTerms
+    CancellationEvent:
+        + adjustedExerciseDate
+        + adjustedEarlyTerminationDate
+    CashCollateralValuationMethod:
+        + applicableCsa
+        + cashCollateralCurrency
+        + cashCollateralInterestRate
+        + agreedDiscountRate
+        + protectedParty
+        + prescribedDocumentationAdjustment
+    CashSettlementTerms:
+        + cashSettlementMethod
+        + valuationMethod
+        + valuationDate
+        + valuationTime
+        + cashSettlementAmount
+        + recoveryFactor
+        + fixedSettlement
+        + accruedInterest
+    CashflowRepresentation:
+        + cashflowsMatchParameters
+        + paymentCalculationPeriod
+    Clause:
+        + identifier
+        + terms
+        + subcomponents
+    ClearingInstruction:
+        + alphaContract
+        + clearingParty
+        + party1
+        + party2
+        + clearerParty1
+        + clearerParty2
+        + isOpenOffer
+    ClosedState:
+        + state
+        + activityDate
+        + effectiveDate
+        + lastPaymentDate
+    CodeList:
+        + identification
+        + codes
+    CodeListIdentification:
+        + description
+        + publicationDate
+        + shortName
+        + version
+        + codeShortId
+        + canonicalUri
+        + canonicalVersionUri
+        + locationUri
+    CodeValue:
+        + value
+        + description
+        + source
+        + effectiveDate
+        + deprecatedDate
+    Collateral:
+        + independentAmount
+        + portfolioIdentifier
+        + collateralPortfolio
+        + collateralProvisions
+    CollateralAccessBreach:
+        + isApplicable
+        + cabEndDateElection
+        + cabEndDate
+        + cabEndDateTerms
+    CollateralAgreementFloatingRate:
+        + negativeInterest
+        + compressibleSpread
+    CollateralBalance:
+        + collateralBalanceStatus
+        + haircutIndicator
+        + amountBaseCurrency
+        + payerReceiver
+    CollateralCriteriaBase:
+        + collateralCriteria
+        + appliesTo
+        + restrictTo
+        + ratingPriorityResolution
+    CollateralInterestCalculationParameters:
+        + fixedRate
+        + floatingRate
+        + inBaseCurrency
+        + compoundingType
+        + compoundingBusinessCenter
+        + dayCountFraction
+        + rounding
+        + roundingFrequency
+        + withholdingTaxRate
+    CollateralInterestHandlingParameters:
+        + interestPaymentHandling
+        + paymentBusinessCenter
+        + netPostedAndHeldInterest
+        + netInterestWithMarginCalls
+        + includeAccrualInMarginCalc
+        + accrueInterestOnUnsettledInterest
+        + onFullReturn
+        + onPartialReturn
+        + interestAmountApplication
+        + interestRolloverLimit
+        + writeoffLimit
+        + alternativeToInterestAmount
+        + alternativeProvision
+        + cutoffTime
+        + notification
+    CollateralInterestNotification:
+        + trigger
+        + offset
+        + notificationTime
+        + notificationDayType
+    CollateralInterestParameters:
+        + postingParty
+        + marginType
+        + currency
+        + interestCalculationParameters
+        + interestCalculationFrequency
+        + interestHandlingParameters
+    CollateralIssuerType:
+        + issuerType
+        + supraNationalType
+        + quasiGovernmentType
+        + regionalGovernmentType
+        + specialPurposeVehicleType
+    CollateralManagementAgreementElection:
+        + party
+        + collateralManagementAgreement
+    CollateralPortfolio:
+        + portfolioIdentifier
+        + collateralPosition
+        + collateralBalance
+        + legalAgreement
+    CollateralPosition:
+        + treatment
+        + collateralPositionStatus
+    CollateralProvisions:
+        + collateralType
+        + eligibleCollateral
+        + substitutionProvisions
+    CollateralRounding:
+        + deliveryAmount
+        + deliveryDirection
+        + returnAmount
+        + returnDirection
+        + currency
+        + other
+    CollateralSpecification:
+        + standardDefinitionOfMarketValueUsed
+        + definitionOfMarketValueNonStandard
+        + aggregation
+        + nettingObligationsApply
+        + failureToDevliverIndemnityApplies
+        + notificationTime
+    CollateralTaxonomy:
+        + taxonomyValue
+        + taxonomySource
+    CollateralTaxonomyValue:
+        + eu_EMIR_EligibleCollateral
+        + uk_EMIR_EligibleCollateral
+        + us_CFTC_PR_EligibleCollateral
+        + nonEnumeratedTaxonomyValue
+    CollateralTransferAgreementElections:
+        + regime
+        + oneWayProvisions
+        + generalSimmElections
+        + identifiedCrossCurrencySwap
+        + sensitivityMethodologies
+        + fxHaircutCurrency
+        + postingObligations
+        + substitutedRegime
+        + baseAndEligibleCurrency
+        + creditSupportObligations
+        + calculationAndTiming
+        + conditionsPrecedent
+        + substitution
+        + disputeResolution
+        + rightsEvents
+        + custodyArrangements
+        + additionalRepresentations
+        + demandsAndNotices
+        + addressesForTransfer
+        + otherAgreements
+        + terminationCurrencyAmendment
+        + minimumTransferAmountAmendment
+        + interpretationTerms
+        + processAgent
+        + jurisdictionRelatedTerms
+        + additionalAmendments
+        + additionalBespokeTerms
+        + pledgeeRepresentativeRider
+        + finalReturns
+    CollateralTransferTiming:
+        + transferSettlementTiming
+        + collateralTransferTimingDefinition
+    CollateralTransferTimingDefinition:
+        + isApplicable
+        + additionalLanguage
+    CollateralTreatment:
+        + valuationTreatment
+        + concentrationLimit
+        + isIncluded
+    CollateralValuationTreatment:
+        + haircutPercentage
+        + marginPercentage
+        + fxHaircutPercentage
+        + additionalHaircutPercentage
+    CollateralValueMethod:
+        + cashCollateral
+        + securitiesCollateral
+        + additionalLanguage
+    Commodity:
+        + commodityProductDefinition
+        + priceQuoteType
+        + deliveryDateReference
+        + description
+    CommodityPayout:
+        + averagingFeature
+        + commodityPriceReturnTerms
+        + pricingDates
+        + schedule
+        + calculationPeriodDates
+        + paymentDates
+        + underlier
+        + fxFeature
+        + delivery
+    CommodityPriceReturnTerms:
+        + rounding
+        + spread
+        + rollFeature
+        + conversionFactor
+    CommodityProductDefinition:
+        + referenceFramework
+        + priceSource
+        + commodityInfoPublisher
+        + exchangeId
+    CommodityReferenceFramework:
+        + commodityName
+        + capacityUnit
+        + weatherUnit
+        + currency
+}

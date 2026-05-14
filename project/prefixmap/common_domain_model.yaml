@@ -1,0 +1,13 @@
+{
+   "common_domain_model": "https://w3id.org/finos/cdm/",
+   "fpml": "http://www.fpml.org/coding-scheme/",
+   "fpml_5_10": "https://www.fpml.org/spec/fpml-5-10#",
+   "gist": "https://w3id.org/lmodel/gist/",
+   "icma": "https://www.icmagroup.org/market-practice-and-regulatory-policy/",
+   "isda": "https://www.isda.org/specifications/",
+   "iso29100": "https://w3id.org/lmodel/iso29100/",
+   "linkml": "https://w3id.org/linkml/",
+   "oscal": "https://w3id.org/lmodel/oscal/",
+   "schema": "http://schema.org/",
+   "spdx": "https://spdx.org/rdf/3.0.1/terms/"
+}

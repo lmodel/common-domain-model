@@ -1,0 +1,26 @@
+#curie_map:
+#  common_domain_model: https://w3id.org/finos/cdm/
+#  oscal: https://w3id.org/lmodel/oscal/
+#  skos: http://www.w3.org/2004/02/skos/core#
+#  semapv: https://w3id.org/semapv/vocab/
+#mapping_set_id: https://w3id.org/finos/cdm/mappings/cdm__oscal
+#mapping_set_description: Manually curated SSSOM mappings between FINOS CDM party/address/identifier classes and the NIST OSCAL metadata model (lmodel/oscal).
+#license: https://www.apache.org/licenses/LICENSE-2.0
+subject_id	subject_label	subject_source	predicate_id	object_id	object_label	object_source	mapping_justification	comment
+common_domain_model:Party	Party	common_domain_model	skos:closeMatch	oscal:Party	Party	oscal	semapv:ManualMappingCuration	OSCAL Party covers both organisations and individuals like CDM Party
+common_domain_model:LegalEntity	LegalEntity	common_domain_model	skos:closeMatch	oscal:Party	Party	oscal	semapv:ManualMappingCuration	OSCAL Party with type=organization
+common_domain_model:NaturalPerson	NaturalPerson	common_domain_model	skos:closeMatch	oscal:Party	Party	oscal	semapv:ManualMappingCuration	OSCAL Party with type=person
+common_domain_model:Address	Address	common_domain_model	skos:closeMatch	oscal:Address	Address	oscal	semapv:ManualMappingCuration	Both model postal address fields
+common_domain_model:ContactInformation	ContactInformation	common_domain_model	skos:closeMatch	oscal:Location	Location	oscal	semapv:ManualMappingCuration	OSCAL Location bundles address+email+phone like CDM ContactInformation
+common_domain_model:BusinessUnit	BusinessUnit	common_domain_model	skos:relatedMatch	oscal:Location	Location	oscal	semapv:ManualMappingCuration	A business unit may correspond to an OSCAL Location of an organisation
+common_domain_model:RelatedParty	RelatedParty	common_domain_model	skos:closeMatch	oscal:ResponsibleParty	ResponsibleParty	oscal	semapv:ManualMappingCuration	Both bind a Party to a role
+common_domain_model:Counterparty	Counterparty	common_domain_model	skos:closeMatch	oscal:ResponsibleParty	ResponsibleParty	oscal	semapv:ManualMappingCuration	Counterparty binds a Party to a buyer/seller role
+common_domain_model:NaturalPersonRole	NaturalPersonRole	common_domain_model	skos:closeMatch	oscal:ResponsibleParty	ResponsibleParty	oscal	semapv:ManualMappingCuration	Role assignment to a natural person
+common_domain_model:Identifier	Identifier	common_domain_model	skos:closeMatch	oscal:PartyExternalId	PartyExternalId	oscal	semapv:ManualMappingCuration	OSCAL PartyExternalId is an externally-scoped identifier
+common_domain_model:PartyIdentifier	PartyIdentifier	common_domain_model	skos:closeMatch	oscal:PartyExternalId	PartyExternalId	oscal	semapv:ManualMappingCuration	Identifier for a Party
+common_domain_model:EntityIdentifier	EntityIdentifier	common_domain_model	skos:closeMatch	oscal:PartyExternalId	PartyExternalId	oscal	semapv:ManualMappingCuration	Externally-issued entity identifier (LEI/DUNS)
+common_domain_model:PersonIdentifier	PersonIdentifier	common_domain_model	skos:closeMatch	oscal:PartyExternalId	PartyExternalId	oscal	semapv:ManualMappingCuration	Externally-issued person identifier
+common_domain_model:PartyRoleEnum	PartyRoleEnum	common_domain_model	skos:relatedMatch	oscal:Role	Role	oscal	semapv:ManualMappingCuration	OSCAL Role is the canonical enum target for party roles
+common_domain_model:CounterpartyRoleEnum	CounterpartyRoleEnum	common_domain_model	skos:relatedMatch	oscal:Role	Role	oscal	semapv:ManualMappingCuration	Counterparty role taxonomy
+common_domain_model:AncillaryRoleEnum	AncillaryRoleEnum	common_domain_model	skos:relatedMatch	oscal:Role	Role	oscal	semapv:ManualMappingCuration	Ancillary party role taxonomy
+common_domain_model:NaturalPersonRoleEnum	NaturalPersonRoleEnum	common_domain_model	skos:relatedMatch	oscal:Role	Role	oscal	semapv:ManualMappingCuration	Natural-person role taxonomy
