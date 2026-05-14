@@ -3,7 +3,9 @@
 [![FINOS - Active](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-active.svg)](https://community.finos.org/docs/governance/Software-Projects/stages/active)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/11267/badge)](https://www.bestpractices.dev/projects/11267)
 
-# Common Domain Model (CDM)
+# Common Domain Model (CDM) + Linked Data Sidecar
+
+See [Sidecar Documenation](./README-SIDECAR.md) for Linked Data development.
 
 > &#128161; Tip<br> 
 > Visit the [CDM Documentation website](https://cdm.finos.org/) for a complete description of the features and capabilities of the Common Domain Model.
@@ -125,7 +127,7 @@ The following Working Groups are currently active in this project:
 
 Changes to the CDM may be proposed by anyone but are governed by the process described here.
 
-![](.github/finos-cdm-governance-structure.png)
+![](.github/common-domain-model-governance-structure.png)
 
 ## Working Groups
 
@@ -209,3 +211,105 @@ If you would like to get in touch with the CDM maintainer team, contact them thr
 Copyright 2021 FINOS and CDM Participants
 
 Specifications in the repository are subject to the Community Specification License 1.0 available in the [LICENSE.md](LICENSE.md) file.
+
+# LINKED DATA SIDECAR
+
+Added Linkml sidecar:
+```bash
+$ git branch linkml-sidecar
+noel@ubuntu:~/git/hub/noelmcloughlin/common-domain-model-ld$ git checkout linkml-sidecar
+Switched to branch 'linkml-sidecar'
+(failed reverse-i-search)`cpier': ^C /home/noel/Downloads/nist_ai_rmf_playbook.json src/nist_ai_rmf/schema/
+$ copier copy --trust --vcs-ref main gh:linkml/linkml-project-copier .
+
+🎤 What is your project name?
+   common-domain-model
+🎤 A slug of the name. Must be a valid and unused Python package name.
+   common_domain_model
+🎤 Email address
+   noel.mcloughlin@gmail.com
+🎤 Developer full name
+   Noel McLoughlin
+🎤 Github user or organisation name
+   lmodel
+🎤 A short description of the project
+   FINOS Common Domain Model - LinkML Schema
+🎤 Which license do you want for your project?
+   Apache-2.0
+🎤 The year of the first release
+   2026
+🎤 Add an example schema including python package generation & tests?
+   Choose "no" if you want to apply the template to an existing project.
+   No
+🎤 Use GitHub actions to publish to PyPI?
+   No
+🎤 Use GitHub actions for a documentation preview in pull requests?
+   Yes
+
+Copying from template version 0.4.2.post30.dev0+325b0b4
+ identical  examples
+  conflict  examples/README.md
+      skip  examples/README.md
+  conflict  .gitignore
+?  Overwrite .gitignore? No
+    create  mkdocs.yml
+  conflict  README.md
+      skip  README.md
+  conflict  CONTRIBUTING.md
+?  Overwrite CONTRIBUTING.md? No
+    create  justfile
+    create  config.public.mk
+    create  CODE_OF_CONDUCT.md
+    create  pyproject.toml
+ identical  .github
+ identical  .github/workflows
+    create  .github/workflows/deploy-docs.yaml
+    create  .github/workflows/main.yaml
+    create  .github/workflows/test_pages_build.yaml
+    create  .github/dependabot.yml
+    create  project.justfile
+ identical  docs
+    create  docs/index.md
+    create  docs/js
+    create  docs/js/extra-loader.js
+    create  docs/templates-linkml
+    create  docs/templates-linkml/README.md
+    create  docs/about.md
+    create  docs/elements
+    create  docs/elements/.gitkeep
+    create  config.yaml
+    create  LICENSE
+ identical  tests
+    create  tests/__init__.py
+    create  tests/data
+    create  tests/data/README.md
+    create  tests/data/valid
+    create  tests/data/valid/.gitkeep
+    create  tests/data/problem
+    create  tests/data/problem/valid
+    create  tests/data/problem/valid/.gitkeep
+    create  tests/data/problem/invalid
+    create  tests/data/problem/invalid/.gitkeep
+    create  tests/data/invalid
+    create  tests/data/invalid/.gitkeep
+    create  .yamllint.yaml
+    create  .pre-commit-config.yaml
+    create  project
+    create  project/README.md
+    create  .copier-answers.yml
+    create  .editorconfig
+    create  src
+    create  src/common_domain_model
+    create  src/common_domain_model/__init__.py
+    create  src/common_domain_model/datamodel
+    create  src/common_domain_model/datamodel/__init__.py
+    create  src/common_domain_model/schema
+    create  src/common_domain_model/schema/README.md
+    create  src/common_domain_model/_version.py
+
+
+** PROJECT CREATION COMPLETE **
+
+Next step (if you have not previously initialized your project)
+run "just setup" in the root of your project directory.
+```

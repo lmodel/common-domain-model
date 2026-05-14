@@ -1,0 +1,19 @@
+#curie_map:
+#  common_domain_model: https://w3id.org/finos/cdm/
+#  iso29100: https://w3id.org/lmodel/iso29100/
+#  skos: http://www.w3.org/2004/02/skos/core#
+#  semapv: https://w3id.org/semapv/vocab/
+#mapping_set_id: https://w3id.org/finos/cdm/mappings/cdm__iso29100
+#mapping_set_description: Manually curated SSSOM mappings between FINOS CDM party/identity classes and ISO/IEC 29100 Privacy Framework roles (lmodel/iso29100).
+#license: https://www.apache.org/licenses/LICENSE-2.0
+subject_id	subject_label	subject_source	predicate_id	object_id	object_label	object_source	mapping_justification	comment
+common_domain_model:Party	Party	common_domain_model	skos:broadMatch	iso29100:PrivacyStakeholder	PrivacyStakeholder	iso29100	semapv:ManualMappingCuration	CDM Party is broader than an ISO 29100 PrivacyStakeholder
+common_domain_model:NaturalPerson	NaturalPerson	common_domain_model	skos:closeMatch	iso29100:PIIPrincipal	PIIPrincipal	iso29100	semapv:ManualMappingCuration	A natural person whose PII is processed
+common_domain_model:LegalEntity	LegalEntity	common_domain_model	skos:relatedMatch	iso29100:PIIController	PIIController	iso29100	semapv:ManualMappingCuration	A legal entity may act as PIIController for processing
+common_domain_model:LegalEntity	LegalEntity	common_domain_model	skos:relatedMatch	iso29100:PIIProcessor	PIIProcessor	iso29100	semapv:ManualMappingCuration	A legal entity may act as PIIProcessor on behalf of a controller
+common_domain_model:RelatedParty	RelatedParty	common_domain_model	skos:relatedMatch	iso29100:ThirdParty	ThirdParty	iso29100	semapv:ManualMappingCuration	A related party may be an ISO 29100 ThirdParty in PII flows
+common_domain_model:Counterparty	Counterparty	common_domain_model	skos:relatedMatch	iso29100:ThirdParty	ThirdParty	iso29100	semapv:ManualMappingCuration	A trading counterparty is a ThirdParty in privacy terms
+common_domain_model:PersonIdentifier	PersonIdentifier	common_domain_model	skos:relatedMatch	iso29100:PersonallyIdentifiableInformation	PersonallyIdentifiableInformation	iso29100	semapv:ManualMappingCuration	Person identifiers may constitute PII under ISO 29100
+common_domain_model:ContactInformation	ContactInformation	common_domain_model	skos:relatedMatch	iso29100:PersonallyIdentifiableInformation	PersonallyIdentifiableInformation	iso29100	semapv:ManualMappingCuration	Contact details for a natural person are PII
+common_domain_model:Address	Address	common_domain_model	skos:relatedMatch	iso29100:PersonallyIdentifiableInformation	PersonallyIdentifiableInformation	iso29100	semapv:ManualMappingCuration	A personal address is PII
+common_domain_model:NaturalPersonRoleEnum	NaturalPersonRoleEnum	common_domain_model	skos:relatedMatch	iso29100:PIIPrincipal	PIIPrincipal	iso29100	semapv:ManualMappingCuration	Roles a natural person plays vs. PII processing

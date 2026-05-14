@@ -1,0 +1,4 @@
+# Valid MeasureBase: value with unit
+value: 100.5
+unit:
+  capacityUnit: BBL

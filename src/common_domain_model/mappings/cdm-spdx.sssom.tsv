@@ -1,0 +1,18 @@
+#curie_map:
+#  common_domain_model: https://w3id.org/finos/cdm/
+#  spdx: https://spdx.org/rdf/3.0.1/terms/
+#  skos: http://www.w3.org/2004/02/skos/core#
+#  semapv: https://w3id.org/semapv/vocab/
+#mapping_set_id: https://w3id.org/finos/cdm/mappings/cdm__spdx
+#mapping_set_description: Manually curated SSSOM mappings between FINOS CDM agent/identifier classes and the SPDX 3 agent vocabulary (lmodel/spdx, native namespace https://spdx.org/rdf/3.0.1/terms/).
+#license: https://www.apache.org/licenses/LICENSE-2.0
+subject_id	subject_label	subject_source	predicate_id	object_id	object_label	object_source	mapping_justification	comment
+common_domain_model:Party	Party	common_domain_model	skos:closeMatch	spdx:Agent	Agent	spdx	semapv:ManualMappingCuration	SPDX Agent is the parent of Person and Organization, like CDM Party
+common_domain_model:NaturalPerson	NaturalPerson	common_domain_model	skos:closeMatch	spdx:Person	Person	spdx	semapv:ManualMappingCuration	Both represent a human individual acting as an agent
+common_domain_model:LegalEntity	LegalEntity	common_domain_model	skos:closeMatch	spdx:Organization	Organization	spdx	semapv:ManualMappingCuration	Both represent a formally-recognised organisation
+common_domain_model:BusinessUnit	BusinessUnit	common_domain_model	skos:closeMatch	spdx:Organization	Organization	spdx	semapv:ManualMappingCuration	A business unit is an Organization in SPDX terms
+common_domain_model:Identifier	Identifier	common_domain_model	skos:closeMatch	spdx:ExternalIdentifier	ExternalIdentifier	spdx	semapv:ManualMappingCuration	Externally-scoped identifier with type and value
+common_domain_model:PartyIdentifier	PartyIdentifier	common_domain_model	skos:closeMatch	spdx:ExternalIdentifier	ExternalIdentifier	spdx	semapv:ManualMappingCuration	Identifier issued for a party
+common_domain_model:EntityIdentifier	EntityIdentifier	common_domain_model	skos:closeMatch	spdx:ExternalIdentifier	ExternalIdentifier	spdx	semapv:ManualMappingCuration	Identifier issued for a legal entity
+common_domain_model:PersonIdentifier	PersonIdentifier	common_domain_model	skos:closeMatch	spdx:ExternalIdentifier	ExternalIdentifier	spdx	semapv:ManualMappingCuration	Identifier issued for a natural person
+common_domain_model:AssignedIdentifier	AssignedIdentifier	common_domain_model	skos:closeMatch	spdx:ExternalIdentifier	ExternalIdentifier	spdx	semapv:ManualMappingCuration	Versioned external identifier assignment

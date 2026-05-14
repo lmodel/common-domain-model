@@ -1,0 +1,200 @@
+{% if element.categories %}
+## Categories
+
+{% for cat in element.categories %}
+* {{ cat }}
+{%- endfor %}
+
+{% endif %}
+{% if element.keywords %}
+## Keywords
+
+{% for kw in element.keywords %}
+* {{ kw }}
+{%- endfor %}
+
+{% endif %}
+{% if element.in_subset %}
+## In Subsets
+
+{% for subset in element.in_subset %}
+* {{ gen.link(subset) }}
+{%- endfor %}
+
+{% endif %}
+{% if element.aliases %}
+## Aliases
+
+{% for alias in element.aliases %}
+* {{ alias }}
+{%- endfor %}
+{% endif %}
+
+{% if element.examples %}
+## Examples
+
+| Value |
+| --- |
+{% for x in element.examples -%}
+| {{ x.value }} |
+{% endfor %}
+{% endif -%}
+
+{% if element.comments -%}
+## Comments
+
+{% for x in element.comments -%}
+* {{ x }}
+{% endfor %}
+{% endif -%}
+
+{% if element.todos -%}
+## TODOs
+
+{% for x in element.todos -%}
+* {{ x }}
+{% endfor %}
+{% endif -%}
+
+{% if element.see_also -%}
+## See Also
+
+{% for x in element.see_also -%}
+* {{ gen.uri_link(x) }}
+{% endfor %}
+{% endif -%}
+
+{% if element.notes -%}
+## Notes
+
+{% for note in element.notes -%}
+* {{ note }}
+{% endfor %}
+{% endif -%}
+
+{% if element.alt_descriptions %}
+## Alternative Descriptions
+
+{% for source, alt_desc in element.alt_descriptions.items() %}
+* **{{ source }}**: {{ alt_desc.description }}
+{%- endfor %}
+{% endif %}
+
+## Identifier and Mapping Information
+
+{%- set has_admin_metadata = element.status or (element.rank is not none and element.rank != 1000) %}
+
+{%- if has_admin_metadata %}
+### Administrative Metadata
+
+{% if element.status -%}
+**Status:** {{ element.status }}
+{% endif -%}
+{% if element.rank is not none and element.rank != 1000 -%}
+**Rank:** {{ element.rank }}
+{% endif -%}
+
+{% endif %}
+{% if element.id_prefixes %}
+### Valid ID Prefixes
+
+Instances of this class *should* have identifiers with one of the following prefixes:
+{% for p in element.id_prefixes %}
+* {{ p }}
+{% endfor %}
+
+{% endif %}
+
+{#- ============================================================
+    CDM custom: intercept rosetta_functions annotation key and
+    render structured function-signature tables instead of raw
+    YAML/JSON strings. Other annotations rendered as-is.
+    ============================================================ -#}
+{% if element.annotations %}
+{#- Separate rosetta_functions from other (flat) annotations -#}
+{%- set ns = namespace(has_flat=false) -%}
+{%- for a in element.annotations -%}
+  {%- if a|string|first != '_' and a|string != 'rosetta_functions' -%}
+    {%- set ns.has_flat = true -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if ns.has_flat %}
+### Annotations
+
+| property | value |
+| --- | --- |
+{% for a in element.annotations -%}
+{%- if a|string|first != '_' and a|string != 'rosetta_functions' -%}
+| {{ a }} | {{ element.annotations[a].value }} |
+{% endif -%}
+{% endfor %}
+{% endif -%}
+
+{#- Render rosetta_functions as structured function-signature cards -#}
+{%- if 'rosetta_functions' in element.annotations -%}
+{%- set funcs = element.annotations['rosetta_functions'].value -%}
+{%- if funcs is iterable and funcs is not string and funcs|length > 0 %}
+
+### Rosetta Functions
+
+{% for func in funcs %}
+<details>
+<summary><code>{{ func.name }}</code>{% if func.description is defined and func.description %} — {{ func.description|truncate(120, True) }}{% endif %}</summary>
+
+{% if func.description is defined and func.description -%}
+{{ func.description }}
+{%- endif %}
+
+{% if func.inputs is defined and func.inputs %}
+**Inputs**
+
+| Parameter | Type | Cardinality |
+| --- | --- | --- |
+{% for p in func.inputs -%}
+| `{{ p.name }}` | {{ p.type }} | {{ p.cardinality }} |
+{% endfor %}
+{% endif -%}
+
+{% if func.output is defined and func.output %}
+**Output**
+
+| Parameter | Type | Cardinality |
+| --- | --- | --- |
+| `{{ func.output.name }}` | {{ func.output.type }} | {{ func.output.cardinality }} |
+{% endif -%}
+
+{% if func.code_implementation is defined and func.code_implementation -%}
+> ⚠️ This function has `[codeImplementation]` — the body is provided externally.
+{% endif -%}
+
+</details>
+
+{% endfor %}
+{% endif -%}
+{% endif -%}
+{% endif %}
+
+{% if element.from_schema or element.imported_from %}
+### Schema Source
+
+{% if element.from_schema %}
+* from schema: {{ element.from_schema }}
+{% endif %}
+{% if element.imported_from %}
+* imported from: {{ element.imported_from }}
+{% endif %}
+{% endif %}
+
+{% if schemaview.get_mappings(element.name).items() -%}
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+{% for m, mt in schemaview.get_mappings(element.name).items() -%}
+{% if mt|length > 0 -%}
+| {{ m }} | {{ mt|join(', ') }} |
+{% endif -%}
+{% endfor %}
+
+{% endif -%}

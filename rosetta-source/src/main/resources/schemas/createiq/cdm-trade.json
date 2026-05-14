@@ -1,0 +1,1897 @@
+{
+  "title": "CreateiQ CDM Trade Schema",
+  "description": "CreateiQ 1.0 trade representation aligned with FINOS CDM",
+  "version": "1.0",
+  "fields": [
+    {
+      "name": "accelerated_or_matured",
+      "cdm_name": "acceleratedOrMatured",
+      "type": "string"
+    },
+    {
+      "name": "acceleratedOrMatured",
+      "cdm_name": "acceleratedOrMatured",
+      "type": "string"
+    },
+    {
+      "name": "account",
+      "cdm_name": "account",
+      "type": "string"
+    },
+    {
+      "name": "account_beneficiary",
+      "cdm_name": "accountBeneficiary",
+      "type": "string"
+    },
+    {
+      "name": "accountBeneficiary",
+      "cdm_name": "accountBeneficiary",
+      "type": "string"
+    },
+    {
+      "name": "account_name",
+      "cdm_name": "accountName",
+      "type": "string"
+    },
+    {
+      "name": "accountName",
+      "cdm_name": "accountName",
+      "type": "string"
+    },
+    {
+      "name": "account_number",
+      "cdm_name": "accountNumber",
+      "type": "string"
+    },
+    {
+      "name": "accountNumber",
+      "cdm_name": "accountNumber",
+      "type": "string"
+    },
+    {
+      "name": "account_reference",
+      "cdm_name": "accountReference",
+      "type": "string"
+    },
+    {
+      "name": "accountReference",
+      "cdm_name": "accountReference",
+      "type": "string"
+    },
+    {
+      "name": "account_type",
+      "cdm_name": "accountType",
+      "type": "string"
+    },
+    {
+      "name": "accountType",
+      "cdm_name": "accountType",
+      "type": "string"
+    },
+    {
+      "name": "accrual_factor",
+      "cdm_name": "accrualFactor",
+      "type": "string"
+    },
+    {
+      "name": "accrualFactor",
+      "cdm_name": "accrualFactor",
+      "type": "string"
+    },
+    {
+      "name": "accrue_interest_on_unsettled_interest",
+      "cdm_name": "accrueInterestOnUnsettledInterest",
+      "type": "string"
+    },
+    {
+      "name": "accrueInterestOnUnsettledInterest",
+      "cdm_name": "accrueInterestOnUnsettledInterest",
+      "type": "string"
+    },
+    {
+      "name": "accrued_interest",
+      "cdm_name": "accruedInterest",
+      "type": "string"
+    },
+    {
+      "name": "accruedInterest",
+      "cdm_name": "accruedInterest",
+      "type": "string"
+    },
+    {
+      "name": "acct_ownr",
+      "cdm_name": "acctOwnr",
+      "type": "string"
+    },
+    {
+      "name": "acctOwnr",
+      "cdm_name": "acctOwnr",
+      "type": "string"
+    },
+    {
+      "name": "acquired_security",
+      "cdm_name": "acquiredSecurity",
+      "type": "string"
+    },
+    {
+      "name": "acquiredSecurity",
+      "cdm_name": "acquiredSecurity",
+      "type": "string"
+    },
+    {
+      "name": "acquired_security_price",
+      "cdm_name": "acquiredSecurityPrice",
+      "type": "string"
+    },
+    {
+      "name": "acquiredSecurityPrice",
+      "cdm_name": "acquiredSecurityPrice",
+      "type": "string"
+    },
+    {
+      "name": "acting_as",
+      "cdm_name": "actingAs",
+      "type": "string"
+    },
+    {
+      "name": "actingAs",
+      "cdm_name": "actingAs",
+      "type": "string"
+    },
+    {
+      "name": "action",
+      "cdm_name": "action",
+      "type": "string"
+    },
+    {
+      "name": "activity_date",
+      "cdm_name": "activityDate",
+      "type": "string"
+    },
+    {
+      "name": "activityDate",
+      "cdm_name": "activityDate",
+      "type": "string"
+    },
+    {
+      "name": "addendum_language",
+      "cdm_name": "addendumLanguage",
+      "type": "string"
+    },
+    {
+      "name": "addendumLanguage",
+      "cdm_name": "addendumLanguage",
+      "type": "string"
+    },
+    {
+      "name": "additional_acknowledgements",
+      "cdm_name": "additionalAcknowledgements",
+      "type": "string"
+    },
+    {
+      "name": "additionalAcknowledgements",
+      "cdm_name": "additionalAcknowledgements",
+      "type": "string"
+    },
+    {
+      "name": "additional_amendments",
+      "cdm_name": "additionalAmendments",
+      "type": "string"
+    },
+    {
+      "name": "additionalAmendments",
+      "cdm_name": "additionalAmendments",
+      "type": "string"
+    },
+    {
+      "name": "additional_bespoke_terms",
+      "cdm_name": "additionalBespokeTerms",
+      "type": "string"
+    },
+    {
+      "name": "additionalBespokeTerms",
+      "cdm_name": "additionalBespokeTerms",
+      "type": "string"
+    },
+    {
+      "name": "additional_business_days",
+      "cdm_name": "additionalBusinessDays",
+      "type": "string"
+    },
+    {
+      "name": "additionalBusinessDays",
+      "cdm_name": "additionalBusinessDays",
+      "type": "string"
+    },
+    {
+      "name": "additional_contact_information",
+      "cdm_name": "additionalContactInformation",
+      "type": "string"
+    },
+    {
+      "name": "additionalContactInformation",
+      "cdm_name": "additionalContactInformation",
+      "type": "string"
+    },
+    {
+      "name": "additional_disruption_events",
+      "cdm_name": "additionalDisruptionEvents",
+      "type": "string"
+    },
+    {
+      "name": "additionalDisruptionEvents",
+      "cdm_name": "additionalDisruptionEvents",
+      "type": "string"
+    },
+    {
+      "name": "additional_dividends",
+      "cdm_name": "additionalDividends",
+      "type": "string"
+    },
+    {
+      "name": "additionalDividends",
+      "cdm_name": "additionalDividends",
+      "type": "string"
+    },
+    {
+      "name": "additional_fixed_payments",
+      "cdm_name": "additionalFixedPayments",
+      "type": "string"
+    },
+    {
+      "name": "additionalFixedPayments",
+      "cdm_name": "additionalFixedPayments",
+      "type": "string"
+    },
+    {
+      "name": "additional_haircut_percentage",
+      "cdm_name": "additionalHaircutPercentage",
+      "type": "string"
+    },
+    {
+      "name": "additionalHaircutPercentage",
+      "cdm_name": "additionalHaircutPercentage",
+      "type": "string"
+    },
+    {
+      "name": "additional_information",
+      "cdm_name": "additionalInformation",
+      "type": "string"
+    },
+    {
+      "name": "additionalInformation",
+      "cdm_name": "additionalInformation",
+      "type": "string"
+    },
+    {
+      "name": "additional_language",
+      "cdm_name": "additionalLanguage",
+      "type": "string"
+    },
+    {
+      "name": "additionalLanguage",
+      "cdm_name": "additionalLanguage",
+      "type": "string"
+    },
+    {
+      "name": "additional_obligations",
+      "cdm_name": "additionalObligations",
+      "type": "string"
+    },
+    {
+      "name": "additionalObligations",
+      "cdm_name": "additionalObligations",
+      "type": "string"
+    },
+    {
+      "name": "additional_regime",
+      "cdm_name": "additionalRegime",
+      "type": "string"
+    },
+    {
+      "name": "additionalRegime",
+      "cdm_name": "additionalRegime",
+      "type": "string"
+    },
+    {
+      "name": "additional_representation",
+      "cdm_name": "additionalRepresentation",
+      "type": "string"
+    },
+    {
+      "name": "additionalRepresentation",
+      "cdm_name": "additionalRepresentation",
+      "type": "string"
+    },
+    {
+      "name": "additional_representations",
+      "cdm_name": "additionalRepresentations",
+      "type": "string"
+    },
+    {
+      "name": "additionalRepresentations",
+      "cdm_name": "additionalRepresentations",
+      "type": "string"
+    },
+    {
+      "name": "additional_rights_event",
+      "cdm_name": "additionalRightsEvent",
+      "type": "string"
+    },
+    {
+      "name": "additionalRightsEvent",
+      "cdm_name": "additionalRightsEvent",
+      "type": "string"
+    },
+    {
+      "name": "additional_term",
+      "cdm_name": "additionalTerm",
+      "type": "string"
+    },
+    {
+      "name": "additionalTerm",
+      "cdm_name": "additionalTerm",
+      "type": "string"
+    },
+    {
+      "name": "additional_termination_event",
+      "cdm_name": "additionalTerminationEvent",
+      "type": "string"
+    },
+    {
+      "name": "additionalTerminationEvent",
+      "cdm_name": "additionalTerminationEvent",
+      "type": "string"
+    },
+    {
+      "name": "additional_terms",
+      "cdm_name": "additionalTerms",
+      "type": "string"
+    },
+    {
+      "name": "additionalTerms",
+      "cdm_name": "additionalTerms",
+      "type": "string"
+    },
+    {
+      "name": "additional_type",
+      "cdm_name": "additionalType",
+      "type": "string"
+    },
+    {
+      "name": "additionalType",
+      "cdm_name": "additionalType",
+      "type": "string"
+    },
+    {
+      "name": "address",
+      "cdm_name": "address",
+      "type": "string"
+    },
+    {
+      "name": "address_for_notices",
+      "cdm_name": "addressForNotices",
+      "type": "string"
+    },
+    {
+      "name": "addressForNotices",
+      "cdm_name": "addressForNotices",
+      "type": "string"
+    },
+    {
+      "name": "addresses_for_transfer",
+      "cdm_name": "addressesForTransfer",
+      "type": "string"
+    },
+    {
+      "name": "addressesForTransfer",
+      "cdm_name": "addressesForTransfer",
+      "type": "string"
+    },
+    {
+      "name": "addtl_attrbts",
+      "cdm_name": "addtlAttrbts",
+      "type": "string"
+    },
+    {
+      "name": "addtlAttrbts",
+      "cdm_name": "addtlAttrbts",
+      "type": "string"
+    },
+    {
+      "name": "adjustable_date",
+      "cdm_name": "adjustableDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustableDate",
+      "cdm_name": "adjustableDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustable_dates",
+      "cdm_name": "adjustableDates",
+      "type": "string"
+    },
+    {
+      "name": "adjustableDates",
+      "cdm_name": "adjustableDates",
+      "type": "string"
+    },
+    {
+      "name": "adjustable_or_relative_date",
+      "cdm_name": "adjustableOrRelativeDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustableOrRelativeDate",
+      "cdm_name": "adjustableOrRelativeDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_cash_settlement_payment_date",
+      "cdm_name": "adjustedCashSettlementPaymentDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedCashSettlementPaymentDate",
+      "cdm_name": "adjustedCashSettlementPaymentDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_cash_settlement_valuation_date",
+      "cdm_name": "adjustedCashSettlementValuationDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedCashSettlementValuationDate",
+      "cdm_name": "adjustedCashSettlementValuationDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_date",
+      "cdm_name": "adjustedDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedDate",
+      "cdm_name": "adjustedDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_early_termination_date",
+      "cdm_name": "adjustedEarlyTerminationDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedEarlyTerminationDate",
+      "cdm_name": "adjustedEarlyTerminationDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_end_date",
+      "cdm_name": "adjustedEndDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedEndDate",
+      "cdm_name": "adjustedEndDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_exercise_date",
+      "cdm_name": "adjustedExerciseDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedExerciseDate",
+      "cdm_name": "adjustedExerciseDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_exercise_fee_payment_date",
+      "cdm_name": "adjustedExerciseFeePaymentDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedExerciseFeePaymentDate",
+      "cdm_name": "adjustedExerciseFeePaymentDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_extended_termination_date",
+      "cdm_name": "adjustedExtendedTerminationDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedExtendedTerminationDate",
+      "cdm_name": "adjustedExtendedTerminationDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_fixing_date",
+      "cdm_name": "adjustedFixingDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedFixingDate",
+      "cdm_name": "adjustedFixingDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_fx_spot_fixing_date",
+      "cdm_name": "adjustedFxSpotFixingDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedFxSpotFixingDate",
+      "cdm_name": "adjustedFxSpotFixingDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_payment_date",
+      "cdm_name": "adjustedPaymentDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedPaymentDate",
+      "cdm_name": "adjustedPaymentDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_relevant_swap_effective_date",
+      "cdm_name": "adjustedRelevantSwapEffectiveDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedRelevantSwapEffectiveDate",
+      "cdm_name": "adjustedRelevantSwapEffectiveDate",
+      "type": "string"
+    },
+    {
+      "name": "adjusted_start_date",
+      "cdm_name": "adjustedStartDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustedStartDate",
+      "cdm_name": "adjustedStartDate",
+      "type": "string"
+    },
+    {
+      "name": "adjustment",
+      "cdm_name": "adjustment",
+      "type": "string"
+    },
+    {
+      "name": "adjustment_factor",
+      "cdm_name": "adjustmentFactor",
+      "type": "string"
+    },
+    {
+      "name": "adjustmentFactor",
+      "cdm_name": "adjustmentFactor",
+      "type": "string"
+    },
+    {
+      "name": "adjustment_ratio",
+      "cdm_name": "adjustmentRatio",
+      "type": "string"
+    },
+    {
+      "name": "adjustmentRatio",
+      "cdm_name": "adjustmentRatio",
+      "type": "string"
+    },
+    {
+      "name": "after",
+      "cdm_name": "after",
+      "type": "string"
+    },
+    {
+      "name": "agency",
+      "cdm_name": "agency",
+      "type": "string"
+    },
+    {
+      "name": "agency_rating",
+      "cdm_name": "agencyRating",
+      "type": "string"
+    },
+    {
+      "name": "agencyRating",
+      "cdm_name": "agencyRating",
+      "type": "string"
+    },
+    {
+      "name": "aggregate_value",
+      "cdm_name": "aggregateValue",
+      "type": "string"
+    },
+    {
+      "name": "aggregateValue",
+      "cdm_name": "aggregateValue",
+      "type": "string"
+    },
+    {
+      "name": "aggregate_weight",
+      "cdm_name": "aggregateWeight",
+      "type": "string"
+    },
+    {
+      "name": "aggregateWeight",
+      "cdm_name": "aggregateWeight",
+      "type": "string"
+    },
+    {
+      "name": "aggregation",
+      "cdm_name": "aggregation",
+      "type": "string"
+    },
+    {
+      "name": "aggregation_parameters",
+      "cdm_name": "aggregationParameters",
+      "type": "string"
+    },
+    {
+      "name": "aggregationParameters",
+      "cdm_name": "aggregationParameters",
+      "type": "string"
+    },
+    {
+      "name": "aggregation_type",
+      "cdm_name": "aggregationType",
+      "type": "string"
+    },
+    {
+      "name": "aggregationType",
+      "cdm_name": "aggregationType",
+      "type": "string"
+    },
+    {
+      "name": "agreed_amount_base_currency",
+      "cdm_name": "agreedAmountBaseCurrency",
+      "type": "string"
+    },
+    {
+      "name": "agreedAmountBaseCurrency",
+      "cdm_name": "agreedAmountBaseCurrency",
+      "type": "string"
+    },
+    {
+      "name": "agreed_discount_rate",
+      "cdm_name": "agreedDiscountRate",
+      "type": "string"
+    },
+    {
+      "name": "agreedDiscountRate",
+      "cdm_name": "agreedDiscountRate",
+      "type": "string"
+    },
+    {
+      "name": "agreement",
+      "cdm_name": "agreement",
+      "type": "string"
+    },
+    {
+      "name": "agreement_date",
+      "cdm_name": "agreementDate",
+      "type": "string"
+    },
+    {
+      "name": "agreementDate",
+      "cdm_name": "agreementDate",
+      "type": "string"
+    },
+    {
+      "name": "agreement_minimum_transfer_amount",
+      "cdm_name": "agreementMinimumTransferAmount",
+      "type": "string"
+    },
+    {
+      "name": "agreementMinimumTransferAmount",
+      "cdm_name": "agreementMinimumTransferAmount",
+      "type": "string"
+    },
+    {
+      "name": "agreement_name",
+      "cdm_name": "agreementName",
+      "type": "string"
+    },
+    {
+      "name": "agreementName",
+      "cdm_name": "agreementName",
+      "type": "string"
+    },
+    {
+      "name": "agreement_rounding",
+      "cdm_name": "agreementRounding",
+      "type": "string"
+    },
+    {
+      "name": "agreementRounding",
+      "cdm_name": "agreementRounding",
+      "type": "string"
+    },
+    {
+      "name": "agreement_set",
+      "cdm_name": "agreementSet",
+      "type": "string"
+    },
+    {
+      "name": "agreementSet",
+      "cdm_name": "agreementSet",
+      "type": "string"
+    },
+    {
+      "name": "agreement_terms",
+      "cdm_name": "agreementTerms",
+      "type": "string"
+    },
+    {
+      "name": "agreementTerms",
+      "cdm_name": "agreementTerms",
+      "type": "string"
+    },
+    {
+      "name": "agreement_threshold",
+      "cdm_name": "agreementThreshold",
+      "type": "string"
+    },
+    {
+      "name": "agreementThreshold",
+      "cdm_name": "agreementThreshold",
+      "type": "string"
+    },
+    {
+      "name": "agreement_type",
+      "cdm_name": "agreementType",
+      "type": "string"
+    },
+    {
+      "name": "agreementType",
+      "cdm_name": "agreementType",
+      "type": "string"
+    },
+    {
+      "name": "agreements_regarding_hedging",
+      "cdm_name": "agreementsRegardingHedging",
+      "type": "string"
+    },
+    {
+      "name": "agreementsRegardingHedging",
+      "cdm_name": "agreementsRegardingHedging",
+      "type": "string"
+    },
+    {
+      "name": "all_criteria",
+      "cdm_name": "allCriteria",
+      "type": "string"
+    },
+    {
+      "name": "allCriteria",
+      "cdm_name": "allCriteria",
+      "type": "string"
+    },
+    {
+      "name": "all_direction_rating",
+      "cdm_name": "allDirectionRating",
+      "type": "string"
+    },
+    {
+      "name": "allDirectionRating",
+      "cdm_name": "allDirectionRating",
+      "type": "string"
+    },
+    {
+      "name": "all_dividends",
+      "cdm_name": "allDividends",
+      "type": "string"
+    },
+    {
+      "name": "allDividends",
+      "cdm_name": "allDividends",
+      "type": "string"
+    },
+    {
+      "name": "all_guarantees",
+      "cdm_name": "allGuarantees",
+      "type": "string"
+    },
+    {
+      "name": "allGuarantees",
+      "cdm_name": "allGuarantees",
+      "type": "string"
+    },
+    {
+      "name": "alpha_contract",
+      "cdm_name": "alphaContract",
+      "type": "string"
+    },
+    {
+      "name": "alphaContract",
+      "cdm_name": "alphaContract",
+      "type": "string"
+    },
+    {
+      "name": "alternative_provision",
+      "cdm_name": "alternativeProvision",
+      "type": "string"
+    },
+    {
+      "name": "alternativeProvision",
+      "cdm_name": "alternativeProvision",
+      "type": "string"
+    },
+    {
+      "name": "alternative_terms",
+      "cdm_name": "alternativeTerms",
+      "type": "string"
+    },
+    {
+      "name": "alternativeTerms",
+      "cdm_name": "alternativeTerms",
+      "type": "string"
+    },
+    {
+      "name": "alternative_to_interest_amount",
+      "cdm_name": "alternativeToInterestAmount",
+      "type": "string"
+    },
+    {
+      "name": "alternativeToInterestAmount",
+      "cdm_name": "alternativeToInterestAmount",
+      "type": "string"
+    },
+    {
+      "name": "amendments_to_japanese_provisions",
+      "cdm_name": "amendmentsToJapaneseProvisions",
+      "type": "string"
+    },
+    {
+      "name": "amendmentsToJapaneseProvisions",
+      "cdm_name": "amendmentsToJapaneseProvisions",
+      "type": "string"
+    },
+    {
+      "name": "amendments_to_japanese_provisions_terms",
+      "cdm_name": "amendmentsToJapaneseProvisionsTerms",
+      "type": "string"
+    },
+    {
+      "name": "amendmentsToJapaneseProvisionsTerms",
+      "cdm_name": "amendmentsToJapaneseProvisionsTerms",
+      "type": "string"
+    },
+    {
+      "name": "amount",
+      "cdm_name": "amount",
+      "type": "string"
+    },
+    {
+      "name": "amount_base_currency",
+      "cdm_name": "amountBaseCurrency",
+      "type": "string"
+    },
+    {
+      "name": "amountBaseCurrency",
+      "cdm_name": "amountBaseCurrency",
+      "type": "string"
+    },
+    {
+      "name": "amount_is_infinity",
+      "cdm_name": "amountIsInfinity",
+      "type": "string"
+    },
+    {
+      "name": "amountIsInfinity",
+      "cdm_name": "amountIsInfinity",
+      "type": "string"
+    },
+    {
+      "name": "amount_of_net_capital",
+      "cdm_name": "amountOfNetCapital",
+      "type": "string"
+    },
+    {
+      "name": "amountOfNetCapital",
+      "cdm_name": "amountOfNetCapital",
+      "type": "string"
+    },
+    {
+      "name": "amount_remaining",
+      "cdm_name": "amountRemaining",
+      "type": "string"
+    },
+    {
+      "name": "amountRemaining",
+      "cdm_name": "amountRemaining",
+      "type": "string"
+    },
+    {
+      "name": "amount_utilized",
+      "cdm_name": "amountUtilized",
+      "type": "string"
+    },
+    {
+      "name": "amountUtilized",
+      "cdm_name": "amountUtilized",
+      "type": "string"
+    },
+    {
+      "name": "ancillary_party",
+      "cdm_name": "ancillaryParty",
+      "type": "string"
+    },
+    {
+      "name": "ancillaryParty",
+      "cdm_name": "ancillaryParty",
+      "type": "string"
+    },
+    {
+      "name": "announcement_date",
+      "cdm_name": "announcementDate",
+      "type": "string"
+    },
+    {
+      "name": "announcementDate",
+      "cdm_name": "announcementDate",
+      "type": "string"
+    },
+    {
+      "name": "annualization_factor",
+      "cdm_name": "annualizationFactor",
+      "type": "string"
+    },
+    {
+      "name": "annualizationFactor",
+      "cdm_name": "annualizationFactor",
+      "type": "string"
+    },
+    {
+      "name": "any_criteria",
+      "cdm_name": "anyCriteria",
+      "type": "string"
+    },
+    {
+      "name": "anyCriteria",
+      "cdm_name": "anyCriteria",
+      "type": "string"
+    },
+    {
+      "name": "any_direction_rating",
+      "cdm_name": "anyDirectionRating",
+      "type": "string"
+    },
+    {
+      "name": "anyDirectionRating",
+      "cdm_name": "anyDirectionRating",
+      "type": "string"
+    },
+    {
+      "name": "applicable",
+      "cdm_name": "applicable",
+      "type": "string"
+    },
+    {
+      "name": "applicable_business_days",
+      "cdm_name": "applicableBusinessDays",
+      "type": "string"
+    },
+    {
+      "name": "applicableBusinessDays",
+      "cdm_name": "applicableBusinessDays",
+      "type": "string"
+    },
+    {
+      "name": "applicable_csa",
+      "cdm_name": "applicableCsa",
+      "type": "string"
+    },
+    {
+      "name": "applicableCsa",
+      "cdm_name": "applicableCsa",
+      "type": "string"
+    },
+    {
+      "name": "applicable_party",
+      "cdm_name": "applicableParty",
+      "type": "string"
+    },
+    {
+      "name": "applicableParty",
+      "cdm_name": "applicableParty",
+      "type": "string"
+    },
+    {
+      "name": "applicable_regime",
+      "cdm_name": "applicableRegime",
+      "type": "string"
+    },
+    {
+      "name": "applicableRegime",
+      "cdm_name": "applicableRegime",
+      "type": "string"
+    },
+    {
+      "name": "applicable_transfer",
+      "cdm_name": "applicableTransfer",
+      "type": "string"
+    },
+    {
+      "name": "applicableTransfer",
+      "cdm_name": "applicableTransfer",
+      "type": "string"
+    },
+    {
+      "name": "applicable_value",
+      "cdm_name": "applicableValue",
+      "type": "string"
+    },
+    {
+      "name": "applicableValue",
+      "cdm_name": "applicableValue",
+      "type": "string"
+    },
+    {
+      "name": "applied_rate",
+      "cdm_name": "appliedRate",
+      "type": "string"
+    },
+    {
+      "name": "appliedRate",
+      "cdm_name": "appliedRate",
+      "type": "string"
+    },
+    {
+      "name": "applies_to",
+      "cdm_name": "appliesTo",
+      "type": "string"
+    },
+    {
+      "name": "appliesTo",
+      "cdm_name": "appliesTo",
+      "type": "string"
+    },
+    {
+      "name": "appropriated_collateral_valuation",
+      "cdm_name": "appropriatedCollateralValuation",
+      "type": "string"
+    },
+    {
+      "name": "appropriatedCollateralValuation",
+      "cdm_name": "appropriatedCollateralValuation",
+      "type": "string"
+    },
+    {
+      "name": "approval",
+      "cdm_name": "approval",
+      "type": "string"
+    },
+    {
+      "name": "approved",
+      "cdm_name": "approved",
+      "type": "string"
+    },
+    {
+      "name": "arithmetic_operator",
+      "cdm_name": "arithmeticOperator",
+      "type": "string"
+    },
+    {
+      "name": "arithmeticOperator",
+      "cdm_name": "arithmeticOperator",
+      "type": "string"
+    },
+    {
+      "name": "as_calculation_agent",
+      "cdm_name": "asCalculationAgent",
+      "type": "string"
+    },
+    {
+      "name": "asCalculationAgent",
+      "cdm_name": "asCalculationAgent",
+      "type": "string"
+    },
+    {
+      "name": "as_permitted",
+      "cdm_name": "asPermitted",
+      "type": "string"
+    },
+    {
+      "name": "asPermitted",
+      "cdm_name": "asPermitted",
+      "type": "string"
+    },
+    {
+      "name": "as_specified",
+      "cdm_name": "asSpecified",
+      "type": "string"
+    },
+    {
+      "name": "asSpecified",
+      "cdm_name": "asSpecified",
+      "type": "string"
+    },
+    {
+      "name": "asset",
+      "cdm_name": "asset",
+      "type": "string"
+    },
+    {
+      "name": "asset_agency_rating",
+      "cdm_name": "assetAgencyRating",
+      "type": "string"
+    },
+    {
+      "name": "assetAgencyRating",
+      "cdm_name": "assetAgencyRating",
+      "type": "string"
+    },
+    {
+      "name": "asset_backed",
+      "cdm_name": "assetBacked",
+      "type": "string"
+    },
+    {
+      "name": "assetBacked",
+      "cdm_name": "assetBacked",
+      "type": "string"
+    },
+    {
+      "name": "asset_class",
+      "cdm_name": "assetClass",
+      "type": "string"
+    },
+    {
+      "name": "assetClass",
+      "cdm_name": "assetClass",
+      "type": "string"
+    },
+    {
+      "name": "asset_country_of_origin",
+      "cdm_name": "assetCountryOfOrigin",
+      "type": "string"
+    },
+    {
+      "name": "assetCountryOfOrigin",
+      "cdm_name": "assetCountryOfOrigin",
+      "type": "string"
+    },
+    {
+      "name": "asset_flow_type",
+      "cdm_name": "assetFlowType",
+      "type": "string"
+    },
+    {
+      "name": "assetFlowType",
+      "cdm_name": "assetFlowType",
+      "type": "string"
+    },
+    {
+      "name": "asset_leg",
+      "cdm_name": "assetLeg",
+      "type": "string"
+    },
+    {
+      "name": "assetLeg",
+      "cdm_name": "assetLeg",
+      "type": "string"
+    },
+    {
+      "name": "asset_type",
+      "cdm_name": "assetType",
+      "type": "string"
+    },
+    {
+      "name": "assetType",
+      "cdm_name": "assetType",
+      "type": "string"
+    },
+    {
+      "name": "assignable_loan",
+      "cdm_name": "assignableLoan",
+      "type": "string"
+    },
+    {
+      "name": "assignableLoan",
+      "cdm_name": "assignableLoan",
+      "type": "string"
+    },
+    {
+      "name": "assigned_identifier",
+      "cdm_name": "assignedIdentifier",
+      "type": "string"
+    },
+    {
+      "name": "assignedIdentifier",
+      "cdm_name": "assignedIdentifier",
+      "type": "string"
+    },
+    {
+      "name": "assignment_of_claim",
+      "cdm_name": "assignmentOfClaim",
+      "type": "string"
+    },
+    {
+      "name": "assignmentOfClaim",
+      "cdm_name": "assignmentOfClaim",
+      "type": "string"
+    },
+    {
+      "name": "attachment",
+      "cdm_name": "attachment",
+      "type": "string"
+    },
+    {
+      "name": "attachment_point",
+      "cdm_name": "attachmentPoint",
+      "type": "string"
+    },
+    {
+      "name": "attachmentPoint",
+      "cdm_name": "attachmentPoint",
+      "type": "string"
+    },
+    {
+      "name": "auction_date",
+      "cdm_name": "auctionDate",
+      "type": "string"
+    },
+    {
+      "name": "auctionDate",
+      "cdm_name": "auctionDate",
+      "type": "string"
+    },
+    {
+      "name": "automatic_early_termination",
+      "cdm_name": "automaticEarlyTermination",
+      "type": "string"
+    },
+    {
+      "name": "automaticEarlyTermination",
+      "cdm_name": "automaticEarlyTermination",
+      "type": "string"
+    },
+    {
+      "name": "automatic_early_termination_applies",
+      "cdm_name": "automaticEarlyTerminationApplies",
+      "type": "string"
+    },
+    {
+      "name": "automaticEarlyTerminationApplies",
+      "cdm_name": "automaticEarlyTerminationApplies",
+      "type": "string"
+    },
+    {
+      "name": "automatic_early_termination_in_modified_form",
+      "cdm_name": "automaticEarlyTerminationInModifiedForm",
+      "type": "string"
+    },
+    {
+      "name": "automaticEarlyTerminationInModifiedForm",
+      "cdm_name": "automaticEarlyTerminationInModifiedForm",
+      "type": "string"
+    },
+    {
+      "name": "automatic_early_termination_other",
+      "cdm_name": "automaticEarlyTerminationOther",
+      "type": "string"
+    },
+    {
+      "name": "automaticEarlyTerminationOther",
+      "cdm_name": "automaticEarlyTerminationOther",
+      "type": "string"
+    },
+    {
+      "name": "automatic_early_termination_required_due_to_system_of_law",
+      "cdm_name": "automaticEarlyTerminationRequiredDueToSystemOfLaw",
+      "type": "string"
+    },
+    {
+      "name": "automaticEarlyTerminationRequiredDueToSystemOfLaw",
+      "cdm_name": "automaticEarlyTerminationRequiredDueToSystemOfLaw",
+      "type": "string"
+    },
+    {
+      "name": "automatic_early_termination_specified_separately_for_each_principle",
+      "cdm_name": "automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple",
+      "type": "string"
+    },
+    {
+      "name": "automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple",
+      "cdm_name": "automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple",
+      "type": "string"
+    },
+    {
+      "name": "automatic_exercise",
+      "cdm_name": "automaticExercise",
+      "type": "string"
+    },
+    {
+      "name": "automaticExercise",
+      "cdm_name": "automaticExercise",
+      "type": "string"
+    },
+    {
+      "name": "automatic_set_off",
+      "cdm_name": "automaticSetOff",
+      "type": "string"
+    },
+    {
+      "name": "automaticSetOff",
+      "cdm_name": "automaticSetOff",
+      "type": "string"
+    },
+    {
+      "name": "automation",
+      "cdm_name": "automation",
+      "type": "string"
+    },
+    {
+      "name": "available_inventory_record",
+      "cdm_name": "availableInventoryRecord",
+      "type": "string"
+    },
+    {
+      "name": "availableInventoryRecord",
+      "cdm_name": "availableInventoryRecord",
+      "type": "string"
+    },
+    {
+      "name": "available_inventory_type",
+      "cdm_name": "availableInventoryType",
+      "type": "string"
+    },
+    {
+      "name": "availableInventoryType",
+      "cdm_name": "availableInventoryType",
+      "type": "string"
+    },
+    {
+      "name": "average_trading_volume",
+      "cdm_name": "averageTradingVolume",
+      "type": "string"
+    },
+    {
+      "name": "averageTradingVolume",
+      "cdm_name": "averageTradingVolume",
+      "type": "string"
+    },
+    {
+      "name": "averaging_calculation",
+      "cdm_name": "averagingCalculation",
+      "type": "string"
+    },
+    {
+      "name": "averagingCalculation",
+      "cdm_name": "averagingCalculation",
+      "type": "string"
+    },
+    {
+      "name": "averaging_date_times",
+      "cdm_name": "averagingDateTimes",
+      "type": "string"
+    },
+    {
+      "name": "averagingDateTimes",
+      "cdm_name": "averagingDateTimes",
+      "type": "string"
+    },
+    {
+      "name": "averaging_feature",
+      "cdm_name": "averagingFeature",
+      "type": "string"
+    },
+    {
+      "name": "averagingFeature",
+      "cdm_name": "averagingFeature",
+      "type": "string"
+    },
+    {
+      "name": "averaging_in_out",
+      "cdm_name": "averagingInOut",
+      "type": "string"
+    },
+    {
+      "name": "averagingInOut",
+      "cdm_name": "averagingInOut",
+      "type": "string"
+    },
+    {
+      "name": "averaging_method",
+      "cdm_name": "averagingMethod",
+      "type": "string"
+    },
+    {
+      "name": "averagingMethod",
+      "cdm_name": "averagingMethod",
+      "type": "string"
+    },
+    {
+      "name": "averaging_methodology",
+      "cdm_name": "averagingMethodology",
+      "type": "string"
+    },
+    {
+      "name": "averagingMethodology",
+      "cdm_name": "averagingMethodology",
+      "type": "string"
+    },
+    {
+      "name": "averaging_observation",
+      "cdm_name": "averagingObservation",
+      "type": "string"
+    },
+    {
+      "name": "averagingObservation",
+      "cdm_name": "averagingObservation",
+      "type": "string"
+    },
+    {
+      "name": "averaging_observations",
+      "cdm_name": "averagingObservations",
+      "type": "string"
+    },
+    {
+      "name": "averagingObservations",
+      "cdm_name": "averagingObservations",
+      "type": "string"
+    },
+    {
+      "name": "averaging_period_frequency",
+      "cdm_name": "averagingPeriodFrequency",
+      "type": "string"
+    },
+    {
+      "name": "averagingPeriodFrequency",
+      "cdm_name": "averagingPeriodFrequency",
+      "type": "string"
+    },
+    {
+      "name": "averaging_period_in",
+      "cdm_name": "averagingPeriodIn",
+      "type": "string"
+    },
+    {
+      "name": "averagingPeriodIn",
+      "cdm_name": "averagingPeriodIn",
+      "type": "string"
+    },
+    {
+      "name": "averaging_period_out",
+      "cdm_name": "averagingPeriodOut",
+      "type": "string"
+    },
+    {
+      "name": "averagingPeriodOut",
+      "cdm_name": "averagingPeriodOut",
+      "type": "string"
+    },
+    {
+      "name": "averaging_strike_feature",
+      "cdm_name": "averagingStrikeFeature",
+      "type": "string"
+    },
+    {
+      "name": "averagingStrikeFeature",
+      "cdm_name": "averagingStrikeFeature",
+      "type": "string"
+    },
+    {
+      "name": "balance_of_first_period",
+      "cdm_name": "balanceOfFirstPeriod",
+      "type": "string"
+    },
+    {
+      "name": "balanceOfFirstPeriod",
+      "cdm_name": "balanceOfFirstPeriod",
+      "type": "string"
+    },
+    {
+      "name": "bank_holidays_treatment",
+      "cdm_name": "bankHolidaysTreatment",
+      "type": "string"
+    },
+    {
+      "name": "bankHolidaysTreatment",
+      "cdm_name": "bankHolidaysTreatment",
+      "type": "string"
+    },
+    {
+      "name": "bankruptcy",
+      "cdm_name": "bankruptcy",
+      "type": "string"
+    },
+    {
+      "name": "barrier",
+      "cdm_name": "barrier",
+      "type": "string"
+    },
+    {
+      "name": "base_and_eligible_currency",
+      "cdm_name": "baseAndEligibleCurrency",
+      "type": "string"
+    },
+    {
+      "name": "baseAndEligibleCurrency",
+      "cdm_name": "baseAndEligibleCurrency",
+      "type": "string"
+    },
+    {
+      "name": "base_currency",
+      "cdm_name": "baseCurrency",
+      "type": "string"
+    },
+    {
+      "name": "baseCurrency",
+      "cdm_name": "baseCurrency",
+      "type": "string"
+    },
+    {
+      "name": "base_currency_exposure",
+      "cdm_name": "baseCurrencyExposure",
+      "type": "string"
+    },
+    {
+      "name": "baseCurrencyExposure",
+      "cdm_name": "baseCurrencyExposure",
+      "type": "string"
+    },
+    {
+      "name": "base_currency_if_original_not_freely_convertible",
+      "cdm_name": "baseCurrencyIfOriginalNotFreelyConvertible",
+      "type": "string"
+    },
+    {
+      "name": "baseCurrencyIfOriginalNotFreelyConvertible",
+      "cdm_name": "baseCurrencyIfOriginalNotFreelyConvertible",
+      "type": "string"
+    },
+    {
+      "name": "base_currency_must_be_freely_convertible",
+      "cdm_name": "baseCurrencyMustBeFreelyConvertible",
+      "type": "string"
+    },
+    {
+      "name": "baseCurrencyMustBeFreelyConvertible",
+      "cdm_name": "baseCurrencyMustBeFreelyConvertible",
+      "type": "string"
+    },
+    {
+      "name": "base_currency_other",
+      "cdm_name": "baseCurrencyOther",
+      "type": "string"
+    },
+    {
+      "name": "baseCurrencyOther",
+      "cdm_name": "baseCurrencyOther",
+      "type": "string"
+    },
+    {
+      "name": "base_currency_termination_currency",
+      "cdm_name": "baseCurrencyTerminationCurrency",
+      "type": "string"
+    },
+    {
+      "name": "baseCurrencyTerminationCurrency",
+      "cdm_name": "baseCurrencyTerminationCurrency",
+      "type": "string"
+    },
+    {
+      "name": "base_value",
+      "cdm_name": "baseValue",
+      "type": "string"
+    },
+    {
+      "name": "baseValue",
+      "cdm_name": "baseValue",
+      "type": "string"
+    },
+    {
+      "name": "basket_constituent",
+      "cdm_name": "basketConstituent",
+      "type": "string"
+    },
+    {
+      "name": "basketConstituent",
+      "cdm_name": "basketConstituent",
+      "type": "string"
+    },
+    {
+      "name": "basket_id",
+      "cdm_name": "basketId",
+      "type": "string"
+    },
+    {
+      "name": "basketId",
+      "cdm_name": "basketId",
+      "type": "string"
+    },
+    {
+      "name": "basket_name",
+      "cdm_name": "basketName",
+      "type": "string"
+    },
+    {
+      "name": "basketName",
+      "cdm_name": "basketName",
+      "type": "string"
+    },
+    {
+      "name": "basket_percentage",
+      "cdm_name": "basketPercentage",
+      "type": "string"
+    },
+    {
+      "name": "basketPercentage",
+      "cdm_name": "basketPercentage",
+      "type": "string"
+    },
+    {
+      "name": "basket_reference_information",
+      "cdm_name": "basketReferenceInformation",
+      "type": "string"
+    },
+    {
+      "name": "basketReferenceInformation",
+      "cdm_name": "basketReferenceInformation",
+      "type": "string"
+    },
+    {
+      "name": "before",
+      "cdm_name": "before",
+      "type": "string"
+    },
+    {
+      "name": "belgian_law_security_agreement",
+      "cdm_name": "belgianLawSecurityAgreement",
+      "type": "string"
+    },
+    {
+      "name": "belgianLawSecurityAgreement",
+      "cdm_name": "belgianLawSecurityAgreement",
+      "type": "string"
+    },
+    {
+      "name": "benchmark_obligation_default",
+      "cdm_name": "benchmarkObligationDefault",
+      "type": "string"
+    },
+    {
+      "name": "benchmarkObligationDefault",
+      "cdm_name": "benchmarkObligationDefault",
+      "type": "string"
+    },
+    {
+      "name": "benchmark_obligation_default_is_applicable",
+      "cdm_name": "benchmarkObligationDefaultIsApplicable",
+      "type": "string"
+    },
+    {
+      "name": "benchmarkObligationDefaultIsApplicable",
+      "cdm_name": "benchmarkObligationDefaultIsApplicable",
+      "type": "string"
+    },
+    {
+      "name": "bespoke_calculation_agent_terms",
+      "cdm_name": "bespokeCalculationAgentTerms",
+      "type": "string"
+    },
+    {
+      "name": "bespokeCalculationAgentTerms",
+      "cdm_name": "bespokeCalculationAgentTerms",
+      "type": "string"
+    },
+    {
+      "name": "bespoke_calculation_date",
+      "cdm_name": "bespokeCalculationDate",
+      "type": "string"
+    },
+    {
+      "name": "bespokeCalculationDate",
+      "cdm_name": "bespokeCalculationDate",
+      "type": "string"
+    },
+    {
+      "name": "bespoke_calculation_formula",
+      "cdm_name": "bespokeCalculationFormula",
+      "type": "string"
+    },
+    {
+      "name": "bespokeCalculationFormula",
+      "cdm_name": "bespokeCalculationFormula",
+      "type": "string"
+    },
+    {
+      "name": "bespoke_calculation_time",
+      "cdm_name": "bespokeCalculationTime",
+      "type": "string"
+    },
+    {
+      "name": "bespokeCalculationTime",
+      "cdm_name": "bespokeCalculationTime",
+      "type": "string"
+    },
+    {
+      "name": "bespoke_calculation_time_terms",
+      "cdm_name": "bespokeCalculationTimeTerms",
+      "type": "string"
+    },
+    {
+      "name": "bespokeCalculationTimeTerms",
+      "cdm_name": "bespokeCalculationTimeTerms",
+      "type": "string"
+    },
+    {
+      "name": "bespoke_covered_transactions",
+      "cdm_name": "bespokeCoveredTransactions",
+      "type": "string"
+    },
+    {
+      "name": "bespokeCoveredTransactions",
+      "cdm_name": "bespokeCoveredTransactions",
+      "type": "string"
+    },
+    {
+      "name": "bespoke_credit_suppport_document",
+      "cdm_name": "bespokeCreditSuppportDocument",
+      "type": "string"
+    },
+    {
+      "name": "bespokeCreditSuppportDocument",
+      "cdm_name": "bespokeCreditSuppportDocument",
+      "type": "string"
+    },
+    {
+      "name": "bespoke_credit_suppport_provider",
+      "cdm_name": "bespokeCreditSuppportProvider",
+      "type": "string"
+    },
+    {
+      "name": "bespokeCreditSuppportProvider",
+      "cdm_name": "bespokeCreditSuppportProvider",
+      "type": "string"
+    },
+    {
+      "name": "bespoke_escrow_arrangements",
+      "cdm_name": "bespokeEscrowArrangements",
+      "type": "string"
+    },
+    {
+      "name": "bespokeEscrowArrangements",
+      "cdm_name": "bespokeEscrowArrangements",
+      "type": "string"
+    },
+    {
+      "name": "bespoke_event_description",
+      "cdm_name": "bespokeEventDescription",
+      "type": "string"
+    },
+    {
+      "name": "bespokeEventDescription",
+      "cdm_name": "bespokeEventDescription",
+      "type": "string"
+    },
+    {
+      "name": "bespoke_transfer_timing",
+      "cdm_name": "bespokeTransferTiming",
+      "type": "string"
+    },
+    {
+      "name": "bespokeTransferTiming",
+      "cdm_name": "bespokeTransferTiming",
+      "type": "string"
+    },
+    {
+      "name": "bespoke_transfer_timing_terms",
+      "cdm_name": "bespokeTransferTimingTerms",
+      "type": "string"
+    },
+    {
+      "name": "bespokeTransferTimingTerms",
+      "cdm_name": "bespokeTransferTimingTerms",
+      "type": "string"
+    },
+    {
+      "name": "billing_end_date",
+      "cdm_name": "billingEndDate",
+      "type": "string"
+    },
+    {
+      "name": "billingEndDate",
+      "cdm_name": "billingEndDate",
+      "type": "string"
+    },
+    {
+      "name": "billing_record",
+      "cdm_name": "billingRecord",
+      "type": "string"
+    },
+    {
+      "name": "billingRecord",
+      "cdm_name": "billingRecord",
+      "type": "string"
+    },
+    {
+      "name": "billing_record_instruction",
+      "cdm_name": "billingRecordInstruction",
+      "type": "string"
+    },
+    {
+      "name": "billingRecordInstruction",
+      "cdm_name": "billingRecordInstruction",
+      "type": "string"
+    },
+    {
+      "name": "billing_start_date",
+      "cdm_name": "billingStartDate",
+      "type": "string"
+    },
+    {
+      "name": "billingStartDate",
+      "cdm_name": "billingStartDate",
+      "type": "string"
+    },
+    {
+      "name": "billing_summary",
+      "cdm_name": "billingSummary",
+      "type": "string"
+    },
+    {
+      "name": "billingSummary",
+      "cdm_name": "billingSummary",
+      "type": "string"
+    },
+    {
+      "name": "block",
+      "cdm_name": "block",
+      "type": "string"
+    },
+    {
+      "name": "bond",
+      "cdm_name": "bond",
+      "type": "string"
+    },
+    {
+      "name": "bond_reference",
+      "cdm_name": "bondReference",
+      "type": "string"
+    },
+    {
+      "name": "bondReference",
+      "cdm_name": "bondReference",
+      "type": "string"
+    },
+    {
+      "name": "borrower",
+      "cdm_name": "borrower",
+      "type": "string"
+    },
+    {
+      "name": "both_affected",
+      "cdm_name": "bothAffected",
+      "type": "string"
+    },
+    {
+      "name": "bothAffected",
+      "cdm_name": "bothAffected",
+      "type": "string"
+    },
+    {
+      "name": "both_affected_term_currency_option",
+      "cdm_name": "bothAffectedTermCurrencyOption",
+      "type": "string"
+    },
+    {
+      "name": "bothAffectedTermCurrencyOption",
+      "cdm_name": "bothAffectedTermCurrencyOption",
+      "type": "string"
+    },
+    {
+      "name": "boundary",
+      "cdm_name": "boundary",
+      "type": "string"
+    }
+  ]
+}

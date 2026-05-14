@@ -1,0 +1,5 @@
+# Invalid UnitType: all fields should be a choice (one-of), not multiple
+capacityUnit: BBL
+weatherUnit: CDD
+financialUnit: ContractualAmount
+currency: USD

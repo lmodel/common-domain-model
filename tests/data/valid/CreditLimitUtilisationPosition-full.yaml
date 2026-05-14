@@ -1,0 +1,4 @@
+# Valid CreditLimitUtilisationPosition: all positions specified
+shortPosition: 5000000.0
+longPosition: 3000000.0
+global_: 8000000.0

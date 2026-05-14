@@ -1,0 +1,4 @@
+# Invalid Schedule: missing required value field
+datedValue:
+  - date: "2025-06-15"
+    value: 0.045
