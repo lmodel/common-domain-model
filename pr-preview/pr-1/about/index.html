@@ -1286,6 +1286,12 @@ samples. xfail groups are declared via <code>--xfail-glob</code> in
 <td><code>uri_for()</code> raises <code>ValueError: Unknown CURIE prefix</code> for any CURIE in <code>close_mappings</code> whose prefix is not declared in <code>prefixes:</code></td>
 <td>Generator now declares <code>fpml_5_10</code> prefix in every module schema that contains FpML 5.10 synonym mappings</td>
 </tr>
+<tr>
+<td>7</td>
+<td><code>tests/test_linkml_schema.py</code></td>
+<td><code>test_regeneration_is_idempotent</code> ran the generator with <code>--output-dir SCHEMA_DIR</code>, overwriting committed schema and SSSOM files in place. On failure the working tree was left dirty with regenerated content, masking the real diff and causing subsequent CI runs to produce inconsistent comparisons (e.g. a <code>comment</code> slot added to <code>AvailableInventoryRecord</code> in a transient Rosetta source state appeared as a committed change).</td>
+<td>Generator is now run into a <code>tempfile.TemporaryDirectory()</code>; <code>--sssom-out</code> and <code>--ext-sssom-out</code> also point into the temp dir. Committed files are compared against the temp output after generation — schema and mapping files are never touched by the test. A <code>difflib.unified_diff</code> is included in the assertion message on mismatch; the message instructs the developer to run <code>just gen-from-rosetta</code> to update committed schemas.</td>
+</tr>
 </tbody>
 </table>
 <hr />
