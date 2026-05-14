@@ -486,7 +486,7 @@
 
 
 <h1 id="slot-dividendterms">Slot: dividendTerms</h1>
-<p><em>Specifies the terms under which dividends received by the borrower are passed through to the lender.</em></p>
+<p><em>Specifies the dividend requirements if applicable.</em></p>
 <div>
 <p>URI: <a href="https://w3id.org/finos/cdm/dividendTerms">common_domain_model:dividendTerms</a></p>
 <!-- no inheritance hierarchy -->
@@ -501,9 +501,14 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../AvailableInventoryRecord/">AvailableInventoryRecord</a></td>
+<td>An individual piece of available inventory</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../AssetPayout/">AssetPayout</a></td>
 <td>Security finance payout specification in case the product payout involves som...</td>
-<td>no</td>
+<td>yes</td>
 </tr>
 </tbody>
 </table>
@@ -523,7 +528,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="../AssetPayout/">AssetPayout</a></td>
+<td><a href="../AvailableInventoryRecord/">AvailableInventoryRecord</a>, <a href="../AssetPayout/">AssetPayout</a></td>
 </tr>
 </tbody>
 </table>
@@ -564,22 +569,16 @@
 <td>native</td>
 <td>common_domain_model:dividendTerms</td>
 </tr>
-<tr>
-<td>close</td>
-<td>fpml_5_10:AssetPayout.dividendTerms</td>
-</tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dividendTerms</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Specifies the terms under which dividends received by the borrower are</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">passed through to the lender.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Specifies the dividend requirements if applicable.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/finos/cdm</span>
-<span class="nt">close_mappings</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fpml_5_10:AssetPayout.dividendTerms</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AvailableInventoryRecord</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AssetPayout</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DividendTerms</span>
 </code></pre></div>

@@ -29663,6 +29663,7 @@ slots:
     owner: MasterAgreementClause
     domain_of:
     - InventoryRecord
+    - AvailableInventory
     - MasterAgreementClause
     range: AssignedIdentifier
     required: true
@@ -29695,6 +29696,18 @@ slots:
     - AvailableInventory
     range: AvailableInventoryTypeEnum
     required: true
+  comment:
+    name: comment
+    definition_uri: https://w3id.org/finos/cdm/comment
+    description: Optional comments for this group of inventory records.
+    from_schema: https://w3id.org/finos/cdm/cdm_event_position
+    slot_uri: common_domain_model:comment
+    owner: WorkflowState
+    domain_of:
+    - AvailableInventory
+    - AvailableInventoryRecord
+    - WorkflowState
+    range: string
   messageInformation:
     name: messageInformation
     definition_uri: https://w3id.org/finos/cdm/messageInformation
@@ -29753,6 +29766,19 @@ slots:
     domain_of:
     - AvailableInventoryRecord
     range: Price
+    inlined: true
+    inlined_as_list: true
+  dividendTerms:
+    name: dividendTerms
+    definition_uri: https://w3id.org/finos/cdm/dividendTerms
+    description: Specifies the dividend requirements if applicable.
+    from_schema: https://w3id.org/finos/cdm/cdm_event_position
+    slot_uri: common_domain_model:dividendTerms
+    owner: AssetPayout
+    domain_of:
+    - AvailableInventoryRecord
+    - AssetPayout
+    range: DividendTerms
     inlined: true
     inlined_as_list: true
   limitApplicable:
@@ -30096,17 +30122,6 @@ slots:
     - WorkflowState
     range: WorkflowStatusEnum
     required: true
-  comment:
-    name: comment
-    definition_uri: https://w3id.org/finos/cdm/comment
-    description: A comment field to be associated with the workflow, e.g. to specify
-      why a transaction event was rejected by a party.
-    from_schema: https://w3id.org/finos/cdm/cdm_event_workflow
-    slot_uri: common_domain_model:comment
-    owner: WorkflowState
-    domain_of:
-    - WorkflowState
-    range: string
   partyCustomisedWorkflow:
     name: partyCustomisedWorkflow
     definition_uri: https://w3id.org/finos/cdm/partyCustomisedWorkflow
@@ -47174,21 +47189,6 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-  dividendTerms:
-    name: dividendTerms
-    definition_uri: https://w3id.org/finos/cdm/dividendTerms
-    description: Specifies the terms under which dividends received by the borrower
-      are passed through to the lender.
-    from_schema: https://w3id.org/finos/cdm/cdm_product_template
-    close_mappings:
-    - fpml_5_10:AssetPayout.dividendTerms
-    slot_uri: common_domain_model:dividendTerms
-    owner: AssetPayout
-    domain_of:
-    - AssetPayout
-    range: DividendTerms
-    inlined: true
-    inlined_as_list: true
   tradeType:
     name: tradeType
     definition_uri: https://w3id.org/finos/cdm/tradeType
@@ -50487,6 +50487,25 @@ slots:
     usage_slot_name: productQualifier
     range: string
     multivalued: true
+  AvailableInventory_identifer:
+    name: AvailableInventory_identifer
+    definition_uri: https://w3id.org/finos/cdm/identifer
+    description: Unique identifier for this group. This can be used to uniquely identify
+      a group of inventory records.
+    from_schema: https://w3id.org/finos/cdm/cdm_event_position
+    is_a: identifer
+    domain: AvailableInventory
+    slot_uri: common_domain_model:identifer
+    alias: identifer
+    owner: AvailableInventory
+    domain_of:
+    - AvailableInventory
+    is_usage_slot: true
+    usage_slot_name: identifer
+    range: AssignedIdentifier
+    required: true
+    inlined: true
+    inlined_as_list: true
   AvailableInventory_party:
     name: AvailableInventory_party
     definition_uri: https://w3id.org/finos/cdm/party
@@ -50586,6 +50605,21 @@ slots:
     range: Quantity
     inlined: true
     inlined_as_list: true
+  AvailableInventoryRecord_comment:
+    name: AvailableInventoryRecord_comment
+    definition_uri: https://w3id.org/finos/cdm/comment
+    description: Optional comment for this specific piece of inventory.
+    from_schema: https://w3id.org/finos/cdm/cdm_event_position
+    is_a: comment
+    domain: AvailableInventoryRecord
+    slot_uri: common_domain_model:comment
+    alias: comment
+    owner: AvailableInventoryRecord
+    domain_of:
+    - AvailableInventoryRecord
+    is_usage_slot: true
+    usage_slot_name: comment
+    range: string
   WorkflowStepApproval_party:
     name: WorkflowStepApproval_party
     definition_uri: https://w3id.org/finos/cdm/party
@@ -50785,6 +50819,22 @@ slots:
     range: datetime
     required: true
     multivalued: true
+  WorkflowState_comment:
+    name: WorkflowState_comment
+    definition_uri: https://w3id.org/finos/cdm/comment
+    description: A comment field to be associated with the workflow, e.g. to specify
+      why a transaction event was rejected by a party.
+    from_schema: https://w3id.org/finos/cdm/cdm_event_position
+    is_a: comment
+    domain: WorkflowState
+    slot_uri: common_domain_model:comment
+    alias: comment
+    owner: WorkflowState
+    domain_of:
+    - WorkflowState
+    is_usage_slot: true
+    usage_slot_name: comment
+    range: string
   LimitApplicable_currency:
     name: LimitApplicable_currency
     definition_uri: https://w3id.org/finos/cdm/currency
@@ -61440,6 +61490,24 @@ slots:
     range: Money
     inlined: true
     inlined_as_list: true
+  AssetPayout_dividendTerms:
+    name: AssetPayout_dividendTerms
+    definition_uri: https://w3id.org/finos/cdm/dividendTerms
+    description: Specifies the terms under which dividends received by the borrower
+      are passed through to the lender.
+    from_schema: https://w3id.org/finos/cdm/cdm_event_position
+    is_a: dividendTerms
+    domain: AssetPayout
+    slot_uri: common_domain_model:dividendTerms
+    alias: dividendTerms
+    owner: AssetPayout
+    domain_of:
+    - AssetPayout
+    is_usage_slot: true
+    usage_slot_name: dividendTerms
+    range: DividendTerms
+    inlined: true
+    inlined_as_list: true
   AssetLeg_settlementDate:
     name: AssetLeg_settlementDate
     definition_uri: https://w3id.org/finos/cdm/settlementDate
@@ -68348,11 +68416,18 @@ classes:
     - fpml_5_10:AvailableInventory
     slots:
     - availableInventoryType
+    - AvailableInventory_identifer
+    - comment
     - messageInformation
     - AvailableInventory_party
     - AvailableInventory_partyRole
     - availableInventoryRecord
     slot_usage:
+      identifer:
+        name: identifer
+        description: Unique identifier for this group. This can be used to uniquely
+          identify a group of inventory records.
+        required: false
       party:
         name: party
         description: Defines all parties involved for the list of inventory records
@@ -68398,6 +68473,8 @@ classes:
     - AvailableInventoryRecord_partyRole
     - AvailableInventoryRecord_quantity
     - interestRate
+    - dividendTerms
+    - AvailableInventoryRecord_comment
     slot_usage:
       collateral:
         name: collateral
@@ -68414,6 +68491,9 @@ classes:
       quantity:
         name: quantity
         description: The quantity of the security
+      comment:
+        name: comment
+        description: Optional comment for this specific piece of inventory.
     class_uri: common_domain_model:AvailableInventoryRecord
   SecurityLocate:
     name: SecurityLocate
@@ -68433,6 +68513,8 @@ classes:
     is_a: AvailableInventory
     slots:
     - availableInventoryType
+    - AvailableInventory_identifer
+    - comment
     - messageInformation
     - AvailableInventory_party
     - AvailableInventory_partyRole
@@ -68909,9 +68991,14 @@ classes:
     - common_domain_model:WorkflowState
     slots:
     - workflowStatus
-    - comment
+    - WorkflowState_comment
     - partyCustomisedWorkflow
     - warehouseIdentity
+    slot_usage:
+      comment:
+        name: comment
+        description: A comment field to be associated with the workflow, e.g. to specify
+          why a transaction event was rejected by a party.
     class_uri: common_domain_model:WorkflowState
   LimitApplicable:
     name: LimitApplicable
@@ -86827,7 +86914,7 @@ classes:
     - assetLeg
     - AssetPayout_underlier
     - AssetPayout_minimumFee
-    - dividendTerms
+    - AssetPayout_dividendTerms
     - tradeType
     slot_usage:
       underlier:
@@ -86839,6 +86926,10 @@ classes:
         description: A contractual minimum amount which the borrower will pay, regardless
           of the duration of the loan. A mechanism for making sure that a trade generates
           enough income.
+      dividendTerms:
+        name: dividendTerms
+        description: Specifies the terms under which dividends received by the borrower
+          are passed through to the lender.
     class_uri: common_domain_model:AssetPayout
     rules:
     - preconditions: {}
@@ -87362,7 +87453,7 @@ classes:
     class_uri: common_domain_model:Id
 metamodel_version: 1.11.0
 source_file: common_domain_model.yaml
-source_file_date: '2026-05-14T22:45:37'
+source_file_date: '2026-05-14T23:28:31'
 source_file_size: 2000
-generation_date: '2026-05-14T22:45:50'
+generation_date: '2026-05-14T23:28:44'
 

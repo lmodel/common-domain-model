@@ -633,6 +633,10 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A contractual minimum amount which the borrower will pay, regardless</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of the duration of the loan. A mechanism for making sure that a trade generates</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">enough income.</span>
+<span class="w">  </span><span class="nt">dividendTerms</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dividendTerms</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Specifies the terms under which dividends received by the borrower</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">are passed through to the lender.</span>
 <span class="nt">rules</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">postconditions</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">slot_conditions</span><span class="p">:</span>
@@ -669,6 +673,10 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A contractual minimum amount which the borrower will pay, regardless</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of the duration of the loan. A mechanism for making sure that a trade generates</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">enough income.</span>
+<span class="w">  </span><span class="nt">dividendTerms</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dividendTerms</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Specifies the terms under which dividends received by the borrower</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">are passed through to the lender.</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">assetLeg</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assetLeg</span>
@@ -724,11 +732,10 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Specifies the terms under which dividends received by the borrower</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">are passed through to the lender.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/finos/cdm</span>
-<span class="w">    </span><span class="nt">close_mappings</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fpml_5_10:AssetPayout.dividendTerms</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AssetPayout</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AvailableInventoryRecord</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AssetPayout</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DividendTerms</span>
 <span class="w">  </span><span class="nt">tradeType</span><span class="p">:</span>

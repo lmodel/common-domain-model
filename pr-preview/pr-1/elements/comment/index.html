@@ -486,7 +486,7 @@
 
 
 <h1 id="slot-comment">Slot: comment</h1>
-<p><em>A comment field to be associated with the workflow, e.g. to specify why a transaction event was rejected by a party.</em></p>
+<p><em>Optional comments for this group of inventory records.</em></p>
 <div>
 <p>URI: <a href="https://w3id.org/finos/cdm/comment">common_domain_model:comment</a></p>
 <!-- no inheritance hierarchy -->
@@ -501,8 +501,23 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../AvailableInventory/">AvailableInventory</a></td>
+<td>A data type that can be used to describe the inventory of securities that a p...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../AvailableInventoryRecord/">AvailableInventoryRecord</a></td>
+<td>An individual piece of available inventory</td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../WorkflowState/">WorkflowState</a></td>
 <td>A class to specify workflow information, which is conceptually applicable to ...</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../SecurityLocate/">SecurityLocate</a></td>
+<td>A locate is an approval from a broker that needs to be obtained prior to effe...</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -523,7 +538,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="../WorkflowState/">WorkflowState</a></td>
+<td><a href="../AvailableInventory/">AvailableInventory</a>, <a href="../AvailableInventoryRecord/">AvailableInventoryRecord</a>, <a href="../WorkflowState/">WorkflowState</a></td>
 </tr>
 </tbody>
 </table>
@@ -569,11 +584,12 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">comment</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A comment field to be associated with the workflow, e.g. to specify why</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">a transaction event was rejected by a party.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional comments for this group of inventory records.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/finos/cdm</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AvailableInventory</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AvailableInventoryRecord</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkflowState</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 </code></pre></div>
