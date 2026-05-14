@@ -36,6 +36,7 @@ imports:
 - ./cdm_event_workflow
 - ./cdm_legaldocumentation_transaction
 - ./cdm_legaldocumentation_csa
+- ./cdm_event_position
 
 comments:
 - 'Rosetta func: FilterTradeLot — Filter list of TradeLot based on TradeLot->lotIdentifier. | inputs(tradeLots: TradeLot (0..*),
@@ -874,12 +875,6 @@ slots:
     inlined_as_list: true
     close_mappings:
     - fpml_5_10:AssetPayout.assetLeg
-
-  dividendTerms:
-    range: DividendTerms
-    description: Specifies the terms under which dividends received by the borrower are passed through to the lender.
-    close_mappings:
-    - fpml_5_10:AssetPayout.dividendTerms
 
   tradeType:
     range: AssetPayoutTradeTypeEnum
@@ -2409,6 +2404,8 @@ classes:
       minimumFee:
         description: A contractual minimum amount which the borrower will pay, regardless of the duration of the loan. A mechanism
           for making sure that a trade generates enough income.
+      dividendTerms:
+        description: Specifies the terms under which dividends received by the borrower are passed through to the lender.
     in_subset:
     - cdm_product_template
 

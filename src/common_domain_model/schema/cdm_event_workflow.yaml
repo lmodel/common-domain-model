@@ -330,11 +330,6 @@ slots:
     description: The workflow status indicator, e.g. Accepted, Rejected, ...
     required: true
 
-  comment:
-    range: string
-    description: A comment field to be associated with the workflow, e.g. to specify why a transaction event was rejected
-      by a party.
-
   partyCustomisedWorkflow:
     range: PartyCustomisedWorkflow
     description: Workflow data that is specific to certain market participants and is expressed as part of the CDM in a very
@@ -740,6 +735,10 @@ classes:
     - comment
     - partyCustomisedWorkflow
     - warehouseIdentity
+    slot_usage:
+      comment:
+        description: A comment field to be associated with the workflow, e.g. to specify why a transaction event was rejected
+          by a party.
     in_subset:
     - cdm_event_workflow
 

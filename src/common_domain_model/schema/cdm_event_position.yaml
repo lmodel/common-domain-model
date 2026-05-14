@@ -159,6 +159,10 @@ slots:
     close_mappings:
     - fpml_5_10:AvailableInventory.availableInventoryType
 
+  comment:
+    range: string
+    description: Optional comments for this group of inventory records.
+
   messageInformation:
     range: MessageInformation
     description: Allows details related to the availability messaging use case to be defined
@@ -185,6 +189,10 @@ slots:
     description: An optional element which can be used to hold a rate associated to this piece of availability.
     close_mappings:
     - fpml_5_10:AvailableInventoryRecord.interestRate
+
+  dividendTerms:
+    range: DividendTerms
+    description: Specifies the dividend requirements if applicable.
 
 classes:
   ContractBase:
@@ -367,11 +375,16 @@ classes:
       PartyRoleEnum -> Borrower, PartyRoleEnum -> Custodian, PartyRoleEnum -> Lender] )'
     slots:
     - availableInventoryType
+    - identifer
+    - comment
     - messageInformation
     - party
     - partyRole
     - availableInventoryRecord
     slot_usage:
+      identifer:
+        description: Unique identifier for this group. This can be used to uniquely identify a group of inventory records.
+        required: false
       party:
         range: Party
         description: Defines all parties involved for the list of inventory records in this set of inventory. For example,
@@ -401,6 +414,8 @@ classes:
     - partyRole
     - quantity
     - interestRate
+    - dividendTerms
+    - comment
     slot_usage:
       collateral:
         range: CollateralProvisions
@@ -413,6 +428,8 @@ classes:
         multivalued: true
       quantity:
         description: The quantity of the security
+      comment:
+        description: Optional comment for this specific piece of inventory.
     in_subset:
     - cdm_event_position
 
