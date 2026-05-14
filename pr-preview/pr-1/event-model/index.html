@@ -1,0 +1,1817 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://lmodel.github.io/common-domain-model/event-model/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Event Model - common-domain-model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+
+      
+    
+<script src="../assets/pymdownx-extras/material-extra-theme-2ek1P7jT.js" type="text/javascript"></script>
+<script src="../assets/pymdownx-extras/material-extra-3rdparty-BUCF4rjN.js" type="text/javascript"></script>
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+      <link rel="stylesheet" href="../assets/pymdownx-extras/extra-c6ab11540a.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-the-event-model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+<header class="md-header" data-md-component="header">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="header.title"
+  >
+    <a
+      href="https://lmodel.github.io/common-domain-model/"
+      title="common-domain-model"
+      class="md-header__button md-logo"
+      aria-label="common-domain-model"
+    >
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            common-domain-model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Event Model
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      <div class="md-header-nav__scheme md-header-nav__button md-source__icon md-icon">
+          <a
+            href="javascript:toggleScheme();"
+            title="Light mode"
+            class="light-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="Dark mode"
+            class="dark-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="System preference"
+            class="system-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
+          </a>
+           <a
+            href="javascript:toggleScheme();"
+            title="Unknown scheme"
+            class="unknown-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"/></svg>
+          </a>
+      </div>
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lmodel/common-domain-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="common-domain-model" class="md-nav__button md-logo" aria-label="common-domain-model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    common-domain-model
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lmodel/common-domain-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-the-event-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction to the Event Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trade-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trade Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trade-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#executiondetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExecutionDetails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contractdetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ContractDetails
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primitive-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primitive Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primitive Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primitive-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primitive Operator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primitive-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primitive Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primitive-instruction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primitive Instruction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primitive-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primitive Composition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-case-split" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special Case: Split
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples-of-primitive-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples of Primitive Operators
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples of Primitive Operators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execution-primitive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution Primitive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contract-formation-primitive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contract Formation Primitive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-primitive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reset Primitive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-primitive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transfer Primitive
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Business Event
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Business Event">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Composition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-qualification-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Qualification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lineage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lineage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-misc-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Misc. Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-step-business-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow Step Business Event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proposed-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proposed Event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Event
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#previous-workflow-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Previous Workflow Step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timestamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timestamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Identifier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-misc-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Misc. Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+  <h1>Event Model</h1>
+
+<h2 id="introduction-to-the-event-model">Introduction to the Event Model</h2>
+<p><strong>The CDM event model provides data structures to represent the
+lifecycle events of financial transactions</strong>. A lifecycle event occurs
+when a transaction goes through a <em>state transition</em> initiated either by
+one or both trading parties, by contractual terms, or by external
+factors. For example, the execution of a trade is the initial event
+which results in the state of an executed trade. Subsequently, one party
+might initiate an allocation, both parties might initiate an amendment
+to a contractual agreement, or a default by an underlying entity on a
+Credit Default Swap would trigger a settlement according to defined
+protection terms.</p>
+<p>Examples of lifecycle events supported by the CDM Event Model include
+the following:</p>
+<ul>
+<li>Trade execution and confirmation</li>
+<li>Clearing</li>
+<li>Allocation</li>
+<li>Settlement (including any future contingent cashflow payment)</li>
+<li>Exercise of options</li>
+</ul>
+<p>The representation of lifecycle events in the CDM is based on the
+following design principles:</p>
+<ul>
+<li><strong>A lifecycle event describes a state transition</strong>. There must be
+    different before/after trade states based on that lifecycle event.</li>
+<li><strong>State transitions are functional and composable</strong>. The CDM
+    specifies the entire functional logic to transition from one state
+    to another. The state transition logic of all in-scope events is
+    obtained by composition from a small set of functional building
+    blocks.</li>
+<li><strong>The history of the trade state can be reconstructed</strong> at any point
+    in the trade lifecycle. The CDM implements a <em>lineage</em> between
+    states as the trade goes through state transitions.</li>
+<li><strong>The product underlying the transaction remains immutable</strong>.
+    Automated events, for instance resets or cashflow payments, do not
+    alter the product definition. Lifecycle events negotiated between
+    the parties that give rise to a change in the trade economics
+    generate a new instance of the product or trade as part of that
+    specific event.</li>
+<li><strong>The state is trade-specific</strong>, not product-specific (i.e. the CDM
+    is not an asset-servicing model). The same product may be associated
+    to infinitely many trades, each with its own specific state, between
+    any two parties.</li>
+</ul>
+<p>To represent a state transition, the event model is organised around
+four main components:</p>
+<ul>
+<li><strong>Trade state</strong> represents the state in the lifecycle that the trade
+    is in, from execution to settlement and maturity.</li>
+<li><strong>Primitive operator</strong> is the functional building block that is used
+    to compose business events. Each operator describes a fundamental
+    change to the state of a trade going from a before state to an after
+    state and is parameterised by a primitive instruction input.</li>
+<li><strong>Business event</strong> represents a lifecycle event affecting one or
+    more trades as a composite of primitive instructions. A business
+    event can comprise several instructions, each consisting of a set of
+    primitive instructions applied to a single trade state (before). The
+    resulting trade state (after) can be multiple.</li>
+<li><strong>Workflow</strong> represents a set of actions or steps that are required
+    to trigger a business event.</li>
+</ul>
+<p>The below diagram illustrates the relationship between these components.
+Each of them is described in the next four sections.</p>
+<p><img alt="" src="/img/event-model-overview.png" /></p>
+<h2 id="trade-events">Trade Events</h2>
+<h3 id="trade-state">Trade State</h3>
+<p>A trade state is defined in CDM by the <code>TradeState</code> data type and
+represents the state of a trade at each stage in its lifecycle. With
+each trade creation or modification event, a new <code>TradeState</code> instance
+is created. Chaining together the sequence of <code>TradeState</code> instances
+then recreates the path each trade took within its lifecycle.</p>
+<p>:::tip Definition: TradeState</p>
+<p>Defines the fundamental financial information that can be changed by a 
+Primitive Event and by extension any business or life-cycle event. 
+Each TradeState specifies where a Trade is in its life-cycle. TradeState
+is a root type and as such, can be created independently to any other 
+CDM data type, but can also be used as part of the CDM Event Model.</p>
+<p>:::</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">TradeState:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
+<span class="w">  </span><span class="p">[</span><span class="n">rootType</span><span class="p">]</span>
+<span class="w">  </span><span class="n">trade</span><span class="w"> </span><span class="kt">Trade</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">state</span><span class="w"> </span><span class="kt">State</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">resetHistory</span><span class="w"> </span><span class="kt">Reset</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">transferHistory</span><span class="w"> </span><span class="kt">TransferState</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+</code></pre></div>
+<p>While many different types of events may occur through the trade
+lifecycle, the <code>trade</code>, <code>state</code>, <code>resetHistory</code> and <code>transferHistory</code>
+attributes are deemed sufficient to describe all of the possible
+(post-trade) states which may result from lifecycle events. The <code>Trade</code>
+data type contains the tradable product, which defines all of the
+economic terms of the transaction as agreed between the parties.</p>
+<p>The <code>Trade</code>, <code>State</code>, <code>Reset</code> and <code>Transfer</code> data types that are
+utilised within <code>TradeState</code> are all detailed in the sections below.</p>
+<h3 id="trade">Trade</h3>
+<p>:::tip Definition: Trade</p>
+<p>Defines the output of a financial transaction between parties - a Business 
+Event. A Trade impacts the financial position (i.e. the balance sheet) 
+of involved parties.</p>
+<p>:::</p>
+<p>The <code>Trade</code> data type defines the outcome of a financial transaction
+between parties, where the terms are primarily reflected in the tradable
+product. Additionally, <code>Trade</code> includes attributes such as the trade
+date, transacting parties, and settlement terms. Some attributes, such
+as the parties, may already be defined in a workflow step or business
+event and can simply be referenced in <code>Trade</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">Trade</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">TradableProduct:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
+<span class="w">  </span><span class="n">tradeIdentifier</span><span class="w"> </span><span class="kt">TradeIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">tradeDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">id</span><span class="p">]</span>
+<span class="w">  </span><span class="n">tradeTime</span><span class="w"> </span><span class="kt">TimeZone</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">id</span><span class="p">]</span>
+<span class="w">  </span><span class="n">party</span><span class="w"> </span><span class="kt">Party</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">partyRole</span><span class="w"> </span><span class="kt">PartyRole</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">executionDetails</span><span class="w"> </span><span class="kt">ExecutionDetails</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">contractDetails</span><span class="w"> </span><span class="kt">ContractDetails</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">clearedDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">deprecated</span><span class="p">]</span>
+<span class="w">  </span><span class="n">collateral</span><span class="w"> </span><span class="kt">Collateral</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">account</span><span class="w"> </span><span class="kt">Account</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">deprecated</span><span class="p">]</span>
+</code></pre></div>
+<hr />
+<p><strong>Note:</strong>
+Attributes within <code>Trade</code> and <code>ContractDetails</code> incorporate elements
+from FpML's <em>trade confirmation</em> view, whereas the <code>TradableProduct</code>
+data type corresponds to FpML's <em>pre-trade</em> view. The <code>TradableProduct</code>
+data type is further detailed in the
+<a href="./product-model#tradable-product"><code>tradable-product</code></a> section of the
+documentation.</p>
+<hr />
+<p>Additionally, <code>Trade</code> supports the representation of specific execution
+or contractual details via the <code>executionDetails</code> and <code>contractDetails</code>
+attributes.</p>
+<h4 id="executiondetails">ExecutionDetails</h4>
+<p>The <code>ExecutionDetails</code> data type represents details applicable to trade
+executions and includes attributes that describe the execution venue and
+execution type. Not all trades will have been 'executed', such as
+those created from a Swaption Exercise event. In those cases, the
+<code>executionDetails</code> attributes on <code>Trade</code> is expected to be empty.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">ExecutionDetails:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
+<span class="w">  </span><span class="n">executionType</span><span class="w"> </span><span class="kt">ExecutionTypeEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">executionVenue</span><span class="w"> </span><span class="kt">LegalEntity</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">packageReference</span><span class="w"> </span><span class="kt">IdentifiedList</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">  </span><span class="n">condition</span><span class="w"> </span><span class="kt">ExecutionVenue:</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="n">executionType</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ExecutionTypeEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Electronic</span>
+<span class="w">    </span><span class="kr">then</span><span class="w"> </span><span class="n">executionVenue</span><span class="w"> </span><span class="n">exists</span>
+</code></pre></div>
+<h4 id="contractdetails">ContractDetails</h4>
+<p><code>ContractDetails</code> are only applicable to trades on contractual products
+and are typically provided at or prior to trade confirmation.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">ContractDetails:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
+<span class="w">  </span><span class="n">documentation</span><span class="w"> </span><span class="kt">LegalAgreement</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">governingLaw</span><span class="w"> </span><span class="kt">GoverningLawEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">scheme</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="state">State</h3>
+<p>The <code>State</code> data type defines the state of a trade at a point in the
+Trade's life cycle. Trades have many state dimensions, all of which are
+represented here. For example, states useful for position keeping are
+represented alongside those needed for regulatory reporting.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">State:</span>
+<span class="w">  </span><span class="n">closedState</span><span class="w"> </span><span class="kt">ClosedState</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">positionState</span><span class="w"> </span><span class="kt">PositionStatusEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>When a trade is closed, it is necessary to record that closure as part
+of the trade state.</p>
+<p>For instance in a full novation scenario, the initial state is a single
+<code>TradeState</code> and the resulting state is two <code>TradeState</code>. The first
+resulting <code>TradeState</code> represents a new contract, which is the same as
+the original but where one of the parties has been changed, and the
+second resulting <code>TradeState</code> is the original contract, now marked as
+<em>closed</em>.</p>
+<p>The <code>ClosedState</code> data type (enclosed within <code>State</code>) captures this
+closed state and defines the reason for closure.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">enum</span><span class="w"> </span><span class="kt">ClosedStateEnum:</span>
+<span class="w">  </span><span class="kt">Allocated</span>
+<span class="w">  </span><span class="kt">Cancelled</span>
+<span class="w">  </span><span class="kt">Exercised</span>
+<span class="w">  </span><span class="kt">Expired</span>
+<span class="w">  </span><span class="kt">Matured</span>
+<span class="w">  </span><span class="kt">Novated</span>
+<span class="w">  </span><span class="kt">Terminated</span>
+</code></pre></div>
+<h3 id="reset">Reset</h3>
+<p>In many cases, a trade relies on the value of an observable which will
+become known in the future: for instance, a floating rate observation at
+the beginning of each period in the case of a Interest Rate Swap, or the
+equity price at the end of each period in an Equity Swap. This <em>reset</em>
+information is captured by the <code>Reset</code> data type and associated to the
+trade state.</p>
+<p>While the reset information is trade-specific, the observation itself is
+provided by the relevant market data provider independently of any
+specific trade. Such observation is captured by the <code>Observation</code> data
+type.</p>
+<p>Both the <code>observedValue</code> (in <code>Observation</code>) and the <code>resetValue</code> (in
+<code>Reset</code>) attributes are specified as a <code>Price</code> type. In the trade, the
+resettable value must be associated to a variable price attribute. It
+typically represents a number that is directly used to compute transfer
+amounts like cashflows.</p>
+<p>In addition to the observation value, a reset specifies the date from
+which the resettable value becomes applicable in the trade's context,
+which could be different from the observation date if some observation
+lag applies. Depending on the trade's economic properties, a reset may
+also depend on several observation values based on some aggregation
+method - e.g. a compounded interest rate based on daily fixings.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">Reset:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
+<span class="w">  </span><span class="n">resetValue</span><span class="w"> </span><span class="kt">Price</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">resetDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">rateRecordDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">observations</span><span class="w"> </span><span class="kt">Observation</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">reference</span><span class="p">]</span>
+<span class="w">  </span><span class="n">averagingMethodology</span><span class="w"> </span><span class="kt">AveragingCalculation</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">Observation:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">rootType</span><span class="p">]</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
+<span class="w">  </span><span class="n">observedValue</span><span class="w"> </span><span class="kt">Price</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">observationIdentifier</span><span class="w"> </span><span class="kt">ObservationIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="transfer">Transfer</h3>
+<p>A transfer is a multi-purpose object that represents the transfer of any
+asset, including cash, from one party to another. The <code>Transfer</code> object
+is associated to an enumeration to qualify the status that the transfer
+is in, from instruction to settlement or rejection.</p>
+<p>:::tip Definition: Transfer</p>
+<p>Defines the movement of an Asset (eg cash, securities or commodities)
+between two parties on a date.</p>
+<p>:::</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">TransferState:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
+<span class="w">  </span><span class="p">[</span><span class="n">rootType</span><span class="p">]</span>
+<span class="w">  </span><span class="n">transfer</span><span class="w"> </span><span class="kt">Transfer</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">transferStatus</span><span class="w"> </span><span class="kt">TransferStatusEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nf">choice</span><span class="w"> </span><span class="kt">Transfer:</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">ScheduledTransfer</span>
+<span class="w">    </span><span class="kt">UnscheduledTransfer</span><span class="w">    </span>
+
+<span class="kr">type</span><span class="w"> </span><span class="kt">UnscheduledTransfer</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">TransferBase:</span><span class="w"> </span>
+<span class="w">    </span><span class="n">transferType</span><span class="w"> </span><span class="kt">UnscheduledTransferEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
+
+<span class="kr">type</span><span class="w"> </span><span class="kt">ScheduledTransfer</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">TransferBase:</span><span class="w"> </span>
+<span class="w">    </span><span class="n">transferType</span><span class="w"> </span><span class="kt">ScheduledTransferEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">corporateActionTransferType</span><span class="w"> </span><span class="kt">CorporateActionTypeEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">payoutReference</span><span class="w"> </span><span class="kt">Payout</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">reference</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="primitive-event">Primitive Events</h2>
+<h3 id="primitive-operator">Primitive Operator</h3>
+<p>:::tip Definition: Primitive operators</p>
+<p>Primitive operators are functional building blocks used to compose
+business events. Each primitive operator describes a fundamental state
+transition that applies to a trade.</p>
+<p>:::</p>
+<p>There are nine fundamental operations on trade state. Other than split
+and execution, they each impact separate attributes of a trade state and
+are therefore independent of each other.</p>
+<ol>
+<li>execution: instantiates a new trade.</li>
+<li>quantity change: changes the quantity (and/or price) of a trade</li>
+<li>terms change: changes the terms of the product of a trade</li>
+<li>party change: changes a party on a trade</li>
+<li>exercise: exercises an option embedded in a trade</li>
+<li>contract formation: associates a legal agreement to a trade</li>
+<li>reset: changes a trade's resettable value based on an observation</li>
+<li>transfer: transfers some asset (cash, security, commodity) from one
+    party to another</li>
+<li>split: splits a trade into multiple identical trades</li>
+</ol>
+<h3 id="primitive-function">Primitive Function</h3>
+<p>A primitive operator is represented by a primitive function that takes a
+before trade state as input and returns an after trade state as output,
+both of type <code>TradeState</code>. The only exceptions to this rule are:</p>
+<ul>
+<li>execution, for which there is no before state since its purpose is
+    to instantiate a new trade, and</li>
+<li>split, which results in multiple trade states as copies of the
+    original trade.</li>
+</ul>
+<p>All primitive functions are prefixed by <code>Create_</code> followed by the name
+of the primitive operator. The business logic of primitive functions is
+fully implemented. An example of primitive function, for the
+<code>PartyChange</code> primitive, is illustrated below.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">Create_PartyChange:</span>
+<span class="w">  </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">counterparty</span><span class="w"> </span><span class="kt">Counterparty</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">ancillaryParty</span><span class="w"> </span><span class="kt">AncillaryParty</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">partyRole</span><span class="w"> </span><span class="kt">PartyRole</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">tradeId</span><span class="w"> </span><span class="kt">TradeIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">    </span><span class="n">originalTrade</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">newTrade</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="primitive-instruction">Primitive Instruction</h3>
+<p>Primitive functions take additional inputs alongside the before trade
+state to specify the parameters of the state transition. Each primitive
+operator is associated to a primitive instruction data type that
+contains the function's required parameters as attributes - illustrated
+below using the same <code>PartyChange</code> example.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">PartyChangeInstruction:</span>
+<span class="w">  </span><span class="n">counterparty</span><span class="w"> </span><span class="kt">Counterparty</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">ancillaryParty</span><span class="w"> </span><span class="kt">AncillaryParty</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">partyRole</span><span class="w"> </span><span class="kt">PartyRole</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">tradeId</span><span class="w"> </span><span class="kt">TradeIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>PrimitiveInstruction</code> data type allows to build composite primitive
+instructions and therefore compose primitive operators. This data type
+contains one instruction attribute for each of the possible nine
+primitive instruction types - aligned onto the nine fundamental
+primitive operators.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">PrimitiveInstruction:</span>
+<span class="w">  </span><span class="n">contractFormation</span><span class="w"> </span><span class="kt">ContractFormationInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">execution</span><span class="w"> </span><span class="kt">ExecutionInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">exercise</span><span class="w"> </span><span class="kt">ExerciseInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">partyChange</span><span class="w"> </span><span class="kt">PartyChangeInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">quantityChange</span><span class="w"> </span><span class="kt">QuantityChangeInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">reset</span><span class="w"> </span><span class="kt">ResetInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">split</span><span class="w"> </span><span class="kt">SplitInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">termsChange</span><span class="w"> </span><span class="kt">TermsChangeInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">transfer</span><span class="w"> </span><span class="kt">TransferInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="primitive-composition">Primitive Composition</h3>
+<p>The separation between the before trade state and primitive instructions
+allows to compose primitive operators. Primitive operators can be
+chained by applying a composite primitive instruction to a single trade
+state, as represented in the diagram below.</p>
+<p><img alt="" src="/img/composing-primitive-operators.png" /></p>
+<hr />
+<p><strong>Note:</strong>
+When a primitive instruction is composite, interim trade states will be
+created when executing each primitive operator. These interim trade
+states may not correspond to any actual business outcome (only the final
+after trade state does), so implementors will usually choose not to
+persist them.</p>
+<hr />
+<p>The <code>Create_TradeState</code> function performs such composition of primitive
+operators. It takes a single trade state and a composite primitive
+instruction as inputs and returns a single trade state. The before trade
+state input is optional, in which case a new execution must be specified
+in the instructions.</p>
+<p>This function applies each of the primitive operators (other than split)
+to the trade state in the order listed in the <a href="#primitive-operator">primitive
+operator</a> section. Apart from execution which, when
+present, must always be applied first, the order does not affect the
+outcome because each primitive operator impacts a different part of the
+trade state.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">Create_TradeState:</span>
+<span class="w">  </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">primitiveInstruction</span><span class="w"> </span><span class="kt">PrimitiveInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">before</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">after</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="special-case-split">Special Case: Split</h3>
+<p>Split is a special case of primitive operator. It is used in many
+lifecycle events that require a trade to be copied, such as in clearing
+or allocation scenarios.</p>
+<ul>
+<li>In itself, it does not change the state of a trade - it just creates
+    identical copies</li>
+<li>Contrary to other operators, it outputs multiple trade states</li>
+<li>Order matters: when present, a split must be executed before other
+    operators can be applied to its multiple output</li>
+</ul>
+<p>Like other primitive operators, split is associated to a split function
+and a split instruction. But unlike other operators, the split function
+cannot be executed in the <code>Create_TradeState</code> function because it
+returns a multiple output. Instead, a split instruction provides a
+breakdown of primitive instructions to apply to each post-split trade
+state.</p>
+<p>For example, an allocation instruction would be specified as a split
+breakdown, each with a quantity change instructions to divide the
+initial block trade into smaller pieces, and then a party change
+instruction to assign each piece to a different legal entity related to
+the executing party.</p>
+<p>The split function iterates on each element of the breakdown and applies
+the corresponding primitive instruction to each copy of the original
+trade using the <code>Create_TradeState</code> function. The size of that breakdown
+directs the size of the split.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">SplitInstruction:</span>
+<span class="w">  </span><span class="n">breakdown</span><span class="w"> </span><span class="kt">PrimitiveInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">Create_Split:</span>
+<span class="w">  </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">breakdown</span><span class="w"> </span><span class="kt">PrimitiveInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">    </span><span class="n">originalTrade</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">splitTrade</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+
+<span class="w">  </span><span class="n">add</span><span class="w"> </span><span class="n">splitTrade</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">breakdown</span>
+<span class="w">      </span><span class="n">extract</span><span class="w"> </span><span class="kt">Create_TradeState</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="n">originalTrade</span><span class="p">)</span>
+</code></pre></div>
+<p>Examples of how primitive operators work are illustrated below.</p>
+<h3 id="examples-of-primitive-operators">Examples of Primitive Operators</h3>
+<h4 id="execution-primitive">Execution Primitive</h4>
+<p>The first step in instantiating a transaction between two parties in the
+CDM is an <em>execution</em>. In practice, this execution represents the
+conclusion of a pre-trade process, which may be a client order that gets
+filled or a quote that gets accepted by the client. However, the CDM
+event model only covers post-trade lifecycle events so assumes that a
+trade gets instantiated "from scratch" at execution.</p>
+<p>Therefore, the execution function does not take any before state as
+input and all the trade details are contained in the execution
+instruction input.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">Create_Execution:</span>
+<span class="w">  </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">instruction</span><span class="w"> </span><span class="kt">ExecutionInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">execution</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">ExecutionInstruction:</span>
+<span class="w">  </span><span class="n">product</span><span class="w"> </span><span class="kt">NonTransferableProduct</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">priceQuantity</span><span class="w"> </span><span class="kt">PriceQuantity</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">counterparty</span><span class="w"> </span><span class="kt">Counterparty</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">..</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">  </span><span class="n">ancillaryParty</span><span class="w"> </span><span class="kt">AncillaryParty</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">parties</span><span class="w"> </span><span class="kt">Party</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">partyRoles</span><span class="w"> </span><span class="kt">PartyRole</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">executionDetails</span><span class="w"> </span><span class="kt">ExecutionDetails</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">tradeDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">id</span><span class="p">]</span>
+<span class="w">  </span><span class="n">tradeTime</span><span class="w"> </span><span class="kt">TimeZone</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">id</span><span class="p">]</span>
+<span class="w">  </span><span class="n">tradeIdentifier</span><span class="w"> </span><span class="kt">TradeIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">collateral</span><span class="w"> </span><span class="kt">Collateral</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">lotIdentifier</span><span class="w"> </span><span class="kt">Identifier</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="contract-formation-primitive">Contract Formation Primitive</h4>
+<p>Once an execution is confirmed, a legally binding contract is signed
+between the two executing parties and a <em>contract formation</em> associates
+a legal agreement to the transaction. The contract formation primitive
+function represents the transition of the trade state to a legally
+binding legal agreement after the trade is confirmed.</p>
+<p>The function takes an existing trade state (typically, but not
+necessarily, an execution) as input and returns a trade state output
+containing the contract details. The <code>ContractDetails</code> object can
+reference some higher-order legal documentation governing the
+transaction - usually a <em>master agreement</em>. This legal documentation
+information is provided in the contract formation instruction input.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">Create_ContractFormation:</span>
+<span class="w">  </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">instruction</span><span class="w"> </span><span class="kt">ContractFormationInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">execution</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">contractFormation</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">ContractFormationInstruction:</span>
+<span class="w">  </span><span class="n">legalAgreement</span><span class="w"> </span><span class="kt">LegalAgreement</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+</code></pre></div>
+<p>Because a transaction may change through some lifecycle events before
+getting confirmed, the contract formation primitive is separated from
+the execution primitive so that it can be invoked appropriately
+depending on the scenario. E.g. in an allocation, the trade would first
+get split into sub-accounts as designated by one of the executing
+parties, before a set of legally binding contracts is signed with each
+of those sub-accounts. A contract formation may not even follow an
+execution and could occur as part of later lifecycle events. E.g. in a
+novation scenario, a new contract will need to be instantiated with the
+step-in party and the right legal agreement associated to that trade.</p>
+<p>In other cases, the execution and confirmation happen in one go and a
+contract is instantiated immediately. Such contract instantiation
+scenario can be represented using a compositive primitive instruction
+that comprises both an execution and a contract formation instruction
+and applies to a null trade state.</p>
+<h4 id="reset-primitive">Reset Primitive</h4>
+<p>The reset function associates a reset object to the trade state. The
+reset function creates an instances of the <code>Reset</code> data type and adds it
+to the <code>resetHistory</code> attribute of a given <code>TradeState</code>. The reset
+instruction specifies the payout that is subject to the reset, via a
+reference. A reset does not modify the underlying <code>Trade</code> object.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">Create_Reset:</span>
+<span class="w">  </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">instruction</span><span class="w"> </span><span class="kt">ResetInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">tradeState</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">reset</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">ResetInstruction:</span>
+<span class="w">  </span><span class="n">payout</span><span class="w"> </span><span class="kt">Payout</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">reference</span><span class="p">]</span>
+<span class="w">  </span><span class="n">rateRecordDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">resetDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="transfer-primitive">Transfer Primitive</h4>
+<p>The transfer primitive function takes a <code>TransferState</code> object as
+transfer instruction input and adds it to the <code>transferHistory</code>
+attribute of the <code>TradeState</code>.</p>
+<p>By design, the CDM treats the reset and the transfer primitive operators
+separately because there is no one-to-one relationship between reset and
+transfer.</p>
+<ul>
+<li>Many transfer events are not tied to any reset: for instance, the
+    currency settlement from an FX spot or forward transaction.</li>
+<li>Conversely, not all reset events generate a cashflow: for instance,
+    the single, final settlement that is based on all the past floating
+    rate resets in the case of a compounding floating zero-coupon swap.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">TransferInstruction:</span>
+<span class="w">  </span><span class="n">transferState</span><span class="w"> </span><span class="kt">TransferState</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="business-event">Business Event</h2>
+<p>:::tip Definition: Business Event</p>
+<p>A business event represents a life cycle event of a trade. The combination 
+of the state changes results in a qualifiable life cycle event. An example 
+of a Business Event is a PartialTermination which is a defined by a quantity 
+change primitive event.</p>
+<p>:::</p>
+<p>Business events are built according to the following principles:</p>
+<ul>
+<li><strong>A business event is specified functionally by composing primitive
+    operators</strong>, each of which representing a fundamental change to the
+    trade state and described by a primitive instruction.</li>
+<li><strong>Business event qualification is inferred from those primitive
+    components</strong> and, in some relevant cases, from an additional
+    <em>intent</em> qualifier associated with the business event. The inferred
+    value is populated in the <code>eventQualifier</code> attribute.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">BusinessEvent</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">EventInstruction:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
+<span class="w">  </span><span class="p">[</span><span class="n">rootType</span><span class="p">]</span>
+
+<span class="w">  </span><span class="n">eventQualifier</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">after</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">Instruction:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">rootType</span><span class="p">]</span>
+<span class="w">  </span><span class="n">primitiveInstruction</span><span class="w"> </span><span class="kt">PrimitiveInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">before</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">reference</span><span class="p">]</span>
+</code></pre></div>
+<p>The only mandatory attributes of a business event are:</p>
+<ul>
+<li>The event instruction. This is a list of <code>Instruction</code> objects, each
+    representing a composite primitive instruction applied to a single
+    (before) trade state. This attribute is of multiple cardinality, so
+    a business event may impact multiple trades concurrently and result
+    in multiple (after) trade states.</li>
+<li>The event date. The time dimension has been purposely ommitted from
+    the event's attributes. That is because, while a business event has
+    a unique date, several time stamps may potentially be associated to
+    that event depending on when it was submitted, accepted, rejected
+    etc, all of which are <em>workflow</em> considerations.</li>
+</ul>
+<hr />
+<p><strong>Note:</strong>
+The <code>primitives</code> attribute corresponds to a previous implementation of
+the primitive operators, now deprecated but maintained for
+backward-compatibility purposes. Because some implementations rely on
+this former mechanism instead of the new primitive instruction
+mechanism, the lower bound of the <code>instruction</code> attribute's cardinality
+is 0 instead of 1. It will be updated to 1 once the former primitive
+mechanism is fully retired.</p>
+<hr />
+<h3 id="event-composition">Event Composition</h3>
+<p>An example composition of primitive instructions to represent a complete
+lifecycle event is shown below. The event represents the <em>partial
+novation</em> of a contract, which comprises the following:</p>
+<ul>
+<li>a split primitive</li>
+<li>a quantity change primitive applied to each post-split trade, where
+    the total quantity should match the quantity of the original trade
+    and none of the quantities is 0. A quantity of 0 for the remaining
+    trade would result in a termination and represent a <em>full novation</em>.</li>
+<li>a party change primitive applied to the post-split trade whose
+    quantity corresponds to the novated quantity.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;primitiveInstruction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nt">&quot;split&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="nt">&quot;breakdown&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;partyChange&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">           </span><span class="nt">&quot;counterparty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;partyReference&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                   </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bank Z&quot;</span>
+<span class="w">                 </span><span class="p">},</span>
+<span class="w">                 </span><span class="nt">&quot;partyId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                   </span><span class="nt">&quot;identifier&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LEI3RPT0003&quot;</span>
+<span class="w">                   </span><span class="p">},</span>
+<span class="w">                   </span><span class="nt">&quot;identifierType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LEI&quot;</span><span class="p">,</span>
+<span class="w">                 </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<span class="w">               </span><span class="p">}</span>
+<span class="w">             </span><span class="p">},</span>
+<span class="w">             </span><span class="nt">&quot;role&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PARTY_1&quot;</span>
+<span class="w">           </span><span class="p">},</span>
+<span class="w">           </span><span class="nt">&quot;tradeId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;assignedIdentifier&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;identifier&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LEI3RPT0003DDDD&quot;</span>
+<span class="w">               </span><span class="p">},</span>
+<span class="w">               </span><span class="nt">&quot;identifierType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UNIQUE_TRANSACTION_IDENTIFIER&quot;</span>
+<span class="w">             </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<span class="w">             </span><span class="nt">&quot;issuer&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LEI3RPT0003&quot;</span>
+<span class="w">             </span><span class="p">},</span>
+<span class="w">           </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<span class="w">         </span><span class="p">},</span>
+<span class="w">         </span><span class="nt">&quot;quantityChange&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">           </span><span class="nt">&quot;change&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;quantity&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;amount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span>
+<span class="w">                 </span><span class="nt">&quot;unitOfAmount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                   </span><span class="nt">&quot;currency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USD&quot;</span>
+<span class="w">                   </span><span class="p">}</span>
+<span class="w">                 </span><span class="p">}</span>
+<span class="w">               </span><span class="p">}</span>
+<span class="w">             </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<span class="w">           </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<span class="w">           </span><span class="nt">&quot;direction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REPLACE&quot;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">       </span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;quantityChange&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">           </span><span class="nt">&quot;change&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;quantity&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;amount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span>
+<span class="w">                 </span><span class="nt">&quot;unitOfAmount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                   </span><span class="nt">&quot;currency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USD&quot;</span>
+<span class="w">                   </span><span class="p">}</span>
+<span class="w">                 </span><span class="p">}</span>
+<span class="w">               </span><span class="p">}</span>
+<span class="w">             </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<span class="w">           </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<span class="w">           </span><span class="nt">&quot;direction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REPLACE&quot;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">       </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+</code></pre></div>
+<p>A business event is <em>atomic</em>, i.e. its primitive components cannot
+happen independently. They either all happen together or not at all. In
+the above partial novation example, the existing trade between the
+original parties must be downsized at the same time as the trade with
+the new party is instantiated. Trade compression is another example,
+that involves multiple before trades being downsized or terminated and
+new trades being created between multiple parties, all of which must
+happen concurrently.</p>
+<h3 id="event-qualification-section">Event Qualification</h3>
+<p><strong>The CDM qualifies lifecycle events as a function of their primitive
+components</strong> rather than explicitly declaring the event type. The CDM
+uses the same approach for event qualification as for product
+qualification and is based on a set of Event Qualification functions.
+These functions are identified with a <code>[qualification BusinessEvent]</code>
+annotatation.</p>
+<p>Event Qualification functions apply a taxonomy-specific business logic
+to identify if the state-transition attributes values, which are
+embedded in the primitive event components, match the specified criteria
+for the event named in that taxonomy. Like Product Qualification
+functions, the Event Qualification function name is prefixed with the
+word <code>Qualify_</code> followed by the taxonomy name.</p>
+<p>The CDM uses the ISDA taxonomy V2.0 leaf level to qualify the event. 23
+lifecycle events have currently been qualified as part of the CDM.</p>
+<p>One distinction with the product approach is that the <code>intent</code>
+qualification is also deemed necessary to complement the primitive event
+information in certain cases. To this effect, the Event Qualification
+function allows to specify that when present, the intent must have a
+specified value, as illustrated by the below example.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">Qualify_Termination:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">qualification</span><span class="w"> </span><span class="kt">BusinessEvent</span><span class="p">]</span>
+<span class="w">  </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">businessEvent</span><span class="w"> </span><span class="kt">BusinessEvent</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">output</span><span class="kt">:</span><span class="w"> </span><span class="n">is_event</span><span class="w"> </span><span class="n">boolean</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">alias</span><span class="w"> </span><span class="n">primitiveInstruction</span><span class="kt">:</span><span class="w"> </span><span class="n">businessEvent</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">primitiveInstruction</span><span class="w"> </span><span class="n">only</span><span class="o">-</span><span class="n">element</span>
+<span class="w">  </span><span class="n">alias</span><span class="w"> </span><span class="n">transfer</span><span class="kt">:</span><span class="w"> </span><span class="kt">TransfersForDate</span><span class="p">(</span><span class="w"> </span><span class="n">businessEvent</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">transferHistory</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">transfer</span><span class="p">,</span><span class="w"> </span><span class="n">businessEvent</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">eventDate</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">only</span><span class="o">-</span><span class="n">element</span>
+
+<span class="w">  </span><span class="n">set</span><span class="w"> </span><span class="n">is_event</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">businessEvent</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">intent</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">absent</span>
+<span class="w">      </span><span class="n">and</span><span class="w"> </span><span class="p">(</span><span class="n">primitiveInstruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">quantityChange</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">exists</span>
+<span class="w">          </span><span class="n">or</span><span class="w"> </span><span class="p">(</span><span class="n">primitiveInstruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">quantityChange</span><span class="p">,</span><span class="w"> </span><span class="n">primitiveInstruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">transfer</span><span class="p">)</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">exists</span><span class="p">)</span>
+<span class="w">      </span><span class="n">and</span><span class="w"> </span><span class="p">(</span><span class="kt">QuantityDecreasedToZero</span><span class="p">(</span><span class="n">businessEvent</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">before</span><span class="p">,</span><span class="w"> </span><span class="n">businessEvent</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">after</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">True</span><span class="p">)</span>
+<span class="w">      </span><span class="n">and</span><span class="w"> </span><span class="p">(</span><span class="n">businessEvent</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">closedState</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ClosedStateEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Terminated</span><span class="p">)</span>
+</code></pre></div>
+<p>If all the statements above are true, then the function evaluates to
+True. In this case, the event is determined to be qualified as the event
+type referenced by the function name.</p>
+<p>The output of the qualification function is used to populate the
+<code>eventQualifier</code> attribute of the <code>BusinessEvent</code> object, similar to how
+product qualification works. An implementation of the CDM would call all
+of the Event Qualification functions following the creation of each
+event and then insert the appropriate value or provide an exception
+message.</p>
+<hr />
+<p><strong>Note:</strong>
+The type of the <code>eventQualifier</code> attribute in <code>BusinessEvent</code>, called
+<code>eventType</code>, is a <em>meta-type</em> that indicates that its value is meant to
+be populated using some functional logic. That functional logic must be
+represented by a qualification function annotated with
+<code>[qualification BusinessEvent]</code>, as in the example above. This mechanism
+is further detailed in the Rosetta DSL documentation.</p>
+<hr />
+<h3 id="intent">Intent</h3>
+<p>The intent attribute is an enumeration value that represents the intent
+of a particular business event. It is used in the event qualifcation
+logic in cases where the primitive composition is not sufficient to
+uniquely infer a lifecycle event.</p>
+<p>The description of each possible enumeration value provides an
+illustration of how this attribute is used.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">enum</span><span class="w"> </span><span class="kt">EventIntentEnum:</span>
+<span class="w">   </span><span class="kt">Allocation</span>
+<span class="w">   </span><span class="kt">CashFlow</span>
+<span class="w">   </span><span class="kt">Clearing</span>
+<span class="w">   </span><span class="kt">Compression</span>
+<span class="w">   </span><span class="kt">ContractFormation</span>
+<span class="w">   </span><span class="kt">ContractTermsAmendment</span>
+<span class="w">   </span><span class="kt">CorporateActionAdjustment</span>
+<span class="w">   </span><span class="kt">CreditEvent</span>
+<span class="w">   </span><span class="kt">Decrease</span>
+<span class="w">   </span><span class="kt">EarlyTerminationProvision</span>
+<span class="w">   </span><span class="kt">Increase</span>
+<span class="w">   </span><span class="kt">IndexTransition</span>
+<span class="w">   </span><span class="kt">NotionalReset</span>
+<span class="w">   </span><span class="kt">NotionalStep</span>
+<span class="w">   </span><span class="kt">Novation</span>
+<span class="w">   </span><span class="kt">ObservationRecord</span>
+<span class="w">   </span><span class="kt">OptionExercise</span>
+<span class="w">   </span><span class="kt">OptionalExtension</span>
+<span class="w">   </span><span class="kt">OptionalCancellation</span>
+<span class="w">   </span><span class="kt">PortfolioRebalancing</span>
+<span class="w">   </span><span class="kt">PrincipalExchange</span>
+<span class="w">   </span><span class="kt">Reallocation</span>
+<span class="w">   </span><span class="kt">Repurchase</span>
+</code></pre></div>
+<h3 id="lineage">Lineage</h3>
+<p>The <code>BusinessEvent</code> data type implements <em>lineage</em> by tying each trade
+state to the trade state(s) that came before it in the lifecyle. The
+<code>before</code> attribute in each instruction is included as a reference using
+the <code>[metadata reference]</code> annotation. By definition the primitive
+instruction applies to a trade state that <em>already</em> exists.</p>
+<p>By contrast, the <code>after</code> trade state in the business event provides a
+full definition of that object. That trade state is occurring for the
+first time and as triggered by the application of the primitive
+operators specified in the business event. The after trade state is
+optional because it may be latent while the business event is going
+through some acceptance workflow.</p>
+<h3 id="other-misc-information">Other Misc. Information</h3>
+<p>Other selected attributes of a business event are explained below.</p>
+<ul>
+<li>The effective date is optional as it is not applicable to certain
+    events (e.g. observations), or may be redundant with the event date.</li>
+<li>The event qualifier attribute is derived from the event
+    qualification features. This is further detailed in the <a href="event-model#event-qualification-section">event
+    qualification</a>above. </li>
+</ul>
+<h2 id="workflow">Workflow</h2>
+<p>The CDM provides support for implementors to develop workflows to
+process transaction lifecycle events.</p>
+<p>:::tip Definition: Workflow</p>
+<p>A <em>workflow</em> represents a set of actions or steps that are required to
+trigger a business event, including the initial execution or contract
+formation. A workflow is organised into a sequence in which each step is
+represented by a <em>workflow step</em>. A workflow may involve multiple
+parties in addition to the parties to the transaction, and may include
+automated and manual steps. A workflow may involve only one step.</p>
+<p>:::</p>
+<p>The CDM supports a workflow's audit trail by providing lineage from one
+step to another in that workflow.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">WorkflowStep:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
+<span class="w">  </span><span class="p">[</span><span class="n">rootType</span><span class="p">]</span>
+<span class="w">  </span><span class="n">businessEvent</span><span class="w"> </span><span class="kt">BusinessEvent</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">counterpartyPositionBusinessEvent</span><span class="w"> </span><span class="kt">CounterpartyPositionBusinessEvent</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">proposedEvent</span><span class="w"> </span><span class="kt">EventInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">rejected</span><span class="w"> </span><span class="n">boolean</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">approval</span><span class="w"> </span><span class="kt">WorkflowStepApproval</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">previousWorkflowStep</span><span class="w"> </span><span class="kt">WorkflowStep</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">reference</span><span class="p">]</span>
+<span class="w">  </span><span class="n">nextEvent</span><span class="w"> </span><span class="kt">EventInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">messageInformation</span><span class="w"> </span><span class="kt">MessageInformation</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">timestamp</span><span class="w"> </span><span class="kt">EventTimestamp</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">eventIdentifier</span><span class="w"> </span><span class="kt">Identifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">action</span><span class="w"> </span><span class="kt">ActionEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">party</span><span class="w"> </span><span class="kt">Party</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">account</span><span class="w"> </span><span class="kt">Account</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">lineage</span><span class="w"> </span><span class="kt">Lineage</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">deprecated</span><span class="p">]</span>
+<span class="w">  </span><span class="n">creditLimitInformation</span><span class="w"> </span><span class="kt">CreditLimitInformation</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">workflowState</span><span class="w"> </span><span class="kt">WorkflowState</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>The different attributes of a workflow step are detailed in the sections
+below.</p>
+<h3 id="workflow-step-business-event">Workflow Step Business Event</h3>
+<p>This attribute specifies the business event that the workflow step is
+meant to generate. It is optional because the workflow may require a
+number of interim steps before the state-transition embedded within the
+business event becomes effective, therefore the business event does not
+exist yet in those steps. The business event attribute is typically
+associated with the final step in the workflow.</p>
+<h3 id="proposed-event">Proposed Event</h3>
+<p>This attribute specifies the inputs required to perform the event's
+state transition and comprises a subset of the attributes of the
+business event itself. It is optional because it is only required for
+all pre-acceptance workflow steps. Once accepted, the business event is
+entirely represented, including its instructions, by the <code>businessEvent</code>
+attribute.</p>
+<p>Validation components are in place to check that the <code>businessEvent</code> and
+<code>proposedEvent</code> attributes are mutually exclusive.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">EventInstruction:</span>
+<span class="w">  </span><span class="n">intent</span><span class="w"> </span><span class="kt">EventIntentEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">corporateActionIntent</span><span class="w"> </span><span class="kt">CorporateActionTypeEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">eventDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">eventTime</span><span class="w"> </span><span class="kt">TimeZone</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">effectiveDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">effectiveTime</span><span class="w"> </span><span class="kt">TimeZone</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">packageInformation</span><span class="w"> </span><span class="kt">IdentifiedList</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">instruction</span><span class="w"> </span><span class="kt">Instruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="next-event">Next Event</h3>
+<p>Parties sometimes pre-agree a follow-on event that is meant to be
+executed after the current event completes, but separately from it. A
+typical scenario is an execution that specifies that the trade is
+intended for clearing at a pre-specified clearing house. In this case,
+the parameters of the next event are known in advance need to be agreed
+between the parties as part of the current event.</p>
+<p>The parameters of this next event are represented by an
+<code>EventInstruction</code> data type included in the workflow process.</p>
+<h3 id="previous-workflow-step">Previous Workflow Step</h3>
+<p>This attribute, which is provided as a reference, defines the lineage
+between steps in a workflow. The result is an audit trail for a business
+event, which can trace the various steps leading to the business event
+that was triggered.</p>
+<h3 id="action">Action</h3>
+<p>The action enumeration qualification specifies whether the event is a
+new one or a correction or cancellation of a prior one, which are trade
+entry references and not reflective of negotiated changes to a contract.</p>
+<h3 id="message-information">Message Information</h3>
+<p>The <code>messageInformation</code> attribute defines details for delivery of the
+message containing the workflow steps.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">MessageInformation:</span>
+<span class="w">  </span><span class="n">messageId</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">scheme</span><span class="p">]</span>
+<span class="w">  </span><span class="n">sentBy</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">scheme</span><span class="p">]</span>
+<span class="w">  </span><span class="n">sentTo</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">scheme</span><span class="p">]</span>
+<span class="w">  </span><span class="n">copyTo</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">scheme</span><span class="p">]</span>
+</code></pre></div>
+<p><code>sentBy</code>, <code>sentTo</code> and <code>copyTo</code> information is optional, as possibly not
+applicable in a all technology contexts (e.g. in case of a distributed
+architecture).</p>
+<hr />
+<p><strong>Note:</strong>
+MessageInformation corresponds to some of the components of the FpML
+<em>MessageHeader.model</em>.</p>
+<hr />
+<h3 id="timestamp">Timestamp</h3>
+<p>The CDM adopts a generic approach to represent timestamp information,
+consisting of a <code>dateTime</code> and a <code>qualification</code> attributes, with the
+latter specified through an enumeration value.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">EventTimestamp:</span>
+<span class="w">  </span><span class="n">dateTime</span><span class="w"> </span><span class="n">zonedDateTime</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">qualification</span><span class="w"> </span><span class="kt">EventTimestampQualificationEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>The benefits of the CDM generic approach are twofold:</p>
+<ul>
+<li>It allows for flexibility in a context where it would be challenging
+    to mandate which points in the process should have associated
+    timestamps.</li>
+<li>Gathering all of those in one place in the model allows for
+    evaluation and rationalisation down the road.</li>
+</ul>
+<p>Below is an instance of a CDM representation (<a href="https://en.wikipedia.org/wiki/Serialization">serialised</a> into JSON)
+of this approach.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;dateTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2007-10-31T18:08:40.335-05:00&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;qualification&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EVENT_SUBMITTED&quot;</span>
+<span class="w"> </span><span class="p">},</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;dateTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2007-10-31T18:08:40.335-05:00&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;qualification&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EVENT_CREATED&quot;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<h3 id="event-identifier">Event Identifier</h3>
+<p>The Event Identifier provides a unique id that can be used for reference
+by other workflow steps. The data type is a generic identifier component
+that is used throughout the product and event models. The event
+identifier information comprises the <code>assignedIdentifier</code> and an
+<code>issuer</code>, which may be provided as a reference or via a scheme.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">Identifier:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
+<span class="w">  </span><span class="n">issuerReference</span><span class="w"> </span><span class="kt">Party</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">reference</span><span class="p">]</span>
+<span class="w">  </span><span class="n">issuer</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">scheme</span><span class="p">]</span>
+<span class="w">  </span><span class="n">assignedIdentifier</span><span class="w"> </span><span class="kt">AssignedIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+
+<span class="w">  </span><span class="n">condition</span><span class="w"> </span><span class="kt">IssuerChoice:</span>
+<span class="w">    </span><span class="n">required</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="n">issuerReference</span><span class="p">,</span><span class="w"> </span><span class="n">issuer</span>
+</code></pre></div>
+<hr />
+<p><strong>Note:</strong>
+FpML also uses an event identifier construct: the <code>CorrelationId</code>, but
+it is distinct from the identifier associated with the trade itself,
+which comes in different variations: <code>PartyTradeIdentifier</code>, with the
+<code>TradeId</code> and the <code>VersionedTradeId</code> as sub-components).</p>
+<hr />
+<h3 id="other-misc-attributes">Other Misc. Attributes</h3>
+<ul>
+<li>The <code>party</code> and <code>account</code> information are optional because not
+    applicable to certain events.</li>
+<li>The <code>lineage</code> attribute, now deprecated, was previously used to
+    reference an unbounded set of contracts, events and/or payout
+    components that an event may be associated to.</li>
+</ul>
+<hr />
+<p><strong>Note:</strong>
+The <code>lineage</code> attribute is superseded by the implementation in the CDM
+of: (i) trade state lineage, via the <code>before</code> reference in the primitive
+instructions, and (ii) workflow lineage, via the <code>previousWorkflowStep</code>
+attribute.</p>
+<hr />
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        with emoji by
+        <a href="https://github.com/twitter/twemoji" target="_blank" rel="noopener">
+          Twemoji
+        </a>
+      </div>
+      
+<div class="md-social">
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.tabs.link", "header.autohide", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/pymdownx-extras/extra-loader-B5CKpNQx.js"></script>
+      
+    
+  </body>
+</html>

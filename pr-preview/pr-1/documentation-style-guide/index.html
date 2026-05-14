@@ -1,0 +1,1199 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://lmodel.github.io/common-domain-model/documentation-style-guide/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Documentation Style Guide - common-domain-model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+
+      
+    
+<script src="../assets/pymdownx-extras/material-extra-theme-2ek1P7jT.js" type="text/javascript"></script>
+<script src="../assets/pymdownx-extras/material-extra-3rdparty-BUCF4rjN.js" type="text/javascript"></script>
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+      <link rel="stylesheet" href="../assets/pymdownx-extras/extra-c6ab11540a.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentation-style-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+<header class="md-header" data-md-component="header">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="header.title"
+  >
+    <a
+      href="https://lmodel.github.io/common-domain-model/"
+      title="common-domain-model"
+      class="md-header__button md-logo"
+      aria-label="common-domain-model"
+    >
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            common-domain-model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documentation Style Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      <div class="md-header-nav__scheme md-header-nav__button md-source__icon md-icon">
+          <a
+            href="javascript:toggleScheme();"
+            title="Light mode"
+            class="light-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="Dark mode"
+            class="dark-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="System preference"
+            class="system-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
+          </a>
+           <a
+            href="javascript:toggleScheme();"
+            title="Unknown scheme"
+            class="unknown-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"/></svg>
+          </a>
+      </div>
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lmodel/common-domain-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="common-domain-model" class="md-nav__button md-logo" aria-label="common-domain-model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    common-domain-model
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lmodel/common-domain-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-style-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Style Guide
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-cdm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The CDM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-data-definition-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General data definition components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completeness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Completeness
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Completeness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logical-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logical Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accuracy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#content-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Content Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Content Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heading-styles-and-flow-in-the-user-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heading styles and flow in the user documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-of-release-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Content of Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Style
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Style">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Content style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-format-for-cdm-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special format for CDM objects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fonts-text-styles-and-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fonts, Text Styles, and Spaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#style-references-for-additional-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Style references for additional guidance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+  <h1>Documentation Style Guide</h1>
+
+<h2 id="documentation-style-guide">Documentation Style Guide</h2>
+<p>The purpose of this section is to provide form and substance
+recommendations for editors of CDM documentation. "Documentation" in
+this context means any form of written guidance to CDM users and
+includes:</p>
+<ul>
+<li>the CDM user documentation</li>
+<li>release notes provided with each CDM release</li>
+<li>any description developed in the logical model itself, which
+    includes:<ul>
+<li>data types and attributes</li>
+<li>enumerations</li>
+<li>functions and rules</li>
+<li>test descriptions</li>
+<li>any other areas of the logical model where a textual description
+    may be provided</li>
+</ul>
+</li>
+</ul>
+<p>The intended audience for the CDM documentation includes software
+developers, data modelers, legal experts, business experts, and other
+subject matter experts who may have expertise in one area related to
+financial products, but are not experts in every area.</p>
+<p>The baseline for the recommendation is standards for spelling,
+punctuation, and other style rules applicable to British English. The
+recommendation in this document extends this rule set with a set of
+guidelines applicable to documentation for logical models. The
+recommendation does not provide an exhaustive list of all of the
+standard British English rules, but provides selective examples that are
+common to documentation in general.</p>
+<p>Writing and editing style is subjective and a matter of personal
+preferences, rather than right or wrong. The following guidelines are
+intended to ensure that the documentation provides consistent styling,
+regardless of who writes it, but should not be interpreted as an
+authoritative source on "good" styling.</p>
+<p>Unless otherwise noted, the recommended rules apply to all forms of CDM
+documentation. When rules are applicable only to certain forms of
+documentation (for instance, the logical model descriptions or the
+release notes), they will be specified as such.</p>
+<h2 id="terminology">Terminology</h2>
+<h3 id="the-cdm">The CDM</h3>
+<p>The model should be referred to as <em>the CDM</em>, without any ownership
+mention. The only exception is the <a href="../cdm-overview/">Overview of the FINOS
+CDM</a> section at the beginning of the user
+documentation when the CDM is introduced as <em>the FINOS CDM</em>.</p>
+<h3 id="general-data-definition-components">General data definition components</h3>
+<p>The two data definition components should be referred to as follows:</p>
+<ol>
+<li><em>Data type</em>: defines an entity with a description, attributes, and
+    where applicable, conditions.<ol>
+<li>Not <em>type</em>.</li>
+<li>Not <em>class</em>: although these are appropriate terms for some of
+    the distributions of the CDM into other languages, they are not
+    applicable for all.</li>
+</ol>
+</li>
+<li><em>Attribute</em>: defines a member of a data type.<ol>
+<li>Not <em>field</em>.</li>
+<li>Not <em>element</em>.</li>
+</ol>
+</li>
+</ol>
+<h3 id="product">Product</h3>
+<ol>
+<li><em>Financial Product</em>. The user documentation defines
+    <a href="./product-model#product">financial-product</a> as the highest
+    level of the hierarchy of the universe of products. The term
+    <em>Financial Product</em> should be used consistently throughout the
+    documentation and wherever applicable in the model descriptions when
+    describing the broad set of products.</li>
+<li><em>Contractual Product</em>. Similarly,
+    <a href="./product-model#product">contractual-product</a> is defined as a
+    subset of Financial Products and should be used consistently in any
+    documentation.<ol>
+<li>Not <em>Derivatives</em>.</li>
+<li>Not <em>OTC</em>. Contractual Product is at a higher hierarchy level
+    than OTC Derivatives because it can include other types of
+    products such as Security Financing.</li>
+</ol>
+</li>
+</ol>
+<h3 id="event">Event</h3>
+<ol>
+<li><em>Business Event</em>. In the CDM, a <a href="event-model#business-event">business-event</a> represents an event that may occur during the lifecycle
+    of a trade, such as an amendment, a termination, a reset or a
+    payment.<ol>
+<li>Not <em>Lifecycle Event</em>. the term <em>Business Event</em> should be
+    consistently used when referring to these data structures in the
+    CDM documentation.</li>
+</ol>
+</li>
+<li><em>Primitive Event</em>. In the CDM, a <a href="./event-model#primitive-event">primitive-event</a> represents a building block component used to specify
+    business events in the CDM.<ol>
+<li>Not <em>Primitive</em> (stand-alone). In the CDM documentation, the
+    word <em>Primitive</em> always needs to be qualified with <em>Event</em>,
+    because the word <em>Primitive</em> may be associated to very different
+    meanings, e.g. in computing.</li>
+</ol>
+</li>
+</ol>
+<h2 id="completeness">Completeness</h2>
+<h3 id="user-documentation">User Documentation</h3>
+<ol>
+<li>The user documentation should provide an applicable introduction and
+    should have a section for every primary component of the CDM.</li>
+<li>Each section should provide enough business context and explanations
+    of the model so that the average reader in the target audience
+    understands the purpose of the component and its role in the model.</li>
+<li>Each section should have at least one example of a data structure</li>
+</ol>
+<h3 id="logical-model">Logical Model</h3>
+<ol>
+<li>Every data type, attribute, enumerated value, function, and test
+    should have a description that describes its purpose in the context
+    of the CDM.</li>
+</ol>
+<h2 id="accuracy">Accuracy</h2>
+<ol>
+<li>Descriptions should accurately describe the current state of the
+    model. This seems obvious, but there are many possible ways for
+    introducing misalignments, including: an anticipated change never
+    occurred, or the author incorrectly interpreted the structure, or
+    the data structure changed while the documentation or description
+    was not updated.</li>
+<li>Subtasks in a design process should include an assessment of
+    documentation and descriptions that will be required to be changed
+    or created, and should include the content.</li>
+<li>A release checklist should verify that the affected documentation
+    and descriptions are completed accordingly.</li>
+</ol>
+<h2 id="content-guidelines">Content Guidelines</h2>
+<h3 id="general-guidelines">General guidelines</h3>
+<ol>
+<li>Data Definition components (e.g. data types, attributes,
+    enumerations and enumerated values) should be explained in business
+    terms.<ol>
+<li>The description of objects in the model should begin with the
+    purpose of the object. The purpose should explain what the
+    object is, not "what it is not".</li>
+<li>Data type description should begin with a verb that describes
+    what the type does.</li>
+<li>The logical model identifies data types without needing a
+    description, therefore, the description should not begin with a
+    phrase like: "A data type that does..."</li>
+<li>Attribute description should articulate the use of the type in
+    the context of the attribute.</li>
+<li>The description should not be tautological, e.g. PartyRole
+    \&lt;defines the party role&gt; is not compliant with these
+    guidelines.</li>
+<li>References to a similar attribute in FpML should not be used as
+    a crutch in place of explaining a data type, attribute, etc.</li>
+<li>In most cases, where a reference to FpML is considered useful,
+    it should be placed at the end of a description in the logical
+    model, or in a note at the end of a section in the user
+    documentation. In the case of the logical model, note that
+    synonyms for FpML are provided, therefore it should not be
+    necessary to reference FpML in every case.</li>
+</ol>
+</li>
+</ol>
+<p>Example of a non-compliant description:</p>
+<div class="highlight"><pre><span></span><code>&lt;&quot;A data type to represent a financial product. With respect to contractual products, this class specifies the pre-execution product characteristics (the ContractualProduct class). This class is used as underlying for the option exercise representation, which makes use of the contractualProduct attribute to support the swaption use case, with the exercise into a swap. In a complete workflow, the swaption contract itself then needs to be superseded by a swap contract underpinned by the exercised swap as a contractualProduct.&quot;&gt;
+</code></pre></div>
+<p>Instead a compliant description would state:</p>
+<div class="highlight"><pre><span></span><code>&lt;&quot;Represents a financial product. With respect to a contractual products, this data type specifies the pre-execution product characteristics...”&gt;
+</code></pre></div>
+<p>Another non-compliant example:</p>
+<div class="highlight"><pre><span></span><code>&lt;&quot;This class corresponds to the FpML CalculationAgent.model.&quot;&gt;
+</code></pre></div>
+<ol>
+<li>The description of data objects or the overall model should be
+    focused on the current state, there should be no reference to the
+    history of the model or a future state.<ol>
+<li>The history of the model is not relevant in this context. It is
+    sufficient to describe how the model currently works.</li>
+<li>Forward-looking statements can create a perception that the
+    product is not finished, and become a distraction to explaining
+    what the product does. Moreover, these future plans may never
+    materialise.</li>
+<li>Given these rules, phrases such as "the model currently
+    does...." should be excluded because any documentation must be a
+    description of what the model currently does.</li>
+</ol>
+</li>
+</ol>
+<h3 id="heading-styles-and-flow-in-the-user-documentation">Heading styles and flow in the user documentation</h3>
+<ol>
+<li>Heading styles. The user documentation is edited in the <em>RST
+    (reStructured Text)</em> mark-up language, which is then rendered into
+    Html in the CDM documentation website using <em>Sphinx</em>. For headings
+    to be rendered with the correct structure, they should be annotated
+    according to the following table:<ol>
+<li>If using a header to identify a section to describe a component,
+    then use headers to describe other components that are at the
+    same level.</li>
+<li>Sub-headings should have a name distinct from the higher level
+    heading. e.g. if Legal Agreement is the Heading Level 2, then
+    there should not be a heading at level 3 or 4 with the exact
+    same title.</li>
+</ol>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Heading Level</th>
+<th style="text-align: center;">Notation (underline in .rst)</th>
+<th style="text-align: right;">Relative font size (as seen by users)</th>
+<th style="text-align: right;">Section Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: center;"><em>[===============]</em></td>
+<td style="text-align: right;">XL font and bold</td>
+<td style="text-align: right;"><a href="./cdm-overview">common-domain-model</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: center;"><em>[---------------]</em></td>
+<td style="text-align: right;">L font and bold</td>
+<td style="text-align: right;"><a href="../product-model/">product-model-page</a>,<br/><a href="./legal-agreements">legal-agreements-page</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: center;"><em>[\^\^\^\^\^\^\^\^\^\^\^\^\^\^\^]</em></td>
+<td style="text-align: right;">M font and bold</td>
+<td style="text-align: right;"><a href="./product-model#tradable-product">tradable-product</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: center;"><em>["""""""""""""""]</em></td>
+<td style="text-align: right;">S font (same ascontent), but bold</td>
+<td style="text-align: right;"><a href="./product-model#pricequantity">price-quantity</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">:Heading Styles</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p>The RST editing syntax in which the user documentation is written is a
+standard web mark-up language, for which a reference guide can be found
+at: <a href="https://sublime-and-sphinx-guide.readthedocs.io">Sublime and Sphinx guide</a></p>
+<ol>
+<li>Logical organization and order:<ol>
+<li>The user documentation should walk the user through the model
+    from the top down, beginning at a description of the primary
+    components.</li>
+<li>Levels 1 and 2 should include a bullet point list of the sub
+    sections that will be described (bullets formatted with the
+    insertion of an asterisk followed by a space).</li>
+</ol>
+</li>
+<li>Define business terms and CDM terminology early in a section so that
+    the broader audience understands the model.</li>
+<li>Details about a topic should be presented in the section for that
+    topic:<ol>
+<li>In the case of a model component, the description of the
+    component should always be followed by an example.</li>
+<li>Most or all of the explanation should occur before the example,
+    not after, unless the example was needed as context for an
+    explanation.</li>
+<li>Transitions from one topic to another should be used to help
+    guide the user through the model.</li>
+</ol>
+</li>
+</ol>
+<h3 id="content-of-release-notes">Content of Release Notes</h3>
+<p>Release notes are text describing the content of any new CDM release and
+are a critical component of the distribution of that release. Release
+notes are edited in the <em>Mark-Down (MD)</em> syntax, which is then rendered
+into Html in the various channels where the release is published.</p>
+<ol>
+<li>Release notes should begin with a high-level headline of the part of
+    the model being changed, followed by "--" and a short headline
+    description<ol>
+<li>For example: "# Legal Agreement Model - Collateral Agreement
+    Elections"</li>
+</ol>
+</li>
+<li>They should provide enough detail for a reviewer or other interested
+    parties to be able to find and evaluate the change. For a data model
+    change, for example, the data type and attributes should be named
+    and the before/after states of the model explained, along with a
+    justification in which the issue is summarised.</li>
+<li>They should also embed a link to the Pull Request containing the change, to enable users to inspect those changes in details.</li>
+<li>If the release notes describe mapping rules, there should be
+    explicit information about the examples affected and the change in
+    resulting values for those examples.</li>
+<li>If the release is documentation, it should specify exactly where the
+    document was changed and why.</li>
+<li>Special formatting rules related to use of the MD mark-up language:<ol>
+<li>Headline should begin with a <code>#</code>, as in the above example, so
+    that it appears correctly formatted in Html</li>
+<li><code>*</code> before and after text (no space) for bold</li>
+<li><code>_</code> before and after text (no space) for italics</li>
+<li><code>–</code> (plus a space) for bullets</li>
+<li>Backticks <code>`\</code> before and after model components, e.g. data
+    types, attributes, enums, function names, etc. for special
+    code-style formatting</li>
+</ol>
+</li>
+</ol>
+<p>Example release notes formatted in MD:</p>
+<div class="highlight"><pre><span></span><code><span class="gh"># *CDM Model: Expanded set of enumerations in RegulatoryRegimeEnum*</span>
+
+<span class="ge">_What is being released_</span>
+
+Additional regimes have been added to the <span class="sb">`RegulatoryRegimeEnum`</span> which is used to express the required regimes for initial margin documentation. The <span class="sb">`RegulatoryRegimeEnum`</span> is used as an enumeration for attributes in the <span class="sb">`ApplicableRegime`</span> and <span class="sb">`SubstitutedRegime`</span> data types within the legal agreements model.
+
+The new enumerated values are <span class="sb">`BrazilMarginRules`</span>, <span class="sb">`UnitedKingdomMarginRules`</span>, <span class="sb">`SouthAfricaMarginRules`</span>, <span class="sb">`SouthKoreaMarginRules`</span>, and <span class="sb">`HongKongSFCMarginRules`</span>, all of which have come into force in January 2021.  Each of these enumerated values has a complete description that uses the text provided in the relevant regulatory supplement.
+
+<span class="ge">_Review directions_</span>
+
+In the CDM Portal select the Textual Browser, search for ‘ApplicableRegime’ and ‘SubstitutedRegime’, click on the ‘RegulatoryRegimeEnum’ next to the ‘regime’ attribute and observe the expanded list of regimes, including the ones noted above.
+
+Inspect Pull Request: [<span class="nt">#1101</span>](<span class="na">https://github.com/finos/common-domain-model/pull/1101</span>)
+</code></pre></div>
+<p>The MD editing syntax in which release notes are written is a standard
+web mark-up language, for which a reference guide can be found at:
+<a href="https://www.markdownguide.org/cheat-sheet/">Markdown Guide cheat sheet</a></p>
+<hr />
+<p><strong>Note:</strong>
+The MD syntax provides similar features to the RST syntax (used to edit
+the user documentation), but the special formatting characters are
+slightly different between the two. While RST allows richer features
+that are useful for a full documentation website, MD is preferred for
+release notes because Slack supports (a subset of) the MD language and
+can therefore serve as a release publication channel.</p>
+<hr />
+<h2 id="style">Style</h2>
+<h3 id="content-style">Content style</h3>
+<ol>
+<li>Content should be correct with regard to grammar, punctuation, and
+    spelling (in British English), including but not limited to the
+    following rules:<ol>
+<li>Grammatical agreement, e.g. data types need, not data types
+    needs</li>
+<li>Punctuation:<ol>
+<li>etc. requires a period.</li>
+<li>Complete sentences should end with a period or colon (there
+    should be no need for a question mark or exclamation point
+    in these artefacts).</li>
+<li>Incomplete sentences cannot end with a punctuation. For
+    example, "Through the <code>legalAgreement</code> attribute the CDM
+    provides support for implementors to:" is an incomplete
+    sentence and cannot end in a punctuation. This can be fixed
+    by adding a few words, e .g. "Through the <code>legalAgreement</code>
+    attribute the CDM provides support for implementors to do
+    the following:"</li>
+<li>Always use the Oxford Comma (aka the Serial Comma) for
+    clarity when listing more than two items in a sentence, e.g.
+    "data types, attributes, and enumerated values." In extreme
+    cases, failure to use this comma could be costly.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Other grammatical rules<ol>
+<li>Agreement of numbers: For example, if one sentence reads "the
+    following initiatives..." , then it should be followed by more
+    than one.</li>
+<li>Sentences should not end with a preposition<ol>
+<li>Non-compliant example: "..to represent the party that the
+    election terms are being defined for."</li>
+<li>Compliant: "...to represent the party or parties for which
+    the election terms are being defined."</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>When a name or phrase is defined - continue to use it unless an
+    alias has been defined. For example, one section reviewed had an
+    expression "agreement specification details" but then switched to
+    using "agreement content" without explanation. There is sufficient
+    terminology to absorb, as such there is no need for synonyms or
+    aliases, unless there are commonly used terms, in which case, they
+    should be defined and one term should be used consistently.</li>
+<li>User Documentation and descriptions should always be in the third
+    person, for example: "the CDM model provides the following...".
+    Never use the first person (including the use of "we").</li>
+<li>In the user documentation, when there is a need for a long list, use
+    bullets (<code>*</code> or <code>-</code> followed by space, then text) as opposed to long
+    sentences.</li>
+<li>To the extent possible, use simple direct sentence structures, e.g.
+    replace "An example of such" with "For example", or replace
+    "Proposals for amendment to the CDM can be created upon the
+    initiative of members of a Committee or by any users of CDM within
+    the community who are not a current Committee member." with
+    "Committee members or any user of CDM within the community can
+    propose amendments to the CDM."</li>
+<li>Exclude the usage of "mean to", "intends to", or "looks to".<ol>
+<li>For example, "the model looks to use strong data type
+    attributes such as numbers, boolean or enumerations whenever
+    possible."</li>
+<li>Either the object works as designed or it does not. This
+    expression might be used in a bug report when describing a
+    function not working as intended but not to describe a
+    production data model.</li>
+</ol>
+</li>
+<li>Explain the CDM objects in an honest and transparent manner, but
+    without criticism of the model. Sentences such as: "...which firms
+    may deem inappropriate and may replace by..." or "the model is
+    incomplete with regards to..." are unnecessary in a documentation.
+    Rather, issues which may be identified in the CDM should be raised
+    and addressed via the CDM governance structure.</li>
+</ol>
+<h3 id="special-format-for-cdm-objects">Special format for CDM objects</h3>
+<ol>
+<li>Data types and attributes display rules:<ol>
+<li>Data types and attributes should be identified in the editor
+    with code quotes, where the text between the quotes will appear
+    in a special block format as illustrated here:
+    <code>LegalAgreementBase</code>.</li>
+<li>If the same word or phrase is used in a business context, as
+    part of an explanation, then the words should be spaced and
+    titled normally and the special format is not required: e.g.
+    "Tradable products are represented by...".</li>
+</ol>
+</li>
+<li>Code snippets should be preceded by the string:
+    <code>.. code-block:: Language</code> (where the Language could be any of
+    Haskell, Java, JSON, etc.), followed by a line spacing before the
+    snippet itself. The entire snippet should be indented with one
+    space, to be identified as part of the code block and formatted
+    appropriately. Indentation can be produced inside the snippet itself
+    using further double space. Meta-data such as data type descriptions
+    or synonyms that appear in the CDM should be excluded from the code
+    snippet, unless the purpose of the snippet is to illustrate those.</li>
+</ol>
+<p>Example of how a code snippet should be edited in the documentation:</p>
+<div class="highlight"><pre><span></span><code>.. code-block:: Haskell
+
+ type Party:
+   [metadata key]
+   partyId PartyIdentifier (1..*)
+   name string (0..1)
+     [metadata scheme]
+   businessUnit BusinessUnit (0..*)
+   person NaturalPerson (0..*)
+   personRole NaturalPersonRole (0..*)
+   account Account (0..1)
+   contactInformation ContactInformation (0..1)
+</code></pre></div>
+<p>And the result will be rendered as:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">Party:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
+<span class="w">  </span><span class="n">partyId</span><span class="w"> </span><span class="kt">PartyIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">scheme</span><span class="p">]</span>
+<span class="w">  </span><span class="n">businessUnit</span><span class="w"> </span><span class="kt">BusinessUnit</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">person</span><span class="w"> </span><span class="kt">NaturalPerson</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">personRole</span><span class="w"> </span><span class="kt">NaturalPersonRole</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">account</span><span class="w"> </span><span class="kt">Account</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">contactInformation</span><span class="w"> </span><span class="kt">ContactInformation</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<p><strong>Note:</strong>
+Code snippets that appear in the user documentation are being compared
+against actual CDM components during the CDM build process, and any
+mismatch will trigger an error in the build. This mechanism ensures that
+the user documentation is kept in sync with the model in production
+prior to any release.</p>
+<hr />
+<h3 id="fonts-text-styles-and-spaces">Fonts, Text Styles, and Spaces</h3>
+<ol>
+<li>Bold should be used sparingly:<ol>
+<li>Only in the beginning of a section when there is a salient point
+    to emphasize, like a tag line - the bold line should be
+    syntactically complete and correct.</li>
+<li>In the editor, bold is specified with double asterisks before
+    and after the word or phrase.</li>
+</ol>
+</li>
+<li>Italics<ol>
+<li>Italics should be used when defining an unusual term for the
+    first time rather than using quotes, for example to identify
+    something CDM specific, such as the concept of Primitive Events.</li>
+<li>In the editor, italics is specified with a single asterisk <code>*</code>
+    before and after the word or phrase.</li>
+</ol>
+</li>
+<li>Single space should be used in-between sentences, not double space.</li>
+</ol>
+<h3 id="style-references-for-additional-guidance">Style references for additional guidance</h3>
+<ol>
+<li><a href="https://global.oup.com/academic/product/new-harts-rules-9780199570027">New Hart's Rules</a>: An updated version of this erstwhile
+    comprehensive style guide for writers and editors using British
+    English, published by the Oxford University Press. Invaluable as an
+    official reference on proofreading and copy-editing. Subjects
+    include spelling, hyphenation, punctuation, capitalisation,
+    languages, law, science, lists, and tables. An earlier version
+    coined the phrase Oxford Comma in July 1905.</li>
+<li><a href="https://www.lynnetruss.com/books/eats-shoots-leaves/">Eats, Shoots &amp; Leaves: The Zero Tolerance Approach to
+    Punctuation</a>:
+    A light-hearted book with a serious purpose regarding common
+    problems and correctness for using punctuation in the English
+    language.</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        with emoji by
+        <a href="https://github.com/twitter/twemoji" target="_blank" rel="noopener">
+          Twemoji
+        </a>
+      </div>
+      
+<div class="md-social">
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.tabs.link", "header.autohide", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/pymdownx-extras/extra-loader-B5CKpNQx.js"></script>
+      
+    
+  </body>
+</html>

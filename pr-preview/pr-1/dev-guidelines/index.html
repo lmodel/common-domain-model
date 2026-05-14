@@ -1,0 +1,1213 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://lmodel.github.io/common-domain-model/dev-guidelines/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Development Guidelines - common-domain-model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+
+      
+    
+<script src="../assets/pymdownx-extras/material-extra-theme-2ek1P7jT.js" type="text/javascript"></script>
+<script src="../assets/pymdownx-extras/material-extra-3rdparty-BUCF4rjN.js" type="text/javascript"></script>
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+      <link rel="stylesheet" href="../assets/pymdownx-extras/extra-c6ab11540a.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cdm-development-guidelines" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+<header class="md-header" data-md-component="header">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="header.title"
+  >
+    <a
+      href="https://lmodel.github.io/common-domain-model/"
+      title="common-domain-model"
+      class="md-header__button md-logo"
+      aria-label="common-domain-model"
+    >
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            common-domain-model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Development Guidelines
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      <div class="md-header-nav__scheme md-header-nav__button md-source__icon md-icon">
+          <a
+            href="javascript:toggleScheme();"
+            title="Light mode"
+            class="light-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="Dark mode"
+            class="dark-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="System preference"
+            class="system-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
+          </a>
+           <a
+            href="javascript:toggleScheme();"
+            title="Unknown scheme"
+            class="unknown-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"/></svg>
+          </a>
+      </div>
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lmodel/common-domain-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="common-domain-model" class="md-nav__button md-logo" aria-label="common-domain-model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    common-domain-model
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lmodel/common-domain-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cdm-development-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDM Development Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CDM Development Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cdm-design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDM Design Principles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backward-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backward Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agile-development-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agile Development Approach
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-contribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Contribute
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Contribute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-you-start-modelling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you start modelling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing the model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editing the model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Namespace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release note
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reviewing-model-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewing model changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reviewing model changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#review-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model maintenance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-review-technical-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-review technical tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#downstream-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Downstream dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#releasing-model-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Releasing model changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-style-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Style Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation Style Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contribution-via-rosetta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contribution via Rosetta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contributing-via-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributing via GitHub
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-note_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release note
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+<p>This page will take you through how to contribute to the CDM, the necessary steps to take before you contribute, as well as how to edit and test your changes.</p>
+<h2 id="cdm-development-guidelines">CDM Development Guidelines</h2>
+<p>The CDM Development Guidelines are defined by the Steering Working Group. The full set of CDM development guidelines for how contributions are reviewed can be found <a href="../maintenance-and-release/">here</a>.</p>
+<h3 id="roles">Roles</h3>
+<p>The CSL specifies three different contribution roles for each specific <a href="../working-groups/">working group</a>:</p>
+<ul>
+<li><a href="../maintainers/">Maintainers</a> - those who drive consensus within the working group</li>
+<li>Editors - those who codify ideas into a formal specification</li>
+<li>Participants - anyone who provides contributions to the project under a signed CSL CLA. A great way to sign the CLA is to open a Pull Request to add your name to the <a href="https://github.com/finos/standards-project-blueprint/blob/master/governance-documents/participants.md">participants</a> file. </li>
+</ul>
+<h2 id="cdm-design-principles">CDM Design Principles</h2>
+<p>Contributions to the CDM have to comply with the set of <a href="../design-principles/">design principles</a> that include the following concepts:</p>
+<ul>
+<li><strong>Normalisation</strong> through abstraction of common components</li>
+<li><strong>Composability</strong> where objects are composed and qualified from the bottom up</li>
+<li><strong>Mapping</strong> to existing industry messaging formats</li>
+<li><strong>Embedded logic</strong> to represent industry processes</li>
+<li><strong>Modularisation</strong> into logical layers, using namespace organisation</li>
+</ul>
+<h2 id="version-management">Version Management</h2>
+<p>The CDM is developed, built and released using standard software
+source-control management. Each new released version is announced to
+users via a <em>release note</em> that describes the change introduced by that
+new version. The CDM release history is available in the <a href="https://github.com/finos/common-domain-model/releases">Release
+Section</a> of the CDM documentation.</p>
+<p><img alt="" src="/img/CDM–Semantic-Versioning-Refresher.png" />
+Information on semantic versioning, backwards compatibility and version availability can be found <a href="../versioning/">here</a>.</p>
+<h2 id="backward-compatibility">Backward Compatibility</h2>
+<p>Like other types of software, <em>backward compatibility</em> in the context of
+a domain model means that an implementor of that model would not have to
+make any change to update to such version.</p>
+<ul>
+<li>Prohibited changes:<ul>
+<li>Change to the structure (e.g. the attributes of a data type or
+    the inputs of a function) or removal of any model element</li>
+<li>Change to the name of any model element (e.g. types, attributes,
+    enums, functions or reporting rules)</li>
+<li>Change to any condition or cardinality constraint that makes
+    validation more restrictive</li>
+<li>Change to the DSL that results in any existing expression
+    becoming invalid</li>
+<li>Change to the DSL that results in change to any of the generated
+    code's public interfaces</li>
+</ul>
+</li>
+<li>Allowed changes:<ul>
+<li>Change that relaxes any condition or cardinality constraint</li>
+<li>Change to any synonym that improves, or at least does not
+    degrade, the mapping coverage</li>
+<li>Addition of new examples or test packs</li>
+<li>Change to the user documentation or model descriptions</li>
+<li>Addition of new data types, optional attributes, enumerations,
+    rules or functions that do not impact current functionality</li>
+</ul>
+</li>
+</ul>
+<p>Exceptions to backward compatibility may be granted for emergency bug
+fixes following decision from the relevant governance body.</p>
+<h2 id="agile-development-approach">Agile Development Approach</h2>
+<p>The on-going development of the CDM adheres to a methodology inspired by
+the <em>Agile</em> software development framework. This methodology is based on
+two high-level principles:</p>
+<ol>
+<li>Focus on business value from the user's perspective, encapsulated
+    in the concept of <em>user story</em></li>
+<li>Delivery of small, releasable changes that contribute to that
+    business value (sometimes referred to as <em>shippable increments</em>) -
+    i.e. no "big bang" changes</li>
+</ol>
+<p>To learn more, visit our <a href="../development-approach/">development approach</a> page. </p>
+<h1 id="how-to-contribute">How to Contribute</h1>
+<p>The purpose of this section is to provide guidance for submitting,
+reviewing and releasing changes to the CDM contributed by the wider
+industry community including market participants, trade associations and
+technology or service vendors. It describes:</p>
+<ul>
+<li>What a Contributor should do to edit and contribute changes to the
+    CDM</li>
+<li>What a Maintainer should do to review the changes</li>
+<li>How to release a new CDM version once changes have been approved</li>
+</ul>
+<p><a id="modelling-platforms"></a>
+Development of the CDM is supported through various modelling platforms,
+including <a href="https://rosetta-technology.io">Rosetta</a> and <a href="https://legend.finos.org/studio">Legend</a>. Regardless of the modelling
+platform used, modelling and contribution to the CDM should go through
+the contribution check-list below.</p>
+<hr />
+<p>The steps required to change the CDM are aligned with the software
+development lifecycle typically applicable to the development of any
+other software. This development lifecycle is illustrated in the diagram
+below. Each step is associated to the relevant component of the Rosetta
+platform that can be used to support the development of the CDM.</p>
+<p><img alt="" src="/img/SDLC.png" /></p>
+<hr />
+<p><strong>Note:</strong>
+This documentation is not an endorsement of any modelling platform and
+associated products and CDM users remain invited to leverage the tools
+of their choosing. This contribution guide has been contextualised with
+references to Rosetta to ease understanding and align with the current
+process.</p>
+<hr />
+<h2 id="before-you-start-modelling">Before you start modelling</h2>
+<p>Before you start modelling, please make sure you have gone through the
+following pre-modelling checklist:</p>
+<ul>
+<li>Review the <a href="../design-principles/">design principles</a> and the governance page. </li>
+<li>Review the <a href="https://docs.rosetta-technology.io/rosetta/rosetta-products/0-welcome-to-rosetta">Rosetta Starter Guide</a> or equivalent in your chosen
+    modelling platform.</li>
+</ul>
+<p>In addition, for large model changes or changes to core data types, it
+is recommended that the Contributor reviews the
+<a href="../development-approach/">agile development approach</a> and follows
+these steps:</p>
+<ul>
+<li><strong>Define use case</strong>. Identify and document one or more use cases
+    with details (e.g. a sample trade).</li>
+<li><strong>Draft conceptual design</strong> (high level). Draft a conceptual view
+    showing the set of data types, their definitions (and/or sample
+    attributes but not the whole set of attributes), their relationships
+    to each other, and, if applicable, a workflow.</li>
+<li><strong>Design approval</strong>. Obtain approval of high-level conceptual design
+    from CDM stakeholders:<ul>
+<li>CDM Owners (FINOS and other involved Trade Associations, where
+    applicable)</li>
+<li>CDM Sub-Working Group, if applicable</li>
+<li>CDM Architecture and Review Committee</li>
+</ul>
+</li>
+<li><strong>Quality assurance</strong>. Seek the early appointment of at least one
+    CDM Maintainer who can assist modelling discussions and provide
+    early feedback. CDM Maintainers are appointed by the CDM Owners as
+    and when relevant. Please contact
+    <a href="mailto:cdm@lists.finos.org">cdm@lists.finos.org</a>.</li>
+</ul>
+<hr />
+<p><strong>Note:</strong>
+Unless explicitly instructed by a CDM Maintainer, a Contributor can only
+ever develop changes to a development (i.e. pre-release) version of the
+CDM.</p>
+<hr />
+<h2 id="editing-the-model">Editing the model</h2>
+<p>Please refer to the <a href="../editing/">editing</a> section which covers editing the model in more detail.</p>
+<h3 id="testing">Testing</h3>
+<p>The CDM has adopted a test-driven development approach that maps model
+components to existing sample data (e.g., FpML documents or other
+existing standards). Mappings are specified in the CDM using <code>synonym</code>
+which are collected into a Translation Dictionary, and the sample data
+are collected into a Test Pack. Each new model version is
+regression-tested using those mappings to translate the sample data in
+the Test Pack and then comparing against the expected number of mapped
+data points, validation and qualification results.</p>
+<p>When using Rosetta to edit the model, contributors are invited to test
+their model changes live against the Test Pack using the Rosetta
+Translate application, referring to the <a href="https://docs.rosetta-technology.io/rosetta/rune-dsl/rune-modelling-component/">Rosetta Translate Guide</a>.
+When editing existing model components, the corresponding synonyms
+should be updated to maintain or improve existing mapping levels. When
+adding new model components, new sample data and corresponding synonym
+mappings should also be provided so the new use-case can be added to the
+set of regression tests.</p>
+<p>Please refer to the <a href="https://docs.rosetta-technology.io/rosetta/rune-dsl/rune-modelling-component/#mapping-component">Mapping Guide</a> for details about the synonym
+mapping syntax.</p>
+<h3 id="namespace">Namespace</h3>
+<p>All model components should be positioned appropriately in the existing
+namespace hierarchy. If the proposed contribution includes changes to
+the namespace hierarchy, those changes should be justified and
+documented. Any new namespace should have an associated description, and
+be imported where required.</p>
+<p>Please refer to the <a href="../namespace/">namespace</a> section for more details.</p>
+<h3 id="contributing">Contributing</h3>
+<p>Changes are contributed by submitting a Pull Request for review into the
+CDM source-control repository. This pull request will invoke a build
+process to compile and run all CDM unit tests and regression tests.</p>
+<p>Given the alignment:</p>
+<blockquote>
+<p>1 pull request = 1 contribution = 1 releasable unit = 1 user story,</p>
+</blockquote>
+<p>we recommend labelling the pull request with the user story label, i.e.
+"STORY-XYZ: ..." to facilitate its tracking.</p>
+<p><img alt="" src="/img/operating-model-2.png" /></p>
+<p><img alt="" src="/img/operating-model-3.png" /></p>
+<hr />
+<p><strong>Note:</strong>
+All contributions are submitted as candidate changes to be incorporated
+under the CDM licence.</p>
+<hr />
+<p>When using Rosetta to contribute model changes, the contribution
+interface allows to specify a title and description for the
+contribution. Those inputs are used to create a Pull Request on a
+one-off branch in the source-control repository. Please refer to the
+<a href="https://docs.rosetta-technology.io/rosetta/rosetta-products/1-workspace/#contribute-workspace-changes">Rosetta Workspace Contribution Guide</a> for more information.</p>
+<hr />
+<p><strong>Note:</strong>
+It is not yet possible to contribute updated test expectations,
+documentation, release notes or new sample data using Rosetta, so these
+must be provided to the CDM Maintainers via Slack or email.</p>
+<hr />
+<h3 id="documentation">Documentation</h3>
+<p>The CDM documentation must be kept up-to-date with the model in
+production. Where applicable, the Contributor should provide
+accompanying documentation (in text format) that can be added to the CDM
+documentation for their proposed changes.</p>
+<p>The documentation includes code snippets that directly illustrate
+explanations about certain model components, and those snippets are
+validated against the actual model definitions. When a model change
+impacts those snippets, or if new relevant snippets should be added to
+support the documentation, those snippets should be provided together
+with the documentation update.</p>
+<h3 id="release-note">Release note</h3>
+<p>A release note should be provided with the proposed model change that
+concisely describes the high-level conceptual design, model changes and
+how to review. Please refer to the
+<a href="documentation-style-guide#content-of-release-notes">content of release notes</a> for further
+guidance on editing release notes.</p>
+<h2 id="reviewing-model-changes">Reviewing model changes</h2>
+<h3 id="review-checklist">Review checklist</h3>
+<p>Before starting to review a contribution, the CDM Maintainer should go
+through the following review checklist:</p>
+<ul>
+<li>Review Pull Request to assert that:<ul>
+<li>Model changes fulfil the proposed design and use-case
+    requirements</li>
+<li>Synonyms have been updated and output (JSON) looks correct</li>
+<li>Contributed model version is not stale and does not conflict
+    with any recent changes</li>
+<li>Changes are in accordance with the CDM governance guidelines</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><strong>Note:</strong>
+It is not yet possible to verify that mapping, validation and
+qualification expectations have been maintained by looking at the output
+of the Pull Request and CDM build only. Please refer to the
+<a href="#downstream-dependencies">downstream dependencies</a> section for more
+details.</p>
+<hr />
+<ul>
+<li>CDM build process completed with no errors or test failures</li>
+<li>Review additional samples provided (if use-case is not covered by
+    existing samples)</li>
+<li>All model components positioned in the correct namespace</li>
+<li>All model components have descriptions</li>
+<li>Additional documentation provided, if necessary.</li>
+<li>Release note provided</li>
+</ul>
+<p>Any review feedback should be sent to the Contributor as required via
+Slack, email or in direct meetings.</p>
+<hr />
+<p><strong>Note:</strong>
+Depending on the size, complexity or impact of a contribution, the CDM
+Maintainer can recommend for the contribution to be presented with an
+appropriate level of details with the CDM Architecture and Review
+Committee for further feedback. The CDM Maintainer will work with the
+Contributor to orchestrate that additional step. The additional feedback
+may recommend revisions to the proposed changes. When it is the case the
+review process will iterate on the revised proposal.</p>
+<hr />
+<h2 id="model-maintenance">Model maintenance</h2>
+<p>Before the Pull Request can be merged into the CDM's main branch, some
+work is usually required by the Maintainer to preserve the integrity of
+the model source code and of its downstream dependencies.</p>
+<h3 id="post-review-technical-tasks">Post-review technical tasks</h3>
+<p>A number of technical tasks may need to be performed on the Pull Request
+once it is approved:</p>
+<ul>
+<li><strong>Stale CDM version</strong>: Contribution is based on an old CDM version
+    and model changes conflict with more recent changes. If the
+    conflicting change is available in Rosetta, the contributor should
+    be asked to update their contribution to the latest version and
+    resubmit. If the conflicting change is not yet available in Rosetta,
+    this merge will need to be handled by the CDM Maintainer.</li>
+<li><strong>Failed unit tests</strong>: Java unit tests in the CDM project may fail
+    due to problems in the contributed changes. Alternatively it may be
+    that the test expectations need to be updated. The Maintainer should
+    determine the cause of the test failure and notify either the
+    Contributor or work on adjusting the test expectations.</li>
+<li><strong>Additional documentation</strong>: If the contributor provided additional
+    documentation, the Maintainer should update the CDM documentation by
+    editing the <em>documentation.rst</em> file in GitHub.</li>
+<li><strong>Documentation code snippets</strong>: To avoid stale documentation, the
+    CDM build process verifies that any code snippets in the
+    documentation exists and is in line with the model itself. The
+    Maintainer should adjust or include any code snippets by editing the
+    <em>documentation.rst</em> file on GitHub.</li>
+<li><strong>Code generation</strong>: Model changes may cause code generator failures
+    (e.g., Java, C#, Scala, Kotlin etc.). In the unlikely event of code
+    generation failures, these will need to be addressed by the
+    Maintainer.</li>
+</ul>
+<h3 id="downstream-dependencies">Downstream dependencies</h3>
+<p>The CDM has a number of dependent projects that are required for the
+model to be successfully distributed. It is possible that model changes
+may cause these downstream projects to fail. The Maintainer will need to
+test and, if necessary, update those before the changes can be released.</p>
+<ul>
+<li><strong>Translate</strong>: The regression tests in this project compare the
+    contributed model against the expected number of mapping, validation
+    and qualification results. Due to the contributed model changes, it
+    is likely that there will be expectation mismatches that cause this
+    build to fail.</li>
+<li><strong>CDM Homepage</strong>: compile and test.</li>
+<li><strong>CDM Java Examples</strong>: compile and test.</li>
+</ul>
+<hr />
+<p><strong>Note:</strong>
+In most cases, the post-review technical tasks and downstream
+dependencies require software engineering expertise in addition to CDM
+expertise. Additional technical support from the CDM Maintainer team may
+need to be called upon to address those.</p>
+<hr />
+<p>The change can be merged into the main CDM code base only upon:</p>
+<ul>
+<li>approval by CDM Maintainers and/or CDM Architecture and Review
+    Committee,</li>
+<li>successful completion of all the above technical tasks, and</li>
+<li>successful builds of the CDM and all its downstream dependencies.</li>
+</ul>
+<h2 id="releasing-model-changes">Releasing model changes</h2>
+<p>Once the contributed model change has been merged, a new release can be
+built, tested and deployed. The Maintainer will work with the CDM Owners
+and the Contributor on a deployment timeline.</p>
+<p>The following release checklist should be verified before deploying a
+new model:</p>
+<ul>
+<li>Update the CDM version number, using the <a href="./versioning">semantic
+    versioning</a> format</li>
+<li>Build release candidate, and test</li>
+<li>Build documentation website release candidate, and test</li>
+<li>Deploy release candidate and notify channels if need be</li>
+<li>(Currently done at a later stage) Update the latest CDM version
+    available in Rosetta</li>
+</ul>
+<p><img alt="" src="/img/CDM–Build-Release-Process.png" /></p>
+<hr />
+<p><strong>Note:</strong>
+When the release process is handled through Rosetta Deploy, the
+Maintainer should contact the Rosetta support team to request that
+deployment and discuss a timeline for the release.</p>
+<hr />
+<h2 id="documentation-style-guide">Documentation Style Guide</h2>
+<p>This section provides form and substance
+recommendations for editors of CDM documentation. Please visit the <a href="../documentation-style-guide/">documentation style guide page</a> to learn more. </p>
+<h3 id="contribution-via-rosetta">Contribution via Rosetta</h3>
+<p>The <a href="https://rosetta-technology.io/design">Rosetta Design</a> application can be used to contribute to the CDM without setting up any development environment. Rosetta Design’s <a href="https://docs.rosetta-technology.io/rosetta/rosetta-products/1-workspace/#source-control-integration">source control integration</a> means that a PR is automatically created to a fork of the FINOS CDM under the <a href="https://github.com/rosetta-models">Rosetta Models</a> GitHub Organisation.</p>
+<p>Steps:
+  1. Create a Workspace for the CDM in Rosetta Design
+  1. Review and contribute change in Rosetta Design - which will create PR in the rosetta-models organisation
+  1. Create a PR to the Finos Github. See instructions <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork">here</a></p>
+<p>When using Rosetta to contribute model changes, the contribution
+interface allows to specify a title and description for the
+contribution. Those inputs are used to create a Pull Request on a
+one-off branch in the source-control repository. Please refer to the
+<a href="https://docs.rosetta-technology.io/rosetta/rosetta-products/1-workspace/#contribute-workspace-changes">Rosetta Workspace Contribution Guide</a> for more information.</p>
+<h3 id="contributing-via-github">Contributing via GitHub</h3>
+<ol>
+<li>Fork it (<a href="https://github.com/finos/common-domain-model">https://github.com/finos/common-domain-model</a>)</li>
+<li>Create your feature branch (<code>git checkout -b feature/my-new-feature</code>)</li>
+<li>Make a change - <em>hint</em> you can make changes to Rosetta files directly on your desktop using the <a href="https://github.com/REGnosys/rosetta-dsl/tree/master/rosetta-ide/vscode">Rosetta VS Code plugin</a></li>
+<li>Read our contribution guidelines and <a href="https://www.finos.org/code-of-conduct">Community Code of Conduct</a></li>
+<li>Commit your changes (<code>git commit -am 'My New Feature'</code>)</li>
+<li>Push to the branch (<code>git push origin feature/my-new-feature</code>)</li>
+<li>Create a new Pull Request</li>
+</ol>
+<h2 id="_1"><img alt="" src="/img/Approval-Process.png" /></h2>
+<p><strong>Note:</strong>
+It is not yet possible to contribute updated test expectations,
+documentation, release notes or new sample data using Rosetta, so these
+must be provided to the CDM Maintainers via Slack or email.</p>
+<hr />
+<h3 id="documentation_1">Documentation</h3>
+<p>The CDM documentation must be kept up-to-date with the model in
+production. Where applicable, the Contributor should provide
+accompanying documentation (in text format) that can be added to the CDM
+documentation for their proposed changes.</p>
+<p>The documentation includes code snippets that directly illustrate
+explanations about certain model components, and those snippets are
+validated against the actual model definitions. When a model change
+impacts those snippets, or if new relevant snippets should be added to
+support the documentation, those snippets should be provided together
+with the documentation update.</p>
+<h3 id="release-note_1">Release note</h3>
+<p>A release note should be provided with the proposed model change that
+concisely describes the high-level conceptual design, model changes and
+how to review. Please refer to the
+<a href="documentation-style-guide#content-of-release-notes">content of release notes</a> for further
+guidance on editing release notes.</p>
+<ul>
+<li>Update the CDM version number, using the <a href="../versioning/">semantic
+    versioning</a> format</li>
+<li>Build release candidate, and test</li>
+<li>Build documentation website release candidate, and test</li>
+<li>Deploy release candidate and notify channels if need be</li>
+<li>(Currently done at a later stage) Update the latest CDM version
+    available in Rosetta</li>
+</ul>
+<h2 id="_2"><img alt="" src="/img/CDM–Build-Release-Process.png" /></h2>
+<p><strong>Note:</strong>
+When the release process is handled through Rosetta Deploy, the
+Maintainer should contact the Rosetta support team to request that
+deployment and discuss a timeline for the release.</p>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<p>Please visit the <a href="../maintenance-and-release/">maintenance</a> page to continue reading about model maintenance and release.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        with emoji by
+        <a href="https://github.com/twitter/twemoji" target="_blank" rel="noopener">
+          Twemoji
+        </a>
+      </div>
+      
+<div class="md-social">
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.tabs.link", "header.autohide", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/pymdownx-extras/extra-loader-B5CKpNQx.js"></script>
+      
+    
+  </body>
+</html>

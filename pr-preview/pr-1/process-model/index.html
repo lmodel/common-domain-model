@@ -1,0 +1,1486 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://lmodel.github.io/common-domain-model/process-model/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Process Model - common-domain-model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+
+      
+    
+<script src="../assets/pymdownx-extras/material-extra-theme-2ek1P7jT.js" type="text/javascript"></script>
+<script src="../assets/pymdownx-extras/material-extra-3rdparty-BUCF4rjN.js" type="text/javascript"></script>
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+      <link rel="stylesheet" href="../assets/pymdownx-extras/extra-c6ab11540a.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#purpose" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+<header class="md-header" data-md-component="header">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="header.title"
+  >
+    <a
+      href="https://lmodel.github.io/common-domain-model/"
+      title="common-domain-model"
+      class="md-header__button md-logo"
+      aria-label="common-domain-model"
+    >
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            common-domain-model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Process Model
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      <div class="md-header-nav__scheme md-header-nav__button md-source__icon md-icon">
+          <a
+            href="javascript:toggleScheme();"
+            title="Light mode"
+            class="light-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="Dark mode"
+            class="dark-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="System preference"
+            class="system-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
+          </a>
+           <a
+            href="javascript:toggleScheme();"
+            title="Unknown scheme"
+            class="unknown-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"/></svg>
+          </a>
+      </div>
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lmodel/common-domain-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="common-domain-model" class="md-nav__button md-logo" aria-label="common-domain-model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    common-domain-model
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lmodel/common-domain-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Purpose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-a-process-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why a Process Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-process-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is the Process Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Does It Work
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scope
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scope">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#granularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Granularity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation Process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validation Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculation-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calculation Process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Calculation Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#base-libraries-vector-math" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base Libraries - Vector Math
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-libraries-date-math" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base Libraries - Date Math
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-libraries-daycounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base Libraries - Daycounting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floating-rate-optionindex-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Floating Rate Option/Index Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed-amount-and-floating-amount-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed Amount and Floating Amount Definitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed-amount-and-floating-amount-definitions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed Amount and Floating Amount Definitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#year-fraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Year Fraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utility Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equity-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equity Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Billing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-event-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lifecycle Event Process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifecycle Event Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primitive-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primitive Creation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-step-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow Step Creation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+  <h1>Process Model</h1>
+
+<h2 id="purpose">Purpose</h2>
+<h3 id="why-a-process-model">Why a Process Model</h3>
+<p><strong>The CDM lays the foundation for the standardisation, automation and
+inter-operability of industry processes</strong>. Industry processes represent
+events and actions that occur through the transaction's lifecycle, from
+negotiating a legal agreement to allocating a block-trade or calculating
+settlement amounts.</p>
+<p>While ISDA defines the protocols for industry processes in its library
+of ISDA Documentation, differences in the implementation minutia may
+cause operational friction between market participants. Evidence shows
+that even when calculations are defined in mathematical notation (for
+example, day count fraction formulae which are used when calculating
+interest rate payments) can be a source of dispute between parties in a
+transaction.</p>
+<h3 id="what-is-the-process-model">What Is the Process Model</h3>
+<p><strong>The CDM Process Model has been designed to translate the technical
+standards that support those industry processes</strong> into a standardised
+machine-readable and machine-executable format.</p>
+<p>Machine readability and executability is crucial to eliminate
+implementation discrepancy between market participants and increase
+interoperability between technology solutions. It greatly minimises the
+cost of adoption and provides a blueprint on which industry utilities
+can be built.</p>
+<h3 id="how-does-it-work">How Does It Work</h3>
+<p>The data and process model definitions of the CDM are systematically
+translated into executable code using purpose-built code generation
+technology. The CDM executable code is available in a number of modern,
+widely adopted and freely available programming languages and is
+systematically distributed as part of the CDM release.</p>
+<p>The code generation process is based on the Rune DSL and is further
+described in the <a href="https://docs.rosetta-technology.io/rosetta/rune-dsl/rosetta-code-generators/">Code Generation Section</a>, including an up-to-date
+list of available languages. Support for further languages can be
+added as required by market participants.</p>
+<h2 id="scope">Scope</h2>
+<p>The scope of the process model has two dimensions:</p>
+<ol>
+<li><strong>Coverage</strong> - which industry processes should be covered.</li>
+<li><strong>Granularity</strong> - at which level of detail each process should be
+    specified.</li>
+</ol>
+<h3 id="coverage">Coverage</h3>
+<p><strong>The CDM process model currently covers the post-trade lifecycle of
+securities, contractual products, and foreign exchange</strong>. Generally, a
+process is in-scope when it is already covered in ISDA Documentation or
+other technical documents. For example, the following processes are all
+in scope:</p>
+<ul>
+<li>Trade execution and confirmation</li>
+<li>Clearing</li>
+<li>Allocation</li>
+<li>Reallocation</li>
+<li>Settlement (including any future contingent cashflow payment)</li>
+<li>Return (settlement of the part and/or full return of the loaned
+    security as defined by a Securities Lending transaction.)</li>
+<li>Billing (calculation and population of invoicing for Securities
+    Lending transactions)</li>
+<li>Exercise of options</li>
+<li>Margin calculation</li>
+<li>Regulatory reporting (although covered in a different documentation
+    section)</li>
+</ul>
+<h3 id="granularity">Granularity</h3>
+<p><strong>It is important for implementors of the CDM to understand the scope of
+the model</strong> with regard to specifications and executable code for the
+above list of post-trade lifecycle processes.</p>
+<p>The CDM process model leverages the <em>function</em> component of the Rune
+DSL. A function receives a set of input values and applies logical
+instructions to return an output. The input and output are both CDM
+objects (including basic types). While a function specifies its inputs
+and output, its logic may be <em>fully defined</em> or only <em>partially defined</em>
+depending on how much of the output's attribute values it builds.
+Unspecified parts of a process represent functionality that firms are
+expected to implement, either internally or through third-parties such
+as utilities.</p>
+<p>It is not always possible or practical to fully specify the business
+logic of a process from a model. Parts of processes or sub-processes may
+be omitted from the CDM for the following reasons:</p>
+<ul>
+<li>The sub-process is not needed to create a functional CDM output
+    object.</li>
+<li>The sub-process has already been defined and its implementation is
+    widely adopted by the industry.</li>
+<li>The sub-process is specific to a firm's internal process and
+    therefore cannot be specified in an industry standard.</li>
+</ul>
+<p>Given these reasons, the CDM process model focuses on the most critical
+data and processes required to create functional objects that satisfy
+the below criterion:</p>
+<ul>
+<li>All of the qualifiable constituents (such as <code>BusinessEvent</code> and
+    <code>Product</code>) of a function's output can be qualified, which means
+    that they evaluate to True according to at least one of the
+    applicable Qualification functions.</li>
+<li>Lineage and cross-referencing between objects is accurate for data
+    integrity purposes.</li>
+</ul>
+<p>For any remaining data or processes, implementors can populate the
+remaining attribute values required for the output to be valid by
+extending the executable code generated by the process model or by
+creating their own functions.</p>
+<p>For the trade lifecycle processes that are in scope, the CDM process
+model covers the following sub-process components, which are each
+detailed in the next sections:</p>
+<ol>
+<li>Validation process</li>
+<li>Calculation process</li>
+<li>Event creation process</li>
+</ol>
+<h2 id="validation-process">Validation Process</h2>
+<p>In many legacy models and technical standards, validation rules are
+generally specified in text-based documentation, which requires software
+engineers to evaluate and translate the logic into code. The frequently
+occuring result of this human interpretation process is inconsistent
+enforcement of the intended logic.</p>
+<p>By contrast, in the CDM, validation components are an integral part of
+the process model specifications and are distributed as executable code
+in the Java representation of the CDM. The CDM validation components
+leverage the <em>validation</em> components of the Rune DSL.</p>
+<h3 id="product-validation">Product Validation</h3>
+<p>As an example, the <em>FpML ird validation rule #57</em>, states that if the
+calculation period frequency is expressed in units of month or year,
+then the roll convention cannot be a weekday. A machine readable and
+executable definition of that specification is provided in the CDM, as a
+<code>condition</code> attached to the <code>CalculationPeriodFrequency</code> type:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">condition</span><span class="w"> </span><span class="kt">FpML_ird_57:</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">PeriodExtendedEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">M</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">PeriodExtendedEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Y</span>
+<span class="w">  </span><span class="kr">then</span><span class="w"> </span><span class="n">rollConvention</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="kt">RollConventionEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">NONE</span>
+<span class="w">    </span><span class="n">and</span><span class="w"> </span><span class="n">rollConvention</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="kt">RollConventionEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">SFE</span>
+<span class="w">    </span><span class="n">and</span><span class="w"> </span><span class="n">rollConvention</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="kt">RollConventionEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">MON</span>
+<span class="w">    </span><span class="n">and</span><span class="w"> </span><span class="n">rollConvention</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="kt">RollConventionEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">TUE</span>
+<span class="w">    </span><span class="n">and</span><span class="w"> </span><span class="n">rollConvention</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="kt">RollConventionEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">WED</span>
+<span class="w">    </span><span class="n">and</span><span class="w"> </span><span class="n">rollConvention</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="kt">RollConventionEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">THU</span>
+<span class="w">    </span><span class="n">and</span><span class="w"> </span><span class="n">rollConvention</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="kt">RollConventionEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">FRI</span>
+<span class="w">    </span><span class="n">and</span><span class="w"> </span><span class="n">rollConvention</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="kt">RollConventionEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">SAT</span>
+<span class="w">    </span><span class="n">and</span><span class="w"> </span><span class="n">rollConvention</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="kt">RollConventionEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">SUN</span>
+</code></pre></div>
+<h2 id="calculation-process">Calculation Process</h2>
+<p>The CDM provides certain ISDA Definitions as machine executable formulas
+to standardise the industry calculation processes that depend on those
+definitions. Examples include the ISDA 2006 definitions of <em>Fixed
+Amount</em> and <em>Floating Amount</em> , the ISDA 2006 definitions of Day Count
+Fraction rules, and performance calculations for Equity Swaps. The CDM
+also specifies related utility functions.</p>
+<p>These calculation processes leverage the <em>calculation function</em>
+component of the Rune DSL which is associated to a <code>[calculation]</code>
+annotation.</p>
+<p>Explanations of these processes are provided in the following sections.</p>
+<h3 id="base-libraries-vector-math">Base Libraries - Vector Math</h3>
+<p>The CDM includes a very basic library for performing vector math. This
+is intended to support more complex calculations such as daily
+compounded floating amounts. The CDM includes a basic implementation of
+these functions in Java, and allows individual implementations to
+substitute their own more robust representations.</p>
+<p>A small library of functions for working with vectors (ordered
+collections of numbers) has been added to CDM to support 
+functions needing to perform complex mathematical operations.
+Anticipated uses include averaging and compounding calculations for
+floating amounts, but the functions are designed to be general use.</p>
+<p>The functions are located in <code>base-math-func</code>.</p>
+<p>Functions include:</p>
+<ul>
+<li><code>VectorOperation</code>: Generates a result vector by applying the
+    supplied arithmetic operation to each element of the supplied left
+    and right vectors in turn. i.e. result[n] = left[n] [op]
+    right[n], where [op] is the arithmetic operation defined by
+    arithmeticOp. This function can be used to, for example, multiply or
+    add two vectors.</li>
+<li><code>VectorScalarOperation</code>: Generates a result vector by applying the
+    supplied arithmetic operation and scalar right value to each element
+    of the supplied left vector in turn. i.e. result[n] = left[n]
+    [op] right, where [op] is the arithmetic operation defined by
+    arithmeticOp. This function can be used to, for example, multiply a
+    vector by a scalar value, or add a scalar to a vector.</li>
+<li><code>VectorGrowthOperation</code>: Generates a result vector by starting with
+    the supplied base value (typically 1), and then multiplying it in
+    turn by each growth factor, which is typically a number just
+    above 1. For instance, a growth factor of 1.1 represents a 10%
+    increase, and 0.9 a 10% decrease. The results will show the
+    successive results of applying the successive growth factors, with
+    the first value of the list being the supplied baseValue, and final
+    value of the results list being the product of all of the supplied
+    values. i.e. result[1] = baseValue * factor[1], result[n] =
+    result[n-1] * factor[n]. The resulting list will have the one
+    more element than the supplied list of factors. This function is
+    useful for performing compounding calculations.</li>
+<li><code>AppendToVector</code>: Appends a single value to a vector.</li>
+</ul>
+<p>Also a new scalar functions has been added to better support floating
+rate processing:</p>
+<ul>
+<li><code>RoundToPrecision</code>: Rounds a supplied number to a specified
+    precision (in decimal places) using a roundingMode of type
+    <code>RoundingDirectionEnum</code>. This is similar to <code>RoundToNearest</code> but
+    takes a precision rather than an amount, and uses a different
+    rounding mode enumeration that supports more values.</li>
+</ul>
+<h3 id="base-libraries-date-math">Base Libraries - Date Math</h3>
+<p>The CDM includes a very basic library for performing date math. This is
+intended to support more complex calculations such as daily compounded
+floating amounts. The CDM includes a basic implementation of these
+functions in Java, and allows individual implementations to substitute
+their own more robust representations.</p>
+<p>A small library of functions for working with dates and lists of dates
+has been added to CDM to support functions needing to perform
+date mathematics. Anticipated uses include date list generation for
+modular rate calculations for floating amounts, but the functions are
+designed to be general use.</p>
+<p>There is a basic Java language implementation that can be used, or users
+can provide their own implementations of these functions using a more
+robust date math library.</p>
+<p>The functions are located in <code>base-datetime-func</code>.</p>
+<p>Functions include:</p>
+<ul>
+<li><code>GetAllBusinessCenters</code>: Returns a merged list of
+    BusinessCenterEnums for the supplied BusinessCenters.</li>
+<li><code>BusinessCenterHolidaysMultiple</code>: Returns a sorted list of holidays
+    for the supplied business centers.</li>
+<li><code>BusinessCenterHolidays</code>: Returns a list of holidays for the
+    supplied business center.</li>
+<li><code>DayOfWeek</code>: Returns the day of week corresponding to the supplied
+    date.</li>
+<li><code>AddDays</code>: Adds the specified number of calendar days to the
+    supplied date. A negative number will generate a date before the
+    supplied date.</li>
+<li><code>DateDifference</code>: Subtracts the two supplied dates to return the
+    number of calendar days between them . A negative number implies
+    first is after second.</li>
+<li><code>LeapYearDateDifference</code>: Subtracts the two supplied dates to return
+    the number of leap year calendar days between them (that is, the
+    number of dates that happen to fall within a leap year). A negative
+    number implies firstDate is after secondDate.</li>
+<li><code>AppendDateToList</code>: Add a date to a list of dates.</li>
+<li><code>PopOffDateList</code>: Remove last element from a list of dates.</li>
+</ul>
+<p>The following are implemented in Rune based on the above primitives:</p>
+<ul>
+<li><code>IsWeekend</code>: Returns whether the supplied date is a weekend. This
+    implementation currently assumes a 5 day week with Saturday and
+    Sunday as holidays. A more sophisticated implementation might use
+    the business centers to determine which days are weekends, but most
+    jurisdictions where derivatives are traded follow this convention.</li>
+<li><code>IsHoliday</code>: Returns whether a day is a holiday for the specified
+    business centers.</li>
+<li><code>IsBusinessDay</code>: Returns an indicator of whether the supplied date
+    is a good business date given the supplied business centers. True
+    =&gt; good date, i.e. not a weekend or holiday. False means that it is
+    either a weekend or a holiday.</li>
+<li><code>AddBusinessDays</code>: Returns a good business date that has been offset
+    by the given number of business days given the supplied business
+    centers. A negative value implies an earlier date (before the
+    supplied originalDate), and a positive value a later date (after the
+    supplied date).</li>
+<li><code>GenerateDateList</code>: Creates a list of good business days starting
+    from the startDate and going to the end date, inclusive, omitting
+    any days that are weekends or holidays according to the supplied
+    business centers.</li>
+</ul>
+<h3 id="base-libraries-daycounting">Base Libraries - Daycounting</h3>
+<p>The CDM includes a library for performing day counting calculations.</p>
+<p>It includes functions as follows: * <code>YearFraction</code>: The fraction of a
+year represented by a date range. * <code>YearFractionForOneDay</code>[: Return
+the year fraction represented by a single day, i.e. 1 / dayCountBasis,
+where dayCountBasis represents the denominator of the day count
+fraction. This perhaps should take into account leap years, though the
+ISDA compounding formulas do not cover ACT basis at the moment. *<code>DayCountBasis</code>: Return the day count basis
+(the denominator of the day count fraction) for the day count fraction.</p>
+<h3 id="floating-rate-optionindex-features">Floating Rate Option/Index Features</h3>
+<p>The CDM includes features for retrieving information about floating rate
+options and for calculating custom ("modular") floating rates.</p>
+<p>Functions for retrieving information about FROs include:</p>
+<ul>
+<li><code>IndexValueObservation</code>: Retrieve the values of the supplied index
+    on the specified observation date.</li>
+<li><code>IndexValueObservationMultiple</code>: Retrieve the values of the supplied
+    index on the specified observation dates.</li>
+<li><code>FloatingRateIndexMetadata</code>: Retrieve all available metadata for the
+    floating rate index.</li>
+<li><code>ValidateFloatingRateIndexName</code>: Return whether the supplied
+    floating rate index name is valid for the supplied contractual
+    definitions.</li>
+</ul>
+<p>Functions for calculating modular floating rates include:</p>
+<ul>
+<li><code>EvaluateCalculatedRate</code>: Evaluate a calculated rate as described in
+    the 2021 ISDA Definitions, Section 7</li>
+<li><code>GenerateObservationDatesAndWeights</code>: Apply shifts to generate the
+    list of observation dates and weights for each of those dates.</li>
+<li><code>ComputeCalculationPeriod</code>: Determine the calculation period to use
+    for computing the calculated rate (it may not be the same as the
+    normal calculation period, for instance if the rate is set in
+    advance)</li>
+<li><code>DetermineObservationPeriod</code>: Determine any applicable
+    offsets/shifts for the period for observing an index, and then
+    generate the date range to be used for observing the index, based on
+    the calculation period, plus any applicable offsets/shifts.</li>
+<li><code>GenerateObservationPeriod</code>: Generate the date range to be used for
+    observing the index, based on the calculation period, plus any
+    applicable offsets/shifts.</li>
+<li><code>GenerateObservationDates</code>: Generate the list of observation dates
+    given an observation period.</li>
+<li><code>DetermineWeightingDates</code>: Determine the dates to be used for
+    weighting observations.</li>
+<li><code>ProcessObservations</code>: Apply daily observation parameters to rate
+    observation. These are discussed in the 2021 ISDA Definitions,
+    section 7.2.3 and 7.2.4.</li>
+<li><code>GenerateWeights</code>: Recursively creates a list of weights based on
+    the date difference between successive days.</li>
+<li><code>ApplyCompoundingFormula</code>: Implements the compounding formula:
+    Product of ( 1 + (rate * weight) / basis), then backs out the final
+    rate. This is used to support section 7.3 of the 2021 ISDA
+    Definitions.</li>
+<li><code>ApplyAveragingFormula</code>: Implements the weighted arithmetic
+    averaging formula. Sums the weighted rates and divides by the total
+    weight. This is used to support section 7.4 of the 2021 ISDA
+    Definitions.</li>
+</ul>
+<h3 id="fixed-amount-and-floating-amount-definitions">Fixed Amount and Floating Amount Definitions</h3>
+<p>The CDM includes preliminary features for calculating fixed and floating
+amounts for interest rate payouts.</p>
+<p>Base calculation functions include:</p>
+<ul>
+<li><code>FixedAmountCalculation</code>: Calculates the fixed amount for a
+    calculation period by looking up the notional and the fixed rate and
+    multiplying by the year fraction</li>
+<li><code>GetFixedRate</code>: Look up the fixed rate for a calculation period</li>
+<li><code>FloatingAmountCalculation</code>: Calculate a floating amount for a
+    calculation period by determining the raw floating rate, applying
+    any rate treatments, looking up the calculation period notional,
+    then performing the multiplication of the notional, rate, and year
+    fraction. Floating amount calculations are described in the 2021
+    ISDA Definitions in Section 6 and 7.</li>
+<li><code>GetNotionalAmount</code>: Look up the notional amount in effect for a
+    calculation period</li>
+<li><code>GetQuantityScheduleStepValues</code>: Find all schedule step values whose
+    stepDate is before or equal to the supplied periodStartDate. Returns
+    a list of step values starting from the initial quantity value, to
+    the last step value before the periodStartDate.</li>
+<li><code>CalculateYearFraction</code>: Calculate the year fraction for a single
+    calculation period, by invoking the base year fraction logic</li>
+</ul>
+<p>Floating rate processing an calculation functions include:</p>
+<ul>
+<li><code>DetermineFloatingRateReset</code>: Get the value of a floating rate by
+    either observing it directly or performing a rate calculation. This
+    function works differently depending on the rate category and style,
+    as described in the 2021 ISDA Definitions, Section 6.6.</li>
+<li><code>GetFloatingRateProcessingType</code>: Get a classification of the
+    floating rate is processed. This is based on FRO category, style,
+    and calculation method, as described in the 2021 ISDA Definitions
+    Section 6.6. The categorization information is obtained from the FRO
+    metadata.</li>
+<li><code>ProcessFloatingRateReset</code>: Entry point for the function that
+    performs the floating rate resetting operation. There are different
+    variations depending on the processing type (e.g. screen rate, OIS,
+    modular calculated rate).</li>
+<li><code>GetCalculatedFROCalculationParameters</code>: Initialize a calculation
+    parameters block for an OIS or a daily average rate. Used to support
+    FROs that include an embedded calculation.</li>
+<li><code>ProcessFloatingRateReset(processingType: FloatingRateIndexProcessingTypeEnum-&gt;CompoundIndex)</code>:
+    Call the compounded index processing logic to calculate the reset</li>
+<li><code>EvaluateScreenRate</code>: Evaluate/lookup the value of a screen rate</li>
+<li><code>DetermineResetDate</code>: Determine the value of the reset date given a
+    reset dates structure and a calculation period for which it's
+    needed. Reset dates are defined in the 2021 ISDA Definition in
+    Section 6.5.5.</li>
+<li><code>DetermineFixingDate</code>: Determine the observation (fixing) date
+    needed given a reset dates structure and a reset date.</li>
+<li><code>GetFloatingRateProcessingParameters</code>: Determine the processing
+    parameters to use from the InterestRatePayout by looking them up if
+    necessary from the corresponding schedules in the interest rate
+    stream</li>
+<li><code>SpreadAmount</code>: Look up the spread amount for a calculation period.</li>
+<li><code>MultiplierAmount</code>: Look up the multiplier amount for a calculation
+    period.</li>
+<li><code>CapRateAmount</code>: Look up the cap rate amount for a calculation
+    period.</li>
+<li><code>FloorRateAmount</code>: Look up the floor rate amount for a calculation
+    period.</li>
+<li><code>GetRateScheduleAmount</code>: Look up an amount for a calculation period
+    from a rate schedule</li>
+<li><code>ApplyFloatingRateProcessing</code>: Perform rate treatments on floating
+    rates, such as applying spreads, multipliers, caps and floors,
+    rounding, and negative interest treatment.</li>
+<li><code>ApplyFloatingRatePostSpreadProcessing</code>: Perform post-spread rate
+    treatments on floating rates, such as applying caps and floors,
+    rounding, and negative interest treatment.</li>
+<li><code>ApplyCapsAndFloors</code>: Apply any cap or floor rate as a constraint on
+    a regular swap rate, as discussed in the 2021 ISDA Definitions,
+    section 6.5.8 and 6.5.9</li>
+<li><code>ApplyUSRateTreatment</code>: Apply the US rate treatment logic where
+    applicable (Bond Equivalent Yield, Money Market Yield, as described
+    in the 2021 ISDA Definitions, section 6.9. (NB: this function does
+    not have an implementation.)</li>
+<li><code>ApplyFinalRateRounding</code>: Apply the final rate rounding treatment
+    logic as described in the 2021 ISDA Definitions, section 4.8.1.</li>
+</ul>
+<p>Most of the above have a preliminary implementation for feedback. A few
+are only defined as "do-nothing" interfaces, and users needing these
+features would need to implement the functions.</p>
+<h3 id="fixed-amount-and-floating-amount-definitions_1">Fixed Amount and Floating Amount Definitions</h3>
+<p>The CDM expressions of <code>FixedAmount</code> and <code>FloatingAmount</code> are similar in
+structure: a calculation formula that reflects the terms of the ISDA
+2006 Definitions and the arguments associated with the formula.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">FloatingAmount:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">calculation</span><span class="p">]</span>
+<span class="w">  </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">      </span><span class="n">interestRatePayout</span><span class="w"> </span><span class="kt">InterestRatePayout</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">rate</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">notional</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">date</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">calculationPeriodData</span><span class="w"> </span><span class="kt">CalculationPeriodData</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">      </span><span class="n">floatingAmount</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">  </span><span class="n">alias</span><span class="w"> </span><span class="n">calculationPeriod</span><span class="kt">:</span>
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="n">calculationPeriodData</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">calculationPeriodData</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="kt">CalculationPeriod</span><span class="p">(</span><span class="n">interestRatePayout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">calculationPeriodDates</span><span class="p">,</span><span class="w"> </span><span class="n">date</span><span class="p">)</span>
+<span class="w">  </span><span class="n">alias</span><span class="w"> </span><span class="n">calcPeriodBase</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Create_CalculationPeriodBase</span><span class="p">(</span><span class="n">calculationPeriod</span><span class="p">)</span>
+<span class="w">  </span><span class="n">alias</span><span class="w"> </span><span class="n">floatingCalc</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">FloatingAmountCalculation</span><span class="p">(</span><span class="n">interestRatePayout</span><span class="p">,</span><span class="w"> </span><span class="n">calcPeriodBase</span><span class="p">,</span><span class="w"> </span><span class="kt">False</span><span class="p">,</span><span class="w"> </span><span class="n">notional</span><span class="p">,</span><span class="w"> </span><span class="n">rate</span><span class="p">)</span>
+
+<span class="w">  </span><span class="n">set</span><span class="w"> </span><span class="n">floatingAmount</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">floatingCalc</span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">calculatedAmount</span>
+</code></pre></div>
+<h3 id="year-fraction">Year Fraction</h3>
+<p>The CDM process model incorporates calculations that represent the set
+of day count fraction rules specified as part of the ISDA 2006
+Definitions, e.g. the <em>ACT/365.FIXED</em> and the <em>30E/360</em> day count
+fraction rules. Although these rules are widely accepted in
+international markets, many of them have complex nuances which can lead
+to inconsistent implementations and potentially mismatched settlements.</p>
+<p>For example, there are three distinct rule sets in which the length of
+each month is generally assumed to be 30 days for accrual purposes (and
+each year is assumed to be 360 days). However there are nuances in the
+rule sets that distinguish the resulting calculations under different
+circumstances, such as when the last day of the period is the last day
+of February. These distinct rule sets are defined by ISDA as 30/360
+(also known as 30/360 US), 30E/360 (formerly known as 30/360 ICMA or
+30/360 Eurobond), and the 30E/360.ISDA.</p>
+<p>The CDM process model eliminates the need for implementors to interpret
+the logic and write unique code for these rules. Instead, it provides a
+machine-readable expression that generates executable code, such as the
+example below:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">YearFraction</span><span class="p">(</span><span class="n">dayCountFractionEnum</span><span class="kt">:</span><span class="w"> </span><span class="kt">DayCountFractionEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">_30E_360</span><span class="p">)</span><span class="kt">:</span>
+<span class="w">   </span><span class="p">[</span><span class="n">calculation</span><span class="p">]</span>
+
+<span class="w">   </span><span class="n">alias</span><span class="w"> </span><span class="n">startYear</span><span class="kt">:</span><span class="w"> </span><span class="n">startDate</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">year</span>
+<span class="w">   </span><span class="n">alias</span><span class="w"> </span><span class="n">endYear</span><span class="kt">:</span><span class="w"> </span><span class="n">endDate</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">year</span>
+<span class="w">   </span><span class="n">alias</span><span class="w"> </span><span class="n">startMonth</span><span class="kt">:</span><span class="w"> </span><span class="n">startDate</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">month</span>
+<span class="w">   </span><span class="n">alias</span><span class="w"> </span><span class="n">endMonth</span><span class="kt">:</span><span class="w"> </span><span class="n">endDate</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">month</span>
+<span class="w">   </span><span class="n">alias</span><span class="w"> </span><span class="n">endDay</span><span class="kt">:</span><span class="w"> </span><span class="kt">Min</span><span class="p">(</span><span class="n">endDate</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span>
+<span class="w">   </span><span class="n">alias</span><span class="w"> </span><span class="n">startDay</span><span class="kt">:</span><span class="w"> </span><span class="kt">Min</span><span class="p">(</span><span class="n">startDate</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">set</span><span class="w"> </span><span class="n">result</span><span class="kt">:</span>
+<span class="w">       </span><span class="p">(</span><span class="mi">360</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">endYear</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">startYear</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">endMonth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">startMonth</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">endDay</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">startDay</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">360</span>
+</code></pre></div>
+<h3 id="utility-function">Utility Function</h3>
+<p>CDM elements often need to be transformed by a function to construct the
+arguments for a formula in a calculation. A typical example is the
+requirement to identify a period start date, end date, and other
+date-related attributes required to compute a cashflow amount in
+accordance with a schedule (as illustrated in the day count fraction
+calculation shown above). The CDM has two main types to address this
+requirement:</p>
+<ul>
+<li><code>CalculationPeriodDates</code> specifies the inputs required to construct
+    a calculation period schedule</li>
+<li><code>CalculationPeriodData</code> specifies actual attribute values of a
+    calculation period such as start date, end date, etc.</li>
+</ul>
+<p>The CalculationPeriod function receives the <code>CalculationPeriodDates</code> and
+the current date as the inputs and produces the <code>CalculationPeriodData</code>
+as the output, as shown below:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">CalculationPeriod:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">codeImplementation</span><span class="p">]</span>
+<span class="w">  </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">    </span><span class="n">calculationPeriodDates</span><span class="w"> </span><span class="kt">CalculationPeriodDates</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">date</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">output</span><span class="kt">:</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="kt">CalculationPeriodData</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="equity-performance">Equity Performance</h3>
+<p>The CDM process model includes calculations to support the equity
+performance concepts applied to reset and pay cashflows on Equity Swaps.
+Those calculations follow the definitions as normalised in the new <em>2018
+ISDA CDM Equity Confirmation for Security Equity Swap</em> (although this is
+a new template that is not yet in use across the industry).</p>
+<p>Some of those calculations are presented below:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">EquityCashSettlementAmount:</span><span class="w"> </span>
+<span class="w">    </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">tradeState</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">date</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">equityCashSettlementAmount</span><span class="w"> </span><span class="kt">Transfer</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">alias</span><span class="w"> </span><span class="n">payout</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">tradeState</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">trade</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">economicTerms</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">payout</span>
+<span class="w">            </span><span class="n">filter</span><span class="w"> </span><span class="kt">PerformancePayout</span><span class="w"> </span><span class="n">exists</span>
+<span class="w">            </span><span class="kr">then</span><span class="w"> </span><span class="n">only</span><span class="o">-</span><span class="n">element</span>
+<span class="w">    </span><span class="n">alias</span><span class="w"> </span><span class="n">equityPerformancePayout</span><span class="kt">:</span><span class="w"> </span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">PerformancePayout</span>
+<span class="w">    </span><span class="n">alias</span><span class="w"> </span><span class="n">equityPerformance</span><span class="kt">:</span>
+<span class="w">        </span><span class="kt">EquityPerformance</span><span class="p">(</span>
+<span class="w">                </span><span class="n">tradeState</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">trade</span><span class="p">,</span>
+<span class="w">                </span><span class="n">tradeState</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">resetHistory</span><span class="w"> </span><span class="n">only</span><span class="o">-</span><span class="n">element</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">resetValue</span><span class="p">,</span>
+<span class="w">                </span><span class="n">date</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">    </span><span class="n">alias</span><span class="w"> </span><span class="n">payer</span><span class="kt">:</span>
+<span class="w">        </span><span class="kt">ExtractCounterpartyByRole</span><span class="p">(</span>
+<span class="w">                </span><span class="n">tradeState</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">trade</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">counterparty</span><span class="p">,</span>
+<span class="w">                </span><span class="n">equityPerformancePayout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">payerReceiver</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">payer</span>
+<span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">partyReference</span>
+<span class="w">    </span><span class="n">alias</span><span class="w"> </span><span class="n">receiver</span><span class="kt">:</span>
+<span class="w">        </span><span class="kt">ExtractCounterpartyByRole</span><span class="p">(</span>
+<span class="w">                </span><span class="n">tradeState</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">trade</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">counterparty</span><span class="p">,</span>
+<span class="w">                </span><span class="n">equityPerformancePayout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">payerReceiver</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">receiver</span>
+<span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">partyReference</span>
+
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">equityCashSettlementAmount</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">ScheduledTransfer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">value</span><span class="kt">:</span><span class="w"> </span>
+<span class="w">        </span><span class="kt">Abs</span><span class="p">(</span><span class="n">equityPerformance</span><span class="p">)</span>
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">equityCashSettlementAmount</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">ScheduledTransfer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">currency</span><span class="kt">:</span><span class="w"> </span>
+<span class="w">        </span><span class="kt">ResolveEquityInitialPrice</span><span class="p">(</span>
+<span class="w">                </span><span class="n">tradeState</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">trade</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">tradeLot</span><span class="w"> </span><span class="n">only</span><span class="o">-</span><span class="n">element</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">priceQuantity</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">price</span>
+<span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">currency</span>
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">equityCashSettlementAmount</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">ScheduledTransfer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">payerReceiver</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">payerPartyReference</span><span class="kt">:</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="n">equityPerformance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">payer</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">receiver</span>
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">equityCashSettlementAmount</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">ScheduledTransfer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">payerReceiver</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">receiverPartyReference</span><span class="kt">:</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="n">equityPerformance</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">receiver</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">payer</span>
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">equityCashSettlementAmount</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">ScheduledTransfer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">settlementDate</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">adjustedDate</span><span class="kt">:</span>
+<span class="w">        </span><span class="kt">ResolveCashSettlementDate</span><span class="p">(</span><span class="n">tradeState</span><span class="p">)</span>
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">equityCashSettlementAmount</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">ScheduledTransfer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">payoutReference</span><span class="kt">:</span><span class="w"> </span><span class="n">payout</span><span class="w"> </span><span class="n">as</span><span class="o">-</span><span class="n">key</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">RateOfReturn:</span>
+<span class="w">   </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">       </span><span class="n">initialPrice</span><span class="w"> </span><span class="kt">PriceSchedule</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">       </span><span class="n">finalPrice</span><span class="w"> </span><span class="kt">PriceSchedule</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">       </span><span class="n">rateOfReturn</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">alias</span><span class="w"> </span><span class="n">initialPriceValue</span><span class="kt">:</span>
+<span class="w">       </span><span class="n">initialPrice</span><span class="ow">-&gt;</span><span class="n">value</span>
+<span class="w">   </span><span class="n">alias</span><span class="w"> </span><span class="n">finalPriceValue</span><span class="kt">:</span>
+<span class="w">       </span><span class="n">finalPrice</span><span class="ow">-&gt;</span><span class="n">value</span>
+<span class="w">   </span><span class="n">set</span><span class="w"> </span><span class="n">rateOfReturn</span><span class="kt">:</span>
+<span class="w">       </span><span class="kr">if</span><span class="w"> </span><span class="n">finalPriceValue</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">initialPriceValue</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">initialPriceValue</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">           </span><span class="p">(</span><span class="n">finalPriceValue</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">initialPriceValue</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">initialPriceValue</span>
+</code></pre></div>
+<h3 id="billing">Billing</h3>
+<p>The CDM process model includes calculations to support the billing event
+consisting of the individual amounts that need to be settled in relation
+to a portfolio of Security Loans. These calculations leverage the
+<em>FixedAmount</em>, <em>FloatingAmount</em> and <em>Day Count
+Fraction</em> calculations described earlier in the
+documentation. A functional model is provided to populate the
+<em>SecurityLendingInvoice</em> data type following the definitions
+as normalised in the <a href="https://www.islaemea.org/isla-best-practice-handbook/"><em>ISLA best practice handbook</em></a></p>
+<p>The data type and function to generate a Security Lending Invoice:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">SecurityLendingInvoice:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">rootType</span><span class="p">]</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
+<span class="w">  </span><span class="n">sendingParty</span><span class="w"> </span><span class="kt">Party</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">receivingParty</span><span class="w"> </span><span class="kt">Party</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">billingStartDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">billingEndDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">billingRecord</span><span class="w"> </span><span class="kt">BillingRecord</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">billingSummary</span><span class="w"> </span><span class="kt">BillingSummary</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">Create_SecurityLendingInvoice:</span>
+<span class="w">   </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">     </span><span class="n">instruction</span><span class="w"> </span><span class="kt">BillingInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">     </span><span class="n">invoice</span><span class="w"> </span><span class="kt">SecurityLendingInvoice</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">set</span><span class="w"> </span><span class="n">invoice</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">sendingParty</span><span class="kt">:</span>
+<span class="w">     </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">sendingParty</span>
+<span class="w">   </span><span class="n">set</span><span class="w"> </span><span class="n">invoice</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">receivingParty</span><span class="kt">:</span>
+<span class="w">     </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">receivingParty</span>
+<span class="w">   </span><span class="n">set</span><span class="w"> </span><span class="n">invoice</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">billingStartDate</span><span class="kt">:</span>
+<span class="w">     </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">billingStartDate</span>
+<span class="w">   </span><span class="n">set</span><span class="w"> </span><span class="n">invoice</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">billingEndDate</span><span class="kt">:</span>
+<span class="w">     </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">billingEndDate</span>
+<span class="w">   </span><span class="n">add</span><span class="w"> </span><span class="n">invoice</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">billingRecord</span><span class="kt">:</span>
+<span class="w">     </span><span class="kt">Create_BillingRecords</span><span class="p">(</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">billingRecordInstruction</span><span class="w"> </span><span class="p">)</span>
+<span class="w">   </span><span class="n">add</span><span class="w"> </span><span class="n">invoice</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">billingSummary</span><span class="kt">:</span>
+<span class="w">     </span><span class="kt">Create_BillingSummary</span><span class="p">(</span><span class="w"> </span><span class="n">invoice</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">billingRecord</span><span class="w"> </span><span class="p">)</span>
+</code></pre></div>
+<h2 id="lifecycle-event-process">Lifecycle Event Process</h2>
+<p>While the lifecycle event model described in the
+<a href="../event-model/">event-model-section</a> provides a
+standardised data representation of those events using the concept of
+<em>primitive event</em> components, the CDM must further specify the
+processing of those events to ensure standardised implementations across
+the industry. This means specifying the <em>logic</em> of the state-transition
+as described by each primitive event component.</p>
+<p>In particular, the CDM must ensure that:</p>
+<ul>
+<li>The lifecycle event process model constructs valid CDM event
+    objects.</li>
+<li>The constructed events qualify according to the qualification logic
+    described in the <a href="event-model#event-qualification-section">event-qualification-section</a>.</li>
+<li>The lineage between states allows an accurate reconstruction of the
+    trade's lifecycle sequence.</li>
+</ul>
+<p>There are three levels of function components in the CDM to define the
+processing of lifecycle events:</p>
+<ol>
+<li>Primitive creation</li>
+<li>Event creation</li>
+<li>Workflow step creation</li>
+</ol>
+<p>Each of those components can leverage any calculation or utility
+function already defined in the CDM. As part of the validation processe
+embedded in the CDM, an object validation step is included in all these
+object creation functions to ensure that they each construct valid CDM
+objects. Further details on the underlying calculation and validation
+processes are described in the <a href="#calculation-process">calculation-process</a> and <a href="#validation-process">validation-process</a>.</p>
+<p>Illustration of the three components are given in the sections below.</p>
+<h3 id="primitive-creation">Primitive Creation</h3>
+<p>Primitive creation functions can be thought of as the fundamental
+mathematical operators that operate on a <em>trade state</em>. While a
+primitive event object describes each state transition in terms of
+<em>before</em> and <em>after</em> trade states, a primitive creation function defines
+the logic to transition from that <em>before</em> trade state to the <em>after</em>
+trade state, using a set of <em>instructions</em>.</p>
+<p>An example of such use is captured in the reset event of an Equity Swap.
+The reset is processed in following steps:</p>
+<ol>
+<li>Resolve the <code>Observation</code> that contains the equity price, using
+    specific product definition terms defined on <code>EquityPayout</code>.</li>
+<li>Construct a <code>Reset</code> using the equity price on <code>Observation</code>. In this
+    scenario, the reset value is the equity price.</li>
+<li>Append <code>Reset</code> onto <code>TradeState</code>, creating a new instance of
+    <code>TradeState</code>.</li>
+</ol>
+<p>At the end of each period in the life of the Equity Swap, the reset
+process will append further reset values onto the <em>trade state</em>. The
+series of equity prices then supports equity performance calculation as
+each reset value will represent the equity price at the end of one
+period and the start of the next.</p>
+<p>These above steps are codified in the <code>Create_Reset</code> function, which
+defines how the <code>Reset</code> instance should be constructed.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">Create_Reset:</span>
+<span class="w">    </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">instruction</span><span class="w"> </span><span class="kt">ResetInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">tradeState</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">reset</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">alias</span><span class="w"> </span><span class="n">payout</span><span class="kt">:</span>
+<span class="w">       </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">payout</span>
+
+<span class="w">   </span><span class="n">alias</span><span class="w"> </span><span class="n">observationDate</span><span class="kt">:</span>
+<span class="w">       </span><span class="kr">if</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">rateRecordDate</span><span class="w"> </span><span class="n">exists</span>
+<span class="w">       </span><span class="kr">then</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">rateRecordDate</span>
+<span class="w">       </span><span class="kr">else</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">resetDate</span>
+
+<span class="w">   </span><span class="n">alias</span><span class="w"> </span><span class="n">observationIdentifiers</span><span class="kt">:</span>
+<span class="w">       </span><span class="kr">if</span><span class="w"> </span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">PerformancePayout</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kt">ResolvePerformanceObservationIdentifiers</span><span class="p">(</span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">PerformancePayout</span><span class="w"> </span><span class="n">only</span><span class="o">-</span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">resetDate</span><span class="p">)</span>
+<span class="w">       </span><span class="kr">else</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">InterestRatePayout</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kt">ResolveInterestRateObservationIdentifiers</span><span class="p">(</span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">InterestRatePayout</span><span class="w"> </span><span class="n">only</span><span class="o">-</span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="n">observationDate</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">alias</span><span class="w"> </span><span class="n">observation</span><span class="kt">:</span>
+<span class="w">       </span><span class="kt">ResolveObservation</span><span class="p">([</span><span class="n">observationIdentifiers</span><span class="p">],</span><span class="w"> </span><span class="n">empty</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">set</span><span class="w"> </span><span class="n">reset</span><span class="kt">:</span>
+<span class="w">       </span><span class="n">tradeState</span>
+
+<span class="w">   </span><span class="n">add</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">resetHistory</span><span class="kt">:</span>
+<span class="w">       </span><span class="kr">if</span><span class="w"> </span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">PerformancePayout</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kt">ResolvePerformanceReset</span><span class="p">(</span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">PerformancePayout</span><span class="w"> </span><span class="n">only</span><span class="o">-</span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="n">observation</span><span class="p">,</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">resetDate</span><span class="p">)</span>
+<span class="w">       </span><span class="kr">else</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">InterestRatePayout</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kt">ResolveInterestRateReset</span><span class="p">(</span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">InterestRatePayout</span><span class="p">,</span><span class="w"> </span><span class="n">observation</span><span class="p">,</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">resetDate</span><span class="p">,</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">rateRecordDate</span><span class="p">)</span>
+</code></pre></div>
+<p>First, <code>ResolvePerformanceObservationIdentifiers</code> defines the specific
+product definition terms used to resolve <code>ObservationIdentifier</code>s. An
+<code>ObservationIdentifier</code> uniquely identifies an <code>Observation</code>, which
+inside holds a single item of market data and in this scenario will hold
+an equity price.</p>
+<p>Specifying precisely which attributes from <code>PerformancePayout</code> should be
+used to resolve the equity price is important to ensure consistent
+equity price resolution for all model adopters.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">ResolvePerformanceObservationIdentifiers:</span>
+<span class="w">    </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">payout</span><span class="w"> </span><span class="kt">PerformancePayout</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">adjustedDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">identifiers</span><span class="w"> </span><span class="kt">ObservationIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">alias</span><span class="w"> </span><span class="n">adjustedFinalValuationDate</span><span class="kt">:</span>
+<span class="w">        </span><span class="kt">ResolveAdjustableDate</span><span class="p">(</span>
+<span class="w">                </span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">valuationDates</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">finalValuationDate</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">valuationDate</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">    </span><span class="n">alias</span><span class="w"> </span><span class="n">valuationDates</span><span class="kt">:</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="n">adjustedDate</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">adjustedFinalValuationDate</span>
+<span class="w">        </span><span class="kr">then</span><span class="w"> </span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">valuationDates</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">interimValuationDate</span>
+<span class="w">        </span><span class="kr">else</span><span class="w"> </span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">valuationDates</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">finalValuationDate</span>
+
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">identifiers</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">observable</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">underlier</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Observable</span><span class="w"> </span>
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">identifiers</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">observationDate</span><span class="kt">:</span>
+<span class="w">        </span><span class="kt">AdjustedValuationDates</span><span class="p">(</span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">valuationDates</span><span class="p">)</span>
+<span class="w">            </span><span class="n">filter</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">adjustedDate</span>
+<span class="w">            </span><span class="kr">then</span><span class="w"> </span><span class="n">last</span>
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">identifiers</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">observationTime</span><span class="kt">:</span>
+<span class="w">        </span><span class="kt">ResolvePerformanceValuationTime</span><span class="p">(</span>
+<span class="w">                </span><span class="n">valuationDates</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">valuationTime</span><span class="p">,</span>
+<span class="w">                </span><span class="n">valuationDates</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">valuationTimeType</span><span class="p">,</span>
+<span class="w">                </span><span class="n">identifiers</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">observable</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Asset</span><span class="w"> </span><span class="o">-&gt;&gt;</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="n">only</span><span class="o">-</span><span class="n">element</span><span class="p">,</span>
+<span class="w">                </span><span class="n">valuationDates</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">determinationMethod</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">identifiers</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">informationSource</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">payout</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">observationTerms</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">informationSource</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">primarySource</span><span class="w">        </span>
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">identifiers</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">determinationMethodology</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">determinationMethod</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">valuationDates</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">determinationMethod</span>
+</code></pre></div>
+<p><code>ResolveObservation</code> provides an interface for adopters to integrate
+their market data systems. It specifies the input types and the output
+type, which ensures the integrity of the observed value.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">ResolveObservation:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">codeImplementation</span><span class="p">]</span>
+<span class="w">    </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">identifiers</span><span class="w"> </span><span class="kt">ObservationIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">        </span><span class="n">averagingMethod</span><span class="w"> </span><span class="kt">AveragingCalculationMethod</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">observation</span><span class="w"> </span><span class="kt">Observation</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>The construction of the <code>Reset</code> in our scenario then becomes trivial,
+once the equity price has been retrieved, as the equity price and reset
+date are simply assigned to the corresponding attributes on the <code>Reset</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">ResolvePerformanceReset:</span>
+<span class="w">    </span><span class="n">inputs</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">performancePayout</span><span class="w"> </span><span class="kt">PerformancePayout</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">observation</span><span class="w"> </span><span class="kt">Observation</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">date</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">output</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">reset</span><span class="w"> </span><span class="kt">Reset</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">resetValue</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">observation</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">observedValue</span>
+
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">resetDate</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">date</span>
+
+<span class="w">    </span><span class="n">add</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">observations</span><span class="kt">:</span>
+<span class="w">        </span><span class="n">observation</span>
+</code></pre></div>
+<h3 id="workflow-step-creation">Workflow Step Creation</h3>
+<p>(<em>This feature is currently being developed and will be documented upon
+release in the CDM</em>)</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        with emoji by
+        <a href="https://github.com/twitter/twemoji" target="_blank" rel="noopener">
+          Twemoji
+        </a>
+      </div>
+      
+<div class="md-social">
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.tabs.link", "header.autohide", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/pymdownx-extras/extra-loader-B5CKpNQx.js"></script>
+      
+    
+  </body>
+</html>
