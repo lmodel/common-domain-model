@@ -1,0 +1,2362 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://lmodel.github.io/common-domain-model-ld/elements/CollateralAssetDefinitionsEnum/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Enum: CollateralAssetDefinitionsEnum - common-domain-model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+
+      
+    
+<script src="../../assets/pymdownx-extras/material-extra-theme-2ek1P7jT.js" type="text/javascript"></script>
+<script src="../../assets/pymdownx-extras/material-extra-3rdparty-BUCF4rjN.js" type="text/javascript"></script>
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+      <link rel="stylesheet" href="../../assets/pymdownx-extras/extra-c6ab11540a.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enum-collateralassetdefinitionsenum" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+<header class="md-header" data-md-component="header">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="header.title"
+  >
+    <a
+      href="https://lmodel.github.io/common-domain-model-ld/"
+      title="common-domain-model"
+      class="md-header__button md-logo"
+      aria-label="common-domain-model"
+    >
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            common-domain-model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Enum: CollateralAssetDefinitionsEnum
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      <div class="md-header-nav__scheme md-header-nav__button md-source__icon md-icon">
+          <a
+            href="javascript:toggleScheme();"
+            title="Light mode"
+            class="light-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="Dark mode"
+            class="dark-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="System preference"
+            class="system-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
+          </a>
+           <a
+            href="javascript:toggleScheme();"
+            title="Unknown scheme"
+            class="unknown-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"/></svg>
+          </a>
+      </div>
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lmodel/common-domain-model-ld" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="common-domain-model" class="md-nav__button md-logo" aria-label="common-domain-model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    common-domain-model
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lmodel/common-domain-model-ld" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#permissible-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permissible Values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifier-and-mapping-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifier and Mapping Information
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identifier and Mapping Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LinkML Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+<h1 id="enum-collateralassetdefinitionsenum">Enum: CollateralAssetDefinitionsEnum</h1>
+<div>
+<p>URI: <a href="https://w3id.org/finos/cdm/CollateralAssetDefinitionsEnum">common_domain_model:CollateralAssetDefinitionsEnum</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AU_CASH</td>
+<td>None</td>
+<td>Australian Dollar (AUD) Cash</td>
+</tr>
+<tr>
+<td>AU_CIB</td>
+<td>None</td>
+<td>Australian Government Securities Capital-Indexed Bonds</td>
+</tr>
+<tr>
+<td>AU_FIB</td>
+<td>None</td>
+<td>Australian Semi-Government Securities Fixed Interest Bonds</td>
+</tr>
+<tr>
+<td>AU_FRB</td>
+<td>None</td>
+<td>Australian Government Securities Fixed Rate Bonds</td>
+</tr>
+<tr>
+<td>AU_ILB</td>
+<td>None</td>
+<td>Australian Semi-Government Securities Index Linked Bonds</td>
+</tr>
+<tr>
+<td>AU_NOTE</td>
+<td>None</td>
+<td>Australian Government Securities Treasury Notes</td>
+</tr>
+<tr>
+<td>AU_STATENOTE</td>
+<td>None</td>
+<td>Australian Semi-Government Securities Treasury Notes</td>
+</tr>
+<tr>
+<td>AU_TAB</td>
+<td>None</td>
+<td>Australian Government Securities Treasury Adjustable Rate Bonds</td>
+</tr>
+<tr>
+<td>BE_BEL20</td>
+<td>None</td>
+<td>BEL20 Equity Securities</td>
+</tr>
+<tr>
+<td>BE_CERT</td>
+<td>None</td>
+<td>Belgian Treasury Certificates</td>
+</tr>
+<tr>
+<td>BE_LINEAR</td>
+<td>None</td>
+<td>Belgian Linear Obligations</td>
+</tr>
+<tr>
+<td>BE_NOTE</td>
+<td>None</td>
+<td>Belgian Treasury notes</td>
+</tr>
+<tr>
+<td>BE_REGIONGT</td>
+<td>None</td>
+<td>Public sector issues guaranteed by Regional Authorities</td>
+</tr>
+<tr>
+<td>BE_STATEGT</td>
+<td>None</td>
+<td>Public sector issues guaranteed by the Belgian State</td>
+</tr>
+<tr>
+<td>BE_STATELOAN</td>
+<td>None</td>
+<td>Belgian State Loans</td>
+</tr>
+<tr>
+<td>CA_BOND</td>
+<td>None</td>
+<td>Canada Bonds</td>
+</tr>
+<tr>
+<td>CA_CASH</td>
+<td>None</td>
+<td>Canadian Dollar (CAD) Cash</td>
+</tr>
+<tr>
+<td>CA_RRB</td>
+<td>None</td>
+<td>Government of Canada Real Return Bonds</td>
+</tr>
+<tr>
+<td>CA_TBILL</td>
+<td>None</td>
+<td>Government of Canada Treasury Bills</td>
+</tr>
+<tr>
+<td>CH_CANTON</td>
+<td>None</td>
+<td>Public Authority Bond</td>
+</tr>
+<tr>
+<td>CH_CASH</td>
+<td>None</td>
+<td>Swiss Franc (CHF) Cash</td>
+</tr>
+<tr>
+<td>CH_FEDBOND</td>
+<td>None</td>
+<td>Federal Bond</td>
+</tr>
+<tr>
+<td>DE_BILL</td>
+<td>None</td>
+<td>Unverzinsliche Schatzanweisungen (Bills)</td>
+</tr>
+<tr>
+<td>DE_BOND</td>
+<td>None</td>
+<td>Bundesanleihen (Bonds)</td>
+</tr>
+<tr>
+<td>DE_ERBLAST</td>
+<td>None</td>
+<td>Negotiable Debt Obligations issued by or taken over and since serviced and ma...</td>
+</tr>
+<tr>
+<td>DE_MUNI</td>
+<td>None</td>
+<td>Kommunalschuldverschreib\tungen (Municipal Bonds)</td>
+</tr>
+<tr>
+<td>DE_NOTE2</td>
+<td>None</td>
+<td>Bundesschatzanweisungen (Notes)</td>
+</tr>
+<tr>
+<td>DE_NOTE5_5</td>
+<td>None</td>
+<td>Bundesobligationen (Notes)</td>
+</tr>
+<tr>
+<td>DE_PFAND</td>
+<td>None</td>
+<td>Hypothekenpfandbriefe (Mortgage Bonds)</td>
+</tr>
+<tr>
+<td>DK_BILL</td>
+<td>None</td>
+<td>Skatkammerbeviser (Treasury Bills)</td>
+</tr>
+<tr>
+<td>DK_BOLIGX</td>
+<td>None</td>
+<td>BoligX obligationer</td>
+</tr>
+<tr>
+<td>DK_BOND</td>
+<td>None</td>
+<td>Statsobligationer (Government Bonds)</td>
+</tr>
+<tr>
+<td>DK_CALLMORT</td>
+<td>None</td>
+<td>Callable Mortgage Bonds</td>
+</tr>
+<tr>
+<td>DK_CASH</td>
+<td>None</td>
+<td>Danish Krone (DKK) Cash</td>
+</tr>
+<tr>
+<td>DK_KFX</td>
+<td>None</td>
+<td>KFX Equity Securities</td>
+</tr>
+<tr>
+<td>DK_MORT</td>
+<td>None</td>
+<td>Non-callable Mortgage Bonds</td>
+</tr>
+<tr>
+<td>DK_NOTE</td>
+<td>None</td>
+<td>Statsgaeldsbeviser (Treasury Notes)</td>
+</tr>
+<tr>
+<td>ES_BILL</td>
+<td>None</td>
+<td>Treasury Bills - Letras del Tesoro</td>
+</tr>
+<tr>
+<td>ES_BOND</td>
+<td>None</td>
+<td>Public Government Debt</td>
+</tr>
+<tr>
+<td>ES_CEDULAS</td>
+<td>None</td>
+<td>Cedulas</td>
+</tr>
+<tr>
+<td>ES_CORP</td>
+<td>None</td>
+<td>Corporate Bonds</td>
+</tr>
+<tr>
+<td>ES_EQUITY</td>
+<td>None</td>
+<td>Equity securities issued by a Spanish company, and listed as an IBEX 35 const...</td>
+</tr>
+<tr>
+<td>EU_CASH</td>
+<td>None</td>
+<td>Euro (EUR) Cash</td>
+</tr>
+<tr>
+<td>EU_EURO100</td>
+<td>None</td>
+<td>FTSE Euro 100 Index Equity Securities</td>
+</tr>
+<tr>
+<td>EU_EUROTOP300</td>
+<td>None</td>
+<td>FTSE Eurotop 300 Index Equity Securities</td>
+</tr>
+<tr>
+<td>EU_STOXX50</td>
+<td>None</td>
+<td>EuroSTOXX 50 Index Equity Securities</td>
+</tr>
+<tr>
+<td>EU_STOXX600</td>
+<td>None</td>
+<td>STOXX 600 Index Equity Securities</td>
+</tr>
+<tr>
+<td>FI_BILL</td>
+<td>None</td>
+<td>Treasury bills</td>
+</tr>
+<tr>
+<td>FI_BOND</td>
+<td>None</td>
+<td>Serial bonds (Finnish Government Bond)</td>
+</tr>
+<tr>
+<td>FI_HEX</td>
+<td>None</td>
+<td>HEX Equity Securities</td>
+</tr>
+<tr>
+<td>FR_BDT</td>
+<td>None</td>
+<td>Commercial Paper: (Billet de Trsorerie)</td>
+</tr>
+<tr>
+<td>FR_BTAN</td>
+<td>None</td>
+<td>Treasury Notes: Bons du Trsor  Taux Annuel (BTAN)</td>
+</tr>
+<tr>
+<td>FR_BTF</td>
+<td>None</td>
+<td>Treasury Bills: Bons du Trsor  Taux Fixe (BTF)</td>
+</tr>
+<tr>
+<td>FR_OAT</td>
+<td>None</td>
+<td>Government bonds: Obligations Assimilables du Trsor (OAT)</td>
+</tr>
+<tr>
+<td>FR_STRIP</td>
+<td>None</td>
+<td>STRIPS</td>
+</tr>
+<tr>
+<td>GA_AU_GOV</td>
+<td>None</td>
+<td>Generally Accepted Australian Government Obligations</td>
+</tr>
+<tr>
+<td>GA_BE_GOV</td>
+<td>None</td>
+<td>Generally Accepted Belgian Government Obligations</td>
+</tr>
+<tr>
+<td>GA_CA_GOV</td>
+<td>None</td>
+<td>Generally Accepted Canadian Government Obligations</td>
+</tr>
+<tr>
+<td>GA_CH_GOV</td>
+<td>None</td>
+<td>Generally Accepted Swiss Government Obligations</td>
+</tr>
+<tr>
+<td>GA_DE_GOV</td>
+<td>None</td>
+<td>Generally Accepted German Government Obligations</td>
+</tr>
+<tr>
+<td>GA_DK_GOV</td>
+<td>None</td>
+<td>Generally Accepted Danish Government Obligations</td>
+</tr>
+<tr>
+<td>GA_ES_GOV</td>
+<td>None</td>
+<td>Generally Accepted Spanish Government Obligations</td>
+</tr>
+<tr>
+<td>GA_EUROZONE_GOV</td>
+<td>None</td>
+<td>Generally Accepted Euro Zone Government Securities</td>
+</tr>
+<tr>
+<td>GA_EU_GOV</td>
+<td>None</td>
+<td>Generally Accepted EU Member State Government Securities</td>
+</tr>
+<tr>
+<td>GA_FI_GOV</td>
+<td>None</td>
+<td>Generally Accepted Finnish Government Obligations</td>
+</tr>
+<tr>
+<td>GA_FR_GOV</td>
+<td>None</td>
+<td>Generally Accepted French Government Obligations</td>
+</tr>
+<tr>
+<td>GA_G5_GOV</td>
+<td>None</td>
+<td>Generally Accepted G5 Government Obligations</td>
+</tr>
+<tr>
+<td>GA_GB_GOV</td>
+<td>None</td>
+<td>Generally Accepted British Government Obligations</td>
+</tr>
+<tr>
+<td>GA_HK_GOV</td>
+<td>None</td>
+<td>Generally Accepted Hong Kong Government Obligations</td>
+</tr>
+<tr>
+<td>GA_IT_GOV</td>
+<td>None</td>
+<td>Generally Accepted Italian Government Obligations</td>
+</tr>
+<tr>
+<td>GA_JP_GOV</td>
+<td>None</td>
+<td>Generally Accepted Japanese Government Obligations</td>
+</tr>
+<tr>
+<td>GA_KR_GOV</td>
+<td>None</td>
+<td>Generally Accepted Korean Government Obligations</td>
+</tr>
+<tr>
+<td>GA_NL_GOV</td>
+<td>None</td>
+<td>Generally Accepted Netherlands Government Obligations</td>
+</tr>
+<tr>
+<td>GA_NO_GOV</td>
+<td>None</td>
+<td>Generally Accepted Norwegian Government Obligations</td>
+</tr>
+<tr>
+<td>GA_NZ_GOV</td>
+<td>None</td>
+<td>Generally Accepted New Zealand Government Obligations</td>
+</tr>
+<tr>
+<td>GA_SE_GOV</td>
+<td>None</td>
+<td>Generally Accepted Swedish Government Obligations</td>
+</tr>
+<tr>
+<td>GA_SG_GOV</td>
+<td>None</td>
+<td>Generally Accepted Singaporean Government Obligations</td>
+</tr>
+<tr>
+<td>GA_US_AGENCY</td>
+<td>None</td>
+<td>Generally Accepted US Agency Obligations</td>
+</tr>
+<tr>
+<td>GA_US_GOV</td>
+<td>None</td>
+<td>Generally Accepted US Government Obligations</td>
+</tr>
+<tr>
+<td>GA_US_MORTGAGES</td>
+<td>None</td>
+<td>Generally Accepted US Mortgage-Backed Obligations</td>
+</tr>
+<tr>
+<td>GB_CASH</td>
+<td>None</td>
+<td>British Pound Sterling (GBP) Cash</td>
+</tr>
+<tr>
+<td>GB_DDGILT</td>
+<td>None</td>
+<td>Double-dated Gilts</td>
+</tr>
+<tr>
+<td>GB_FT100</td>
+<td>None</td>
+<td>FTSE 100 Equity Securities</td>
+</tr>
+<tr>
+<td>GB_FT250</td>
+<td>None</td>
+<td>FTSE 250 Equity Securities</td>
+</tr>
+<tr>
+<td>GB_FT350</td>
+<td>None</td>
+<td>FTSE 350 Equity Securities</td>
+</tr>
+<tr>
+<td>GB_GILT</td>
+<td>None</td>
+<td>Conventional Gilts</td>
+</tr>
+<tr>
+<td>GB_INDEXGILT</td>
+<td>None</td>
+<td>Index-Linked Gilts</td>
+</tr>
+<tr>
+<td>GB_PERPGILT</td>
+<td>None</td>
+<td>Undated or Perpetual Gilts</td>
+</tr>
+<tr>
+<td>GB_RUMPGILT</td>
+<td>None</td>
+<td>Rump Stock</td>
+</tr>
+<tr>
+<td>GB_SUPR1</td>
+<td>None</td>
+<td>Bank of England Euro Bills</td>
+</tr>
+<tr>
+<td>GB_SUPR2</td>
+<td>None</td>
+<td>Bank of England Euro Notes</td>
+</tr>
+<tr>
+<td>GB_TBILL</td>
+<td>None</td>
+<td>UK Treasury Bills</td>
+</tr>
+<tr>
+<td>GB_ZEROGILT</td>
+<td>None</td>
+<td>Gilt Strips or Zero Coupon Gilts</td>
+</tr>
+<tr>
+<td>HK_BILL</td>
+<td>None</td>
+<td>Hong Kong Government Exchange Fund Bills</td>
+</tr>
+<tr>
+<td>HK_CASH</td>
+<td>None</td>
+<td>Hong Kong Dollar (HKD) Cash</td>
+</tr>
+<tr>
+<td>HK_NOTE</td>
+<td>None</td>
+<td>Hong Kong Government Exchange Fund Notes</td>
+</tr>
+<tr>
+<td>IT_BOT</td>
+<td>None</td>
+<td>Botbuoni Ordinari del Tesoro (BOT) zero coupon debt securities issued by the ...</td>
+</tr>
+<tr>
+<td>IT_BTP</td>
+<td>None</td>
+<td>Buoni del Tesoro Poliennali fixed interest semi-annual debt securities issued...</td>
+</tr>
+<tr>
+<td>IT_CCT</td>
+<td>None</td>
+<td>Certificati di Credito del Tesoro a Cedola Variable (CCT) or floating rate in...</td>
+</tr>
+<tr>
+<td>IT_CORP</td>
+<td>None</td>
+<td>Corporate bonds</td>
+</tr>
+<tr>
+<td>IT_CTZ</td>
+<td>None</td>
+<td>Certificati del Tesoro zero coupon debt securities issued by the Italian Trea...</td>
+</tr>
+<tr>
+<td>IT_MIB30</td>
+<td>None</td>
+<td>MIB30 Equity Securities</td>
+</tr>
+<tr>
+<td>IT_REP</td>
+<td>None</td>
+<td>Debt securities issued and marketed by the Republic of Italy outside the Ital...</td>
+</tr>
+<tr>
+<td>JP_CASH</td>
+<td>None</td>
+<td>Japanese Yen (JPY) Cash</td>
+</tr>
+<tr>
+<td>JP_CORPORATE</td>
+<td>None</td>
+<td>Corporate bonds including straight bonds</td>
+</tr>
+<tr>
+<td>JP_CP</td>
+<td>None</td>
+<td>Commercial Paper</td>
+</tr>
+<tr>
+<td>JP_EQUITY</td>
+<td>None</td>
+<td>Equity securities issued by a Japanese company, each share representing the m...</td>
+</tr>
+<tr>
+<td>JP_EUROBOND</td>
+<td>None</td>
+<td>Yen-denominated foreign bonds</td>
+</tr>
+<tr>
+<td>JP_JGB</td>
+<td>None</td>
+<td>Japanese Government Bonds</td>
+</tr>
+<tr>
+<td>KR_BOND</td>
+<td>None</td>
+<td>Korean Treasury Bonds</td>
+</tr>
+<tr>
+<td>KR_CASH</td>
+<td>None</td>
+<td>Korean Won (KRW) Cash</td>
+</tr>
+<tr>
+<td>KR_EXIM</td>
+<td>None</td>
+<td>Non Korean Won denominated Export-Import Bank of Korea bonds</td>
+</tr>
+<tr>
+<td>KR_KDICKRW</td>
+<td>None</td>
+<td>Korean Development Insurance Corporation Bonds (Korean Won denominated)</td>
+</tr>
+<tr>
+<td>KR_KDR</td>
+<td>None</td>
+<td>Non-Korean Won denominated Korea Development Bank bonds (KDBs)</td>
+</tr>
+<tr>
+<td>KR_KEPCO</td>
+<td>None</td>
+<td>KEPCO bonds</td>
+</tr>
+<tr>
+<td>KR_MSB</td>
+<td>None</td>
+<td>Monetary Stabilisation Bonds</td>
+</tr>
+<tr>
+<td>KR_NHC</td>
+<td>None</td>
+<td>Non Korean Won denominated Korea National Housing Corporation bonds (KNHCs)</td>
+</tr>
+<tr>
+<td>KR_ROK</td>
+<td>None</td>
+<td>Non-Korean Won denominated Republic of Korea bonds (ROKs)</td>
+</tr>
+<tr>
+<td>NL_AEX</td>
+<td>None</td>
+<td>AEX Equity Securities</td>
+</tr>
+<tr>
+<td>NL_BILL</td>
+<td>None</td>
+<td>Dutch Treasury Certificates</td>
+</tr>
+<tr>
+<td>NL_BOND</td>
+<td>None</td>
+<td>Dutch State Loans</td>
+</tr>
+<tr>
+<td>NO_BOND</td>
+<td>None</td>
+<td>Norwegian Government Bonds</td>
+</tr>
+<tr>
+<td>NO_CASH</td>
+<td>None</td>
+<td>Norwegian Krone (NOK) Cash</td>
+</tr>
+<tr>
+<td>NO_OBX</td>
+<td>None</td>
+<td>OBX Equity Securities</td>
+</tr>
+<tr>
+<td>NO_TBILL</td>
+<td>None</td>
+<td>Norwegian T-Bills</td>
+</tr>
+<tr>
+<td>NZ_BOND</td>
+<td>None</td>
+<td>New Zealand Government Bonds</td>
+</tr>
+<tr>
+<td>NZ_CASH</td>
+<td>None</td>
+<td>New Zealand Dollar (NZD) Cash</td>
+</tr>
+<tr>
+<td>NZ_TBILL</td>
+<td>None</td>
+<td>New Zealand Government Treasury Bills</td>
+</tr>
+<tr>
+<td>SE_CASH</td>
+<td>None</td>
+<td>Swedish Krona (SEK) Cash</td>
+</tr>
+<tr>
+<td>SE_GOVT</td>
+<td>None</td>
+<td>Swedish Government Bonds (SGB)</td>
+</tr>
+<tr>
+<td>SE_ILGOVT</td>
+<td>None</td>
+<td>Swedish Index Linked Government bonds</td>
+</tr>
+<tr>
+<td>SE_MORT</td>
+<td>None</td>
+<td>Swedish Mortgage Bonds</td>
+</tr>
+<tr>
+<td>SE_OMX</td>
+<td>None</td>
+<td>OMX Equity Securities</td>
+</tr>
+<tr>
+<td>SE_TBILL</td>
+<td>None</td>
+<td>Swedish Treasury Bills (STB)</td>
+</tr>
+<tr>
+<td>SG_BOND</td>
+<td>None</td>
+<td>Singapore Government (SGS) Bonds</td>
+</tr>
+<tr>
+<td>SG_CASH</td>
+<td>None</td>
+<td>Singapore Dollar (SGD) Cash</td>
+</tr>
+<tr>
+<td>SG_TBILL</td>
+<td>None</td>
+<td>Singapore Government T-Bills (T-Bills)</td>
+</tr>
+<tr>
+<td>SU_IADB</td>
+<td>None</td>
+<td>Inter-American Development Bank Bonds</td>
+</tr>
+<tr>
+<td>SU_IBRDDN</td>
+<td>None</td>
+<td>International Bank for Reconstruction and Development (World Bank) Discount N...</td>
+</tr>
+<tr>
+<td>SU_IBRDGB</td>
+<td>None</td>
+<td>International Bank for Reconstruction and Development (World Bank or IBRD) Gl...</td>
+</tr>
+<tr>
+<td>US_ARM</td>
+<td>None</td>
+<td>Adjustable Rate Mortgage (ARM) Bonds</td>
+</tr>
+<tr>
+<td>US_CASH</td>
+<td>None</td>
+<td>United States of America Dollar (USD) Cash</td>
+</tr>
+<tr>
+<td>US_DERIV</td>
+<td>None</td>
+<td>REMICs, CMOs and other derivative structures</td>
+</tr>
+<tr>
+<td>US_DOW</td>
+<td>None</td>
+<td>Dow Jones Industrial Average Equity Securities</td>
+</tr>
+<tr>
+<td>US_DOW_COMP</td>
+<td>None</td>
+<td>Dow Jones Composite Average Equity Securities</td>
+</tr>
+<tr>
+<td>US_DOW_TRAN</td>
+<td>None</td>
+<td>Dow Jones Transportation\tAverage Equity Securities</td>
+</tr>
+<tr>
+<td>US_DOW_UTIL</td>
+<td>None</td>
+<td>Dow Jones Utilities Average Equity Securities</td>
+</tr>
+<tr>
+<td>US_FAMC</td>
+<td>None</td>
+<td>Federal Agricultural Mortgage Corp (Farmer Mac) Bonds</td>
+</tr>
+<tr>
+<td>US_FCS</td>
+<td>None</td>
+<td>Farm Credit System (FCS) Bonds</td>
+</tr>
+<tr>
+<td>US_FCSFAC</td>
+<td>None</td>
+<td>Farm Credit System Financial Assistance Corporation (FCSFAC) Bonds</td>
+</tr>
+<tr>
+<td>US_FHLB</td>
+<td>None</td>
+<td>Callable Agency Debt  Federal Home Loan Bank (FHLB)</td>
+</tr>
+<tr>
+<td>US_FHLBNC</td>
+<td>None</td>
+<td>Non-Callable Federal Home Loan Bank Debt</td>
+</tr>
+<tr>
+<td>US_FHLBNCDN</td>
+<td>None</td>
+<td>Non-Callable Federal Home Loan Bank Discount Notes</td>
+</tr>
+<tr>
+<td>US_FHLMC</td>
+<td>None</td>
+<td>Callable Agency Debt  the Federal Home Loan Mortgage Corporation (FHLMC or Fr...</td>
+</tr>
+<tr>
+<td>US_FHLMCMBS</td>
+<td>None</td>
+<td>Federal Home Loan Mortgage Corporation Certificates  Mortgage Backed Securiti...</td>
+</tr>
+<tr>
+<td>US_FICO</td>
+<td>None</td>
+<td>Financing Corp (FICO) Bonds</td>
+</tr>
+<tr>
+<td>US_FNMA</td>
+<td>None</td>
+<td>Callable Agency Debt  Federal National Mortgage Association (FNMA or Fannie M...</td>
+</tr>
+<tr>
+<td>US_FNMAMBS</td>
+<td>None</td>
+<td>Federal National Mortgage Association Certificates  Mortgage Backed Securitie...</td>
+</tr>
+<tr>
+<td>US_GNMA</td>
+<td>None</td>
+<td>Callable Agency Debt  Government National Mortgage Association (GNMA)</td>
+</tr>
+<tr>
+<td>US_GNMAMBS</td>
+<td>None</td>
+<td>Government National Mortgage Association Certificates  Mortgage Backed Securi...</td>
+</tr>
+<tr>
+<td>US_LEHM_BOND</td>
+<td>None</td>
+<td>Lehman Brothers Credit Bond Index Debt Securities</td>
+</tr>
+<tr>
+<td>US_NAS_100</td>
+<td>None</td>
+<td>NASDAQ-100 Index Equity Securities</td>
+</tr>
+<tr>
+<td>US_NAS_COMP</td>
+<td>None</td>
+<td>NASDAQ Composite Index Equity Securities</td>
+</tr>
+<tr>
+<td>US_NCAD</td>
+<td>None</td>
+<td>Non-Callable Agency Debt  Various Issuers</td>
+</tr>
+<tr>
+<td>US_NCADN</td>
+<td>None</td>
+<td>Non-Callable Agency Discount Notes  Various Issuers</td>
+</tr>
+<tr>
+<td>US_NYSE_COMP</td>
+<td>None</td>
+<td>NYSE Composite Index Equity Securities</td>
+</tr>
+<tr>
+<td>US_REFCORP</td>
+<td>None</td>
+<td>Resolution Funding Corp (REFCorp) Bonds</td>
+</tr>
+<tr>
+<td>US_SLMA</td>
+<td>None</td>
+<td>Student Loan Marketing Association (Sallie Mae) Bonds</td>
+</tr>
+<tr>
+<td>US_STRIP</td>
+<td>None</td>
+<td>US Treasury Strips</td>
+</tr>
+<tr>
+<td>US_S_P100</td>
+<td>None</td>
+<td>Standard &amp; Poors 100 Index Equity Securities</td>
+</tr>
+<tr>
+<td>US_S_P400</td>
+<td>None</td>
+<td>Standard &amp; Poors Midcap 400 Equity Securities</td>
+</tr>
+<tr>
+<td>US_S_P500</td>
+<td>None</td>
+<td>Standard &amp; Poors 500 Index Equity Securities</td>
+</tr>
+<tr>
+<td>US_S_P600</td>
+<td>None</td>
+<td>Standard &amp; Poors Smallcap 600 Index Equity Securities</td>
+</tr>
+<tr>
+<td>US_TBILL</td>
+<td>None</td>
+<td>US Treasury Bills</td>
+</tr>
+<tr>
+<td>US_TBOND</td>
+<td>None</td>
+<td>US Treasury Bonds</td>
+</tr>
+<tr>
+<td>US_TIPS</td>
+<td>None</td>
+<td>US Treasury Inflation Protected Issues (TIPS)</td>
+</tr>
+<tr>
+<td>US_TNOTE</td>
+<td>None</td>
+<td>US Treasury Notes</td>
+</tr>
+<tr>
+<td>US_TVA</td>
+<td>None</td>
+<td>Tennessee Valley Authority (TVA) Bonds</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>ISDA CollateralAssetDefinitions_2003</li>
+</ul>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: <a href="https://w3id.org/finos/cdm">https://w3id.org/finos/cdm</a></li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CollateralAssetDefinitionsEnum</span>
+<span class="nt">notes</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ISDA CollateralAssetDefinitions_2003</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/finos/cdm</span>
+<span class="nt">exact_mappings</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://www.fpml.org/coding-scheme/collateral-asset-definitions</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">permissible_values</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">AU_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Australian Dollar (AUD) Cash.</span>
+<span class="w">  </span><span class="nt">AU_CIB</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU_CIB</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Australian Government Securities Capital-Indexed Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU-CIB</span>
+<span class="w">  </span><span class="nt">AU_FIB</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU_FIB</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Australian Semi-Government Securities Fixed Interest Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU-FIB</span>
+<span class="w">  </span><span class="nt">AU_FRB</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU_FRB</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Australian Government Securities Fixed Rate Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU-FRB</span>
+<span class="w">  </span><span class="nt">AU_ILB</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU_ILB</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Australian Semi-Government Securities Index Linked Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU-ILB</span>
+<span class="w">  </span><span class="nt">AU_NOTE</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU_NOTE</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Australian Government Securities Treasury Notes.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU-NOTE</span>
+<span class="w">  </span><span class="nt">AU_STATENOTE</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU_STATENOTE</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Australian Semi-Government Securities Treasury Notes.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU-STATENOTE</span>
+<span class="w">  </span><span class="nt">AU_TAB</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU_TAB</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Australian Government Securities Treasury Adjustable Rate Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AU-TAB</span>
+<span class="w">  </span><span class="nt">BE_BEL20</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE_BEL20</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BEL20 Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE-BEL20</span>
+<span class="w">  </span><span class="nt">BE_CERT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE_CERT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Belgian Treasury Certificates.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE-CERT</span>
+<span class="w">  </span><span class="nt">BE_LINEAR</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE_LINEAR</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Belgian Linear Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE-LINEAR</span>
+<span class="w">  </span><span class="nt">BE_NOTE</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE_NOTE</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Belgian Treasury notes.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE-NOTE</span>
+<span class="w">  </span><span class="nt">BE_REGIONGT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE_REGIONGT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Public sector issues guaranteed by Regional Authorities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE-REGIONGT</span>
+<span class="w">  </span><span class="nt">BE_STATEGT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE_STATEGT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Public sector issues guaranteed by the Belgian State.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE-STATEGT</span>
+<span class="w">  </span><span class="nt">BE_STATELOAN</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE_STATELOAN</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Belgian State Loans.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BE-STATELOAN</span>
+<span class="w">  </span><span class="nt">CA_BOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CA_BOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Canada Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CA-BOND</span>
+<span class="w">  </span><span class="nt">CA_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CA_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Canadian Dollar (CAD) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CA-CASH</span>
+<span class="w">  </span><span class="nt">CA_RRB</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CA_RRB</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Government of Canada Real Return Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CA-RRB</span>
+<span class="w">  </span><span class="nt">CA_TBILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CA_TBILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Government of Canada Treasury Bills.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CA-TBILL</span>
+<span class="w">  </span><span class="nt">CH_CANTON</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CH_CANTON</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Public Authority Bond.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CH-CANTON</span>
+<span class="w">  </span><span class="nt">CH_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CH_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Swiss Franc (CHF) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CH-CASH</span>
+<span class="w">  </span><span class="nt">CH_FEDBOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CH_FEDBOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Federal Bond.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CH-FEDBOND</span>
+<span class="w">  </span><span class="nt">DE_BILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE_BILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unverzinsliche Schatzanweisungen (Bills).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE-BILL</span>
+<span class="w">  </span><span class="nt">DE_BOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE_BOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bundesanleihen (Bonds).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE-BOND</span>
+<span class="w">  </span><span class="nt">DE_ERBLAST</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE_ERBLAST</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Negotiable Debt Obligations issued by or taken over and since serviced</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and managed by the Erblasttilgungsfond (Redemption Fund for Inherited Liabilities)</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">backed by Federal Republic of Germany, including but not limited to former issues</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of the Treuhandanstalt, the Bundesbahn, the Bundespost, the Economic Recovery</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Program (ERP), the privatised Federal Railway (Bahn AG), the telecommunications</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">element of the Federal Post Office (Telekom) and the German Unity Fund.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE-ERBLAST</span>
+<span class="w">  </span><span class="nt">DE_MUNI</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE_MUNI</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kommunalschuldverschreib\tungen (Municipal Bonds).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE-MUNI</span>
+<span class="w">  </span><span class="nt">DE_NOTE2</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE_NOTE2</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bundesschatzanweisungen (Notes).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE-NOTE2</span>
+<span class="w">  </span><span class="nt">DE_NOTE5_5</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE_NOTE5_5</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bundesobligationen (Notes).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE-NOTE5.5</span>
+<span class="w">  </span><span class="nt">DE_PFAND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE_PFAND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hypothekenpfandbriefe (Mortgage Bonds).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DE-PFAND</span>
+<span class="w">  </span><span class="nt">DK_BILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK_BILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Skatkammerbeviser (Treasury Bills).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK-BILL</span>
+<span class="w">  </span><span class="nt">DK_BOLIGX</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK_BOLIGX</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BoligX obligationer.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK-BOLIGX</span>
+<span class="w">  </span><span class="nt">DK_BOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK_BOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Statsobligationer (Government Bonds).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK-BOND</span>
+<span class="w">  </span><span class="nt">DK_CALLMORT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK_CALLMORT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Callable Mortgage Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK-CALLMORT</span>
+<span class="w">  </span><span class="nt">DK_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Danish Krone (DKK) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK-CASH</span>
+<span class="w">  </span><span class="nt">DK_KFX</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK_KFX</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KFX Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK-KFX</span>
+<span class="w">  </span><span class="nt">DK_MORT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK_MORT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Non-callable Mortgage Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK-MORT</span>
+<span class="w">  </span><span class="nt">DK_NOTE</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK_NOTE</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Statsgaeldsbeviser (Treasury Notes).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DK-NOTE</span>
+<span class="w">  </span><span class="nt">ES_BILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ES_BILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Treasury Bills - Letras del Tesoro.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ES-BILL</span>
+<span class="w">  </span><span class="nt">ES_BOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ES_BOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Public Government Debt.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ES-BOND</span>
+<span class="w">  </span><span class="nt">ES_CEDULAS</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ES_CEDULAS</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cedulas.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ES-CEDULAS</span>
+<span class="w">  </span><span class="nt">ES_CORP</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ES_CORP</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Corporate Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ES-CORP</span>
+<span class="w">  </span><span class="nt">ES_EQUITY</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ES_EQUITY</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Equity securities issued by a Spanish company, and listed as an IBEX</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">35 constituent company as reported by the Sociedad de Bolsas, each share representing</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the minimum unit of participation of a shareholder in the stock capital of the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">company.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ES-EQUITY</span>
+<span class="w">  </span><span class="nt">EU_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EU_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Euro (EUR) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EU-CASH</span>
+<span class="w">  </span><span class="nt">EU_EURO100</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EU_EURO100</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FTSE Euro 100 Index Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EU-EURO100</span>
+<span class="w">  </span><span class="nt">EU_EUROTOP300</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EU_EUROTOP300</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FTSE Eurotop 300 Index Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EU-EUROTOP300</span>
+<span class="w">  </span><span class="nt">EU_STOXX50</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EU_STOXX50</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EuroSTOXX 50 Index Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EU-STOXX50</span>
+<span class="w">  </span><span class="nt">EU_STOXX600</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EU_STOXX600</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">STOXX 600 Index Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EU-STOXX600</span>
+<span class="w">  </span><span class="nt">FI_BILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FI_BILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Treasury bills.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FI-BILL</span>
+<span class="w">  </span><span class="nt">FI_BOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FI_BOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Serial bonds (Finnish Government Bond).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FI-BOND</span>
+<span class="w">  </span><span class="nt">FI_HEX</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FI_HEX</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HEX Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FI-HEX</span>
+<span class="w">  </span><span class="nt">FR_BDT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FR_BDT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Commercial</span><span class="nv"> </span><span class="s">Paper:</span><span class="nv"> </span><span class="s">(Billet</span><span class="nv"> </span><span class="s">de</span><span class="nv"> </span><span class="s">Trsorerie).&#39;</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FR-BDT</span>
+<span class="w">  </span><span class="nt">FR_BTAN</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FR_BTAN</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Treasury</span><span class="nv"> </span><span class="s">Notes:</span><span class="nv"> </span><span class="s">Bons</span><span class="nv"> </span><span class="s">du</span><span class="nv"> </span><span class="s">Trsor</span><span class="nv">  </span><span class="s">Taux</span><span class="nv"> </span><span class="s">Annuel</span><span class="nv"> </span><span class="s">(BTAN).&#39;</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FR-BTAN</span>
+<span class="w">  </span><span class="nt">FR_BTF</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FR_BTF</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Treasury</span><span class="nv"> </span><span class="s">Bills:</span><span class="nv"> </span><span class="s">Bons</span><span class="nv"> </span><span class="s">du</span><span class="nv"> </span><span class="s">Trsor</span><span class="nv">  </span><span class="s">Taux</span><span class="nv"> </span><span class="s">Fixe</span><span class="nv"> </span><span class="s">(BTF).&#39;</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FR-BTF</span>
+<span class="w">  </span><span class="nt">FR_OAT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FR_OAT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Government</span><span class="nv"> </span><span class="s">bonds:</span><span class="nv"> </span><span class="s">Obligations</span><span class="nv"> </span><span class="s">Assimilables</span><span class="nv"> </span><span class="s">du</span><span class="nv"> </span><span class="s">Trsor</span><span class="nv"> </span><span class="s">(OAT).&#39;</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FR-OAT</span>
+<span class="w">  </span><span class="nt">FR_STRIP</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FR_STRIP</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">STRIPS.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FR-STRIP</span>
+<span class="w">  </span><span class="nt">GA_AU_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_AU_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Australian Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-AU-GOV</span>
+<span class="w">  </span><span class="nt">GA_BE_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_BE_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Belgian Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-BE-GOV</span>
+<span class="w">  </span><span class="nt">GA_CA_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_CA_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Canadian Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-CA-GOV</span>
+<span class="w">  </span><span class="nt">GA_CH_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_CH_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Swiss Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-CH-GOV</span>
+<span class="w">  </span><span class="nt">GA_DE_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_DE_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted German Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-DE-GOV</span>
+<span class="w">  </span><span class="nt">GA_DK_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_DK_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Danish Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-DK-GOV</span>
+<span class="w">  </span><span class="nt">GA_ES_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_ES_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Spanish Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-ES-GOV</span>
+<span class="w">  </span><span class="nt">GA_EUROZONE_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_EUROZONE_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Euro Zone Government Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-EUROZONE-GOV</span>
+<span class="w">  </span><span class="nt">GA_EU_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_EU_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted EU Member State Government Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-EU-GOV</span>
+<span class="w">  </span><span class="nt">GA_FI_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_FI_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Finnish Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-FI-GOV</span>
+<span class="w">  </span><span class="nt">GA_FR_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_FR_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted French Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-FR-GOV</span>
+<span class="w">  </span><span class="nt">GA_G5_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_G5_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted G5 Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-G5-GOV</span>
+<span class="w">  </span><span class="nt">GA_GB_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_GB_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted British Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-GB-GOV</span>
+<span class="w">  </span><span class="nt">GA_HK_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_HK_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Hong Kong Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-HK-GOV</span>
+<span class="w">  </span><span class="nt">GA_IT_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_IT_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Italian Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-IT-GOV</span>
+<span class="w">  </span><span class="nt">GA_JP_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_JP_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Japanese Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-JP-GOV</span>
+<span class="w">  </span><span class="nt">GA_KR_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_KR_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Korean Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-KR-GOV</span>
+<span class="w">  </span><span class="nt">GA_NL_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_NL_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Netherlands Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-NL-GOV</span>
+<span class="w">  </span><span class="nt">GA_NO_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_NO_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Norwegian Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-NO-GOV</span>
+<span class="w">  </span><span class="nt">GA_NZ_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_NZ_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted New Zealand Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-NZ-GOV</span>
+<span class="w">  </span><span class="nt">GA_SE_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_SE_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Swedish Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-SE-GOV</span>
+<span class="w">  </span><span class="nt">GA_SG_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_SG_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted Singaporean Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-SG-GOV</span>
+<span class="w">  </span><span class="nt">GA_US_AGENCY</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_US_AGENCY</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted US Agency Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-US-AGENCY</span>
+<span class="w">  </span><span class="nt">GA_US_GOV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_US_GOV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted US Government Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-US-GOV</span>
+<span class="w">  </span><span class="nt">GA_US_MORTGAGES</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA_US_MORTGAGES</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generally Accepted US Mortgage-Backed Obligations.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GA-US-MORTGAGES</span>
+<span class="w">  </span><span class="nt">GB_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">British Pound Sterling (GBP) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-CASH</span>
+<span class="w">  </span><span class="nt">GB_DDGILT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_DDGILT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Double-dated Gilts.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-DDGILT</span>
+<span class="w">  </span><span class="nt">GB_FT100</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_FT100</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FTSE 100 Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-FT100</span>
+<span class="w">  </span><span class="nt">GB_FT250</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_FT250</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FTSE 250 Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-FT250</span>
+<span class="w">  </span><span class="nt">GB_FT350</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_FT350</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FTSE 350 Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-FT350</span>
+<span class="w">  </span><span class="nt">GB_GILT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_GILT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Conventional Gilts.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-GILT</span>
+<span class="w">  </span><span class="nt">GB_INDEXGILT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_INDEXGILT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Index-Linked Gilts.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-INDEXGILT</span>
+<span class="w">  </span><span class="nt">GB_PERPGILT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_PERPGILT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Undated or Perpetual Gilts.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-PERPGILT</span>
+<span class="w">  </span><span class="nt">GB_RUMPGILT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_RUMPGILT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Rump Stock.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-RUMPGILT</span>
+<span class="w">  </span><span class="nt">GB_SUPR1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_SUPR1</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bank of England Euro Bills.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-SUPR1</span>
+<span class="w">  </span><span class="nt">GB_SUPR2</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_SUPR2</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bank of England Euro Notes.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-SUPR2</span>
+<span class="w">  </span><span class="nt">GB_TBILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_TBILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UK Treasury Bills.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-TBILL</span>
+<span class="w">  </span><span class="nt">GB_ZEROGILT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB_ZEROGILT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gilt Strips or Zero Coupon Gilts.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GB-ZEROGILT</span>
+<span class="w">  </span><span class="nt">HK_BILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HK_BILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hong Kong Government Exchange Fund Bills.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HK-BILL</span>
+<span class="w">  </span><span class="nt">HK_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HK_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hong Kong Dollar (HKD) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HK-CASH</span>
+<span class="w">  </span><span class="nt">HK_NOTE</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HK_NOTE</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hong Kong Government Exchange Fund Notes.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HK-NOTE</span>
+<span class="w">  </span><span class="nt">IT_BOT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT_BOT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Botbuoni Ordinari del Tesoro (BOT) zero coupon debt securities issued</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">by the Italian Treasury with maturities up to 365 days.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT-BOT</span>
+<span class="w">  </span><span class="nt">IT_BTP</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT_BTP</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Buoni del Tesoro Poliennali fixed interest semi-annual debt securities</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">issued by the Italian Treasury with original maturities between 3 and 30 years.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT-BTP</span>
+<span class="w">  </span><span class="nt">IT_CCT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT_CCT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Certificati di Credito del Tesoro a Cedola Variable (CCT) or floating</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">rate interest bearing debt securities issued by the Italian Treasury.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT-CCT</span>
+<span class="w">  </span><span class="nt">IT_CORP</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT_CORP</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Corporate bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT-CORP</span>
+<span class="w">  </span><span class="nt">IT_CTZ</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT_CTZ</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Certificati del Tesoro zero coupon debt securities issued by the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Italian Treasury with maturities between 18 and 24 months.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT-CTZ</span>
+<span class="w">  </span><span class="nt">IT_MIB30</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT_MIB30</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MIB30 Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT-MIB30</span>
+<span class="w">  </span><span class="nt">IT_REP</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT_REP</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Debt securities issued and marketed by the Republic of Italy outside</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the Italian market, traded as Eurobonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IT-REP</span>
+<span class="w">  </span><span class="nt">JP_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JP_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Japanese Yen (JPY) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JP-CASH</span>
+<span class="w">  </span><span class="nt">JP_CORPORATE</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JP_CORPORATE</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Corporate bonds including straight bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JP-CORPORATE</span>
+<span class="w">  </span><span class="nt">JP_CP</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JP_CP</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Commercial Paper.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JP-CP</span>
+<span class="w">  </span><span class="nt">JP_EQUITY</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JP_EQUITY</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Equity securities issued by a Japanese company, each share representing</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the minimum unit of participation of a partner in the stock capital of the company.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JP-EQUITY</span>
+<span class="w">  </span><span class="nt">JP_EUROBOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JP_EUROBOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Yen-denominated foreign bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JP-EUROBOND</span>
+<span class="w">  </span><span class="nt">JP_JGB</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JP_JGB</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Japanese Government Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JP-JGB</span>
+<span class="w">  </span><span class="nt">KR_BOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR_BOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Korean Treasury Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR-BOND</span>
+<span class="w">  </span><span class="nt">KR_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Korean Won (KRW) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR-CASH</span>
+<span class="w">  </span><span class="nt">KR_EXIM</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR_EXIM</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Non Korean Won denominated Export-Import Bank of Korea bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR-EXIM</span>
+<span class="w">  </span><span class="nt">KR_KDICKRW</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR_KDICKRW</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Korean Development Insurance Corporation Bonds (Korean Won denominated).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR-KDICKRW</span>
+<span class="w">  </span><span class="nt">KR_KDR</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR_KDR</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Non-Korean Won denominated Korea Development Bank bonds (KDBs).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR-KDR</span>
+<span class="w">  </span><span class="nt">KR_KEPCO</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR_KEPCO</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KEPCO bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR-KEPCO</span>
+<span class="w">  </span><span class="nt">KR_MSB</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR_MSB</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Monetary Stabilisation Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR-MSB</span>
+<span class="w">  </span><span class="nt">KR_NHC</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR_NHC</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Non Korean Won denominated Korea National Housing Corporation bonds</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">(KNHCs).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR-NHC</span>
+<span class="w">  </span><span class="nt">KR_ROK</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR_ROK</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Non-Korean Won denominated Republic of Korea bonds (ROKs).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KR-ROK</span>
+<span class="w">  </span><span class="nt">NL_AEX</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NL_AEX</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AEX Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NL-AEX</span>
+<span class="w">  </span><span class="nt">NL_BILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NL_BILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dutch Treasury Certificates.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NL-BILL</span>
+<span class="w">  </span><span class="nt">NL_BOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NL_BOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dutch State Loans.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NL-BOND</span>
+<span class="w">  </span><span class="nt">NO_BOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NO_BOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Norwegian Government Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NO-BOND</span>
+<span class="w">  </span><span class="nt">NO_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NO_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Norwegian Krone (NOK) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NO-CASH</span>
+<span class="w">  </span><span class="nt">NO_OBX</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NO_OBX</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OBX Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NO-OBX</span>
+<span class="w">  </span><span class="nt">NO_TBILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NO_TBILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Norwegian T-Bills.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NO-TBILL</span>
+<span class="w">  </span><span class="nt">NZ_BOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NZ_BOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">New Zealand Government Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NZ-BOND</span>
+<span class="w">  </span><span class="nt">NZ_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NZ_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">New Zealand Dollar (NZD) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NZ-CASH</span>
+<span class="w">  </span><span class="nt">NZ_TBILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NZ_TBILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">New Zealand Government Treasury Bills.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NZ-TBILL</span>
+<span class="w">  </span><span class="nt">SE_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SE_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Swedish Krona (SEK) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SE-CASH</span>
+<span class="w">  </span><span class="nt">SE_GOVT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SE_GOVT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Swedish Government Bonds (SGB).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SE-GOVT</span>
+<span class="w">  </span><span class="nt">SE_ILGOVT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SE_ILGOVT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Swedish Index Linked Government bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SE-ILGOVT</span>
+<span class="w">  </span><span class="nt">SE_MORT</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SE_MORT</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Swedish Mortgage Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SE-MORT</span>
+<span class="w">  </span><span class="nt">SE_OMX</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SE_OMX</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OMX Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SE-OMX</span>
+<span class="w">  </span><span class="nt">SE_TBILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SE_TBILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Swedish Treasury Bills (STB).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SE-TBILL</span>
+<span class="w">  </span><span class="nt">SG_BOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SG_BOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Singapore Government (SGS) Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SG-BOND</span>
+<span class="w">  </span><span class="nt">SG_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SG_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Singapore Dollar (SGD) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SG-CASH</span>
+<span class="w">  </span><span class="nt">SG_TBILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SG_TBILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Singapore Government T-Bills (T-Bills).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SG-TBILL</span>
+<span class="w">  </span><span class="nt">SU_IADB</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SU_IADB</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Inter-American Development Bank Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SU-IADB</span>
+<span class="w">  </span><span class="nt">SU_IBRDDN</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SU_IBRDDN</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">International Bank for Reconstruction and Development (World Bank)</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Discount Notes.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SU-IBRDDN</span>
+<span class="w">  </span><span class="nt">SU_IBRDGB</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SU_IBRDGB</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">International Bank for Reconstruction and Development (World Bank</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">or IBRD) Global Benchmark Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SU-IBRDGB</span>
+<span class="w">  </span><span class="nt">US_ARM</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_ARM</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Adjustable Rate Mortgage (ARM) Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-ARM</span>
+<span class="w">  </span><span class="nt">US_CASH</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_CASH</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">United States of America Dollar (USD) Cash.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-CASH</span>
+<span class="w">  </span><span class="nt">US_DERIV</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_DERIV</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REMICs, CMOs and other derivative structures.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-DERIV</span>
+<span class="w">  </span><span class="nt">US_DOW</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_DOW</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dow Jones Industrial Average Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-DOW</span>
+<span class="w">  </span><span class="nt">US_DOW_COMP</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_DOW_COMP</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dow Jones Composite Average Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-DOW-COMP</span>
+<span class="w">  </span><span class="nt">US_DOW_TRAN</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_DOW_TRAN</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dow Jones Transportation\tAverage Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-DOW-TRAN</span>
+<span class="w">  </span><span class="nt">US_DOW_UTIL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_DOW_UTIL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dow Jones Utilities Average Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-DOW-UTIL</span>
+<span class="w">  </span><span class="nt">US_FAMC</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_FAMC</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Federal Agricultural Mortgage Corp (Farmer Mac) Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-FAMC</span>
+<span class="w">  </span><span class="nt">US_FCS</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_FCS</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Farm Credit System (FCS) Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-FCS</span>
+<span class="w">  </span><span class="nt">US_FCSFAC</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_FCSFAC</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Farm Credit System Financial Assistance Corporation (FCSFAC) Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-FCSFAC</span>
+<span class="w">  </span><span class="nt">US_FHLB</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_FHLB</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Callable Agency Debt  Federal Home Loan Bank (FHLB).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-FHLB</span>
+<span class="w">  </span><span class="nt">US_FHLBNC</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_FHLBNC</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Non-Callable Federal Home Loan Bank Debt.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-FHLBNC</span>
+<span class="w">  </span><span class="nt">US_FHLBNCDN</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_FHLBNCDN</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Non-Callable Federal Home Loan Bank Discount Notes.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-FHLBNCDN</span>
+<span class="w">  </span><span class="nt">US_FHLMC</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_FHLMC</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Callable Agency Debt  the Federal Home Loan Mortgage Corporation</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">(FHLMC or Freddie Mac).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-FHLMC</span>
+<span class="w">  </span><span class="nt">US_FHLMCMBS</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_FHLMCMBS</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Federal Home Loan Mortgage Corporation Certificates  Mortgage Backed</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-FHLMCMBS</span>
+<span class="w">  </span><span class="nt">US_FICO</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_FICO</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Financing Corp (FICO) Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-FICO</span>
+<span class="w">  </span><span class="nt">US_FNMA</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_FNMA</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Callable Agency Debt  Federal National Mortgage Association (FNMA</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">or Fannie Mae).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-FNMA</span>
+<span class="w">  </span><span class="nt">US_FNMAMBS</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_FNMAMBS</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Federal National Mortgage Association Certificates  Mortgage Backed</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-FNMAMBS</span>
+<span class="w">  </span><span class="nt">US_GNMA</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_GNMA</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Callable Agency Debt  Government National Mortgage Association (GNMA).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-GNMA</span>
+<span class="w">  </span><span class="nt">US_GNMAMBS</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_GNMAMBS</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Government National Mortgage Association Certificates  Mortgage Backed</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Securities (GNMA or Ginnie Mae).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-GNMAMBS</span>
+<span class="w">  </span><span class="nt">US_LEHM_BOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_LEHM_BOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lehman Brothers Credit Bond Index Debt Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-LEHM-BOND</span>
+<span class="w">  </span><span class="nt">US_NAS_100</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_NAS_100</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NASDAQ-100 Index Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-NAS-100</span>
+<span class="w">  </span><span class="nt">US_NAS_COMP</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_NAS_COMP</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NASDAQ Composite Index Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-NAS-COMP</span>
+<span class="w">  </span><span class="nt">US_NCAD</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_NCAD</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Non-Callable Agency Debt  Various Issuers.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-NCAD</span>
+<span class="w">  </span><span class="nt">US_NCADN</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_NCADN</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Non-Callable Agency Discount Notes  Various Issuers.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-NCADN</span>
+<span class="w">  </span><span class="nt">US_NYSE_COMP</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_NYSE_COMP</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NYSE Composite Index Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-NYSE-COMP</span>
+<span class="w">  </span><span class="nt">US_REFCORP</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_REFCORP</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Resolution Funding Corp (REFCorp) Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-REFCORP</span>
+<span class="w">  </span><span class="nt">US_SLMA</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_SLMA</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Student Loan Marketing Association (Sallie Mae) Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-SLMA</span>
+<span class="w">  </span><span class="nt">US_STRIP</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_STRIP</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US Treasury Strips.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-STRIP</span>
+<span class="w">  </span><span class="nt">US_S_P100</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_S_P100</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard &amp; Poors 100 Index Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-S&amp;P100</span>
+<span class="w">  </span><span class="nt">US_S_P400</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_S_P400</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard &amp; Poors Midcap 400 Equity Securities. corporations that</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">are included within the Standard And Poor&#39;s Midcap 400 Index published by Standard</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">And Poor&#39;s, a division of The McGraw-Hill Companies, Inc.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-S&amp;P400</span>
+<span class="w">  </span><span class="nt">US_S_P500</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_S_P500</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard &amp; Poors 500 Index Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-S&amp;P500</span>
+<span class="w">  </span><span class="nt">US_S_P600</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_S_P600</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard &amp; Poors Smallcap 600 Index Equity Securities.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-S&amp;P600</span>
+<span class="w">  </span><span class="nt">US_TBILL</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_TBILL</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US Treasury Bills.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-TBILL</span>
+<span class="w">  </span><span class="nt">US_TBOND</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_TBOND</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US Treasury Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-TBOND</span>
+<span class="w">  </span><span class="nt">US_TIPS</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_TIPS</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US Treasury Inflation Protected Issues (TIPS).</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-TIPS</span>
+<span class="w">  </span><span class="nt">US_TNOTE</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_TNOTE</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US Treasury Notes.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-TNOTE</span>
+<span class="w">  </span><span class="nt">US_TVA</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US_TVA</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tennessee Valley Authority (TVA) Bonds.</span>
+<span class="w">    </span><span class="nt">aliases</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US-TVA</span>
+</code></pre></div>
+</details>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        with emoji by
+        <a href="https://github.com/twitter/twemoji" target="_blank" rel="noopener">
+          Twemoji
+        </a>
+      </div>
+      
+<div class="md-social">
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.tabs.link", "header.autohide", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/pymdownx-extras/extra-loader-B5CKpNQx.js"></script>
+      
+    
+  </body>
+</html>
