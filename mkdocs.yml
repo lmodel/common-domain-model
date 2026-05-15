@@ -72,8 +72,8 @@ nav:
 exclude_docs: |
   /templates-linkml/
 
-site_url: https://lmodel.github.io/common-domain-model
-repo_url: https://github.com/lmodel/common-domain-model
+site_url: https://lmodel.github.io/common-domain-model-ld
+repo_url: https://github.com/lmodel/common-domain-model-ld
 
 # Uncomment this block to enable use of Google Analytics.
 # Replace the property value with your own ID.

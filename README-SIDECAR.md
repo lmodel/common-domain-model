@@ -1,12 +1,12 @@
 <a href="https://github.com/linkml/linkml-project-copier"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-teal.json" alt="Copier Badge" style="max-width:100%;"/></a>
 
-# commond-domain-model
+# common-domain-model
 
 Common Domain Model - Linked Data Sidecar
 
 ## Documentation Website
 
-[https://lmodel.github.io/commond-domain-model](https://lmodel.github.io/commond-domain-model)
+[https://lmodel.github.io/common-domain-model](https://lmodel.github.io/common-domain-model)
 
 ## Repository Structure
 
