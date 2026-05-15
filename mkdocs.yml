@@ -68,11 +68,57 @@ nav:
   - Home: index.md
   - Schema: elements/index.md
   - About: about.md
+  - Resources:
+    - CDM Overview: cdm-overview.md
+    - Common Domain Model: common-domain-model.md
+    - Design Principles: design-principles.md
+    - Product Model: product-model.md
+    - Event Model: event-model.md
+    - Process Model: process-model.md
+    - Reference Data Model: reference-data-model.md
+    - Legal Agreements: legal-agreements.md
+    - Standardized Functions: standardized-functions.md
+    - Namespace: namespace.md
+    - Mapping: mapping.md
+    - Pre-Trade Processing: pre-trade-processing.md
+    - Eligible Collateral: eligible-collateral-representation.md
+    - Repurchase Agreements: repurchase-agreement-representation.md
+    - Securities Lending: securities-lending.md
+    - Use Cases: use-cases.md
+    - Download: download.md
+    - CDM Java Distribution: cdm-java-distribution.md
+    - Development:
+        - Development Approach: development-approach.md
+        - Dev Guidelines: dev-guidelines.md
+        - Documentation Style Guide: documentation-style-guide.md
+        - Editing: editing.md
+        - Versioning: versioning.md
+        - Change Control Guidelines: change-control-guidelines.md
+        - Maintenance & Release: maintenance-and-release.md
+        - Major Release Scheduling: major-release-scheduling-guidelines.md
+    - Governance:
+        - Governance: governance.md
+        - CDM Org Structure: cdm-org-structure.md
+        - Maintainers: maintainers.md
+        - Get Involved: get-involved.md
+    - Working Groups:
+        - Overview: working-groups.md
+        - Steering: CDM-Steering-WG.md
+        - Derivatives: CDM-Derivatives-WG.md
+        - Collateral: CDM-Collateral-WG.md
+        - Technology & Architecture: CDM-Technology-Architecture-WG.md
+        - Contribution Review: CDM-Contribution-Review-WG.md
+        - Physical Risk: CDM-Physical-Risk-WG.md
+        - Tokenized Assets: CDM-Tokenized-Assets-WG.md
+    - CDM Resources: cdm-resources.md
+    - CDM Videos: cdm-videos.md
+    - Training: training.md
+    - Links Template: links-template.md
 
 exclude_docs: |
   /templates-linkml/
 
-site_url: https://lmodel.github.io/common-domain-model
+site_url: https://lmodel.github.io/common-domain-model-ld
 repo_url: https://github.com/lmodel/common-domain-model-ld
 
 # Uncomment this block to enable use of Google Analytics.
