@@ -1,4 +1,4 @@
-id: https://w3id.org/finos/cdm
+id: https://w3id.org/lmodel/common-domain-model
 name: common_domain_model
 description: FINOS Common Domain Model (CDM) — LinkML schema
 license: Apache-2.0
@@ -7,7 +7,7 @@ see_also:
 - https://github.com/finos/common-domain-model
 
 prefixes:
-  common_domain_model: https://w3id.org/finos/cdm/
+  common_domain_model: https://w3id.org/lmodel/common_domain_model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/

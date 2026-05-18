@@ -1,4 +1,4 @@
-id: https://w3id.org/finos/cdm/cdm_base
+id: https://w3id.org/lmodel/common-domain-model/cdm_base
 name: cdm_base
 description: LinkML schema for cdm.base
 license: Apache-2.0
@@ -6,7 +6,7 @@ see_also:
 - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/finos/cdm/
+  common_domain_model: https://w3id.org/lmodel/common_domain_model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/

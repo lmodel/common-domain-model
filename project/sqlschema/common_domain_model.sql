@@ -1129,19 +1129,25 @@
 -- # Class: AvailableInventory Description: A data type that can be used to describe the inventory of securities that a party holds. The securities are held in the AvailableInventoryRecord, with each item in the array being an individual security and its associated criteria. Criteria can include the quantity available, the rate at which the security is available to borrow at, as well as other details that can affect the decision as to whether a party wants to utilise the securities listed.
 --     * Slot: id
 --     * Slot: availableInventoryType Description: Defines the purpose of this inventory.
+--     * Slot: comment Description: Optional comments for this group of inventory records.
+--     * Slot: identifer_id Description: Unique identifier for this group. This can be used to uniquely identify a group of inventory records.
 --     * Slot: messageInformation_id Description: Allows details related to the availability messaging use case to be defined
 -- # Class: AvailableInventoryRecord Description: An individual piece of available inventory. This represents a single security and its associated criteria. The criteria are used to describe any restrictions on the securities.
 --     * Slot: id
 --     * Slot: expirationDateTime Description: There may be a set period/time restriction associated to the security.
+--     * Slot: comment Description: Optional comment for this specific piece of inventory.
 --     * Slot: AvailableInventory_id Description: Autocreated FK slot
 --     * Slot: SecurityLocate_id Description: Autocreated FK slot
 --     * Slot: quantity_id Description: The quantity of the security
 --     * Slot: interestRate_id Description: An optional element which can be used to hold a rate associated to this piece of availability.
+--     * Slot: dividendTerms_id Description: Specifies the dividend requirements if applicable.
 --     * Slot: identifer_id Description: Unique identifier for this record. This can be used to uniquely identify a specific piece of inventory.
 --     * Slot: security_id Description: The security details.
 -- # Class: SecurityLocate Description: A locate is an approval from a broker that needs to be obtained prior to effecting a short sale in an equity security. Similar to security availability, a borrower can request a single or multiple securities, but at least one must be requested.
 --     * Slot: id
 --     * Slot: availableInventoryType Description: Defines the purpose of this inventory.
+--     * Slot: comment Description: Optional comments for this group of inventory records.
+--     * Slot: identifer_id Description: Unique identifier for this group. This can be used to uniquely identify a group of inventory records.
 --     * Slot: messageInformation_id Description: Allows details related to the availability messaging use case to be defined
 -- # Class: CreditLimitInformation Description: A class to represent the credit limit utilisation information.
 --     * Slot: id
@@ -8621,24 +8627,6 @@ CREATE TABLE "PortfolioState" (
 );
 CREATE INDEX "ix_PortfolioState_id" ON "PortfolioState" (id);
 
-CREATE TABLE "AvailableInventory" (
-	id INTEGER NOT NULL,
-	"availableInventoryType" VARCHAR(15) NOT NULL,
-	"messageInformation_id" INTEGER,
-	PRIMARY KEY (id),
-	FOREIGN KEY("messageInformation_id") REFERENCES "MessageInformation" (id)
-);
-CREATE INDEX "ix_AvailableInventory_id" ON "AvailableInventory" (id);
-
-CREATE TABLE "SecurityLocate" (
-	id INTEGER NOT NULL,
-	"availableInventoryType" VARCHAR(15) NOT NULL,
-	"messageInformation_id" INTEGER,
-	PRIMARY KEY (id),
-	FOREIGN KEY("messageInformation_id") REFERENCES "MessageInformation" (id)
-);
-CREATE INDEX "ix_SecurityLocate_id" ON "SecurityLocate" (id);
-
 CREATE TABLE "CreditLimitUtilisation" (
 	id INTEGER NOT NULL,
 	executed_id INTEGER,
@@ -9987,8 +9975,8 @@ CREATE TABLE "AssetBase_identifier" (
 	FOREIGN KEY("AssetBase_id") REFERENCES "AssetBase" (id),
 	FOREIGN KEY(identifier_id) REFERENCES "AssetIdentifier" (id)
 );
-CREATE INDEX "ix_AssetBase_identifier_identifier_id" ON "AssetBase_identifier" (identifier_id);
 CREATE INDEX "ix_AssetBase_identifier_AssetBase_id" ON "AssetBase_identifier" ("AssetBase_id");
+CREATE INDEX "ix_AssetBase_identifier_identifier_id" ON "AssetBase_identifier" (identifier_id);
 
 CREATE TABLE "InstrumentBase_identifier" (
 	"InstrumentBase_id" INTEGER,
@@ -9997,8 +9985,8 @@ CREATE TABLE "InstrumentBase_identifier" (
 	FOREIGN KEY("InstrumentBase_id") REFERENCES "InstrumentBase" (id),
 	FOREIGN KEY(identifier_id) REFERENCES "AssetIdentifier" (id)
 );
-CREATE INDEX "ix_InstrumentBase_identifier_InstrumentBase_id" ON "InstrumentBase_identifier" ("InstrumentBase_id");
 CREATE INDEX "ix_InstrumentBase_identifier_identifier_id" ON "InstrumentBase_identifier" (identifier_id);
+CREATE INDEX "ix_InstrumentBase_identifier_InstrumentBase_id" ON "InstrumentBase_identifier" ("InstrumentBase_id");
 
 CREATE TABLE "Cash_identifier" (
 	"Cash_id" INTEGER,
@@ -10027,8 +10015,8 @@ CREATE TABLE "DigitalAsset_identifier" (
 	FOREIGN KEY("DigitalAsset_id") REFERENCES "DigitalAsset" (id),
 	FOREIGN KEY(identifier_id) REFERENCES "AssetIdentifier" (id)
 );
-CREATE INDEX "ix_DigitalAsset_identifier_DigitalAsset_id" ON "DigitalAsset_identifier" ("DigitalAsset_id");
 CREATE INDEX "ix_DigitalAsset_identifier_identifier_id" ON "DigitalAsset_identifier" (identifier_id);
+CREATE INDEX "ix_DigitalAsset_identifier_DigitalAsset_id" ON "DigitalAsset_identifier" ("DigitalAsset_id");
 
 CREATE TABLE "ListedDerivative_identifier" (
 	"ListedDerivative_id" INTEGER,
@@ -10056,8 +10044,8 @@ CREATE TABLE "CollateralTaxonomyValue_eu_EMIR_EligibleCollateral" (
 	PRIMARY KEY ("CollateralTaxonomyValue_id", "eu_EMIR_EligibleCollateral"),
 	FOREIGN KEY("CollateralTaxonomyValue_id") REFERENCES "CollateralTaxonomyValue" (id)
 );
-CREATE INDEX "ix_CollateralTaxonomyValue_eu_EMIR_EligibleCollateral_eu_EMIR_EligibleCollateral" ON "CollateralTaxonomyValue_eu_EMIR_EligibleCollateral" ("eu_EMIR_EligibleCollateral");
 CREATE INDEX "ix_CollateralTaxonomyValue_eu_EMIR_EligibleCollateral_CollateralTaxonomyValue_id" ON "CollateralTaxonomyValue_eu_EMIR_EligibleCollateral" ("CollateralTaxonomyValue_id");
+CREATE INDEX "ix_CollateralTaxonomyValue_eu_EMIR_EligibleCollateral_eu_EMIR_EligibleCollateral" ON "CollateralTaxonomyValue_eu_EMIR_EligibleCollateral" ("eu_EMIR_EligibleCollateral");
 
 CREATE TABLE "CollateralTaxonomyValue_uk_EMIR_EligibleCollateral" (
 	"CollateralTaxonomyValue_id" INTEGER,
@@ -10065,8 +10053,8 @@ CREATE TABLE "CollateralTaxonomyValue_uk_EMIR_EligibleCollateral" (
 	PRIMARY KEY ("CollateralTaxonomyValue_id", "uk_EMIR_EligibleCollateral"),
 	FOREIGN KEY("CollateralTaxonomyValue_id") REFERENCES "CollateralTaxonomyValue" (id)
 );
-CREATE INDEX "ix_CollateralTaxonomyValue_uk_EMIR_EligibleCollateral_CollateralTaxonomyValue_id" ON "CollateralTaxonomyValue_uk_EMIR_EligibleCollateral" ("CollateralTaxonomyValue_id");
 CREATE INDEX "ix_CollateralTaxonomyValue_uk_EMIR_EligibleCollateral_uk_EMIR_EligibleCollateral" ON "CollateralTaxonomyValue_uk_EMIR_EligibleCollateral" ("uk_EMIR_EligibleCollateral");
+CREATE INDEX "ix_CollateralTaxonomyValue_uk_EMIR_EligibleCollateral_CollateralTaxonomyValue_id" ON "CollateralTaxonomyValue_uk_EMIR_EligibleCollateral" ("CollateralTaxonomyValue_id");
 
 CREATE TABLE "CollateralTaxonomyValue_us_CFTC_PR_EligibleCollateral" (
 	"CollateralTaxonomyValue_id" INTEGER,
@@ -10083,8 +10071,8 @@ CREATE TABLE "CollateralTaxonomyValue_nonEnumeratedTaxonomyValue" (
 	PRIMARY KEY ("CollateralTaxonomyValue_id", "nonEnumeratedTaxonomyValue"),
 	FOREIGN KEY("CollateralTaxonomyValue_id") REFERENCES "CollateralTaxonomyValue" (id)
 );
-CREATE INDEX "ix_CollateralTaxonomyValue_nonEnumeratedTaxonomyValue_CollateralTaxonomyValue_id" ON "CollateralTaxonomyValue_nonEnumeratedTaxonomyValue" ("CollateralTaxonomyValue_id");
 CREATE INDEX "ix_CollateralTaxonomyValue_nonEnumeratedTaxonomyValue_nonEnumeratedTaxonomyValue" ON "CollateralTaxonomyValue_nonEnumeratedTaxonomyValue" ("nonEnumeratedTaxonomyValue");
+CREATE INDEX "ix_CollateralTaxonomyValue_nonEnumeratedTaxonomyValue_CollateralTaxonomyValue_id" ON "CollateralTaxonomyValue_nonEnumeratedTaxonomyValue" ("CollateralTaxonomyValue_id");
 
 CREATE TABLE "Security_identifier" (
 	"Security_id" INTEGER,
@@ -10103,8 +10091,8 @@ CREATE TABLE "AncillaryParty_partyReference" (
 	FOREIGN KEY("AncillaryParty_id") REFERENCES "AncillaryParty" (id),
 	FOREIGN KEY("partyReference_id") REFERENCES "Party" (id)
 );
-CREATE INDEX "ix_AncillaryParty_partyReference_AncillaryParty_id" ON "AncillaryParty_partyReference" ("AncillaryParty_id");
 CREATE INDEX "ix_AncillaryParty_partyReference_partyReference_id" ON "AncillaryParty_partyReference" ("partyReference_id");
+CREATE INDEX "ix_AncillaryParty_partyReference_AncillaryParty_id" ON "AncillaryParty_partyReference" ("AncillaryParty_id");
 
 CREATE TABLE "ContactInformation_email" (
 	"ContactInformation_id" INTEGER,
@@ -10112,8 +10100,8 @@ CREATE TABLE "ContactInformation_email" (
 	PRIMARY KEY ("ContactInformation_id", email),
 	FOREIGN KEY("ContactInformation_id") REFERENCES "ContactInformation" (id)
 );
-CREATE INDEX "ix_ContactInformation_email_email" ON "ContactInformation_email" (email);
 CREATE INDEX "ix_ContactInformation_email_ContactInformation_id" ON "ContactInformation_email" ("ContactInformation_id");
+CREATE INDEX "ix_ContactInformation_email_email" ON "ContactInformation_email" (email);
 
 CREATE TABLE "ContactInformation_webPage" (
 	"ContactInformation_id" INTEGER,
@@ -10131,8 +10119,8 @@ CREATE TABLE "ExecutionInstruction_ancillaryParty" (
 	FOREIGN KEY("ExecutionInstruction_id") REFERENCES "ExecutionInstruction" (id),
 	FOREIGN KEY("ancillaryParty_id") REFERENCES "AncillaryParty" (id)
 );
-CREATE INDEX "ix_ExecutionInstruction_ancillaryParty_ExecutionInstruction_id" ON "ExecutionInstruction_ancillaryParty" ("ExecutionInstruction_id");
 CREATE INDEX "ix_ExecutionInstruction_ancillaryParty_ancillaryParty_id" ON "ExecutionInstruction_ancillaryParty" ("ancillaryParty_id");
+CREATE INDEX "ix_ExecutionInstruction_ancillaryParty_ExecutionInstruction_id" ON "ExecutionInstruction_ancillaryParty" ("ExecutionInstruction_id");
 
 CREATE TABLE "QuantityChangeInstruction_lotIdentifier" (
 	"QuantityChangeInstruction_id" INTEGER,
@@ -10151,8 +10139,8 @@ CREATE TABLE "AggregationParameters_party" (
 	FOREIGN KEY("AggregationParameters_id") REFERENCES "AggregationParameters" (id),
 	FOREIGN KEY(party_id) REFERENCES "Party" (id)
 );
-CREATE INDEX "ix_AggregationParameters_party_AggregationParameters_id" ON "AggregationParameters_party" ("AggregationParameters_id");
 CREATE INDEX "ix_AggregationParameters_party_party_id" ON "AggregationParameters_party" (party_id);
+CREATE INDEX "ix_AggregationParameters_party_AggregationParameters_id" ON "AggregationParameters_party" ("AggregationParameters_id");
 
 CREATE TABLE "AggregationParameters_product" (
 	"AggregationParameters_id" INTEGER,
@@ -10180,8 +10168,8 @@ CREATE TABLE "WorkflowStep_timestamp" (
 	FOREIGN KEY("WorkflowStep_id") REFERENCES "WorkflowStep" (id),
 	FOREIGN KEY(timestamp_id) REFERENCES "EventTimestamp" (id)
 );
-CREATE INDEX "ix_WorkflowStep_timestamp_timestamp_id" ON "WorkflowStep_timestamp" (timestamp_id);
 CREATE INDEX "ix_WorkflowStep_timestamp_WorkflowStep_id" ON "WorkflowStep_timestamp" ("WorkflowStep_id");
+CREATE INDEX "ix_WorkflowStep_timestamp_timestamp_id" ON "WorkflowStep_timestamp" (timestamp_id);
 
 CREATE TABLE "WorkflowStep_party" (
 	"WorkflowStep_id" INTEGER,
@@ -10190,8 +10178,8 @@ CREATE TABLE "WorkflowStep_party" (
 	FOREIGN KEY("WorkflowStep_id") REFERENCES "WorkflowStep" (id),
 	FOREIGN KEY(party_id) REFERENCES "Party" (id)
 );
-CREATE INDEX "ix_WorkflowStep_party_party_id" ON "WorkflowStep_party" (party_id);
 CREATE INDEX "ix_WorkflowStep_party_WorkflowStep_id" ON "WorkflowStep_party" ("WorkflowStep_id");
+CREATE INDEX "ix_WorkflowStep_party_party_id" ON "WorkflowStep_party" (party_id);
 
 CREATE TABLE "WorkflowStep_account" (
 	"WorkflowStep_id" INTEGER,
@@ -10209,8 +10197,8 @@ CREATE TABLE "MessageInformation_sentTo" (
 	PRIMARY KEY ("MessageInformation_id", "sentTo"),
 	FOREIGN KEY("MessageInformation_id") REFERENCES "MessageInformation" (id)
 );
-CREATE INDEX "ix_MessageInformation_sentTo_sentTo" ON "MessageInformation_sentTo" ("sentTo");
 CREATE INDEX "ix_MessageInformation_sentTo_MessageInformation_id" ON "MessageInformation_sentTo" ("MessageInformation_id");
+CREATE INDEX "ix_MessageInformation_sentTo_sentTo" ON "MessageInformation_sentTo" ("sentTo");
 
 CREATE TABLE "MessageInformation_copyTo" (
 	"MessageInformation_id" INTEGER,
@@ -10218,8 +10206,8 @@ CREATE TABLE "MessageInformation_copyTo" (
 	PRIMARY KEY ("MessageInformation_id", "copyTo"),
 	FOREIGN KEY("MessageInformation_id") REFERENCES "MessageInformation" (id)
 );
-CREATE INDEX "ix_MessageInformation_copyTo_copyTo" ON "MessageInformation_copyTo" ("copyTo");
 CREATE INDEX "ix_MessageInformation_copyTo_MessageInformation_id" ON "MessageInformation_copyTo" ("MessageInformation_id");
+CREATE INDEX "ix_MessageInformation_copyTo_copyTo" ON "MessageInformation_copyTo" ("copyTo");
 
 CREATE TABLE "LegalAgreement_otherParty" (
 	"LegalAgreement_id" INTEGER,
@@ -10228,8 +10216,8 @@ CREATE TABLE "LegalAgreement_otherParty" (
 	FOREIGN KEY("LegalAgreement_id") REFERENCES "LegalAgreement" (id),
 	FOREIGN KEY("otherParty_id") REFERENCES "PartyRole" (id)
 );
-CREATE INDEX "ix_LegalAgreement_otherParty_otherParty_id" ON "LegalAgreement_otherParty" ("otherParty_id");
 CREATE INDEX "ix_LegalAgreement_otherParty_LegalAgreement_id" ON "LegalAgreement_otherParty" ("LegalAgreement_id");
+CREATE INDEX "ix_LegalAgreement_otherParty_otherParty_id" ON "LegalAgreement_otherParty" ("otherParty_id");
 
 CREATE TABLE "LegalAgreementBase_otherParty" (
 	"LegalAgreementBase_id" INTEGER,
@@ -10257,8 +10245,8 @@ CREATE TABLE "TransferContactInformation_account" (
 	FOREIGN KEY("TransferContactInformation_id") REFERENCES "TransferContactInformation" (id),
 	FOREIGN KEY(account_id) REFERENCES "Account" (id)
 );
-CREATE INDEX "ix_TransferContactInformation_account_TransferContactInformation_id" ON "TransferContactInformation_account" ("TransferContactInformation_id");
 CREATE INDEX "ix_TransferContactInformation_account_account_id" ON "TransferContactInformation_account" (account_id);
+CREATE INDEX "ix_TransferContactInformation_account_TransferContactInformation_id" ON "TransferContactInformation_account" ("TransferContactInformation_id");
 
 CREATE TABLE "TransferContactInformation_email" (
 	"TransferContactInformation_id" INTEGER,
@@ -10338,8 +10326,8 @@ CREATE TABLE "ThresholdRatingsBased_event" (
 	PRIMARY KEY ("ThresholdRatingsBased_id", event),
 	FOREIGN KEY("ThresholdRatingsBased_id") REFERENCES "ThresholdRatingsBased" (id)
 );
-CREATE INDEX "ix_ThresholdRatingsBased_event_ThresholdRatingsBased_id" ON "ThresholdRatingsBased_event" ("ThresholdRatingsBased_id");
 CREATE INDEX "ix_ThresholdRatingsBased_event_event" ON "ThresholdRatingsBased_event" (event);
+CREATE INDEX "ix_ThresholdRatingsBased_event_ThresholdRatingsBased_id" ON "ThresholdRatingsBased_event" ("ThresholdRatingsBased_id");
 
 CREATE TABLE "MinimumTransferAmountRatingsBased_event" (
 	"MinimumTransferAmountRatingsBased_id" INTEGER,
@@ -10356,8 +10344,8 @@ CREATE TABLE "ValuationTime_location" (
 	PRIMARY KEY ("ValuationTime_id", location),
 	FOREIGN KEY("ValuationTime_id") REFERENCES "ValuationTime" (id)
 );
-CREATE INDEX "ix_ValuationTime_location_ValuationTime_id" ON "ValuationTime_location" ("ValuationTime_id");
 CREATE INDEX "ix_ValuationTime_location_location" ON "ValuationTime_location" (location);
+CREATE INDEX "ix_ValuationTime_location_ValuationTime_id" ON "ValuationTime_location" ("ValuationTime_id");
 
 CREATE TABLE "UnderlierSubstitutionProvision_whoMaySubstitute" (
 	"UnderlierSubstitutionProvision_id" INTEGER,
@@ -10375,8 +10363,8 @@ CREATE TABLE "IndexBase_identifier" (
 	FOREIGN KEY("IndexBase_id") REFERENCES "IndexBase" (id),
 	FOREIGN KEY(identifier_id) REFERENCES "AssetIdentifier" (id)
 );
-CREATE INDEX "ix_IndexBase_identifier_identifier_id" ON "IndexBase_identifier" (identifier_id);
 CREATE INDEX "ix_IndexBase_identifier_IndexBase_id" ON "IndexBase_identifier" ("IndexBase_id");
+CREATE INDEX "ix_IndexBase_identifier_identifier_id" ON "IndexBase_identifier" (identifier_id);
 
 CREATE TABLE "FloatingRateIndex_identifier" (
 	"FloatingRateIndex_id" INTEGER,
@@ -10385,8 +10373,8 @@ CREATE TABLE "FloatingRateIndex_identifier" (
 	FOREIGN KEY("FloatingRateIndex_id") REFERENCES "FloatingRateIndex" (id),
 	FOREIGN KEY(identifier_id) REFERENCES "AssetIdentifier" (id)
 );
-CREATE INDEX "ix_FloatingRateIndex_identifier_FloatingRateIndex_id" ON "FloatingRateIndex_identifier" ("FloatingRateIndex_id");
 CREATE INDEX "ix_FloatingRateIndex_identifier_identifier_id" ON "FloatingRateIndex_identifier" (identifier_id);
+CREATE INDEX "ix_FloatingRateIndex_identifier_FloatingRateIndex_id" ON "FloatingRateIndex_identifier" ("FloatingRateIndex_id");
 
 CREATE TABLE "ForeignExchangeRateIndex_identifier" (
 	"ForeignExchangeRateIndex_id" INTEGER,
@@ -10395,8 +10383,8 @@ CREATE TABLE "ForeignExchangeRateIndex_identifier" (
 	FOREIGN KEY("ForeignExchangeRateIndex_id") REFERENCES "ForeignExchangeRateIndex" (id),
 	FOREIGN KEY(identifier_id) REFERENCES "AssetIdentifier" (id)
 );
-CREATE INDEX "ix_ForeignExchangeRateIndex_identifier_identifier_id" ON "ForeignExchangeRateIndex_identifier" (identifier_id);
 CREATE INDEX "ix_ForeignExchangeRateIndex_identifier_ForeignExchangeRateIndex_id" ON "ForeignExchangeRateIndex_identifier" ("ForeignExchangeRateIndex_id");
+CREATE INDEX "ix_ForeignExchangeRateIndex_identifier_identifier_id" ON "ForeignExchangeRateIndex_identifier" (identifier_id);
 
 CREATE TABLE "InflationIndex_identifier" (
 	"InflationIndex_id" INTEGER,
@@ -10405,8 +10393,8 @@ CREATE TABLE "InflationIndex_identifier" (
 	FOREIGN KEY("InflationIndex_id") REFERENCES "InflationIndex" (id),
 	FOREIGN KEY(identifier_id) REFERENCES "AssetIdentifier" (id)
 );
-CREATE INDEX "ix_InflationIndex_identifier_identifier_id" ON "InflationIndex_identifier" (identifier_id);
 CREATE INDEX "ix_InflationIndex_identifier_InflationIndex_id" ON "InflationIndex_identifier" ("InflationIndex_id");
+CREATE INDEX "ix_InflationIndex_identifier_identifier_id" ON "InflationIndex_identifier" (identifier_id);
 
 CREATE TABLE "CreditIndex_identifier" (
 	"CreditIndex_id" INTEGER,
@@ -10425,8 +10413,8 @@ CREATE TABLE "EquityIndex_identifier" (
 	FOREIGN KEY("EquityIndex_id") REFERENCES "EquityIndex" (id),
 	FOREIGN KEY(identifier_id) REFERENCES "AssetIdentifier" (id)
 );
-CREATE INDEX "ix_EquityIndex_identifier_EquityIndex_id" ON "EquityIndex_identifier" ("EquityIndex_id");
 CREATE INDEX "ix_EquityIndex_identifier_identifier_id" ON "EquityIndex_identifier" (identifier_id);
+CREATE INDEX "ix_EquityIndex_identifier_EquityIndex_id" ON "EquityIndex_identifier" ("EquityIndex_id");
 
 CREATE TABLE "OtherIndex_identifier" (
 	"OtherIndex_id" INTEGER,
@@ -10454,8 +10442,8 @@ CREATE TABLE "MultipleDebtTypes_debtType" (
 	PRIMARY KEY ("MultipleDebtTypes_id", "debtType"),
 	FOREIGN KEY("MultipleDebtTypes_id") REFERENCES "MultipleDebtTypes" (id)
 );
-CREATE INDEX "ix_MultipleDebtTypes_debtType_debtType" ON "MultipleDebtTypes_debtType" ("debtType");
 CREATE INDEX "ix_MultipleDebtTypes_debtType_MultipleDebtTypes_id" ON "MultipleDebtTypes_debtType" ("MultipleDebtTypes_id");
+CREATE INDEX "ix_MultipleDebtTypes_debtType_debtType" ON "MultipleDebtTypes_debtType" ("debtType");
 
 CREATE TABLE "CashCollateralValuationMethod_protectedParty" (
 	"CashCollateralValuationMethod_id" INTEGER,
@@ -10481,8 +10469,8 @@ CREATE TABLE "CalculatedRateObservations_weights" (
 	PRIMARY KEY ("CalculatedRateObservations_id", weights),
 	FOREIGN KEY("CalculatedRateObservations_id") REFERENCES "CalculatedRateObservations" (id)
 );
-CREATE INDEX "ix_CalculatedRateObservations_weights_CalculatedRateObservations_id" ON "CalculatedRateObservations_weights" ("CalculatedRateObservations_id");
 CREATE INDEX "ix_CalculatedRateObservations_weights_weights" ON "CalculatedRateObservations_weights" (weights);
+CREATE INDEX "ix_CalculatedRateObservations_weights_CalculatedRateObservations_id" ON "CalculatedRateObservations_weights" ("CalculatedRateObservations_id");
 
 CREATE TABLE "CalculatedRateObservations_observedRates" (
 	"CalculatedRateObservations_id" INTEGER,
@@ -10517,8 +10505,8 @@ CREATE TABLE "CalculatedRateObservationDatesAndWeights_weights" (
 	PRIMARY KEY ("CalculatedRateObservationDatesAndWeights_id", weights),
 	FOREIGN KEY("CalculatedRateObservationDatesAndWeights_id") REFERENCES "CalculatedRateObservationDatesAndWeights" (id)
 );
-CREATE INDEX "ix_CalculatedRateObservationDatesAndWeights_weights_CalculatedRateObservationDatesAndWeights_id" ON "CalculatedRateObservationDatesAndWeights_weights" ("CalculatedRateObservationDatesAndWeights_id");
 CREATE INDEX "ix_CalculatedRateObservationDatesAndWeights_weights_weights" ON "CalculatedRateObservationDatesAndWeights_weights" (weights);
+CREATE INDEX "ix_CalculatedRateObservationDatesAndWeights_weights_CalculatedRateObservationDatesAndWeights_id" ON "CalculatedRateObservationDatesAndWeights_weights" ("CalculatedRateObservationDatesAndWeights_id");
 
 CREATE TABLE "FloatingRateIndexMap_index_" (
 	"FloatingRateIndexMap_id" INTEGER,
@@ -10544,8 +10532,8 @@ CREATE TABLE "AmountSchedule_currency" (
 	PRIMARY KEY ("AmountSchedule_id", currency),
 	FOREIGN KEY("AmountSchedule_id") REFERENCES "AmountSchedule" (id)
 );
-CREATE INDEX "ix_AmountSchedule_currency_currency" ON "AmountSchedule_currency" (currency);
 CREATE INDEX "ix_AmountSchedule_currency_AmountSchedule_id" ON "AmountSchedule_currency" ("AmountSchedule_id");
+CREATE INDEX "ix_AmountSchedule_currency_currency" ON "AmountSchedule_currency" (currency);
 
 CREATE TABLE "Collateral_portfolioIdentifier" (
 	"Collateral_id" INTEGER,
@@ -10554,8 +10542,8 @@ CREATE TABLE "Collateral_portfolioIdentifier" (
 	FOREIGN KEY("Collateral_id") REFERENCES "Collateral" (id),
 	FOREIGN KEY("portfolioIdentifier_id") REFERENCES "Identifier" (id)
 );
-CREATE INDEX "ix_Collateral_portfolioIdentifier_portfolioIdentifier_id" ON "Collateral_portfolioIdentifier" ("portfolioIdentifier_id");
 CREATE INDEX "ix_Collateral_portfolioIdentifier_Collateral_id" ON "Collateral_portfolioIdentifier" ("Collateral_id");
+CREATE INDEX "ix_Collateral_portfolioIdentifier_portfolioIdentifier_id" ON "Collateral_portfolioIdentifier" ("portfolioIdentifier_id");
 
 CREATE TABLE "EligibleCollateralSpecification_party" (
 	"EligibleCollateralSpecification_id" INTEGER,
@@ -10574,8 +10562,8 @@ CREATE TABLE "EligibleCollateralSpecification_partyRole" (
 	FOREIGN KEY("EligibleCollateralSpecification_id") REFERENCES "EligibleCollateralSpecification" (id),
 	FOREIGN KEY("partyRole_id") REFERENCES "PartyRole" (id)
 );
-CREATE INDEX "ix_EligibleCollateralSpecification_partyRole_EligibleCollateralSpecification_id" ON "EligibleCollateralSpecification_partyRole" ("EligibleCollateralSpecification_id");
 CREATE INDEX "ix_EligibleCollateralSpecification_partyRole_partyRole_id" ON "EligibleCollateralSpecification_partyRole" ("partyRole_id");
+CREATE INDEX "ix_EligibleCollateralSpecification_partyRole_EligibleCollateralSpecification_id" ON "EligibleCollateralSpecification_partyRole" ("EligibleCollateralSpecification_id");
 
 CREATE TABLE "ListingExchange_exchange" (
 	"ListingExchange_id" INTEGER,
@@ -10592,8 +10580,8 @@ CREATE TABLE "ListingSector_sector" (
 	PRIMARY KEY ("ListingSector_id", sector),
 	FOREIGN KEY("ListingSector_id") REFERENCES "ListingSector" (id)
 );
-CREATE INDEX "ix_ListingSector_sector_sector" ON "ListingSector_sector" (sector);
 CREATE INDEX "ix_ListingSector_sector_ListingSector_id" ON "ListingSector_sector" ("ListingSector_id");
+CREATE INDEX "ix_ListingSector_sector_sector" ON "ListingSector_sector" (sector);
 
 CREATE TABLE "AdjustableDate" (
 	id INTEGER NOT NULL,
@@ -11627,8 +11615,8 @@ CREATE TABLE "Trade_partyRole" (
 	FOREIGN KEY("Trade_id") REFERENCES "Trade" (id),
 	FOREIGN KEY("partyRole_id") REFERENCES "PartyRole" (id)
 );
-CREATE INDEX "ix_Trade_partyRole_Trade_id" ON "Trade_partyRole" ("Trade_id");
 CREATE INDEX "ix_Trade_partyRole_partyRole_id" ON "Trade_partyRole" ("partyRole_id");
+CREATE INDEX "ix_Trade_partyRole_Trade_id" ON "Trade_partyRole" ("Trade_id");
 
 CREATE TABLE "Trade_account" (
 	"Trade_id" INTEGER,
@@ -11660,46 +11648,6 @@ CREATE TABLE "Trade_ancillaryParty" (
 CREATE INDEX "ix_Trade_ancillaryParty_ancillaryParty_id" ON "Trade_ancillaryParty" ("ancillaryParty_id");
 CREATE INDEX "ix_Trade_ancillaryParty_Trade_id" ON "Trade_ancillaryParty" ("Trade_id");
 
-CREATE TABLE "AvailableInventory_party" (
-	"AvailableInventory_id" INTEGER,
-	party_id INTEGER,
-	PRIMARY KEY ("AvailableInventory_id", party_id),
-	FOREIGN KEY("AvailableInventory_id") REFERENCES "AvailableInventory" (id),
-	FOREIGN KEY(party_id) REFERENCES "Party" (id)
-);
-CREATE INDEX "ix_AvailableInventory_party_AvailableInventory_id" ON "AvailableInventory_party" ("AvailableInventory_id");
-CREATE INDEX "ix_AvailableInventory_party_party_id" ON "AvailableInventory_party" (party_id);
-
-CREATE TABLE "AvailableInventory_partyRole" (
-	"AvailableInventory_id" INTEGER,
-	"partyRole_id" INTEGER,
-	PRIMARY KEY ("AvailableInventory_id", "partyRole_id"),
-	FOREIGN KEY("AvailableInventory_id") REFERENCES "AvailableInventory" (id),
-	FOREIGN KEY("partyRole_id") REFERENCES "PartyRole" (id)
-);
-CREATE INDEX "ix_AvailableInventory_partyRole_AvailableInventory_id" ON "AvailableInventory_partyRole" ("AvailableInventory_id");
-CREATE INDEX "ix_AvailableInventory_partyRole_partyRole_id" ON "AvailableInventory_partyRole" ("partyRole_id");
-
-CREATE TABLE "SecurityLocate_party" (
-	"SecurityLocate_id" INTEGER,
-	party_id INTEGER,
-	PRIMARY KEY ("SecurityLocate_id", party_id),
-	FOREIGN KEY("SecurityLocate_id") REFERENCES "SecurityLocate" (id),
-	FOREIGN KEY(party_id) REFERENCES "Party" (id)
-);
-CREATE INDEX "ix_SecurityLocate_party_party_id" ON "SecurityLocate_party" (party_id);
-CREATE INDEX "ix_SecurityLocate_party_SecurityLocate_id" ON "SecurityLocate_party" ("SecurityLocate_id");
-
-CREATE TABLE "SecurityLocate_partyRole" (
-	"SecurityLocate_id" INTEGER,
-	"partyRole_id" INTEGER,
-	PRIMARY KEY ("SecurityLocate_id", "partyRole_id"),
-	FOREIGN KEY("SecurityLocate_id") REFERENCES "SecurityLocate" (id),
-	FOREIGN KEY("partyRole_id") REFERENCES "PartyRole" (id)
-);
-CREATE INDEX "ix_SecurityLocate_partyRole_SecurityLocate_id" ON "SecurityLocate_partyRole" ("SecurityLocate_id");
-CREATE INDEX "ix_SecurityLocate_partyRole_partyRole_id" ON "SecurityLocate_partyRole" ("partyRole_id");
-
 CREATE TABLE "AgreementTerms_counterparty" (
 	"AgreementTerms_id" INTEGER,
 	counterparty_id INTEGER NOT NULL,
@@ -11717,8 +11665,8 @@ CREATE TABLE "UmbrellaAgreementSet_party" (
 	FOREIGN KEY("UmbrellaAgreementSet_id") REFERENCES "UmbrellaAgreementSet" (id),
 	FOREIGN KEY(party_id) REFERENCES "UmbrellaAgreementParty" (id)
 );
-CREATE INDEX "ix_UmbrellaAgreementSet_party_UmbrellaAgreementSet_id" ON "UmbrellaAgreementSet_party" ("UmbrellaAgreementSet_id");
 CREATE INDEX "ix_UmbrellaAgreementSet_party_party_id" ON "UmbrellaAgreementSet_party" (party_id);
+CREATE INDEX "ix_UmbrellaAgreementSet_party_UmbrellaAgreementSet_id" ON "UmbrellaAgreementSet_party" ("UmbrellaAgreementSet_id");
 
 CREATE TABLE "CoveredTransactions_coveredTransactions" (
 	"CoveredTransactions_id" INTEGER,
@@ -11746,8 +11694,8 @@ CREATE TABLE "CoveredTransactions_additionalObligations" (
 	FOREIGN KEY("CoveredTransactions_id") REFERENCES "CoveredTransactions" (id),
 	FOREIGN KEY("additionalObligations_id") REFERENCES "AdditionalObligations" (id)
 );
-CREATE INDEX "ix_CoveredTransactions_additionalObligations_additionalObligations_id" ON "CoveredTransactions_additionalObligations" ("additionalObligations_id");
 CREATE INDEX "ix_CoveredTransactions_additionalObligations_CoveredTransactions_id" ON "CoveredTransactions_additionalObligations" ("CoveredTransactions_id");
+CREATE INDEX "ix_CoveredTransactions_additionalObligations_additionalObligations_id" ON "CoveredTransactions_additionalObligations" ("additionalObligations_id");
 
 CREATE TABLE "SpecifiedOrAccessConditionPartyElection_specifiedOrAccessCondition" (
 	"SpecifiedOrAccessConditionPartyElection_id" INTEGER,
@@ -11764,8 +11712,8 @@ CREATE TABLE "SpecifiedOrAccessConditionPartyElection_additionalTerminationEvent
 	PRIMARY KEY ("SpecifiedOrAccessConditionPartyElection_id", "additionalTerminationEvent"),
 	FOREIGN KEY("SpecifiedOrAccessConditionPartyElection_id") REFERENCES "SpecifiedOrAccessConditionPartyElection" (id)
 );
-CREATE INDEX "ix_SpecifiedOrAccessConditionPartyElection_additionalTerminationEvent_SpecifiedOrAccessConditionPartyElection_id" ON "SpecifiedOrAccessConditionPartyElection_additionalTerminationEvent" ("SpecifiedOrAccessConditionPartyElection_id");
 CREATE INDEX "ix_SpecifiedOrAccessConditionPartyElection_additionalTerminationEvent_additionalTerminationEvent" ON "SpecifiedOrAccessConditionPartyElection_additionalTerminationEvent" ("additionalTerminationEvent");
+CREATE INDEX "ix_SpecifiedOrAccessConditionPartyElection_additionalTerminationEvent_SpecifiedOrAccessConditionPartyElection_id" ON "SpecifiedOrAccessConditionPartyElection_additionalTerminationEvent" ("SpecifiedOrAccessConditionPartyElection_id");
 
 CREATE TABLE "SpecifiedOrAccessConditionPartyElection_specifiedAdditionalTerminationEvent" (
 	"SpecifiedOrAccessConditionPartyElection_id" INTEGER,
@@ -11801,8 +11749,8 @@ CREATE TABLE "ExtraordinaryEvents_additionalBespokeTerms" (
 	FOREIGN KEY("ExtraordinaryEvents_id") REFERENCES "ExtraordinaryEvents" (id),
 	FOREIGN KEY("additionalBespokeTerms_id") REFERENCES "Clause" (id)
 );
-CREATE INDEX "ix_ExtraordinaryEvents_additionalBespokeTerms_additionalBespokeTerms_id" ON "ExtraordinaryEvents_additionalBespokeTerms" ("additionalBespokeTerms_id");
 CREATE INDEX "ix_ExtraordinaryEvents_additionalBespokeTerms_ExtraordinaryEvents_id" ON "ExtraordinaryEvents_additionalBespokeTerms" ("ExtraordinaryEvents_id");
+CREATE INDEX "ix_ExtraordinaryEvents_additionalBespokeTerms_additionalBespokeTerms_id" ON "ExtraordinaryEvents_additionalBespokeTerms" ("additionalBespokeTerms_id");
 
 CREATE TABLE "AdditionalDisruptionEvents_additionalBespokeTerms" (
 	"AdditionalDisruptionEvents_id" INTEGER,
@@ -11839,8 +11787,8 @@ CREATE TABLE "CalculatedRateDetails_weightedRates" (
 	PRIMARY KEY ("CalculatedRateDetails_id", "weightedRates"),
 	FOREIGN KEY("CalculatedRateDetails_id") REFERENCES "CalculatedRateDetails" (id)
 );
-CREATE INDEX "ix_CalculatedRateDetails_weightedRates_CalculatedRateDetails_id" ON "CalculatedRateDetails_weightedRates" ("CalculatedRateDetails_id");
 CREATE INDEX "ix_CalculatedRateDetails_weightedRates_weightedRates" ON "CalculatedRateDetails_weightedRates" ("weightedRates");
+CREATE INDEX "ix_CalculatedRateDetails_weightedRates_CalculatedRateDetails_id" ON "CalculatedRateDetails_weightedRates" ("CalculatedRateDetails_id");
 
 CREATE TABLE "CalculatedRateDetails_growthFactor" (
 	"CalculatedRateDetails_id" INTEGER,
@@ -11875,8 +11823,8 @@ CREATE TABLE "BasketReferenceInformation_basketId" (
 	PRIMARY KEY ("BasketReferenceInformation_id", "basketId"),
 	FOREIGN KEY("BasketReferenceInformation_id") REFERENCES "BasketReferenceInformation" (id)
 );
-CREATE INDEX "ix_BasketReferenceInformation_basketId_BasketReferenceInformation_id" ON "BasketReferenceInformation_basketId" ("BasketReferenceInformation_id");
 CREATE INDEX "ix_BasketReferenceInformation_basketId_basketId" ON "BasketReferenceInformation_basketId" ("basketId");
+CREATE INDEX "ix_BasketReferenceInformation_basketId_BasketReferenceInformation_id" ON "BasketReferenceInformation_basketId" ("BasketReferenceInformation_id");
 
 CREATE TABLE "Collateral_collateralPortfolio" (
 	"Collateral_id" INTEGER,
@@ -11895,8 +11843,8 @@ CREATE TABLE "EligibleCollateralSpecification_counterparty" (
 	FOREIGN KEY("EligibleCollateralSpecification_id") REFERENCES "EligibleCollateralSpecification" (id),
 	FOREIGN KEY(counterparty_id) REFERENCES "Counterparty" (id)
 );
-CREATE INDEX "ix_EligibleCollateralSpecification_counterparty_counterparty_id" ON "EligibleCollateralSpecification_counterparty" (counterparty_id);
 CREATE INDEX "ix_EligibleCollateralSpecification_counterparty_EligibleCollateralSpecification_id" ON "EligibleCollateralSpecification_counterparty" ("EligibleCollateralSpecification_id");
+CREATE INDEX "ix_EligibleCollateralSpecification_counterparty_counterparty_id" ON "EligibleCollateralSpecification_counterparty" (counterparty_id);
 
 CREATE TABLE "TradableProduct_counterparty" (
 	"TradableProduct_id" INTEGER,
@@ -11915,8 +11863,8 @@ CREATE TABLE "TradableProduct_ancillaryParty" (
 	FOREIGN KEY("TradableProduct_id") REFERENCES "TradableProduct" (id),
 	FOREIGN KEY("ancillaryParty_id") REFERENCES "AncillaryParty" (id)
 );
-CREATE INDEX "ix_TradableProduct_ancillaryParty_ancillaryParty_id" ON "TradableProduct_ancillaryParty" ("ancillaryParty_id");
 CREATE INDEX "ix_TradableProduct_ancillaryParty_TradableProduct_id" ON "TradableProduct_ancillaryParty" ("TradableProduct_id");
+CREATE INDEX "ix_TradableProduct_ancillaryParty_ancillaryParty_id" ON "TradableProduct_ancillaryParty" ("ancillaryParty_id");
 
 CREATE TABLE "AdjustableOrRelativeDate" (
 	id INTEGER NOT NULL,
@@ -12697,8 +12645,8 @@ CREATE TABLE "TerminationCurrencyElection_party" (
 	PRIMARY KEY ("TerminationCurrencyElection_id", party),
 	FOREIGN KEY("TerminationCurrencyElection_id") REFERENCES "TerminationCurrencyElection" (id)
 );
-CREATE INDEX "ix_TerminationCurrencyElection_party_party" ON "TerminationCurrencyElection_party" (party);
 CREATE INDEX "ix_TerminationCurrencyElection_party_TerminationCurrencyElection_id" ON "TerminationCurrencyElection_party" ("TerminationCurrencyElection_id");
+CREATE INDEX "ix_TerminationCurrencyElection_party_party" ON "TerminationCurrencyElection_party" (party);
 
 CREATE TABLE "CreditSupportObligationsVariationMargin_majorCurrency" (
 	"CreditSupportObligationsVariationMargin_id" INTEGER,
@@ -12742,8 +12690,8 @@ CREATE TABLE "MasterAgreementClauseVariant_counterparty" (
 	PRIMARY KEY ("MasterAgreementClauseVariant_id", counterparty),
 	FOREIGN KEY("MasterAgreementClauseVariant_id") REFERENCES "MasterAgreementClauseVariant" (id)
 );
-CREATE INDEX "ix_MasterAgreementClauseVariant_counterparty_counterparty" ON "MasterAgreementClauseVariant_counterparty" (counterparty);
 CREATE INDEX "ix_MasterAgreementClauseVariant_counterparty_MasterAgreementClauseVariant_id" ON "MasterAgreementClauseVariant_counterparty" ("MasterAgreementClauseVariant_id");
+CREATE INDEX "ix_MasterAgreementClauseVariant_counterparty_counterparty" ON "MasterAgreementClauseVariant_counterparty" (counterparty);
 
 CREATE TABLE "MasterAgreementClauseVariant_otherParty" (
 	"MasterAgreementClauseVariant_id" INTEGER,
@@ -12789,8 +12737,8 @@ CREATE TABLE "CollateralCriteriaBase_appliesTo" (
 	PRIMARY KEY ("CollateralCriteriaBase_id", "appliesTo"),
 	FOREIGN KEY("CollateralCriteriaBase_id") REFERENCES "CollateralCriteriaBase" (id)
 );
-CREATE INDEX "ix_CollateralCriteriaBase_appliesTo_CollateralCriteriaBase_id" ON "CollateralCriteriaBase_appliesTo" ("CollateralCriteriaBase_id");
 CREATE INDEX "ix_CollateralCriteriaBase_appliesTo_appliesTo" ON "CollateralCriteriaBase_appliesTo" ("appliesTo");
+CREATE INDEX "ix_CollateralCriteriaBase_appliesTo_CollateralCriteriaBase_id" ON "CollateralCriteriaBase_appliesTo" ("CollateralCriteriaBase_id");
 
 CREATE TABLE "ConcentrationLimitCriteria_appliesTo" (
 	"ConcentrationLimitCriteria_id" INTEGER,
@@ -12798,8 +12746,8 @@ CREATE TABLE "ConcentrationLimitCriteria_appliesTo" (
 	PRIMARY KEY ("ConcentrationLimitCriteria_id", "appliesTo"),
 	FOREIGN KEY("ConcentrationLimitCriteria_id") REFERENCES "ConcentrationLimitCriteria" (id)
 );
-CREATE INDEX "ix_ConcentrationLimitCriteria_appliesTo_appliesTo" ON "ConcentrationLimitCriteria_appliesTo" ("appliesTo");
 CREATE INDEX "ix_ConcentrationLimitCriteria_appliesTo_ConcentrationLimitCriteria_id" ON "ConcentrationLimitCriteria_appliesTo" ("ConcentrationLimitCriteria_id");
+CREATE INDEX "ix_ConcentrationLimitCriteria_appliesTo_appliesTo" ON "ConcentrationLimitCriteria_appliesTo" ("appliesTo");
 
 CREATE TABLE "CollateralInterestHandlingParameters_paymentBusinessCenter" (
 	"CollateralInterestHandlingParameters_id" INTEGER,
@@ -12807,8 +12755,8 @@ CREATE TABLE "CollateralInterestHandlingParameters_paymentBusinessCenter" (
 	PRIMARY KEY ("CollateralInterestHandlingParameters_id", "paymentBusinessCenter"),
 	FOREIGN KEY("CollateralInterestHandlingParameters_id") REFERENCES "CollateralInterestHandlingParameters" (id)
 );
-CREATE INDEX "ix_CollateralInterestHandlingParameters_paymentBusinessCenter_CollateralInterestHandlingParameters_id" ON "CollateralInterestHandlingParameters_paymentBusinessCenter" ("CollateralInterestHandlingParameters_id");
 CREATE INDEX "ix_CollateralInterestHandlingParameters_paymentBusinessCenter_paymentBusinessCenter" ON "CollateralInterestHandlingParameters_paymentBusinessCenter" ("paymentBusinessCenter");
+CREATE INDEX "ix_CollateralInterestHandlingParameters_paymentBusinessCenter_CollateralInterestHandlingParameters_id" ON "CollateralInterestHandlingParameters_paymentBusinessCenter" ("CollateralInterestHandlingParameters_id");
 
 CREATE TABLE "TradeLot_lotIdentifier" (
 	"TradeLot_id" INTEGER,
@@ -13538,8 +13486,8 @@ CREATE TABLE "Address_street" (
 	PRIMARY KEY ("Address_id", street),
 	FOREIGN KEY("Address_id") REFERENCES "Address" (id)
 );
-CREATE INDEX "ix_Address_street_Address_id" ON "Address_street" ("Address_id");
 CREATE INDEX "ix_Address_street_street" ON "Address_street" (street);
+CREATE INDEX "ix_Address_street_Address_id" ON "Address_street" ("Address_id");
 
 CREATE TABLE "NaturalPerson_middleName" (
 	"NaturalPerson_id" INTEGER,
@@ -13556,8 +13504,8 @@ CREATE TABLE "NaturalPerson_initial" (
 	PRIMARY KEY ("NaturalPerson_id", initial),
 	FOREIGN KEY("NaturalPerson_id") REFERENCES "NaturalPerson" (id)
 );
-CREATE INDEX "ix_NaturalPerson_initial_initial" ON "NaturalPerson_initial" (initial);
 CREATE INDEX "ix_NaturalPerson_initial_NaturalPerson_id" ON "NaturalPerson_initial" ("NaturalPerson_id");
+CREATE INDEX "ix_NaturalPerson_initial_initial" ON "NaturalPerson_initial" (initial);
 
 CREATE TABLE "ThresholdMinimumTransferAmountFixedAmount_event" (
 	"ThresholdMinimumTransferAmountFixedAmount_id" INTEGER,
@@ -13584,8 +13532,8 @@ CREATE TABLE "MultipleCreditNotations_creditNotation" (
 	FOREIGN KEY("MultipleCreditNotations_id") REFERENCES "MultipleCreditNotations" (id),
 	FOREIGN KEY("creditNotation_id") REFERENCES "CreditNotation" (id)
 );
-CREATE INDEX "ix_MultipleCreditNotations_creditNotation_creditNotation_id" ON "MultipleCreditNotations_creditNotation" ("creditNotation_id");
 CREATE INDEX "ix_MultipleCreditNotations_creditNotation_MultipleCreditNotations_id" ON "MultipleCreditNotations_creditNotation" ("MultipleCreditNotations_id");
+CREATE INDEX "ix_MultipleCreditNotations_creditNotation_creditNotation_id" ON "MultipleCreditNotations_creditNotation" ("creditNotation_id");
 
 CREATE TABLE "AssetDeliveryInformation_location" (
 	"AssetDeliveryInformation_id" INTEGER,
@@ -13603,8 +13551,8 @@ CREATE TABLE "AssetDeliveryInformation_commodityGrade" (
 	PRIMARY KEY ("AssetDeliveryInformation_id", "commodityGrade"),
 	FOREIGN KEY("AssetDeliveryInformation_id") REFERENCES "AssetDeliveryInformation" (id)
 );
-CREATE INDEX "ix_AssetDeliveryInformation_commodityGrade_commodityGrade" ON "AssetDeliveryInformation_commodityGrade" ("commodityGrade");
 CREATE INDEX "ix_AssetDeliveryInformation_commodityGrade_AssetDeliveryInformation_id" ON "AssetDeliveryInformation_commodityGrade" ("AssetDeliveryInformation_id");
+CREATE INDEX "ix_AssetDeliveryInformation_commodityGrade_commodityGrade" ON "AssetDeliveryInformation_commodityGrade" ("commodityGrade");
 
 CREATE TABLE "GeneralTerms_additionalTerm" (
 	"GeneralTerms_id" INTEGER,
@@ -13766,24 +13714,29 @@ CREATE TABLE "InventoryRecord" (
 );
 CREATE INDEX "ix_InventoryRecord_id" ON "InventoryRecord" (id);
 
-CREATE TABLE "AvailableInventoryRecord" (
+CREATE TABLE "AvailableInventory" (
 	id INTEGER NOT NULL,
-	"expirationDateTime" DATETIME,
-	"AvailableInventory_id" INTEGER,
-	"SecurityLocate_id" INTEGER,
-	quantity_id INTEGER,
-	"interestRate_id" INTEGER,
-	identifer_id INTEGER NOT NULL,
-	security_id INTEGER NOT NULL,
+	"availableInventoryType" VARCHAR(15) NOT NULL,
+	comment TEXT,
+	identifer_id INTEGER,
+	"messageInformation_id" INTEGER,
 	PRIMARY KEY (id),
-	FOREIGN KEY("AvailableInventory_id") REFERENCES "AvailableInventory" (id),
-	FOREIGN KEY("SecurityLocate_id") REFERENCES "SecurityLocate" (id),
-	FOREIGN KEY(quantity_id) REFERENCES "Quantity" (id),
-	FOREIGN KEY("interestRate_id") REFERENCES "Price" (id),
 	FOREIGN KEY(identifer_id) REFERENCES "AssignedIdentifier" (id),
-	FOREIGN KEY(security_id) REFERENCES "Security" (id)
+	FOREIGN KEY("messageInformation_id") REFERENCES "MessageInformation" (id)
 );
-CREATE INDEX "ix_AvailableInventoryRecord_id" ON "AvailableInventoryRecord" (id);
+CREATE INDEX "ix_AvailableInventory_id" ON "AvailableInventory" (id);
+
+CREATE TABLE "SecurityLocate" (
+	id INTEGER NOT NULL,
+	"availableInventoryType" VARCHAR(15) NOT NULL,
+	comment TEXT,
+	identifer_id INTEGER,
+	"messageInformation_id" INTEGER,
+	PRIMARY KEY (id),
+	FOREIGN KEY(identifer_id) REFERENCES "AssignedIdentifier" (id),
+	FOREIGN KEY("messageInformation_id") REFERENCES "MessageInformation" (id)
+);
+CREATE INDEX "ix_SecurityLocate_id" ON "SecurityLocate" (id);
 
 CREATE TABLE "CreditSupportAgreementInitialMarginElections" (
 	id INTEGER NOT NULL,
@@ -14336,8 +14289,8 @@ CREATE TABLE "AdjustableDates_unadjustedDate" (
 	PRIMARY KEY ("AdjustableDates_id", "unadjustedDate"),
 	FOREIGN KEY("AdjustableDates_id") REFERENCES "AdjustableDates" (id)
 );
-CREATE INDEX "ix_AdjustableDates_unadjustedDate_unadjustedDate" ON "AdjustableDates_unadjustedDate" ("unadjustedDate");
 CREATE INDEX "ix_AdjustableDates_unadjustedDate_AdjustableDates_id" ON "AdjustableDates_unadjustedDate" ("AdjustableDates_id");
+CREATE INDEX "ix_AdjustableDates_unadjustedDate_unadjustedDate" ON "AdjustableDates_unadjustedDate" ("unadjustedDate");
 
 CREATE TABLE "AdjustableDates_adjustedDate" (
 	"AdjustableDates_id" INTEGER,
@@ -14345,8 +14298,8 @@ CREATE TABLE "AdjustableDates_adjustedDate" (
 	PRIMARY KEY ("AdjustableDates_id", "adjustedDate"),
 	FOREIGN KEY("AdjustableDates_id") REFERENCES "AdjustableDates" (id)
 );
-CREATE INDEX "ix_AdjustableDates_adjustedDate_adjustedDate" ON "AdjustableDates_adjustedDate" ("adjustedDate");
 CREATE INDEX "ix_AdjustableDates_adjustedDate_AdjustableDates_id" ON "AdjustableDates_adjustedDate" ("AdjustableDates_id");
+CREATE INDEX "ix_AdjustableDates_adjustedDate_adjustedDate" ON "AdjustableDates_adjustedDate" ("adjustedDate");
 
 CREATE TABLE "NaturalPersonRole_role" (
 	"NaturalPersonRole_id" INTEGER,
@@ -14374,8 +14327,8 @@ CREATE TABLE "MarginCallExposure_party" (
 	FOREIGN KEY("MarginCallExposure_id") REFERENCES "MarginCallExposure" (id),
 	FOREIGN KEY(party_id) REFERENCES "Party" (id)
 );
-CREATE INDEX "ix_MarginCallExposure_party_MarginCallExposure_id" ON "MarginCallExposure_party" ("MarginCallExposure_id");
 CREATE INDEX "ix_MarginCallExposure_party_party_id" ON "MarginCallExposure_party" (party_id);
+CREATE INDEX "ix_MarginCallExposure_party_MarginCallExposure_id" ON "MarginCallExposure_party" ("MarginCallExposure_id");
 
 CREATE TABLE "MarginCallExposure_partyRole" (
 	"MarginCallExposure_id" INTEGER,
@@ -14414,6 +14367,28 @@ CREATE TABLE "MarginCallResponseAction" (
 	FOREIGN KEY("MarginCallResponse_id") REFERENCES "MarginCallResponse" (id)
 );
 CREATE INDEX "ix_MarginCallResponseAction_id" ON "MarginCallResponseAction" (id);
+
+CREATE TABLE "AvailableInventoryRecord" (
+	id INTEGER NOT NULL,
+	"expirationDateTime" DATETIME,
+	comment TEXT,
+	"AvailableInventory_id" INTEGER,
+	"SecurityLocate_id" INTEGER,
+	quantity_id INTEGER,
+	"interestRate_id" INTEGER,
+	"dividendTerms_id" INTEGER,
+	identifer_id INTEGER NOT NULL,
+	security_id INTEGER NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY("AvailableInventory_id") REFERENCES "AvailableInventory" (id),
+	FOREIGN KEY("SecurityLocate_id") REFERENCES "SecurityLocate" (id),
+	FOREIGN KEY(quantity_id) REFERENCES "Quantity" (id),
+	FOREIGN KEY("interestRate_id") REFERENCES "Price" (id),
+	FOREIGN KEY("dividendTerms_id") REFERENCES "DividendTerms" (id),
+	FOREIGN KEY(identifer_id) REFERENCES "AssignedIdentifier" (id),
+	FOREIGN KEY(security_id) REFERENCES "Security" (id)
+);
+CREATE INDEX "ix_AvailableInventoryRecord_id" ON "AvailableInventoryRecord" (id);
 
 CREATE TABLE "SubstitutedRegime" (
 	id INTEGER NOT NULL,
@@ -14671,8 +14646,8 @@ CREATE TABLE "MarginCallResponse_party" (
 	FOREIGN KEY("MarginCallResponse_id") REFERENCES "MarginCallResponse" (id),
 	FOREIGN KEY(party_id) REFERENCES "Party" (id)
 );
-CREATE INDEX "ix_MarginCallResponse_party_MarginCallResponse_id" ON "MarginCallResponse_party" ("MarginCallResponse_id");
 CREATE INDEX "ix_MarginCallResponse_party_party_id" ON "MarginCallResponse_party" (party_id);
+CREATE INDEX "ix_MarginCallResponse_party_MarginCallResponse_id" ON "MarginCallResponse_party" ("MarginCallResponse_id");
 
 CREATE TABLE "MarginCallResponse_partyRole" (
 	"MarginCallResponse_id" INTEGER,
@@ -14684,25 +14659,45 @@ CREATE TABLE "MarginCallResponse_partyRole" (
 CREATE INDEX "ix_MarginCallResponse_partyRole_MarginCallResponse_id" ON "MarginCallResponse_partyRole" ("MarginCallResponse_id");
 CREATE INDEX "ix_MarginCallResponse_partyRole_partyRole_id" ON "MarginCallResponse_partyRole" ("partyRole_id");
 
-CREATE TABLE "AvailableInventoryRecord_collateral" (
-	"AvailableInventoryRecord_id" INTEGER,
-	collateral_id INTEGER,
-	PRIMARY KEY ("AvailableInventoryRecord_id", collateral_id),
-	FOREIGN KEY("AvailableInventoryRecord_id") REFERENCES "AvailableInventoryRecord" (id),
-	FOREIGN KEY(collateral_id) REFERENCES "CollateralProvisions" (id)
+CREATE TABLE "AvailableInventory_party" (
+	"AvailableInventory_id" INTEGER,
+	party_id INTEGER,
+	PRIMARY KEY ("AvailableInventory_id", party_id),
+	FOREIGN KEY("AvailableInventory_id") REFERENCES "AvailableInventory" (id),
+	FOREIGN KEY(party_id) REFERENCES "Party" (id)
 );
-CREATE INDEX "ix_AvailableInventoryRecord_collateral_collateral_id" ON "AvailableInventoryRecord_collateral" (collateral_id);
-CREATE INDEX "ix_AvailableInventoryRecord_collateral_AvailableInventoryRecord_id" ON "AvailableInventoryRecord_collateral" ("AvailableInventoryRecord_id");
+CREATE INDEX "ix_AvailableInventory_party_AvailableInventory_id" ON "AvailableInventory_party" ("AvailableInventory_id");
+CREATE INDEX "ix_AvailableInventory_party_party_id" ON "AvailableInventory_party" (party_id);
 
-CREATE TABLE "AvailableInventoryRecord_partyRole" (
-	"AvailableInventoryRecord_id" INTEGER,
+CREATE TABLE "AvailableInventory_partyRole" (
+	"AvailableInventory_id" INTEGER,
 	"partyRole_id" INTEGER,
-	PRIMARY KEY ("AvailableInventoryRecord_id", "partyRole_id"),
-	FOREIGN KEY("AvailableInventoryRecord_id") REFERENCES "AvailableInventoryRecord" (id),
+	PRIMARY KEY ("AvailableInventory_id", "partyRole_id"),
+	FOREIGN KEY("AvailableInventory_id") REFERENCES "AvailableInventory" (id),
 	FOREIGN KEY("partyRole_id") REFERENCES "PartyRole" (id)
 );
-CREATE INDEX "ix_AvailableInventoryRecord_partyRole_AvailableInventoryRecord_id" ON "AvailableInventoryRecord_partyRole" ("AvailableInventoryRecord_id");
-CREATE INDEX "ix_AvailableInventoryRecord_partyRole_partyRole_id" ON "AvailableInventoryRecord_partyRole" ("partyRole_id");
+CREATE INDEX "ix_AvailableInventory_partyRole_partyRole_id" ON "AvailableInventory_partyRole" ("partyRole_id");
+CREATE INDEX "ix_AvailableInventory_partyRole_AvailableInventory_id" ON "AvailableInventory_partyRole" ("AvailableInventory_id");
+
+CREATE TABLE "SecurityLocate_party" (
+	"SecurityLocate_id" INTEGER,
+	party_id INTEGER,
+	PRIMARY KEY ("SecurityLocate_id", party_id),
+	FOREIGN KEY("SecurityLocate_id") REFERENCES "SecurityLocate" (id),
+	FOREIGN KEY(party_id) REFERENCES "Party" (id)
+);
+CREATE INDEX "ix_SecurityLocate_party_party_id" ON "SecurityLocate_party" (party_id);
+CREATE INDEX "ix_SecurityLocate_party_SecurityLocate_id" ON "SecurityLocate_party" ("SecurityLocate_id");
+
+CREATE TABLE "SecurityLocate_partyRole" (
+	"SecurityLocate_id" INTEGER,
+	"partyRole_id" INTEGER,
+	PRIMARY KEY ("SecurityLocate_id", "partyRole_id"),
+	FOREIGN KEY("SecurityLocate_id") REFERENCES "SecurityLocate" (id),
+	FOREIGN KEY("partyRole_id") REFERENCES "PartyRole" (id)
+);
+CREATE INDEX "ix_SecurityLocate_partyRole_partyRole_id" ON "SecurityLocate_partyRole" ("partyRole_id");
+CREATE INDEX "ix_SecurityLocate_partyRole_SecurityLocate_id" ON "SecurityLocate_partyRole" ("SecurityLocate_id");
 
 CREATE TABLE "SpecificInconvertibility_relevantClass" (
 	"SpecificInconvertibility_id" INTEGER,
@@ -14710,8 +14705,8 @@ CREATE TABLE "SpecificInconvertibility_relevantClass" (
 	PRIMARY KEY ("SpecificInconvertibility_id", "relevantClass"),
 	FOREIGN KEY("SpecificInconvertibility_id") REFERENCES "SpecificInconvertibility" (id)
 );
-CREATE INDEX "ix_SpecificInconvertibility_relevantClass_relevantClass" ON "SpecificInconvertibility_relevantClass" ("relevantClass");
 CREATE INDEX "ix_SpecificInconvertibility_relevantClass_SpecificInconvertibility_id" ON "SpecificInconvertibility_relevantClass" ("SpecificInconvertibility_id");
+CREATE INDEX "ix_SpecificInconvertibility_relevantClass_relevantClass" ON "SpecificInconvertibility_relevantClass" ("relevantClass");
 
 CREATE TABLE "SpecificNonTransferability_relevantClass" (
 	"SpecificNonTransferability_id" INTEGER,
@@ -15060,8 +15055,28 @@ CREATE TABLE "BillingRecordInstruction_observation" (
 	FOREIGN KEY("BillingRecordInstruction_id") REFERENCES "BillingRecordInstruction" (id),
 	FOREIGN KEY(observation_id) REFERENCES "Observation" (id)
 );
-CREATE INDEX "ix_BillingRecordInstruction_observation_observation_id" ON "BillingRecordInstruction_observation" (observation_id);
 CREATE INDEX "ix_BillingRecordInstruction_observation_BillingRecordInstruction_id" ON "BillingRecordInstruction_observation" ("BillingRecordInstruction_id");
+CREATE INDEX "ix_BillingRecordInstruction_observation_observation_id" ON "BillingRecordInstruction_observation" (observation_id);
+
+CREATE TABLE "AvailableInventoryRecord_collateral" (
+	"AvailableInventoryRecord_id" INTEGER,
+	collateral_id INTEGER,
+	PRIMARY KEY ("AvailableInventoryRecord_id", collateral_id),
+	FOREIGN KEY("AvailableInventoryRecord_id") REFERENCES "AvailableInventoryRecord" (id),
+	FOREIGN KEY(collateral_id) REFERENCES "CollateralProvisions" (id)
+);
+CREATE INDEX "ix_AvailableInventoryRecord_collateral_collateral_id" ON "AvailableInventoryRecord_collateral" (collateral_id);
+CREATE INDEX "ix_AvailableInventoryRecord_collateral_AvailableInventoryRecord_id" ON "AvailableInventoryRecord_collateral" ("AvailableInventoryRecord_id");
+
+CREATE TABLE "AvailableInventoryRecord_partyRole" (
+	"AvailableInventoryRecord_id" INTEGER,
+	"partyRole_id" INTEGER,
+	PRIMARY KEY ("AvailableInventoryRecord_id", "partyRole_id"),
+	FOREIGN KEY("AvailableInventoryRecord_id") REFERENCES "AvailableInventoryRecord" (id),
+	FOREIGN KEY("partyRole_id") REFERENCES "PartyRole" (id)
+);
+CREATE INDEX "ix_AvailableInventoryRecord_partyRole_AvailableInventoryRecord_id" ON "AvailableInventoryRecord_partyRole" ("AvailableInventoryRecord_id");
+CREATE INDEX "ix_AvailableInventoryRecord_partyRole_partyRole_id" ON "AvailableInventoryRecord_partyRole" ("partyRole_id");
 
 CREATE TABLE "ExerciseTerms_expirationDate" (
 	"ExerciseTerms_id" INTEGER,
@@ -15257,8 +15272,8 @@ CREATE TABLE "EligibleCollateralCriteria_appliesTo" (
 	PRIMARY KEY ("EligibleCollateralCriteria_id", "appliesTo"),
 	FOREIGN KEY("EligibleCollateralCriteria_id") REFERENCES "EligibleCollateralCriteria" (id)
 );
-CREATE INDEX "ix_EligibleCollateralCriteria_appliesTo_appliesTo" ON "EligibleCollateralCriteria_appliesTo" ("appliesTo");
 CREATE INDEX "ix_EligibleCollateralCriteria_appliesTo_EligibleCollateralCriteria_id" ON "EligibleCollateralCriteria_appliesTo" ("EligibleCollateralCriteria_id");
+CREATE INDEX "ix_EligibleCollateralCriteria_appliesTo_appliesTo" ON "EligibleCollateralCriteria_appliesTo" ("appliesTo");
 
 CREATE TABLE "PrincipalPayments_varyingLegNotionalCurrency" (
 	"PrincipalPayments_id" INTEGER,
@@ -15266,8 +15281,8 @@ CREATE TABLE "PrincipalPayments_varyingLegNotionalCurrency" (
 	PRIMARY KEY ("PrincipalPayments_id", "varyingLegNotionalCurrency"),
 	FOREIGN KEY("PrincipalPayments_id") REFERENCES "PrincipalPayments" (id)
 );
-CREATE INDEX "ix_PrincipalPayments_varyingLegNotionalCurrency_varyingLegNotionalCurrency" ON "PrincipalPayments_varyingLegNotionalCurrency" ("varyingLegNotionalCurrency");
 CREATE INDEX "ix_PrincipalPayments_varyingLegNotionalCurrency_PrincipalPayments_id" ON "PrincipalPayments_varyingLegNotionalCurrency" ("PrincipalPayments_id");
+CREATE INDEX "ix_PrincipalPayments_varyingLegNotionalCurrency_varyingLegNotionalCurrency" ON "PrincipalPayments_varyingLegNotionalCurrency" ("varyingLegNotionalCurrency");
 
 CREATE TABLE "OptionalEarlyTermination_exerciseNotice" (
 	"OptionalEarlyTermination_id" INTEGER,
@@ -15366,8 +15381,8 @@ CREATE TABLE "PriceQuantity_quantity" (
 	FOREIGN KEY("PriceQuantity_id") REFERENCES "PriceQuantity" (id),
 	FOREIGN KEY(quantity_id) REFERENCES "NonNegativeQuantitySchedule" (id)
 );
-CREATE INDEX "ix_PriceQuantity_quantity_quantity_id" ON "PriceQuantity_quantity" (quantity_id);
 CREATE INDEX "ix_PriceQuantity_quantity_PriceQuantity_id" ON "PriceQuantity_quantity" ("PriceQuantity_id");
+CREATE INDEX "ix_PriceQuantity_quantity_quantity_id" ON "PriceQuantity_quantity" (quantity_id);
 
 CREATE TABLE "ReferencePoolItem" (
 	id INTEGER NOT NULL,
@@ -15929,8 +15944,8 @@ CREATE TABLE "CollateralInterestCalculationParameters_compoundingBusinessCenter"
 	PRIMARY KEY ("CollateralInterestCalculationParameters_id", "compoundingBusinessCenter"),
 	FOREIGN KEY("CollateralInterestCalculationParameters_id") REFERENCES "CollateralInterestCalculationParameters" (id)
 );
-CREATE INDEX "ix_CollateralInterestCalculationParameters_compoundingBusinessCenter_compoundingBusinessCenter" ON "CollateralInterestCalculationParameters_compoundingBusinessCenter" ("compoundingBusinessCenter");
 CREATE INDEX "ix_CollateralInterestCalculationParameters_compoundingBusinessCenter_CollateralInterestCalculationParameters_id" ON "CollateralInterestCalculationParameters_compoundingBusinessCenter" ("CollateralInterestCalculationParameters_id");
+CREATE INDEX "ix_CollateralInterestCalculationParameters_compoundingBusinessCenter_compoundingBusinessCenter" ON "CollateralInterestCalculationParameters_compoundingBusinessCenter" ("compoundingBusinessCenter");
 
 CREATE TABLE "ObservationEvent" (
 	id INTEGER NOT NULL,

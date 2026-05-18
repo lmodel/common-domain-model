@@ -466,6 +466,8 @@ message AutomaticExercise
 message AvailableInventory
  {
   availableInventoryTypeEnum availableInventoryType = 0
+  assignedIdentifier identifer = 0
+  string comment = 0
   messageInformation messageInformation = 0
  repeated  party party = 0
  repeated  partyRole partyRole = 0
@@ -481,6 +483,8 @@ message AvailableInventoryRecord
  repeated  partyRole partyRole = 0
   quantity quantity = 0
   price interestRate = 0
+  dividendTerms dividendTerms = 0
+  string comment = 0
  }
 // Represents the average trading volume of an Equity product upon an exchange or set of exchanges.
 message AverageTradingVolume
@@ -5262,6 +5266,8 @@ message SecurityLendingInvoice
 message SecurityLocate
  {
   availableInventoryTypeEnum availableInventoryType = 0
+  assignedIdentifier identifer = 0
+  string comment = 0
   messageInformation messageInformation = 0
  repeated  party party = 0
  repeated  partyRole partyRole = 0

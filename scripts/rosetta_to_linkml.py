@@ -2038,8 +2038,8 @@ def namespace_to_import(ns: str) -> str:
 class LinkMLGenerator:
     """Generate LinkML YAML schema from parsed Rosetta modules with enrichment."""
 
-    CDM_PREFIX = "https://w3id.org/finos/cdm/"
-    CDM_ID = "https://w3id.org/finos/cdm"
+    CDM_PREFIX = "https://w3id.org/lmodel/common_domain_model/"
+    CDM_ID = "https://w3id.org/lmodel/common-domain-model"
     FPML_PREFIX = "http://www.fpml.org/coding-scheme/"
     FPML_5_10_PREFIX = "https://www.fpml.org/spec/fpml-5-10#"
     ICMA_PREFIX = "https://www.icmagroup.org/market-practice-and-regulatory-policy/"
@@ -2801,14 +2801,14 @@ class LinkMLGenerator:
 CONSTRUCT_SSSOM_HEADER = """\
 #curie_map:
 #  cdm.rosetta: https://cdm.finos.org/rosetta/
-#  common_domain_model: https://w3id.org/finos/cdm/
+#  common_domain_model: https://w3id.org/lmodel/common_domain_model/
 #  linkml: https://w3id.org/linkml/
 #  semapv: https://w3id.org/semapv/vocab/
 """
 
 EXTERNAL_SSSOM_HEADER = """\
 #curie_map:
-#  common_domain_model: https://w3id.org/finos/cdm/
+#  common_domain_model: https://w3id.org/lmodel/common_domain_model/
 #  fpml: http://www.fpml.org/coding-scheme/
 #  isda: https://www.isda.org/specifications/
 #  icma: https://www.icmagroup.org/market-practice-and-regulatory-policy/

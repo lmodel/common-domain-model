@@ -1,4 +1,4 @@
-id: https://w3id.org/finos/cdm/cdm_product_common_schedule
+id: https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule
 name: cdm_product_common_schedule
 description: 'Common product schedule concepts: calculation period, reset, fixing and payment dates, stub, notional schedule,
   roll convention.'
@@ -7,7 +7,7 @@ see_also:
 - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/finos/cdm/
+  common_domain_model: https://w3id.org/lmodel/common_domain_model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/

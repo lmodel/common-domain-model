@@ -68,7 +68,7 @@
                 <configuration>
                     <!-- Exclude the specific test class -->
                     <excludes>
-                        <exclude>org/finos/cdm/example/performance/*.java</exclude>
+                        <exclude>org/finos/common_domain_model/example/performance/*.java</exclude>
                     </excludes>
                 </configuration>
             </plugin>

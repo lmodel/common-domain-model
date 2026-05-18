@@ -190,7 +190,7 @@ class TestReproducibility:
             tmp_sssom = tmp_path / "rosetta_to_linkml.sssom.tsv"
             tmp_ext_sssom = tmp_path / "cdm-mappings.sssom.tsv"
 
-            # Re-run generator — mirrors `just _gen-from-rosetta` exactly,
+            # Re-run generator — mirrors `just _gen-linkml` exactly,
             # writing output to a temp directory instead of SCHEMA_DIR.
             result = subprocess.run(
                 [
@@ -239,7 +239,7 @@ class TestReproducibility:
 
             assert not diffs, (
                 f"{len(diffs)} schema file(s) differ after regeneration.\n"
-                "Run `just gen-from-rosetta` to update committed schemas.\n\n"
+                "Run `just gen-linkml` to update committed schemas.\n\n"
                 + "\n".join(diffs)
             )
 

@@ -12,7 +12,7 @@ const config = {
   ],
   
   // Maven repository details
-  mavenUrl: 'https://repo1.maven.org/maven2/org/finos/cdm/cdm-json-schema',
+  mavenUrl: 'https://repo1.maven.org/maven2/org/finos/common_domain_model/cdm-json-schema',
 };
 
 // Support both CommonJS (Node scripts) and ES modules (React)

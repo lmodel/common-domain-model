@@ -21,10 +21,10 @@ _gen-yaml:
 
 # Generate enriched LinkML schema from Rosetta DSL source files, then apply ecosystem SSSOM overlays
 [group('model development')]
-gen-from-rosetta: _gen-from-rosetta overlay-sssom
+gen-linkml: _gen-linkml overlay-sssom
 
 [private]
-_gen-from-rosetta:
+_gen-linkml:
   uv run python scripts/rosetta_to_linkml.py \
     --rosetta-dir rosetta-source/src/main/rosetta \
     --output-dir src/common_domain_model/schema \

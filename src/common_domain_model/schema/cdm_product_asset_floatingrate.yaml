@@ -1,4 +1,4 @@
-id: https://w3id.org/finos/cdm/cdm_product_asset_floatingrate
+id: https://w3id.org/lmodel/common-domain-model/cdm_product_asset_floatingrate
 name: cdm_product_asset_floatingrate
 description: 'Product-related, asset class-specific floating-rate index concepts, such as rate definitions '
 license: Apache-2.0
@@ -6,7 +6,7 @@ see_also:
 - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/finos/cdm/
+  common_domain_model: https://w3id.org/lmodel/common_domain_model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
