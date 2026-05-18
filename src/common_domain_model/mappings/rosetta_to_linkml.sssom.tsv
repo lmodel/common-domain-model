@@ -1,6 +1,6 @@
 #curie_map:
 #  cdm.rosetta: https://cdm.finos.org/rosetta/
-#  common_domain_model: https://w3id.org/finos/cdm/
+#  common_domain_model: https://w3id.org/lmodel/common_domain_model/
 #  linkml: https://w3id.org/linkml/
 #  semapv: https://w3id.org/semapv/vocab/
 subject_id	subject_label	subject_source	predicate_id	object_id	object_label	object_source	mapping_justification	comment

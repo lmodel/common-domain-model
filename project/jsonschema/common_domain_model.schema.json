@@ -3161,6 +3161,24 @@
                     "$ref": "#/$defs/AvailableInventoryTypeEnum",
                     "description": "Defines the purpose of this inventory."
                 },
+                "comment": {
+                    "description": "Optional comments for this group of inventory records.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "identifer": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AssignedIdentifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Unique identifier for this group. This can be used to uniquely identify a group of inventory records."
+                },
                 "messageInformation": {
                     "anyOf": [
                         {
@@ -3212,6 +3230,24 @@
                         "array",
                         "null"
                     ]
+                },
+                "comment": {
+                    "description": "Optional comment for this specific piece of inventory.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "dividendTerms": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DividendTerms"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Specifies the dividend requirements if applicable."
                 },
                 "expirationDateTime": {
                     "description": "There may be a set period/time restriction associated to the security.",
@@ -40281,6 +40317,24 @@
                     "$ref": "#/$defs/AvailableInventoryTypeEnum",
                     "description": "Defines the purpose of this inventory."
                 },
+                "comment": {
+                    "description": "Optional comments for this group of inventory records.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "identifer": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AssignedIdentifier"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Unique identifier for this group. This can be used to uniquely identify a group of inventory records."
+                },
                 "messageInformation": {
                     "anyOf": [
                         {
@@ -46690,7 +46744,7 @@
             "type": "string"
         }
     },
-    "$id": "https://w3id.org/finos/cdm",
+    "$id": "https://w3id.org/lmodel/common-domain-model",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "Instruction to a function that will be used to perform a business event",

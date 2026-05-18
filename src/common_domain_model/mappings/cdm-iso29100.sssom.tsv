@@ -1,9 +1,9 @@
 #curie_map:
-#  common_domain_model: https://w3id.org/finos/cdm/
+#  common_domain_model: https://w3id.org/lmodel/common_domain_model/
 #  iso29100: https://w3id.org/lmodel/iso29100/
 #  skos: http://www.w3.org/2004/02/skos/core#
 #  semapv: https://w3id.org/semapv/vocab/
-#mapping_set_id: https://w3id.org/finos/cdm/mappings/cdm__iso29100
+#mapping_set_id: https://w3id.org/lmodel/common_domain_model/mappings/cdm__iso29100
 #mapping_set_description: Manually curated SSSOM mappings between FINOS CDM party/identity classes and ISO/IEC 29100 Privacy Framework roles (lmodel/iso29100).
 #license: https://www.apache.org/licenses/LICENSE-2.0
 subject_id	subject_label	subject_source	predicate_id	object_id	object_label	object_source	mapping_justification	comment

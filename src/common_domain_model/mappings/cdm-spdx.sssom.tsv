@@ -1,9 +1,9 @@
 #curie_map:
-#  common_domain_model: https://w3id.org/finos/cdm/
+#  common_domain_model: https://w3id.org/lmodel/common_domain_model/
 #  spdx: https://spdx.org/rdf/3.0.1/terms/
 #  skos: http://www.w3.org/2004/02/skos/core#
 #  semapv: https://w3id.org/semapv/vocab/
-#mapping_set_id: https://w3id.org/finos/cdm/mappings/cdm__spdx
+#mapping_set_id: https://w3id.org/lmodel/common_domain_model/mappings/cdm__spdx
 #mapping_set_description: Manually curated SSSOM mappings between FINOS CDM agent/identifier classes and the SPDX 3 agent vocabulary (lmodel/spdx, native namespace https://spdx.org/rdf/3.0.1/terms/).
 #license: https://www.apache.org/licenses/LICENSE-2.0
 subject_id	subject_label	subject_source	predicate_id	object_id	object_label	object_source	mapping_justification	comment

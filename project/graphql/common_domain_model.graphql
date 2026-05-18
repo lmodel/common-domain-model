@@ -5941,6 +5941,8 @@ type AutomaticExercise
 type AvailableInventory
   {
     availableInventoryType: AvailableInventoryTypeEnum!
+    identifer: AssignedIdentifier!
+    comment: String
     messageInformation: MessageInformation
     party: [Party]
     partyRole: [PartyRole]
@@ -5956,6 +5958,8 @@ type AvailableInventoryRecord
     partyRole: [PartyRole]
     quantity: Quantity
     interestRate: Price
+    dividendTerms: DividendTerms
+    comment: String
   }
 
 type AverageTradingVolume
@@ -10871,6 +10875,8 @@ type SecurityLendingInvoice
 type SecurityLocate
   {
     availableInventoryType: AvailableInventoryTypeEnum!
+    identifer: AssignedIdentifier!
+    comment: String
     messageInformation: MessageInformation
     party: [Party]
     partyRole: [PartyRole]

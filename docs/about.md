@@ -3,7 +3,7 @@
 Finos Common Domain Model (CDM) LinkML Schema
 
 > **Generated:** 2026-05-14 | **Script:** `scripts/rosetta_to_linkml.py` (3 637 lines)
-> **Replay:** `just gen-from-rosetta`
+> **Replay:** `just gen-linkml`
 
 ---
 
@@ -112,13 +112,13 @@ All rules include `preconditions: {}` for gen-doc compatibility.
 Each slot defined once globally in its owning module (first alphabetically).
 Ptests/test_linkml_schema.py:522: AssertionError
 =============================================== short test summary info ================================================
-FAILED tests/test_linkml_schema.py::TestSSSOM::test_sssom_file_exists - AssertionError: SSSOM file not found: /home/noel/git/hub/noelmcloughlin/common-domain-model-ld/src/common_domain_mo...
-FAILED tests/test_linkml_schema.py::TestSSSOM::test_sssom_has_header - FileNotFoundError: [Errno 2] No such file or directory: '/home/noel/git/hub/noelmcloughlin/common-domain-model-ld/s...
-FAILED tests/test_linkml_schema.py::TestSSSOM::test_sssom_has_rows - FileNotFoundError: [Errno 2] No such file or directory: '/home/noel/git/hub/noelmcloughlin/common-domain-model-ld/s...
-FAILED tests/test_linkml_schema.py::TestSSSOM::test_sssom_row_count_matches_schema_elements - FileNotFoundError: [Errno 2] No such file or directory: '/home/noel/git/hub/noelmcloughlin/common-domain-model-ld/s...
+FAILED tests/test_linkml_schema.py::TestSSSOM::test_sssom_file_exists - AssertionError: SSSOM file not found: /home/noel/git/hub/noelmcloughlin/common-domain-model/src/common_domain_mo...
+FAILED tests/test_linkml_schema.py::TestSSSOM::test_sssom_has_header - FileNotFoundError: [Errno 2] No such file or directory: '/home/noel/git/hub/noelmcloughlin/common-domain-model/s...
+FAILED tests/test_linkml_schema.py::TestSSSOM::test_sssom_has_rows - FileNotFoundError: [Errno 2] No such file or directory: '/home/noel/git/hub/noelmcloughlin/common-domain-model/s...
+FAILED tests/test_linkml_schema.py::TestSSSOM::test_sssom_row_count_matches_schema_elements - FileNotFoundError: [Errno 2] No such file or directory: '/home/noel/git/hub/noelmcloughlin/common-domain-model/s...
 FAILED tests/test_linkml_schema.py::TestEnrichment::test_close_mappings_from_synonyms - AssertionError: Expected >=10 classes with close_mappings, got 0
 FAILED tests/test_linkml_schema.py::TestEnrichment::test_slot_close_mappings_from_synonyms - AssertionError: Expected >=10 slots with close_mappings, got 0
-FAILED tests/test_linkml_schema.py::TestExternalSSSOM::test_ext_sssom_predicate_types - AssertionError: assert 'skos:closeMatch' in '#curie_map:\n#  common_domain_model: https://w3id.org/finos/cdm/\n#  f...
+FAILED tests/test_linkml_schema.py::TestExternalSSSOM::test_ext_sssom_predicate_types - AssertionError: assert 'skos:closeMatch' in '#curie_map:\n#  common_domain_model: https://w3id.org/lmodel/common_domain_model/\n#  f...
 FAILED tests/test_linkml_schema.py::TestExternalSSSOM::test_ext_sssom_has_enough_rows - AssertionError: Expected >=1600 external SSSOM rows, got 934
 FAILED tests/test_linkml_schema.py::TestExternalSSSOM::test_ext_sssom_slot_level_synonym_rows - AssertionError: Expected >=500 slot-level synonym SSSOM rows, got 0
 FAILED tests/test_linkml_schema.py::TestExternalSSSOM::test_ext_sssom_ore_xsd_mining - AssertionError: Expected >=30 ORE XSD element SSSOM rows, got 0
@@ -144,7 +144,7 @@ FAILED tests/test_linkml_schema.py::TestLinkMLIntegration::test_schema_passes_li
 ## 5. Build & Test
 
 ```bash
-just gen-from-rosetta       # regenerate schema from Rosetta DSL
+just gen-linkml       # regenerate schema from Rosetta DSL
 just test-linkml            # 48 pytest tests (structure, SSSOM, enrichment, lint)
 just test_cdm_examples_samples  # validate 20 ISDA CSA sample JSON files
 ```
@@ -187,7 +187,7 @@ samples. xfail groups are declared via `--xfail-glob` in
 | 4 | `linkml` `gen-json-schema` | `union_of` on abstract classes → empty `{}` with `additionalProperties: false` | Generator adds `any_of` with range alternatives |
 | 5 | `linkml-runtime` `yamlutils.py` | `_normalize_inlined_as_dict` calls `Annotation(**dict_value)` when annotation value is a mapping — only scalar values are safe | `rosetta_functions` annotation values serialised as compact JSON strings (`json.dumps`) |
 | 6 | `linkml` `jsonldgen.py` | `uri_for()` raises `ValueError: Unknown CURIE prefix` for any CURIE in `close_mappings` whose prefix is not declared in `prefixes:` | Generator now declares `fpml_5_10` prefix in every module schema that contains FpML 5.10 synonym mappings |
-| 7 | `tests/test_linkml_schema.py` | `test_regeneration_is_idempotent` ran the generator with `--output-dir SCHEMA_DIR`, overwriting committed schema and SSSOM files in place. On failure the working tree was left dirty with regenerated content, masking the real diff and causing subsequent CI runs to produce inconsistent comparisons (e.g. a `comment` slot added to `AvailableInventoryRecord` in a transient Rosetta source state appeared as a committed change). | Generator is now run into a `tempfile.TemporaryDirectory()`; `--sssom-out` and `--ext-sssom-out` also point into the temp dir. Committed files are compared against the temp output after generation — schema and mapping files are never touched by the test. A `difflib.unified_diff` is included in the assertion message on mismatch; the message instructs the developer to run `just gen-from-rosetta` to update committed schemas. |
+| 7 | `tests/test_linkml_schema.py` | `test_regeneration_is_idempotent` ran the generator with `--output-dir SCHEMA_DIR`, overwriting committed schema and SSSOM files in place. On failure the working tree was left dirty with regenerated content, masking the real diff and causing subsequent CI runs to produce inconsistent comparisons (e.g. a `comment` slot added to `AvailableInventoryRecord` in a transient Rosetta source state appeared as a committed change). | Generator is now run into a `tempfile.TemporaryDirectory()`; `--sssom-out` and `--ext-sssom-out` also point into the temp dir. Committed files are compared against the temp output after generation — schema and mapping files are never touched by the test. A `difflib.unified_diff` is included in the assertion message on mismatch; the message instructs the developer to run `just gen-linkml` to update committed schemas. |
 
 ---
 
@@ -223,4 +223,4 @@ See [`ISSUE.md`](../ISSUE.md) for detailed analysis and proposed fixes of bugs #
 | `scripts/detect_linkml_class.py` | Auto-detect target class from JSON keys |
 | `scripts/validate_samples.py` | Sample data validation harness |
 | `docs/templates-linkml/` | Custom gen-doc Jinja2 templates — renders `rosetta_functions` annotations as collapsible function-signature cards |
-| `project.justfile` | `gen-from-rosetta`, `test-linkml`, `test_cdm_examples_samples` recipes |
+| `project.justfile` | `gen-linkml`, `test-linkml`, `test_cdm_examples_samples` recipes |

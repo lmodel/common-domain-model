@@ -12591,6 +12591,10 @@ export interface InventoryRecord {
 export interface AvailableInventory {
     /** Defines the purpose of this inventory. */
     availableInventoryType: string,
+    /** Unique identifier for this group. This can be used to uniquely identify a group of inventory records. */
+    identifer?: AssignedIdentifier,
+    /** Optional comments for this group of inventory records. */
+    comment?: string,
     /** Allows details related to the availability messaging use case to be defined */
     messageInformation?: MessageInformation,
     /** Defines all parties involved for the list of inventory records in this set of inventory. For example, when used to describe securities lending availability, this could hold the sender of the availability, the intended recipient, the beneficial owner(s), the lender (which may differ from the sender as the lender may have the same piece of availability going through multiple agents), an agent or a venue. */
@@ -12616,6 +12620,10 @@ export interface AvailableInventoryRecord extends InventoryRecord {
     quantity?: Quantity,
     /** An optional element which can be used to hold a rate associated to this piece of availability. */
     interestRate?: Price,
+    /** Specifies the dividend requirements if applicable. */
+    dividendTerms?: DividendTerms,
+    /** Optional comment for this specific piece of inventory. */
+    comment?: string,
 }
 
 

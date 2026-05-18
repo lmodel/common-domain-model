@@ -1,8 +1,8 @@
 # Auto generated from common_domain_model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-14T23:29:05
+# Generation date: 2026-05-18T18:34:39
 # Schema: common_domain_model
 #
-# id: https://w3id.org/finos/cdm
+# id: https://w3id.org/lmodel/common-domain-model
 # description: FINOS Common Domain Model (CDM) — LinkML schema
 # license: Apache-2.0
 
@@ -63,7 +63,7 @@ metamodel_version = "1.11.0"
 version = None
 
 # Namespaces
-COMMON_DOMAIN_MODEL = CurieNamespace('common_domain_model', 'https://w3id.org/finos/cdm/')
+COMMON_DOMAIN_MODEL = CurieNamespace('common_domain_model', 'https://w3id.org/lmodel/common_domain_model/')
 FPML = CurieNamespace('fpml', 'http://www.fpml.org/coding-scheme/')
 FPML_5_10 = CurieNamespace('fpml_5_10', 'https://www.fpml.org/spec/fpml-5-10#')
 GIST = CurieNamespace('gist', 'https://w3id.org/lmodel/gist/')
@@ -6220,6 +6220,8 @@ class AvailableInventory(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.AvailableInventory
 
     availableInventoryType: Union[str, "AvailableInventoryTypeEnum"] = None
+    identifer: Union[dict, AssignedIdentifier] = None
+    comment: Optional[str] = None
     messageInformation: Optional[Union[dict, "MessageInformation"]] = None
     party: Optional[Union[Union[dict, Party], list[Union[dict, Party]]]] = empty_list()
     partyRole: Optional[Union[Union[dict, PartyRole], list[Union[dict, PartyRole]]]] = empty_list()
@@ -6230,6 +6232,14 @@ class AvailableInventory(YAMLRoot):
             self.MissingRequiredField("availableInventoryType")
         if not isinstance(self.availableInventoryType, AvailableInventoryTypeEnum):
             self.availableInventoryType = AvailableInventoryTypeEnum(self.availableInventoryType)
+
+        if self._is_empty(self.identifer):
+            self.MissingRequiredField("identifer")
+        if not isinstance(self.identifer, AssignedIdentifier):
+            self.identifer = AssignedIdentifier(**as_dict(self.identifer))
+
+        if self.comment is not None and not isinstance(self.comment, str):
+            self.comment = str(self.comment)
 
         if self.messageInformation is not None and not isinstance(self.messageInformation, MessageInformation):
             self.messageInformation = MessageInformation(**as_dict(self.messageInformation))
@@ -6267,6 +6277,8 @@ class AvailableInventoryRecord(InventoryRecord):
     partyRole: Optional[Union[Union[dict, PartyRole], list[Union[dict, PartyRole]]]] = empty_list()
     quantity: Optional[Union[dict, Quantity]] = None
     interestRate: Optional[Union[dict, "Price"]] = None
+    dividendTerms: Optional[Union[dict, "DividendTerms"]] = None
+    comment: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self.expirationDateTime is not None and not isinstance(self.expirationDateTime, XSDDateTime):
@@ -6281,6 +6293,12 @@ class AvailableInventoryRecord(InventoryRecord):
 
         if self.interestRate is not None and not isinstance(self.interestRate, Price):
             self.interestRate = Price(**as_dict(self.interestRate))
+
+        if self.dividendTerms is not None and not isinstance(self.dividendTerms, DividendTerms):
+            self.dividendTerms = DividendTerms(**as_dict(self.dividendTerms))
+
+        if self.comment is not None and not isinstance(self.comment, str):
+            self.comment = str(self.comment)
 
         super().__post_init__(**kwargs)
 
@@ -6300,6 +6318,7 @@ class SecurityLocate(AvailableInventory):
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.SecurityLocate
 
     availableInventoryType: Union[str, "AvailableInventoryTypeEnum"] = None
+    identifer: Union[dict, AssignedIdentifier] = None
 
 @dataclass(repr=False)
 class CreditLimitInformation(YAMLRoot):
@@ -43943,6 +43962,9 @@ slots.security = Slot(uri=COMMON_DOMAIN_MODEL.security, name="security", curie=C
 slots.availableInventoryType = Slot(uri=COMMON_DOMAIN_MODEL.availableInventoryType, name="availableInventoryType", curie=COMMON_DOMAIN_MODEL.curie('availableInventoryType'),
                    model_uri=COMMON_DOMAIN_MODEL.availableInventoryType, domain=None, range=Union[str, "AvailableInventoryTypeEnum"])
 
+slots.comment = Slot(uri=COMMON_DOMAIN_MODEL.comment, name="comment", curie=COMMON_DOMAIN_MODEL.curie('comment'),
+                   model_uri=COMMON_DOMAIN_MODEL.comment, domain=None, range=Optional[str])
+
 slots.messageInformation = Slot(uri=COMMON_DOMAIN_MODEL.messageInformation, name="messageInformation", curie=COMMON_DOMAIN_MODEL.curie('messageInformation'),
                    model_uri=COMMON_DOMAIN_MODEL.messageInformation, domain=None, range=Optional[Union[dict, MessageInformation]])
 
@@ -43954,6 +43976,9 @@ slots.expirationDateTime = Slot(uri=COMMON_DOMAIN_MODEL.expirationDateTime, name
 
 slots.interestRate = Slot(uri=COMMON_DOMAIN_MODEL.interestRate, name="interestRate", curie=COMMON_DOMAIN_MODEL.curie('interestRate'),
                    model_uri=COMMON_DOMAIN_MODEL.interestRate, domain=None, range=Optional[Union[dict, Price]])
+
+slots.dividendTerms = Slot(uri=COMMON_DOMAIN_MODEL.dividendTerms, name="dividendTerms", curie=COMMON_DOMAIN_MODEL.curie('dividendTerms'),
+                   model_uri=COMMON_DOMAIN_MODEL.dividendTerms, domain=None, range=Optional[Union[dict, DividendTerms]])
 
 slots.limitApplicable = Slot(uri=COMMON_DOMAIN_MODEL.limitApplicable, name="limitApplicable", curie=COMMON_DOMAIN_MODEL.curie('limitApplicable'),
                    model_uri=COMMON_DOMAIN_MODEL.limitApplicable, domain=None, range=Union[Union[dict, LimitApplicableExtended], list[Union[dict, LimitApplicableExtended]]])
@@ -44035,9 +44060,6 @@ slots.qualification = Slot(uri=COMMON_DOMAIN_MODEL.qualification, name="qualific
 
 slots.workflowStatus = Slot(uri=COMMON_DOMAIN_MODEL.workflowStatus, name="workflowStatus", curie=COMMON_DOMAIN_MODEL.curie('workflowStatus'),
                    model_uri=COMMON_DOMAIN_MODEL.workflowStatus, domain=None, range=Union[str, "WorkflowStatusEnum"])
-
-slots.comment = Slot(uri=COMMON_DOMAIN_MODEL.comment, name="comment", curie=COMMON_DOMAIN_MODEL.curie('comment'),
-                   model_uri=COMMON_DOMAIN_MODEL.comment, domain=None, range=Optional[str])
 
 slots.partyCustomisedWorkflow = Slot(uri=COMMON_DOMAIN_MODEL.partyCustomisedWorkflow, name="partyCustomisedWorkflow", curie=COMMON_DOMAIN_MODEL.curie('partyCustomisedWorkflow'),
                    model_uri=COMMON_DOMAIN_MODEL.partyCustomisedWorkflow, domain=None, range=Optional[Union[Union[dict, PartyCustomisedWorkflow], list[Union[dict, PartyCustomisedWorkflow]]]])
@@ -47792,9 +47814,6 @@ slots.strikeRate = Slot(uri=COMMON_DOMAIN_MODEL.strikeRate, name="strikeRate", c
 slots.assetLeg = Slot(uri=COMMON_DOMAIN_MODEL.assetLeg, name="assetLeg", curie=COMMON_DOMAIN_MODEL.curie('assetLeg'),
                    model_uri=COMMON_DOMAIN_MODEL.assetLeg, domain=None, range=Union[Union[dict, AssetLeg], list[Union[dict, AssetLeg]]])
 
-slots.dividendTerms = Slot(uri=COMMON_DOMAIN_MODEL.dividendTerms, name="dividendTerms", curie=COMMON_DOMAIN_MODEL.curie('dividendTerms'),
-                   model_uri=COMMON_DOMAIN_MODEL.dividendTerms, domain=None, range=Optional[Union[dict, DividendTerms]])
-
 slots.tradeType = Slot(uri=COMMON_DOMAIN_MODEL.tradeType, name="tradeType", curie=COMMON_DOMAIN_MODEL.curie('tradeType'),
                    model_uri=COMMON_DOMAIN_MODEL.tradeType, domain=None, range=Optional[Union[str, "AssetPayoutTradeTypeEnum"]])
 
@@ -48365,6 +48384,9 @@ slots.AggregationParameters_product = Slot(uri=COMMON_DOMAIN_MODEL.product, name
 slots.AggregationParameters_productQualifier = Slot(uri=COMMON_DOMAIN_MODEL.productQualifier, name="AggregationParameters_productQualifier", curie=COMMON_DOMAIN_MODEL.curie('productQualifier'),
                    model_uri=COMMON_DOMAIN_MODEL.AggregationParameters_productQualifier, domain=AggregationParameters, range=Optional[Union[str, list[str]]])
 
+slots.AvailableInventory_identifer = Slot(uri=COMMON_DOMAIN_MODEL.identifer, name="AvailableInventory_identifer", curie=COMMON_DOMAIN_MODEL.curie('identifer'),
+                   model_uri=COMMON_DOMAIN_MODEL.AvailableInventory_identifer, domain=AvailableInventory, range=Union[dict, AssignedIdentifier])
+
 slots.AvailableInventory_party = Slot(uri=COMMON_DOMAIN_MODEL.party, name="AvailableInventory_party", curie=COMMON_DOMAIN_MODEL.curie('party'),
                    model_uri=COMMON_DOMAIN_MODEL.AvailableInventory_party, domain=AvailableInventory, range=Optional[Union[Union[dict, Party], list[Union[dict, Party]]]])
 
@@ -48379,6 +48401,9 @@ slots.AvailableInventoryRecord_partyRole = Slot(uri=COMMON_DOMAIN_MODEL.partyRol
 
 slots.AvailableInventoryRecord_quantity = Slot(uri=COMMON_DOMAIN_MODEL.quantity, name="AvailableInventoryRecord_quantity", curie=COMMON_DOMAIN_MODEL.curie('quantity'),
                    model_uri=COMMON_DOMAIN_MODEL.AvailableInventoryRecord_quantity, domain=AvailableInventoryRecord, range=Optional[Union[dict, Quantity]])
+
+slots.AvailableInventoryRecord_comment = Slot(uri=COMMON_DOMAIN_MODEL.comment, name="AvailableInventoryRecord_comment", curie=COMMON_DOMAIN_MODEL.curie('comment'),
+                   model_uri=COMMON_DOMAIN_MODEL.AvailableInventoryRecord_comment, domain=AvailableInventoryRecord, range=Optional[str])
 
 slots.WorkflowStepApproval_party = Slot(uri=COMMON_DOMAIN_MODEL.party, name="WorkflowStepApproval_party", curie=COMMON_DOMAIN_MODEL.curie('party'),
                    model_uri=COMMON_DOMAIN_MODEL.WorkflowStepApproval_party, domain=WorkflowStepApproval, range=Union[dict, Party])
@@ -48409,6 +48434,9 @@ slots.EventInstruction_effectiveDate = Slot(uri=COMMON_DOMAIN_MODEL.effectiveDat
 
 slots.EventTimestamp_dateTime = Slot(uri=COMMON_DOMAIN_MODEL.dateTime, name="EventTimestamp_dateTime", curie=COMMON_DOMAIN_MODEL.curie('dateTime'),
                    model_uri=COMMON_DOMAIN_MODEL.EventTimestamp_dateTime, domain=EventTimestamp, range=Union[Union[str, XSDDateTime], list[Union[str, XSDDateTime]]])
+
+slots.WorkflowState_comment = Slot(uri=COMMON_DOMAIN_MODEL.comment, name="WorkflowState_comment", curie=COMMON_DOMAIN_MODEL.curie('comment'),
+                   model_uri=COMMON_DOMAIN_MODEL.WorkflowState_comment, domain=WorkflowState, range=Optional[str])
 
 slots.LimitApplicable_currency = Slot(uri=COMMON_DOMAIN_MODEL.currency, name="LimitApplicable_currency", curie=COMMON_DOMAIN_MODEL.curie('currency'),
                    model_uri=COMMON_DOMAIN_MODEL.LimitApplicable_currency, domain=LimitApplicable, range=Optional[str])
@@ -50101,6 +50129,9 @@ slots.AssetPayout_underlier = Slot(uri=COMMON_DOMAIN_MODEL.underlier, name="Asse
 
 slots.AssetPayout_minimumFee = Slot(uri=COMMON_DOMAIN_MODEL.minimumFee, name="AssetPayout_minimumFee", curie=COMMON_DOMAIN_MODEL.curie('minimumFee'),
                    model_uri=COMMON_DOMAIN_MODEL.AssetPayout_minimumFee, domain=AssetPayout, range=Optional[Union[dict, Money]])
+
+slots.AssetPayout_dividendTerms = Slot(uri=COMMON_DOMAIN_MODEL.dividendTerms, name="AssetPayout_dividendTerms", curie=COMMON_DOMAIN_MODEL.curie('dividendTerms'),
+                   model_uri=COMMON_DOMAIN_MODEL.AssetPayout_dividendTerms, domain=AssetPayout, range=Optional[Union[dict, "DividendTerms"]])
 
 slots.AssetLeg_settlementDate = Slot(uri=COMMON_DOMAIN_MODEL.settlementDate, name="AssetLeg_settlementDate", curie=COMMON_DOMAIN_MODEL.curie('settlementDate'),
                    model_uri=COMMON_DOMAIN_MODEL.AssetLeg_settlementDate, domain=AssetLeg, range=Union[dict, AdjustableOrRelativeDate])

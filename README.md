@@ -217,7 +217,7 @@ Specifications in the repository are subject to the Community Specification Lice
 Added Linkml sidecar:
 ```bash
 $ git branch linkml-sidecar
-noel@ubuntu:~/git/hub/noelmcloughlin/common-domain-model-ld$ git checkout linkml-sidecar
+noel@ubuntu:~/git/hub/noelmcloughlin/common-domain-model$ git checkout linkml-sidecar
 Switched to branch 'linkml-sidecar'
 (failed reverse-i-search)`cpier': ^C /home/noel/Downloads/nist_ai_rmf_playbook.json src/nist_ai_rmf/schema/
 $ copier copy --trust --vcs-ref main gh:linkml/linkml-project-copier .

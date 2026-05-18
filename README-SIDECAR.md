@@ -37,7 +37,7 @@ Typical developer commands
 ```bash
 just
 just clean
-just gen-from-rosetta  # auto-generate linkml schema / mappings to GIST, ISO29100, Oscal, SPDX
+just gen-linkml  # auto-generate linkml schema / mappings to GIST, ISO29100, Oscal, SPDX
 just gen-project       # Generate Linkml project (runs polygot generators)
 just test              # unit valid/invalid tests
 just testdoc           # check docs locally

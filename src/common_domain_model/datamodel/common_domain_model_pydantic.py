@@ -69,7 +69,7 @@ class LinkMLMeta(RootModel):
 linkml_meta = LinkMLMeta({'default_prefix': 'common_domain_model',
      'default_range': 'string',
      'description': 'FINOS Common Domain Model (CDM) — LinkML schema',
-     'id': 'https://w3id.org/finos/cdm',
+     'id': 'https://w3id.org/lmodel/common-domain-model',
      'imports': ['linkml:types',
                  './cdm_base',
                  './cdm_base_datetime',
@@ -110,7 +110,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'common_domain_model',
      'license': 'Apache-2.0',
      'name': 'common_domain_model',
      'prefixes': {'common_domain_model': {'prefix_prefix': 'common_domain_model',
-                                          'prefix_reference': 'https://w3id.org/finos/cdm/'},
+                                          'prefix_reference': 'https://w3id.org/lmodel/common_domain_model/'},
                   'fpml': {'prefix_prefix': 'fpml',
                            'prefix_reference': 'http://www.fpml.org/coding-scheme/'},
                   'fpml_5_10': {'prefix_prefix': 'fpml_5_10',
@@ -18548,7 +18548,7 @@ class AdjustableDate(ConfiguredBaseModel):
                       'dateAdjustments, dateAdjustmentsReference',
                       'Rosetta func: AdjustableDateResolution — Prioritization of '
                       'unadjustedDate over adjustedDate.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'any_of': [{'slot_conditions': {'dateAdjustments': {'name': 'dateAdjustments',
@@ -18597,7 +18597,7 @@ class AdjustableDates(ConfiguredBaseModel):
                       'then unadjustedDate exists and dateAdjustments exists',
                       'Rosetta func: AdjustableDatesResolution — Prioritization of '
                       'unadjustedDate over adjustedDate.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'description': 'FpML specifies a choice between adjustedDate and '
                                    '[unadjustedDate (required), dateAdjutsments '
@@ -18652,7 +18652,7 @@ class AdjustableOrAdjustedDate(ConfiguredBaseModel):
          'close_mappings': ['fpml_5_10:AdjustableOrAdjustedDate'],
          'comments': ['Rosetta condition: AdjustedDate — if adjustedDate is absent '
                       'then unadjustedDate exists and dateAdjustments exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'description': 'FpML specifies a choice between adjustedDate and '
                                    '[unadjustedDate (required), dateAdjutsments '
@@ -18719,7 +18719,7 @@ class AdjustableOrAdjustedOrRelativeDate(ConfiguredBaseModel):
                       'AdjustableOrAdjustedOrRelativeDate',
                       'Rosetta func: AdjustableOrAdjustedOrRelativeDateResolution — '
                       'Prioritization of unadjustedDate over adjustedDate.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'description': 'This data rule extends the data rule '
                                    'AdjustableOrAdjustedDate_adjustedDate by '
@@ -18793,7 +18793,7 @@ class AdjustableOrRelativeDate(ConfiguredBaseModel):
                       'Utility function to convert from '
                       'AdjustableOrAdjustedOrRelativeDate to '
                       'AdjustableOrAdjustedOrRelativeDate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'adjustableDate': {'name': 'adjustableDate',
@@ -18819,7 +18819,7 @@ class AdjustableOrRelativeDates(ConfiguredBaseModel):
          'close_mappings': ['fpml_5_10:AdjustableOrRelativeDates'],
          'comments': ['Rosetta condition: AdjustableOrRelativeDatesChoice — required '
                       'choice adjustableDates, relativeDates'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'adjustableDates': {'name': 'adjustableDates',
@@ -18853,7 +18853,7 @@ class BusinessCenters(ConfiguredBaseModel):
                       'commodityBusinessCalendar',
                       'Rosetta func: GetAllBusinessCenters — Returns a merged list of '
                       'BusinessCenter codes for the supplied BusinessCenters.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'businessCenter': {'name': 'businessCenter',
@@ -18894,7 +18894,7 @@ class BusinessCenterTime(ConfiguredBaseModel):
          'comments': ['Rosetta func: TimeZoneFromBusinessCenterTime — Function to '
                       'resolve a time passed as BusinessCenterTime into a TimeZone '
                       'time.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'slot_usage': {'businessCenter': {'description': 'A code identifying a '
                                                           'business day calendar '
@@ -18925,7 +18925,7 @@ class BusinessDayAdjustments(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
          'close_mappings': ['fpml_5_10:BusinessDayAdjustments'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'slot_usage': {'businessDayConvention': {'description': 'The convention for '
                                                                  'adjusting a date if '
@@ -18955,7 +18955,7 @@ class DateRange(ConfiguredBaseModel):
     A class defining a contiguous series of calendar dates. The date range is defined as all the dates between and including the start and the end date. The start date must fall on or before the end date.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: DatesOrdered — startDate <= endDate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'comments': ['Rosetta comparison: startDate <= endDate'],
                     'description': 'The start date must fall on or before the end date '
@@ -18983,7 +18983,7 @@ class BusinessDateRange(DateRange):
     A class defining a range of contiguous business days by defining an unadjusted first date, an unadjusted last date and a business day convention and business centers for adjusting the first and last dates if they would otherwise fall on a non business day in the specified business centers. The days between the first and last date must also be good business days in the specified centers to be counted in the range.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:BusinessDateRange'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime']})
 
     businessDayConvention: BusinessDayConventionEnum = Field(default=..., description="""The convention for adjusting a date if it would otherwise fall on a day that is not a business day, as specified by an ISDA convention (e.g. Following, Precedent).""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:BusinessDateRange.businessDayConvention'],
@@ -19020,7 +19020,7 @@ class DateList(ConfiguredBaseModel):
     """
     List of dates.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime']})
 
     date: list[date] = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['DateList',
@@ -19035,7 +19035,7 @@ class DateTimeList(ConfiguredBaseModel):
     """
     List of dateTimes.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime']})
 
     dateTime: list[datetime ] = Field(default=..., description="""The CDM specifies that the zoned date time is to be expressed in accordance with ISO 8601, either as UTC as an offset to UTC.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DateTimeList',
@@ -19053,7 +19053,7 @@ class Frequency(ConfiguredBaseModel):
                       '-> T then periodMultiplier = 1',
                       'Rosetta condition: PositivePeriodMultiplier — periodMultiplier '
                       '> 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'description': 'FpML specifies that if period value is T (Term) '
                                    'then periodMultiplier must contain the value 1.',
@@ -19083,7 +19083,7 @@ class CustomisableOffset(ConfiguredBaseModel):
     """
     A class to specify an offset either as a normalized [multiplier, period, dayType] or as a custom provision of type string.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime']})
 
     offset: Optional[Offset] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['CustomisableOffset', 'CollateralInterestNotification']} })
@@ -19100,7 +19100,7 @@ class Period(ConfiguredBaseModel):
          'close_mappings': ['gist:TimeInterval'],
          'comments': ['Rosetta condition: DayPeriod — if periodMultiplier = 0 then '
                       'period = PeriodEnum -> D'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'slot_usage': {'period': {'description': 'A time period, e.g. a day, week, '
                                                   'month or year of the stream. If the '
@@ -19133,7 +19133,7 @@ class Offset(Period):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: DayType — if period <> PeriodEnum -> D or '
                       'periodMultiplier = 0 then dayType is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime']})
 
     dayType: Optional[DayTypeEnum] = Field(default=None, description="""In the case of an offset specified as a number of days, this element defines whether consideration is given as to whether a day is a good business day or not. If a day type of business days is specified then non-business days are ignored when calculating the offset. The financial business centers to use for determination of business days are implied by the context in which this element is used. This element must only be included when the offset is specified as a number of days. If the offset is zero days then the dayType element should not be included.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Offset', 'PeriodicDates', 'ParametricDates']} })
@@ -19150,7 +19150,7 @@ class RelativeDateOffset(Offset):
     """
     A class defining a date (referred to as the derived date) as a relative offset from another date (referred to as the anchor date). If the anchor date is itself an adjustable date then the offset is assumed to be calculated from the adjusted anchor date. A number of different scenarios can be supported, namely; 1) the derived date may simply be a number of calendar periods (days, weeks, months or years) preceding or following the anchor date; 2) the unadjusted derived date may be a number of calendar periods (days, weeks, months or years) preceding or following the anchor date with the resulting unadjusted derived date subject to adjustment in accordance with a specified business day convention, i.e. the derived date must fall on a good business day; 3) the derived date may be a number of business days preceding or following the anchor date. Note that the businessDayConvention specifies any required adjustment to the unadjusted derived date. A negative or positive value in the periodMultiplier indicates whether the unadjusted derived precedes or follows the anchor date. The businessDayConvention should contain a value NONE if the day type element contains a value of Business (since specifying a negative or positive business days offset would already guarantee that the derived date would fall on a good business day in the specified business centers).
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'slot_usage': {'businessCentersReference': {'description': 'A pointer style '
                                                                     'reference to a '
@@ -19208,7 +19208,7 @@ class AdjustedRelativeDateOffset(RelativeDateOffset):
     """
     A type defining a date (referred to as the derived date) as a relative offset from another date (referred to as the anchor date) plus optional date adjustments.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime']})
 
     relativeDateAdjustments: Optional[BusinessDayAdjustments] = Field(default=None, description="""The business day convention and financial business centers used for adjusting the relative date if it would otherwise fall on a day that is not a business date in the specified business centers.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AdjustedRelativeDateOffset']} })
@@ -19255,7 +19255,7 @@ class RelativeDates(RelativeDateOffset):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: PeriodSkipGreaterThanOne — if periodSkip '
                       'exists then periodSkip > 1'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'description': 'FpML specifies that, if present, the period skip '
                                    'should have a value greater than 1.',
@@ -19321,7 +19321,7 @@ class TimeZone(ConfiguredBaseModel):
          'comments': ['Rosetta func: TimeZoneFromBusinessCenterTime — Function to '
                       'resolve a time passed as BusinessCenterTime into a TimeZone '
                       'time.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime']})
 
     time: str = Field(default=..., description="""The observation time.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TimeZone', 'ValuationTime', 'FeaturePayment']} })
@@ -19333,7 +19333,7 @@ class DirectOrRelativeTime(ConfiguredBaseModel):
     """
     Represents a time definition that can be either an absolute (direct) time or a time calculated relative to another referenced time. Either one directTime or one relativeTime should be provided
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime']})
 
     directTime: Optional[TimeZone] = Field(default=None, description="""An absolute time value expressed in a specific time zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DirectOrRelativeTime']} })
@@ -19344,7 +19344,7 @@ class RelativeTimeOffset(ConfiguredBaseModel):
     """
     Describes how a time is offset from a reference point, including the unit, magnitude, and rounding behavior.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime']})
 
     offsetTimeUnit: Optional[TimeUnitEnum] = Field(default=None, description="""The unit of time for the offset (e.g., seconds, minutes, hours, days). """, json_schema_extra = { "linkml_meta": {'domain_of': ['RelativeTimeOffset']} })
@@ -19363,7 +19363,7 @@ class RelativeTime(RelativeTimeOffset):
     """
     Defines a time value calculated relative to a reference time. The final value is derived by applying any offset and rounding rules inherited from RelativeTimeOffset to the reference time.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime']})
 
     timeRelativeTo: Optional[TimeZone] = Field(default=None, description="""The reference time zone or base time from which the relative time is calculated.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_reference': {'tag': 'metadata_reference',
@@ -19385,7 +19385,7 @@ class TimeRounding(ConfiguredBaseModel):
     """
     Specifies how a calculated time should be rounded, including both the direction of rounding and the unit to which the time is rounded. Rounding is applied after all offsets have been calculated.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime']})
 
     roundingDirection: RoundingDirectionEnum = Field(default=..., description="""The direction in which rounding is performed (e.g., up, down, or to the nearest value).""", json_schema_extra = { "linkml_meta": {'domain_of': ['TimeRounding', 'Rounding']} })
@@ -19398,7 +19398,7 @@ class PeriodRange(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AtLeastOneOf — lowerBound exists or '
                       'upperBound exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'description': 'AtLeastOneOf',
                     'postconditions': {'any_of': [{'slot_conditions': {'lowerBound': {'name': 'lowerBound',
@@ -19414,7 +19414,7 @@ class PeriodBound(ConfiguredBaseModel):
     """
     Indicator to specify if the period bound is defined as a period and whether the bound is inclusive.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'slot_usage': {'period': {'description': 'Specifies the period is to be used '
                                                   'as the bound, e.g. 5Y.',
@@ -19435,7 +19435,7 @@ class AveragingSchedule(ConfiguredBaseModel):
     Class to representing a method for generating a series of dates.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AveragingSchedule'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'slot_usage': {'endDate': {'description': 'Date on which this period ends.',
                                     'name': 'endDate'},
@@ -19473,7 +19473,7 @@ class AdjustableRelativeOrPeriodicDates(ConfiguredBaseModel):
          'comments': ['Rosetta condition: AdjustableRelativeOrPeriodicDatesChoice — '
                       'required choice adjustableDates, relativeDates, periodicDates',
                       'Rosetta func: ResolveAdjustableDates'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'adjustableDates': {'name': 'adjustableDates',
@@ -19498,7 +19498,7 @@ class PeriodicDates(ConfiguredBaseModel):
     """
     A class for specifying a calculation period schedule.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'slot_usage': {'dayType': {'description': 'Denotes the enumerated values to '
                                                    'specify the day type '
@@ -19583,7 +19583,7 @@ class CalculationPeriodFrequency(Frequency):
                       'RollConventionEnum -> SUN',
                       'Rosetta condition: FpML_ird_60 — if period = PeriodExtendedEnum '
                       '-> T then rollConvention = RollConventionEnum -> NONE'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime']})
 
     rollConvention: RollConventionEnum = Field(default=..., description="""The roll convention specifies the period term as part of a periodic schedule, i.e. the calculation period end date within the regular part of the calculation period. The value could be a rule, e.g. IMM Settlement Dates, which is the 3rd Wednesday of the month, or it could be a specific day of the month, such as the first day of the applicable month. It is used in conjunction with a frequency and the regular period start date of a calculation period.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CalculationPeriodFrequency.rollConvention'],
@@ -19618,7 +19618,7 @@ class CalculationFrequency(ConfiguredBaseModel):
                       '-> period = PeriodEnum -> W)',
                       'Rosetta condition: WomTerm — if weekOfMonth exists then (period '
                       '-> period = PeriodEnum -> M)'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_datetime',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'in_subset': ['cdm_base_datetime'],
          'rules': [{'description': 'Moy',
                     'postconditions': {'slot_conditions': {'monthOfYear': {'maximum_value': 12,
@@ -19696,7 +19696,7 @@ class UnitType(ConfiguredBaseModel):
                       'all attributes match.',
                       'Rosetta func: FilterQuantity — Filter list of quantities based '
                       'on unit type.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'rules': [{'comments': ['Rosetta one-of: exactly one slot must be present.'],
                     'description': 'Requires that a unit type must be set.'}]})
@@ -19729,7 +19729,7 @@ class MeasureBase(ConfiguredBaseModel):
     """
     Provides an abstract type to define a measure as a number associated to a unit. This type is abstract because all its attributes are optional. The types that extend it can specify further existence constraints.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math']})
 
     value: Optional[Decimal] = Field(default=None, description="""Specifies the value of the measure as a number. Optional because in a measure vector or schedule, this single value may be omitted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MeasureBase',
@@ -19754,7 +19754,7 @@ class Measure(MeasureBase):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['gist:Magnitude'],
          'comments': ['Rosetta condition: ValueExists — value exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'rules': [{'description': 'The value attribute must be present in a concrete '
                                    'measure.',
@@ -19783,7 +19783,7 @@ class MeasureSchedule(MeasureBase):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ValueExists — value exists or datedValue '
                       'exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'rules': [{'description': 'A schedule may be specified as a single value or '
                                    'as a set of date-value pairs. Both attributes may '
@@ -19835,7 +19835,7 @@ class QuantitySchedule(MeasureSchedule):
                       'quantities based on unit type.',
                       'Rosetta func: FilterQuantityByFinancialUnit — Filter list of '
                       'quantities based on unit type.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'rules': [{'description': 'Requires that a unit of amount must be specified '
                                    'for any quantity.',
@@ -19876,7 +19876,7 @@ class Quantity(QuantitySchedule):
                       'Rosetta func: CompareQuantityByUnitOfAmount',
                       'Rosetta func: FilterQuantity — Filter list of quantities based '
                       'on unit type.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'rules': [{'description': 'The amount must exist when the quantity represents '
                                    'a single value, and the steps must be absent.',
@@ -19909,7 +19909,7 @@ class NonNegativeQuantity(Quantity):
     Specifies a quantity as a non-negative number, which condition is enforced through a data rule that only applies to the extending class.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: NonNegativeQuantity_amount — value >= 0.0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'rules': [{'description': 'For a non-negative quantity, the amount attribute '
                                    'must be positive.',
@@ -19941,7 +19941,7 @@ class NonNegativeStep(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
          'comments': ['Rosetta condition: StepValue — stepValue >= 0.0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'rules': [{'description': 'FpML specified stepValue as a NonNegativeDecimal.',
                     'postconditions': {'slot_conditions': {'stepValue': {'minimum_value': 0.0,
@@ -19956,7 +19956,7 @@ class NonNegativeQuantitySchedule(QuantitySchedule):
                       'then value >= 0.0',
                       'Rosetta condition: NonNegativeQuantity_datedValue — if '
                       'datedValue exists then datedValue -> value all >= 0.0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'rules': [{'description': 'For a non-negative quantity, all amount attribute '
                                    'must be positive.',
@@ -19988,7 +19988,7 @@ class Rounding(ConfiguredBaseModel):
     """
     Defines rounding rules and precision to be used in the rounding of a number.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'slot_usage': {'roundingDirection': {'description': 'Specifies the rounding '
                                                              'rounding rule as up, '
@@ -20003,7 +20003,7 @@ class Schedule(ConfiguredBaseModel):
     """
     A class defining a schedule of rates or amounts in terms of an initial value and then a series of step date and value pairs. On each step date the rate or amount changes to the new step value. The series of step date and value pairs are optional. If not specified, this implies that the initial value remains unchanged over time.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'related_mappings': ['gist:ScheduledEvent'],
          'slot_usage': {'datedValue': {'description': 'The schedule of step date and '
@@ -20068,7 +20068,7 @@ class DatedValue(ConfiguredBaseModel):
                       'summed, if the direction is Decrease, then the change amount is '
                       'subtracted from the old amount, and if the direction is Replace '
                       'then the change amount replaces the old amount.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'slot_usage': {'date': {'description': 'The date on which the associated step '
                                                 'value becomes effective. This day may '
@@ -20111,7 +20111,7 @@ class NumberRange(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AtLeastOneOf — lowerBound exists or '
                       'upperBound exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'rules': [{'description': 'AtLeastOneOf',
                     'postconditions': {'any_of': [{'slot_conditions': {'lowerBound': {'name': 'lowerBound',
@@ -20136,7 +20136,7 @@ class NumberBound(ConfiguredBaseModel):
     """
     The number bound is defined as a number and whether the bound is inclusive.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'slot_usage': {'inclusive': {'description': 'Whether the number bound is '
                                                      'inclusive, e.g. for a lower '
@@ -20156,7 +20156,7 @@ class MoneyRange(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AtLeastOneOf — lowerBound exists or '
                       'upperBound exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'rules': [{'description': 'AtLeastOneOf',
                     'postconditions': {'any_of': [{'slot_conditions': {'lowerBound': {'name': 'lowerBound',
@@ -20182,7 +20182,7 @@ class MoneyBound(ConfiguredBaseModel):
     """
     The money bound is defined as a money amount and whether the bound is inclusive.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math'],
          'slot_usage': {'inclusive': {'description': 'Whether the money amount bound '
                                                      'is inclusive, e.g. for a lower '
@@ -20201,7 +20201,7 @@ class AveragingCalculationMethod(ConfiguredBaseModel):
     Defines the ways in which multiple values can be aggregated into a single value.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AveragingCalculationMethod'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_math',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
          'in_subset': ['cdm_base_math']})
 
     isWeighted: bool = Field(default=..., description="""Identifies whether the average values will be weighted or unweighted.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AveragingCalculationMethod.isWeighted'],
@@ -20221,7 +20221,7 @@ class AssetBase(ConfiguredBaseModel):
                       'isExchangeListed',
                       'Rosetta condition: RelatedExchange — if exchange is absent then '
                       'relatedExchange is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'If Exchange is specified, it must be an '
                                    'exchange-listed Instrument.',
@@ -20279,7 +20279,7 @@ class AssetIdentifier(ConfiguredBaseModel):
          'close_mappings': ['fpml_5_10:AssetIdentifier'],
          'comments': ['Rosetta func: AssetIdentifierByType — Returns all the Asset '
                       'Identifiers of a certain Identifier Type.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'slot_usage': {'identifier': {'description': 'The identifier value.',
                                        'multivalued': False,
@@ -20319,7 +20319,7 @@ class InstrumentBase(AssetBase):
     """
     Defines the common attributes for all Instrument data types.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common']})
 
     identifier: list[AssetIdentifier] = Field(default=..., description="""Asset Identifiers are used to uniquely identify an Asset, using a specified Asset Identifier Type.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AssetBase.identifier'],
@@ -20358,7 +20358,7 @@ class ProductIdentifier(ConfiguredBaseModel):
     Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash value to the ProductIdentifier instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'slot_usage': {'identifier': {'description': 'Provides an identifier '
                                                       'associated with a specific '
@@ -20398,7 +20398,7 @@ class TaxonomyValue(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ValueExists — name exists or classification '
                       'exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'ValueExists',
                     'postconditions': {'any_of': [{'slot_conditions': {'name': {'name': 'name',
@@ -20436,7 +20436,7 @@ class Taxonomy(ConfiguredBaseModel):
                       'Rosetta condition: SequentialOrdinals — if value -> '
                       'classification count > 1 then value -> classification -> '
                       'ordinal count = value -> classification -> ordinal max'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'slot_usage': {'source': {'description': 'The source of the taxonomy that '
                                                   'defines the rules for classifying '
@@ -20481,7 +20481,7 @@ class ProductTaxonomy(Taxonomy):
                       '(value exists or productQualifier exists)',
                       'Rosetta condition: TaxonomyValue — optional choice value, '
                       'productQualifier'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'Requires a taxonomy type to be chosen, either from '
                                    'a taxonomy source or using asset classes.',
@@ -20555,7 +20555,7 @@ class Cash(AssetBase):
                       'Code of a Cash asset.',
                       'Rosetta func: SetCashCurrency — Sets (or updates) the string '
                       'identifier of a Cash asset using an enumerated Currency Code.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'Taxonomy is not applicable for a Cash asset.',
                     'postconditions': {'slot_conditions': {'taxonomy': {'name': 'taxonomy',
@@ -20608,7 +20608,7 @@ class Commodity(AssetBase):
          'comments': ['Rosetta condition: ValueSource — if taxonomy exists then '
                       '(taxonomy -> source exists and taxonomy -> value exists)',
                       'Rosetta condition: AssetType — assetType = Commodity'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'AssetType must be commodity.',
                     'postconditions': {'slot_conditions': {'assetType': {'equals_string': 'Commodity',
@@ -20664,7 +20664,7 @@ class CommodityProductDefinition(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CommodityProductDefinition'],
          'comments': ['Rosetta condition: CommodityProductDefinitionChoice — optional '
                       'choice exchangeId, priceSource'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'Requires the definition of either delivery date '
                                    'parameters or non-exchange price source.',
@@ -20690,7 +20690,7 @@ class DeliveryDateParameters(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: DeliveryDateParametersChoice — optional '
                       'choice deliveryNearby, deliveryDate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'Requires definition of a delivery date or '
                                    'delieryNearby parameters.',
@@ -20709,7 +20709,7 @@ class CommodityReferenceFramework(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CommodityReferenceFramework'],
          'comments': ['Rosetta condition: CommodityReferenceFrameworkChoice — optional '
                       'choice capacityUnit, weatherUnit'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'Requires that either the capacity unit or weather '
                                    'unit is populated.',
@@ -20752,7 +20752,7 @@ class DigitalAsset(AssetBase):
     An Asset that exists only in digital form, eg Bitcoin or Ethereum, that is not backed by other Assets; excludes the digital representation of other Assets, eg coins or Tokenised assets.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AssetType — assetType = Other'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'Asset type must be Other.',
                     'postconditions': {'slot_conditions': {'assetType': {'equals_string': 'Other',
@@ -20796,7 +20796,7 @@ class ListedDerivative(InstrumentBase):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: Options — if optionType exists then strike '
                       'exists else strike is absent',
                       'Rosetta condition: AssetType — assetType = ListedDerivative'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'Options must have a strike price.',
                     'postconditions': {'slot_conditions': {'strike': {'name': 'strike',
@@ -20846,7 +20846,7 @@ class Loan(InstrumentBase):
     Identifies a loan by referencing an asset identifier and through an optional set of attributes.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AssetType — assetType = Loan'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'Asset type must be Loan.',
                     'postconditions': {'slot_conditions': {'assetType': {'equals_string': 'Loan',
@@ -20914,7 +20914,7 @@ class CollateralTaxonomy(ConfiguredBaseModel):
                       'taxonomySource <> TaxonomySourceEnum -> '
                       'UK_EMIR_EligibleCollateralAssetClass and taxonomySource <> '
                       'TaxonomySourceEnum -> US_CFTC_PR_EligibleCollateralAssetClass'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common']})
 
     taxonomyValue: CollateralTaxonomyValue = Field(default=..., description="""Specifies the taxonomy value.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CollateralTaxonomy.taxonomyValue'],
@@ -20928,7 +20928,7 @@ class CollateralTaxonomyValue(ConfiguredBaseModel):
     Specifies the collateral taxonomy value, either as a specified enumeration or as a string.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CollateralTaxonomyValue'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common']})
 
     eu_EMIR_EligibleCollateral: Optional[list[EUEMIREligibleCollateralEnum]] = Field(default=None, description="""Identifies European Union Eligible Collateral Assets classification categories based on EMIR Uncleared Margin Rules. Eligible Collateral asset classes for both initial margin (IM) and variation margin (VM) posted and collected between specified entities. Please note: EMIR regulation will detail which eligible collateral assets classes apply to each type of entity pairing (counterparty) and which apply to posting of IM and VM""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CollateralTaxonomyValue.eu_EMIR_EligibleCollateral'],
@@ -20953,7 +20953,7 @@ class Security(InstrumentBase):
                       'Rosetta condition: FundSubType — if securityType <> Fund then '
                       'fundType is absent',
                       'Rosetta condition: AssetType — assetType = Security'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'notes': ['ICMA GMRA namingConvention "Purchased Security"'],
          'rules': [{'comments': ['Rosetta negation: securityType <> Debt'],
@@ -21021,7 +21021,7 @@ class EquityType(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: DepositaryReceiptSubType — if equityType <> '
                       'EquityTypeEnum -> DepositaryReceipt then depositaryReceipt is '
                       'absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'comments': ['Rosetta negation: equityType <> EquityTypeEnum -> '
                                  'DepositaryReceipt'],
@@ -21041,7 +21041,7 @@ class DebtType(ConfiguredBaseModel):
     """
     Specifies the type of debt security.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common']})
 
     debtEconomics: Optional[list[DebtEconomics]] = Field(default=None, description="""Specifies selected financial terms of a debt security.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DebtType']} })
@@ -21051,7 +21051,7 @@ class DebtEconomics(ConfiguredBaseModel):
     """
     Specifies selected economics of a debt security.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common']})
 
     seniority: Optional[DebtSeniorityEnum] = Field(default=None, description="""Specifies the order of repayment in the event of a sale or bankruptcy of the issuer or a related party (eg guarantor).""", json_schema_extra = { "linkml_meta": {'domain_of': ['DebtEconomics', 'CreditIndex']} })
@@ -21067,7 +21067,7 @@ class DebtRedemption(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ConvertibleExchangablePartyElectionExists — '
                       'if party exists then redemptionType exists or putCall exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'A type of redemption must be specified if the '
                                    'redeeming party is specified.',
@@ -21142,7 +21142,7 @@ class SecuredDebt(ConfiguredBaseModel):
                       'collateralizedObligation is absent',
                       'Rosetta condition: CoveredBondsExists — if securedType <> '
                       'CoveredBonds then coveredBond is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'comments': ['Rosetta negation: securedType <> SecuredTypeEnum -> '
                                  'AssetBacked'],
@@ -21183,7 +21183,7 @@ class CollateralGuarantorType(ConfiguredBaseModel):
     """
     Specifies the origin of entity guaranteeing the collateral.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common']})
 
     guarantorType: CollateralEntityTypeEnum = Field(default=..., description="""Specifies the origin of entity guaranteeing the collateral.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CollateralGuarantorType']} })
@@ -21203,7 +21203,7 @@ class CollateralIssuerType(ConfiguredBaseModel):
                       'Rosetta condition: SpecialPurposeVehicleSubType — if issuerType '
                       '<> SpecialPurposeVehicle then specialPurposeVehicleType is '
                       'absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'comments': ['Rosetta negation: issuerType <> SupraNational'],
                     'description': 'SupraNationalSubType',
@@ -21249,7 +21249,7 @@ class QuasiGovernmentIssuerType(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: NonSovereignEntityRecourse — if '
                       'sovereignRecourse exists then sovereignEntity = False'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'NonSovereignEntityRecourse',
                     'postconditions': {'slot_conditions': {'sovereignEntity': {'equals_string': 'False',
@@ -21265,7 +21265,7 @@ class RegionalGovernmentIssuerType(ConfiguredBaseModel):
     """
     Represents a class to allow specification of different type of Regional government collateral.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'slot_usage': {'sovereignRecourse': {'description': 'Applies to regional '
                                                              'governments, local '
@@ -21287,14 +21287,14 @@ class SpecialPurposeVehicleIssuerType(ConfiguredBaseModel):
     """
     Represents a class to allow specification of different types of special purpose vehicle (SPV) collateral.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common']})
 
     creditRisk: Optional[CreditRiskEnum] = Field(default=None, description="""Indicates tranched or untranched credit risk.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpecialPurposeVehicleIssuerType']} })
 
 
 class TaxonomyClassification(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'slot_usage': {'description': {'description': 'A description of the class.',
                                         'name': 'description'},
@@ -21343,7 +21343,7 @@ class AssetType(ConfiguredBaseModel):
                       'fundType is absent',
                       'Rosetta condition: OtherAssetSubType — if assetType = Other '
                       'then otherAssetType exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'comments': ['Rosetta negation: assetType <> Security'],
                     'description': 'SecuritySubType',
@@ -21410,7 +21410,7 @@ class PriceSource(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: PriceSourceHeading — if priceSourceHeading '
                       'exists then priceSourceLocation exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
          'in_subset': ['cdm_base_staticdata_asset_common'],
          'rules': [{'description': 'Requires that if a priceSourceHeading is '
                                    'specified, then a priceSourceLocation must be '
@@ -21439,7 +21439,7 @@ class NotDomesticCurrency(ConfiguredBaseModel):
     """
     A class to specify the ISDA 2003 Term: Not Domestic Currency.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_credit',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_credit',
          'in_subset': ['cdm_base_staticdata_asset_credit'],
          'slot_usage': {'currency': {'description': 'An explicit specification of the '
                                                     'domestic currency. The list of '
@@ -21490,7 +21490,7 @@ class Obligations(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ObligationsChoice — optional choice '
                       'fullFaithAndCreditObLiability, generalFundObligationLiability, '
                       'revenueObligationLiability'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_credit',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_credit',
          'in_subset': ['cdm_base_staticdata_asset_credit'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'any_of': [{'slot_conditions': {'fullFaithAndCreditObLiability': {'name': 'fullFaithAndCreditObLiability',
@@ -21524,7 +21524,7 @@ class Obligations(ConfiguredBaseModel):
 
 
 class SpecifiedCurrency(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_asset_credit',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_credit',
          'in_subset': ['cdm_base_staticdata_asset_credit'],
          'slot_usage': {'applicable': {'description': 'Indicates whether the specified '
                                                       'currency provision is '
@@ -21588,7 +21588,7 @@ class CodeList(ConfiguredBaseModel):
          'comments': ['Rosetta func: LoadCodeList — Loads a code list JSON resource '
                       'into memory in the form of '
                       'cdm.base.staticdata.codelist.CodeList Rune object'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_codelist',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist',
          'in_subset': ['cdm_base_staticdata_codelist']})
 
     identification: CodeListIdentification = Field(default=..., description="""Identification information about the code list""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CodeList.identification'],
@@ -21601,7 +21601,7 @@ class CodeListIdentification(ConfiguredBaseModel):
     A type to identify the version of a codelist
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CodeListIdentification'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_codelist',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist',
          'in_subset': ['cdm_base_staticdata_codelist'],
          'slot_usage': {'description': {'description': 'A description  of the code '
                                                        'list, e.g. A list of codes '
@@ -21640,7 +21640,7 @@ class CodeValue(ConfiguredBaseModel):
     A type to hold the value of the code in a codelist
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CodeValue'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_codelist',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist',
          'in_subset': ['cdm_base_staticdata_codelist'],
          'slot_usage': {'description': {'description': 'A description of the meaning '
                                                        'of the code, e.g. New York '
@@ -21702,7 +21702,7 @@ class AssignedIdentifier(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AssignedIdentifier',
                             'gist:ID',
                             'spdx:ExternalIdentifier'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_identifier',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_identifier',
          'in_subset': ['cdm_base_staticdata_identifier'],
          'slot_usage': {'identifier': {'description': 'The identifier value.',
                                        'multivalued': False,
@@ -21759,7 +21759,7 @@ class Identifier(ConfiguredBaseModel):
                             'spdx:ExternalIdentifier'],
          'comments': ['Rosetta condition: IssuerChoice — required choice '
                       'issuerReference, issuer'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_identifier',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_identifier',
          'in_subset': ['cdm_base_staticdata_identifier'],
          'rules': [{'description': 'The identifier issuer is specified either '
                                    'explicitly or by reference to one of the parties.',
@@ -21781,7 +21781,7 @@ class IdentifiedList(ConfiguredBaseModel):
     Attaches an identifier to a collection of objects, when those objects themselves can each be represented by an identifier. One use case is the representation of package transactions, where each component is a separate trade with its own identifier, and those trades are linked together as a package with its own identifier. The data type has been named generically rather than referring to 'packages' as it may have a number of other uses.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_identifier',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_identifier',
          'in_subset': ['cdm_base_staticdata_identifier']})
 
     listId: Identifier = Field(default=..., description="""The identifier for the list. In the case of a package transaction, this would be the package identifier. This attribute is mandatory to allow the list itself to be identified.""", json_schema_extra = { "linkml_meta": {'domain_of': ['IdentifiedList']} })
@@ -21795,7 +21795,7 @@ class LocationIdentifier(Identifier):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: IdentifierType — if locationIdentifierType '
                       'exists then assignedIdentifier count = 1'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_identifier',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_identifier',
          'in_subset': ['cdm_base_staticdata_identifier']})
 
     locationIdentifierType: Optional[CommodityLocationIdentifierTypeEnum] = Field(default=None, description="""Specifies the nature of a location identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LocationIdentifier']} })
@@ -21822,7 +21822,7 @@ class Counterparty(ConfiguredBaseModel):
          'comments': ['Rosetta func: ExtractCounterpartyByRole — Extracts from a list '
                       'of Counterparty data types, the Counterparty that corresponds '
                       'to the role i.e. Party1 or Party2.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'related_mappings': ['iso29100:ThirdParty']})
 
@@ -21858,7 +21858,7 @@ class AncillaryParty(ConfiguredBaseModel):
          'comments': ['Rosetta func: ExtractAncillaryPartyByRole — Extracts from a '
                       'list of AncillaryParty data types, the AncillaryParty that '
                       'corresponds to the AncillaryRoleEnum.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'slot_usage': {'partyReference': {'description': 'Specifies the party, or '
                                                           'parties, associated to the '
@@ -21897,7 +21897,7 @@ class BuyerSeller(ConfiguredBaseModel):
     This class corresponds to the FpML BuyerSeller.model construct.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:BuyerSeller'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party']})
 
     buyer: CounterpartyRoleEnum = Field(default=..., description="""Buyer party that can be resolved as one of the two principal parties to the transaction. The party that buys this instrument, i.e. pays for this instrument and receives the rights defined by it. ISDA 2002 Equity Definitions section 1.18: `Buyer` means the party specified as such in the related Confirmation. | ISDA 2006 Definitions article 12.1 (b)(i) relating to a Swaption: 'Buyer' means the party that will, on each Premium Payment Date, pay to Seller the Premium | ISDA 2006 Definitions article 12.1 (b)(ii) relating to Swap Transactions with applicable Early Termination: the party specified as such in the related Confirmation, or the Exercising Party if neither party is specified | ISDA 2006 Definitions article 12.1 (b)(iii) relating to any other Option Transaction: the party specified as such in the related Confirmation. | ISDA 2014 Credit Definition article 1.4: `Buyer` means the Fixed Rate Payer.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:BuyerSeller.buyer'],
@@ -21910,7 +21910,7 @@ class PayerReceiver(ConfiguredBaseModel):
     """
     Specifies the parties responsible for making and receiving payments defined by this structure.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party']})
 
     payer: CounterpartyRoleEnum = Field(default=..., description="""Specifies the counterparty responsible for making the payments defined by this structure.  The party is one of the two principal parties to the transaction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PayerReceiver'],
@@ -21923,7 +21923,7 @@ class PartyReferencePayerReceiver(ConfiguredBaseModel):
     """
     Specifies the parties responsible for making and receiving payments defined by this structure.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party']})
 
     payerPartyReference: Party = Field(default=..., description="""The party responsible for making the payments defined by this structure.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_reference': {'tag': 'metadata_reference',
@@ -21944,7 +21944,7 @@ class ReferenceBank(ConfiguredBaseModel):
     """
     A class to describe an institution (party) identified by means of a coding scheme and an optional name.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party']})
 
     referenceBankId: str = Field(default=..., description="""An institution (party) identifier, e.g. a bank identifier code (BIC). FpML specifies a referenceBankIdScheme.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
@@ -21956,7 +21956,7 @@ class ReferenceBanks(ConfiguredBaseModel):
     """
     A class defining the list of reference institutions polled for relevant rates or prices when determining the cash settlement amount for a product where cash settlement is applicable.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party']})
 
     referenceBank: list[ReferenceBank] = Field(default=..., description="""An institution (party) identified by means of a coding scheme and an optional name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ReferenceBanks']} })
@@ -21971,7 +21971,7 @@ class RelatedParty(ConfiguredBaseModel):
          'close_mappings': ['gist:Assignment', 'oscal:ResponsibleParty'],
          'comments': ['Rosetta func: FilterRelatedPartyByRole — Filters the list of '
                       'RelatedParty based on the provided partyRoleEnum.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'related_mappings': ['iso29100:ThirdParty'],
          'slot_usage': {'partyReference': {'description': 'Reference to a party.',
@@ -22011,7 +22011,7 @@ class Account(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
          'close_mappings': ['fpml_5_10:Account', 'gist:Account'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'slot_usage': {'partyReference': {'description': 'A reference to the party to '
                                                           'which the account refers '
@@ -22053,7 +22053,7 @@ class Address(ConfiguredBaseModel):
     A class to specify a post or street address.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:Address', 'gist:Address', 'oscal:Address'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'related_mappings': ['gist:PhysicalAddress',
                               'iso29100:PersonallyIdentifiableInformation']})
@@ -22079,7 +22079,7 @@ class BusinessUnit(ConfiguredBaseModel):
          'close_mappings': ['fpml_5_10:BusinessUnit',
                             'gist:Organization',
                             'spdx:Organization'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'related_mappings': ['oscal:Location'],
          'slot_usage': {'identifier': {'description': 'An identifier used to uniquely '
@@ -22136,7 +22136,7 @@ class ContactInformation(ConfiguredBaseModel):
     A class to specify contact information associated with a party: telephone, postal/street address, email and web page.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['gist:ElectronicAddress', 'oscal:Location'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'related_mappings': ['iso29100:PersonallyIdentifiableInformation']})
 
@@ -22152,7 +22152,7 @@ class LegalEntity(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
          'close_mappings': ['gist:Organization', 'oscal:Party', 'spdx:Organization'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'narrow_mappings': ['gist:GovernmentOrganization'],
          'related_mappings': ['iso29100:PIIController', 'iso29100:PIIProcessor'],
@@ -22189,7 +22189,7 @@ class NaturalPerson(ConfiguredBaseModel):
                       'surname exists) or personId exists',
                       'Rosetta condition: NaturalPersonChoice — optional choice '
                       'middleName, initial'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'rules': [{'description': 'NameOrIdChoice',
                     'postconditions': {'any_of': [{'slot_conditions': {'firstName': {'name': 'firstName',
@@ -22229,7 +22229,7 @@ class NaturalPersonRole(ConfiguredBaseModel):
     A class to specify the role(s) that natural person(s) may have in relation to the contract.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['gist:Assignment', 'oscal:ResponsibleParty'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'slot_usage': {'role': {'description': 'FpML specifies a person role that is '
                                                 'distinct from the party role.',
@@ -22262,7 +22262,7 @@ class Party(ConfiguredBaseModel):
          'close_mappings': ['gist:Organization', 'oscal:Party', 'spdx:Agent'],
          'comments': ['Rosetta func: ReplaceParty — Removes the old party, and adds '
                       'the new party.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'related_mappings': ['gist:Person'],
          'slot_usage': {'contactInformation': {'description': 'The postal/street '
@@ -22308,7 +22308,7 @@ class PartyIdentifier(ConfiguredBaseModel):
          'close_mappings': ['gist:ID',
                             'oscal:PartyExternalId',
                             'spdx:ExternalIdentifier'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'slot_usage': {'identifier': {'description': 'Provides an identifier '
                                                       'associated with a party. The '
@@ -22361,7 +22361,7 @@ class EntityIdentifier(ConfiguredBaseModel):
          'close_mappings': ['gist:ID',
                             'oscal:PartyExternalId',
                             'spdx:ExternalIdentifier'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'slot_usage': {'identifier': {'description': 'Provides an identifier '
                                                       'associated with a legal entity.',
@@ -22411,7 +22411,7 @@ class PersonIdentifier(ConfiguredBaseModel):
          'close_mappings': ['gist:ID',
                             'oscal:PartyExternalId',
                             'spdx:ExternalIdentifier'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'related_mappings': ['iso29100:PersonallyIdentifiableInformation'],
          'slot_usage': {'country': {'description': 'The ISO 3166 standard code for the '
@@ -22474,7 +22474,7 @@ class PartyRole(ConfiguredBaseModel):
                                                         'partyRoleEnum.","inputs":[{"name":"partyRoles","type":"PartyRole","cardinality":"0..*"},{"name":"partyRoleEnum","type":"PartyRoleEnum","cardinality":"1..1"}],"output":{"name":"filteredPartyRoles","type":"PartyRole","cardinality":"0..*"}}]'}},
          'comments': ['Rosetta func: FilterPartyRole — Filters the list of partyRoles '
                       'based on the provided partyRoleEnum.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'slot_usage': {'partyReference': {'description': 'A reference to the party to '
                                                           'which the role refers to.',
@@ -22507,7 +22507,7 @@ class TelephoneNumber(ConfiguredBaseModel):
     """
     A class to specify a telephone number as a type of phone number (e.g. work, personal, ...) alongside with the actual number.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party'],
          'slot_usage': {'number': {'description': 'The actual telephone number.',
                                    'name': 'number',
@@ -22522,7 +22522,7 @@ class AncillaryEntity(ConfiguredBaseModel):
     Holds an identifier for an ancillary entity, either identified directly via its ancillary role or directly as a legal entity.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AncillaryEntity'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_base_staticdata_party',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
          'in_subset': ['cdm_base_staticdata_party']})
 
     ancillaryParty: Optional[AncillaryRoleEnum] = Field(default=None, description="""Identifies a party via its ancillary role on a transaction (e.g. CCP or DCO through which the trade should be cleared.)""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AncillaryEntity.ancillaryParty'],
@@ -22560,7 +22560,7 @@ class ContractFormationInstruction(ConfiguredBaseModel):
                       'that has been affirmed (or confirmed) by the two parties. The '
                       'formed contract can reference a legal agreement for instance a '
                       'master agreement, by using the optional legalAgreement input.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     legalAgreement: Optional[list[LegalAgreement]] = Field(default=None, description="""Optional legal agreements associated to the contract being formed, for instance a master agreement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContractFormationInstruction', 'CollateralPortfolio']} })
@@ -22607,7 +22607,7 @@ class Instruction(ConfiguredBaseModel):
                       'Rosetta func: Create_BusinessEvent — Creates a business event '
                       'from instructions containing primitive instructions and '
                       'optionally a trade state.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'tree_root': True})
 
@@ -22800,7 +22800,7 @@ class PrimitiveInstruction(ConfiguredBaseModel):
                       'order, because they touch separate components of the trade: - '
                       'quantity change - terms change - party change Always last: - '
                       'contract formation, otherwise the contract could be invalid.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     contractFormation: Optional[ContractFormationInstruction] = Field(default=None, description="""Specifies instructions describing an contract formation primitive event.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrimitiveInstruction']} })
@@ -22822,7 +22822,7 @@ class CounterpartyPositionBusinessEvent(ConfiguredBaseModel):
     """
     A business event represents a life cycle event of a position. The combination of the state changes results in a qualifiable life cycle event.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'after': {'description': 'Specifies the after position '
                                                  'state(s) created.',
@@ -22872,7 +22872,7 @@ class ObservationInstruction(ConfiguredBaseModel):
          'comments': ['Rosetta func: Create_Observation — Function specification to '
                       'create an observation that incorporates an observation event '
                       'into the observation history of a given trade state.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     observationEvent: ObservationEvent = Field(default=..., description="""Contains all information related to an observation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ObservationInstruction']} })
@@ -22892,7 +22892,7 @@ class ValuationInstruction(ConfiguredBaseModel):
          'comments': ['Rosetta func: Create_Valuation — Function specification to '
                       'incorporate a new assessment of the valuation in the valuation '
                       'history of a given trade state.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'valuation': {'description': 'Contains all information related '
                                                      'to a valuation.',
@@ -22919,7 +22919,7 @@ class ExecutionInstruction(ConfiguredBaseModel):
          'comments': ['Rosetta func: Create_Execution — Specifies the function to '
                       'compose an execution based on a minimum required set of inputs: '
                       'product, quantity, parties, etc.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'ancillaryParty': {'description': 'Maps any ancillary parties, '
                                                           'e.g. parties involved in '
@@ -22986,7 +22986,7 @@ class ExerciseInstruction(ConfiguredBaseModel):
                       'into effect the rights specified in an options contract, such '
                       'as to buy or sell a security.  Once exercised the option '
                       'contract is terminated.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     exerciseQuantity: PrimitiveInstruction = Field(default=..., description="""Contains instructions for exercising the option including a quantity change, and optionally a transfer.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExerciseInstruction']} })
@@ -23008,7 +23008,7 @@ class ResetInstruction(ConfiguredBaseModel):
                                                         'constructed.","inputs":[{"name":"instruction","type":"ResetInstruction","cardinality":"1..1"},{"name":"tradeState","type":"TradeState","cardinality":"1..1"}],"output":{"name":"reset","type":"TradeState","cardinality":"1..1"}}]'}},
          'comments': ['Rosetta func: Create_Reset — Defines how a Reset should be '
                       'constructed.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     payout: list[Union[AssetPayout, CommodityPayout, CreditDefaultPayout, FixedPricePayout, InterestRatePayout, OptionPayout, PerformancePayout, SettlementPayout]] = Field(default=..., json_schema_extra = { "linkml_meta": {'annotations': {'metadata_reference': {'tag': 'metadata_reference',
@@ -23064,7 +23064,7 @@ class CalculateTransferInstruction(ConfiguredBaseModel):
                       'should be constructed.',
                       'Rosetta func: ResolveTransfer — Defines how to calculate the '
                       'amount due to be transferred after a Reset Event.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'date': {'multivalued': False,
                                  'name': 'date',
@@ -23131,7 +23131,7 @@ class TransferInstruction(ConfiguredBaseModel):
          'comments': ['Rosetta func: Create_Transfer — Defines how a transfer should '
                       'be constructed, when representing the exchange of cash between '
                       'parties.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     transferState: Optional[list[TransferState]] = Field(default=None, description="""Specifies the terms and state of a transfers.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TransferInstruction']} })
@@ -23162,7 +23162,7 @@ class QuantityChangeInstruction(ConfiguredBaseModel):
                       'Creates a price change instruction for an on-demand rate '
                       'change, based on a new rate provided as a single number by '
                       'matching it to a single rate price.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'lotIdentifier': {'description': 'Identifier for the new lot '
                                                          '(in case of increase) or for '
@@ -23204,7 +23204,7 @@ class IndexTransitionInstruction(ConfiguredBaseModel):
                       'specification to create a terms change that contains changes to '
                       'the floating rate indexes and adds an adjustment spread to any '
                       'existing spread.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'effectiveDate': {'description': 'Specifies the effective date '
                                                          'of the index transition '
@@ -23345,7 +23345,7 @@ class TermsChangeInstruction(ConfiguredBaseModel):
                       'Rosetta func: Create_SubstitutionInstruction — Creates the '
                       'terms change instruction that updates the payout with the new '
                       'substitution payout.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'rules': [{'description': 'AtLeastOneOf',
                     'postconditions': {'any_of': [{'slot_conditions': {'product': {'name': 'product',
@@ -23382,7 +23382,7 @@ class SplitInstruction(ConfiguredBaseModel):
     """
     Specifies instructions for a split, consisting of a breakdown of instructions to be applied to each branch of the split. This instruction can be used to duplicate a trade, as in a clearing scenario, or to split a trade into smaller quantities (in which case each breakdown instruction needs to include a quantity change), as in an allocation.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     breakdown: list[PrimitiveInstruction] = Field(default=..., description="""Each split breakdown specifies the set of primitive instructions to be applied to a single branch of that split. N split breakdowns result in N output trades, which include the original trade. Instructions for how to handle the original trade (e.g. if it must be closed) must be specified in one of the breakdowns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SplitInstruction']} })
@@ -23392,7 +23392,7 @@ class PartyChangeInstruction(ConfiguredBaseModel):
     """
     Specifies instruction to change the party on a trade. This primitive instruction is used in a number of scenarios including: clearing, allocation and novation. The instrution must include a trade identifier, because a change of party effectively results in a different trade.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'ancillaryParty': {'description': 'Specifies an ancillary '
                                                           'party to be added onto the '
@@ -23874,7 +23874,7 @@ class TradeState(ConfiguredBaseModel):
                       'Rosetta func: PayoutObligationFulfillmentFromTrade — Determines '
                       'the payouts and collateral payouts in a trade and whether the '
                       'obligations have been fulfilled for each of them.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'related_mappings': ['gist:Transaction'],
          'slot_usage': {'state': {'description': 'Represents the State of the Trade '
@@ -23900,7 +23900,7 @@ class CounterpartyPositionState(ConfiguredBaseModel):
     Defines the fundamental financial information that can be changed by a Primitive Event and by extension any business or life-cycle event. Each PositionState specifies where a Position is in its life-cycle. PositionState is a root type and as such, can be created independently to any other CDM data type, but can also be used as part of the CDM Event Model.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'state': {'description': 'Represents the State of the Position '
                                                  'through its life-cycle.',
@@ -23922,7 +23922,7 @@ class ObservationEvent(ConfiguredBaseModel):
     """
     Specifies the necessary information to create any observation event.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     creditEvent: Optional[CreditEvent] = Field(default=None, description="""Specifies the necessary information to create a credit event.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ObservationEvent']} })
@@ -23966,7 +23966,7 @@ class Reset(ConfiguredBaseModel):
                       'the reset value for a performance payout.',
                       'Rosetta func: ResolveSecurityFinanceBillingAmount — Calculates '
                       'the billing amount for a Security Finance transaction.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'resetDate': {'description': 'Specifies the date on which the '
                                                      'reset occurred.',
@@ -23991,7 +23991,7 @@ class State(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ClosedStateExists — if positionState = '
                       'PositionStatusEnum -> Closed then closedState exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'rules': [{'description': 'When the position state is identified as closed, '
                                    'the closed state must also be specified.',
@@ -24035,7 +24035,7 @@ class TransferState(ConfiguredBaseModel):
                       'whether the obligations defined by the InterestRatePayout have '
                       'been fulfilled by checking that the total value of cash '
                       'required has been successfully transferred.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'transfer': {'description': 'Represents the Transfer that has '
                                                     'been effected by a business or '
@@ -24072,7 +24072,7 @@ class TradeIdentifier(Identifier):
                       'new trade. An ancillary party can also be specified, for '
                       'instance to refer to the original executing party on the new '
                       'trade.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'identifierType': {'description': 'The enumerated '
                                                           'classification of the '
@@ -24106,7 +24106,7 @@ class PositionIdentifier(Identifier):
     """
     Defines a position identifier as a special case of the generic identifier type, that also includes the position identifier class.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'identifierType': {'description': 'The enumerated '
                                                           'classification of the '
@@ -24142,7 +24142,7 @@ class Valuation(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ValuationType — required choice method, '
                       'source'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'rules': [{'description': 'The below condition ensures one and only one of '
                                    "the two attributes: 'Valuation Method' or "
@@ -24203,7 +24203,7 @@ class ExecutionDetails(ConfiguredBaseModel):
                       'component is constructed using an identifier for the package '
                       'and the list of identifiers for its components.',
                       'Rosetta func: EmptyExecutionDetails'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'rules': [{'description': 'When the execution type is set to '
                                    "'Electronically', the execution venue must be "
@@ -24225,7 +24225,7 @@ class ContractDetails(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
          'comments': ['Rosetta condition: ExecutedAgreement — if documentation exists '
                       'then documentation -> agreementDate exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     documentation: Optional[list[LegalAgreement]] = Field(default=None, description="""Represents the legal document(s) that governs a trade and associated contractual product terms, either as a reference to such documents when specified as part of the CDM, or through identification of some of the key terms of those documents, such as the type of document, the document identifier, the publisher, the document vintage and the agreement date.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContractDetails']} })
@@ -24237,7 +24237,7 @@ class Lineage(ConfiguredBaseModel):
     """
     A class to provide lineage information across lifecycle events through a pointer or set of pointers into the event(s), contract(s) and, possibly, payout components that the event is dependent on or relates to. As an example, if an contractFormation event is corrected, the correction event will have a lineage into the initial event, which takes the form of a globalKey into that initial contract formation event. Two referencing mechanisms are provided as part of the CDM: either the globalKey, which corresponds to the hash value of the CDM class which is referred to, or a reference qualifier which is meant to provide support for the ingestion of xml documents with id/href mechanisms. The CDM recommends the use of the globalKey and provides a default implementation which is accessible in the generated code through org.isda.cdm.globalKey.GlobalKeyHashCalculator. If implementers want to use an alternative hashing mechanism, the API in which they need to plug it is com.rosetta.model.lib.HashFunction.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     tradeReference: Optional[list[Trade]] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'metadata_reference': {'tag': 'metadata_reference',
@@ -24272,7 +24272,7 @@ class StockSplitInstruction(ConfiguredBaseModel):
                       'create the fully-formed business event which represents the '
                       'impact of a stock split (or a reverse stock split) on an Equity '
                       'Derivatives contract on a certain date.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'effectiveDate': {'description': 'The effective date of the '
                                                          'stock split, also known as '
@@ -24327,7 +24327,7 @@ class CreditEvent(ConfiguredBaseModel):
     """
     Specifies the relevant data regarding a credit event.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     creditEventType: CreditEventTypeEnum = Field(default=..., description="""The type of credit event taking place.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreditEvent']} })
@@ -24349,7 +24349,7 @@ class CorporateAction(ConfiguredBaseModel):
                       'Rosetta condition: CorporateActionTypeBespoke — if '
                       'corporateActionType = CorporateActionTypeEnum -> BespokeEvent '
                       'then bespokeEventDescription exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'rules': [{'description': 'When Enum value does not corresponds to standard '
                                    'terms, then bespoke description must be populated.',
@@ -24385,7 +24385,7 @@ class AdjustmentFactor(ConfiguredBaseModel):
     Describes the terms involved for adjusting the price of the underlier impacted by a Corporate Action.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AdjustmentFactor'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'value': {'description': 'The multiplier value applied to the '
                                                  'price of the underlier impacted by a '
@@ -24422,7 +24422,7 @@ class AdjustmentFactorCalculationTerms(ConfiguredBaseModel):
                       'Dividend',
                       'Rosetta condition: ShareRatio — optional choice '
                       'shareForShareRatio, shareForRightsRatio'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'rules': [{'description': 'SpinOffOrMergerOrAccrual',
                     'postconditions': {'any_of': [{'slot_conditions': {'spinOff': {'name': 'spinOff',
@@ -24465,7 +24465,7 @@ class AccrualFactor(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AccrualFactor'],
          'comments': ['Rosetta condition: AccrualPriceIsRate — value -> priceType = '
                       'PriceTypeEnum -> InterestRate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'calculationTerms': {'description': 'Describes the input terms '
                                                             'involved in the '
@@ -24506,7 +24506,7 @@ class AccrualFactorCalculationTerms(ConfiguredBaseModel):
     Describes the input terms involved in the calculation of the accrual factor. Optionnally, long and short stub interpolation rates can be specified.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AccrualFactorCalculationTerms'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     tenorTillMaturity: Decimal = Field(default=..., description="""The duration between last fixing date and the payment date of accruals, calculated in accordance with the appropriate DayCountFraction.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AccrualFactorCalculationTerms.tenorTillMaturity'],
@@ -24526,7 +24526,7 @@ class SpinOff(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: EquityPrice — parentSecurity -> securityType '
                       '= Equity and childSecurity -> securityType = Equity'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     parentSecurity: Security = Field(default=..., description="""Defines the underlier for the Parent Company involved in Spin Off corporate action.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpinOff']} })
@@ -24542,7 +24542,7 @@ class Merger(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: EquityPrice — purchaserSecurity -> '
                       'securityType = Equity and acquiredSecurity -> securityType = '
                       'Equity'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     purchaserSecurity: Security = Field(default=..., description="""Defines the underlier for the Purchaser Company involved in Merger corporate action.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Merger']} })
@@ -24556,7 +24556,7 @@ class ClearingInstruction(ConfiguredBaseModel):
     All information required to perform the clear life cycle event; the clearing party (CCP), the two parties facing each other on the alpha contract, and optionally the parties acting as clearing members.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:ClearingInstruction'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     alphaContract: TradeState = Field(default=..., description="""The contract that will be submitted to the clearing house for clearing. The contract should indicate that it should be cleared by assigning a clearing organisation as a party role.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:ClearingInstruction.alphaContract'],
@@ -24581,7 +24581,7 @@ class ExerciseEvent(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
          'deprecated': 'Deprecated in CDM',
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     adjustedExerciseDate: date = Field(default=..., description="""The date on which the option exercise takes place. This date should already be adjusted for any applicable business day convention.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExerciseEvent',
@@ -24610,7 +24610,7 @@ class ReturnInstruction(ConfiguredBaseModel):
                                                         'Transaction.","inputs":[{"name":"tradeState","type":"TradeState","cardinality":"1..1"},{"name":"returnInstruction","type":"ReturnInstruction","cardinality":"1..1"},{"name":"returnDate","type":"date","cardinality":"1..1"}],"output":{"name":"returnEvent","type":"BusinessEvent","cardinality":"1..1"}}]'}},
          'comments': ['Rosetta func: Create_Return — Defines the process of partially '
                       'or fully returning a Security Lending Transaction.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'quantity': {'description': 'Specifies the quantity of shares '
                                                     'and cash to be returned in a '
@@ -24644,7 +24644,7 @@ class SecurityLendingInvoice(ConfiguredBaseModel):
          'comments': ['Rosetta func: Create_SecurityLendingInvoice — Defines the '
                       'process of calculating and creating a Security Lending '
                       'Invoice.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'tree_root': True})
 
@@ -24670,7 +24670,7 @@ class BillingInstruction(ConfiguredBaseModel):
          'comments': ['Rosetta func: Create_SecurityLendingInvoice — Defines the '
                       'process of calculating and creating a Security Lending '
                       'Invoice.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'billingSummary': {'name': 'billingSummary',
                                            'range': 'BillingSummaryInstruction',
@@ -24707,7 +24707,7 @@ class BillingRecordInstruction(ConfiguredBaseModel):
                       'Rosetta func: Create_BillingRecord — Creates an individual '
                       'billing record to be included in a Security Lending Billing '
                       'Invoice'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'observation': {'description': 'The observations used to '
                                                        'calculate the billing amount.',
@@ -24740,7 +24740,7 @@ class BillingSummaryInstruction(ConfiguredBaseModel):
     """
     Specifies the instructions for creation of a billing summary.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     summaryAmountType: RecordAmountTypeEnum = Field(default=..., description="""The account level for the billing summary.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BillingSummaryInstruction', 'BillingSummary']} })
@@ -24774,7 +24774,7 @@ class BillingRecord(ConfiguredBaseModel):
                       'Invoice',
                       'Rosetta func: Create_BillingSummary — Creates a billing summary '
                       'to be included in a Security Lending Billing Invoice.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'tradeState': {'description': 'The trade for the individual '
                                                       'billing record.',
@@ -24821,7 +24821,7 @@ class BillingSummary(ConfiguredBaseModel):
                       'exists',
                       'Rosetta func: Create_BillingSummary — Creates a billing summary '
                       'to be included in a Security Lending Billing Invoice.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     summaryTransfer: Optional[Union[ScheduledTransfer, UnscheduledTransfer]] = Field(default=None, description="""The settlement terms for the billing summary""", json_schema_extra = { "linkml_meta": {'any_of': [{'range': 'ScheduledTransfer'}, {'range': 'UnscheduledTransfer'}],
@@ -24834,7 +24834,7 @@ class TradePricingReport(ConfiguredBaseModel):
     """
     The attributes that are specific for consensus based pricing reporting.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'trade': {'description': 'Represents the cosensus based '
                                                  'pricing parameters on a trade basis.',
@@ -24851,7 +24851,7 @@ class MarginCallBase(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: RegIMRoleIMOnly — if regIMRole exists then '
                       'regMarginType = RegMarginTypeEnum -> RegIM'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'party': {'description': 'Represents the parties to the margin '
                                                  'call. The cardinality is optional to '
@@ -24953,7 +24953,7 @@ class Exposure(ConfiguredBaseModel):
                                                         'trades.","inputs":[{"name":"trades","type":"TradeState","cardinality":"0..*"}],"output":{"name":"exposure","type":"Exposure","cardinality":"0..1"}}]'}},
          'comments': ['Rosetta func: Create_ExposureFromTrades — Builds an Exposure '
                       'structure from a list of trades.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     tradePortfolio: PortfolioState = Field(default=..., description="""Represents a Portfolio that describes all the positions held at a given time, in various states which can be either traded, settled, etc., with lineage information to the previous state.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_reference': {'tag': 'metadata_reference',
@@ -24980,7 +24980,7 @@ class MarginCallExposure(MarginCallBase):
                       'Rosetta condition: ExposureSimmAndScheduleIMOnly — if '
                       'simmIMExposure exists and scheduleGridIMExposure exists then '
                       'regMarginType = RegMarginTypeEnum -> RegIM'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     overallExposure: Exposure = Field(default=..., description="""Represents the whole overall mark to market value or IM calculation value of the trade portfolio as recorded by the principle (in base currency).""", json_schema_extra = { "linkml_meta": {'domain_of': ['MarginCallExposure']} })
@@ -25064,7 +25064,7 @@ class CollateralBalance(ConfiguredBaseModel):
     Represents common attributes to define a collateral balance recorded by the principal as held or posted.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CollateralBalance'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'payerReceiver': {'description': 'Specifies each of the '
                                                          'parties in the collateral '
@@ -25117,7 +25117,7 @@ class CollateralPortfolio(ConfiguredBaseModel):
                       'Rosetta func: Create_SubstitutionInstruction — Creates the '
                       'terms change instruction that updates the payout with the new '
                       'substitution payout.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'legalAgreement': {'description': ' The specification of a '
                                                           'legal agreement between two '
@@ -25147,7 +25147,7 @@ class MarginCallIssuance(MarginCallBase):
     """
     Represents common attributes required for a Margin Call Issuance under a legal agreement such as a credit support document or equivalent.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     callAmountInBaseCurrency: Money = Field(default=..., description="""Specifies the amount of margin being called for which accounts for margin calculation inclusive of exposure, independent amount,threshold,collateral balance, MTA, rounding increments (in base currency detailed in supporting collateral agreement).""", json_schema_extra = { "linkml_meta": {'domain_of': ['MarginCallIssuance']} })
@@ -25231,7 +25231,7 @@ class MarginCallInstructionType(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: CallTypeExpectedVisibility — if callType = '
                       'CallTypeEnum -> ExpectedCall then visibilityIndicator exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'rules': [{'description': 'Represents a condition to ensure that a visibility '
                                    'indicator is specifies then the call type must be '
@@ -25249,7 +25249,7 @@ class MarginCallResponseAction(ConfiguredBaseModel):
     """
     Specifies the margin call action details, including collateral to be moved and its direction.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     collateralPositionComponent: list[CollateralPosition] = Field(default=..., description="""Specifies the collateral to be moved and its direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MarginCallResponseAction']} })
@@ -25260,7 +25260,7 @@ class MarginCallResponse(MarginCallBase):
     """
     Represents common attributes required for a Margin Call Response under a legal agreement such as a credit support document or equivalent.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     marginCallResponseAction: list[MarginCallResponseAction] = Field(default=..., description="""Specifies the margin call action details, including collateral to be moved and direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MarginCallResponse']} })
@@ -25344,7 +25344,7 @@ class ClosedState(ConfiguredBaseModel):
      A class to qualify the closed state of an execution or a contract through the combination or a state (e.g. terminated, novated) and a set of dates: activity date, effective date and, when relevant, last payment date.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:ClosedState'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'effectiveDate': {'description': 'The date on which the '
                                                          'closing event contractually '
@@ -25401,7 +25401,7 @@ class ContractBase(ConfiguredBaseModel):
     """
     Encapsulates data features common to trade and position.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_position',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_position',
          'in_subset': ['cdm_event_position'],
          'slot_usage': {'collateral': {'description': 'Represents the collateral '
                                                       'obligations of a party.',
@@ -25432,7 +25432,7 @@ class CounterpartyPosition(ContractBase):
     """
     A Position describes the accumulated effect of a set of securities or financial transactions.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_position',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_position',
          'in_subset': ['cdm_event_position'],
          'slot_usage': {'party': {'description': 'The parties involved in the '
                                                  'position, including the Clearing '
@@ -25533,7 +25533,7 @@ class PositionBase(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ProductOrAsset — required choice product, '
                       'asset'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_position',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_position',
          'in_subset': ['cdm_event_position'],
          'rules': [{'description': 'A Position must either refer to a grouping by '
                                    'product or a grouping by asset.',
@@ -25593,7 +25593,7 @@ class CollateralPosition(PositionBase):
                       'CollateralStatusEnum -> SettledAmount or '
                       'collateralPositionStatus = CollateralStatusEnum -> '
                       'InTransitAmount'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     treatment: Optional[CollateralTreatment] = Field(default=None, description="""Specifies if there is any treatment to be applied to collateral, such as percentage discount which will impact collateral value.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CollateralPosition.treatment'],
@@ -25631,7 +25631,7 @@ class Position(PositionBase):
     """
     A Position describes how much of a given Product is being held and constitutes the atomic element of a Portfolio.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_position',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_position',
          'in_subset': ['cdm_event_position']})
 
     priceQuantity: list[PriceQuantity] = Field(default=..., description="""Position with many price quantities.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExecutionInstruction',
@@ -25680,7 +25680,7 @@ class PortfolioState(ConfiguredBaseModel):
                       'Rosetta func: EvaluatePortfolioState — Function specification '
                       "to evaluate a portfolio's aggregation parameters and return a "
                       'new portfolio state containing aggregated positions.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_position',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_position',
          'in_subset': ['cdm_event_position']})
 
     positions: Optional[list[Position]] = Field(default=None, description="""The list of positions, each containing a Quantity and a Product.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PortfolioState']} })
@@ -25692,7 +25692,7 @@ class AggregationParameters(ConfiguredBaseModel):
      Parameters to be used to filter events that are relevant to a given portfolio in order to calculate the state of this portfolio. The attributes correspond to all the possible aggregation criteria that can be used and these criteria can be combined. All the attributes are optional.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AggregationParameters'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_position',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_position',
          'in_subset': ['cdm_event_position'],
          'slot_usage': {'dateTime': {'description': 'To aggregate as of a particular '
                                                     'date',
@@ -25801,7 +25801,7 @@ class Portfolio(ConfiguredBaseModel):
          'comments': ['Rosetta func: EvaluatePortfolioState — Function specification '
                       "to evaluate a portfolio's aggregation parameters and return a "
                       'new portfolio state containing aggregated positions.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_position',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_position',
          'in_subset': ['cdm_event_position']})
 
     aggregationParameters: AggregationParameters = Field(default=..., description="""Describes the portfolio by describing how to aggregate all its relevant Events.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Portfolio']} })
@@ -25812,7 +25812,7 @@ class Inventory(ConfiguredBaseModel):
     """
     A data type that can be used to describe an inventory of securities.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_position',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_position',
          'in_subset': ['cdm_event_position']})
 
     inventoryRecord: Optional[list[InventoryRecord]] = Field(default=None, description="""An array holding the list of inventory being described. Each element in the inventoryRecord array represents an individual piece of inventory i.e. a security.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Inventory']} })
@@ -25822,10 +25822,12 @@ class InventoryRecord(ConfiguredBaseModel):
     """
     An individual piece of inventory. This represents a single security.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_position',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_position',
          'in_subset': ['cdm_event_position']})
 
-    identifer: AssignedIdentifier = Field(default=..., description="""Unique identifier for this record. This can be used to uniquely identify a specific piece of inventory.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InventoryRecord', 'MasterAgreementClause']} })
+    identifer: AssignedIdentifier = Field(default=..., description="""Unique identifier for this record. This can be used to uniquely identify a specific piece of inventory.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InventoryRecord',
+                       'AvailableInventory',
+                       'MasterAgreementClause']} })
     security: Security = Field(default=..., description="""The security details.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InventoryRecord', 'ReferenceObligation']} })
 
 
@@ -25838,9 +25840,15 @@ class AvailableInventory(ConfiguredBaseModel):
                       'partyRole, [PartyRoleEnum -> AgentLender, PartyRoleEnum -> '
                       'BeneficialOwner, PartyRoleEnum -> Borrower, PartyRoleEnum -> '
                       'Custodian, PartyRoleEnum -> Lender] )'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_position',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_position',
          'in_subset': ['cdm_event_position'],
-         'slot_usage': {'party': {'description': 'Defines all parties involved for the '
+         'slot_usage': {'identifer': {'description': 'Unique identifier for this '
+                                                     'group. This can be used to '
+                                                     'uniquely identify a group of '
+                                                     'inventory records.',
+                                      'name': 'identifer',
+                                      'required': False},
+                        'party': {'description': 'Defines all parties involved for the '
                                                  'list of inventory records in this '
                                                  'set of inventory. For example, when '
                                                  'used to describe securities lending '
@@ -25864,6 +25872,12 @@ class AvailableInventory(ConfiguredBaseModel):
 
     availableInventoryType: AvailableInventoryTypeEnum = Field(default=..., description="""Defines the purpose of this inventory.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AvailableInventory.availableInventoryType'],
          'domain_of': ['AvailableInventory']} })
+    identifer: Optional[AssignedIdentifier] = Field(default=None, description="""Unique identifier for this group. This can be used to uniquely identify a group of inventory records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InventoryRecord',
+                       'AvailableInventory',
+                       'MasterAgreementClause']} })
+    comment: Optional[str] = Field(default=None, description="""Optional comments for this group of inventory records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AvailableInventory',
+                       'AvailableInventoryRecord',
+                       'WorkflowState']} })
     messageInformation: Optional[MessageInformation] = Field(default=None, description="""Allows details related to the availability messaging use case to be defined""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AvailableInventory.messageInformation'],
          'domain_of': ['AvailableInventory', 'WorkflowStep']} })
     party: Optional[list[Party]] = Field(default=None, description="""Defines all parties involved for the list of inventory records in this set of inventory. For example, when used to describe securities lending availability, this could hold the sender of the availability, the intended recipient, the beneficial owner(s), the lender (which may differ from the sender as the lender may have the same piece of availability going through multiple agents), an agent or a venue.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DebtRedemption',
@@ -25938,7 +25952,7 @@ class AvailableInventoryRecord(InventoryRecord):
                       'partyRole, [PartyRoleEnum -> AgentLender, PartyRoleEnum -> '
                       'BeneficialOwner, PartyRoleEnum -> Custodian, PartyRoleEnum -> '
                       'Lender] )'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_position',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_position',
          'in_subset': ['cdm_event_position'],
          'slot_usage': {'collateral': {'description': 'The type of collateral can '
                                                       'often be required when '
@@ -25948,6 +25962,9 @@ class AvailableInventoryRecord(InventoryRecord):
                                        'multivalued': True,
                                        'name': 'collateral',
                                        'range': 'CollateralProvisions'},
+                        'comment': {'description': 'Optional comment for this specific '
+                                                   'piece of inventory.',
+                                    'name': 'comment'},
                         'partyRole': {'description': 'An individual security may be '
                                                      'held by several agents. '
                                                      'Including the party role at this '
@@ -25986,7 +26003,13 @@ class AvailableInventoryRecord(InventoryRecord):
                        'PortfolioReturnTerms']} })
     interestRate: Optional[Price] = Field(default=None, description="""An optional element which can be used to hold a rate associated to this piece of availability.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AvailableInventoryRecord.interestRate'],
          'domain_of': ['AvailableInventoryRecord']} })
-    identifer: AssignedIdentifier = Field(default=..., description="""Unique identifier for this record. This can be used to uniquely identify a specific piece of inventory.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InventoryRecord', 'MasterAgreementClause']} })
+    dividendTerms: Optional[DividendTerms] = Field(default=None, description="""Specifies the dividend requirements if applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AvailableInventoryRecord', 'AssetPayout']} })
+    comment: Optional[str] = Field(default=None, description="""Optional comment for this specific piece of inventory.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AvailableInventory',
+                       'AvailableInventoryRecord',
+                       'WorkflowState']} })
+    identifer: AssignedIdentifier = Field(default=..., description="""Unique identifier for this record. This can be used to uniquely identify a specific piece of inventory.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InventoryRecord',
+                       'AvailableInventory',
+                       'MasterAgreementClause']} })
     security: Security = Field(default=..., description="""The security details.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InventoryRecord', 'ReferenceObligation']} })
 
 
@@ -25996,7 +26019,7 @@ class SecurityLocate(AvailableInventory):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: RequestOneSecurityMinimum — '
                       'availableInventoryRecord exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_position',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_position',
          'in_subset': ['cdm_event_position'],
          'rules': [{'description': 'A locate must request the availability of at least '
                                    'one security.',
@@ -26006,6 +26029,12 @@ class SecurityLocate(AvailableInventory):
 
     availableInventoryType: AvailableInventoryTypeEnum = Field(default=..., description="""Defines the purpose of this inventory.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AvailableInventory.availableInventoryType'],
          'domain_of': ['AvailableInventory']} })
+    identifer: Optional[AssignedIdentifier] = Field(default=None, description="""Unique identifier for this group. This can be used to uniquely identify a group of inventory records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InventoryRecord',
+                       'AvailableInventory',
+                       'MasterAgreementClause']} })
+    comment: Optional[str] = Field(default=None, description="""Optional comments for this group of inventory records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AvailableInventory',
+                       'AvailableInventoryRecord',
+                       'WorkflowState']} })
     messageInformation: Optional[MessageInformation] = Field(default=None, description="""Allows details related to the availability messaging use case to be defined""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AvailableInventory.messageInformation'],
          'domain_of': ['AvailableInventory', 'WorkflowStep']} })
     party: Optional[list[Party]] = Field(default=None, description="""Defines all parties involved for the list of inventory records in this set of inventory. For example, when used to describe securities lending availability, this could hold the sender of the availability, the intended recipient, the beneficial owner(s), the lender (which may differ from the sender as the lender may have the same piece of availability going through multiple agents), an agent or a venue.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DebtRedemption',
@@ -26073,7 +26102,7 @@ class CreditLimitInformation(ConfiguredBaseModel):
     """
     A class to represent the credit limit utilisation information.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow']})
 
     limitApplicable: list[LimitApplicableExtended] = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['CreditLimitInformation']} })
@@ -26083,7 +26112,7 @@ class CreditLimitUtilisation(ConfiguredBaseModel):
     """
     Credit limit utilisation breakdown by executed trades and pending orders.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow']})
 
     executed: Optional[CreditLimitUtilisationPosition] = Field(default=None, description="""Credit limit utilisation attributable to executed trades.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreditLimitUtilisation']} })
@@ -26091,7 +26120,7 @@ class CreditLimitUtilisation(ConfiguredBaseModel):
 
 
 class CreditLimitUtilisationPosition(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow']})
 
     shortPosition: Optional[Decimal] = Field(default=None, description="""Credit limit utilisation attributable to short positions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreditLimitUtilisationPosition']} })
@@ -26103,7 +26132,7 @@ class CustomisedWorkflow(ConfiguredBaseModel):
     """
     In its initial iteration, this class is meant to support the DTCC TIW workflow information.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow']})
 
     itemName: str = Field(default=..., description="""In this initial iteration, this corresponds to the DTCC TIW element name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CustomisedWorkflow']} })
@@ -26148,7 +26177,7 @@ class WorkflowStepApproval(ConfiguredBaseModel):
                       'specified, the valid actions are as follows; New -> Correct and '
                       'Correct -> Cancel. When a previous workflow is not specified, '
                       'the action must be New.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow'],
          'slot_usage': {'party': {'description': 'Reference to the Party who is '
                                                  'approving/rejecting this workflow '
@@ -26391,7 +26420,7 @@ class WorkflowStep(ConfiguredBaseModel):
                       'developed to provide the reasons for rejection.',
                       'Rosetta func: Create_Workflow — Function to create a Workflow '
                       'from a list of WorkflowStep.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow'],
          'rules': [{'description': 'Choice rule to control that either '
                                    'positionBusinessEvent is present, businessEvent is '
@@ -26532,7 +26561,7 @@ class Workflow(ConfiguredBaseModel):
                                                         'WorkflowStep.","inputs":[{"name":"steps","type":"WorkflowStep","cardinality":"1..*"}],"output":{"name":"workflow","type":"Workflow","cardinality":"1..1"}}]'}},
          'comments': ['Rosetta func: Create_Workflow — Function to create a Workflow '
                       'from a list of WorkflowStep.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow'],
          'related_mappings': ['gist:Task']})
 
@@ -26579,7 +26608,7 @@ class EventInstruction(ConfiguredBaseModel):
                       'specified, the valid actions are as follows; New -> Correct and '
                       'Correct -> Cancel. When a previous workflow is not specified, '
                       'the action must be New.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow'],
          'slot_usage': {'effectiveDate': {'description': 'The date on which the event '
                                                          'contractually takes effect, '
@@ -26667,7 +26696,7 @@ class BusinessEvent(EventInstruction):
                       'Rosetta func: ExtractOpenEconomicTerms',
                       'Rosetta func: ExtractBeforeTrade',
                       'Rosetta func: ExtractAfterTrade'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'rules': [{'description': 'EventDate',
                     'postconditions': {'slot_conditions': {'eventDate': {'name': 'eventDate',
@@ -26828,7 +26857,7 @@ class EventTimestamp(ConfiguredBaseModel):
                       'the step. The previous workflow step input must exist to '
                       'provide workflow lineage. This function will be further '
                       'developed to provide the reasons for rejection.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow'],
          'slot_usage': {'dateTime': {'multivalued': False, 'name': 'dateTime'}}})
 
@@ -26845,11 +26874,18 @@ class WorkflowState(ConfiguredBaseModel):
     """
     A class to specify workflow information, which is conceptually applicable to all lifecycle events.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
-         'in_subset': ['cdm_event_workflow']})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
+         'in_subset': ['cdm_event_workflow'],
+         'slot_usage': {'comment': {'description': 'A comment field to be associated '
+                                                   'with the workflow, e.g. to specify '
+                                                   'why a transaction event was '
+                                                   'rejected by a party.',
+                                    'name': 'comment'}}})
 
     workflowStatus: WorkflowStatusEnum = Field(default=..., description="""The workflow status indicator, e.g. Accepted, Rejected, ...""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkflowState']} })
-    comment: Optional[str] = Field(default=None, description="""A comment field to be associated with the workflow, e.g. to specify why a transaction event was rejected by a party.""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkflowState']} })
+    comment: Optional[str] = Field(default=None, description="""A comment field to be associated with the workflow, e.g. to specify why a transaction event was rejected by a party.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AvailableInventory',
+                       'AvailableInventoryRecord',
+                       'WorkflowState']} })
     partyCustomisedWorkflow: Optional[list[PartyCustomisedWorkflow]] = Field(default=None, description="""Workflow data that is specific to certain market participants and is expressed as part of the CDM in a very generic manner, which can be party-specific. The initial use cases have been derived from the CME clearing and the DTCC TIW submissions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkflowState']} })
     warehouseIdentity: Optional[WarehouseIdentityEnum] = Field(default=None, description="""The identity of the warehouse, if any, that is executing that workflow step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkflowState']} })
 
@@ -26857,7 +26893,7 @@ class WorkflowState(ConfiguredBaseModel):
 class LimitApplicable(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: LimitApplicableChoice — optional choice '
                       'amountUtilized, utilization'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'any_of': [{'slot_conditions': {'amountUtilized': {'name': 'amountUtilized',
@@ -26910,7 +26946,7 @@ class LimitApplicableExtended(LimitApplicable):
     """
     A class to represent the CDM attributes that are not part of the FpML standard. Once broader usage is confirmed, it is expected that those two classes can be collapsed.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow']})
 
     limitLevel: Optional[LimitLevelEnum] = Field(default=None, description="""The level at which the limit is set: customer business, proprietary business or account level. This attribute is specified as a string as part of the CME clearing confirmation specification.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
@@ -27071,7 +27107,7 @@ class MessageInformation(ConfiguredBaseModel):
                       'the step. The previous workflow step input must exist to '
                       'provide workflow lineage. This function will be further '
                       'developed to provide the reasons for rejection.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow']})
 
     messageId: str = Field(default=..., description="""A unique identifier assigned to the message.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
@@ -27090,7 +27126,7 @@ class PartyCustomisedWorkflow(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: PartyCustomisedWorkflowChoice — required '
                       'choice partyName, partyReference'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow'],
          'rules': [{'description': 'The identification of the party to which the '
                                    'PartyCustomisedWorkflow pertains to can be done '
@@ -27121,7 +27157,7 @@ class PartyCustomisedWorkflow(ConfiguredBaseModel):
 
 
 class Velocity(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_workflow',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'in_subset': ['cdm_event_workflow'],
          'slot_usage': {'period': {'name': 'period',
                                    'range': 'PeriodTimeEnum',
@@ -27139,7 +27175,7 @@ class Velocity(ConfiguredBaseModel):
 
 
 class ContractualMatrix(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common']})
 
     matrixType: MatrixTypeEnum = Field(default=..., description="""Identifies the form of applicable matrix.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
@@ -27152,7 +27188,7 @@ class ContractualTermsSupplement(ConfiguredBaseModel):
     """
     A contractual supplement (such as those published by ISDA) and its publication date that will apply to the trade.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'slot_usage': {'publicationDate': {'description': 'Specifies the publication '
                                                            'date of the applicable '
@@ -27174,7 +27210,7 @@ class OtherAgreement(ConfiguredBaseModel):
     """
     A class for defining an agreement executed between parties.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'slot_usage': {'date': {'description': 'The date on which the agreement was '
                                                 'signed.',
@@ -27231,7 +27267,7 @@ class Resource(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ResourceChoice — optional choice string, '
                       'url'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct. '
                                    'Note that FpML also provides the ability to have '
@@ -27279,7 +27315,7 @@ class ResourceLength(ConfiguredBaseModel):
     """
     A class to indicate the length of the resource.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common']})
 
     lengthUnit: LengthUnitEnum = Field(default=..., description="""The length unit of the resource. For example, pages (pdf, text documents) or time (audio, video files).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ResourceLength']} })
@@ -27291,7 +27327,7 @@ class AgreementTerms(ConfiguredBaseModel):
     Specification of the content of a legal agreement.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AgreementTerms'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'slot_usage': {'counterparty': {'description': 'Specification of the roles of '
                                                         'the counterparties to the '
@@ -27315,7 +27351,7 @@ class LegalAgreementBase(ConfiguredBaseModel):
     """
     Specifies the legal agreement baseline information, being negotiated or having been executed. It excludes specialized elections
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'slot_usage': {'effectiveDate': {'description': 'The date on which, or as of '
                                                          'which, the agreement is '
@@ -27410,7 +27446,7 @@ class LegalAgreement(LegalAgreementBase):
                       '= LegalAgreementTypeEnum -> MasterAgreement',
                       'Rosetta condition: AgreementType — required choice '
                       'agreementTerms, umbrellaAgreement'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'rules': [{'description': 'Either the Agreement Terms (i.e. a bilateral or '
                                    'one way agreement) or an Umbrella Agreement (i.e. '
@@ -27479,7 +27515,7 @@ class LegalAgreementIdentification(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: CSAMarginType — if agreementName -> '
                       'creditSupportAgreementMarginType exists then agreementName -> '
                       'creditSupportAgreementType exists and vintage >= 2016'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'slot_usage': {'governingLaw': {'description': 'The law governing the legal '
                                                         'agreement, e.g. English Law, '
@@ -27521,7 +27557,7 @@ class AgreementName(ConfiguredBaseModel):
                       'Rosetta condition: CSAMarginType — if '
                       'creditSupportAgreementMarginType exists then '
                       'creditSupportAgreementType exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'rules': [{'description': 'A condition to ensure that the credit supoort '
                                    'agreement type is specified when required.',
@@ -27576,7 +27612,7 @@ class UmbrellaAgreement(ConfiguredBaseModel):
     """
     Specifies the set of agreements, the parties of which are set within UmbrellaAgreementSet, beyond the two contracting parties to that agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common']})
 
     agreementSet: list[UmbrellaAgreementSet] = Field(default=..., description="""The language associated with the umbrella agreement, and which applies to all the parties to the umbrella agreement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UmbrellaAgreement']} })
@@ -27592,7 +27628,7 @@ class UmbrellaAgreementParty(ConfiguredBaseModel):
                       'nonLegalEntity',
                       'Rosetta condition: NonLegalEntityParent — if nonLegalEntity '
                       'exists then parentParty exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'rules': [{'description': 'Specifies that certain defined roles require that '
                                    'a parent party is identified.',
@@ -27687,7 +27723,7 @@ class NonLegalEntity(ConfiguredBaseModel):
     """
     Specifies a non-legal entity that exists in the agreement with a defined relationship to a Legal entity to the agreement
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'slot_usage': {'identifier': {'description': 'Specifies the unique identifier '
                                                       'value for a non-legal entity '
@@ -27744,7 +27780,7 @@ class UmbrellaAgreementSet(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ExcludeGMSLA — agreement -> '
                       'masterAgreementElections -> islaGmsla is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'slot_usage': {'party': {'description': 'Specifies the underlying parties to '
                                                  'the agreement that either act as '
@@ -27835,7 +27871,7 @@ class ContactInformationElection(ConfiguredBaseModel):
     """
     Specifies the party reference and the associated contact information.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'slot_usage': {'partyReference': {'description': 'The party to which the '
                                                           'election and details apply.',
@@ -27859,7 +27895,7 @@ class NoticeInformationElection(ContactInformationElection):
     """
     Specifies the party reference and the associated notice and contact information.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common']})
 
     additionalContactInformation: Optional[list[NoticeContactInformation]] = Field(default=None, description="""Additional notice/address information of the party.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NoticeInformationElection']} })
@@ -27880,7 +27916,7 @@ class NoticeContactInformation(ContactInformation):
     """
     Specifies notice information including address and, optionally, an associated person. This type also supports the ISDA CSA representation as a single string, through the address attribute in Contact Information.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common']})
 
     naturalPerson: Optional[list[NaturalPerson]] = Field(default=None, description="""Optional information about people involved in a transaction or business process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NoticeContactInformation']} })
@@ -27897,7 +27933,7 @@ class TransferInformationElection(ContactInformationElection):
     """
     Specifies the party reference and the associated transfer & contact information.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common']})
 
     partyReference: CounterpartyRoleEnum = Field(default=..., description="""The party to which the election and details apply.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_reference': {'tag': 'metadata_reference',
@@ -27917,7 +27953,7 @@ class TransferContactInformation(ContactInformation):
     """
     Specifies transfer information including address and, optionally, an associated account. This type also supports the ISDA CSA representation as a single string, through the address attribute in Contact Information.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'slot_usage': {'account': {'description': 'Specifies the account infomation '
                                                    'for transfers to a party.',
@@ -27945,7 +27981,7 @@ class OtherAgreementTerms(ConfiguredBaseModel):
                       'False then legalDocument is absent',
                       'Rosetta condition: LegalDocumentSpecified — if isSpecified = '
                       'True then legalDocument exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common'],
          'rules': [{'description': 'A data rule to enforce that the related legal '
                                    'agreement should not be referenced if it is deemed '
@@ -27976,7 +28012,7 @@ class Agreement(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:Agreement'],
          'exact_mappings': ['gist:Agreement'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
          'in_subset': ['cdm_legaldocumentation_common']})
 
     creditSupportAgreementElections: Optional[Union[CreditSupportAgreementInitialMarginElections, CreditSupportAgreementLegacyElections, CreditSupportAgreementVariationMarginElections]] = Field(default=None, description="""Elections to specify a Credit Support Annex or Credit Support Deed for Intial or Variation Margin.""", json_schema_extra = { "linkml_meta": {'any_of': [{'range': 'CreditSupportAgreementInitialMarginElections'},
@@ -28000,7 +28036,7 @@ class CreditSupportAgreementElectionsBase(ConfiguredBaseModel):
     """
     A logical container designed to hold a set of related data. In this case, designed to hold a set of clauses that are common amongst Legacy (1994/95), Variation Margin and Initial Margin Credit Support Documents.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     baseAndEligibleCurrency: BaseAndEligibleCurrency = Field(default=..., description="""The base and eligible currency(ies) for the document as specified by the parties to the agreement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreditSupportAgreementElectionsBase',
@@ -28029,7 +28065,7 @@ class CreditSupportAgreementInitialMarginElections(CreditSupportAgreementElectio
     """
     The set of elections which specify an Initial Margin Credit Support Annex or Deed.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     regime: Regime = Field(default=..., description="""The Regime Table provision , which determines the regulatory regime(s) applicable to each of the parties to the agreement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreditSupportAgreementInitialMarginElections',
@@ -28121,7 +28157,7 @@ class CreditSupportAgreementVariationMarginElections(CreditSupportAgreementElect
     """
     The set of elections which specify a Variation Margin Credit Support Annex or Deed.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'calculationAndTiming': {'name': 'calculationAndTiming',
                                                  'range': 'CalculationAndTimingVariationMargin'},
@@ -28184,7 +28220,7 @@ class CreditSupportAgreementLegacyElections(CreditSupportAgreementElectionsBase)
     """
     The set of elections which specify a Legacy (1994 or 1995) Credit Support Annex or Deed.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'calculationAndTiming': {'name': 'calculationAndTiming',
                                                  'range': 'CalculationAndTimingLegacy'},
@@ -28236,7 +28272,7 @@ class CollateralTransferAgreementElections(ConfiguredBaseModel):
     The set of elections which specify a Collateral Transfer Agreement.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CollateralTransferAgreementElections'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'calculationAndTiming': {'name': 'calculationAndTiming',
                                                  'range': 'CalculationAndTimingCollateralTransferAgreement'},
@@ -28328,7 +28364,7 @@ class SecurityAgreementElections(ConfiguredBaseModel):
     """
     The set of elections which specify a Security Agremeent.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'jurisdictionRelatedTerms': {'description': 'The jurisdiction '
                                                                     'specific terms.',
@@ -28379,7 +28415,7 @@ class PostedCreditSupportItem(ConfiguredBaseModel):
                       'Support Item.',
                       'Rosetta func: ReturnAmount',
                       'Rosetta func: DeliveryAmount'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     cashOrSecurityValue: Money = Field(default=..., description="""The Base Currency Equivalent of Cash or Security.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PostedCreditSupportItem']} })
@@ -28394,7 +28430,7 @@ class AdditionalRepresentation(ConfiguredBaseModel):
     A class to specify the Additional Representation.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AdditionalRepresentation'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 paragraph "13 General Principles" clause "(o)" '
                    'name "Additional Representations(s)"'],
@@ -28442,7 +28478,7 @@ class AdditionalRepresentationElection(ConfiguredBaseModel):
     A class to specify the parties' Additional Representation(s) election.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AdditionalRepresentationElection'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'additionalLanguage': {'description': 'Details of any '
                                                               'Additional '
@@ -28555,7 +28591,7 @@ class AdditionalRepresentations(ConfiguredBaseModel):
     A class to specify Additional Representations that may be applicable to an agreement.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AdditionalRepresentations'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     additionalRepresentation: Optional[AdditionalRepresentation] = Field(default=None, description="""The specification of the Additional Representation that may be applicable to the agreement.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AdditionalRepresentations.additionalRepresentation'],
@@ -28571,7 +28607,7 @@ class AdditionalRightsEvent(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AdditionalRightsEvent'],
          'comments': ['Rosetta condition: Qualification — if qualification exists then '
                       'isApplicable = True'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(k)" name "Chargor Additional Rights Event"',
@@ -28636,7 +28672,7 @@ class AdditionalTerminationEvent(ConfiguredBaseModel):
     A class to specify an optional termination event, additional to the Termination Events that will be deemed an Access Condition (Initial Margin CSA) or a Specified Condition (Variation Margin CSA).
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AdditionalTerminationEvent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'name': {'description': 'The name of the additional '
                                                 'termination event.',
@@ -28669,7 +28705,7 @@ class AdditionalType(ConfiguredBaseModel):
                       'AdditionalTypeEnum -> Other then customValue exists',
                       'Rosetta condition: StandardValue — if standardValue <> '
                       'AdditionalTypeEnum -> Other then customValue is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 paragraph "13 General Principles" clause '
                    '"(b)(B)"'],
@@ -28705,7 +28741,7 @@ class AmendmentEffectiveDate(ConfiguredBaseModel):
     A class to specify the effective date of the Amendment to Termination Currency. This date can be specified as either an actual date, a specific date (e.g. the annex date) or as a custom provision.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AmendmentEffectiveDate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'customProvision': {'description': 'The effective date of the '
                                                            'Amendment to Termination '
@@ -28740,7 +28776,7 @@ class ApplicableRegime(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:ApplicableRegime'],
          'comments': ['Rosetta condition: ApplicableRegimeChoice — required choice '
                       'regime, additionalRegime'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'The applicable regime should be specified either '
                                    'as an enumeration or as an additional regime '
@@ -28781,7 +28817,7 @@ class AppropriatedCollateralValuation(ConfiguredBaseModel):
                       'election exists',
                       'Rosetta condition: NotSpecified — if isSpecified = False then '
                       'election is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(u)" name "Valuation of Appropriated Collateral"'],
@@ -28821,7 +28857,7 @@ class BespokeCalculationDate(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:BespokeCalculationDate'],
          'comments': ['Rosetta condition: CalculationDateImTerms — if isApplicable = '
                       'False then calculationDateImTerms is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'A data rule to enforce that Additional Calculation '
                                    'Date Terms should be absent when not applicable.',
@@ -28872,7 +28908,7 @@ class BespokeCalculationTime(ConfiguredBaseModel):
                       'Rosetta condition: BespokeCalculationTimeTerms — if '
                       'asCalculationAgent = False then bespokeCalculationTimeTerms '
                       'exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'A data rule to enforce that the terms applicable '
                                    'to Calculation Time for Initial Margin should be '
@@ -28902,7 +28938,7 @@ class BespokeTransferTiming(ConfiguredBaseModel):
     A class to specify any bespoke Transfer Timing language by each party to the agreement.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:BespokeTransferTiming'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'isApplicable': {'description': 'A boolean flag to specify '
                                                         'whether bespoke transfer '
@@ -28941,7 +28977,7 @@ class CalculationAgentTerms(ConfiguredBaseModel):
     Details of the party calculating the value of collateral to be delivered or returned.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CalculationAgentTerms'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'party': {'description': 'The party which is specified as '
                                                  'Calculation Agent for Initial '
@@ -29006,7 +29042,7 @@ class CalculationAndTimingBase(ConfiguredBaseModel):
     """
     A logical container designed to hold a set of related data. In this case, designed to hold a set of clauses that are common amongst Legacy (1994/95), Variation Margin and Initial Margin Credit Support Documents in regards to Calculation, Valuation and Timing terms.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     notificationTime: NotificationTime = Field(default=..., description="""The time by which a demand for the Transfer of Eligible Credit Support (IM) or Posted Credit Support (IM) needs to be made in order for the transfer to take place in accordance with the Transfer Timing provisions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalculationAndTimingBase',
@@ -29021,7 +29057,7 @@ class CalculationAndTimingLegacy(CalculationAndTimingBase):
     Specification of the Calculation, Valuation and Timing terms specific to the Legacy (1994/95) Credit Support Annex.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CalculationAndTimingLegacy'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     valuationDate: CSAValuationDate = Field(default=..., description="""Details of the days on which calculations are to be made to determine the Delivery Amount and/or Return Amount.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CalculationAndTimingLegacy.valuationDate'],
@@ -29052,7 +29088,7 @@ class CalculationAndTimingVariationMargin(CalculationAndTimingBase):
     Specification of the Calculation, Valuation and Timing terms specific to the Variation Margin Credit Support Annex.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CalculationAndTimingVariationMargin'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'valuationAgent': {'description': 'Details of the party '
                                                           'valuating the collateral to '
@@ -29089,7 +29125,7 @@ class CalculationAndTimingInitialMargin(CalculationAndTimingBase):
     Specification of the Calculation, Valuation and Timing terms specific to the Initial Margin Credit Support Annex.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CalculationAndTimingInitialMargin'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     calculationAgentTerms: CalculationAgentTerms = Field(default=..., description="""Details of the party calculating the value of collateral to be delivered or returned.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CalculationAndTimingInitialMargin.calculationAgentTerms'],
@@ -29124,7 +29160,7 @@ class CalculationAndTimingCollateralTransferAgreement(CalculationAndTimingBase):
     Specification of the Calculation, Valuation and Timing terms specific to the Initial Margin Credit Support Annex.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CalculationAndTimingCollateralTransferAgreement'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'calculationAgentTerms': {'name': 'calculationAgentTerms',
                                                   'required': False},
@@ -29165,7 +29201,7 @@ class CalculationCurrencyElection(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CalculationCurrencyElection'],
          'comments': ['Rosetta condition: BaseCurrency — if isBaseCurrency = True then '
                       'currency is absent else currency exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 paragraph "13 General Principles" clause '
                    '"(ee)(3"'],
@@ -29273,7 +29309,7 @@ class ValuationCalculationDateLocation(ConfiguredBaseModel):
     """
     Specification of the Calculation Date Location for the respective parties to the legal agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(d)(i)" name "Calculation Date Location"',
@@ -29325,7 +29361,7 @@ class ValuationCalculationDateLocationElection(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: Choice — required choice businessCenter, '
                       'customLocation'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(d)(i)" name "Calculation Date Location"',
@@ -29423,7 +29459,7 @@ class CollateralAccessBreach(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CollateralAccessBreach'],
          'comments': ['Rosetta condition: CabEndDateTerms — if cabEndDateElection = '
                       'True then cabEndDateTerms is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'A condition to require Collateral Access Breach '
                                    'End Date Terms when a specification is required.',
@@ -29472,7 +29508,7 @@ class CollateralManagementAgreement(ConfiguredBaseModel):
     """
     A class to specify the Collateral Management Agreement election.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_Japanese_2016 paragraph "13 General Principles" clause '
                    '"(b)(i)" name "Collateral Management Agreement"'],
@@ -29518,7 +29554,7 @@ class CollateralManagementAgreementElection(ConfiguredBaseModel):
     A class to specify the Collateral Management Agreement election.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CollateralManagementAgreementElection'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 paragraph "13 General Principles" clause "(b(i)" '
                    'name "Collateral Management Agreement"'],
@@ -29589,7 +29625,7 @@ class CollateralRounding(ConfiguredBaseModel):
                                                'value': '[{"name":"ReturnAmount","inputs":[{"name":"postedCreditSupportItems","type":"PostedCreditSupportItem","cardinality":"0..*"},{"name":"priorDeliveryAmountAdjustment","type":"Money","cardinality":"1..1"},{"name":"priorReturnAmountAdjustment","type":"Money","cardinality":"1..1"},{"name":"disputedTransferredPostedCreditSupportAmount","type":"Money","cardinality":"1..1"},{"name":"marginAmount","type":"Money","cardinality":"1..1"},{"name":"threshold","type":"Money","cardinality":"1..1"},{"name":"marginApproach","type":"MarginApproachEnum","cardinality":"1..1"},{"name":"marginAmountIA","type":"Money","cardinality":"0..1"},{"name":"minimumTransferAmount","type":"Money","cardinality":"1..1"},{"name":"rounding","type":"CollateralRounding","cardinality":"1..1"},{"name":"disputedReturnAmount","type":"Money","cardinality":"1..1"},{"name":"baseCurrency","type":"string","cardinality":"1..1"}],"output":{"name":"result","type":"Money","cardinality":"1..1"}},{"name":"DeliveryAmount","inputs":[{"name":"postedCreditSupportItems","type":"PostedCreditSupportItem","cardinality":"0..*"},{"name":"priorDeliveryAmountAdjustment","type":"Money","cardinality":"1..1"},{"name":"priorReturnAmountAdjustment","type":"Money","cardinality":"1..1"},{"name":"disputedTransferredPostedCreditSupportAmount","type":"Money","cardinality":"1..1"},{"name":"marginAmount","type":"Money","cardinality":"1..1"},{"name":"threshold","type":"Money","cardinality":"1..1"},{"name":"marginApproach","type":"MarginApproachEnum","cardinality":"1..1"},{"name":"marginAmountIA","type":"Money","cardinality":"0..1"},{"name":"minimumTransferAmount","type":"Money","cardinality":"1..1"},{"name":"rounding","type":"CollateralRounding","cardinality":"1..1"},{"name":"disputedDeliveryAmount","type":"Money","cardinality":"1..1"},{"name":"baseCurrency","type":"string","cardinality":"1..1"}],"output":{"name":"result","type":"Money","cardinality":"1..1"}}]'}},
          'close_mappings': ['fpml_5_10:CollateralRounding'],
          'comments': ['Rosetta func: ReturnAmount', 'Rosetta func: DeliveryAmount'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(c)(vi)( C )" name "Rounding"',
@@ -29656,7 +29692,7 @@ class ConditionsPrecedent(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: CustomProvision — if customProvision exists '
                       'then conditionsPrecedentElection = ExceptionEnum -> Other'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 paragraph "4" clause "(a)"',
                    'ISDA CSA_VM_2016 paragraph "4" clause "(a)"',
@@ -29715,7 +29751,7 @@ class ControlAgreement(ConfiguredBaseModel):
     """
     A class to specify the relationship between the Control Agreement and the Credit Support Agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'partyElection': {'description': 'The party specific '
                                                          'elections.',
@@ -29756,7 +29792,7 @@ class ControlAgreementElections(ConfiguredBaseModel):
     """
     A class to specify the Control Agreement election sby each party to the agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'party': {'description': 'The elective party.',
                                   'name': 'party',
@@ -29821,7 +29857,7 @@ class ControlAgreementNecEvent(ConfiguredBaseModel):
     """
     A class to specify Control Agreement language related to delivery of a Notice of Exclusive Control.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     controlAgreementNecEventElection: list[ControlAgreementNecEventElection] = Field(default=..., description="""Indicates party specific Control Agreement language related to delivery of a Notice of Exclusive Control.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ControlAgreementNecEvent']} })
@@ -29831,7 +29867,7 @@ class ControlAgreementNecEventElection(ConfiguredBaseModel):
     """
     A class to specify party specific Control Agreement language related to delivery of a Notice of Exclusive Control.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'party': {'description': 'The elective party.',
                                   'name': 'party',
@@ -29894,7 +29930,7 @@ class Custodian(ConfiguredBaseModel):
     """
     A class to specify the custodian and custody account details for each party to the agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'partyElection': {'description': 'The party specific '
                                                          'elections.',
@@ -29940,7 +29976,7 @@ class CustodianElection(ConfiguredBaseModel):
                       'exists',
                       'Rosetta condition: AdditionalLanguage — if legacyVMCustodian is '
                       'absent then additionalLanguage exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'The entity should be named if this is specified in '
                                    'the determination.',
@@ -30044,7 +30080,7 @@ class CustodianEvent(ConfiguredBaseModel):
     """
     A class to specify the Custodian Event.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(n)(iii)" name " Custodian Event"',
@@ -30108,7 +30144,7 @@ class CustodianEventEndDate(ConfiguredBaseModel):
     """
     A class to specify the Custodian Event.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(n)(iii)" name "CE End Date"',
@@ -30139,7 +30175,7 @@ class CustodianRisk(ConfiguredBaseModel):
     """
     A class to specify the Custodian Risk elections specific to a Credit Support Agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'partyElection': {'description': 'The party specific '
                                                          'elections.',
@@ -30182,7 +30218,7 @@ class CustodianRiskElection(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: Specified — if isSpecified = False then '
                       'qualification is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(n)(ii)" name "Custodian (IM) Risk"',
@@ -30281,7 +30317,7 @@ class CustodianTerms(ConfiguredBaseModel):
     """
     A class to specify the requirements applicable to the custodian with respect to the holding of posted collateral.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_VM_2016 paragraph "13" clause " (h)(i)" name "Eligibility '
                    'to Hold Posted Collateral (VM) Custodians (VM)"'],
@@ -30296,7 +30332,7 @@ class CustodyArrangements(ConfiguredBaseModel):
     """
     Describes how posted collateral is held, maintained, and safeguarded by a custodian or third-party agent, in accordance with the terms of the governing agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'collateralManagementAgreement': {'name': 'collateralManagementAgreement',
                                                           'range': 'CollateralManagementAgreement',
@@ -30331,7 +30367,7 @@ class DisputeResolution(ConfiguredBaseModel):
     """
     A class to specify the election terms under which a party disputes the Value of any Transfer of Eligible Credit Support or Posted Credit Support.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(g)" name "Dispute Resolution"',
@@ -30378,7 +30414,7 @@ class ElectiveAmountElection(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: NonZeroAmount — if electiveAmount is absent '
                       'then amount exists or customElection exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'When the elective amount is not zero either a '
                                    'currency amount or a custom election must exist.',
@@ -30477,7 +30513,7 @@ class EnforcementEvent(ConfiguredBaseModel):
     """
     A class to specify Enforcement Events specific to Security Agreements.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     earlyTerminationDate: bool = Field(default=..., description="""The early termination election.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EnforcementEvent']} })
@@ -30492,7 +30528,7 @@ class ExecutionLanguage(ConfiguredBaseModel):
                       'False then numberOfOriginals is absent',
                       'Rosetta condition: OtherLanguage — if standardLanguage = False '
                       'then otherLanguage exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'A data rule to enforce that the number of original '
                                    'documents should only be specified when standard '
@@ -30525,7 +30561,7 @@ class ExecutionLocation(ConfiguredBaseModel):
                       'Rosetta condition: OtherLanguage — if executionLocation = '
                       'ExecutionLocationEnum -> OtherLocation then otherLanguage '
                       'exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'A data rule to enforce that Duty Payer Language '
                                    'should only be specified when required.',
@@ -30564,7 +30600,7 @@ class ExecutionTerms(ConfiguredBaseModel):
     """
     A class to specify execution location and language of execution to determine duty to be paid.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'executionLocation': {'description': 'The bespoke execution '
                                                              'location election.',
@@ -30581,7 +30617,7 @@ class FrenchLawAddendum(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: Applicable — if isApplicable = True then '
                       'partyElection count = 2'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'isApplicable': {'description': 'The qualification of whether '
                                                         'the French Law Addendum is '
@@ -30655,7 +30691,7 @@ class FrenchLawAddendumElection(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AddendumLanguage — if isApplicable = True '
                       'then addendumLanguage exists else if isApplicable = False then '
                       'addendumLanguage is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'A data rule to enforce that the French Law '
                                    'Addendum party language must be specified when '
@@ -30757,7 +30793,7 @@ class FxHaircutCurrency(ConfiguredBaseModel):
                       'absent',
                       'Rosetta condition: FxDesignatedCurrency — if '
                       'isTerminationCurrency = False then fxDesignatedCurrency exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': "The FX Designated Currency shouldn't be specified "
                                    'when the reference currency for the purpose of '
@@ -30787,7 +30823,7 @@ class GeneralSimmElections(ConfiguredBaseModel):
     """
     A class to specify the ISDA SIMM as the Method for all Covered Transactions with respect to all Regimes.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 paragraph "13 General Principles" clause "(ee)"'],
          'see_also': ['isda:CSA_IM_2016']})
@@ -30804,7 +30840,7 @@ class HoldingAndUsingPostedCollateral(ConfiguredBaseModel):
     """
     Specifies the conditions that need to be satisfied before the Secured Party or Custodian acting on its behalf can hold and use posted collateral.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_VM_2016 paragraph "13" clause " (h)" name "Holding and '
                    'Using Posted Collateral (VM)"',
@@ -30878,7 +30914,7 @@ class HoldingAndUsingPostedCollateralElection(ConfiguredBaseModel):
     """
     Specifies the parties' elections related to the holding and using of posted collateral.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_VM_2016 paragraph "13" clause " (h)" name "Holding and '
                    'Using Posted Collateral (VM)"',
@@ -30953,7 +30989,7 @@ class IneligibleCreditSupport(ConfiguredBaseModel):
     """
     Identifies collateral that has been designated as not meeting the eligibility criteria set out in the agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_VM_2016 paragraph "13" clause "(c)(iii)" name "Legally '
                    'Ineligible Credit Support (VM)"'],
@@ -30970,7 +31006,7 @@ class InterestAdjustment(ConfiguredBaseModel):
     """
     A class to specify whether the Interest Adjustment is applicable and what its periodicity is.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_Japanese_2016 paragraph "13 General Principles" clause '
                    '"(n)(ii)"'],
@@ -31010,7 +31046,7 @@ class InterestAdjustmentPeriodicity(ConfiguredBaseModel):
     """
     A class to specify the Interest Adjustment periodicity.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_Japanese_2016 paragraph "13 General Principles" clause '
                    '"(n)(ii)"'],
@@ -31034,7 +31070,7 @@ class InterestAmount(ConfiguredBaseModel):
     """
     A class to specify the application of Interest Amount with respect to the Delivery Amount and the Return Amount.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_Japanese_2016 paragraph "13 General Principles" clause '
                    '"(n)(ii)"'],
@@ -31074,7 +31110,7 @@ class JapaneseSecuritiesProvisions(ConfiguredBaseModel):
                       'Rosetta condition: AmendmentsToJapaneseProvisions — if '
                       'amendmentsToJapaneseProvisions = False then '
                       'amendmentsToJapaneseProvisionsTerms is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'A data rule to enforce that the specific terms '
                                    'applicable to Recommended Japanese Securities '
@@ -31131,7 +31167,7 @@ class JurisdictionRelatedTerms(ConfiguredBaseModel):
     """
     A class to specify terms jurisdiction related terms.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     japaneseSecuritiesProvisions: Optional[JapaneseSecuritiesProvisions] = Field(default=None, description="""The Japanese Securities Provisions election.""", json_schema_extra = { "linkml_meta": {'domain_of': ['JurisdictionRelatedTerms']} })
@@ -31145,7 +31181,7 @@ class MarginApproach(ConfiguredBaseModel):
     """
     A class for selection of Margin Approach.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     marginApproach: MarginApproachEnum = Field(default=..., description="""Specifies the margin approach specific to Initial Margin agreements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MarginApproach',
@@ -31160,7 +31196,7 @@ class MinimumTransferAmountAmendment(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AmendmentNotApplicable — if isApplicable = '
                       'False then effectiveDate is absent and partyElections is '
                       'absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'A data rule to enforce that the Effective Date and '
                                    'Party Elections should be absent when the Minimum '
@@ -31228,7 +31264,7 @@ class NotificationTime(ConfiguredBaseModel):
     """
     Specifies the time by which a demand for the Transfer of Eligible Credit Support or Posted Credit Support needs to be made in order for the transfer to take place in accordance with the Transfer Timing provisions.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(d)(iii)" name "Notification Time"',
@@ -31271,7 +31307,7 @@ class NotificationTimeElection(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: NotificationTimeElectionChoice — required '
                       'choice notificationTime, customNotification'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(d)(iii)" name "Notification Time"',
@@ -31367,7 +31403,7 @@ class OneWayProvisions(ConfiguredBaseModel):
                       'then postingParty exists',
                       'Rosetta condition: PostingPartyAbsent — if isApplicable = False '
                       'then postingParty is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 paragraph "13 General Principles" clause "(aa)" '
                    'name "One Way Provisions"'],
@@ -31422,7 +31458,7 @@ class OtherAgreements(ConfiguredBaseModel):
     """
     The bespoke definition of other agreements or other credit support annex terms as specified by the parties to the agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     otherCSA: Optional[OtherAgreementTerms] = Field(default=None, description="""The bespoke definition of Other CSA as specified by the parties to the agreement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OtherAgreements']} })
@@ -31435,7 +31471,7 @@ class OtherEligibleAndPostedSupport(ConfiguredBaseModel):
     """
     Specifies the Other Eligible Support elections.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'value': {'description': 'Details how particular types of '
                                                  'collateral are valued (other than in '
@@ -31465,7 +31501,7 @@ class PartyAgreementIdentifier(ConfiguredBaseModel):
     A class defining a legal agreement identifier issued by the indicated party.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'partyReference': {'description': 'Party that issued the '
                                                           'document identifier.',
@@ -31489,7 +31525,7 @@ class PostingObligations(ConfiguredBaseModel):
     """
     A class to specify the collateral posting obligations of the security provider or security providers as specified in the corresponding agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_NewYork_2016 paragraph "13 General Principles" clause '
                    '"(ii)"'],
@@ -31542,7 +31578,7 @@ class PostingObligationsElection(ConfiguredBaseModel):
                       'then eligibleCollateral exists',
                       'Rosetta condition: ConsistentParty — if eligibleCollateral '
                       'exists then eligibleCollateral -> appliesTo count = 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 paragraph "13 General Principles" clause "(ii)"'],
          'rules': [{'description': 'A data rule to enforce that the eligible '
@@ -31655,7 +31691,7 @@ class ProcessAgent(ConfiguredBaseModel):
     """
     Specifies the Process Agent that might be appointed by the parties as part of a Credit Support Annex/Deed or Collateral Transfer Agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'partyElection': {'description': "The parties' Process Agent "
                                                          'election.',
@@ -31702,7 +31738,7 @@ class ProcessAgentElection(ContactInformationElection):
                       'Rosetta condition: NotApplicable — if isApplicable = False then '
                       'primaryContactInformation is absent and entity is absent and '
                       'partyReference is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'A data rule to enforce that the Process Agent '
                                    'details must be specified when it is applicable.',
@@ -31780,7 +31816,7 @@ class RecalculationOfValue(ConfiguredBaseModel):
     """
     A class to specify terms for Recalculation of the Market Value of Posted Collateral when a dispute has been failed to be resolved by Resolution Time.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'partyElection': {'description': "The parties' Recalculation "
                                                          'of Value terms.',
@@ -31821,7 +31857,7 @@ class RecalculationOfValueElection(ConfiguredBaseModel):
     """
     A class to specify Recalculation of Value terms that will be applicable.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'party': {'description': 'The elective party.',
                                   'name': 'party',
@@ -31885,7 +31921,7 @@ class Regime(ConfiguredBaseModel):
     """
     A class to specify one or more regimes that may be specified as relevant to a legal agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 name "Regime"', 'ISDA CSA_IM_2018 name "Regime"'],
          'see_also': ['isda:CSA_IM_2016', 'isda:CSA_IM_2018']})
@@ -31898,7 +31934,7 @@ class RegimeTerms(ConfiguredBaseModel):
     """
     A class that is used by the ApplicableRegime and the AdditionalRegime classes to specify the regulatory regime terms.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 name "Regime"', 'ISDA CSA_IM_2018 name "Regime"'],
          'see_also': ['isda:CSA_IM_2016', 'isda:CSA_IM_2018'],
@@ -32007,7 +32043,7 @@ class PledgeeRepresentativeRider(ConfiguredBaseModel):
                       'Rosetta condition: RepresentativeEventTerms — if '
                       'representativeEvent = ExceptionEnum -> Other then '
                       'representativeEventTerms exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'A data rule to enforce that representative terms '
                                    'and a represented party are specified when '
@@ -32120,7 +32156,7 @@ class RetrospectiveEffect(ConfiguredBaseModel):
     """
     A class to specify the retrospective effect exception to the regulatory regime clause of Initial Margin documents as either a normalized value specified as part of an enumeration or a customized value specified of type string.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'asSpecified': {'description': 'The Standard Initial Margin '
                                                        'Model exception when specified '
@@ -32139,7 +32175,7 @@ class RightsEvents(ConfiguredBaseModel):
     """
     A class to specify the rights of Security Taker and/or Security Provider when an Early Termination or Access Condition event has occurred.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'deliveryInLieuRight': {'description': 'The specification of '
                                                                'whether Delivery In '
@@ -32163,7 +32199,7 @@ class SecuredPartyRightsEvent(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: FailureToPayLanguage — if '
                       'earlyTerminationDateOptionalLanguage = False then '
                       'failureToPayEarlyTermination is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'A data rule to enforce that the applicability of '
                                    'Failure to Pay language is only applied when Early '
@@ -32182,7 +32218,7 @@ class SecuredPartyRightsEventElection(ConfiguredBaseModel):
     """
     A class to specify party specific Secured Party Rights Event language.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'party': {'description': 'The elective party.',
                                   'name': 'party',
@@ -32250,7 +32286,7 @@ class SecurityProviderRightsEvent(ConfiguredBaseModel):
                       'includeCoolingOffLanguage = True then customElection is absent',
                       'Rosetta condition: RightsEvent_customElection — if '
                       'customElection exists then includeCoolingOffLanguage = False'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(j)" name "Chargor Rights Event"',
@@ -32342,7 +32378,7 @@ class SecurityProviderRightsEventElection(ConfiguredBaseModel):
     """
     A class to specify party specific Secured Party Rights Event language.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'party': {'description': 'The elective party.',
                                   'name': 'party',
@@ -32410,7 +32446,7 @@ class SensitivityMethodologies(ConfiguredBaseModel):
     """
     A class to specificy methodologies to compute sensitivities specific to the agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'partyElection': {'description': 'Party specific elections for '
                                                          'Sensitivity Methodology for '
@@ -32452,7 +32488,7 @@ class SensitivityMethodologiesPartyElection(ConfiguredBaseModel):
     """
     A class to specificy methodologies to compute sensitivities specific to the agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'party': {'description': 'The party to which the election '
                                                  'applies.',
@@ -32517,7 +32553,7 @@ class SensitivityToEquity(ConfiguredBaseModel):
     """
     Represents risk sensitivity calculated with respect to the value of an individual equity instrument.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     sensitivityToIndices: SensitivityMethodology = Field(default=..., description="""Represents risk sensitivity calculated with respect to the level of an equity or market index.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SensitivityToEquity']} })
@@ -32529,7 +32565,7 @@ class SensitivityMethodology(ConfiguredBaseModel):
     """
     A class to specify the methodology according to which sensitivities are computed.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 paragraph "13 General Principles" clause '
                    '"(gg)(2)"'],
@@ -32543,7 +32579,7 @@ class SimmCalculationCurrency(ConfiguredBaseModel):
     """
     A class to specify the SIMM Calculation Currency elections by each party to the agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'partyElection': {'description': "The parties' SIMM "
                                                          'Calculation Currency '
@@ -32585,7 +32621,7 @@ class SimmException(ConfiguredBaseModel):
     """
     A class to specify the SIMM exception to the regulatory regime clause.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 paragraph "13 General Principles" name "Regime: '
                    'SIMM Exception."'],
@@ -32612,7 +32648,7 @@ class SimmVersion(ConfiguredBaseModel):
                       'then partyVersion is absent',
                       'Rosetta condition: VersionSpecified — if isSpecified = True '
                       'then partyVersion exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2018 paragraph "13 General Principles" clause '
                    '"(ee)(1)"'],
@@ -32661,7 +32697,7 @@ class SubstitutedRegime(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: SubstitutedRegimeChoice — required choice '
                       'regime, additionalRegime'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'The applicable regime should be specified either '
                                    'as an enumeration or as an additional regime '
@@ -32700,7 +32736,7 @@ class SubstitutedRegimeTerms(ConfiguredBaseModel):
     """
     Specifies the applicability of the Substituted Regime as denoted in the Substituted Regime Table as part of certain legal agreements, such as such as the ISDA 2016 and 2018 CSA for Initial Margin.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'isApplicable': {'description': 'The specification of whether '
                                                         'the regime is elected as '
@@ -32792,7 +32828,7 @@ class Substitution(ConfiguredBaseModel):
     """
     A class to specify the conditions under which the Security Provider can substitute posted collateral. The details required for 'Legacy' agreements are substantially different to those required for newer agreements; where the agreement is a 1994 or 1995 CSA, or 1995 CSD, the legacyConsent attribute needs to be used which contains additional values beyond a simple true/false value.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'partyElection': {'description': 'Party specific elections for '
                                                          'substitution of posted '
@@ -32835,7 +32871,7 @@ class SubstitutionPartyElection(ConfiguredBaseModel):
     """
     Party specific elections for substitution of posted collateral.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'party': {'description': 'The party that is acting as the '
                                                  'Pledgor/Obligor/Chargor/Security '
@@ -32908,7 +32944,7 @@ class TerminationCurrencyAmendment(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: Applicability — if isApplicable = False then '
                       'effectiveDate is absent and partyElection is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 paragraph "13 General Principles" clause "(t)" '
                    'name "Amendment to Termination Currency."'],
@@ -33017,7 +33053,7 @@ class TerminationCurrencyElection(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: CurrencyElection — if isSpecified = False '
                       'then currency is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_IM_2016 paragraph "13 General Principles" clause "(t)(A) '
                    '& (B)"'],
@@ -33135,7 +33171,7 @@ class AdditionalObligations(ConfiguredBaseModel):
     The election of party specific additional obligations applicable to the agreement.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AdditionalObligations'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'party': {'description': 'The party that the additional '
                                                  'obligations apply to.',
@@ -33201,7 +33237,7 @@ class BaseAndEligibleCurrency(ConfiguredBaseModel):
     The base and eligible currency(ies) for the document as specified by the parties to the agreement.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:BaseAndEligibleCurrency'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     baseCurrency: ISOCurrencyCodeEnum = Field(default=..., description="""The common agreed currency into which relevant amounts of all collateral arrangements between the parties are converted, or if not an actual currency, the process through which this is determined. Where hardcoded (e.g. under the 1994 ISDA Credit Support Annex (Security Interest  NY Law)), the currency that effectively performs this function.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:BaseAndEligibleCurrency.baseCurrency'],
@@ -33226,7 +33262,7 @@ class CoveredTransactions(ConfiguredBaseModel):
     """
     Specification of Transactions covered by the legal agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'additionalObligations': {'description': 'The party specific '
                                                                  'additional '
@@ -33258,7 +33294,7 @@ class CreditSupportObligationsBase(ConfiguredBaseModel):
     """
     A logical container designed to hold a set of related data. In this case, designed to hold a set of clauses that are common amongst Legacy (1994/95), Variation Margin and Initial Margin Credit Support Documents in regards to Credit Support Obligations.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'deliveryAmount': {'description': 'In respect of a Valuation '
                                                           'Date, the amount of '
@@ -33309,7 +33345,7 @@ class CreditSupportObligationsLegacy(CreditSupportObligationsBase):
     """
     Specification of the Credit Support Obligations applicable to the Legacy (1994/95) Credit Support Annex.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'rounding': {'description': 'The rounding methodology '
                                                     'applicable to the Delivery Amount '
@@ -33387,7 +33423,7 @@ class CreditSupportObligationsInitialMargin(CreditSupportObligationsBase):
     """
     Specification of the Credit Support Obligations applicable to the Initial Margin Credit Support Annex.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(c)" name "Credit Support Obligations"',
@@ -33470,7 +33506,7 @@ class CreditSupportObligationsCollateralTransferAgreement(CreditSupportObligatio
     """
     Specification of the Credit Support Obligations applicable to the Initial Margin Credit Support Annex.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSD_IM_English_2016 paragraph "13 General Principles" clause '
                    '"(c)" name "Credit Support Obligations"',
@@ -33552,7 +33588,7 @@ class CreditSupportObligationsVariationMargin(CreditSupportObligationsBase):
     """
     Specification of the Credit Support Obligations applicable to the Variation Margin Credit Support Annex.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_VM_2016 paragraph "13" clause "(c) " name "Credit Support '
                    'Obligations"'],
@@ -33623,7 +33659,7 @@ class EligibleCreditSupport(ConfiguredBaseModel):
     """
     Specifies the collateral posting obligations of the security provider or security providers as specified in the corresponding agreement
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'partyElection': {'description': 'The specification of the '
                                                          'collateral posting '
@@ -33666,7 +33702,7 @@ class EligibleCollateralElection(PostingObligationsElection):
     """
     Specifies the collateral posting obligations for the security provider party(ies).
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     otherEligibleSupport: str = Field(default=..., description="""Specifies the Other Eligible Support conditions. If not specified, this election is deemed as not applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EligibleCollateralElection'],
@@ -33757,7 +33793,7 @@ class SecurityInterestForObligations(ConfiguredBaseModel):
     """
     Security Interest for Obligations clause applicable to 1994 NY CSA, 1995 English Law CSA, 1995 English Law Credit Support Deed, 2016 English Law VM CSA and 2016 New York Law VM CSA.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_NewYork_1994 name "Security Interest for Obligations"'],
          'see_also': ['isda:CSA_NewYork_1994'],
@@ -33833,7 +33869,7 @@ class SinglePostingParty(ConfiguredBaseModel):
     """
     Where only a single  party is explicitly designated to post collateral, the party which is specified as the sole poster of collateral.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'party': {'description': 'The party acting as the Single '
                                                  'Posting Party.',
@@ -33901,7 +33937,7 @@ class Threshold(ConfiguredBaseModel):
     """
     Represents the amount of unsecured risk that a party is willing to tolerate without holding any posted collateral provided by the other party.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_NewYork_1994 name "Threshold"'],
          'see_also': ['isda:CSA_NewYork_1994'],
@@ -33946,7 +33982,7 @@ class ThresholdMinimumTransferAmountBase(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ZeroEvent — if zeroEvent = True then event '
                       'exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'If zero event exists then boolean must be set to '
                                    "'True' and event must be specified.",
@@ -33965,7 +34001,7 @@ class ThresholdElection(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ThresholdOneOf — required choice '
                       'fixedAmount, ratingsBased, infinity, other'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'Ensures that threshold is specified as one-of '
                                    'fixedAmount, ratingsBased, infinity, or other.',
@@ -34056,7 +34092,7 @@ class ThresholdRatingsBased(ThresholdMinimumTransferAmountBase):
                       '-> NamedEntity then namedEntity exists',
                       'Rosetta condition: NamedAffiliate — if ratedParty = '
                       'RatedPartyEnum -> NamedAffiliate then namedAffiliate exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'If the rated party is NamedEntity then the entity '
                                    'must be specified.',
@@ -34132,7 +34168,7 @@ class CSAThresholdVariableSet(ConfiguredBaseModel):
                       'exists',
                       'Rosetta condition: ValueMustExist — if value exists then name '
                       'exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'If we have a name then we must also have a value.',
                     'postconditions': {'slot_conditions': {'value': {'name': 'value',
@@ -34198,7 +34234,7 @@ class MinimumTransferAmount(ConfiguredBaseModel):
     """
     Represents the threshold specified in the agreement below which collateral need not be delivered, and represents the smallest incremental value of exposure that must be reached before the parties are obliged to transfer collateral.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_NewYork_1994 name "Minimum Transfer Amount"',
                    'ISDA CSA_English_1995 name "Minimum Transfer Amount"',
@@ -34252,7 +34288,7 @@ class MinimumTransferAmountElection(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: MinimumTransferAmountOneOf — required choice '
                       'fixedAmount, ratingsBased, other'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'Ensures that Minimum Transfer Amount is specified '
                                    'as one-of fixedAmount, ratingsBased, or other.',
@@ -34346,7 +34382,7 @@ class ThresholdMinimumTransferAmountFixedAmount(ThresholdMinimumTransferAmountBa
     """
     Defines the Threshold or the Minimum Transfer Amount (MTA) as a fixed amount.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'amount': {'description': 'Specifies the monetary value of the '
                                                   'Threshold or the Minimum Transfer '
@@ -34375,7 +34411,7 @@ class MinimumTransferAmountRatingsBased(ThresholdMinimumTransferAmountBase):
                       '-> NamedEntity then namedEntity exists',
                       'Rosetta condition: NamedAffiliate — if ratedParty = '
                       'RatedPartyEnum -> NamedAffiliate then namedAffiliate exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'If the rated party is NamedEntity then the entity '
                                    'must be specified.',
@@ -34457,7 +34493,7 @@ class CSAMinimumTransferAmountVariableSet(ConfiguredBaseModel):
                       'exists',
                       'Rosetta condition: ValueMustExist — if value exists then name '
                       'exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'If we have a name then we must also have a value.',
                     'postconditions': {'slot_conditions': {'value': {'name': 'value',
@@ -34524,7 +34560,7 @@ class MasterAgreementDatedAsOfDate(ConfiguredBaseModel):
     """
     Defines the dates agreed by the parties as the date of the Credit Support Annex or Credit Support Deed.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'additionalLanguage': {'description': 'The additional language '
                                                               'that might be specified '
@@ -34570,7 +34606,7 @@ class CSADeliveryAmount(ConfiguredBaseModel):
     In respect of a Valuation Date, the amount of collateral which a party is entitled to demand to be transferred to it as a Delivery Amount.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CSADeliveryAmount'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'additionalLanguage': {'description': 'The additional language '
                                                               'that might be specified '
@@ -34619,7 +34655,7 @@ class CSAReturnAmount(ConfiguredBaseModel):
     """
     In respect of a Valuation Date, the amount of collateral which a party is entitled to demand to be recalled to it as a Return Amount.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'returnAmount': {'description': 'Specifies whether the meaning '
                                                         'of Return Amount follows the '
@@ -34647,7 +34683,7 @@ class ValuationTime(ConfiguredBaseModel):
                       'Rosetta condition: DayAndTime — if day exists then time exists '
                       'else time is absent and item -> location is absent and '
                       'hourminutetime is absent and timezone is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'If no Day valuation methodology is defined, '
                                    'additional language must be specified.',
@@ -34705,7 +34741,7 @@ class FinalReturns(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AdditionalLanguage — if applicable then '
                       'additionalLanguage exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'The additional language should be qualified only '
                                    'if the clause is specified as applicable.',
@@ -34764,7 +34800,7 @@ class CSAValuationDate(ConfiguredBaseModel):
                       'else calendarDay is absent',
                       'Rosetta condition: AdditionalLanguage — if date is absent or '
                       'frequency is absent then additionalLanguage exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'If a specific calendar day is specified, it must '
                                    'be defined.',
@@ -34842,7 +34878,7 @@ class ValuationAgent(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AdditionalLanguage — if party is absent then '
                       'additionalLanguage exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'If no party is defined, additional language must '
                                    'be used to specify the elective party.',
@@ -34945,7 +34981,7 @@ class ExposureScope(ConfiguredBaseModel):
     """
     Optionally, for each party, specifies the amendments to the included coverage in the calculation of Exposure.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'partyElection': {'description': 'Defines the electice scope '
                                                          'for a specific party.',
@@ -34987,7 +35023,7 @@ class LegacyExposureScopeElection(ConfiguredBaseModel):
     """
     Specification of amendments to the calculation of Exposure in terms of the Transactions and Products covered.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'additionalLanguage': {'description': 'The bespoke/additional '
                                                               'language that might be '
@@ -35077,7 +35113,7 @@ class ExcludedProducts(ConfiguredBaseModel):
     """
     Description of the relevant derivative transactions excluded from the calculation of exposure.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'excluded': {'description': 'A flag to indicate whether '
                                                     'transactions entered into by a '
@@ -35113,7 +35149,7 @@ class CreditSupportAmount(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AdditionalLanguage — if creditSupportAmount '
                       '= CreditSupportAmountEnum -> NonStandardOther then '
                       'additionalLanguage exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'If a Non Standard Other definition is defined, '
                                    'additional language must be specified.',
@@ -35173,7 +35209,7 @@ class LegacyResolutionAlternative(ConfiguredBaseModel):
                       'Rosetta condition: SplitDifferenceAmount — if '
                       'resolutionAlternative = LegacyResolutionAlternativeEnum -> '
                       'SplitDifference then amount exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'If no resolution alternative procedure is defined, '
                                    'additional language must be specified.',
@@ -35239,7 +35275,7 @@ class ResolutionValue(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: OtherValues — if cash = ValueCashEnum -> '
                       'Other or securities = ValueSecuritiesEnum -> Other then '
                       'additionalLanguage exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'additionalLanguage': {'description': 'The additional language '
                                                               'that might be specified '
@@ -35277,7 +35313,7 @@ class CollateralTransferTiming(ConfiguredBaseModel):
     Specification of transfer / settlement timing for cash and securities collateral assuming that the notice is provided before the Notification Time (and with a 1LBD lag introduced if the notice is delivered after the Notification Time), and that securities allow for a further Local Business Day for transfer / settlement.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CollateralTransferTiming'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     transferSettlementTiming: Optional[TransferSettlementTiming] = Field(default=None, description="""Specification of transfer / settlement timing for cash and securities collateral assuming that the notice is provided before the Notification Time (and with a 1LBD lag introduced if the notice is delivered after the Notification Time), and that securities allow for a further Local Business Day for transfer / settlement.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CollateralTransferTiming.transferSettlementTiming'],
@@ -35294,7 +35330,7 @@ class TransferSettlementTiming(ConfiguredBaseModel):
                       'cashCollateralTransferSettlementTime = CashCTSTimeEnum -> Other '
                       'or securititesCollateralTransferSettlementTime = '
                       'SecuritiesCTSTimeEnum -> Other then additionalLanguage exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'additionalLanguage': {'description': 'The additional language '
                                                               'that might be specified '
@@ -35333,7 +35369,7 @@ class CollateralTransferTimingDefinition(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CollateralTransferTimingDefinition'],
          'comments': ['Rosetta condition: ApplicableLanguage — if isApplicable = False '
                       'then additionalLanguage exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'Additional language is required when a bespoke '
                                    'amendment is used.',
@@ -35406,7 +35442,7 @@ class CollateralValueMethod(ConfiguredBaseModel):
          'comments': ['Rosetta condition: OtherValues — if cashCollateral = '
                       'ValueCashEnum -> Other or securitiesCollateral = '
                       'ValueSecuritiesEnum -> Other then additionalLanguage exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'additionalLanguage': {'description': 'The additional language '
                                                               'that might be specified '
@@ -35444,7 +35480,7 @@ class CreditSupportDocument(ConfiguredBaseModel):
     """
     Identification of party specific Credit Support Documents applicable to the document.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     creditSupportDocumentElection: list[CreditSupportDocumentElection] = Field(default=..., description="""The party election of Credit Support Document(s), if any.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreditSupportDocument']} })
@@ -35459,7 +35495,7 @@ class CreditSupportDocumentElection(ConfiguredBaseModel):
                       'Specified then (creditSupportDocument exists and '
                       'creditSupportDocumentTypes is absent) or (creditSupportDocument '
                       'is absent and creditSupportDocumentTypes exists)'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'party': {'description': 'The elective party.',
                                   'name': 'party',
@@ -35525,7 +35561,7 @@ class CreditSupportProvider(ConfiguredBaseModel):
     """
     Identification of party specific Credit Support Providers applicable to the document.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     creditSupportProviderElection: list[CreditSupportProviderElection] = Field(default=..., description="""The party election of Credit Support Provider(s), if any.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreditSupportProvider']} })
@@ -35538,7 +35574,7 @@ class CreditSupportProviderElection(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: CreditSupportProvider — if '
                       'creditSupportProviderTerms = CreditSupportProviderTermsEnum -> '
                       'Specified then creditSupportProvider exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'A validation rule to ensure that a Credit Support '
                                    'Provider is specified when required.',
@@ -35609,7 +35645,7 @@ class SpecifiedConditionOrAccessCondition(ConfiguredBaseModel):
     """
     Specifies the events elected by the parties that are deemed an Access Condition (for Initial Margin CSA) or a Specified Condition (for Variation Margin and Legacy CSA), which, if triggered, may temporarily or permanently suspend rights to rehypothecate, transfer, or substitute collateral.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_NewYork_1994 paragraph "13" clause "(d)"'],
          'see_also': ['isda:CSA_NewYork_1994'],
@@ -35719,7 +35755,7 @@ class SpecifiedOrAccessConditionPartyElection(ConfiguredBaseModel):
                       'additionalTerminationEvent any = AdditionalTerminationEventEnum '
                       '-> AsSpecified then specifiedAdditionalTerminationEvent exists '
                       'else specifiedAdditionalTerminationEvent is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'party': {'description': 'Identifies the party making the '
                                                  'election.',
@@ -35785,7 +35821,7 @@ class LegacyIndependentAmount(ConfiguredBaseModel):
     """
     Sets out the additional amount of collateral that is required to be delivered by that party irrespective of the mark-to-market exposure under the related Transactions. It may take the form of a fixed amount, or be determined using credit ratings.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_NewYork_1994 paragraph "13" clause "(b)(iv)(A)"'],
          'see_also': ['isda:CSA_NewYork_1994'],
@@ -35856,7 +35892,7 @@ class LegacyIndependentAmountParty(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: LegacyIAMethod — required choice '
                       'fixedAmount, ratingsBased, ratingsXExposure'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'Ensures that the Independent Amount is specified '
                                    'as only one of Fixed Amount, Ratings Based or '
@@ -35985,7 +36021,7 @@ class IndependentAmountRatings(ConfiguredBaseModel):
                       'Rosetta condition: NamedEntity — if ratedParty = RatedPartyEnum '
                       '-> NamedEntity then namedEntity exists else namedEntity is '
                       'absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'Ensures Named Affiliate is provided where the '
                                    'Rated Party is Named Affiliate.',
@@ -36043,7 +36079,7 @@ class LegacyIndependentAmountRatingsBased(IndependentAmountRatings):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: RestrictCompare — if compare exists then '
                       'compare = IndependentAmountCompareEnum -> Lowest or compare = '
                       'IndependentAmountCompareEnum -> Highest'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'currency': {'description': 'Specifies the currency applicable '
                                                     'to the relevant Independent '
@@ -36112,7 +36148,7 @@ class RatingAgencyAmount(ConfiguredBaseModel):
                       'ratingVariableSet -> creditWatch is absent and '
                       'ratingVariableSet -> agency exists and ratingVariableSet -> '
                       'notation exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'amount': {'description': 'Specifies the notional or '
                                                   'collateral Independent Amount.',
@@ -36147,7 +36183,7 @@ class LegacyIndependentAmountRatingsXExposure(IndependentAmountRatings):
                       'IndependentAmountCompareEnum -> Highest then '
                       'highestLowestVariableSet exists and compareVariableSet is '
                       'absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'rules': [{'description': 'Ensures the appropriate variable set is populated '
                                    'based on how the Ratings are compared.',
@@ -36204,7 +36240,7 @@ class RatingMultiplier(ConfiguredBaseModel):
                       'ratingVariableSet -> creditWatch is absent and '
                       'ratingVariableSet -> agency exists and ratingVariableSet -> '
                       'notation exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     ratingVariableSet: list[CreditNotation] = Field(default=..., description="""Allows a grouping of Rating agencies and Rating values.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RatingAgencyAmount', 'RatingMultiplier']} })
@@ -36215,7 +36251,7 @@ class DirectionRatingMultiplier(ConfiguredBaseModel):
     """
     A logical container to hold a defined set of related data. In this case the collation of Ratings Information and associated exposure multiplier.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'variableSet': {'description': 'A logical container to hold a '
                                                        'defined set of related data. '
@@ -36239,7 +36275,7 @@ class AllDirectionRating(ConfiguredBaseModel):
     """
     Used to combine two or more Ratings and associated direction using AND logic.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     allDirectionRating: list[Union[AllDirectionRating, AnyDirectionRating, DirectionRating]] = Field(default=..., json_schema_extra = { "linkml_meta": {'any_of': [{'range': 'AllDirectionRating'},
@@ -36252,7 +36288,7 @@ class AnyDirectionRating(ConfiguredBaseModel):
     """
     Used to combine two or more Ratings and associated direction using OR logic.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     anyDirectionRating: list[Union[AllDirectionRating, AnyDirectionRating, DirectionRating]] = Field(default=..., json_schema_extra = { "linkml_meta": {'any_of': [{'range': 'AllDirectionRating'},
@@ -36268,7 +36304,7 @@ class EligibilityToHoldCollateral(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: Custodian — if custodianEligibility = True '
                       'then initialCustodian exists else initialCustodian is absent '
                       'and custodianCondition is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_VM_2016 paragraph "13" clause " (h)(i)" name "Eligibility '
                    'to Hold Posted Collateral (VM) Custodians (VM)"'],
@@ -36298,7 +36334,7 @@ class AllEligibilityToHoldCollateralCriteria(ConfiguredBaseModel):
     """
     Used to combine two or more Criteria using AND logic.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     allCriteria: list[Union[AllEligibilityToHoldCollateralCriteria, AmountOfNetCapital, AnyEligibilityToHoldCollateralCriteria, RatingAgencyValue]] = Field(default=..., json_schema_extra = { "linkml_meta": {'any_of': [{'range': 'AllEligibilityToHoldCollateralCriteria'},
@@ -36312,7 +36348,7 @@ class AnyEligibilityToHoldCollateralCriteria(ConfiguredBaseModel):
     """
     Used to combine two or more Criteria using OR logic.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     anyCriteria: list[Union[AllEligibilityToHoldCollateralCriteria, AmountOfNetCapital, AnyEligibilityToHoldCollateralCriteria, RatingAgencyValue]] = Field(default=..., json_schema_extra = { "linkml_meta": {'any_of': [{'range': 'AllEligibilityToHoldCollateralCriteria'},
@@ -36326,7 +36362,7 @@ class AmountOfNetCapital(ConfiguredBaseModel):
     """
     The amount of net capital.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     amountOfNetCapital: Optional[Money] = Field(default=None, description="""The amount of net capital.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AmountOfNetCapital']} })
@@ -36336,7 +36372,7 @@ class DemandsAndNotices(ConfiguredBaseModel):
     """
     Specifies the address where the demands, specifications and notices will be communicated to for each of the parties to the agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'notes': ['ISDA CSA_NewYork_1994 paragraph "13" clause "(k)"'],
          'see_also': ['isda:CSA_NewYork_1994'],
@@ -36380,7 +36416,7 @@ class AddressesForTransfer(ConfiguredBaseModel):
     """
     Specifies the address for transfer as specified by the respective parties to the agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'partyElection': {'description': "The parties' contact and "
                                                          'transfer information '
@@ -36434,7 +36470,7 @@ class MasterAgreementSchedule(ConfiguredBaseModel):
     """
     The set of elections which specify a Master Agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master',
          'in_subset': ['cdm_legaldocumentation_master']})
 
     clause: list[MasterAgreementClause] = Field(default=..., description="""Clauses that have had elections made against them in this Master Agreement. There must be at least one clause defined in the agreement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MasterAgreementSchedule']} })
@@ -36444,7 +36480,7 @@ class MasterAgreementClause(ConfiguredBaseModel):
     """
     Defines clauses that make up a Master Agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master',
          'in_subset': ['cdm_legaldocumentation_master'],
          'slot_usage': {'counterparty': {'description': 'Optional counterparty role. '
                                                         'This can be used where a '
@@ -36471,7 +36507,9 @@ class MasterAgreementClause(ConfiguredBaseModel):
                                        'name': 'otherParty',
                                        'range': 'PartyRoleEnum'}}})
 
-    identifer: MasterAgreementClauseIdentifierEnum = Field(default=..., description="""Unique identifier for the clause.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InventoryRecord', 'MasterAgreementClause']} })
+    identifer: MasterAgreementClauseIdentifierEnum = Field(default=..., description="""Unique identifier for the clause.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InventoryRecord',
+                       'AvailableInventory',
+                       'MasterAgreementClause']} })
     name: Optional[str] = Field(default=None, description="""Optional textual description of the clause.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
          'domain_of': ['TaxonomyValue',
                        'BusinessUnit',
@@ -36502,7 +36540,7 @@ class MasterAgreementClauseVariant(ConfiguredBaseModel):
     """
     Sets the details for a specific variant associated to a clause in a Master Agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master',
          'in_subset': ['cdm_legaldocumentation_master'],
          'slot_usage': {'counterparty': {'description': 'Optional counterparty role. '
                                                         'This can be used where a '
@@ -36605,7 +36643,7 @@ class MasterAgreementVariableSet(ConfiguredBaseModel):
                       'exists',
                       'Rosetta condition: ValueMustExist — if value exists then name '
                       'exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master',
          'in_subset': ['cdm_legaldocumentation_master'],
          'rules': [{'description': 'If we have a variableSet then we must not have any '
                                    'name/value pairs at this level.',
@@ -36686,7 +36724,7 @@ class MasterAgreementBase(ConfiguredBaseModel):
     """
     A set of elections that can be shared across master agreement types - this should be built upon for specific contracts.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master',
          'in_subset': ['cdm_legaldocumentation_master']})
 
     pass
@@ -36696,7 +36734,7 @@ class MasterAgreementElections(ConfiguredBaseModel):
     """
     A representation of a master agreement extended from a base agreement of shared elections.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master',
          'in_subset': ['cdm_legaldocumentation_master']})
 
     pass
@@ -36706,7 +36744,7 @@ class GlobalMasterRepoAgreement(MasterAgreementBase):
     """
     The set of elections that define a GMRA
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_icma',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_icma',
          'in_subset': ['cdm_legaldocumentation_master_icma']})
 
     pass
@@ -36716,7 +36754,7 @@ class MasterAgreement(MasterAgreementBase):
     """
     The set of elections that define an ISDA Master Agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isda',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
          'in_subset': ['cdm_legaldocumentation_master_isda'],
          'narrow_mappings': ['gist:Agreement'],
          'slot_usage': {'creditSupportDocument': {'description': 'Identification of '
@@ -36757,7 +36795,7 @@ class AutomaticEarlyTermination(ConfiguredBaseModel):
                       'Rosetta condition: Indemnity — if fallbackAET = False and '
                       'partyElection -> isApplicable all = False then indemnity = '
                       'False'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isda',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
          'in_subset': ['cdm_legaldocumentation_master_isda'],
          'notes': ['ISDA ISDA_MA_1998 section "6(a)"',
                    'ISDA ISDA_MA_2002 section "6(a)"'],
@@ -36808,7 +36846,7 @@ class AutomaticEarlyTerminationElection(ConfiguredBaseModel):
     A class to specify the party elections specific to the Automatic Early Termination Clause.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AutomaticEarlyTerminationElection'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isda',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
          'in_subset': ['cdm_legaldocumentation_master_isda'],
          'slot_usage': {'isApplicable': {'description': 'A boolean election to specify '
                                                         'whether the Automatic Early '
@@ -36902,7 +36940,7 @@ class TerminationCurrency(ConfiguredBaseModel):
     """
     Specifies how the Termination Currency for the agreement will be determined.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isda',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
          'in_subset': ['cdm_legaldocumentation_master_isda']})
 
     statedTerminationCurrency: Optional[TerminationCurrencySelection] = Field(default=None, description="""Allows for specific Termination Currency(ies) and a fallback Termination Currency to be selected.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TerminationCurrency']} })
@@ -36913,7 +36951,7 @@ class TerminationCurrencySelection(ConfiguredBaseModel):
     """
     Specifies Termination Currency where a currency is stated at the time the agreement is entered into.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isda',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
          'in_subset': ['cdm_legaldocumentation_master_isda'],
          'slot_usage': {'partyElection': {'description': 'Specifies different '
                                                          'termination currencies to '
@@ -36965,7 +37003,7 @@ class PartyOptionTerminationCurrency(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: TerminationCurrencyCondition — if '
                       'terminationCurrencyCondition = TerminationCurrencyConditionEnum '
                       '-> Specified then terminationCurrencySpecifiedCondition exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isda',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
          'in_subset': ['cdm_legaldocumentation_master_isda'],
          'rules': [{'description': 'A validation rule to ensure that Termination '
                                    'Currency alternative conditions are specified when '
@@ -36984,7 +37022,7 @@ class PartyTerminationCurrencySelection(ConfiguredBaseModel):
     """
     Specifies the termination currency to be used by a party when it is the Non-Defaulting Party or the Party which is not the Affected Party.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isda',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
          'in_subset': ['cdm_legaldocumentation_master_isda'],
          'slot_usage': {'party': {'description': 'The elective party.',
                                   'name': 'party',
@@ -37047,7 +37085,7 @@ class SpecifiedEntities(ConfiguredBaseModel):
     """
     A provision that allows each party to specify its Specified Entities for certain Events of Default and Termination Events.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isda',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
          'in_subset': ['cdm_legaldocumentation_master_isda']})
 
     specifiedEntityClause: SpecifiedEntityClauseEnum = Field(default=..., description="""The Event of Default or Termination event for which Specified Entities terms are being defined.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpecifiedEntities']} })
@@ -37067,7 +37105,7 @@ class SpecifiedEntity(ConfiguredBaseModel):
                       'Rosetta condition: OtherSpecifiedEntity — if '
                       'specifiedEntityTerms = SpecifiedEntityTermsEnum -> '
                       'OtherSpecifiedEntity then otherSpecifiedEntityTerms exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isda',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
          'in_subset': ['cdm_legaldocumentation_master_isda'],
          'rules': [{'description': 'A validation rule to ensure that a SpecifiedEntity '
                                    'is specified when required.',
@@ -37158,7 +37196,7 @@ class GlobalMasterSecuritiesLendingAgreement(MasterAgreementBase):
     """
     The set of elections that define a GMSLA.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isla',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isla',
          'in_subset': ['cdm_legaldocumentation_master_isla'],
          'slot_usage': {'baseCurrency': {'description': 'The definitions regarding '
                                                         'base currency determinations '
@@ -37193,7 +37231,7 @@ class CollateralSpecification(ConfiguredBaseModel):
          'comments': ['Rosetta condition: StandardMarketCondition — if '
                       'standardDefinitionOfMarketValueUsed <> True then '
                       'definitionOfMarketValueNonStandard exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isla',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isla',
          'in_subset': ['cdm_legaldocumentation_master_isla'],
          'rules': [{'comments': ['Rosetta negation: '
                                  'standardDefinitionOfMarketValueUsed <> True'],
@@ -37231,7 +37269,7 @@ class BaseCurrency(ConfiguredBaseModel):
     The definitions regarding base currency determinations relating to the GMSLA.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:BaseCurrency'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isla',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isla',
          'in_subset': ['cdm_legaldocumentation_master_isla'],
          'slot_usage': {'baseCurrency': {'description': 'The base currency as defined '
                                                         'in the GMSLA.',
@@ -37256,7 +37294,7 @@ class EventsOfDefaultElection(ConfiguredBaseModel):
                       'if automaticEarlyTerminationInModifiedForm or '
                       'automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple '
                       'then automaticEarlyTerminationApplies = Applicable'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isla',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isla',
          'in_subset': ['cdm_legaldocumentation_master_isla'],
          'slot_usage': {'party': {'description': 'The specified party.',
                                   'name': 'party',
@@ -37325,7 +37363,7 @@ class EventsOfDefault(ConfiguredBaseModel):
     """
     The definitions regarding any different events of default relating to the GMSLA.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isla',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isla',
          'in_subset': ['cdm_legaldocumentation_master_isla'],
          'slot_usage': {'partyElection': {'description': 'The specified events of '
                                                          'default elections for the '
@@ -37369,7 +37407,7 @@ class Aggregation(ConfiguredBaseModel):
     The definitions for whether aggregation applies to the GMSLA, and if so how it applies.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:Aggregation'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_master_isla',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isla',
          'in_subset': ['cdm_legaldocumentation_master_isla']})
 
     aggregationType: AggregationSpecificationEnum = Field(default=..., description="""How is the mark to market value determined?""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:Aggregation.aggregationType'],
@@ -37384,7 +37422,7 @@ class TransactionAdditionalTerms(ConfiguredBaseModel):
     """
     Additional specification for the extraordinary events that may affect a trade and the related contractual rights and obligation of the parties when this happens. Such terms are typically required to extend the economics terms, for the purpose of producing the final legal contractual form of the Transaction.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction',
          'in_subset': ['cdm_legaldocumentation_transaction']})
 
     equityAdditionalTerms: Optional[EquityAdditionalTerms] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['TransactionAdditionalTerms']} })
@@ -37399,7 +37437,7 @@ class EquityAdditionalTerms(ConfiguredBaseModel):
     """
     Transaction AdditionalTerms that apply to Equity asset class.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction',
          'in_subset': ['cdm_legaldocumentation_transaction']})
 
     extraordinaryEvents: Optional[ExtraordinaryEvents] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EquityAdditionalTerms']} })
@@ -37413,7 +37451,7 @@ class UnderlierSubstitutionProvision(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: DisputingPartyCannotHaveOriginalRole — '
                       'whoMaySubstitute all <> disputingParty'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction',
          'in_subset': ['cdm_legaldocumentation_transaction']})
 
     whoMaySubstitute: list[CounterpartyRoleEnum] = Field(default=..., description="""Designates which Counterparty to the transaction who has the right to trigger a substitution or to provide related determination e.g. for instance to qualify the effectiveness of an Event which may be a trigger for substitution, determine the replacement Share to substitute, etc. ; cardinality of this object is 2, in case parties jointly have this role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UnderlierSubstitutionProvision']} })
@@ -37428,7 +37466,7 @@ class ExtraordinaryEvents(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ExtraordinaryEventsChoice — required choice '
                       'additionalDisruptionEvents, failureToDeliver'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction',
          'in_subset': ['cdm_legaldocumentation_transaction'],
          'notes': ['ISDA SecurityEquitySwapConfirmation_2018',
                    'ISDA EquityDerivativesDefinitions_2002'],
@@ -37484,7 +37522,7 @@ class AdditionalDisruptionEvents(ConfiguredBaseModel):
                       'Rosetta condition: DisruptionEventsDeterminingParty — if '
                       'determiningParty exists then determiningParty = '
                       'AncillaryRoleEnum -> DisruptionEventsDeterminingParty'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction',
          'in_subset': ['cdm_legaldocumentation_transaction'],
          'notes': ['ISDA EquityDerivativesDefinitions_2002'],
          'rules': [{'description': ' FpML specifies the maximumStockLoanRate as a '
@@ -37550,7 +37588,7 @@ class Clause(ConfiguredBaseModel):
     A type for documenting additional clause that cannot yet be represented with the model and yet needed for a digital representation of the agreement.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:Clause'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction',
          'in_subset': ['cdm_legaldocumentation_transaction'],
          'slot_usage': {'identifier': {'description': 'The  name or identifier '
                                                       'associated to this clause.',
@@ -37586,7 +37624,7 @@ class MasterConfirmationBase(ConfiguredBaseModel):
     """
     Legal agreement specification for General Terms and Elections that are applicable across multiple confirmations and are referenced by these confirmations.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction',
          'in_subset': ['cdm_legaldocumentation_transaction']})
 
     pass
@@ -37596,7 +37634,7 @@ class BrokerConfirmation(ConfiguredBaseModel):
     """
     Identifies the market sector in which the trade has been arranged.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction',
          'in_subset': ['cdm_legaldocumentation_transaction'],
          'slot_usage': {'brokerConfirmationType': {'description': 'The type of broker '
                                                                   'confirmation '
@@ -37613,7 +37651,7 @@ class EquityMasterConfirmation(MasterConfirmationBase):
     """
     Specification for General Terms and Elections of an Equity Master Confirmation that is applicable across multiple Equity confirmations and is referenced by each of these confirmations, an example of which being the 2018 ISDA CDM Equity Confirmation for Security Equity Swap.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction',
          'in_subset': ['cdm_legaldocumentation_transaction']})
 
     pass
@@ -37623,7 +37661,7 @@ class EquitySwapMasterConfirmation2018(EquityMasterConfirmation):
     """
     Specification for the General Terms and Relationship Supplement Elections as provided in the 2018 ISDA CDM Equity Confirmation for Security Equity Swap.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction',
          'in_subset': ['cdm_legaldocumentation_transaction']})
 
     typeOfSwapElection: ReturnTypeEnum = Field(default=..., description="""Per Part 1 Section 4, 'Dividend Obligations', of the 2018 ISDA CDM Equity Confirmation, Para 4.2 'Dividend Returns'.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EquitySwapMasterConfirmation2018']} })
@@ -37647,7 +37685,7 @@ class FxAdditionalTerms(ConfiguredBaseModel):
                       '(disruptionEvents exists and noFaultTermination is absent or '
                       'noFaultTermination = False) or (disruptionEvents is absent and '
                       'noFaultTermination = True)'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'slot_usage': {'determinationTerms': {'multivalued': False,
                                                'name': 'determinationTerms',
@@ -37659,7 +37697,7 @@ class FxAdditionalTerms(ConfiguredBaseModel):
 
 
 class Representations(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'slot_usage': {'additionalBespokeTerms': {'multivalued': True,
                                                    'name': 'additionalBespokeTerms',
@@ -37681,7 +37719,7 @@ class IndexAdjustmentEvents(ConfiguredBaseModel):
     """
     Defines the specification of the consequences of Index Events
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA EquityDerivativesDefinitions_2002'],
          'see_also': ['isda:EquityDerivativesDefinitions_2002']})
@@ -37697,7 +37735,7 @@ class DeterminationRolesAndTerms(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: DisputingPartyCannotHaveOriginalRole — '
                       'whoToDetermine all <> disputingParty'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'slot_usage': {'disputingParty': {'description': 'Where the party who is not '
                                                           'granted with the '
@@ -37724,7 +37762,7 @@ class EquityCorporateEvents(ConfiguredBaseModel):
     """
     A class for defining the merger events and their treatment.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA SecurityEquitySwapConfirmation_2018'],
          'see_also': ['isda:SecurityEquitySwapConfirmation_2018']})
@@ -37738,7 +37776,7 @@ class FxDisruptionEvents(ConfiguredBaseModel):
     """
     Additional Provisions for a Confirmation of an FX or Currency Option Transaction
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA FXandCurrencyOptionsDefintions_1998'],
          'see_also': ['isda:FXandCurrencyOptionsDefintions_1998'],
@@ -37784,7 +37822,7 @@ class FxDisruptionEvents(ConfiguredBaseModel):
 
 
 class GovernmentalAuthorityDefault(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA FXandCurrencyOptionsDefintions_1998 section "5.1.(d).(v)"'],
          'see_also': ['isda:FXandCurrencyOptionsDefintions_1998']})
@@ -37822,7 +37860,7 @@ class GovernmentalAuthorityDefault(ConfiguredBaseModel):
 
 
 class Illiquidity(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA FXandCurrencyOptionsDefintions_1998 section "5.1.(d).(vi)"'],
          'see_also': ['isda:FXandCurrencyOptionsDefintions_1998']})
@@ -37851,7 +37889,7 @@ class Illiquidity(ConfiguredBaseModel):
 
 
 class MaterialChangeInCircumstance(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA FXandCurrencyOptionsDefintions_1998 section "5.1.(d).(viii)"'],
          'see_also': ['isda:FXandCurrencyOptionsDefintions_1998']})
@@ -37883,7 +37921,7 @@ class Nationalization(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AssignmentOfClaim — if '
                       'nationalizationIsApplicable = False then assignmentOfClaim is '
                       'absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA FXandCurrencyOptionsDefintions_1998 section "5.1.(d).(ix)"'],
          'rules': [{'description': 'AssignmentOfClaim',
@@ -37919,7 +37957,7 @@ class Nationalization(ConfiguredBaseModel):
 
 
 class PriceMateriality(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA FXandCurrencyOptionsDefintions_1998 section "5.1.(d).(x)"'],
          'see_also': ['isda:FXandCurrencyOptionsDefintions_1998']})
@@ -37945,7 +37983,7 @@ class PriceMateriality(ConfiguredBaseModel):
 
 
 class FxPriceSourceDisruption(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA FXandCurrencyOptionsDefintions_1998 section "5.1.(d).(xi)"'],
          'see_also': ['isda:FXandCurrencyOptionsDefintions_1998']})
@@ -37971,7 +38009,7 @@ class FxPriceSourceDisruption(ConfiguredBaseModel):
 
 
 class FxBenchmarkObligationDefault(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA FXandCurrencyOptionsDefintions_1998 section "5.1.(d).(i)"'],
          'see_also': ['isda:FXandCurrencyOptionsDefintions_1998']})
@@ -38001,7 +38039,7 @@ class FxBenchmarkObligationDefault(ConfiguredBaseModel):
 
 
 class FxDualExchangeRate(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA FXandCurrencyOptionsDefintions_1998 section "5.1.(d).(ii)"'],
          'see_also': ['isda:FXandCurrencyOptionsDefintions_1998'],
@@ -38029,7 +38067,7 @@ class FxDualExchangeRate(ConfiguredBaseModel):
 
 
 class FxInconvertibilityOrNonTransferability(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA FXandCurrencyOptionsDefintions_1998 section "5.1.(d).(vii)"'],
          'see_also': ['isda:FXandCurrencyOptionsDefintions_1998']})
@@ -38053,7 +38091,7 @@ class GeneralInconvertibility(ConfiguredBaseModel):
                       'nonDeliverableSubstitute is absent or if '
                       'nonDeliverableSubstitute exists then '
                       'localSubstituteProvisionType is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'rules': [{'description': 'SettlementPostponementExistence',
                     'postconditions': {'slot_conditions': {'maximumDaysOfDisruption': {'name': 'maximumDaysOfDisruption',
@@ -38125,7 +38163,7 @@ class GeneralNonTransferability(ConfiguredBaseModel):
                       'nonDeliverableSubstitute is absent or if '
                       'nonDeliverableSubstitute exists then '
                       'localSubstituteProvisionType is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'rules': [{'description': 'SettlementPostponementExistence',
                     'postconditions': {'slot_conditions': {'maximumDaysOfDisruption': {'name': 'maximumDaysOfDisruption',
@@ -38197,7 +38235,7 @@ class SpecificInconvertibility(ConfiguredBaseModel):
                       'nonDeliverableSubstitute is absent or if '
                       'nonDeliverableSubstitute exists then '
                       'localSubstituteProvisionType is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'rules': [{'description': 'SettlementPostponementExistence',
                     'postconditions': {'slot_conditions': {'maximumDaysOfDisruption': {'name': 'maximumDaysOfDisruption',
@@ -38271,7 +38309,7 @@ class SpecificNonTransferability(ConfiguredBaseModel):
                       'nonDeliverableSubstitute is absent or if '
                       'nonDeliverableSubstitute exists then '
                       'localSubstituteProvisionType is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'rules': [{'description': 'SettlementPostponementExistence',
                     'postconditions': {'slot_conditions': {'maximumDaysOfDisruption': {'name': 'maximumDaysOfDisruption',
@@ -38328,7 +38366,7 @@ class EscrowArrangement(ConfiguredBaseModel):
                       'maximumDaysOfDisruption is absent and if '
                       'escrowArrangementIsApplicable = True then '
                       'maximumDaysOfDisruption exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA FXandCurrencyOptionsDefintions_1998 section "5.2.(c).(iv)"'],
          'rules': [{'description': 'SettlementPostponementExistence',
@@ -38354,7 +38392,7 @@ class EventCurrency(ConfiguredBaseModel):
     """
     Defines the currency referenced as such in any terms related to FX Disruption Events
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'notes': ['ISDA FXandCurrencyOptionsDefintions_1998 section "5.4.(c)"'],
          'see_also': ['isda:FXandCurrencyOptionsDefintions_1998'],
@@ -38373,7 +38411,7 @@ class EventCurrency(ConfiguredBaseModel):
 
 
 class NonDeliverableSubstitute(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_transaction_additionalterms',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms',
          'in_subset': ['cdm_legaldocumentation_transaction_additionalterms'],
          'slot_usage': {'settlementDate': {'name': 'settlementDate',
                                            'range': 'AdjustedRelativeDateOffset',
@@ -38428,7 +38466,7 @@ class StandardizedSchedule(ConfiguredBaseModel):
                       'Rosetta func: GetGrossInitialMarginFromStandardizedSchedule — '
                       'Takes the grid information from an specific trade and '
                       'calculates the gross initial margin.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_margin_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_margin_schedule',
          'in_subset': ['cdm_margin_schedule'],
          'rules': [{'description': 'Ensure notional is greater than 0',
                     'postconditions': {'slot_conditions': {'notional': {'comments': ['Rosetta: '
@@ -38461,7 +38499,7 @@ class StandardizedScheduleTradeInfo(ConfiguredBaseModel):
                       'grossInitialMargin -> value > 0',
                       'Rosetta condition: SameCurrencies — grossInitialMargin -> unit '
                       '-> currency = markToMarketValue -> unit -> currency'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_margin_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_margin_schedule',
          'in_subset': ['cdm_margin_schedule'],
          'slot_usage': {'assetClass': {'name': 'assetClass', 'required': False},
                         'productClass': {'name': 'productClass', 'required': False}}})
@@ -38488,7 +38526,7 @@ class StandardizedScheduleInitialMargin(ConfiguredBaseModel):
                       'Rosetta func: GetNetInitialMarginFromExposure — Computes the '
                       'net initial margin, taking the gross initial margin result and '
                       'the mark to market value for each trade in the portfolio.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_margin_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_margin_schedule',
          'in_subset': ['cdm_margin_schedule']})
 
     tradeInfo: Optional[list[StandardizedScheduleTradeInfo]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['StandardizedScheduleInitialMargin']} })
@@ -38500,7 +38538,7 @@ class IndexBase(AssetBase):
     Identifies an index by referencing an identifier.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AssetType — assetType = Other'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'Asset type must be Other.',
                     'postconditions': {'slot_conditions': {'assetType': {'equals_string': 'Other',
@@ -38566,7 +38604,7 @@ class FloatingRateIndex(IndexBase):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: InterestRateAssetClass — assetClass = '
                       'AssetClassEnum -> InterestRate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     floatingRateIndex: FloatingRateIndexEnum = Field(default=..., description="""The reference index that is used to specify the floating interest rate.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
@@ -38634,7 +38672,7 @@ class ForeignExchangeRateIndex(IndexBase):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: FXAssetClass — assetClass = AssetClassEnum '
                       '-> ForeignExchange'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     quotedCurrencyPair: QuotedCurrencyPair = Field(default=..., description="""Describes the composition of a rate that has been quoted or is to be quoted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ForeignExchangeRateIndex', 'FxRate', 'ValuationSource']} })
@@ -38694,7 +38732,7 @@ class InflationIndex(IndexBase):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: InterestRateAssetClass — assetClass = '
                       'AssetClassEnum -> InterestRate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     inflationRateIndex: InflationRateIndexEnum = Field(default=..., description="""The reference index that is used to specify the inflation interest rate.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
@@ -38764,7 +38802,7 @@ class CreditIndex(IndexBase):
                       'indexFactor >= 0 and indexFactor <= 1',
                       'Rosetta condition: CreditAssetClass — assetClass = '
                       'AssetClassEnum -> Credit'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'FpML specifies the type associated to indexSeries '
                                    'as a positive integer.',
@@ -38859,7 +38897,7 @@ class EquityIndex(IndexBase):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: EquityAssetClass — assetClass = '
                       'AssetClassEnum -> Equity'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     name: Optional[str] = Field(default=None, description="""A description of the Index.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
@@ -38915,7 +38953,7 @@ class OtherIndex(IndexBase):
     Specification of a user-defined index that does not meet the criteria of other Index data types.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AssetClassRequired — assetClass exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'The asset class must be explicitly set.',
                     'postconditions': {'slot_conditions': {'assetClass': {'name': 'assetClass',
@@ -39000,7 +39038,7 @@ class PriceQuantity(ConfiguredBaseModel):
                       'InterestRateObservableCondition',
                       'Rosetta func: InterestRateObservableCondition — Implementation '
                       'for PriceQuantity.InterestRateObservable condition.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'slot_usage': {'effectiveDate': {'description': 'Specifies the date at which '
                                                          'the price and quantity '
@@ -39071,7 +39109,7 @@ class PriceComposite(ConfiguredBaseModel):
                       'PriceOperandEnum -> AccruedInterest then arithmeticOperator = '
                       'ArithmeticOperationEnum -> Add or arithmeticOperator = '
                       'ArithmeticOperationEnum -> Subtract'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     baseValue: Decimal = Field(default=..., description="""The 1st value in the arithmetic operation, which may be non-commutative in some cases: Subtract, Divide). This 1st operand is called 'baseValue' as it refers to the price anchor in the arithmetic operation: e.g. the clean price (Bond) or the spot rate (FX).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PriceComposite']} })
@@ -39118,7 +39156,7 @@ class PriceSchedule(MeasureSchedule):
                       'or priceSubType = Rebate then priceType = InterestRate',
                       'Rosetta func: FilterPrice — Filter list of prices based on '
                       'price type.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'The price can be specified mutually exclusively as '
                                    'an operator (e.g. a spread or multiplier) or a '
@@ -39173,7 +39211,7 @@ class Price(PriceSchedule):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AmountOnlyExists — value exists and '
                       'datedValue is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'related_mappings': ['gist:Magnitude'],
          'rules': [{'description': 'The amount must exist when the price represents a '
@@ -39212,7 +39250,7 @@ class Basket(AssetBase):
     Defines a custom basket by referencing an identifier and its constituents.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AssetType — assetType = Security'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'Asset type must be Security.',
                     'postconditions': {'slot_conditions': {'assetType': {'equals_string': 'Security',
@@ -39254,7 +39292,7 @@ class InformationSource(ConfiguredBaseModel):
     """
     A class defining the source for a piece of information (e.g. a rate fix or an FX fixing). The attribute names have been adjusted from FpML to address the fact that the information is not limited to rates.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     sourceProvider: InformationProviderEnum = Field(default=..., description="""An information source for obtaining a market data point. For example Bloomberg, Reuters, Telerate, etc.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
@@ -39272,7 +39310,7 @@ class Money(Quantity):
          'close_mappings': ['gist:Magnitude'],
          'comments': ['Rosetta condition: CurrencyUnitExists — unit -> currency '
                       'exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     multiplier: Optional[Measure] = Field(default=None, description="""Defines an optional number that the quantity should be multiplied by to derive a total quantity. This number is associated to a unit. For example in the case of the Coal (API2) CIF ARA (ARGUS-McCloskey) Futures Contract on the CME, where the unit would be contracts, the multiplier value would 1,000 and the mulitiplier unit would be 1,000 MT (Metric Tons).""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitySchedule', 'FloatingRateProcessingParameters']} })
@@ -39298,7 +39336,7 @@ class QuotedCurrencyPair(ConfiguredBaseModel):
     """
     A class that describes the composition of a rate that has been quoted or is to be quoted. This includes the two currencies and the quotation relationship between the two currencies and is used as a building block throughout the FX specification.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     currency1: str = Field(default=..., description="""The first currency specified when a pair of currencies is to be evaluated.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
@@ -39311,7 +39349,7 @@ class QuotedCurrencyPair(ConfiguredBaseModel):
 class Curve(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: Curve — one-of'],
          'deprecated': 'Deprecated in CDM',
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'comments': ['Rosetta one-of: exactly one slot must be present.'],
                     'description': 'Curve'}]})
@@ -39323,7 +39361,7 @@ class Curve(ConfiguredBaseModel):
 
 class InterestRateCurve(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'deprecated': 'Deprecated in CDM',
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     floatingRateIndex: FloatingRateIndexEnum = Field(default=..., description="""The reference index that is used to specify the floating interest rate.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
@@ -39340,7 +39378,7 @@ class TransactedPrice(ConfiguredBaseModel):
     """
      A class to represent the transacted price attributes that are positioned as part of the FpML FeeLeg.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     marketFixedRate: Optional[Decimal] = Field(default=None, description="""An optional element that only has meaning in a credit index trade. This element contains the credit spread ('fair value') at which the trade was executed. Unlike the fixedRate of an index, the marketFixedRate varies over the life of the index depending on market conditions. The marketFixedRate is the price of the index as quoted by trading desks.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TransactedPrice']} })
@@ -39353,7 +39391,7 @@ class ReferenceSwapCurve(ConfiguredBaseModel):
     """
     A complex type used to specify the option and convertible bond option strike when expressed in reference to a swap curve.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     swapUnwindValue: SwapCurveValuation = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['ReferenceSwapCurve']} })
@@ -39364,7 +39402,7 @@ class SwapCurveValuation(ConfiguredBaseModel):
     """
     A class to specify a valuation swap curve, which is used as part of the strike construct for the bond and convertible bond options.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'slot_usage': {'indexTenor': {'description': 'The ISDA Designated Maturity, '
                                                       'i.e. the tenor of the floating '
@@ -39393,7 +39431,7 @@ class MakeWholeAmount(SwapCurveValuation):
     """
     A class to specify the amount to be paid by the buyer of the option if the option is exercised prior to the Early Call Date (typically applicable to the convertible bond options).
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     interpolationMethod: Optional[InterpolationMethodEnum] = Field(default=None, description="""The type of interpolation method that the calculation agent reserves the right to use.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MakeWholeAmount', 'InflationRateSpecification']} })
@@ -39420,7 +39458,7 @@ class ValuationDates(ConfiguredBaseModel):
     """
     Defines how and when a performance type option or performance type swap is to be valued, including initial, interim and final valuation dates.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     initialValuationDate: Optional[PerformanceValuationDates] = Field(default=None, description="""Specifies the initial valuation dates of the underlyer.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ValuationDates']} })
@@ -39433,7 +39471,7 @@ class PerformanceValuationDates(ConfiguredBaseModel):
     Defines how and when a performance type option or performance type swap is to be valued.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'slot_usage': {'valuationDate': {'description': '2018 ISDA CDM Equity '
                                                          'Confirmation for Security '
@@ -39491,7 +39529,7 @@ class FxRateSourceFixing(ConfiguredBaseModel):
     """
     Describes a rate source to be fixed and the date the fixing occurs
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     settlementRateSource: FxSettlementRateSource = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['FxRateSourceFixing']} })
@@ -39502,7 +39540,7 @@ class FxInformationSource(InformationSource):
     """
     Information source specific to Foreign Exchange products.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     fixingTime: Optional[BusinessCenterTime] = Field(default=None, description="""The time that the fixing will be taken along with a business center to define the time zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FxInformationSource',
@@ -39528,7 +39566,7 @@ class FallbackReferencePrice(ConfiguredBaseModel):
                       'calculationAgentDetermination -> calculationAgentParty exists '
                       'then calculationAgentDetermination -> calculationAgentParty = '
                       'AncillaryRoleEnum -> CalculationAgentFallback'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     valuationPostponement: Optional[ValuationPostponement] = Field(default=None, description="""Specifies how long to wait to get a quote from a settlement rate option upon a price source disruption.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FallbackReferencePrice']} })
@@ -39542,7 +39580,7 @@ class ValuationPostponement(ConfiguredBaseModel):
     """
     Specifies how long to wait to get a quote from a settlement rate option upon a price source disruption.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     maximumDaysOfPostponement: int = Field(default=..., description="""The maximum number of days to wait for a quote from the disrupted settlement rate option before proceeding to the next method.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ValuationPostponement']} })
@@ -39552,7 +39590,7 @@ class FxRate(ConfiguredBaseModel):
     """
     A class describing the rate of a currency conversion: pair of currency, quotation mode and exchange rate.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'slot_usage': {'quotedCurrencyPair': {'description': 'Defines the two '
                                                               'currencies for an FX '
@@ -39569,7 +39607,7 @@ class FxSpotRateSource(ConfiguredBaseModel):
     """
     A class defining the rate source and fixing time for an FX rate.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     primarySource: InformationSource = Field(default=..., description="""The primary source for where the rate observation will occur. Will typically be either a page or a reference bank published rate.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FxSpotRateSource']} })
@@ -39583,7 +39621,7 @@ class RateObservation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
          'comments': ['Rosetta condition: PositiveObservationWeight — if '
                       'observationWeight exists then observationWeight >= 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'FpML specifies observationWeight as a positive '
                                    'integer.',
@@ -39615,7 +39653,7 @@ class CreditNotation(ConfiguredBaseModel):
     """
     Represents a class to specify the credit notation as the combination of agency, notation, scale and debt type qualifications.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     agency: CreditRatingAgencyEnum = Field(default=..., description="""Specifies The credit agency to which the other variables (notation, scale, debt type) refer to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreditNotation']} })
@@ -39635,7 +39673,7 @@ class DirectionRating(CreditNotation):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: RestrictingCreditNotation — (scale is absent '
                       'and debt is absent and outlook is absent and creditWatch is '
                       'absent) and (agency exists and notation exists)'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa'],
          'slot_usage': {'direction': {'description': 'Specifies the direction of '
                                                      'measurement for the rated party.',
@@ -39662,7 +39700,7 @@ class RatingAgencyValue(CreditNotation):
                       'notation is absent and ratingType is absent)) and (scale is '
                       'absent and debt is absent and outlook is absent and creditWatch '
                       'is absent)'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_legaldocumentation_csa',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'in_subset': ['cdm_legaldocumentation_csa']})
 
     ratingType: RatingTypeEnum = Field(default=..., description="""The relevant rating type.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ThresholdRatingsBased',
@@ -39683,7 +39721,7 @@ class CreditNotations(ConfiguredBaseModel):
     """
     Represents the credit rating notation higher level construct, which provides the ability to specify multiple rating notations.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     creditNotation: Optional[CreditNotation] = Field(default=None, description="""Specifies only one credit notation is determined.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreditNotations',
@@ -39696,7 +39734,7 @@ class CreditRatingDebt(ConfiguredBaseModel):
     """
     Specifies the credit rating debt type(s) associated with the credit rating notation and scale. When several debt types are specified, they must be qualified through an 'any' or 'all'.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'slot_usage': {'debtType': {'description': 'Specifies when there is only one '
                                                     "debt type. FpML doesn't specify "
@@ -39721,7 +39759,7 @@ class MultipleCreditNotations(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ReferenceAgency — if mismatchResolution = '
                       'CreditNotationMismatchResolutionEnum -> ReferenceAgency then '
                       'referenceAgency exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'If the mismatch resolution is ReferenceAgency, '
                                    'ensure that the reference agency is specified.',
@@ -39748,7 +39786,7 @@ class MultipleDebtTypes(ConfiguredBaseModel):
     """
     Represents a class to specify multiple credit debt types alongside a conditional 'any' or 'all' qualifier.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'slot_usage': {'condition': {'description': 'An enumerated attribute, to '
                                                      'qualify whether All or Any debt '
@@ -39778,7 +39816,7 @@ class FxSettlementRateSource(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: FxSettlementRateSourceChoice — required '
                       'choice settlementRateOption, nonstandardSettlementRate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'FxSettlementRateSourceChoice',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'settlementRateOption': {'name': 'settlementRateOption',
@@ -39807,7 +39845,7 @@ class CalculationAgent(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CalculationAgent'],
          'comments': ['Rosetta condition: CalculationAgentChoice — optional choice '
                       'calculationAgentParty, calculationAgentPartyEnum'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'any_of': [{'slot_conditions': {'calculationAgentParty': {'name': 'calculationAgentParty',
@@ -39828,7 +39866,7 @@ class SettlementRateOption(ConfiguredBaseModel):
     """
     Defines the settlement rate option to use for fixing in case of cash settlement. Currently only applicable to foreign exchange fixing in case of cross-currency settlement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'slot_usage': {'priceSourceDisruption': {'description': 'An attribute '
                                                                  'defining the '
@@ -39866,7 +39904,7 @@ class SingleValuationDate(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: NonNegativeBusinessDays — if businessDays '
                       'exists then businessDays >= 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'FpML specifies businessDays as a '
                                    'NonNegativeInteger.',
@@ -39883,7 +39921,7 @@ class MultipleValuationDates(SingleValuationDate):
                       'businessDaysThereafter exists then businessDaysThereafter >= 0',
                       'Rosetta condition: NumberValuationDates — if '
                       'numberValuationDates exists then numberValuationDates >= 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'FpML specifies businessDaysThereafter as a '
                                    'PositiveInteger.',
@@ -39910,7 +39948,7 @@ class ValuationSource(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: InformationSource — required choice '
                       'informationSource, settlementRateOption, referenceBanks, '
                       'dealerOrCCP'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'An information source must be provided.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'informationSource': {'name': 'informationSource',
@@ -39971,7 +40009,7 @@ class PriceSourceDisruption(ConfiguredBaseModel):
     """
     A data defining:  the parameters used to get a price quote to replace the settlement rate option that is disrupted.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'slot_usage': {'fallbackReferencePrice': {'name': 'fallbackReferencePrice',
                                                    'range': 'FallbackReferencePrice',
@@ -39996,7 +40034,7 @@ class ValuationMethod(ConfiguredBaseModel):
                       'Rosetta condition: Dealer — if quotationAmount exists or '
                       'minimumQuotationAmount exists then valuationSource -> '
                       'dealerOrCCP -> legalEntity exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     valuationSource: ValuationSource = Field(default=..., description="""The source for obtaining a valuation. This may come from some information source (e.g. Reuters), from a rate option fixing (e.g. FX fixing for cross-currency settlement), or from a set of reference banks. This is a mandatory attribute as the valuation method relies on one of those sources to be specified.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ValuationMethod']} })
@@ -40012,7 +40050,7 @@ class CashCollateralValuationMethod(ConfiguredBaseModel):
     This type is a generic structure that can represent the parameters of several mid-market valuation and replacement value methods described in the 2021 ISDA Definitions.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CashCollateralValuationMethod'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     applicableCsa: Optional[CsaTypeEnum] = Field(default=None, description="""This may be used to specify what type of CSA (credit support annex/agreement) is to be used for cash settlement purposes.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CashCollateralValuationMethod.applicableCsa'],
@@ -40035,7 +40073,7 @@ class DividendApplicability(ConfiguredBaseModel):
     """
     The parameters which define whether dividends are applicable
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset']})
 
     optionsExchangeDividends: Optional[bool] = Field(default=None, description="""If present and true, then options exchange dividends are applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DividendApplicability']} })
@@ -40061,7 +40099,7 @@ class BasketConstituent(Observable):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:BasketConstituent'],
          'comments': ['Rosetta condition: BasketsOfBaskets — Basket is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'in_subset': ['cdm_observable_asset'],
          'rules': [{'description': 'To prevent endless looping, baskets of baskets are '
                                    'not supported.',
@@ -40154,7 +40192,7 @@ class FloatingRateCalculationParameters(ConfiguredBaseModel):
                       'Rosetta func: ProcessObservations — Apply daily observation '
                       'parameters to rate observation.  These are discussed in the '
                       '2021 ISDA Definitions, section 7.2.3 and 7.2.4.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_calculatedrate',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_calculatedrate',
          'in_subset': ['cdm_observable_asset_calculatedrate'],
          'slot_usage': {'calculationMethod': {'description': 'calculation type '
                                                              '(averaging or '
@@ -40178,7 +40216,7 @@ class FallbackRateParameters(ConfiguredBaseModel):
     """
     Defines the structure needed to represent fallback rate parameters. This type is used to represent modular computed rates in interestRatePayouts.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_calculatedrate',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_calculatedrate',
          'in_subset': ['cdm_observable_asset_calculatedrate'],
          'slot_usage': {'effectiveDate': {'description': 'The date the fallback rate '
                                                          'takes effect.',
@@ -40219,7 +40257,7 @@ class OffsetCalculation(ConfiguredBaseModel):
     """
     Defines business day shifts for daily componded or averaged rates.  This type is used for lookback and lockout rates. This type is used to represent modular computed rates in interestRatePayouts.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_calculatedrate',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_calculatedrate',
          'in_subset': ['cdm_observable_asset_calculatedrate'],
          'slot_usage': {'offsetDays': {'description': 'The number of business days '
                                                       'offset.',
@@ -40237,7 +40275,7 @@ class ObservationShiftCalculation(ConfiguredBaseModel):
     """
     Parameters to describe the observation shift for a daily compounded or averaged floating rate. This type is used to represent modular computed rates in interestRatePayouts.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_calculatedrate',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_calculatedrate',
          'in_subset': ['cdm_observable_asset_calculatedrate'],
          'slot_usage': {'offsetDays': {'description': 'The number of days of '
                                                       'observation shift.',
@@ -40257,7 +40295,7 @@ class ObservationParameters(ConfiguredBaseModel):
     """
     Parameters on daily observed computed rates, specifically daily caps and floors. This type is used to represent modular computed rates in interestRatePayouts.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_calculatedrate',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_calculatedrate',
          'in_subset': ['cdm_observable_asset_calculatedrate']})
 
     observationCapRate: Optional[Decimal] = Field(default=None, description="""A daily observation cap rate.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ObservationParameters']} })
@@ -40293,7 +40331,7 @@ class CalculatedRateDetails(ConfiguredBaseModel):
                       'arithmetic averaging formula.  Sums the weighted rates and '
                       'divides by the total weight.  This is used to support section '
                       '7.4 of the 2021 ISDA Definitions.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_calculatedrate',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_calculatedrate',
          'in_subset': ['cdm_observable_asset_calculatedrate'],
          'slot_usage': {'aggregateValue': {'description': 'The total sum or product of '
                                                           'all the individual terms '
@@ -40331,7 +40369,7 @@ class CalculatedRateObservations(ConfiguredBaseModel):
     Type for reporting observations that went into the final reported rate.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CalculatedRateObservations'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_calculatedrate',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_calculatedrate',
          'in_subset': ['cdm_observable_asset_calculatedrate']})
 
     observationDates: Optional[list[date]] = Field(default=None, description="""The observation date upon which the rate is observed.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CalculatedRateObservations.observationDates'],
@@ -40361,7 +40399,7 @@ class CalculatedRateObservationDatesAndWeights(ConfiguredBaseModel):
          'comments': ['Rosetta func: GenerateObservationDatesAndWeights — Apply shifts '
                       'to generate the list of observation dates and weights for each '
                       'of those date.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_calculatedrate',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_calculatedrate',
          'in_subset': ['cdm_observable_asset_calculatedrate']})
 
     observationDates: Optional[list[date]] = Field(default=None, description="""The observation date upon which the rate is observed.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CalculatedRateObservations.observationDates'],
@@ -40381,7 +40419,7 @@ class FloatingRateIndexDefinition(ConfiguredBaseModel):
                                                         'index.","inputs":[{"name":"floatingRateIndexName","type":"FloatingRateIndexEnum","cardinality":"1..1"}],"output":{"name":"floatingRateIndexDescription","type":"FloatingRateIndexDefinition","cardinality":"0..1"},"code_implementation":true}]'}},
          'comments': ['Rosetta func: FloatingRateIndexMetadata — Retrieve all '
                       'available metadata for the floating rate index.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro']})
 
     fro: FloatingRateIndexIdentification = Field(default=..., description="""The underlying FRO name and designated maturity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateIndexDefinition']} })
@@ -40398,7 +40436,7 @@ class FloatingRateIndexDefinition(ConfiguredBaseModel):
 
 
 class FloatingRateIndexIdentification(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro'],
          'slot_usage': {'currency': {'description': 'FRO currency - 3 character ISO '
                                                     'currrency code',
@@ -40449,7 +40487,7 @@ class FloatingRateIndexCalculationDefaults(ConfiguredBaseModel):
     """
     This holds the rate calculation defaults applicable for a floating rate index.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro'],
          'slot_usage': {'applicableBusinessDays': {'description': 'The default '
                                                                   'applicable business '
@@ -40488,7 +40526,7 @@ class FloatingRateIndexCalculationDefaults(ConfiguredBaseModel):
 class ContractualDefinition(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: Choice — optional choice identifier, '
                       'contractualDefinitionIdentifier'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro'],
          'rules': [{'description': 'Choice between document uuid or document type and '
                                    'version',
@@ -40537,7 +40575,7 @@ class ContractualDefinition(ConfiguredBaseModel):
 
 
 class ContractualDefinitionIdentifier(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro']})
 
     contractualDefinitionType: ContractualDefinitionsEnum = Field(default=..., description="""e.g. ISDA2021Definitions""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContractualDefinitionIdentifier']} })
@@ -40550,7 +40588,7 @@ class FloatingRateIndexMap(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: Choice — optional choice identifier, '
                       'contractualDefinitionIdentifier'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro'],
          'rules': [{'description': 'Choice between document uuid or document type and '
                                    'version',
@@ -40606,7 +40644,7 @@ class FloatingRateIndexMappings(ConfiguredBaseModel):
     """
     This type defines mappings between FROs in different definitional versions.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro']})
 
     mapsTo: Optional[FloatingRateIndexMap] = Field(default=None, description="""The successor FRO that this index maps to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateIndexMappings']} })
@@ -40617,7 +40655,7 @@ class FloatingRateIndexExternalMap(ConfiguredBaseModel):
     """
     A map for a single FRO to or from an equivalent or similar codes in a different standard such as ISO.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro']})
 
     externalId: str = Field(default=..., description=""" The FRO name that is being mapped to/from.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateIndexExternalMap']} })
@@ -40628,7 +40666,7 @@ class FloatingRateIndexExternalMappings(ConfiguredBaseModel):
     """
     Represents the mappings of FRO codes to other.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro']})
 
     isoCode: Optional[FloatingRateIndexExternalMap] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateIndexExternalMappings']} })
@@ -40638,7 +40676,7 @@ class FroHistory(ConfiguredBaseModel):
     """
     FRO History
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro'],
          'slot_usage': {'endDate': {'description': 'The date the Floating Rate Option '
                                                    'was removed from the 2006 '
@@ -40677,7 +40715,7 @@ class FloatingRateIndexFixingDetails(ConfiguredBaseModel):
     """
     This type holds parameters defining the fixingt time and offset for a floating rate index.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro'],
          'slot_usage': {'fixingTime': {'description': 'Parameters defining the normal '
                                                       'fixing time (can vary by index '
@@ -40697,7 +40735,7 @@ class FloatingRateIndexFixingTime(BusinessCenterTime):
     """
     This type holds parameters defining the normal fixing time for a floating rate index.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro']})
 
     designatedMaturity: Optional[str] = Field(default=None, description="""Allows a designed maturity to be specified for the fixing time.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateIndexFixingTime', 'FloatingRateIndexFixingOffset']} })
@@ -40720,7 +40758,7 @@ class BusinessDayOffset(Period):
     This allows an offset to be specified as, for instance, N business days, with a business centers specified as included.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:BusinessDayOffset'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro'],
          'slot_usage': {'businessCenters': {'description': 'The business centers for '
                                                            'the offset.',
@@ -40750,7 +40788,7 @@ class FloatingRateIndexFixingOffset(BusinessDayOffset):
     """
     This type holds parameters defining the normal fixing offset for a floating rate index.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_asset_fro',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
          'in_subset': ['cdm_observable_asset_fro'],
          'slot_usage': {'designatedMaturity': {'description': 'Allows a reason to be '
                                                               'specified for using the '
@@ -40785,7 +40823,7 @@ class Trigger(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: Choice1 — required choice level, '
                       'creditEvents , creditEventsReference'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_event',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_event',
          'in_subset': ['cdm_observable_event'],
          'rules': [{'description': ' Choice rule to represent an FpML choice '
                                    'construct.',
@@ -40809,7 +40847,7 @@ class TriggerEvent(ConfiguredBaseModel):
     """
     Observation point for trigger.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_event',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_event',
          'in_subset': ['cdm_observable_event']})
 
     schedule: Optional[list[AveragingSchedule]] = Field(default=None, description="""A derivative schedule.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TriggerEvent',
@@ -40828,7 +40866,7 @@ class CreditEvents(ConfiguredBaseModel):
     A class to specify the applicable Credit Events that would trigger a settlement, as specified in the related Confirmation and defined in the ISDA 2014 Credit Definition article IV section 4.1.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_event',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_event',
          'in_subset': ['cdm_observable_event'],
          'slot_usage': {'failureToPay': {'description': 'A credit event. This credit '
                                                         'event triggers, after the '
@@ -40863,7 +40901,7 @@ class CreditEvents(ConfiguredBaseModel):
 
 
 class CreditEventNotice(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_event',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_event',
          'in_subset': ['cdm_observable_event'],
          'slot_usage': {'businessCenter': {'description': 'Inclusion of this business '
                                                           'center element implies that '
@@ -40939,7 +40977,7 @@ class CreditEventNotice(ConfiguredBaseModel):
 
 
 class FailureToPay(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_event',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_event',
          'in_subset': ['cdm_observable_event'],
          'slot_usage': {'applicable': {'description': 'Indicates whether the failure '
                                                       'to pay provision is applicable.',
@@ -40958,7 +40996,7 @@ class FailureToPay(ConfiguredBaseModel):
 
 
 class GracePeriodExtension(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_event',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_event',
          'in_subset': ['cdm_observable_event'],
          'slot_usage': {'applicable': {'description': 'Indicates whether the grace '
                                                       'period extension provision is '
@@ -40981,7 +41019,7 @@ class PubliclyAvailableInformation(ConfiguredBaseModel):
                       'standardPublicSources, publicSource',
                       'Rosetta condition: PositiveSpecifiedNumber — if specifiedNumber '
                       'exists then specifiedNumber >= 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_event',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_event',
          'in_subset': ['cdm_observable_event'],
          'rules': [{'description': ' FpML validation rule cd-36 - Context: '
                                    'PubliclyAvailableInformation (complex type). '
@@ -41004,7 +41042,7 @@ class PubliclyAvailableInformation(ConfiguredBaseModel):
 
 
 class Restructuring(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_event',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_event',
          'in_subset': ['cdm_observable_event'],
          'slot_usage': {'applicable': {'description': 'Indicates whether the '
                                                       'restructuring provision is '
@@ -41034,7 +41072,7 @@ class FeaturePayment(ConfiguredBaseModel):
                       'levelPercentage, amount',
                       'Rosetta condition: Amount — if amount exists then amount >= '
                       '0.0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_event',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_event',
          'in_subset': ['cdm_observable_event'],
          'rules': [{'description': ' Choice rule to represent an FpML choice '
                                    'construct.',
@@ -41149,7 +41187,7 @@ class Observation(ConfiguredBaseModel):
                       'should be used by implementors to resolve a single observation '
                       'when provided many, applying the averaging method, if one is '
                       'provided.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_event',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_event',
          'in_subset': ['cdm_observable_event'],
          'tree_root': True})
 
@@ -41174,7 +41212,7 @@ class ObservationIdentifier(ConfiguredBaseModel):
                       'should be used by implementors to resolve a single observation '
                       'when provided many, applying the averaging method, if one is '
                       'provided.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_event',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_event',
          'in_subset': ['cdm_observable_event'],
          'slot_usage': {'informationSource': {'description': 'Represents where the '
                                                              'market data published '
@@ -41202,7 +41240,7 @@ class DeterminationMethodology(ConfiguredBaseModel):
     """
     Specifies the method according to which an amount or a date is determined.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_observable_event',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_event',
          'in_subset': ['cdm_observable_event'],
          'slot_usage': {'determinationMethod': {'description': 'Represents a more '
                                                                'granular dimention of '
@@ -41230,7 +41268,7 @@ class AssetDeliveryInformation(ConfiguredBaseModel):
     Contains the information relative to the delivery of the asset.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AssetDeliveryInformation'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'slot_usage': {'location': {'description': 'Defines the location of the '
                                                     'delivery of the commodity.',
@@ -41255,7 +41293,7 @@ class AssetDeliveryPeriods(ConfiguredBaseModel):
     Defines the periods of delivery, including the delivery profile.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AssetDeliveryPeriods'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'slot_usage': {'endDate': {'description': 'Delivery end date',
                                     'name': 'endDate',
@@ -41288,7 +41326,7 @@ class CalculationScheduleDeliveryPeriods(AssetDeliveryPeriods):
     Period and time profile over which the delivery takes place.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CalculationScheduleDeliveryPeriods'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     deliveryCapacity: Optional[Quantity] = Field(default=None, description="""The number of units included in the transaction for each delivery interval""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AssetDeliveryInformation.deliveryCapacity'],
@@ -41322,7 +41360,7 @@ class AssetDeliveryProfile(ConfiguredBaseModel):
     Defines the delivery profile of the asset, including the load type and the delivery intervals.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AssetDeliveryProfile'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     loadType: Optional[LoadTypeEnum] = Field(default=None, description="""Identification of the delivery profile.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AssetDeliveryProfile.loadType'],
@@ -41338,7 +41376,7 @@ class AssetDeliveryProfileBlock(ConfiguredBaseModel):
     Defines a delivery profile block, including start and end time, days of the week, duration, delivery capacity and price time interval quantity.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AssetDeliveryProfileBlock'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'slot_usage': {'dayOfWeek': {'description': 'The days of the week of the '
                                                      'delivery.',
@@ -41377,7 +41415,7 @@ class GeneralTerms(ConfiguredBaseModel):
                       'basketReferenceInformation exists then '
                       'basketReferenceInformation -> basketName exists or '
                       'basketReferenceInformation -> basketId exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'referenceInformation': {'name': 'referenceInformation',
@@ -41429,7 +41467,7 @@ class DividendPayoutRatio(ConfiguredBaseModel):
                       'exists then cashRatio >= 0 and totalRatio <= 1',
                       'Rosetta condition: DividendPayoutRatioNonCash — if nonCashRatio '
                       'exists then nonCashRatio >= 0 and totalRatio <= 1'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'The dividend payout ratio should be comprised '
                                    'between 0 and 100%, meaning 0 and 1.',
@@ -41471,7 +41509,7 @@ class AdditionalFixedPayments(ConfiguredBaseModel):
     A class to specify the events that will give rise to the payment additional fixed payments.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AdditionalFixedPayments'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     interestShortfallReimbursement: Optional[bool] = Field(default=None, description="""An additional Fixed Payment Event. Corresponds to the payment by or on behalf of the Issuer of an actual interest amount in respect to the reference obligation that is greater than the expected interest amount. ISDA 2003 Term: Interest Shortfall Reimbursement.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AdditionalFixedPayments.interestShortfallReimbursement'],
@@ -41493,7 +41531,7 @@ class BasketReferenceInformation(ConfiguredBaseModel):
                       'nthToDefault exists',
                       'Rosetta condition: MthToDefault — if (nthToDefault exists and '
                       'mthToDefault exists) then nthToDefault < mthToDefault'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct. '
                                    'This choice rule is complemented by the data rule '
@@ -41546,7 +41584,7 @@ class FloatingAmountEvents(ConfiguredBaseModel):
     """
     A class to specify the ISDA terms relating to the floating rate payment events and the implied additional fixed payments, applicable to the credit derivatives transactions on mortgage-backed securities with pay-as-you-go or physical settlement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'slot_usage': {'failureToPayPrincipal': {'description': 'A floating rate '
                                                                  'payment event. '
@@ -41590,7 +41628,7 @@ class FloatingAmountEvents(ConfiguredBaseModel):
 
 
 class FloatingAmountProvisions(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     wacCapInterestProvision: Optional[bool] = Field(default=None, description="""As specified by the ISDA Supplement for use with trades on mortgage-backed securities, 'WAC Cap' means a weighted average coupon or weighted average rate cap provision (however defined in the Underlying Instruments) of the Underlying Instruments that limits, increases or decreases the interest rate or interest entitlement, as set out in the Underlying Instruments on the Effective Date without regard to any subsequent amendment The presence of the element with value set to 'true' signifies that the provision is applicable. From a usage standpoint, this provision is typically applicable in the case of CMBS and not applicable in case of RMBS trades.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingAmountProvisions']} })
@@ -41601,7 +41639,7 @@ class InterestShortFall(ConfiguredBaseModel):
     """
     A class to specify the interest shortfall floating rate payment event.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     interestShortfallCap: InterestShortfallCapEnum = Field(default=..., description="""Specifies the nature of the interest Shortfall cap (i.e. Fixed Cap or Variable Cap) in the case where it is applicable. ISDA 2003 Term: Interest Shortfall Cap.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InterestShortFall']} })
@@ -41615,7 +41653,7 @@ class ProtectionTerms(ConfiguredBaseModel):
     A class to specify the terms for calculating a payout to protect the buyer of the swap in the case of a qualified credit event. These terms include the applicable credit events, the reference obligation, and in the case of a CDS on mortgage-backed securities, the floatingAmountEvents.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'slot_usage': {'creditEvents': {'description': 'Specifies the applicable '
                                                         'Credit Events that would '
@@ -41652,7 +41690,7 @@ class ReferenceInformation(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ReferenceInformationChoice — required choice '
                       'referenceObligation, noReferenceObligation , '
                       'unknownReferenceObligation'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'referenceObligation': {'name': 'referenceObligation',
@@ -41681,7 +41719,7 @@ class ReferenceObligation(ConfiguredBaseModel):
                       'security -> securityType = Debt',
                       'Rosetta condition: LegalEntityChoice — optional choice '
                       'primaryObligor, primaryObligorReference'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'Represents the choice in a CDS contract.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'security': {'name': 'security',
@@ -41720,7 +41758,7 @@ class ReferenceObligation(ConfiguredBaseModel):
 class ReferencePair(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ReferenceChoice — required choice '
                       'referenceObligation, noReferenceObligation'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'referenceObligation': {'name': 'referenceObligation',
@@ -41771,7 +41809,7 @@ class ReferencePool(ConfiguredBaseModel):
                       'referencePoolItem -> constituentWeight -> basketPercentage '
                       'exists then referencePoolItem -> constituentWeight -> openUnits '
                       'is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     referencePoolItem: list[ReferencePoolItem] = Field(default=..., description="""This type contains all the constituent weight and reference information.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ReferencePool']} })
@@ -41783,7 +41821,7 @@ class ReferencePoolItem(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: SettlementChoice — optional choice '
                       'cashSettlementTermsReference, physicalSettlementTermsReference'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'A choice rule between a reference to the cash or '
                                    'physical settlement terms.',
@@ -41809,7 +41847,7 @@ class SettledEntityMatrix(ConfiguredBaseModel):
     """
     A class to specify the Relevant Settled Entity Matrix.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'slot_usage': {'publicationDate': {'description': 'Specifies the publication '
                                                            'date of the applicable '
@@ -41841,7 +41879,7 @@ class Tranche(ConfiguredBaseModel):
                       'exhaustionPoint <= 1.0',
                       'Rosetta condition: AttachmentPointLessThanExhaustionPoint — '
                       'attachmentPoint <= exhaustionPoint'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'FpML definition associated with the '
                                    'attachmentPoint element specifies that a schema '
@@ -41872,7 +41910,7 @@ class DividendCurrency(ConfiguredBaseModel):
     """
     A class to specify the currency in which the dividends will be denominated, i.e. either in the dividend currency or in a currency specified as part of the contract.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'slot_usage': {'currency': {'description': 'The currency in which the '
                                                     'dividend is denominated. The list '
@@ -41930,7 +41968,7 @@ class DividendDateReference(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: PaymentDateOffset — if paymentDateOffset '
                       'exists then dateReference = DividendDateReferenceEnum -> '
                       'SharePayment'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     dateReference: DividendDateReferenceEnum = Field(default=..., description="""Specification of the dividend date using an enumeration, with values such as the pay date, the ex-date or the record date.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DividendDateReference']} })
@@ -41941,7 +41979,7 @@ class DividendPaymentDate(ConfiguredBaseModel):
     """
     A class describing the date on which the dividend will be paid/received. This class is also used to specify the date on which the FX rate will be determined, when applicable.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     dividendDateReference: Optional[DividendDateReference] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['DividendPaymentDate']} })
@@ -41961,7 +41999,7 @@ class DividendReturnTerms(ConfiguredBaseModel):
                       'extraordinaryDividendsParty exists then '
                       'extraordinaryDividendsParty = AncillaryRoleEnum -> '
                       'ExtraordinaryDividendsParty'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     dividendPayoutRatio: Optional[list[DividendPayoutRatio]] = Field(default=None, description="""Specifies the dividend payout ratio associated with each underlier. In FpML 5.10 the payout is positioned at the underlier level, although there is an intent to reconsider this approach and position it at the leg level. This is approach adopted by the CDM.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DividendReturnTerms']} })
@@ -41984,7 +42022,7 @@ class DividendPeriod(ConfiguredBaseModel):
     """
     Time bounded dividend payment periods, each with a dividend payment date per period.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'slot_usage': {'basketConstituent': {'description': 'For basket underliers, '
                                                              'reference to the basket '
@@ -42037,7 +42075,7 @@ class DividendPeriod(ConfiguredBaseModel):
 
 
 class PriceReturnTerms(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     returnType: ReturnTypeEnum = Field(default=..., description="""The type of return associated with the equity swap.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PriceReturnTerms']} })
@@ -42053,7 +42091,7 @@ class ReturnTermsBase(ConfiguredBaseModel):
                       'initialLevel is absent then initialLevelSource exists and if '
                       'initialLevelSource is absent then initialLevel exists',
                       'Rosetta condition: PositiveExpectedN — expectedN > 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'At least one of initialLevel and '
                                    'initialLevelSource must be present, or both',
@@ -42099,7 +42137,7 @@ class VarianceReturnTerms(ReturnTermsBase):
                       'volatilityStrikePrice -> value exists then '
                       'volatilityStrikePrice -> value >= 0 and if varianceStrikePrice '
                       '-> value exists then varianceStrikePrice -> value >= 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'The strike price must be present, but it can be '
                                    'expressed in either variance or volatility terms',
@@ -42128,7 +42166,7 @@ class VarianceReturnTerms(ReturnTermsBase):
 
 
 class VolatilityReturnTerms(ReturnTermsBase):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'slot_usage': {'exchangeTradedContractNearest': {'name': 'exchangeTradedContractNearest',
                                                           'range': 'ListedDerivative'},
@@ -42160,7 +42198,7 @@ class CorrelationReturnTerms(ReturnTermsBase):
                       'numberOfDataSeries exists then numberOfDataSeries > 0',
                       'Rosetta condition: CorrelationValue — correlationStrikePrice -> '
                       'value > -1 and correlationStrikePrice -> value < 1'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'The number of data series must be positive',
                     'postconditions': {'slot_conditions': {'numberOfDataSeries': {'comments': ['Rosetta: '
@@ -42190,7 +42228,7 @@ class CorrelationReturnTerms(ReturnTermsBase):
 class ValuationTerms(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: PositiveNumberOfValuationDates — if '
                       'numberOfValuationDates exists then numberOfValuationDates > 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'The number of valuation dates must be positive.',
                     'postconditions': {'slot_conditions': {'numberOfValuationDates': {'comments': ['Rosetta: '
@@ -42215,7 +42253,7 @@ class EquityUnderlierProvisions(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ComponentSecurityOrMultipleExchange — '
                       'optional choice multipleExchangeIndexAnnexFallback, '
                       'componentSecurityIndexAnnexFallback'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'If multipleExchangeIndexAnnexFallback is present '
                                    'then componentSecurityIndexAnnexFallback must be '
@@ -42305,7 +42343,7 @@ class VarianceCapFloor(ConfiguredBaseModel):
                       'must exist else unadjustedVarianceCap is absent and '
                       'boundedVariance is absent // If CapFloor is not applicable, '
                       'then there cannot be any volatility caps'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'Unadjusted variance cap must be positive',
                     'postconditions': {'slot_conditions': {'unadjustedVarianceCap': {'comments': ['Rosetta: '
@@ -42336,7 +42374,7 @@ class BoundedVariance(ConfiguredBaseModel):
          'comments': ['Rosetta condition: NonNegativeBarriers — if upperBarrier exists '
                       'then upperBarrier >= 0 and if lowerBarrier exists then '
                       'lowerBarrier >= 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'Barriers cannot be set to negative values',
                     'postconditions': {'slot_conditions': {'upperBarrier': {'minimum_value': 0,
@@ -42367,7 +42405,7 @@ class VolatilityCapFloor(ConfiguredBaseModel):
                       'Rosetta condition: PositiveCaps — if totalVolatilityCap exists '
                       'then totalVolatilityCap >= 0 and if volatilityCapFactor exists '
                       'then volatilityCapFactor >= 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'Caps/floors can and must be specified if '
                                    'applicable is set to true. If false, barriers '
@@ -42418,7 +42456,7 @@ class BoundedCorrelation(ConfiguredBaseModel):
     Describes correlation bounds, which form a cap and a floor on the realized correlation.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:BoundedCorrelation'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     minimumBoundaryPercent: Optional[Decimal] = Field(default=None, description="""Minimum Boundary as a percentage of the Strike Price.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:BoundedCorrelation.minimumBoundaryPercent'],
@@ -42433,7 +42471,7 @@ class BondReference(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:BondReference'],
          'comments': ['Rosetta condition: BondUnderlier — bond -> securityType = Debt'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     bond: Security = Field(default=..., description="""Reference to a bond underlier.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:BondReference.bond'],
@@ -42451,7 +42489,7 @@ class CashflowRepresentation(ConfiguredBaseModel):
     A data defining:  the cashflow representation of a swap trade.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CashflowRepresentation'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     cashflowsMatchParameters: bool = Field(default=..., description="""A true/false flag to indicate whether the cashflows match the parametric definition of the stream, i.e. whether the cashflows could be regenerated from the parameters without loss of information.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CashflowRepresentation.cashflowsMatchParameters'],
@@ -42466,7 +42504,7 @@ class DiscountingMethod(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: DiscountRate — if '
                       'discountRateDayCountFraction exists then discountRate exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'In FpML discountingRate and '
                                    'discountRateDayCountFraction are part of an '
@@ -42489,7 +42527,7 @@ class FloatingRateDefinition(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: FloatingRateMultiplier — if '
                       'floatingRateMultiplier exists then floatingRateMultiplier <> 1'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'FpML specifies that the floatingRateMultiplier '
                                    'should only be included if different from 1.',
@@ -42537,7 +42575,7 @@ class FloatingRateBase(ConfiguredBaseModel):
     A class defining a floating interest rate through the specification of the floating rate index, the tenor, the multiplier schedule, the spread, the qualification of whether a specific rate treatment and/or a cap or floor apply.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     rateOption: Optional[Union[FloatingRateIndex, InflationIndex]] = Field(default=None, json_schema_extra = { "linkml_meta": {'any_of': [{'range': 'FloatingRateIndex'}, {'range': 'InflationIndex'}],
@@ -42548,7 +42586,7 @@ class FloatingRateBase(ConfiguredBaseModel):
 
 
 class FloatingRate(FloatingRateBase):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     floatingRateMultiplierSchedule: Optional[RateSchedule] = Field(default=None, description="""A rate multiplier or multiplier schedule to apply to the floating rate. A multiplier schedule is expressed as explicit multipliers and dates. In the case of a schedule, the step dates may be subject to adjustment in accordance with any adjustments specified in the calculationPeriodDatesAdjustments. The multiplier can be a positive or negative decimal. This element should only be included if the multiplier is not equal to 1 (one) for the term of the stream.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRate', 'StubFloatingRate']} })
@@ -42566,7 +42604,7 @@ class FloatingRateSpecification(FloatingRate):
     """
     A class to specify the floating interest rate by extending the floating rate definition with a set of attributes that specify such rate: the initial value specified as part of the trade, the rounding convention, the averaging method and the negative interest rate treatment.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'slot_usage': {'averagingMethod': {'description': 'If averaging is '
                                                            'applicable, this component '
@@ -42603,7 +42641,7 @@ class InflationRateSpecification(FloatingRateSpecification):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: InflationIndex — rateOption -> '
                       'InflationIndex exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'slot_usage': {'calculationMethod': {'description': 'Indicates how to use the '
                                                              'inflation index to '
@@ -42659,7 +42697,7 @@ class FixedRateSpecification(ConfiguredBaseModel):
     Type defining the specification for a fixed rate.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     rateSchedule: Optional[RateSchedule] = Field(default=None, description="""The fixed rate or fixed rate schedule expressed as explicit fixed rates and dates. In the case of a schedule, the step dates may be subject to adjustment in accordance with any adjustments specified in calculationPeriodDatesAdjustments.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FixedRateSpecification']} })
@@ -42671,7 +42709,7 @@ class FutureValueAmount(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: PositiveCalculationPeriodNumberOfDays — '
                       'calculationPeriodNumberOfDays >= 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'FpML specifies calculationPeriodNumberOfDays as a '
                                    'positiveInteger.',
@@ -42730,7 +42768,7 @@ class StubFloatingRate(ConfiguredBaseModel):
     """
     A class defining a floating rate.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'slot_usage': {'capRateSchedule': {'multivalued': True,
                                             'name': 'capRateSchedule'},
@@ -42769,7 +42807,7 @@ class StubValue(ConfiguredBaseModel):
     """
     A type defining how a stub calculation period amount is calculated. A single floating rate tenor different to that used for the regular part of the calculation periods schedule may be specified, or two floating rate tenors many be specified. If two floating rate tenors are specified then Linear Interpolation (in accordance with the 2000 ISDA Definitions, Section 8.3 Interpolation) is assumed to apply. Alternatively, an actual known stub rate or stub amount may be specified.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     floatingRate: Optional[list[StubFloatingRate]] = Field(default=None, description="""The rates to be applied to the initial or final stub may be the linear interpolation of two different rates. While the majority of the time, the rate indices will be the same as that specified in the stream and only the tenor itself will be different, it is possible to specift two different rates. For example, a 2 month stub period may use the linear interpolation of a 1 month and 3 month rate. The different rates would be specified in this component. Note that a maximum of two rates can be specified. If a stub period uses the same floating rate index, including tenor, as the regular calculation periods then this should not be specified again within this component, i.e. the stub calculation period amount component may not need to be specified even if there is an initial or final stub period. If a stub period uses a different floating rate index compared to the regular calculation periods then this should be specified within this component. If specified here, they are likely to have id attributes, allowing them to be referenced from within the cashflows component.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StubValue',
@@ -42795,7 +42833,7 @@ class FixedAmountCalculationDetails(ConfiguredBaseModel):
          'comments': ['Rosetta func: FixedAmountCalculation — Calculates the fixed '
                       'amount for a calculation period by looking up the notional and '
                       'the fixed rate and multiplying by the year fraction.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     calculationPeriod: CalculationPeriodBase = Field(default=..., description="""The calculation period for which the floating calculation was performed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FixedAmountCalculationDetails',
@@ -42878,7 +42916,7 @@ class CalculationPeriodData(ConfiguredBaseModel):
                       'Effective Date and (b) the final Calculation Period for the '
                       'party will end on, but exclude, the Termination Date.',
                       'Rosetta func: CalculationPeriodRange'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule']})
 
     startDate: date = Field(default=..., description="""The first date of a date range.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DateRange',
@@ -42910,7 +42948,7 @@ class StubPeriod(ConfiguredBaseModel):
     """
      A class defining how the initial or final stub calculation period amounts is calculated. For example, the rate to be applied to the initial or final stub calculation period may be the linear interpolation of two different tenors for the floating rate index specified in the calculation period amount component, e.g. A two month stub period may used the linear interpolation of a one month and three month floating rate. The different rate tenors would be specified in this component. Note that a maximum of two rate tenors can be specified. If a stub period uses a single index tenor and this is the same as that specified in the calculation period amount component then the initial stub or final stub component, as the case may be, must not be included.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule']})
 
     calculationPeriodDatesReference: CalculationPeriodDates = Field(default=..., description="""A pointer style reference to the associated calculation period dates component defined elsewhere in the document.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_reference': {'tag': 'metadata_reference',
@@ -42929,7 +42967,7 @@ class CalculationPeriodBase(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
          'close_mappings': ['fpml_5_10:CalculationPeriodBase'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule']})
 
     adjustedStartDate: Optional[date] = Field(default=None, description="""The calculation period start date, adjusted according to any relevant business day convention.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CalculationPeriodBase.adjustedStartDate'],
@@ -42951,7 +42989,7 @@ class CalculationPeriod(CalculationPeriodBase):
                       'adjustedStartDate, unadjustedStartDate',
                       'Rosetta condition: EndDateChoice — required choice '
                       'adjustedEndDate, unadjustedEndDate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'rules': [{'description': 'condition to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'notionalAmount': {'name': 'notionalAmount',
@@ -43127,7 +43165,7 @@ class CalculationPeriodDates(ConfiguredBaseModel):
                       'Period for the party will commence on, and include, the '
                       'Effective Date and (b) the final Calculation Period for the '
                       'party will end on, but exclude, the Termination Date.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'rules': [{'comments': ['Rosetta comparison: lastRegularPeriodEndDate > '
                                  'firstRegularPeriodStartDate'],
@@ -43187,7 +43225,7 @@ class DateRelativeToCalculationPeriodDates(ConfiguredBaseModel):
     """
     A data to:  provide the ability to point to multiple payment nodes in the document through the unbounded paymentDatesReference.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'slot_usage': {'calculationPeriodDatesReference': {'description': 'A set of '
                                                                            'href '
@@ -43216,7 +43254,7 @@ class DateRelativeToValuationDates(ConfiguredBaseModel):
     """
     A data to:  provide the ability to point to multiple payment nodes in the document through the unbounded paymentDatesReference.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule']})
 
     valuationDatesReference: list[PerformanceValuationDates] = Field(default=..., description="""A set of href pointers to valuation period dates defined somewhere else in the document.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_reference': {'tag': 'metadata_reference',
@@ -43228,7 +43266,7 @@ class DateRelativeToPaymentDates(ConfiguredBaseModel):
     """
     A data to:  provide the ability to point to multiple payment nodes in the document through the unbounded paymentDatesReference.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule']})
 
     paymentDatesReference: list[PaymentDates] = Field(default=..., description="""A set of href pointers to payment dates defined somewhere else in the document.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_reference': {'tag': 'metadata_reference',
@@ -43240,7 +43278,7 @@ class FxLinkedNotionalAmount(ConfiguredBaseModel):
     """
     A data to:  describe the cashflow representation for FX linked notionals.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'slot_usage': {'notionalAmount': {'description': 'The calculation period '
                                                           'notional amount.',
@@ -43264,7 +43302,7 @@ class FxLinkedNotionalSchedule(ConfiguredBaseModel):
     """
     A data to:  describe a notional schedule where each notional that applies to a calculation period is calculated with reference to a notional amount or notional amount schedule in a different currency by means of a spot currency exchange rate which is normally observed at the beginning of each period.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'slot_usage': {'fixingTime': {'description': 'The time at which the spot '
                                                       'currency exchange rate will be '
@@ -43298,7 +43336,7 @@ class PaymentCalculationPeriod(ConfiguredBaseModel):
                       'choice calculationPeriod, fixedPaymentAmount',
                       'Rosetta condition: FpML_ird_34 — unadjustedPaymentDate exists '
                       'or adjustedPaymentDate exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'rules': [{'description': 'condition to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'calculationPeriod': {'name': 'calculationPeriod',
@@ -43349,7 +43387,7 @@ class RateSchedule(ConfiguredBaseModel):
     """
     A class defining a schedule of rates or amounts in terms of an initial value and then a series of step date and value pairs. On each step date the rate or amount changes to the new step value. The series of step date and value pairs are optional. If not specified, this implies that the initial value remains unchanged over time.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'slot_usage': {'price': {'description': 'The initial rate. An initial rate of '
                                                  '5% would be represented as 0.05.',
@@ -43364,7 +43402,7 @@ class SpreadSchedule(RateSchedule):
     """
     Adds an optional spread type element to the Schedule to identify a long or short spread value.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset']})
 
     spreadScheduleType: Optional[SpreadScheduleTypeEnum] = Field(default=None, description="""An element which purpose is to identify a long or short spread value.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
@@ -43376,7 +43414,7 @@ class ObservationDates(ConfiguredBaseModel):
     """
     Describes date details for a set of observation dates in parametric or non-parametric form.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule']})
 
     observationSchedule: Optional[ObservationSchedule] = Field(default=None, description="""Specifies a schedule of dates (non-parametric) on which market observations take place, and allows for the optional definition of weights where applicable.  When no weight is specified, then weight of each date is assumed to be 1.0""", json_schema_extra = { "linkml_meta": {'domain_of': ['ObservationDates']} })
@@ -43391,7 +43429,7 @@ class ObservationSchedule(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: AdjustedDate — if observationDate -> '
                       'adjustedDate is absent then observationDate -> unadjustedDate '
                       'exists and dateAdjustments exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'slot_usage': {'observationDate': {'description': 'Specifies an adjusted or '
                                                            'unadjusted date for a '
@@ -43421,7 +43459,7 @@ class ObservationDate(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
          'comments': ['Rosetta condition: ObservationDate — required choice '
                       'unadjustedDate, adjustedDate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'rules': [{'description': 'Either an unadjusted date or an adjusted date '
                                    'needs to be specified.',
@@ -43456,7 +43494,7 @@ class ObservationTerms(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ObservationTime — if observationTimeType = '
                       'TimeTypeEnum -> SpecificTime then observationTime exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'rules': [{'description': 'Checks that an observation time is specified '
                                    'either explicitly (through the observation time) '
@@ -43565,7 +43603,7 @@ class ParametricDates(ConfiguredBaseModel):
                       'dayDistribution, dayOfWeek',
                       'Rosetta condition: DayOfWeekMethod — if dayOfWeek exists then '
                       'dayFrequency exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'rules': [{'description': 'ParametricDatesChoice',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'dayDistribution': {'name': 'dayDistribution',
@@ -43616,7 +43654,7 @@ class Lag(ConfiguredBaseModel):
     """
     The pricing period per calculation period if the pricing days do not wholly fall within the respective calculation period.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule']})
 
     lagDuration: Offset = Field(default=..., description="""Defines the offset of the series of pricing dates relative to the calculation period.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Lag']} })
@@ -43637,7 +43675,7 @@ class ResetDates(ConfiguredBaseModel):
                       'Rosetta condition: NonWeeklyPeriod — if resetFrequency -> '
                       'period <> PeriodExtendedEnum -> W then resetFrequency -> '
                       'weeklyRollConvention is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'slot_usage': {'calculationPeriodDatesReference': {'name': 'calculationPeriodDatesReference',
                                                             'required': False}}})
@@ -43661,7 +43699,7 @@ class StubCalculationPeriodAmount(ConfiguredBaseModel):
     """
     A data defining:  how the initial or final stub calculation period amounts is calculated. For example, the rate to be applied to the initial or final stub calculation period may be the linear interpolation of two different tenors for the floating rate index specified in the calculation period amount component, e.g. A two month stub period may used the linear interpolation of a one month and three month floating rate. The different rate tenors would be specified in this component. Note that a maximum of two rate tenors can be specified. If a stub period uses a single index tenor and this is the same as that specified in the calculation period amount component then the initial stub or final stub component, as the case may be, must not be included.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule']})
 
     calculationPeriodDatesReference: CalculationPeriodDates = Field(default=..., description="""A pointer style reference to the associated calculation period dates component defined elsewhere in the document.""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_reference': {'tag': 'metadata_reference',
@@ -43678,7 +43716,7 @@ class AveragingObservationList(ConfiguredBaseModel):
     """
     An unordered list of weighted averaging observations.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule']})
 
     averagingObservation: list[WeightedAveragingObservation] = Field(default=..., description="""A single weighted averaging observation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingObservationList']} })
@@ -43691,7 +43729,7 @@ class AveragingPeriod(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AveragingPeriod'],
          'comments': ['Rosetta condition: AveragingPeriodChoice — optional choice '
                       'averagingDateTimes, averagingObservations'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'rules': [{'description': ' Choice rule to represent an FpML choice construct '
                                    'between unweighted and weighted averaging date and '
@@ -43728,7 +43766,7 @@ class WeightedAveragingObservation(ConfiguredBaseModel):
                       'Rosetta condition: PositiveObservationNumber — if '
                       'observationNumber exists then observationNumber >= 0',
                       'Rosetta condition: PositiveWeight — weight >= 0.0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'rules': [{'description': ' Choice rule to represent an FpML choice construct '
                                    'between date times for literal date values, and '
@@ -43776,7 +43814,7 @@ class AmountSchedule(Schedule):
     """
     A class to specify a currency amount or a currency amount schedule.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'slot_usage': {'currency': {'description': 'The currency in which the amount '
                                                     'schedule is denominated. The '
@@ -43836,7 +43874,7 @@ class InitialFixingDate(ConfiguredBaseModel):
     """
     A CDM class which purpose is to specify the initial fixing date either alongside the FpML interest rate specification as an offset of another date, or alongside the credit derivative specification as an unadjusted date.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'slot_usage': {'initialFixingDate': {'name': 'initialFixingDate',
                                               'range': 'date'}}})
@@ -43856,7 +43894,7 @@ class PaymentDates(ConfiguredBaseModel):
                       'Rosetta condition: NonZeroPeriodMultiplier — if '
                       'paymentDaysOffset exists then paymentDaysOffset -> '
                       'periodMultiplier <> 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'rules': [{'comments': ['Rosetta comparison: firstPaymentDate < '
                                  'lastRegularPaymentDate'],
@@ -43883,7 +43921,7 @@ class PaymentDateSchedule(ConfiguredBaseModel):
     """
     The payment dates when specified as relative to a set of dates specified somewhere else in the instance document/transaction, e.g. the valuation dates as typically the case for equity swaps, or when specified as a calculation period schedule.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule']})
 
     interimPaymentDates: Optional[list[AdjustableRelativeOrPeriodicDates]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['PaymentDateSchedule']} })
@@ -43896,7 +43934,7 @@ class ResetFrequency(Frequency):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: FpML_ird_49 — if weeklyRollConvention exists '
                       'then period = PeriodExtendedEnum -> W'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule']})
 
     weeklyRollConvention: Optional[WeeklyRollConventionEnum] = Field(default=None, description="""The day of the week on which a weekly reset date occurs. This element must be included if the reset frequency is defined as weekly and not otherwise.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ResetFrequency']} })
@@ -43913,7 +43951,7 @@ class FinalCalculationPeriodDateAdjustment(ConfiguredBaseModel):
     """
     A data to:  define business date convention adjustment to final payment period per leg.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_schedule',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
          'in_subset': ['cdm_product_common_schedule'],
          'slot_usage': {'businessDayConvention': {'description': 'Override business '
                                                                  'date convention. '
@@ -43940,7 +43978,7 @@ class FloatingAmountCalculationDetails(ConfiguredBaseModel):
     """
     Type for reporting the detailed results of calculating a cash flow for a calculation period.  This is enhanced relative to the FpML-based cashflows structure to allow more information to be returned about daily compounded rates.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset_floatingrate',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset_floatingrate',
          'in_subset': ['cdm_product_asset_floatingrate'],
          'slot_usage': {'floatingRate': {'description': 'The details of the floating '
                                                         'rate setting.  (If it is a '
@@ -44007,7 +44045,7 @@ class FloatingRateSettingDetails(ConfiguredBaseModel):
                       '(e.g. screen rate, OIS, modular calculated rate. .',
                       'Rosetta func: EvaluateScreenRate — Evaluate/lookup the value of '
                       'a screen rate.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset_floatingrate',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset_floatingrate',
          'in_subset': ['cdm_product_asset_floatingrate'],
          'slot_usage': {'floatingRate': {'description': 'The resulting rate that was '
                                                         'observed or calculated.',
@@ -44088,7 +44126,7 @@ class FloatingRateProcessingDetails(ConfiguredBaseModel):
                       'does not correctly support the case where compounded periods '
                       'are applicable and will need to be enhanced for that case when '
                       'compounding calculations are developed.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset_floatingrate',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset_floatingrate',
          'in_subset': ['cdm_product_asset_floatingrate']})
 
     rawRate: Decimal = Field(default=..., description="""The raw or untreated rate, prior to any of the rate treatments.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateProcessingDetails']} })
@@ -44191,7 +44229,7 @@ class FloatingRateProcessingParameters(ConfiguredBaseModel):
                       'Rosetta func: ApplyCapsAndFloors — Apply any cap or floor rate '
                       'as a constraint on a regular swap rate, as discussed in the '
                       '2021 ISDA Definitions, section 6.5.8 and 6.5.9.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset_floatingrate',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset_floatingrate',
          'in_subset': ['cdm_product_asset_floatingrate'],
          'slot_usage': {'capRate': {'description': 'capt to be applied to the floating '
                                                    'rate.',
@@ -44287,7 +44325,7 @@ class EligibilityQuery(ConfiguredBaseModel):
                       'Rosetta func: CheckMaturity',
                       'Rosetta func: CheckIssuerName',
                       'Rosetta func: CheckIssuerType'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'slot_usage': {'issuerType': {'description': 'Represents a filter based on '
                                                       'the type of entity issuing the '
@@ -44330,7 +44368,7 @@ class CheckEligibilityResult(ConfiguredBaseModel):
                       'given Eligibility Criteria or Basket '
                       '(EligibleCollateralSpecification) to determine which collateral '
                       'meets the eligibility and can be used/posted for delivery.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     isEligible: bool = Field(default=..., description="""a simple boolean which is set to true if the asset described in the EligibilityQuery input is eligible""", json_schema_extra = { "linkml_meta": {'domain_of': ['CheckEligibilityResult']} })
@@ -44351,7 +44389,7 @@ class Collateral(ConfiguredBaseModel):
                       'collateralPortfolio exists then collateralProvisions exists',
                       'Rosetta condition: Collateralchoice — optional choice '
                       'independentAmount, portfolioIdentifier, collateralPortfolio'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'rules': [{'description': 'Collateral must represent either a simple '
                                    'independent amount or full collateral portfolio.',
@@ -44460,7 +44498,7 @@ class CollateralProvisions(ConfiguredBaseModel):
     Contains collateral attributes which can also inherit information from a GMRA
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CollateralProvisions'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'related_mappings': ['gist:ContractTerm'],
          'slot_usage': {'eligibleCollateral': {'description': 'The eligible collateral '
@@ -44482,7 +44520,7 @@ class SubstitutionProvisions(ConfiguredBaseModel):
     """
     Defines collateral substitution provisions such as how many and with how much notice are substitutions allowed.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     numberOfSubstitutionsAllowed: Optional[int] = Field(default=None, description="""Specifies if 1 or more substitutions are allowed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SubstitutionProvisions']} })
@@ -44498,7 +44536,7 @@ class IndependentAmount(PartyReferencePayerReceiver):
     """
     A class specifying the Independent Amount as the combination of a payer/receiver, a payment amount, a payment date and an associated payment calculation rule.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     paymentDetail: list[PaymentDetail] = Field(default=..., description="""An attribute that specifies a payment as the combination of a payment amount, a payment date and an associated payment calculation rule.""", json_schema_extra = { "linkml_meta": {'domain_of': ['IndependentAmount']} })
@@ -44527,7 +44565,7 @@ class AgencyRatingCriteria(ConfiguredBaseModel):
                       'CreditNotationMismatchResolutionEnum -> ReferenceAgency then '
                       'referenceAgency exists',
                       'Rosetta func: CheckAgencyRating'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'rules': [{'description': 'If the mismatch resolution is ReferenceAgency, '
                                    'ensure that the reference agency is specified.',
@@ -44581,7 +44619,7 @@ class CollateralValuationTreatment(ConfiguredBaseModel):
                       '< 1',
                       'Rosetta condition: HaircutPercentageOrMarginPercentage — '
                       'required choice haircutPercentage, marginPercentage'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'rules': [{'description': 'A data rule to validate that if a Valuation '
                                    'Percentage is specified it should be greater than '
@@ -44725,7 +44763,7 @@ class EligibleCollateralSpecification(ConfiguredBaseModel):
                       'given Eligibility Criteria or Basket '
                       '(EligibleCollateralSpecification) to determine which collateral '
                       'meets the eligibility and can be used/posted for delivery.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'slot_usage': {'counterparty': {'description': 'Specification of the roles of '
                                                         'the counterparties to the '
@@ -44858,7 +44896,7 @@ class CollateralCriteriaBase(ConfiguredBaseModel):
     Represents a set of criteria used to specify and describe collateral.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CollateralCriteriaBase'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     collateralCriteria: Optional[Union[AllCriteria, AnyCriteria, AssetAgencyRating, AssetCountryOfOrigin, AssetMaturity, AssetType, CollateralGuarantorType, CollateralIssuerType, CollateralTaxonomy, CounterpartyOwnIssuePermitted, CurrencyCodeEnum, DomesticCurrencyIssued, IndexType, IssuerAgencyRating, IssuerCountryOfOrigin, IssuerName, ListingExchange, ListingSector, NegativeCriteria, SovereignAgencyRating, SpecificAsset]] = Field(default=None, description="""The specific criteria that applies. It can be created using AND, OR and NOT logic, and both asset and issuer characteristics.""", json_schema_extra = { "linkml_meta": {'any_of': [{'range': 'AllCriteria'},
@@ -44921,7 +44959,7 @@ class EligibleCollateralCriteria(CollateralCriteriaBase):
                       '(treatment -> concentrationLimit extract '
                       'CriteriaMatchesSecurityType( item -> concentrationLimitCriteria '
                       '-> collateralCriteria, Equity )) all = True'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'related_mappings': ['gist:Specification'],
          'slot_usage': {'treatment': {'description': 'Identifies the treatment of '
@@ -44983,7 +45021,7 @@ class CollateralTreatment(ConfiguredBaseModel):
                       'Creates a new Eligible Collateral Specification based on an '
                       'input specification but with one changed criteria and with one '
                       'changed treatment.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     valuationTreatment: Optional[CollateralValuationTreatment] = Field(default=None, description="""Specification of the valuation treatment for the specified collateral.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CollateralTreatment.valuationTreatment'],
@@ -45005,7 +45043,7 @@ class ConcentrationLimit(ConfiguredBaseModel):
                       'concentrationLimitCriteria -> concentrationLimitType = '
                       'ConcentrationLimitTypeEnum -> MarketCapitalisation then '
                       'percentageLimit exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'rules': [{'description': 'Either a value or percentage concentration limit '
                                    'must be specified.',
@@ -45026,7 +45064,7 @@ class ConcentrationLimitCriteria(CollateralCriteriaBase):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ConcentrationLimitTypeChoice — required '
                       'choice concentrationLimitType, averageTradingVolume, '
                       'collateralCriteria'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'rules': [{'description': 'Either a limit type or limit criteria must be '
                                    'specified.',
@@ -45075,7 +45113,7 @@ class AverageTradingVolume(ConfiguredBaseModel):
     Represents the average trading volume of an Equity product upon an exchange or set of exchanges.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AverageTradingVolume'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'slot_usage': {'period': {'description': 'Represents the period of the '
                                                   'equities average trading volume on '
@@ -45094,14 +45132,14 @@ class AverageTradingVolume(ConfiguredBaseModel):
 
 
 class IssuerCountryOfOrigin(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     issuerCountryOfOrigin: ISOCountryCodeEnum = Field(default=..., description="""Represents a filter on the issuing entity country of origin based on the ISO Standard 3166, which is the same as filtering by eligible Sovereigns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['IssuerCountryOfOrigin']} })
 
 
 class AssetCountryOfOrigin(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'slot_usage': {'assetCountryOfOrigin': {'description': 'Represents a filter '
                                                                 'on the asset country '
@@ -45117,28 +45155,28 @@ class IssuerName(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'rosetta_functions': {'tag': 'rosetta_functions',
                                                'value': '[{"name":"CheckIssuerName","inputs":[{"name":"issuerName","type":"IssuerName","cardinality":"0..1"},{"name":"query","type":"EligibilityQuery","cardinality":"1..1"}],"output":{"name":"isEqual","type":"boolean","cardinality":"1..1"}}]'}},
          'comments': ['Rosetta func: CheckIssuerName'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     issuerName: LegalEntity = Field(default=..., description="""Specifies the issuing entity name or LEI.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EligibilityQuery', 'IssuerName']} })
 
 
 class IssuerAgencyRating(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     issuerAgencyRating: AgencyRatingCriteria = Field(default=..., description="""Represents an agency rating based on default risk and creditors claim in event of default associated with asset issuer.""", json_schema_extra = { "linkml_meta": {'domain_of': ['IssuerAgencyRating']} })
 
 
 class SovereignAgencyRating(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     sovereignAgencyRating: AgencyRatingCriteria = Field(default=..., description="""Represents an agency rating based on default risk of the country of the issuer.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SovereignAgencyRating']} })
 
 
 class AssetAgencyRating(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     assetAgencyRating: AgencyRatingCriteria = Field(default=..., description="""Represents an agency rating based on default risk and creditors claim in event of default associated with specific instrument.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetAgencyRating']} })
@@ -45149,7 +45187,7 @@ class AssetMaturity(ConfiguredBaseModel):
                                                'value': '[{"name":"CheckMaturity","inputs":[{"name":"maturityRange","type":"AssetMaturity","cardinality":"0..1"},{"name":"query","type":"EligibilityQuery","cardinality":"1..1"}],"output":{"name":"isEqual","type":"boolean","cardinality":"1..1"}}]'}},
          'close_mappings': ['fpml_5_10:AssetMaturity'],
          'comments': ['Rosetta func: CheckMaturity'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     maturityType: MaturityTypeEnum = Field(default=..., description="""Specifies whether the maturity range is the remaining or original maturity.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AssetMaturity.maturityType'],
@@ -45162,7 +45200,7 @@ class ListingExchange(ConfiguredBaseModel):
     """
     Specifies a filter based on a stock exchange.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'slot_usage': {'exchange': {'description': 'Represents a filter based on the '
                                                     'Primary Stock Exchange '
@@ -45184,7 +45222,7 @@ class ListingSector(ConfiguredBaseModel):
     """
     Specifies a filter based on an industry sector.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     sector: list[str] = Field(default=..., description="""Represents a filter based on an industry sector defined under a system for classifying industry types such as Global Industry Classification Standard (GICS) and North American Industry Classification System (NAICS)""", json_schema_extra = { "linkml_meta": {'annotations': {'metadata_scheme': {'tag': 'metadata_scheme', 'value': True}},
@@ -45192,14 +45230,14 @@ class ListingSector(ConfiguredBaseModel):
 
 
 class DomesticCurrencyIssued(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     domesticCurrencyIssued: bool = Field(default=..., description="""Identifies that the Security must be denominated in the domestic currency of the issuer.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DomesticCurrencyIssued']} })
 
 
 class CounterpartyOwnIssuePermitted(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     counterpartyOwnIssuePermitted: bool = Field(default=..., description="""Represents a filter based on whether it is permitted for the underlying asset to be issued by the posting entity or part of their corporate family.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CounterpartyOwnIssuePermitted']} })
@@ -45209,7 +45247,7 @@ class AllCriteria(ConfiguredBaseModel):
     """
     Used to combine two or more Collateral Criteria using AND logic.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'slot_usage': {'allCriteria': {'name': 'allCriteria',
                                         'range': 'CollateralCriteria'}}})
@@ -45225,7 +45263,7 @@ class AnyCriteria(ConfiguredBaseModel):
     """
     Used to combine two or more Collateral Criteria using OR logic.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'slot_usage': {'anyCriteria': {'name': 'anyCriteria',
                                         'range': 'CollateralCriteria'}}})
@@ -45241,7 +45279,7 @@ class NegativeCriteria(ConfiguredBaseModel):
     """
     Used to apply a NOT logic condition to a single Collateral Criteria.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     negativeCriteria: Union[AllCriteria, AnyCriteria, AssetAgencyRating, AssetCountryOfOrigin, AssetMaturity, AssetType, CollateralGuarantorType, CollateralIssuerType, CollateralTaxonomy, CounterpartyOwnIssuePermitted, CurrencyCodeEnum, DomesticCurrencyIssued, IndexType, IssuerAgencyRating, IssuerCountryOfOrigin, IssuerName, ListingExchange, ListingSector, NegativeCriteria, SovereignAgencyRating, SpecificAsset] = Field(default=..., json_schema_extra = { "linkml_meta": {'any_of': [{'range': 'AllCriteria'},
@@ -45272,7 +45310,7 @@ class DistributionAndInterestPayment(ConfiguredBaseModel):
     """
     A class to specify the Distributions and Interest Payment provisions applicable to the collateral agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     interestParameters: Optional[list[CollateralInterestParameters]] = Field(default=None, description="""Represents the interest parameters for the various currencies, margin types, posting parties.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DistributionAndInterestPayment']} })
@@ -45283,7 +45321,7 @@ class CollateralInterestParameters(ConfiguredBaseModel):
     Represents the floating interest calculation and distribution parameters for a single currency.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CollateralInterestParameters'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'slot_usage': {'currency': {'description': 'Specifies the currency for which '
                                                     'the parameters are captured.',
@@ -45347,7 +45385,7 @@ class CollateralInterestCalculationParameters(ConfiguredBaseModel):
                       'Rosetta condition: CompoundingBC2 — if compoundingType <> '
                       'CompoundingTypeEnum -> Business then compoundingBusinessCenter '
                       'is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'rules': [{'description': 'InterestRate',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'fixedRate': {'name': 'fixedRate',
@@ -45421,7 +45459,7 @@ class CollateralAgreementFloatingRate(FloatingRateBase):
     Represents the parameters needed to calculate the floating rate paid on collateral holdings.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CollateralAgreementFloatingRate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     negativeInterest: bool = Field(default=..., description="""Specifies how negative rates should be applied.  If rates go negative, should the payment be reversed (true) or zeroed out (false)?""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CollateralAgreementFloatingRate.negativeInterest'],
@@ -45446,7 +45484,7 @@ class CollateralInterestHandlingParameters(ConfiguredBaseModel):
                       'Rosetta condition: Alternative2 — if '
                       'alternativeToInterestAmount <> AlternativeToInterestAmountEnum '
                       '-> Other then alternativeProvision is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'rules': [{'description': 'Alternative',
                     'postconditions': {'slot_conditions': {'alternativeProvision': {'name': 'alternativeProvision',
@@ -45498,7 +45536,7 @@ class CollateralInterestNotification(ConfiguredBaseModel):
     Represents the parameters describing when notifications should be made for required collateral interest transfers.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CollateralInterestNotification'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'slot_usage': {'notificationTime': {'description': 'Specifies the time of day '
                                                             'that the notification '
@@ -45533,7 +45571,7 @@ class InterestAmountApplication(ConfiguredBaseModel):
     """
     A class to specify the application of Interest Amount with respect to the Delivery Amount and the Return Amount.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'slot_usage': {'deliveryAmount': {'description': 'The application of Interest '
                                                           'Amount with respect the '
@@ -45566,7 +45604,7 @@ class ReturnAmount(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: CustomElection — if customElection exists '
                       'then includesDefaultLanguage = False'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'rules': [{'description': 'A data rule to specify that when a custom election '
                                    'exists then default language should not be '
@@ -45594,7 +45632,7 @@ class DeliveryAmount(ConfiguredBaseModel):
     """
     A class to specify the application of Interest Amount with respect the Delivery Amount.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral'],
          'slot_usage': {'customElection': {'description': 'The custom election that '
                                                           'might be specified by the '
@@ -45620,7 +45658,7 @@ class SpecificAsset(Asset):
     """
     A single, specifically identified Asset chosen from the Asset data type
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     pass
@@ -45630,7 +45668,7 @@ class IndexType(ConfiguredBaseModel):
     """
     Specification of an index.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'in_subset': ['cdm_product_collateral']})
 
     equityIndex: Optional[CollateralEquityIndexEnum] = Field(default=None, description="""An enumerated list for equity indices.""", json_schema_extra = { "linkml_meta": {'domain_of': ['IndexType']} })
@@ -45644,7 +45682,7 @@ class ComputedAmount(ConfiguredBaseModel):
     """
     A class to specify the outcome of a computed amount, for testing purposes.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'slot_usage': {'amount': {'name': 'amount', 'range': 'decimal'},
                         'currency': {'description': 'The currency in which the '
@@ -45702,7 +45740,7 @@ class AssetFlowBase(ConfiguredBaseModel):
                       'Commodity exists then quantity -> unit -> capacityUnit exists '
                       'else if asset -> Instrument exists then quantity -> unit -> '
                       'financialUnit exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'slot_usage': {'asset': {'description': 'Represents the object that is '
                                                  'subject to the transfer, it could be '
@@ -45751,7 +45789,7 @@ class TransferBase(AssetFlowBase):
     """
     Defines the movement of an Asset (eg cash, securities or commodities) between two parties on a date.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'slot_usage': {'identifier': {'description': 'Represents a unique reference '
                                                       'to the transfer.',
@@ -45822,7 +45860,7 @@ class UnscheduledTransfer(TransferBase):
     """
     An ad-hoc transfer instigated by a party to the contract.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common']})
 
     transferType: Optional[UnscheduledTransferEnum] = Field(default=None, description="""Specifies the type of unscheduled transfer.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UnscheduledTransfer', 'ScheduledTransfer']} })
@@ -45886,7 +45924,7 @@ class ScheduledTransfer(TransferBase):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: CorporateActionTransferTypeExists — if '
                       'transferType = ScheduledTransferEnum -> CorporateAction then '
                       'corporateActionTransferType exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'rules': [{'description': 'When transfer type is Performance or Transfer then '
                                    'the type of event must be specified.',
@@ -45971,7 +46009,7 @@ class AssetFlow(AssetFlowBase):
     Specifies an asset flow, i.e. the outcome of either of computation (e.g. interest accrual) or an assessment of some sort. The asset flow can then be turned into an asset transfer artefact to be used as the input to a payment system or the outcome of it. The associated globalKey denotes the ability to associate a hash value to the AssetFlow instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AssetFlow'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'slot_usage': {'payerReceiver': {'description': 'Specifies who pays / '
                                                          'receives the asset flow, '
@@ -46020,7 +46058,7 @@ class QuantityMultiplier(ConfiguredBaseModel):
     """
      Class to specify a mechanism for a quantity to be set as a multiplier to another (reference) quantity, based on a price observation. At the moment this class only supports FX or Equity-linked notional and re-uses existing building blocks for those 2 cases, until such time when component can be made more generic. This captures the case of resetting cross-currency swaps and resetting equity swaps.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement']})
 
     fxLinkedNotionalSchedule: Optional[FxLinkedNotionalSchedule] = Field(default=None, description="""Multiplier specified as an FX-linked schedule, e.g. for a resetting cross-currency swap..""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantityMultiplier']} })
@@ -46034,7 +46072,7 @@ class ResolvablePriceQuantity(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
          'comments': ['Rosetta condition: QuantityMultiplier — if quantityMultiplier '
                       'exists then quantityReference -> reference exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'slot_usage': {'reset': {'description': 'Whether the quantity is resettable',
                                   'name': 'reset',
@@ -46063,7 +46101,7 @@ class PayoutBase(ConfiguredBaseModel):
                       'finalPrincipalPayment -> principalAmount exists or '
                       'principalPayment -> principalPaymentSchedule -> '
                       'finalPrincipalPayment -> presentValuePrincipalAmount exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'slot_usage': {'payerReceiver': {'description': 'Canonical representation of '
                                                          'the payer and receiver '
@@ -46172,7 +46210,7 @@ class CommodityPayout(PayoutBase):
                       'schedulePeriod -> deliveryPeriod -> priceTimeIntervalQuantity '
                       'is absent and delivery -> periods -> profile -> block -> '
                       'priceTimeIntervalQuantity is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'When there is an OptionPayout the quantity can be '
                                    'expressed as part of the payoutQuantity, or as '
@@ -46265,7 +46303,7 @@ class CreditDefaultPayout(PayoutBase):
                       'referenceInformation -> referencePrice exists then generalTerms '
                       '-> referenceInformation -> referencePrice -> value >= 0',
                       'Rosetta condition: Quantity — priceQuantity exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'When there is an OptionPayout the quantity can be '
                                    'expressed as part of the payoutQuantity, or as '
@@ -46541,7 +46579,7 @@ class InterestRatePayout(PayoutBase):
                       'Rosetta func: CalculateYearFraction — Calculate the year '
                       'fraction for a single calculation period, by invoking the base '
                       'year fraction logic'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_asset',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'in_subset': ['cdm_product_asset'],
          'rules': [{'description': 'When there is an OptionPayout the quantity can be '
                                    'expressed as part of the payoutQuantity, or as '
@@ -46662,7 +46700,7 @@ class CommodityPriceReturnTerms(ConfiguredBaseModel):
     Defines parameters in which the commodity price is assessed.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:CommodityPriceReturnTerms'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'slot_usage': {'rounding': {'description': 'Defines rounding rules and '
                                                     'precision to be used in the '
@@ -46696,7 +46734,7 @@ class RollFeature(ConfiguredBaseModel):
     """
     Used in conjunction with an exchange-based pricing source. Identifies a way in which the futures contracts referenced will roll between periods. 
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement']})
 
     rollSourceCalendar: Optional[RollSourceCalendarEnum] = Field(default=None, description="""Used in conjunction with an exchange-based pricing source. Identifies a date source calendar from which the pricing dates and thus roll to the next contract will be based off (e.g. pricing is based on the NYMEX WTI First Nearby Futures Contract, if Future is chosen, the pricing will roll to the next futures contract on expiration, if ListedOption is chosen, the pricing will roll to the next futures contract on the Option expiration date which is three business days before the expiration of the NYMEX WTI futures contract.) Omitting this element will result in the default behavior expected with the pricing source described within the commodity element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RollFeature']} })
@@ -46707,7 +46745,7 @@ class PricingDates(ConfiguredBaseModel):
     """
     Specifies specific dates or parametric rules for the dates on which the price will be determined
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'slot_usage': {'parametricDates': {'description': 'Defines rules for the '
                                                            'dates on which the price '
@@ -46722,7 +46760,7 @@ class ValuationDate(ConfiguredBaseModel):
     """
     A single object that represents the different methods to specify a valuation date, as used for cash settlement. The Single / Multiple ValuationDate is used for the determination of recovery in a credit event, the RelativeDateOffset is used for cash-settled option, and FxFixingDate is used for cross-currency settlement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'slot_usage': {'valuationDate': {'description': 'The date on which the cash '
                                                          'settlement amount will be '
@@ -46797,7 +46835,7 @@ class CashSettlementTerms(ConfiguredBaseModel):
                       'prescribedDocumentationAdjustment exists then '
                       'cashSettlementMethod = CashSettlementMethodEnum -> '
                       'ReplacementValueFirmQuotations'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'any_of': [{'slot_conditions': {'cashSettlementAmount': {'name': 'cashSettlementAmount',
@@ -46905,7 +46943,7 @@ class DeliverableObligations(ConfiguredBaseModel):
                       'othReferenceEntityObligations is absent and '
                       'revenueObligationLiability is absent and specifiedCurrency is '
                       'absent and transferable is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'any_of': [{'slot_conditions': {'fullFaithAndCreditObLiability': {'name': 'fullFaithAndCreditObLiability',
@@ -46963,7 +47001,7 @@ class PCDeliverableObligationCharac(ConfiguredBaseModel):
     """
     A class to specify the Partial Cash Deliverable Obligation Characteristic.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'slot_usage': {'applicable': {'description': 'Indicates whether the provision '
                                                       'is applicable.',
@@ -46984,7 +47022,7 @@ class LoanParticipation(PCDeliverableObligationCharac):
     """
     A class to specify loan with a participation agreement whereby the buyer is capable of creating, or procuring the creation of, a contractual right in favour of the seller that provides the seller with recourse to the participation seller for a specified share in any payments due under the relevant loan which are received by the participation seller. ISDA 2003 Term: Direct Loan Participation.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement']})
 
     qualifyingParticipationSeller: Optional[str] = Field(default=None, description="""If Direct Loan Participation is specified as a deliverable obligation characteristic, this specifies any requirements for the Qualifying Participation Seller. The requirements may be listed free-form. ISDA 2003 Term: Qualifying Participation Seller.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LoanParticipation']} })
@@ -47004,7 +47042,7 @@ class PhysicalSettlementPeriod(ConfiguredBaseModel):
                       'businessDays >= 0',
                       'Rosetta condition: MaximumBusinessDays — if maximumBusinessDays '
                       'exists then maximumBusinessDays >= 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'rules': [{'description': 'FpML specifies businessDays as a '
                                    'NonNegativeInteger.',
@@ -47033,7 +47071,7 @@ class PhysicalSettlementTerms(ConfiguredBaseModel):
                       'predeterminedClearingOrganizationParty exists then '
                       'predeterminedClearingOrganizationParty = AncillaryRoleEnum -> '
                       'PredeterminedClearingOrganizationParty'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement']})
 
     clearedPhysicalSettlement: Optional[bool] = Field(default=None, description="""Specifies whether the swap resulting from physical settlement of the swaption transaction will clear through a clearing house. The meaning of Cleared Physical Settlement is defined in the 2006 ISDA Definitions, Section 15.2 (published in Supplement number 28).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalSettlementTerms']} })
@@ -47048,7 +47086,7 @@ class PercentageRule(ConfiguredBaseModel):
     """
     A class defining a content model for a calculation rule defined as percentage of the notional amount.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement']})
 
     paymentPercent: Decimal = Field(default=..., description="""A percentage of the notional amount.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PercentageRule']} })
@@ -47069,7 +47107,7 @@ class SettlementDate(ConfiguredBaseModel):
                       'Rosetta condition: DateChoice — optional choice '
                       'adjustableOrRelativeDate, valueDate, adjustableDates, '
                       'businessDateRange'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'rules': [{'description': 'FpML specifies cashSettlementBusinessDays as a '
                                    'nonNegativeInteger. If cashSettlementBusinessDays '
@@ -47145,7 +47183,7 @@ class FxFixingDate(Offset):
                       'Rosetta condition: DateChoice — required choice '
                       'dateRelativeToPaymentDates, '
                       'dateRelativeToCalculationPeriodDates'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'rules': [{'description': 'condition to represent an FpML choice construct.',
                     'postconditions': {'any_of': [{'slot_conditions': {'businessCenters': {'name': 'businessCenters',
@@ -47234,7 +47272,7 @@ class FixedPrice(ConfiguredBaseModel):
                       'exists then price -> value >= 0.0',
                       'Rosetta condition: NonNegativePrice_datedValue — if price -> '
                       'datedValue exists then price -> datedValue -> value all >= 0.0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'slot_usage': {'price': {'description': 'Fixed price step schedule, including '
                                                  'an initial price specified as an '
@@ -47247,7 +47285,7 @@ class FixedPrice(ConfiguredBaseModel):
 
 class PaymentDetail(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement']})
 
     paymentDate: Optional[AdjustableOrRelativeDate] = Field(default=None, description="""The feature payment date.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FeaturePayment',
@@ -47262,7 +47300,7 @@ class PaymentDiscounting(ConfiguredBaseModel):
     """
     This class corresponds to the FpML PaymentDiscounting.model group for representing the discounting elements that can be associated with a payment.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'slot_usage': {'discountFactor': {'description': 'The value representing the '
                                                           'discount factor used to '
@@ -47284,7 +47322,7 @@ class PaymentRule(ConfiguredBaseModel):
     """
     A class defining the payment calculation rule. As of FpML 5.10, percentage rule is the only calculation rule that has been specified as part of the standard.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement']})
 
     percentageRule: Optional[PercentageRule] = Field(default=None, description="""This attribute is not present as part of the FpML construct, as the payment rule is specialised by means of runtime type extension through the xsi:type.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PaymentRule']} })
@@ -47295,7 +47333,7 @@ class PrincipalPayments(ConfiguredBaseModel):
     A class defining which principal exchanges occur for the stream.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement']})
 
     initialPayment: bool = Field(default=..., description="""A true/false flag to indicate whether there is an initial exchange of principal on the effective date.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrincipalPayments']} })
@@ -47313,7 +47351,7 @@ class PrincipalPaymentSchedule(ConfiguredBaseModel):
                       'initialPrincipalPayment exists then initialPrincipalPayment -> '
                       'principalAmount exists or initialPrincipalPayment -> '
                       'presentValuePrincipalAmount exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement']})
 
     initialPrincipalPayment: Optional[PrincipalPayment] = Field(default=None, description="""Principal Payment made at Trade inception.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PrincipalPaymentSchedule']} })
@@ -47330,7 +47368,7 @@ class PrincipalPayment(ConfiguredBaseModel):
                       'principalAmount, presentValuePrincipalAmount',
                       'Rosetta condition: DiscountFactor — if '
                       'presentValuePrincipalAmount exists then discountFactor exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'rules': [{'description': 'PrincipalAmount',
                     'postconditions': {'any_of': [{'slot_conditions': {'principalAmount': {'name': 'principalAmount',
@@ -47377,7 +47415,7 @@ class SettlementBase(ConfiguredBaseModel):
     A base class to be extended by the SettlementTerms class.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement'],
          'slot_usage': {'settlementDate': {'description': 'The date on which the '
                                                           'settlement amount will be '
@@ -47424,7 +47462,7 @@ class SettlementTerms(SettlementBase):
                       'Rosetta condition: PhysicalSettlementTerms — if '
                       'physicalSettlementTerms exists then settlementType <> '
                       'SettlementTypeEnum -> Cash'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement']})
 
     cashSettlementTerms: Optional[list[CashSettlementTerms]] = Field(default=None, description="""Specifies the parameters associated with the cash settlement procedure.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SettlementTerms']} })
@@ -47449,7 +47487,7 @@ class SettlementProvision(ConfiguredBaseModel):
     """
     Defines parameters that regulate a settlement, for instance whether this settlement should be netted with other ones or broken-down into smaller amounts.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement']})
 
     shapingProvisions: Optional[ShapingProvision] = Field(default=None, description="""Defines the parameters that are necessary to 'shape' a settlement, i.e. break it down into smaller amounts.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SettlementProvision']} })
@@ -47459,7 +47497,7 @@ class ShapingProvision(ConfiguredBaseModel):
     """
     Defines the applicable settlement limits that may require a settlement to be 'shaped', i.e. broken-down into smaller amounts.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_common_settlement',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'in_subset': ['cdm_product_common_settlement']})
 
     shapeSchedule: list[Money] = Field(default=..., description="""Defines applicable settlement limits in each currency.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ShapingProvision']} })
@@ -47469,7 +47507,7 @@ class TransferableProduct(Asset):
     """
     A TransferableProduct is a type of financial product which can be held or transferred, represented as an Asset with the addition of specific EconomicTerms.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     economicTerms: EconomicTerms = Field(default=..., description="""The price forming features, including payouts and provisions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TransferableProduct', 'NonTransferableProduct']} })
@@ -47547,7 +47585,7 @@ class EconomicTerms(ConfiguredBaseModel):
                       'calculationAgent -> calculationAgentParty exists then '
                       'calculationAgent -> calculationAgentParty = AncillaryRoleEnum '
                       '-> CalculationAgentIndependent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'collateral': {'description': 'Represents the collateral '
                                                       'obligations of a party.',
@@ -47696,7 +47734,7 @@ class OptionPayout(PayoutBase):
                       'exists',
                       'Rosetta condition: OptionTypePresent — if underlier -> Product '
                       '-> NonTransferableProduct is absent then optionType exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'optionType': {'description': 'The type of option transaction. '
                                                       'From a usage standpoint, '
@@ -47787,7 +47825,7 @@ class ReturnTerms(ConfiguredBaseModel):
                       'only exists or varianceReturnTerms only exists or '
                       'volatilityReturnTerms only exists or correlationReturnTerms '
                       'only exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     priceReturnTerms: Optional[PriceReturnTerms] = Field(default=None, description="""Return terms based upon the underlier's observed price.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ReturnTerms']} })
@@ -47840,7 +47878,7 @@ class PerformancePayout(PayoutBase):
                       'correlationReturnTerms -> equityUnderlierProvisions is absent '
                       'and returnTerms -> correlationReturnTerms -> '
                       'sharePriceDividendAdjustment is absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': 'PortfolioOrStraightReturn',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'returnTerms': {'name': 'returnTerms',
@@ -47979,7 +48017,7 @@ class PortfolioReturnTerms(ReturnTerms):
     Specifies an individual type of return of a Performance Payout, when such individual return is part of an aggregation of multiple similar returns, at Performance Payout level.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'finalValuationPrice': {'description': '2018 ISDA CDM Equity '
                                                                'Confirmation for '
@@ -48117,7 +48155,7 @@ class NonTransferableProduct(ConfiguredBaseModel):
                       '(deliverable or not) based on two criteria: the forward payout '
                       'with the latest value date or the forward payout with the '
                       'latest settlement date.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'identifier': {'description': 'Comprises a identifier and a '
                                                       'source to uniquely identify the '
@@ -48199,7 +48237,7 @@ class TradeLot(ConfiguredBaseModel):
                       'Rosetta func: PriceQuantityTriangulation — Defines all the '
                       'scenarios which triangulation can be helpful validation between '
                       'Prices and Quantities.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'lotIdentifier': {'description': 'Specifies one or more '
                                                          'identifiers for the lot, if '
@@ -48349,7 +48387,7 @@ class TradableProduct(ConfiguredBaseModel):
                       'calculationAgent -> calculationAgentParty exists',
                       'Rosetta func: AddTradeLot — Add a TradeLot to an existing list '
                       'of TradeLots.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'adjustment': {'description': 'Specifies the conditions that '
                                                       'govern the adjustment to the '
@@ -48812,7 +48850,7 @@ class Trade(TradableProduct):
                       'Rosetta func: TradeNoExecutionDetails',
                       'Rosetta func: ExtractBeforeTrade',
                       'Rosetta func: ExtractAfterTrade'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_event_common',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
          'in_subset': ['cdm_event_common'],
          'rules': [{'comments': ['Rosetta comparison: clearedDate >= tradeDate'],
                     'description': 'If the cleared date exists, it needs to be on or '
@@ -48967,7 +49005,7 @@ class ConstituentWeight(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: BasketPercentage — if basketPercentage '
                       'exists then basketPercentage >= 0.0 and basketPercentage <= '
                       '1.0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': 'FpML specifies basketPercentage as a '
                                    'RestrictedPercentage type, meaning that the value '
@@ -49068,7 +49106,7 @@ class SettlementPayout(PayoutBase):
                       '(deliverable or not) based on two criteria: the forward payout '
                       'with the latest value date or the forward payout with the '
                       'latest settlement date.'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'deliveryTerm': {'description': 'Also called contract month or '
                                                         "delivery month. However, it's "
@@ -49138,7 +49176,7 @@ class CalculationSchedule(ConfiguredBaseModel):
     """
     A class that allows the full representation of a payout by defining a set of schedule periods. It supports standard schedule customization by expressing all the dates, quantities, and pricing data in a non-parametric way.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     schedulePeriod: list[SchedulePeriod] = Field(default=..., description="""Defines a period of a calculation schedule structure.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalculationSchedule']} })
@@ -49148,7 +49186,7 @@ class SchedulePeriod(ConfiguredBaseModel):
     """
     A class that defines the period of a schedule. The period contains a set of start and end dates, quantities, fixing, and pricing data.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'calculationPeriod': {'description': 'Period for which the '
                                                              'payment is generated.',
@@ -49176,7 +49214,7 @@ class FixedPricePayout(PayoutBase):
     Represents a fixed price payout. There is no underlier associated with this payout type and is based on fixed pricing per a given unit (e.g. in commodities price per barrel)
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: Quantity — priceQuantity exists'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': 'When there is an OptionPayout the quantity can be '
                                    'expressed as part of the payoutQuantity, or as '
@@ -49246,7 +49284,7 @@ class CancelableProvision(BuyerSeller):
                       'exerciseNotice -> exerciseNoticeReceiver exists then '
                       'exerciseNotice -> exerciseNoticeReceiver = AncillaryRoleEnum -> '
                       'ExerciseNoticeReceiverPartyCancelableProvision'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': 'Must select one of predefined cancellation types '
                                    'of effectiveDate or effectivePeriod.',
@@ -49330,7 +49368,7 @@ class CancelableProvisionAdjustedDates(ConfiguredBaseModel):
     """
     A data to:  define the adjusted dates for a cancelable provision on a swap transaction.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     cancellationEvent: list[CancellationEvent] = Field(default=..., description="""The adjusted dates for an individual cancellation date.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CancelableProvisionAdjustedDates']} })
@@ -49342,7 +49380,7 @@ class CancellationEvent(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
          'close_mappings': ['fpml_5_10:CancellationEvent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'adjustedExerciseDate': {'description': 'The date on which '
                                                                 'option exercise takes '
@@ -49375,7 +49413,7 @@ class EarlyTerminationEvent(ConfiguredBaseModel):
                       'Rosetta condition: FpML_ird_41 — '
                       'adjustedCashSettlementValuationDate <= '
                       'adjustedCashSettlementPaymentDate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'comments': ['Rosetta comparison: adjustedExerciseDate <= '
                                  'adjustedEarlyTerminationDate'],
@@ -49449,7 +49487,7 @@ class EarlyTerminationProvision(ConfiguredBaseModel):
                       '(mandatoryEarlyTermination exists or optionalEarlyTermination '
                       'exists) or (mandatoryEarlyTermination exists and '
                       'optionalEarlyTermination exists)'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     mandatoryEarlyTermination: Optional[MandatoryEarlyTermination] = Field(default=None, description="""A mandatory early termination provision to terminate the swap at fair value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EarlyTerminationProvision']} })
@@ -49463,7 +49501,7 @@ class ExercisePeriod(ConfiguredBaseModel):
     This defines the time interval to the start of the exercise period, i.e. the earliest exercise date, and the frequency of subsequent exercise dates (if any).
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     earliestExerciseDateTenor: Period = Field(default=..., description="""The time interval to the first (and possibly only) exercise date in the exercise period.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExercisePeriod']} })
@@ -49479,7 +49517,7 @@ class ExtendibleProvision(BuyerSeller):
                       'exerciseNotice -> exerciseNoticeReceiver exists then '
                       'exerciseNotice -> exerciseNoticeReceiver = AncillaryRoleEnum -> '
                       'ExerciseNoticeReceiverPartyExtendibleProvision'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'exerciseTerms': {'description': 'The exercise terms '
                                                          'associated with the '
@@ -49543,7 +49581,7 @@ class ExtendibleProvisionAdjustedDates(ConfiguredBaseModel):
     """
     A data defining:  the adjusted dates associated with a provision to extend a swap.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     extensionEvent: list[ExtensionEvent] = Field(default=..., description="""The adjusted dates associated with a single extendible exercise date.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExtendibleProvisionAdjustedDates']} })
@@ -49556,7 +49594,7 @@ class ExtensionEvent(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
          'comments': ['Rosetta condition: FpML_ird_42 — adjustedExerciseDate < '
                       'adjustedExtendedTerminationDate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'comments': ['Rosetta comparison: adjustedExerciseDate < '
                                  'adjustedExtendedTerminationDate'],
@@ -49587,7 +49625,7 @@ class MandatoryEarlyTermination(ConfiguredBaseModel):
                       'if calculationAgent -> calculationAgentParty exists then '
                       'calculationAgent -> calculationAgentParty = AncillaryRoleEnum '
                       '-> CalculationAgentMandatoryEarlyTermination'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'calculationAgent': {'description': 'The ISDA Calculation '
                                                             'Agent responsible for '
@@ -49614,7 +49652,7 @@ class MandatoryEarlyTerminationAdjustedDates(ConfiguredBaseModel):
                       '<= adjustedCashSettlementValuationDate and '
                       'adjustedCashSettlementValuationDate <= '
                       'adjustedCashSettlementPaymentDate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'comments': ['Rosetta comparison: adjustedEarlyTerminationDate <= '
                                  'adjustedCashSettlementValuationDate',
@@ -49674,7 +49712,7 @@ class OptionalEarlyTermination(ConfiguredBaseModel):
                       'if calculationAgent -> calculationAgentParty exists then '
                       'calculationAgent -> calculationAgentParty = AncillaryRoleEnum '
                       '-> CalculationAgentOptionalEarlyTermination'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'calculationAgent': {'description': 'The ISDA Calculation '
                                                             'Agent responsible for '
@@ -49739,7 +49777,7 @@ class OptionalEarlyTerminationAdjustedDates(ConfiguredBaseModel):
     """
     A data defining:  the adjusted dates associated with an optional early termination provision.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     earlyTerminationEvent: list[EarlyTerminationEvent] = Field(default=..., description="""The adjusted dates associated with an individual early termination date.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OptionalEarlyTerminationAdjustedDates']} })
@@ -49750,7 +49788,7 @@ class AveragingFeature(ConfiguredBaseModel):
     As per ISDA 2002 Definitions.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AveragingFeature'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     averagingCalculation: AveragingCalculation = Field(default=..., description="""Defines parameters for use in cases when a valuation or other term is based on an average of market observations.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AveragingFeature.averagingCalculation'],
@@ -49770,7 +49808,7 @@ class AveragingCalculation(ConfiguredBaseModel):
     Defines parameters for use in cases when a valuation or other term is based on an average of market observations.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AveragingCalculation'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'averagingMethod': {'name': 'averagingMethod',
                                             'range': 'AveragingCalculationMethod',
@@ -49792,7 +49830,7 @@ class AveragingStrikeFeature(ConfiguredBaseModel):
     Defines the terms required to calculate the average observations associated with an averaging strike.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AveragingStrikeFeature'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'observationTerms': {'description': 'Class containing terms '
                                                             'that are associated with '
@@ -49813,7 +49851,7 @@ class Barrier(ConfiguredBaseModel):
     As per ISDA 2002 Definitions.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:Barrier'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     knockIn: Optional[list[TriggerEvent]] = Field(default=None, description="""The option only becomes active when a predetermined trigger level is breached.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:Barrier.knockIn'], 'domain_of': ['Barrier']} })
@@ -49824,7 +49862,7 @@ class CalendarSpread(ConfiguredBaseModel):
     """
     A type for defining a calendar spread feature.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     expirationDateTwo: AdjustableOrRelativeDate = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['CalendarSpread']} })
@@ -49834,7 +49872,7 @@ class Composite(ConfiguredBaseModel):
     """
     Specifies the conditions to be applied for converting into a reference currency when the actual currency rate is not determined upfront.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'determinationMethod': {'name': 'determinationMethod',
                                                 'required': False},
@@ -49876,7 +49914,7 @@ class FxFeature(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: FxFeatureChoice — required choice composite, '
                       'quanto, crossCurrency'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': ' Choice rule to represent an FpML choice '
                                    'construct.',
@@ -49915,7 +49953,7 @@ class OptionFeature(ConfiguredBaseModel):
     """
     Defines additional optional features that can be included in an option contract.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'averagingFeature': {'description': 'Defines an option feature '
                                                             'in which an average '
@@ -49947,7 +49985,7 @@ class TerminationProvision(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: TerminationProvisionChoice — required choice '
                       'cancelableProvision, extendibleProvision, evergreenProvision, '
                       'earlyTerminationProvision, recallProvision'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': 'TerminationProvisionChoice',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'cancelableProvision': {'name': 'cancelableProvision',
@@ -49972,7 +50010,7 @@ class RecallProvision(ConfiguredBaseModel):
     """
     Defines the additional features that allow securities to be recalled by the lender before the term of the loan. A recall is not the same as an early termination, but may result in the early termination of a loan.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'notificationTime': {'description': 'The time on the day of '
                                                             'intended settlement by '
@@ -50004,7 +50042,7 @@ class OptionStrike(ConfiguredBaseModel):
     """
     Defines the strike price of an option.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     strikePrice: Optional[Price] = Field(default=None, description="""Defines the strike of an option in the form of a price that could be a cash price, interestRate, or other types.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OptionStrike']} })
@@ -50019,7 +50057,7 @@ class PassThrough(ConfiguredBaseModel):
     """
     Type which contains pass through payments.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     passThroughItem: list[PassThroughItem] = Field(default=..., description="""One to many pass through payment items.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PassThrough']} })
@@ -50029,7 +50067,7 @@ class PassThroughItem(ConfiguredBaseModel):
     """
     Class to represent a single pass through payment.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'payerReceiver': {'description': "This attribute doesn't "
                                                          'exists in the FpML '
@@ -50056,7 +50094,7 @@ class Quanto(ConfiguredBaseModel):
     """
     Determines the currency rate that the seller of the equity amounts will apply at each valuation date for converting the respective amounts into a currency that is different from the currency denomination of the underlier.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'fixingTime': {'description': 'The time at which the spot '
                                                       'currency exchange rate will be '
@@ -50087,7 +50125,7 @@ class StrategyFeature(ConfiguredBaseModel):
     """
     A class for defining option strategy features.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     strikeSpread: Optional[StrikeSpread] = Field(default=None, description="""Definition of the upper strike in a strike spread.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StrategyFeature']} })
@@ -50098,7 +50136,7 @@ class StrikeSpread(ConfiguredBaseModel):
     """
     A class for defining a strike spread feature.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     upperStrike: OptionStrike = Field(default=..., description="""Upper strike in a strike spread.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StrikeSpread']} })
@@ -50131,7 +50169,7 @@ class ExerciseTerms(ConfiguredBaseModel):
                       'exists then expirationTimeType = ExpirationTimeTypeEnum -> '
                       'SpecificTime and if expirationTimeType = ExpirationTimeTypeEnum '
                       '-> SpecificTime then expirationTime exists)'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': 'Required choice rule between exercise dates and '
                                    'expiration date. The exerciseDates field can be '
@@ -50206,7 +50244,7 @@ class AutomaticExercise(ConfiguredBaseModel):
     A type to define automatic exercise of a swaption. With automatic exercise the option is deemed to have exercised if it is in the money by more than the threshold amount on the exercise date.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AutomaticExercise'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'isApplicable': {'description': 'Boolean that indicates if it '
                                                         'has an automaticExercise',
@@ -50246,7 +50284,7 @@ class ExerciseFee(PayerReceiver):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ExerciseFeeChoice — required choice '
                       'feeAmount, feeRate'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'feeAmount': {'name': 'feeAmount',
@@ -50272,7 +50310,7 @@ class ExerciseFeeSchedule(PayerReceiver):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ExerciseFeeScheduleChoice — required choice '
                       'feeAmountSchedule, feeRateSchedule'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'feeAmountSchedule': {'name': 'feeAmountSchedule',
@@ -50296,7 +50334,7 @@ class ExerciseNotice(ConfiguredBaseModel):
     """
     Defines to whom and where notice of execution should be given. The exerciseNoticeGiver refers to one or both of the principal parties of the trade. If present the exerciseNoticeReceiver refers to a party, other than the principal party, to whom notice should be given.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'businessCenter': {'description': 'Specifies the location '
                                                           'where the exercise must be '
@@ -50325,7 +50363,7 @@ class ExerciseProcedure(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: ExerciseProcedureChoice — required choice '
                       'manualExercise, automaticExercise'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'manualExercise': {'name': 'manualExercise',
@@ -50352,7 +50390,7 @@ class ManualExercise(ConfiguredBaseModel):
                       'exerciseNotice -> exerciseNoticeReceiver exists then '
                       'exerciseNotice -> exerciseNoticeReceiver = AncillaryRoleEnum -> '
                       'ExerciseNoticeReceiverPartyManual'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     exerciseNotice: Optional[ExerciseNotice] = Field(default=None, description="""Definition of the party to whom notice of exercise should be given.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CancelableProvision.exerciseNotice'],
@@ -50369,7 +50407,7 @@ class PartialExercise(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition: MinimumChoice — required choice '
                       'minimumNotionalAmount, minimumNumberOfOptions'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'minimumNotionalAmount': {'name': 'minimumNotionalAmount',
@@ -50410,7 +50448,7 @@ class MultipleExercise(PartialExercise):
                       'maximumNumberOfOptions exists then maximumNotionalAmount >= 0',
                       'Rosetta condition: MinimumNumberOfOptions — if '
                       'minimumNumberOfOptions exists then minimumNumberOfOptions >= 0'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': 'Choice rule to represent an FpML choice construct.',
                     'postconditions': {'exactly_one_of': [{'slot_conditions': {'maximumNotionalAmount': {'name': 'maximumNotionalAmount',
@@ -50445,7 +50483,7 @@ class Strike(ConfiguredBaseModel):
     A class describing a single cap or floor rate.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'metadata_key': {'tag': 'metadata_key', 'value': True}},
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'buyer': {'description': 'The buyer of the option.',
                                   'name': 'buyer',
@@ -50467,7 +50505,7 @@ class StrikeSchedule(RateSchedule):
     """
     A class describing a schedule of cap or floor rates.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'buyer': {'description': 'The buyer of the option.',
                                   'name': 'buyer',
@@ -50493,7 +50531,7 @@ class AssetPayout(PayoutBase):
          'comments': ['Rosetta condition: Quantity — priceQuantity exists',
                       'Rosetta condition: UnderlierNotCash — underlier -> Cash is '
                       'absent'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'rules': [{'description': 'When there is an OptionPayout the quantity can be '
                                    'expressed as part of the payoutQuantity, or as '
@@ -50502,7 +50540,12 @@ class AssetPayout(PayoutBase):
                                    'payoutQuantity is a mandatory attribute.',
                     'postconditions': {'slot_conditions': {'priceQuantity': {'name': 'priceQuantity',
                                                                              'required': True}}}}],
-         'slot_usage': {'minimumFee': {'description': 'A contractual minimum amount '
+         'slot_usage': {'dividendTerms': {'description': 'Specifies the terms under '
+                                                         'which dividends received by '
+                                                         'the borrower are passed '
+                                                         'through to the lender.',
+                                          'name': 'dividendTerms'},
+                        'minimumFee': {'description': 'A contractual minimum amount '
                                                       'which the borrower will pay, '
                                                       'regardless of the duration of '
                                                       'the loan. A mechanism for '
@@ -50526,8 +50569,7 @@ class AssetPayout(PayoutBase):
                        'AssetPayout']} })
     minimumFee: Optional[Money] = Field(default=None, description="""A contractual minimum amount which the borrower will pay, regardless of the duration of the loan. A mechanism for making sure that a trade generates enough income.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:BillingRecord.minimumFee'],
          'domain_of': ['BillingRecord', 'AssetPayout']} })
-    dividendTerms: Optional[DividendTerms] = Field(default=None, description="""Specifies the terms under which dividends received by the borrower are passed through to the lender.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AssetPayout.dividendTerms'],
-         'domain_of': ['AssetPayout']} })
+    dividendTerms: Optional[DividendTerms] = Field(default=None, description="""Specifies the terms under which dividends received by the borrower are passed through to the lender.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AvailableInventoryRecord', 'AssetPayout']} })
     tradeType: Optional[AssetPayoutTradeTypeEnum] = Field(default=None, description="""The trade type, eg repurchase transaction or buy/sell-back.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AssetPayout.tradeType'],
          'domain_of': ['AssetPayout']} })
     payerReceiver: PayerReceiver = Field(default=..., description="""Canonical representation of the payer and receiver parties applicable to each payout leg.""", json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:CalculateTransferInstruction.payerReceiver'],
@@ -50553,7 +50595,7 @@ class DividendTerms(ConfiguredBaseModel):
     """
     Information related to dividends and payments.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template']})
 
     manufacturedIncomeRequirement: DividendPayoutRatio = Field(default=..., description="""Specifies the proportion of the value of the dividend on the borrowed shares that the borrower is legally obligated to return to the lender.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DividendTerms']} })
@@ -50566,7 +50608,7 @@ class AssetLeg(ConfiguredBaseModel):
     Defines each asset movement of an asset payout.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AssetLeg'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'settlementDate': {'description': 'Specifies the settlement '
                                                           'date of securities.  In a '
@@ -50596,7 +50638,7 @@ class EvergreenProvision(ConfiguredBaseModel):
     """
     Specifies a transaction which automatically extends for a specified timeframe until the exercise of an embedded option.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_product_template',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template',
          'in_subset': ['cdm_product_template'],
          'slot_usage': {'noticeDeadlinePeriod': {'description': 'Defines the minimum '
                                                                 'period before an '
@@ -50644,7 +50686,7 @@ Product = Union["TransferableProduct", "NonTransferableProduct"]
 
 
 class Document(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     finInstrmRptgTxRpt: FinInstrmRptgTxRpt = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Document'],
@@ -50652,7 +50694,7 @@ class Document(ConfiguredBaseModel):
 
 
 class FinInstrmRptgTxRpt(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     tx: Tx = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['FinInstrmRptgTxRpt', 'New'],
@@ -50660,7 +50702,7 @@ class FinInstrmRptgTxRpt(ConfiguredBaseModel):
 
 
 class Tx(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     newTx: New = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Tx'], 'related_mappings': ['icma:ISO20022#New']} })
@@ -50673,7 +50715,7 @@ class Tx(ConfiguredBaseModel):
 
 
 class New(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     txId: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['New'], 'related_mappings': ['icma:ISO20022#TxId']} })
@@ -50692,14 +50734,14 @@ class New(ConfiguredBaseModel):
 
 
 class Sellr(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     acctOwnr: AcctOwnr = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Sellr', 'Buyr'], 'related_mappings': ['icma:ISO20022#AcctOwnr']} })
 
 
 class Sngl(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     isin: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Sngl'], 'related_mappings': ['icma:ISO20022#ISIN']} })
@@ -50707,7 +50749,7 @@ class Sngl(ConfiguredBaseModel):
 
 
 class OrdrTrnsmssn(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     trnsmssnInd: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['OrdrTrnsmssn'],
@@ -50715,7 +50757,7 @@ class OrdrTrnsmssn(ConfiguredBaseModel):
 
 
 class DerivInstrmAttrbts(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     xpryDt: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['DerivInstrmAttrbts'],
@@ -50729,21 +50771,21 @@ class DerivInstrmAttrbts(ConfiguredBaseModel):
 
 
 class UndrlygInstrm(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     swp: Swp = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['UndrlygInstrm'], 'related_mappings': ['icma:ISO20022#Swp']} })
 
 
 class AcctOwnr(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     id: Id = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['AcctOwnr', 'Othr'], 'related_mappings': ['icma:ISO20022#Id']} })
 
 
 class InvstmtDcsnPrsn(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     prsn: Prsn = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['InvstmtDcsnPrsn', 'ExctgPrsn'],
@@ -50751,14 +50793,14 @@ class InvstmtDcsnPrsn(ConfiguredBaseModel):
 
 
 class Buyr(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     acctOwnr: AcctOwnr = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Sellr', 'Buyr'], 'related_mappings': ['icma:ISO20022#AcctOwnr']} })
 
 
 class Qty(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation'],
          'slot_usage': {'unit': {'name': 'unit', 'range': 'string', 'required': True}}})
 
@@ -50766,14 +50808,14 @@ class Qty(ConfiguredBaseModel):
 
 
 class FinInstrm(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     othr: Othr = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['FinInstrm', 'Prsn'], 'related_mappings': ['icma:ISO20022#Othr']} })
 
 
 class Pric(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     pric: Pric = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Tx', 'Pric'], 'related_mappings': ['icma:ISO20022#Pric']} })
@@ -50781,7 +50823,7 @@ class Pric(ConfiguredBaseModel):
 
 
 class Prsn(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     ctryOfBrnch: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Tx', 'Prsn'], 'related_mappings': ['icma:ISO20022#CtryOfBrnch']} })
@@ -50789,7 +50831,7 @@ class Prsn(ConfiguredBaseModel):
 
 
 class FinInstrmGnlAttrbts(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     fullNm: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['FinInstrmGnlAttrbts'],
@@ -50801,7 +50843,7 @@ class FinInstrmGnlAttrbts(ConfiguredBaseModel):
 
 
 class Nm(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     refRate: RefRate = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Nm'], 'related_mappings': ['icma:ISO20022#RefRate']} })
@@ -50809,14 +50851,14 @@ class Nm(ConfiguredBaseModel):
 
 
 class SwpOut(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     sngl: Sngl = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['SwpOut', 'SwpIn'], 'related_mappings': ['icma:ISO20022#Sngl']} })
 
 
 class Othr(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation'],
          'slot_usage': {'id': {'name': 'id', 'range': 'string'}}})
 
@@ -50829,7 +50871,7 @@ class Othr(ConfiguredBaseModel):
 
 
 class ExctgPrsn(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     prsn: Prsn = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['InvstmtDcsnPrsn', 'ExctgPrsn'],
@@ -50837,7 +50879,7 @@ class ExctgPrsn(ConfiguredBaseModel):
 
 
 class Term(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation'],
          'slot_usage': {'unit': {'name': 'unit', 'range': 'string', 'required': True}}})
 
@@ -50846,7 +50888,7 @@ class Term(ConfiguredBaseModel):
 
 
 class Swp(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     swpIn: SwpIn = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Swp'], 'related_mappings': ['icma:ISO20022#SwpIn']} })
@@ -50854,14 +50896,14 @@ class Swp(ConfiguredBaseModel):
 
 
 class SchmeNm(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     prtry: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['SchmeNm'], 'related_mappings': ['icma:ISO20022#Prtry']} })
 
 
 class RefRate(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation'],
          'slot_usage': {'indx': {'name': 'indx', 'range': 'string'}}})
 
@@ -50871,7 +50913,7 @@ class RefRate(ConfiguredBaseModel):
 
 class AddtlAttrbts(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['fpml_5_10:AddtlAttrbts'],
-         'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     rskRdcgTx: str = Field(default=..., json_schema_extra = { "linkml_meta": {'close_mappings': ['fpml_5_10:AddtlAttrbts.rskRdcgTx'],
@@ -50883,14 +50925,14 @@ class AddtlAttrbts(ConfiguredBaseModel):
 
 
 class SwpIn(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     sngl: Sngl = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['SwpOut', 'SwpIn'], 'related_mappings': ['icma:ISO20022#Sngl']} })
 
 
 class Indx(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation'],
          'slot_usage': {'nm': {'name': 'nm', 'range': 'Nm'}}})
 
@@ -50898,7 +50940,7 @@ class Indx(ConfiguredBaseModel):
 
 
 class Id(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/finos/cdm/cdm_regulation',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_regulation',
          'in_subset': ['cdm_regulation']})
 
     lei: str = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['Id'], 'related_mappings': ['icma:ISO20022#LEI']} })

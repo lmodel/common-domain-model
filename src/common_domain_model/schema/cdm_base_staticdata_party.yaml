@@ -1,4 +1,4 @@
-id: https://w3id.org/finos/cdm/cdm_base_staticdata_party
+id: https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party
 name: cdm_base_staticdata_party
 description: 'Basic party concepts: legal entity, natural person, contact details, buyer / payer and all related enums.'
 license: Apache-2.0
@@ -6,7 +6,7 @@ see_also:
 - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/finos/cdm/
+  common_domain_model: https://w3id.org/lmodel/common_domain_model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/

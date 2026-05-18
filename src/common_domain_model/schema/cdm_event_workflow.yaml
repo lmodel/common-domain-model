@@ -1,4 +1,4 @@
-id: https://w3id.org/finos/cdm/cdm_event_workflow
+id: https://w3id.org/lmodel/common-domain-model/cdm_event_workflow
 name: cdm_event_workflow
 description: 'Workflow concepts (orthogonal to business event): time stamp, credit limit, trade warehouse info and associated
   function specifications.'
@@ -7,7 +7,7 @@ see_also:
 - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/finos/cdm/
+  common_domain_model: https://w3id.org/lmodel/common_domain_model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
