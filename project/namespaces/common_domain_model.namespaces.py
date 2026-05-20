@@ -1,5 +1,5 @@
 # Auto generated from common_domain_model.yaml by namespacegen.py version: 0.0.1
-# Generation date: 2026-05-20T16:02:10
+# Generation date: 2026-05-20T16:20:34
 # Schema: common_domain_model
 #
 # id: https://w3id.org/lmodel/common-domain-model
