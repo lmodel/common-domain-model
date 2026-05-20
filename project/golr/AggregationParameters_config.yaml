@@ -1,0 +1,36 @@
+# metamodel_version: 1.11.0id: AggregationParameters
+schema_generating: true
+description: ' Parameters to be used to filter events that are relevant to a given
+  portfolio in order to calculate the state of this portfolio. The attributes correspond
+  to all the possible aggregation criteria that can be used and these criteria can
+  be combined. All the attributes are optional.'
+display_name: AggregationParameters
+document_category: AggregationParameters
+weight: 20
+fields:
+- id: dateTime
+  description: To aggregate as of a particular date
+  display_name: AggregationParameters_dateTime
+  cardinality: multi
+- id: totalPosition
+  description: Specifies whether to calculate total position to given date, or only
+    daily position for the given date.
+  display_name: totalPosition
+- id: positionStatus
+  description: To aggregate based on position status (EXECUTED, SETTLED etc)
+  display_name: positionStatus
+- id: party
+  description: To aggregate based on a selection of party(ies) / legal entity(ies).
+  display_name: AggregationParameters_party
+  cardinality: multi
+- id: product
+  description: To aggregate based on a selection of products.
+  display_name: AggregationParameters_product
+  cardinality: multi
+- id: productQualifier
+  description: To aggregate based on a selection of product type(s).
+  display_name: AggregationParameters_productQualifier
+  cardinality: multi
+- id: tradeReference
+  display_name: tradeReference
+  cardinality: multi

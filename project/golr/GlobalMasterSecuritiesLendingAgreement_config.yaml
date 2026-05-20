@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: GlobalMasterSecuritiesLendingAgreement
+schema_generating: true
+description: The set of elections that define a GMSLA.
+display_name: GlobalMasterSecuritiesLendingAgreement
+document_category: GlobalMasterSecuritiesLendingAgreement
+weight: 20
+fields:
+- id: collateral
+  description: The definitions regarding collateral relating to the GMSLA.
+  display_name: GlobalMasterSecuritiesLendingAgreement_collateral
+- id: baseCurrency
+  description: The definitions regarding base currency determinations relating to
+    the GMSLA.
+  display_name: GlobalMasterSecuritiesLendingAgreement_baseCurrency
+- id: eventsOfDefault
+  description: The definitions regarding any different events of default relating
+    to the GMSLA.
+  display_name: eventsOfDefault

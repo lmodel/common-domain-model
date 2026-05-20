@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: BusinessUnit
+schema_generating: true
+description: A class to specify an organizational unit.
+display_name: BusinessUnit
+document_category: BusinessUnit
+weight: 20
+fields:
+- id: name
+  description: A name used to describe the organizational unit
+  display_name: BusinessUnit_name
+- id: identifier
+  description: An identifier used to uniquely identify the organizational unit
+  display_name: BusinessUnit_identifier
+  cardinality: multi
+- id: contactInformation
+  description: The contact information for such business unit, when different from
+    the contact information associated with the party.
+  display_name: contactInformation

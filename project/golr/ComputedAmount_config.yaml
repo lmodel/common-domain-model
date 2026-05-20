@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: ComputedAmount
+schema_generating: true
+description: A class to specify the outcome of a computed amount, for testing purposes.
+display_name: ComputedAmount
+document_category: ComputedAmount
+weight: 20
+fields:
+- id: callFunction
+  display_name: callFunction
+- id: amount
+  description: Current value of the outstanding contract
+  display_name: ComputedAmount_amount
+- id: currency
+  description: The currency in which the computed amount is denominated. The list
+    of valid currencies is not presently positioned as an enumeration as part of the
+    CDM because that scope is limited to the values specified by ISDA and FpML. As
+    a result, implementers have to make reference to the relevant standard, such as
+    the ISO 4217 standard for currency codes.
+  display_name: ComputedAmount_currency

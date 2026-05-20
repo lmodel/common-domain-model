@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: EventCurrency
+schema_generating: true
+description: Defines the currency referenced as such in any terms related to FX Disruption
+  Events
+display_name: EventCurrency
+document_category: EventCurrency
+weight: 20
+fields:
+- id: eventCurrency
+  description: Defines the currency referenced as such in any terms related to FX
+    Disruption Events
+  display_name: EventCurrency_eventCurrency
+- id: eventCurrentAmount
+  description: Defines the Event Currency Amount to be exchanged on the Settlement
+    Date.
+  display_name: eventCurrentAmount
+- id: eventCurrencyBuyerSeller
+  description: Unless otherwised specified, the Buyer is the party to which the Event
+    Currency Amount is owed on the Settlement Date and the Seller is the party which
+    owes the Event Currency Amount on the Settlement Date.
+  display_name: eventCurrencyBuyerSeller
+  cardinality: multi

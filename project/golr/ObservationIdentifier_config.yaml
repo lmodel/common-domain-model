@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: ObservationIdentifier
+schema_generating: true
+description: Defines the parameters needed to uniquely identify a piece of data among
+  the population of all available market data.
+display_name: ObservationIdentifier
+document_category: ObservationIdentifier
+weight: 20
+fields:
+- id: observable
+  description: Represents the asset or rate to which the observation relates.
+  display_name: ObservationIdentifier_observable
+- id: observationDate
+  description: Specifies the date value to use when resolving the market data.
+  display_name: observationDate
+- id: observationTime
+  description: Represents the time and time-zone.
+  display_name: observationTime
+- id: informationSource
+  description: Represents where the market data published and should be observed.
+  display_name: ObservationIdentifier_informationSource
+- id: determinationMethodology
+  description: Specifies the method according to which an amount or a date is determined.
+  display_name: determinationMethodology

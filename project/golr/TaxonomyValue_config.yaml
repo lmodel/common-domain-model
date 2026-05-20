@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: TaxonomyValue
+schema_generating: true
+description: Defines a taxonomy value as either a simple string or a more granular
+  expression with class names and values for each class.
+display_name: TaxonomyValue
+document_category: TaxonomyValue
+weight: 20
+fields:
+- id: name
+  description: Specifies the taxonomy value as a simple string, which may be associated
+    to an external scheme.
+  display_name: name
+- id: classification
+  description: Specifies the taxonomy value as a set of class names and values for
+    each class.
+  display_name: classification
+  cardinality: multi

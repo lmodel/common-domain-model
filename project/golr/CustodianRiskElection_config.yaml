@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: CustodianRiskElection
+schema_generating: true
+description: A class to specify the Custodian Risk.
+display_name: CustodianRiskElection
+document_category: CustodianRiskElection
+weight: 20
+fields:
+- id: party
+  description: The elective party.
+  display_name: CustodianRiskElection_party
+- id: isSpecified
+  description: The qualification as to whether the risk is deemed as Specified.
+  display_name: CustodianRiskElection_isSpecified
+- id: qualification
+  description: The Custodian Risk or Collateral Manager Risk qualification.
+  display_name: CustodianRiskElection_qualification

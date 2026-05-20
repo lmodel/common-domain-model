@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: CalculationPeriodBase
+schema_generating: true
+description: The calculation period adjusted start and end dates, which are the baseline
+  arguments needed to compute an interest accrual calculation.
+display_name: CalculationPeriodBase
+document_category: CalculationPeriodBase
+weight: 20
+fields:
+- id: adjustedStartDate
+  description: The calculation period start date, adjusted according to any relevant
+    business day convention.
+  display_name: adjustedStartDate
+- id: adjustedEndDate
+  description: The calculation period end date, adjusted according to any relevant
+    business day convention.
+  display_name: adjustedEndDate

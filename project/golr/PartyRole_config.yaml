@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: PartyRole
+schema_generating: true
+description: A class to specify the role(s) that party(ies) may have in relation to
+  the execution, contract or other legal agreement.
+display_name: PartyRole
+document_category: PartyRole
+weight: 20
+fields:
+- id: partyReference
+  description: A reference to the party to which the role refers to.
+  display_name: PartyRole_partyReference
+- id: role
+  description: The party role.
+  display_name: PartyRole_role
+- id: ownershipPartyReference
+  description: A reference to the party that has ownership of this party role information.
+    FpML specifies that For shared trade information, this attribute will reference
+    the originator of the data (for example, an execution facility or clearing house).
+  display_name: ownershipPartyReference

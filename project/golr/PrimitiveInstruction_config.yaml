@@ -1,0 +1,47 @@
+# metamodel_version: 1.11.0id: PrimitiveInstruction
+schema_generating: true
+description: A Primitive Instruction describes the inputs required to pass into the
+  corresponding PrimitiveEvent function.
+display_name: PrimitiveInstruction
+document_category: PrimitiveInstruction
+weight: 20
+fields:
+- id: contractFormation
+  description: Specifies instructions describing an contract formation primitive event.
+  display_name: contractFormation
+- id: execution
+  description: Specifies instructions describing an execution primitive event.
+  display_name: execution
+- id: exercise
+  description: Specifies instructions describing an exercise primitive event.
+  display_name: exercise
+- id: partyChange
+  description: Specifies instructions describing a party change primitive event.
+  display_name: partyChange
+- id: quantityChange
+  description: Specifies instructions describing an quantity change primitive event.
+  display_name: quantityChange
+- id: reset
+  description: Specifies instructions describing a reset event.
+  display_name: reset
+- id: split
+  description: Specifies instructions to split a trade into multiple branches.
+  display_name: split
+- id: termsChange
+  description: Specifies instructions describing a terms change primitive event.
+  display_name: termsChange
+- id: transfer
+  description: Specifies instructions describing a transfer primitive event.
+  display_name: transfer
+- id: indexTransition
+  description: Specifies inputs needed to process a Index Transition business event.
+  display_name: indexTransition
+- id: stockSplit
+  description: Specifies inputs needed to process a Stock Split business event.
+  display_name: stockSplit
+- id: observation
+  description: Specifies inputs needed to process an observation.
+  display_name: observation
+- id: valuation
+  description: Specifies inputs needed to process an update of a valuation.
+  display_name: valuation

@@ -1,0 +1,21 @@
+# metamodel_version: 1.11.0id: PersonIdentifier
+schema_generating: true
+description: Comprises an identifier and a source. The associated metadata key denotes
+  the ability to associate a hash value to the PersonIdentifier instantiations for
+  the purpose of model cross-referencing, in support of functionality such as the
+  event effect and the lineage.
+display_name: PersonIdentifier
+document_category: PersonIdentifier
+weight: 20
+fields:
+- id: identifier
+  description: Provides an identifier associated with a person. The identifier is
+    unique within the public source specified in the source attribute.
+  display_name: PersonIdentifier_identifier
+  cardinality: multi
+- id: identifierType
+  description: Defines the source of the identifier.
+  display_name: PersonIdentifier_identifierType
+- id: country
+  description: The ISO 3166 standard code for the country issuing the identifier.
+  display_name: PersonIdentifier_country

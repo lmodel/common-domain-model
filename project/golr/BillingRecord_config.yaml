@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: BillingRecord
+schema_generating: true
+description: Specifies individual records within a billing invoice.
+display_name: BillingRecord
+document_category: BillingRecord
+weight: 20
+fields:
+- id: tradeState
+  description: The trade for the individual billing record.
+  display_name: BillingRecord_tradeState
+- id: recordTransfer
+  description: The settlement terms for the billing record
+  display_name: recordTransfer
+- id: recordStartDate
+  description: The starting date of the period described by this record
+  display_name: recordStartDate
+- id: recordEndDate
+  description: The ending date of the period described by this record
+  display_name: recordEndDate
+- id: minimumFee
+  description: Indicates the minimum fee amount applied to the billing record, if
+    any.
+  display_name: minimumFee

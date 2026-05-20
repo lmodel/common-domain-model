@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: FloatingRateIndexExternalMap
+schema_generating: true
+description: A map for a single FRO to or from an equivalent or similar codes in a
+  different standard such as ISO.
+display_name: FloatingRateIndexExternalMap
+document_category: FloatingRateIndexExternalMap
+weight: 20
+fields:
+- id: externalId
+  description: ' The FRO name that is being mapped to/from.'
+  display_name: externalId
+- id: externalStandard
+  description: The standard/version to which the map applies.
+  display_name: externalStandard

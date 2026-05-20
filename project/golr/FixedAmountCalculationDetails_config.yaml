@@ -1,0 +1,26 @@
+# metamodel_version: 1.11.0id: FixedAmountCalculationDetails
+schema_generating: true
+description: Type for reporting the detailed results of calculating a cash flow for
+  a calculation period.  This is enhanced relative to the FpML-based cashflows structure
+  to allow more information to be returned about daily compounded rates.
+display_name: FixedAmountCalculationDetails
+document_category: FixedAmountCalculationDetails
+weight: 20
+fields:
+- id: calculationPeriod
+  description: The calculation period for which the floating calculation was performed.
+  display_name: calculationPeriod
+- id: calculationPeriodNotionalAmount
+  description: The notional in effect during the calculation period.
+  display_name: calculationPeriodNotionalAmount
+- id: fixedRate
+  description: The value of the fixed rate that was used.
+  display_name: fixedRate
+- id: yearFraction
+  description: The fraction of a year that this calculation represents, according
+    to the day count fraction method.
+  display_name: yearFraction
+- id: calculatedAmount
+  description: The amount of the cash flow that was computed, including any spreads
+    and other processing.
+  display_name: calculatedAmount

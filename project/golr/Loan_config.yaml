@@ -1,0 +1,57 @@
+# metamodel_version: 1.11.0id: Loan
+schema_generating: true
+description: Identifies a loan by referencing an asset identifier and through an optional
+  set of attributes.
+display_name: Loan
+document_category: Loan
+weight: 20
+fields:
+- id: identifier
+  description: Asset Identifiers are used to uniquely identify an Asset, using a specified
+    Asset Identifier Type.
+  display_name: identifier
+  cardinality: multi
+- id: taxonomy
+  description: Defines the taxonomy of an object by combining a taxonomy source (i.e.
+    the rules to classify the object) and a value (i.e. the output of those rules
+    on the object.
+  display_name: taxonomy
+  cardinality: multi
+- id: isExchangeListed
+  description: Defines whether the Asset is listed on a public exchange.
+  display_name: isExchangeListed
+- id: exchange
+  description: If the Asset is listed, defines the public exchange of the listing.
+  display_name: exchange
+- id: relatedExchange
+  description: Provides the related Exchanges, if applicable.
+  display_name: relatedExchange
+  cardinality: multi
+- id: assetType
+  description: Specifies the type of asset.
+  display_name: assetType
+- id: borrower
+  description: Specifies the borrower. There can be more than one borrower. It is
+    meant to be used in the event that there is no Bloomberg Id or the Secured List
+    isn't applicable.
+  display_name: borrower
+  cardinality: multi
+- id: lien
+  description: Specifies the seniority level of the lien.
+  display_name: lien
+- id: facilityType
+  description: Specifies the type of loan facility (letter of credit, revolving, ...).
+  display_name: facilityType
+- id: creditAgreementDate
+  description: 'Specifies the credit agreement date is the closing date (the date
+    where the agreement has been signed) for the loans in the credit agreement. Funding
+    of the facilities occurs on (or sometimes a little after) the Credit Agreement
+    date. This underlier attribute is used to help identify which of the company''s
+    outstanding loans are being referenced by knowing to which credit agreement it
+    belongs. ISDA Standards Terms Supplement term: Date of Original Credit Agreement.'
+  display_name: creditAgreementDate
+- id: tranche
+  description: 'Denotes the loan tranche that is subject to the derivative transaction.
+    It will typically be referenced as the Bloomberg tranche number. ISDA Standards
+    Terms Supplement term: Bloomberg Tranche Number.'
+  display_name: tranche

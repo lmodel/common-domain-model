@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: BusinessDayAdjustments
+schema_generating: true
+description: A class defining the business day convention and financial business centers
+  used for adjusting any relevant date if it would otherwise fall on a day that is
+  not a business day in the specified business center.
+display_name: BusinessDayAdjustments
+document_category: BusinessDayAdjustments
+weight: 20
+fields:
+- id: businessDayConvention
+  description: The convention for adjusting a date if it would otherwise fall on a
+    day that is not a business day.
+  display_name: BusinessDayAdjustments_businessDayConvention
+- id: businessCenters
+  description: The business center(s), specified either explicitly or by reference
+    to those specified somewhere else in the instance document.
+  display_name: businessCenters

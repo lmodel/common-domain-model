@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: AdditionalType
+schema_generating: true
+description: The specification of the Additional Type of transaction that can require
+  the collection or delivery of initial margin under a given regulatory regime for
+  the purposes of Covered Transactions.
+display_name: AdditionalType
+document_category: AdditionalType
+weight: 20
+fields:
+- id: standardValue
+  description: The qualification of the Additional Type of transaction that can require
+    the collection or delivery of initial margin when specified as a standard value.
+  display_name: standardValue
+- id: customValue
+  description: The qualification of the Additional Type of transaction that can require
+    the collection or delivery of initial margin when specified as a custom value
+    by the parties to the legal agreement.
+  display_name: customValue

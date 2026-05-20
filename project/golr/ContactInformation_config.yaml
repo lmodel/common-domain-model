@@ -1,0 +1,25 @@
+# metamodel_version: 1.11.0id: ContactInformation
+schema_generating: true
+description: 'A class to specify contact information associated with a party: telephone,
+  postal/street address, email and web page.'
+display_name: ContactInformation
+document_category: ContactInformation
+weight: 20
+fields:
+- id: telephone
+  description: The telephone number.
+  display_name: telephone
+  cardinality: multi
+- id: address
+  description: The street/postal address.
+  display_name: address
+  cardinality: multi
+- id: email
+  description: The email address.
+  display_name: email
+  cardinality: multi
+- id: webPage
+  description: The web page. This attribute is not specified as part of the FpML ContactInformation
+    complex type.
+  display_name: webPage
+  cardinality: multi

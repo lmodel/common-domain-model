@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: PartyReferencePayerReceiver
+schema_generating: true
+description: Specifies the parties responsible for making and receiving payments defined
+  by this structure.
+display_name: PartyReferencePayerReceiver
+document_category: PartyReferencePayerReceiver
+weight: 20
+fields:
+- id: payerPartyReference
+  description: The party responsible for making the payments defined by this structure.
+  display_name: payerPartyReference
+- id: payerAccountReference
+  description: A reference to the account responsible for making the payments defined
+    by this structure.
+  display_name: payerAccountReference
+- id: receiverPartyReference
+  description: The party that receives the payments corresponding to this structure.
+  display_name: receiverPartyReference
+- id: receiverAccountReference
+  description: A reference to the account that receives the payments corresponding
+    to this structure.
+  display_name: receiverAccountReference

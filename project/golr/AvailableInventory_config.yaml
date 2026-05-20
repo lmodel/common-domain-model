@@ -1,0 +1,44 @@
+# metamodel_version: 1.11.0id: AvailableInventory
+schema_generating: true
+description: A data type that can be used to describe the inventory of securities
+  that a party holds. The securities are held in the AvailableInventoryRecord, with
+  each item in the array being an individual security and its associated criteria.
+  Criteria can include the quantity available, the rate at which the security is available
+  to borrow at, as well as other details that can affect the decision as to whether
+  a party wants to utilise the securities listed.
+display_name: AvailableInventory
+document_category: AvailableInventory
+weight: 20
+fields:
+- id: availableInventoryType
+  description: Defines the purpose of this inventory.
+  display_name: availableInventoryType
+- id: identifer
+  description: Unique identifier for this group. This can be used to uniquely identify
+    a group of inventory records.
+  display_name: AvailableInventory_identifer
+- id: comment
+  description: Optional comments for this group of inventory records.
+  display_name: comment
+- id: messageInformation
+  description: Allows details related to the availability messaging use case to be
+    defined
+  display_name: messageInformation
+- id: party
+  description: Defines all parties involved for the list of inventory records in this
+    set of inventory. For example, when used to describe securities lending availability,
+    this could hold the sender of the availability, the intended recipient, the beneficial
+    owner(s), the lender (which may differ from the sender as the lender may have
+    the same piece of availability going through multiple agents), an agent or a venue.
+  display_name: AvailableInventory_party
+  cardinality: multi
+- id: partyRole
+  description: Defines the role(s) that party(ies) may have in relation to the inventory.
+  display_name: AvailableInventory_partyRole
+  cardinality: multi
+- id: availableInventoryRecord
+  description: An array holding the list of inventory being described. Each element
+    in the inventoryRecord array represents an individual piece of inventory i.e.
+    a security.
+  display_name: availableInventoryRecord
+  cardinality: multi

@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: NumberBound
+schema_generating: true
+description: The number bound is defined as a number and whether the bound is inclusive.
+display_name: NumberBound
+document_category: NumberBound
+weight: 20
+fields:
+- id: number
+  description: The number to be used as the bound, e.g. 5.
+  display_name: number
+- id: inclusive
+  description: Whether the number bound is inclusive, e.g. for a lower bound, false
+    would indicate greater than, whereas true would indicate greater than or equal
+    to.
+  display_name: NumberBound_inclusive

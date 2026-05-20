@@ -1,0 +1,36 @@
+# metamodel_version: 1.11.0id: BaseAndEligibleCurrency
+schema_generating: true
+description: The base and eligible currency(ies) for the document as specified by
+  the parties to the agreement.
+display_name: BaseAndEligibleCurrency
+document_category: BaseAndEligibleCurrency
+weight: 20
+fields:
+- id: baseCurrency
+  description: The common agreed currency into which relevant amounts of all collateral
+    arrangements between the parties are converted, or if not an actual currency,
+    the process through which this is determined. Where hardcoded (e.g. under the
+    1994 ISDA Credit Support Annex (Security Interest  NY Law)), the currency that
+    effectively performs this function.
+  display_name: baseCurrency
+- id: baseCurrencyTerminationCurrency
+  description: A flag detailing whether the Base Currency is set to  the Termination
+    Currency as defined in the related  Master Agreement.
+  display_name: baseCurrencyTerminationCurrency
+- id: baseCurrencyOther
+  description: Utilised where the clause data structure is not able to capture a material
+    aspect of the clause.
+  display_name: baseCurrencyOther
+- id: eligibleCurrency
+  description: A definition of a currency agreed by the parties, typically to indicate
+    the currencies of eligible cash collateral.
+  display_name: eligibleCurrency
+  cardinality: multi
+- id: eligibleCurrencyInclBaseCurrency
+  description: A flag detailing whether the Base Currency is included as an Eligible
+    Currency.
+  display_name: eligibleCurrencyInclBaseCurrency
+- id: eligibleCurrencyOther
+  description: Utilised where the clause data structure is not able to capture a material
+    aspect of the clause.
+  display_name: eligibleCurrencyOther

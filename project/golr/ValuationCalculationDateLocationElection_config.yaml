@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: ValuationCalculationDateLocationElection
+schema_generating: true
+description: A class to specify each of the party elections with respect to the Calculation
+  Date Location.
+display_name: ValuationCalculationDateLocationElection
+document_category: ValuationCalculationDateLocationElection
+weight: 20
+fields:
+- id: party
+  description: The elective party.
+  display_name: ValuationCalculationDateLocationElection_party
+- id: businessCenter
+  description: The Calculation Date Location when specified as a business center which
+    corresponds to the FpML list of business centers or can be mapped to it.
+  display_name: ValuationCalculationDateLocationElection_businessCenter
+  cardinality: multi
+- id: customLocation
+  description: The Calculation Date Location when specified a location which doesn't
+    correspond to the FpML list of business centers or cannot be mapped to it.
+  display_name: customLocation

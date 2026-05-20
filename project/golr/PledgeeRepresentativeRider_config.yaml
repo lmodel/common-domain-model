@@ -1,0 +1,28 @@
+# metamodel_version: 1.11.0id: PledgeeRepresentativeRider
+schema_generating: true
+description: The terms of the Rider for the ISDA Euroclear 2019 Collateral Transfer
+  Agreement with respect to the use of a Pledgee Representative attached to this Agreement.
+display_name: PledgeeRepresentativeRider
+document_category: PledgeeRepresentativeRider
+weight: 20
+fields:
+- id: isApplicable
+  description: Identification of whether the representative CTA provisions are applicable
+    (True) or not applicable (False).
+  display_name: PledgeeRepresentativeRider_isApplicable
+- id: party
+  description: Identification of the represented party.
+  display_name: PledgeeRepresentativeRider_party
+- id: representativeTerms
+  description: The specific representative terms applicable when specified.
+  display_name: representativeTerms
+- id: representativeEvent
+  description: The specification of whether the representative event terms are applicable.
+  display_name: representativeEvent
+- id: representativeEventTerms
+  description: The specific representative event terms applicable when specified.
+  display_name: representativeEventTerms
+- id: representativeEndDate
+  description: The definition of representative end date in relation to a representative
+    event.
+  display_name: representativeEndDate

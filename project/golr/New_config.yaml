@@ -1,0 +1,30 @@
+# metamodel_version: 1.11.0id: New
+schema_generating: true
+display_name: New
+document_category: New
+weight: 20
+fields:
+- id: txId
+  display_name: txId
+- id: exctgPty
+  display_name: exctgPty
+- id: invstmtPtyInd
+  display_name: invstmtPtyInd
+- id: submitgPty
+  display_name: submitgPty
+- id: buyr
+  display_name: buyr
+- id: sellr
+  display_name: sellr
+- id: ordrTrnsmssn
+  display_name: ordrTrnsmssn
+- id: tx
+  display_name: tx
+- id: finInstrm
+  display_name: finInstrm
+- id: invstmtDcsnPrsn
+  display_name: invstmtDcsnPrsn
+- id: exctgPrsn
+  display_name: exctgPrsn
+- id: addtlAttrbts
+  display_name: addtlAttrbts

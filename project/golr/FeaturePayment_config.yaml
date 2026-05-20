@@ -1,0 +1,26 @@
+# metamodel_version: 1.11.0id: FeaturePayment
+schema_generating: true
+description: Payment made following trigger occurrence.
+display_name: FeaturePayment
+document_category: FeaturePayment
+weight: 20
+fields:
+- id: payerReceiver
+  description: This attribute doesn't exist as part of the FpML construct, which makes
+    use of the PayerReceiver.model group.
+  display_name: FeaturePayment_payerReceiver
+- id: levelPercentage
+  description: The trigger level percentage.
+  display_name: levelPercentage
+- id: amount
+  description: The monetary quantity in currency units.
+  display_name: FeaturePayment_amount
+- id: time
+  description: The feature payment time.
+  display_name: FeaturePayment_time
+- id: currency
+  description: The currency in which an amount is denominated.
+  display_name: FeaturePayment_currency
+- id: paymentDate
+  description: The feature payment date.
+  display_name: paymentDate

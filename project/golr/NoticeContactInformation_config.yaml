@@ -1,0 +1,34 @@
+# metamodel_version: 1.11.0id: NoticeContactInformation
+schema_generating: true
+description: Specifies notice information including address and, optionally, an associated
+  person. This type also supports the ISDA CSA representation as a single string,
+  through the address attribute in Contact Information.
+display_name: NoticeContactInformation
+document_category: NoticeContactInformation
+weight: 20
+fields:
+- id: telephone
+  description: The telephone number.
+  display_name: telephone
+  cardinality: multi
+- id: address
+  description: The street/postal address.
+  display_name: address
+  cardinality: multi
+- id: email
+  description: The email address.
+  display_name: email
+  cardinality: multi
+- id: webPage
+  description: The web page. This attribute is not specified as part of the FpML ContactInformation
+    complex type.
+  display_name: webPage
+  cardinality: multi
+- id: naturalPerson
+  description: Optional information about people involved in a transaction or business
+    process.
+  display_name: naturalPerson
+  cardinality: multi
+- id: additionalInformation
+  description: Additional information on the recipient.
+  display_name: additionalInformation

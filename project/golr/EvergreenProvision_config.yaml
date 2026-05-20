@@ -1,0 +1,33 @@
+# metamodel_version: 1.11.0id: EvergreenProvision
+schema_generating: true
+description: Specifies a transaction which automatically extends for a specified timeframe
+  until the exercise of an embedded option.
+display_name: EvergreenProvision
+document_category: EvergreenProvision
+weight: 20
+fields:
+- id: singlePartyOption
+  description: If evergreen termination is not available to both parties then this
+    component specifies the buyer and seller of the option.
+  display_name: EvergreenProvision_singlePartyOption
+- id: noticePeriod
+  description: The length of each evergreen extension period relative to the effective
+    date of the preceding contract.
+  display_name: noticePeriod
+- id: noticeDeadlinePeriod
+  description: Defines the minimum period before an evergreen is scheduled to terminate
+    that notice can be given that it will terminate beyond the scheduled termination
+    date.
+  display_name: EvergreenProvision_noticeDeadlinePeriod
+- id: noticeDeadlineDateTime
+  description: A specific date and time for the notice deadline
+  display_name: noticeDeadlineDateTime
+- id: extensionFrequency
+  description: The frequency with which the evergreen contract will be extended if
+    notice is not given.
+  display_name: extensionFrequency
+- id: finalPeriodFeeAdjustment
+  description: An optional adjustment to the rate for the last period of the evergreen
+    i.e. the period from when notice is given to stop rolling the contract through
+    to the termination date.
+  display_name: finalPeriodFeeAdjustment

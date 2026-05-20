@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: AutomaticEarlyTermination
+schema_generating: true
+description: A class to specify the Automatic Early Termination provision applicable
+  to a Master Agreement.
+display_name: AutomaticEarlyTermination
+document_category: AutomaticEarlyTermination
+weight: 20
+fields:
+- id: fallbackAET
+  description: Specifies whether automatic termination applies in the event of certain
+    bankruptcy events.
+  display_name: fallbackAET
+- id: indemnity
+  description: Specifies whether indemnity applies in the event AET is applicable
+    to one or both of the parties.
+  display_name: indemnity
+- id: partyElection
+  description: The party election specific to the Automatic Early Termination Clause.
+  display_name: AutomaticEarlyTermination_partyElection
+  cardinality: multi

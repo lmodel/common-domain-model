@@ -1,0 +1,40 @@
+# metamodel_version: 1.11.0id: EquityIndex
+schema_generating: true
+description: Specification of an index based on equity securities, e.g. the S&P 500.
+display_name: EquityIndex
+document_category: EquityIndex
+weight: 20
+fields:
+- id: identifier
+  description: Asset Identifiers are used to uniquely identify an Asset, using a specified
+    Asset Identifier Type.
+  display_name: identifier
+  cardinality: multi
+- id: taxonomy
+  description: Defines the taxonomy of an object by combining a taxonomy source (i.e.
+    the rules to classify the object) and a value (i.e. the output of those rules
+    on the object.
+  display_name: taxonomy
+  cardinality: multi
+- id: isExchangeListed
+  description: Defines whether the Asset is listed on a public exchange.
+  display_name: isExchangeListed
+- id: exchange
+  description: If the Asset is listed, defines the public exchange of the listing.
+  display_name: exchange
+- id: relatedExchange
+  description: Provides the related Exchanges, if applicable.
+  display_name: relatedExchange
+  cardinality: multi
+- id: assetType
+  description: Specifies the type of asset.
+  display_name: assetType
+- id: name
+  description: A description of the Index.
+  display_name: IndexBase_name
+- id: provider
+  description: The organisation that creates or maintains the Index.
+  display_name: provider
+- id: assetClass
+  description: The Asset Class of the Index.
+  display_name: IndexBase_assetClass

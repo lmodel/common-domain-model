@@ -1,0 +1,39 @@
+# metamodel_version: 1.11.0id: FloatingAmountCalculationDetails
+schema_generating: true
+description: Type for reporting the detailed results of calculating a cash flow for
+  a calculation period.  This is enhanced relative to the FpML-based cashflows structure
+  to allow more information to be returned about daily compounded rates.
+display_name: FloatingAmountCalculationDetails
+document_category: FloatingAmountCalculationDetails
+weight: 20
+fields:
+- id: calculationPeriod
+  description: The calculation period for which the floating calculation was performed.
+  display_name: calculationPeriod
+- id: calculationPeriodNotionalAmount
+  description: The notional in effect during the calculation period.
+  display_name: calculationPeriodNotionalAmount
+- id: floatingRate
+  description: The details of the floating rate setting.  (If it is a calculated rate,
+    details of that calculation will be inside that.
+  display_name: FloatingAmountCalculationDetails_floatingRate
+  cardinality: multi
+- id: processingDetails
+  description: Details fo the floating rate treatment after the rate is observed or
+    calculated.  This will include details of things like multipliers, spreads, caps
+    and floors, and the raw and treated rates.
+  display_name: processingDetails
+- id: appliedRate
+  description: The rate that was actually applied, after all calculations and treatments.
+  display_name: appliedRate
+- id: yearFraction
+  description: The fraction of a year that this calculation represents, according
+    to the day count fraction method.
+  display_name: yearFraction
+- id: calculatedAmount
+  description: The amount of the cash flow that was computed, including any spreads
+    and other processing.
+  display_name: calculatedAmount
+- id: spreadExclusiveCalculatedAMount
+  description: The amount of the cash flow excluding any spread, for subsequent processing.
+  display_name: spreadExclusiveCalculatedAMount

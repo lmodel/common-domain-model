@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: DateRange
+schema_generating: true
+description: A class defining a contiguous series of calendar dates. The date range
+  is defined as all the dates between and including the start and the end date. The
+  start date must fall on or before the end date.
+display_name: DateRange
+document_category: DateRange
+weight: 20
+fields:
+- id: startDate
+  description: The first date of a date range.
+  display_name: startDate
+- id: endDate
+  description: The last date of a date range.
+  display_name: endDate

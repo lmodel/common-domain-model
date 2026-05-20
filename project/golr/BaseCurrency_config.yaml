@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: BaseCurrency
+schema_generating: true
+description: The definitions regarding base currency determinations relating to the
+  GMSLA.
+display_name: BaseCurrency
+document_category: BaseCurrency
+weight: 20
+fields:
+- id: baseCurrency
+  description: The base currency as defined in the GMSLA.
+  display_name: BaseCurrency_baseCurrency
+- id: baseCurrencyMustBeFreelyConvertible
+  description: The base currency that is defined must be freely convertible.
+  display_name: baseCurrencyMustBeFreelyConvertible
+- id: baseCurrencyIfOriginalNotFreelyConvertible
+  description: If the base currency is not freely convertible, the fallback currency
+    can be defined here.
+  display_name: baseCurrencyIfOriginalNotFreelyConvertible

@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: RatingMultiplier
+schema_generating: true
+description: A logical container to hold a defined set of related data. In this case
+  the collation of Ratings Information and associated exposure multiplier.
+display_name: RatingMultiplier
+document_category: RatingMultiplier
+weight: 20
+fields:
+- id: ratingVariableSet
+  description: Allows a grouping of Rating agencies and Rating values.
+  display_name: ratingVariableSet
+  cardinality: multi
+- id: exposureMultiplier
+  description: Specifies the multiplier applied to exposure based on the credit rating
+    of the rated party.
+  display_name: exposureMultiplier

@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: AssetDeliveryProfile
+schema_generating: true
+description: Defines the delivery profile of the asset, including the load type and
+  the delivery intervals.
+display_name: AssetDeliveryProfile
+document_category: AssetDeliveryProfile
+weight: 20
+fields:
+- id: loadType
+  description: Identification of the delivery profile.
+  display_name: loadType
+- id: block
+  description: Defines a delivery profile block, including start and end time, days
+    of the week, duration, delivery capacity and price time interval quantity.
+  display_name: block
+  cardinality: multi
+- id: bankHolidaysTreatment
+  description: Specifies whether the dates defined include holidays or not.
+  display_name: bankHolidaysTreatment

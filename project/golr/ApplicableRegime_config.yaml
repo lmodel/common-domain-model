@@ -1,0 +1,28 @@
+# metamodel_version: 1.11.0id: ApplicableRegime
+schema_generating: true
+description: A class to specify the applicable regulatory regime(s) that parties to
+  a legal agreement, such as the ISDA 2016 and 2018 CSA for Initial Margin, might
+  be subject to.
+display_name: ApplicableRegime
+document_category: ApplicableRegime
+weight: 20
+fields:
+- id: regime
+  description: The applicable regulatory regime, as specified through an enumeration.
+  display_name: ApplicableRegime_regime
+- id: additionalRegime
+  description: The additional regulatory regime as specified by the parties.
+  display_name: additionalRegime
+- id: regimeTerms
+  description: A class that is used by the ApplicableRegime and the AdditionalRegime
+    classes to specify the terms that are specific to each party and regime which
+    are referred to in the Regime Table as part of certain legal agreements, such
+    as the ISDA 2016 and 2018 CSA for Initial Margin.
+  display_name: regimeTerms
+  cardinality: multi
+- id: additionalType
+  display_name: additionalType
+- id: additionalTerms
+  description: The bespoke Additional Type for the purposes of Covered Transactions
+    (IM).
+  display_name: additionalTerms

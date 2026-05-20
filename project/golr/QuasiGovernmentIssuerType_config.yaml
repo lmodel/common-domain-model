@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: QuasiGovernmentIssuerType
+schema_generating: true
+description: Represents a class to allow specification of different types of Quasi
+  Government collateral.
+display_name: QuasiGovernmentIssuerType
+document_category: QuasiGovernmentIssuerType
+weight: 20
+fields:
+- id: sovereignEntity
+  description: True if sovereign entity (e.g. not separate legal personality from
+    sovereign) or false if non-sovereign entity (e.g. separate legal personality from
+    sovereign).
+  display_name: sovereignEntity
+- id: sovereignRecourse
+  description: Applies to non-sovereign entity (e.g. separate legal personality from
+    sovereign).  True if entity has recourse to sovereign (e.g. debt guaranteed by
+    government).  False if entity does not have recourse to sovereign.
+  display_name: sovereignRecourse

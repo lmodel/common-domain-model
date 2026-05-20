@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: AutomaticExercise
+schema_generating: true
+description: A type to define automatic exercise of a swaption. With automatic exercise
+  the option is deemed to have exercised if it is in the money by more than the threshold
+  amount on the exercise date.
+display_name: AutomaticExercise
+document_category: AutomaticExercise
+weight: 20
+fields:
+- id: thresholdRate
+  description: A threshold rate. The threshold of 0.10% would be represented as 0.001
+  display_name: thresholdRate
+- id: isApplicable
+  description: Boolean that indicates if it has an automaticExercise
+  display_name: AutomaticExercise_isApplicable

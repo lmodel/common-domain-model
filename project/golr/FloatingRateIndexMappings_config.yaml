@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: FloatingRateIndexMappings
+schema_generating: true
+description: This type defines mappings between FROs in different definitional versions.
+display_name: FloatingRateIndexMappings
+document_category: FloatingRateIndexMappings
+weight: 20
+fields:
+- id: mapsTo
+  description: The successor FRO that this index maps to.
+  display_name: mapsTo
+- id: mapsFrom
+  description: The predecessor FRO(s) that this index maps to.
+  display_name: mapsFrom
+  cardinality: multi

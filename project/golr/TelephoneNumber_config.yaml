@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: TelephoneNumber
+schema_generating: true
+description: A class to specify a telephone number as a type of phone number (e.g.
+  work, personal, ...) alongside with the actual number.
+display_name: TelephoneNumber
+document_category: TelephoneNumber
+weight: 20
+fields:
+- id: telephoneNumberType
+  description: The type of telephone number, e.g. work, mobile.
+  display_name: telephoneNumberType
+- id: number
+  description: The actual telephone number.
+  display_name: TelephoneNumber_number

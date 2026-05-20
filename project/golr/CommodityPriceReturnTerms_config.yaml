@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: CommodityPriceReturnTerms
+schema_generating: true
+description: Defines parameters in which the commodity price is assessed.
+display_name: CommodityPriceReturnTerms
+document_category: CommodityPriceReturnTerms
+weight: 20
+fields:
+- id: rounding
+  description: Defines rounding rules and precision to be used in the rounding of
+    a number.
+  display_name: CommodityPriceReturnTerms_rounding
+- id: spread
+  description: Defines a spread value for one or more defined dates.
+  display_name: CommodityPriceReturnTerms_spread
+- id: rollFeature
+  description: 'Used in conjunction with an exchange-based pricing source. Identifies
+    a way in which the futures contracts referenced will roll between periods. '
+  display_name: rollFeature
+- id: conversionFactor
+  description: Defines the conversion applied if the quantity unit on contract is
+    different from unit on referenced underlier.
+  display_name: conversionFactor

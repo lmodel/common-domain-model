@@ -1,0 +1,31 @@
+# metamodel_version: 1.11.0id: CollateralIssuerType
+schema_generating: true
+description: Represents a class to allow specification of the type of entity issuing
+  the collateral.
+display_name: CollateralIssuerType
+document_category: CollateralIssuerType
+weight: 20
+fields:
+- id: issuerType
+  description: Specifies the origin of entity issuing the collateral.
+  display_name: issuerType
+- id: supraNationalType
+  description: Specifies debt issued by international organisations and multilateral
+    banks.
+  display_name: supraNationalType
+- id: quasiGovernmentType
+  description: Specifies debt issues by institutions or bodies, typically constituted
+    by statute, with a function mandated by the government and subject to government
+    supervision inclusive of profit- and non-profit making bodies. Includes the US
+    Agencies and GSEs and the EU concept of public sector entities. Excluding any
+    entities which are also Regional Government.
+  display_name: quasiGovernmentType
+- id: regionalGovernmentType
+  description: Specifies Regional government, local authority or municipal.
+  display_name: regionalGovernmentType
+- id: specialPurposeVehicleType
+  description: Specifies a subsidiary company that is formed to undertake a specific
+    business purpose of acquisition and financing of specific assets on a potentially
+    limited recourse basis dependent of how it is designed. E.g. asset backed securities,
+    including securitisations.
+  display_name: specialPurposeVehicleType

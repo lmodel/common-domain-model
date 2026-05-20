@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: AdditionalRepresentations
+schema_generating: true
+description: A class to specify Additional Representations that may be applicable
+  to an agreement.
+display_name: AdditionalRepresentations
+document_category: AdditionalRepresentations
+weight: 20
+fields:
+- id: additionalRepresentation
+  description: The specification of the Additional Representation that may be applicable
+    to the agreement.
+  display_name: additionalRepresentation
+- id: regulatoryComplianceRepresentation
+  description: The qualification of whether Additional Information related to Regulatory
+    Compliance and Concentration Limits is applicable or not.
+  display_name: regulatoryComplianceRepresentation

@@ -1,0 +1,21 @@
+# metamodel_version: 1.11.0id: TerminationCurrencyAmendment
+schema_generating: true
+description: A class to specify the Amendment to Termination Currency elections by
+  the parties to the agreement.
+display_name: TerminationCurrencyAmendment
+document_category: TerminationCurrencyAmendment
+weight: 20
+fields:
+- id: isApplicable
+  description: The qualification of whether the Amendment to Termination Currency
+    is deemed applicable by the parties (True) or not (False).
+  display_name: TerminationCurrencyAmendment_isApplicable
+- id: effectiveDate
+  description: The effective date of the Amendment to Termination Currency. This date
+    can be specified as either an actual date, a specific date (e.g. the annex date)
+    or as a custom provision.
+  display_name: TerminationCurrencyAmendment_effectiveDate
+- id: partyElection
+  description: The parties' Amendment Currency election.
+  display_name: TerminationCurrencyAmendment_partyElection
+  cardinality: multi

@@ -1,0 +1,25 @@
+# metamodel_version: 1.11.0id: EarlyTerminationProvision
+schema_generating: true
+description: 'A data defining:  an early termination provision for a swap. This early
+  termination is at fair value, i.e. on termination the fair value of the product
+  must be settled between the parties.'
+display_name: EarlyTerminationProvision
+document_category: EarlyTerminationProvision
+weight: 20
+fields:
+- id: mandatoryEarlyTermination
+  description: A mandatory early termination provision to terminate the swap at fair
+    value.
+  display_name: mandatoryEarlyTermination
+- id: mandatoryEarlyTerminationDateTenor
+  description: Period after trade date of the mandatory early termination date.
+  display_name: mandatoryEarlyTerminationDateTenor
+- id: optionalEarlyTermination
+  description: An option for either or both parties to terminate the swap at fair
+    value.
+  display_name: optionalEarlyTermination
+- id: optionalEarlyTerminationParameters
+  description: Definition of the first early termination date and the frequency of
+    the termination dates subsequent to that. American exercise is defined by having
+    a frequency of one day.
+  display_name: optionalEarlyTerminationParameters

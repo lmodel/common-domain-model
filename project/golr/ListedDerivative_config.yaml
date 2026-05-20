@@ -1,0 +1,43 @@
+# metamodel_version: 1.11.0id: ListedDerivative
+schema_generating: true
+description: A securitized derivative on another asset.
+display_name: ListedDerivative
+document_category: ListedDerivative
+weight: 20
+fields:
+- id: identifier
+  description: Asset Identifiers are used to uniquely identify an Asset, using a specified
+    Asset Identifier Type.
+  display_name: identifier
+  cardinality: multi
+- id: taxonomy
+  description: Defines the taxonomy of an object by combining a taxonomy source (i.e.
+    the rules to classify the object) and a value (i.e. the output of those rules
+    on the object.
+  display_name: taxonomy
+  cardinality: multi
+- id: isExchangeListed
+  description: Defines whether the Asset is listed on a public exchange.
+  display_name: isExchangeListed
+- id: exchange
+  description: If the Asset is listed, defines the public exchange of the listing.
+  display_name: exchange
+- id: relatedExchange
+  description: Provides the related Exchanges, if applicable.
+  display_name: relatedExchange
+  cardinality: multi
+- id: assetType
+  description: Specifies the type of asset.
+  display_name: assetType
+- id: deliveryTerm
+  description: Also called contract month or delivery month. However, it's not always
+    a month. It is usually expressed using a code, e.g. Z23 would be the Dec 2023
+    contract, (Z = December). For crude oil, the corresponding contract might be called
+    CLZ23. Optional as this can be uniquely identified in the identifier.
+  display_name: deliveryTerm
+- id: optionType
+  description: The type of option, ie Put or Call. Left empty if it is a Future.
+  display_name: optionType
+- id: strike
+  description: Specifies the strike of the option.
+  display_name: strike

@@ -1,0 +1,50 @@
+# metamodel_version: 1.11.0id: AgreementName
+schema_generating: true
+description: Specifies the agreement name through an agreement type and optional detailed
+  sub agreement type.
+display_name: AgreementName
+document_category: AgreementName
+weight: 20
+fields:
+- id: agreementType
+  description: Specification of the legal agreement type.
+  display_name: agreementType
+- id: creditSupportAgreementType
+  description: Specification of the credit support agreement type.
+  display_name: creditSupportAgreementType
+- id: creditSupportAgreementMarginType
+  description: specifies the type of margin for which a legal agreement is named.
+  display_name: creditSupportAgreementMarginType
+- id: contractualDefinitionsType
+  description: The definitions such as those published by ISDA that will define the
+    terms of the trade.
+  display_name: contractualDefinitionsType
+  cardinality: multi
+- id: contractualTermsSupplement
+  description: A contractual supplement (such as those published by ISDA) that will
+    apply to the trade.
+  display_name: contractualTermsSupplement
+  cardinality: multi
+- id: contractualMatrix
+  description: A reference to a contractual matrix of elected terms/values (such as
+    those published by ISDA) that shall be deemed to apply to the trade. The applicable
+    matrix is identified by reference to a name and optionally a publication date.
+    Depending on the structure of the matrix, an additional term (specified in the
+    matrixTerm element) may be required to further identify a subset of applicable
+    terms/values within the matrix.
+  display_name: contractualMatrix
+  cardinality: multi
+- id: masterAgreementType
+  description: Specification of the master agreement type.
+  display_name: masterAgreementType
+- id: masterConfirmationType
+  description: The type of master confirmation executed between the parties.
+  display_name: masterConfirmationType
+- id: masterConfirmationAnnexType
+  description: The type of master confirmation annex executed between the parties.
+  display_name: masterConfirmationAnnexType
+- id: otherAgreement
+  description: Definition of an agreement that is not enumerated in the CDM.
+  display_name: otherAgreement
+- id: brokerConfirmationType
+  display_name: brokerConfirmationType

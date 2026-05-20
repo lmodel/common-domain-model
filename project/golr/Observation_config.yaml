@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: Observation
+schema_generating: true
+description: Defines a single, numerical value that was observed in the marketplace.
+  Observations of market data are made independently to business events or trade life-cycle
+  events, so data instances of Observation can be created independently of any other
+  model type, hence it is annotated as a root type. Observations will be broadly reused
+  in many situations, so references to Observation are supported via the 'key' annotation.
+display_name: Observation
+document_category: Observation
+weight: 20
+fields:
+- id: observedValue
+  description: Specifies the observed value as a number.
+  display_name: observedValue
+- id: observationIdentifier
+  description: Represents the observation was made i.e. how to uniquely identify the
+    observed value among the population of all available market data.
+  display_name: observationIdentifier

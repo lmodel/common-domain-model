@@ -1,0 +1,24 @@
+# metamodel_version: 1.11.0id: CommodityReferenceFramework
+schema_generating: true
+description: Specifies the type of commodity.
+display_name: CommodityReferenceFramework
+document_category: CommodityReferenceFramework
+weight: 20
+fields:
+- id: commodityName
+  description: Identifies the commodity more specifically. Where possible, this should
+    follow the naming convention used in the 2005 ISDA Commodity Definitions SubAnnex
+    A, including the subCommodity and additional qualifiers, but should be limited
+    to 256 characters or less.
+  display_name: commodityName
+- id: capacityUnit
+  description: Provides an enumerated value for a capacity unit, generally used in
+    the context of defining quantities for commodities.
+  display_name: capacityUnit
+- id: weatherUnit
+  description: Provides an enumerated values for a weather unit, generally used in
+    the context of defining quantities for commodities.
+  display_name: weatherUnit
+- id: currency
+  description: Defines the currency in which the commodity is priced.
+  display_name: CommodityReferenceFramework_currency

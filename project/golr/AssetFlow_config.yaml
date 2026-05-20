@@ -1,0 +1,35 @@
+# metamodel_version: 1.11.0id: AssetFlow
+schema_generating: true
+description: Specifies an asset flow, i.e. the outcome of either of computation (e.g.
+  interest accrual) or an assessment of some sort. The asset flow can then be turned
+  into an asset transfer artefact to be used as the input to a payment system or the
+  outcome of it. The associated globalKey denotes the ability to associate a hash
+  value to the AssetFlow instantiations for the purpose of model cross-referencing,
+  in support of functionality such as the event effect and the lineage.
+display_name: AssetFlow
+document_category: AssetFlow
+weight: 20
+fields:
+- id: quantity
+  description: Represents the amount of the asset to be transferred. The cashflow
+    amount is always a positive number, as the cashflow direction is implied by the
+    payer/receiver attribute.
+  display_name: AssetFlowBase_quantity
+- id: asset
+  description: Represents the object that is subject to the transfer, it could be
+    an asset or a reference.
+  display_name: AssetFlowBase_asset
+- id: settlementDate
+  description: Represents the date on which the transfer to due.
+  display_name: AssetFlowBase_settlementDate
+- id: paymentDiscounting
+  description: FpML specifies the FpML PaymentDiscounting.model group for representing
+    the discounting elements that can be associated with a payment.
+  display_name: paymentDiscounting
+- id: payerReceiver
+  description: Specifies who pays / receives the asset flow, through a normalised
+    Party1 / Party2 enumerator.
+  display_name: AssetFlow_payerReceiver
+- id: assetFlowType
+  description: Type of asset flow corresponding to a scheduled event.
+  display_name: assetFlowType

@@ -1,0 +1,28 @@
+# metamodel_version: 1.11.0id: ProductTaxonomy
+schema_generating: true
+description: Specifies the product taxonomy, which is composed of a taxonomy value
+  and a taxonomy source.
+display_name: ProductTaxonomy
+document_category: ProductTaxonomy
+weight: 20
+fields:
+- id: source
+  description: The source of the taxonomy that defines the rules for classifying the
+    object. The taxonomy source is taken from a enumerated list of taxonomy names.
+    Optional as the taxonomy source may not be provided.
+  display_name: Taxonomy_source
+- id: value
+  description: The value according to that taxonomy. Optional as it may not be possible
+    to classify the object in that taxonomy.
+  display_name: Taxonomy_value
+- id: primaryAssetClass
+  description: Classifies the most important risk class of the trade.
+  display_name: primaryAssetClass
+- id: secondaryAssetClass
+  description: ' Classifies additional risk classes of the trade, if any.'
+  display_name: secondaryAssetClass
+  cardinality: multi
+- id: productQualifier
+  description: Derived from the product payout features using a CDM product qualification
+    function that determines the product type based on the product payout features.
+  display_name: productQualifier

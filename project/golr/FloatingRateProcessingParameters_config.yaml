@@ -1,0 +1,36 @@
+# metamodel_version: 1.11.0id: FloatingRateProcessingParameters
+schema_generating: true
+description: Type to hold the processing parameters that should be or were used to
+  calculate a floating amount.  These parameters can vary over a schedule so this
+  type holds the acutal values applicable to this calculation.
+display_name: FloatingRateProcessingParameters
+document_category: FloatingRateProcessingParameters
+weight: 20
+fields:
+- id: initialRate
+  description: The rate to be applied for the initial period.
+  display_name: FloatingRateProcessingParameters_initialRate
+- id: multiplier
+  description: floating rate multiplier.
+  display_name: FloatingRateProcessingParameters_multiplier
+- id: spread
+  description: spread to be added to the floating rate.
+  display_name: FloatingRateProcessingParameters_spread
+- id: treatment
+  description: US rate treatment (Bond Equivalent Yield or Money Market Yield, if
+    applicable.
+  display_name: FloatingRateProcessingParameters_treatment
+- id: capRate
+  description: capt to be applied to the floating rate.
+  display_name: FloatingRateProcessingParameters_capRate
+  cardinality: multi
+- id: floorRate
+  description: floor to be applied to the floating rate.
+  display_name: FloatingRateProcessingParameters_floorRate
+  cardinality: multi
+- id: rounding
+  description: THe final rate rounding to be applied.
+  display_name: FloatingRateProcessingParameters_rounding
+- id: negativeTreatment
+  description: How to handle negative interest rates.
+  display_name: negativeTreatment

@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: FxPriceSourceDisruption
+schema_generating: true
+display_name: FxPriceSourceDisruption
+document_category: FxPriceSourceDisruption
+weight: 20
+fields:
+- id: priceSourceDisruptionIsApplicable
+  display_name: priceSourceDisruptionIsApplicable
+- id: fallbackReferencePrice
+  description: The method, prioritised by the order it is listed in this element,
+    to get a replacement rate for the disrupted settlement rate option.
+  display_name: fallbackReferencePrice
+- id: escrowArrangement
+  display_name: escrowArrangement

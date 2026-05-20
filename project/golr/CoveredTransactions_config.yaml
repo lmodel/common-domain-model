@@ -1,0 +1,27 @@
+# metamodel_version: 1.11.0id: CoveredTransactions
+schema_generating: true
+description: Specification of Transactions covered by the legal agreement.
+display_name: CoveredTransactions
+document_category: CoveredTransactions
+weight: 20
+fields:
+- id: inclusionDate
+  description: Includes any Transaction specified below that is entered into on or
+    after the specified date.
+  display_name: inclusionDate
+- id: coveredTransactions
+  description: Covered Transactions when expressed using the ISDA taxonomy.
+  display_name: CoveredTransactions_coveredTransactions
+  cardinality: multi
+- id: bespokeCoveredTransactions
+  description: Covered Transactions when not expressed using the ISDA taxonomy.
+  display_name: bespokeCoveredTransactions
+  cardinality: multi
+- id: additionalObligations
+  description: The party specific additional obligations applicable to the document.
+  display_name: CoveredTransactions_additionalObligations
+  cardinality: multi
+- id: exposure
+  description: Specification of amendments to the calculation of Exposure in terms
+    of the Transactions covered.
+  display_name: exposure

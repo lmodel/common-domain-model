@@ -1,0 +1,36 @@
+# metamodel_version: 1.11.0id: Valuation
+schema_generating: true
+description: Defines the value of an investment, asset, or security
+display_name: Valuation
+document_category: Valuation
+weight: 20
+fields:
+- id: amount
+  description: Current value of the outstanding contract
+  display_name: amount
+- id: timestamp
+  description: Date and time of the last valuation marked to market, provided by the
+    central counterparty (CCP) or calculated using the current or last available market
+    price of the inputs.
+  display_name: timestamp
+- id: method
+  description: Method used for the valuation of the transaction by the valuation party.
+  display_name: method
+- id: source
+  description: Source of the valuation of the transaction by the valuation party.
+  display_name: Valuation_source
+- id: scope
+  description: ' Defines the scope of the valuation, what it applies to e.g. the collateral
+    or the trade'
+  display_name: scope
+- id: delta
+  description: The ratio of the change in the price of a derivative transaction to
+    the change in the price of the underlying. This field is applicable only to options
+    and swaptions.
+  display_name: delta
+- id: valuationTiming
+  description: Denotes when the valuation was sourced during a business day.
+  display_name: valuationTiming
+- id: priceComponent
+  description: Denotes the price used to compute the valuation.
+  display_name: priceComponent

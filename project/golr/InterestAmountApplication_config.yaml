@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: InterestAmountApplication
+schema_generating: true
+description: A class to specify the application of Interest Amount with respect to
+  the Delivery Amount and the Return Amount.
+display_name: InterestAmountApplication
+document_category: InterestAmountApplication
+weight: 20
+fields:
+- id: returnAmount
+  description: The application of Interest Amount with respect the Return Amount.
+  display_name: InterestAmountApplication_returnAmount
+- id: deliveryAmount
+  description: The application of Interest Amount with respect the Delivery Amount.
+  display_name: InterestAmountApplication_deliveryAmount

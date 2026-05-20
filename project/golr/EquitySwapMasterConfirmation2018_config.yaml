@@ -1,0 +1,33 @@
+# metamodel_version: 1.11.0id: EquitySwapMasterConfirmation2018
+schema_generating: true
+description: Specification for the General Terms and Relationship Supplement Elections
+  as provided in the 2018 ISDA CDM Equity Confirmation for Security Equity Swap.
+display_name: EquitySwapMasterConfirmation2018
+document_category: EquitySwapMasterConfirmation2018
+weight: 20
+fields:
+- id: typeOfSwapElection
+  description: Per Part 1 Section 4, 'Dividend Obligations', of the 2018 ISDA CDM
+    Equity Confirmation, Para 4.2 'Dividend Returns'.
+  display_name: typeOfSwapElection
+- id: pricingMethodElection
+  description: Per Part 1 Section 5, 'Pricing', of the 2018 ISDA CDM Equity Confirmation,
+    Para 5.1.
+  display_name: pricingMethodElection
+- id: linearInterpolationElection
+  description: Per Part 1 Section 3, 'Floating Obligations', of the 2018 ISDA CDM
+    Equity Confirmation. Para 3.3.
+  display_name: linearInterpolationElection
+- id: settlementTerms
+  description: Per Part 1 Section 8, 'Settlement', of the 2018 ISDA CDM Equity Confirmation
+    for Security Equity Swap.
+  display_name: settlementTerms
+- id: valuationDates
+  description: The parameters used to generate the 'Equity Valuation Dates' schedule,
+    including the Effective Date and Termination Date for the Swap.
+  display_name: valuationDates
+- id: equityCashSettlementDates
+  description: The parameters used to generate the payment date schedule, relative
+    to the equityCalculationPeriod. Per Part 1 Section 12, 'Definitions', of the 2018
+    ISDA CDM Equity Confirmation. Para 73.
+  display_name: equityCashSettlementDates

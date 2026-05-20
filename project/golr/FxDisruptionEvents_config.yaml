@@ -1,0 +1,38 @@
+# metamodel_version: 1.11.0id: FxDisruptionEvents
+schema_generating: true
+description: Additional Provisions for a Confirmation of an FX or Currency Option
+  Transaction
+display_name: FxDisruptionEvents
+document_category: FxDisruptionEvents
+weight: 20
+fields:
+- id: illegalityOrImpossibility
+  display_name: illegalityOrImpossibility
+- id: forceMajeureOrActOfSState
+  display_name: forceMajeureOrActOfSState
+- id: eventCurrency
+  description: Additional Provisions for a Confirmation of an FX or Currency Option
+    Transaction.
+  display_name: eventCurrency
+- id: priceSourceDisruption
+  display_name: priceSourceDisruption
+- id: benchmarkObligationDefault
+  display_name: benchmarkObligationDefault
+- id: dualExchangeRate
+  display_name: dualExchangeRate
+- id: inconvertibilityOrNonTransferability
+  display_name: inconvertibilityOrNonTransferability
+- id: governmentalAuthorityDefault
+  display_name: governmentalAuthorityDefault
+- id: illiquidity
+  display_name: illiquidity
+- id: materialChangeInCircumstance
+  display_name: materialChangeInCircumstance
+- id: nationalization
+  display_name: nationalization
+- id: priceMateriality
+  display_name: priceMateriality
+- id: fallbackLanguageBespokeTerms
+  description: Where parties may optionaly describe any extra bespoke agreements about
+    fallback procedure attached to a particular determination role.
+  display_name: FxDisruptionEvents_fallbackLanguageBespokeTerms

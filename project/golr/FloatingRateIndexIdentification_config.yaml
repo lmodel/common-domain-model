@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: FloatingRateIndexIdentification
+schema_generating: true
+display_name: FloatingRateIndexIdentification
+document_category: FloatingRateIndexIdentification
+weight: 20
+fields:
+- id: floatingRateIndex
+  description: The reference index that is used to specify the floating interest rate.
+    The FpML standard maintains the list of such indices, which are positioned as
+    enumeration values as part of the CDM.
+  display_name: FloatingRateIndexIdentification_floatingRateIndex
+- id: currency
+  description: FRO currency - 3 character ISO currrency code
+  display_name: FloatingRateIndexIdentification_currency
+- id: froType
+  description: FRO type (e.g. OIS)
+  display_name: froType

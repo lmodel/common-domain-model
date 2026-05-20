@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: TransferSettlementTiming
+schema_generating: true
+description: Specification of transfer / settlement timing for cash and securities
+  collateral assuming that the notice is provided before the Notification Time (and
+  with a 1LBD lag introduced if the notice is delivered after the Notification Time),
+  and that securities allow for a further Local Business Day for transfer / settlement.
+display_name: TransferSettlementTiming
+document_category: TransferSettlementTiming
+weight: 20
+fields:
+- id: cashCollateralTransferSettlementTime
+  description: Details the day on which collateral is required to be transferred relative
+    to the Notification Time.
+  display_name: cashCollateralTransferSettlementTime
+- id: securititesCollateralTransferSettlementTime
+  description: Details the day on which collateral is required to be transferred relative
+    to the Notification Time.
+  display_name: securititesCollateralTransferSettlementTime
+- id: additionalLanguage
+  description: The additional language that might be specified by the parties to the
+    legal agreement.
+  display_name: TransferSettlementTiming_additionalLanguage

@@ -1,0 +1,31 @@
+# metamodel_version: 1.11.0id: MasterAgreementClause
+schema_generating: true
+description: Defines clauses that make up a Master Agreement.
+display_name: MasterAgreementClause
+document_category: MasterAgreementClause
+weight: 20
+fields:
+- id: identifer
+  description: Unique identifier for the clause.
+  display_name: MasterAgreementClause_identifer
+- id: name
+  description: Optional textual description of the clause.
+  display_name: MasterAgreementClause_name
+- id: counterparty
+  description: Optional counterparty role. This can be used where a clause needs to
+    be assigned to a specific party on the agreement based upon their role i.e. Party
+    A or Party B.
+  display_name: MasterAgreementClause_counterparty
+  cardinality: multi
+- id: otherParty
+  description: Optional party. This can be required for umbrella agreements where
+    a clause may need to be assigned to a specific party who may or may not be on
+    the agreement.
+  display_name: MasterAgreementClause_otherParty
+  cardinality: multi
+- id: variant
+  description: Allows multiple variants to be defined for a clause. This needs to
+    be an array as some clauses can specify different variants for different parties.
+    At least one variant must be specified for a clause.
+  display_name: variant
+  cardinality: multi

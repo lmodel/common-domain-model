@@ -1,0 +1,28 @@
+# metamodel_version: 1.11.0id: ExerciseEvent
+schema_generating: true
+description: 'A data defining:  the adjusted dates associated with a particular exercise
+  event.'
+display_name: ExerciseEvent
+document_category: ExerciseEvent
+weight: 20
+fields:
+- id: adjustedExerciseDate
+  description: The date on which the option exercise takes place. This date should
+    already be adjusted for any applicable business day convention.
+  display_name: adjustedExerciseDate
+- id: adjustedRelevantSwapEffectiveDate
+  description: The effective date of the underlying swap associated with a given exercise
+    date. This date should already be adjusted for any applicable business day convention.
+  display_name: adjustedRelevantSwapEffectiveDate
+- id: adjustedCashSettlementValuationDate
+  description: The date by which the cash settlement amount must be agreed. This date
+    should already be adjusted for any applicable business day convention.
+  display_name: adjustedCashSettlementValuationDate
+- id: adjustedCashSettlementPaymentDate
+  description: The date on which the cash settlement amount is paid. This date should
+    already be adjusted for any applicable business day convention.
+  display_name: adjustedCashSettlementPaymentDate
+- id: adjustedExerciseFeePaymentDate
+  description: The date on which the exercise fee amount is paid. This date should
+    already be adjusted for any applicable business day convention.
+  display_name: adjustedExerciseFeePaymentDate

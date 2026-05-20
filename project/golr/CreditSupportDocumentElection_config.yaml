@@ -1,0 +1,27 @@
+# metamodel_version: 1.11.0id: CreditSupportDocumentElection
+schema_generating: true
+description: The party election of Credit Support Provider(s), if any.
+display_name: CreditSupportDocumentElection
+document_category: CreditSupportDocumentElection
+weight: 20
+fields:
+- id: party
+  description: The elective party.
+  display_name: CreditSupportDocumentElection_party
+- id: creditSupportDocumentTerms
+  description: Specification of the Credit Support Document terms.
+  display_name: creditSupportDocumentTerms
+- id: creditSupportDocumentTypes
+  description: If a Credit Support Document is specified but not yet in CDM representation,
+    it can still be captured. This argument should be used if the creditSupportDocument
+    argument cannot be used due to not being able to represent the document fully
+    in CDM format.
+  display_name: creditSupportDocumentTypes
+  cardinality: multi
+- id: creditSupportDocument
+  description: The specified Credit Support Document(s), if any.
+  display_name: creditSupportDocument
+  cardinality: multi
+- id: bespokeCreditSuppportDocument
+  description: Specification of a document when not captured under RelatedAgreement.
+  display_name: bespokeCreditSuppportDocument

@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: FrenchLawAddendum
+schema_generating: true
+description: A class to specify party specific elections when a Collateral Transfer
+  Agreement is governed by French Law.
+display_name: FrenchLawAddendum
+document_category: FrenchLawAddendum
+weight: 20
+fields:
+- id: isApplicable
+  description: The qualification of whether the French Law Addendum is deemed applicable
+    by the parties (True) or not (False).
+  display_name: FrenchLawAddendum_isApplicable
+- id: partyElection
+  description: The parties French Law Addendum Elections.
+  display_name: FrenchLawAddendum_partyElection
+  cardinality: multi

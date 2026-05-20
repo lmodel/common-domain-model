@@ -1,0 +1,28 @@
+# metamodel_version: 1.11.0id: CollateralSpecification
+schema_generating: true
+description: The definitions regarding collateral relating to the GMSLA.
+display_name: CollateralSpecification
+document_category: CollateralSpecification
+weight: 20
+fields:
+- id: standardDefinitionOfMarketValueUsed
+  description: Is the standard definition of 'Market Value' used in the GMSLA?
+  display_name: standardDefinitionOfMarketValueUsed
+- id: definitionOfMarketValueNonStandard
+  description: If the definition of 'Market Value' is non standard, it can be specified
+    here.
+  display_name: definitionOfMarketValueNonStandard
+- id: aggregation
+  description: How does paragraph 5.4 (aggregation) apply to the GMSLA?
+  display_name: aggregation
+- id: nettingObligationsApply
+  description: Does paragraph 5.6 (netting of obligations to deliver Collateral and
+    redeliver Equivalent Collateral) apply to the GMSLA?
+  display_name: nettingObligationsApply
+- id: failureToDevliverIndemnityApplies
+  description: Does paragraph 6.4 (indemnity for failure to redeliver Equivalent Non-Cash
+    Collateral) apply to the GMSLA?
+  display_name: failureToDevliverIndemnityApplies
+- id: notificationTime
+  description: What is the notification time of the GMSLA?
+  display_name: CollateralSpecification_notificationTime

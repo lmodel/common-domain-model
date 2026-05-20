@@ -1,0 +1,30 @@
+# metamodel_version: 1.11.0id: CollateralPortfolio
+schema_generating: true
+description: Represents common attributes to define the details of collateral assets,
+  to be used in margin call messaging and contribute to collateral balances e.g securities
+  in a collateral account.
+display_name: CollateralPortfolio
+document_category: CollateralPortfolio
+weight: 20
+fields:
+- id: portfolioIdentifier
+  description: Specifies a unique identifier for a set of collateral positions in
+    a portfolio.
+  display_name: portfolioIdentifier
+- id: collateralPosition
+  description: Specifies the individual components of the collateral positions in
+    the collateral portfolio.
+  display_name: collateralPosition
+  cardinality: multi
+- id: collateralBalance
+  description: Represents the populated or calculated collateral aggregate balance
+    amount for the collateral portfolio.
+  display_name: collateralBalance
+  cardinality: multi
+- id: legalAgreement
+  description: ' The specification of a legal agreement between two parties governing
+    the collateral relationship such as Credit Support Agreement or Collateral Transfer
+    Agreement etc. (NB: this can be provided by reference to a global key for each
+    LegalAgreement object).'
+  display_name: CollateralPortfolio_legalAgreement
+  cardinality: multi

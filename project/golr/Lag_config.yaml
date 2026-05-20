@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: Lag
+schema_generating: true
+description: The pricing period per calculation period if the pricing days do not
+  wholly fall within the respective calculation period.
+display_name: Lag
+document_category: Lag
+weight: 20
+fields:
+- id: lagDuration
+  description: Defines the offset of the series of pricing dates relative to the calculation
+    period.
+  display_name: lagDuration
+- id: firstObservationDateOffset
+  description: Defines the offset of the series of pricing dates relative to the calculation
+    period.
+  display_name: firstObservationDateOffset

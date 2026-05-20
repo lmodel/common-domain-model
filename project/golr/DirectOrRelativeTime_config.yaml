@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: DirectOrRelativeTime
+schema_generating: true
+description: Represents a time definition that can be either an absolute (direct)
+  time or a time calculated relative to another referenced time. Either one directTime
+  or one relativeTime should be provided
+display_name: DirectOrRelativeTime
+document_category: DirectOrRelativeTime
+weight: 20
+fields:
+- id: directTime
+  description: An absolute time value expressed in a specific time zone.
+  display_name: directTime
+- id: relativeTime
+  description: A time value calculated relative to another reference time.
+  display_name: relativeTime

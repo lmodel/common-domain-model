@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: PortfolioState
+schema_generating: true
+description: State-full representation of a Portfolio that describes all the positions
+  held at a given time, in various states which can be either traded, settled, etc.,
+  with lineage information to the previous state
+display_name: PortfolioState
+document_category: PortfolioState
+weight: 20
+fields:
+- id: positions
+  description: The list of positions, each containing a Quantity and a Product.
+  display_name: positions
+  cardinality: multi
+- id: lineage
+  description: Pointer to the previous PortfolioState and new Event(s) leading to
+    the current (new) state. Previous PortfolioState in the Lineage can be Null in
+    case this is the start of the chain of Events.
+  display_name: lineage

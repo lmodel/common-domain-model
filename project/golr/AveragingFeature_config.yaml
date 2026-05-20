@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: AveragingFeature
+schema_generating: true
+description: As per ISDA 2002 Definitions.
+display_name: AveragingFeature
+document_category: AveragingFeature
+weight: 20
+fields:
+- id: averagingCalculation
+  description: Defines parameters for use in cases when a valuation or other term
+    is based on an average of market observations.
+  display_name: averagingCalculation
+- id: averagingInOut
+  display_name: averagingInOut
+- id: strikeFactor
+  description: The factor of strike.
+  display_name: strikeFactor
+- id: averagingPeriodIn
+  description: The averaging in period.
+  display_name: averagingPeriodIn
+- id: averagingPeriodOut
+  description: The averaging out period.
+  display_name: averagingPeriodOut

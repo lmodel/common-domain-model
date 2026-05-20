@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: PrincipalPaymentSchedule
+schema_generating: true
+description: Describe dates schedules for Principal Exchanges and related role of
+  the parties when known.
+display_name: PrincipalPaymentSchedule
+document_category: PrincipalPaymentSchedule
+weight: 20
+fields:
+- id: initialPrincipalPayment
+  description: Principal Payment made at Trade inception.
+  display_name: initialPrincipalPayment
+- id: intermediatePrincipalPayment
+  description: Principal Payment as part of the Trade lifecycle e.g. as part of notional
+    reset adjustements in a Cross Currency Swap with a varying notional leg.
+  display_name: intermediatePrincipalPayment
+- id: finalPrincipalPayment
+  description: Principal Payment at Trade maturity
+  display_name: finalPrincipalPayment

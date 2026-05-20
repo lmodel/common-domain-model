@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: SinglePostingParty
+schema_generating: true
+description: Where only a single  party is explicitly designated to post collateral,
+  the party which is specified as the sole poster of collateral.
+display_name: SinglePostingParty
+document_category: SinglePostingParty
+weight: 20
+fields:
+- id: party
+  description: The party acting as the Single Posting Party.
+  display_name: SinglePostingParty_party
+- id: other
+  description: Utilised where the clause data structure is not able to capture a material
+    aspect of the clause.
+  display_name: other

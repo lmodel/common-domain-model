@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: FxInformationSource
+schema_generating: true
+description: Information source specific to Foreign Exchange products.
+display_name: FxInformationSource
+document_category: FxInformationSource
+weight: 20
+fields:
+- id: sourceProvider
+  description: An information source for obtaining a market data point. For example
+    Bloomberg, Reuters, Telerate, etc.
+  display_name: sourceProvider
+- id: sourcePage
+  description: A specific page for the source for obtaining a market data point. In
+    FpML, this is specified as a scheme, rateSourcePageScheme, for which no coding
+    Scheme or URI is specified.
+  display_name: sourcePage
+- id: sourcePageHeading
+  description: The heading for the source on a given source page.
+  display_name: sourcePageHeading
+- id: fixingTime
+  description: The time that the fixing will be taken along with a business center
+    to define the time zone.
+  display_name: fixingTime

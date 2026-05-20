@@ -1,0 +1,27 @@
+# metamodel_version: 1.11.0id: SpecifiedOrAccessConditionPartyElection
+schema_generating: true
+description: The party specific elections in respect to the Specified Condition and
+  Access Condition clause.
+display_name: SpecifiedOrAccessConditionPartyElection
+document_category: SpecifiedOrAccessConditionPartyElection
+weight: 20
+fields:
+- id: party
+  description: Identifies the party making the election.
+  display_name: SpecifiedOrAccessConditionPartyElection_party
+- id: specifiedOrAccessCondition
+  description: Specifies events that may temporarily or permanently suspend a partys
+    rights to rehypothecate, transfer, or substitute collateral.
+  display_name: specifiedOrAccessCondition
+  cardinality: multi
+- id: additionalTerminationEvent
+  description: Specifies events that may lead to the early termination of the Master
+    Agreement, including suspension of the affected party's rights to rehypothecate,
+    transfer, or substitute collateral.
+  display_name: additionalTerminationEvent
+  cardinality: multi
+- id: specifiedAdditionalTerminationEvent
+  description: Specifies any bespoke Additional Termination Event(s) that are set
+    out in the related Specified Condition clause.
+  display_name: specifiedAdditionalTerminationEvent
+  cardinality: multi

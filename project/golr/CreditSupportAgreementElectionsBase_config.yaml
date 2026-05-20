@@ -1,0 +1,53 @@
+# metamodel_version: 1.11.0id: CreditSupportAgreementElectionsBase
+schema_generating: true
+description: A logical container designed to hold a set of related data. In this case,
+  designed to hold a set of clauses that are common amongst Legacy (1994/95), Variation
+  Margin and Initial Margin Credit Support Documents.
+display_name: CreditSupportAgreementElectionsBase
+document_category: CreditSupportAgreementElectionsBase
+weight: 20
+fields:
+- id: baseAndEligibleCurrency
+  description: The base and eligible currency(ies) for the document as specified by
+    the parties to the agreement.
+  display_name: baseAndEligibleCurrency
+- id: conditionsPrecedent
+  description: The set of elections that may overwrite the default Condition Precedent
+    provision, and the set of provisions that are deemed Access Condition.
+  display_name: conditionsPrecedent
+- id: substitution
+  description: The conditions under which the Security Provider can substitute posted
+    collateral.
+  display_name: substitution
+- id: disputeResolution
+  description: The election terms under which a party disputes (i) the Calculation
+    Agents calculation of a Delivery Amount or a Return Amount, or (ii) the Value
+    of any Transfer of Eligible Credit Support or Posted Credit Support.
+  display_name: disputeResolution
+- id: holdingAndUsingPostedCollateral
+  description: The elections for the holding and using of posted collateral by the
+    respective parties to the Credit Support Annex for Variation Margin.
+  display_name: holdingAndUsingPostedCollateral
+- id: distributionAndInterestPayment
+  description: The Distributions and Interest Payment terms specified as part of the
+    agreement.
+  display_name: distributionAndInterestPayment
+- id: otherEligibleAndPostedSupport
+  description: The Other Eligible Support elections associated with margin agreements.
+  display_name: otherEligibleAndPostedSupport
+- id: demandsAndNotices
+  description: The optional specification of address where the demands, specifications
+    and notices will be communicated to for each of the parties to the agreement.
+  display_name: demandsAndNotices
+- id: additionalRepresentations
+  description: The specification Additional Representations that may be applicable
+    to the agreement.
+  display_name: additionalRepresentations
+- id: masterAgreementDatedAsOfDate
+  description: Defines the dates agreed by the parties as the date of the Credit Support
+    Annex or Credit Support Deed.
+  display_name: masterAgreementDatedAsOfDate
+- id: finalReturns
+  description: A clause providing that final return collateral is to be provided without
+    consideration of any Minimum Transfer Amount and collateral haircut.
+  display_name: finalReturns

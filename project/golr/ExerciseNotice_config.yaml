@@ -1,0 +1,24 @@
+# metamodel_version: 1.11.0id: ExerciseNotice
+schema_generating: true
+description: Defines to whom and where notice of execution should be given. The exerciseNoticeGiver
+  refers to one or both of the principal parties of the trade. If present the exerciseNoticeReceiver
+  refers to a party, other than the principal party, to whom notice should be given.
+display_name: ExerciseNotice
+document_category: ExerciseNotice
+weight: 20
+fields:
+- id: exerciseNoticeGiver
+  description: Specifies the principal party of the trade that has the right to exercise.
+  display_name: exerciseNoticeGiver
+- id: exerciseNoticeReceiver
+  description: Specifies the party to which notice of exercise should be given, e.g.
+    by the buyer of the option. Although in many cases it is the buyer of the option
+    who sends the exercise notice to the seller of the option, this component is reused,
+    e.g. in case of OptionEarlyTermination, either or both parties have the right
+    to exercise.
+  display_name: exerciseNoticeReceiver
+- id: businessCenter
+  description: Specifies the location where the exercise must be reported, e.g. where
+    the exercise notice receiver is based.
+  display_name: ExerciseNotice_businessCenter
+  cardinality: multi

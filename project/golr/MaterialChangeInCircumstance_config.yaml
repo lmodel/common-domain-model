@@ -1,0 +1,12 @@
+# metamodel_version: 1.11.0id: MaterialChangeInCircumstance
+schema_generating: true
+display_name: MaterialChangeInCircumstance
+document_category: MaterialChangeInCircumstance
+weight: 20
+fields:
+- id: materialChangeInCircumstanceIsApplicable
+  display_name: materialChangeInCircumstanceIsApplicable
+- id: escrowArrangement
+  display_name: escrowArrangement
+- id: maximumDaysOfDisruption
+  display_name: maximumDaysOfDisruption

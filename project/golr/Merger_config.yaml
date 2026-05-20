@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: Merger
+schema_generating: true
+description: Defines the underlier for both the Purchaser Company and the Acquired
+  Compagny involved in Merger corporate action, as well as th respective price observation
+  for each.
+display_name: Merger
+document_category: Merger
+weight: 20
+fields:
+- id: purchaserSecurity
+  description: Defines the underlier for the Purchaser Company involved in Merger
+    corporate action.
+  display_name: purchaserSecurity
+- id: purchaserSecurityPrice
+  description: The price observation that relates to underlier for the Purchaser Company.
+  display_name: purchaserSecurityPrice
+- id: acquiredSecurity
+  description: Defines the underlier for the Acquired Company involved in Merger corporate
+    action.
+  display_name: acquiredSecurity
+- id: acquiredSecurityPrice
+  description: The price observation that relates to underlier for the Acquired Company.
+  display_name: acquiredSecurityPrice

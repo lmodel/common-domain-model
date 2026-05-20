@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: ExtensionEvent
+schema_generating: true
+description: 'A data to:  define the adjusted dates associated with an individual
+  extension event.'
+display_name: ExtensionEvent
+document_category: ExtensionEvent
+weight: 20
+fields:
+- id: adjustedExerciseDate
+  description: The date on which option exercise takes place. This date should already
+    be adjusted for any applicable business day convention.
+  display_name: ExtensionEvent_adjustedExerciseDate
+- id: adjustedExtendedTerminationDate
+  description: The termination date if an extendible provision is exercised. This
+    date should already be adjusted for any applicable business day convention.
+  display_name: adjustedExtendedTerminationDate

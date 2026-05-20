@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: FxLinkedNotionalAmount
+schema_generating: true
+description: 'A data to:  describe the cashflow representation for FX linked notionals.'
+display_name: FxLinkedNotionalAmount
+document_category: FxLinkedNotionalAmount
+weight: 20
+fields:
+- id: resetDate
+  description: The reset date.
+  display_name: FxLinkedNotionalAmount_resetDate
+- id: adjustedFxSpotFixingDate
+  description: The date on which the FX spot rate is observed. This date should already
+    be adjusted for any applicable business day convention.
+  display_name: adjustedFxSpotFixingDate
+- id: observedFxSpotRate
+  description: The actual observed FX spot rate.
+  display_name: observedFxSpotRate
+- id: notionalAmount
+  description: The calculation period notional amount.
+  display_name: FxLinkedNotionalAmount_notionalAmount

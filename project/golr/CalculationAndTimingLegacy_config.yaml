@@ -1,0 +1,25 @@
+# metamodel_version: 1.11.0id: CalculationAndTimingLegacy
+schema_generating: true
+description: Specification of the Calculation, Valuation and Timing terms specific
+  to the Legacy (1994/95) Credit Support Annex.
+display_name: CalculationAndTimingLegacy
+document_category: CalculationAndTimingLegacy
+weight: 20
+fields:
+- id: notificationTime
+  description: The time by which a demand for the Transfer of Eligible Credit Support
+    (IM) or Posted Credit Support (IM) needs to be made in order for the transfer
+    to take place in accordance with the Transfer Timing provisions.
+  display_name: notificationTime
+- id: valuationDate
+  description: Details of the days on which calculations are to be made to determine
+    the Delivery Amount and/or Return Amount.
+  display_name: valuationDate
+- id: valuationTime
+  description: Specifies the time on which the value of collateral or exposure are
+    calculated in accordance with the agreement.
+  display_name: valuationTime
+- id: valuationAgent
+  description: Details of the party calculating the value of collateral to be delivered
+    or returned.
+  display_name: valuationAgent

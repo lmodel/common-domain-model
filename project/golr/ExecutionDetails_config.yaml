@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: ExecutionDetails
+schema_generating: true
+description: Defines specific attributes that relate to trade executions.
+display_name: ExecutionDetails
+document_category: ExecutionDetails
+weight: 20
+fields:
+- id: executionType
+  description: Identifies the type of execution, e.g. via voice, electronically...
+  display_name: executionType
+- id: executionVenue
+  description: Represents the venue on which a trade was executed.
+  display_name: executionVenue
+- id: packageReference
+  description: A reference to the package linking the trade with other trades, in
+    case the trade was executed as part of a package (hence this attribute is optional).
+  display_name: packageReference

@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: NonLegalEntity
+schema_generating: true
+description: Specifies a non-legal entity that exists in the agreement with a defined
+  relationship to a Legal entity to the agreement
+display_name: NonLegalEntity
+document_category: NonLegalEntity
+weight: 20
+fields:
+- id: identifier
+  description: Specifies the unique identifier value for a non-legal entity such as
+    a sleeve, or sub account, that is a party to the agreement and has a relationship
+    with a legal entity defined on the agreement.
+  display_name: NonLegalEntity_identifier
+  cardinality: multi
+- id: identifierType
+  description: Specifies the Identifier type for a non-Legal entity to the agreement,
+    for example the use of an alert code to uniquely identify a non-Legal entity.
+  display_name: NonLegalEntity_identifierType

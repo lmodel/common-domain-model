@@ -1,0 +1,77 @@
+# metamodel_version: 1.11.0id: MarginCallIssuance
+schema_generating: true
+description: Represents common attributes required for a Margin Call Issuance under
+  a legal agreement such as a credit support document or equivalent.
+display_name: MarginCallIssuance
+document_category: MarginCallIssuance
+weight: 20
+fields:
+- id: instructionType
+  description: Identifies the enumeration values to specify the call notification
+    type, direction, specific action type.
+  display_name: instructionType
+- id: party
+  description: Represents the parties to the margin call. The cardinality is optional
+    to address the case where both parties of the event are specified and a third
+    party if applicable.
+  display_name: MarginCallBase_party
+  cardinality: multi
+- id: partyRole
+  description: Represents the role each specified party takes in the margin call.
+    further to the principal roles, payer and receiver.
+  display_name: MarginCallBase_partyRole
+  cardinality: multi
+- id: clearingBroker
+  description: Indicates the name of the Clearing Broker FCM/DCM.
+  display_name: clearingBroker
+- id: callIdentifier
+  description: Represents a unique Identifier for a margin call message, that can
+    be referenced throughout all points of the process.
+  display_name: callIdentifier
+- id: callAgreementType
+  description: Specifies the legal agreement type the margin call is generated from
+    and governed by.
+  display_name: callAgreementType
+- id: agreementMinimumTransferAmount
+  description: Specifies the collateral legal agreement minimum transfer amount in
+    base currency.
+  display_name: agreementMinimumTransferAmount
+- id: agreementThreshold
+  description: Specifies the collateral legal agreement threshold amount in base currency.
+  display_name: agreementThreshold
+- id: agreementRounding
+  description: Specifies the collateral legal agreement rounding in base currency.
+  display_name: agreementRounding
+- id: regMarginType
+  description: Identifies margin type and if related regulatory mandate
+  display_name: regMarginType
+- id: regIMRole
+  description: Indicates the role of the party in an regulatory initial margin call
+    instruction (i.e Pledgor party or Secured party).
+  display_name: regIMRole
+- id: baseCurrencyExposure
+  description: Represents the current mark to market value or IM calculation value
+    of the trade portfolio as recorded by the principle (in base currency), to be
+    referenced in a margin call.
+  display_name: baseCurrencyExposure
+- id: collateralPortfolio
+  description: Represents attributes to define the details of collateral assets within
+    a collateral portfolio to be used in margin call messaging and contribute to collateral
+    balances e.g securities in a collateral account recorded by the principal as held
+    or posted.
+  display_name: collateralPortfolio
+- id: independentAmountBalance
+  description: Represents additional credit support amount over and above mark to
+    market value.
+  display_name: independentAmountBalance
+- id: callAmountInBaseCurrency
+  description: Specifies the amount of margin being called for which accounts for
+    margin calculation inclusive of exposure, independent amount,threshold,collateral
+    balance, MTA, rounding increments (in base currency detailed in supporting collateral
+    agreement).
+  display_name: callAmountInBaseCurrency
+- id: recallNonCashCollateralDescription
+  description: Specifies the details to describe or identify non-cash collateral eligible
+    assets for recall purposes.
+  display_name: recallNonCashCollateralDescription
+  cardinality: multi

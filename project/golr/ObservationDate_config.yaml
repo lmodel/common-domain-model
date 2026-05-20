@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: ObservationDate
+schema_generating: true
+description: Specifies a single date on which market observations take place and specifies
+  optional associated weighting.
+display_name: ObservationDate
+document_category: ObservationDate
+weight: 20
+fields:
+- id: unadjustedDate
+  description: A date subject to adjustment.
+  display_name: ObservationDate_unadjustedDate
+- id: adjustedDate
+  description: The date once the adjustment has been performed. (Note that this date
+    may change if the business center holidays change).
+  display_name: adjustedDate
+- id: weight
+  description: Specifies the degree of importance of the observation.
+  display_name: weight
+- id: observationReference
+  description: Specifies an identification key for the market observation. This attribute
+    can be used as a reference to assign weights to a series of dates defined in a
+    parametricSchedule.
+  display_name: observationReference

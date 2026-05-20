@@ -1,0 +1,25 @@
+# metamodel_version: 1.11.0id: ExecutionLocation
+schema_generating: true
+description: A class to specify execution location terms of a Security Agreement.
+display_name: ExecutionLocation
+document_category: ExecutionLocation
+weight: 20
+fields:
+- id: executionLocation
+  description: The execution location of the agreement.
+  display_name: executionLocation
+- id: otherLanguage
+  description: Bespoke execution location language to be included when specified.
+  display_name: ExecutionLocation_otherLanguage
+- id: dutyPayer
+  description: The payer of documentary duty.
+  display_name: dutyPayer
+- id: dutyPayerLanguage
+  description: Bespoke terms specific to the payment of documentary duty.
+  display_name: dutyPayerLanguage
+- id: dutyPaymentDate
+  description: The date that documentary duty will be paid.
+  display_name: dutyPaymentDate
+- id: dutyPaymentLanguage
+  description: Bespoke terms specific to the date that documentary duty will be paid.
+  display_name: dutyPaymentLanguage

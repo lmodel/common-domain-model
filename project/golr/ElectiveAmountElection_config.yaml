@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: ElectiveAmountElection
+schema_generating: true
+description: A class to specify the party elective amounts which can be used for the
+  purpose of specifying elections such as the ISDA CSA Threshold and Minimum Transfer
+  Amount.
+display_name: ElectiveAmountElection
+document_category: ElectiveAmountElection
+weight: 20
+fields:
+- id: party
+  description: The elective party.
+  display_name: ElectiveAmountElection_party
+- id: electiveAmount
+  description: Specifies an enumerated election to express the elective amount.
+  display_name: electiveAmount
+- id: amount
+  description: The elective amount when expressed as a currency amount. The associated
+    PartyElectiveAmount_amount data rule enforces that the currency amount is actually
+    greater than 0.
+  display_name: ElectiveAmountElection_amount
+- id: customElection
+  description: The elective amount when expressed as a custom election by the party.
+  display_name: ElectiveAmountElection_customElection

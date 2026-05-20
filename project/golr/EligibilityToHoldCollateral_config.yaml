@@ -1,0 +1,30 @@
+# metamodel_version: 1.11.0id: EligibilityToHoldCollateral
+schema_generating: true
+description: Specifies the conditions under which a party and its custodian(s) are
+  entitled to hold collateral.
+display_name: EligibilityToHoldCollateral
+document_category: EligibilityToHoldCollateral
+weight: 20
+fields:
+- id: custodianEligibility
+  description: Specifies whether the party's custodian is eligible to hold the other
+    party's posted collateral. If 'True' then the custodian is eligible to hold the
+    Posted Collateral given that the specified criteria are met.
+  display_name: custodianEligibility
+- id: initialCustodian
+  description: Election to specify the initial custodian.
+  display_name: initialCustodian
+- id: criteria
+  description: A logical container to hold a defined set of related data. In this
+    case the collation of criteria required by the party and its custodian to Hold
+    the other party's Posted Collateral.
+  display_name: criteria
+- id: eligibleCountry
+  description: The restrictions that might be required by a party and its custodian
+    in terms of country(ies) where the other party's collateral can be held.
+  display_name: eligibleCountry
+  cardinality: multi
+- id: custodianCondition
+  description: Specifies any additional conditions relevant to the Custodian of the
+    respective parties as set out in the Holding and Using Posted Collateral clause.
+  display_name: custodianCondition

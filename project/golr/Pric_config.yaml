@@ -1,0 +1,10 @@
+# metamodel_version: 1.11.0id: Pric
+schema_generating: true
+display_name: Pric
+document_category: Pric
+weight: 20
+fields:
+- id: pric
+  display_name: pric
+- id: bsisPts
+  display_name: bsisPts

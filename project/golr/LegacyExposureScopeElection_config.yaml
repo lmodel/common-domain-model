@@ -1,0 +1,24 @@
+# metamodel_version: 1.11.0id: LegacyExposureScopeElection
+schema_generating: true
+description: Specification of amendments to the calculation of Exposure in terms of
+  the Transactions and Products covered.
+display_name: LegacyExposureScopeElection
+document_category: LegacyExposureScopeElection
+weight: 20
+fields:
+- id: party
+  description: The elective party.
+  display_name: LegacyExposureScopeElection_party
+- id: excludedTransactions
+  description: A boolean flag to represent whether any transactions are excluded (ie
+    True) or not (ie False).
+  display_name: excludedTransactions
+- id: excludedProducts
+  description: Description of the relevant derivative transactions excluded from the
+    calculation of exposure.
+  display_name: excludedProducts
+  cardinality: multi
+- id: additionalLanguage
+  description: The bespoke/additional language that might be specified by the parties
+    to the legal agreement.
+  display_name: LegacyExposureScopeElection_additionalLanguage

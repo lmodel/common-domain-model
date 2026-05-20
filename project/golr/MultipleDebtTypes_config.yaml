@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: MultipleDebtTypes
+schema_generating: true
+description: Represents a class to specify multiple credit debt types alongside a
+  conditional 'any' or 'all' qualifier.
+display_name: MultipleDebtTypes
+document_category: MultipleDebtTypes
+weight: 20
+fields:
+- id: condition
+  description: An enumerated attribute, to qualify whether All or Any debt type applies.
+  display_name: MultipleDebtTypes_condition
+- id: debtType
+  description: The type of debt, e.g. long term debt, deposit, ... FpML doesn't specific
+    a scheme value, hence no enumeration is specified as part of the CDM. At least
+    two debt types much be specified.
+  display_name: MultipleDebtTypes_debtType
+  cardinality: multi

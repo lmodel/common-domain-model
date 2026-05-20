@@ -1,0 +1,51 @@
+# metamodel_version: 1.11.0id: CreditSupportObligationsInitialMargin
+schema_generating: true
+description: Specification of the Credit Support Obligations applicable to the Initial
+  Margin Credit Support Annex.
+display_name: CreditSupportObligationsInitialMargin
+document_category: CreditSupportObligationsInitialMargin
+weight: 20
+fields:
+- id: deliveryAmount
+  description: In respect of a Valuation Date, the amount of collateral which a party
+    is entitled to demand to be transferred to it as a Delivery Amount.
+  display_name: CreditSupportObligationsBase_deliveryAmount
+- id: returnAmount
+  description: In respect of a Valuation Date, the amount of collateral which a party
+    is entitled to demand to be recalled to it as a Return Amount.
+  display_name: CreditSupportObligationsBase_returnAmount
+- id: minimumTransferAmount
+  description: Represents the threshold specified in the agreement below which collateral
+    need not be delivered, and represents the smallest incremental value of exposure
+    that must be reached before the parties are obliged to transfer collateral.
+  display_name: minimumTransferAmount
+- id: collateralTransferTiming
+  description: Specification of transfer / settlement timing for cash and securities
+    collateral assuming that the notice is provided before the Notification Time (and
+    with a 1LBD lag introduced if the notice is delivered after the Notification Time),
+    and that securities allow for a further Local Business Day for transfer / settlement.
+  display_name: collateralTransferTiming
+- id: bespokeTransferTiming
+  description: The time by which the transfer of collateral must take place when different
+    from the Regular Settlement Day as a result of parties' election.
+  display_name: bespokeTransferTiming
+- id: marginApproach
+  description: The selection of Margin Approach applicable to the agreement.
+  display_name: CreditSupportObligationsInitialMargin_marginApproach
+- id: otherEligibleSupportIM
+  description: The Other Eligible Support election. If not specified, this election
+    is deemed as not applicable.
+  display_name: otherEligibleSupportIM
+- id: rounding
+  description: The rounding methodology applicable to the Delivery Amount and the
+    Return Amount in terms of nearest integral multiple of Base Currency units.
+  display_name: CreditSupportObligationsInitialMargin_rounding
+- id: threshold
+  description: Represents the amount of unsecured risk that a party is willing to
+    tolerate without holding any posted collateral provided by the other party.
+  display_name: threshold
+- id: creditSupportAmount
+  description: 'The total amount one counterparty must deliver to the other at any
+    time: the combination of the Exposure to that party and the net Independent Amounts
+    it must post, minus any agreed Threshold.'
+  display_name: creditSupportAmount

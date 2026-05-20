@@ -1,0 +1,24 @@
+# metamodel_version: 1.11.0id: AdjustableOrAdjustedOrRelativeDate
+schema_generating: true
+description: This Rosetta class specifies the date as either an unadjusted, adjusted
+  or relative date. It supplements the features of the AdjustableOrAdjustedDate to
+  support the credit default swap option premium, which uses the relative date construct.
+display_name: AdjustableOrAdjustedOrRelativeDate
+document_category: AdjustableOrAdjustedOrRelativeDate
+weight: 20
+fields:
+- id: unadjustedDate
+  description: A date subject to adjustment.
+  display_name: AdjustableOrAdjustedOrRelativeDate_unadjustedDate
+- id: dateAdjustments
+  description: The business day convention and financial business centers used for
+    adjusting the date if it would otherwise fall on a day that is not a business
+    date in the specified business centers.
+  display_name: dateAdjustments
+- id: adjustedDate
+  description: The date once the adjustment has been performed. (Note that this date
+    may change if the business center holidays change).
+  display_name: adjustedDate
+- id: relativeDate
+  description: A date specified as some offset to another date (the anchor date).
+  display_name: relativeDate

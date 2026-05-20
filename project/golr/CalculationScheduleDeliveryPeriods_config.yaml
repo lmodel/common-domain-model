@@ -1,0 +1,24 @@
+# metamodel_version: 1.11.0id: CalculationScheduleDeliveryPeriods
+schema_generating: true
+description: Period and time profile over which the delivery takes place.
+display_name: CalculationScheduleDeliveryPeriods
+document_category: CalculationScheduleDeliveryPeriods
+weight: 20
+fields:
+- id: profile
+  description: Defines the delivery profile of the asset, including the load type
+    and the delivery intervals.
+  display_name: profile
+  cardinality: multi
+- id: startDate
+  description: Delivery start date
+  display_name: AssetDeliveryPeriods_startDate
+- id: endDate
+  description: Delivery end date
+  display_name: AssetDeliveryPeriods_endDate
+- id: deliveryCapacity
+  description: The number of units included in the transaction for each delivery interval
+  display_name: deliveryCapacity
+- id: priceTimeIntervalQuantity
+  description: Price per quantity per delivery time interval.
+  display_name: priceTimeIntervalQuantity

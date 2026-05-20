@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: FxInconvertibilityOrNonTransferability
+schema_generating: true
+display_name: FxInconvertibilityOrNonTransferability
+document_category: FxInconvertibilityOrNonTransferability
+weight: 20
+fields:
+- id: generalInconvertibility
+  display_name: generalInconvertibility
+- id: generalNonTransferability
+  display_name: generalNonTransferability
+- id: specificInconvertibility
+  display_name: specificInconvertibility
+- id: specificNonTransferability
+  display_name: specificNonTransferability

@@ -1,0 +1,41 @@
+# metamodel_version: 1.11.0id: NaturalPerson
+schema_generating: true
+description: A class to represent the attributes that are specific to a natural person.
+display_name: NaturalPerson
+document_category: NaturalPerson
+weight: 20
+fields:
+- id: personId
+  description: The identifier associated with a person, e.g. the internal identification
+    code.
+  display_name: personId
+  cardinality: multi
+- id: honorific
+  description: An honorific title, such as Mr., Ms., Dr. etc.
+  display_name: honorific
+- id: firstName
+  description: The natural person's first name. It is optional in FpML.
+  display_name: firstName
+- id: middleName
+  description: The natural person's middle name(s). If a middle name is provided then
+    an initial should be absent.
+  display_name: middleName
+  cardinality: multi
+- id: initial
+  description: The natural person's middle initial(s). If a middle initial is provided
+    then a name should be absent.
+  display_name: initial
+  cardinality: multi
+- id: surname
+  description: The natural person's surname.
+  display_name: surname
+- id: suffix
+  description: Name suffix, such as Jr., III, etc.
+  display_name: suffix
+- id: dateOfBirth
+  description: The natural person's date of birth.
+  display_name: dateOfBirth
+- id: contactInformation
+  description: The contact information for such person, when different from the contact
+    information associated with the party.
+  display_name: NaturalPerson_contactInformation

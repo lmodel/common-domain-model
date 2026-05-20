@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: PaymentDiscounting
+schema_generating: true
+description: This class corresponds to the FpML PaymentDiscounting.model group for
+  representing the discounting elements that can be associated with a payment.
+display_name: PaymentDiscounting
+document_category: PaymentDiscounting
+weight: 20
+fields:
+- id: discountFactor
+  description: The value representing the discount factor used to calculate the present
+    value of the cash flow.
+  display_name: PaymentDiscounting_discountFactor
+- id: presentValueAmount
+  description: The amount representing the present value of the forecast payment.
+  display_name: PaymentDiscounting_presentValueAmount

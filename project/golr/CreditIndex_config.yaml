@@ -1,0 +1,72 @@
+# metamodel_version: 1.11.0id: CreditIndex
+schema_generating: true
+description: Specification of an index based on credit risk, typically composed using
+  corporate debt instruments in a region or industry sector, e.g. the iTraxx indices.
+display_name: CreditIndex
+document_category: CreditIndex
+weight: 20
+fields:
+- id: identifier
+  description: Asset Identifiers are used to uniquely identify an Asset, using a specified
+    Asset Identifier Type.
+  display_name: identifier
+  cardinality: multi
+- id: taxonomy
+  description: Defines the taxonomy of an object by combining a taxonomy source (i.e.
+    the rules to classify the object) and a value (i.e. the output of those rules
+    on the object.
+  display_name: taxonomy
+  cardinality: multi
+- id: isExchangeListed
+  description: Defines whether the Asset is listed on a public exchange.
+  display_name: isExchangeListed
+- id: exchange
+  description: If the Asset is listed, defines the public exchange of the listing.
+  display_name: exchange
+- id: relatedExchange
+  description: Provides the related Exchanges, if applicable.
+  display_name: relatedExchange
+  cardinality: multi
+- id: assetType
+  description: Specifies the type of asset.
+  display_name: assetType
+- id: name
+  description: A description of the Index.
+  display_name: IndexBase_name
+- id: provider
+  description: The organisation that creates or maintains the Index.
+  display_name: provider
+- id: assetClass
+  description: The Asset Class of the Index.
+  display_name: IndexBase_assetClass
+- id: indexSeries
+  description: A CDS index series identifier, e.g. 1, 2, 3 etc.
+  display_name: indexSeries
+- id: indexAnnexVersion
+  description: A CDS index series version identifier, e.g. 1, 2, 3 etc.
+  display_name: indexAnnexVersion
+- id: indexAnnexDate
+  description: A CDS index series annex date.
+  display_name: indexAnnexDate
+- id: indexAnnexSource
+  description: A CDS index series annex source.
+  display_name: indexAnnexSource
+- id: excludedReferenceEntity
+  description: Excluded reference entity.
+  display_name: excludedReferenceEntity
+  cardinality: multi
+- id: tranche
+  description: This element contains CDS tranche terms.
+  display_name: CreditIndex_tranche
+- id: settledEntityMatrix
+  description: Used to specify the Relevant Settled Entity Matrix when there are settled
+    entities at the time of the trade.
+  display_name: settledEntityMatrix
+- id: indexFactor
+  description: Index Factor is the index version factor or percent, expressed as an
+    absolute decimal value between 0 and 1, that multiplied by the original notional
+    amount yields the notional amount covered by the seller of protection.
+  display_name: indexFactor
+- id: seniority
+  description: Seniority of debt instruments comprising the index.
+  display_name: CreditIndex_seniority

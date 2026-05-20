@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: NotificationTimeElection
+schema_generating: true
+description: A class to specify the notification time election by the respective parties
+  to the agreement.
+display_name: NotificationTimeElection
+document_category: NotificationTimeElection
+weight: 20
+fields:
+- id: party
+  description: The elective party.
+  display_name: NotificationTimeElection_party
+- id: notificationTime
+  description: The Notification Time as a time that is qualified as a standard business
+    center.
+  display_name: NotificationTimeElection_notificationTime
+- id: customNotification
+  description: The Notification Time as a bespoke election.
+  display_name: customNotification
+- id: localBusinessDay
+  description: Whether the Notification Time is precluded on the day being a local
+    business day.
+  display_name: localBusinessDay

@@ -1,0 +1,48 @@
+# metamodel_version: 1.11.0id: Commodity
+schema_generating: true
+description: Identifies a specific commodity by referencing a product identifier or
+  by a product definition.
+display_name: Commodity
+document_category: Commodity
+weight: 20
+fields:
+- id: identifier
+  description: Asset Identifiers are used to uniquely identify an Asset, using a specified
+    Asset Identifier Type.
+  display_name: identifier
+  cardinality: multi
+- id: taxonomy
+  description: Defines the taxonomy of an object by combining a taxonomy source (i.e.
+    the rules to classify the object) and a value (i.e. the output of those rules
+    on the object.
+  display_name: taxonomy
+  cardinality: multi
+- id: isExchangeListed
+  description: Defines whether the Asset is listed on a public exchange.
+  display_name: isExchangeListed
+- id: exchange
+  description: If the Asset is listed, defines the public exchange of the listing.
+  display_name: exchange
+- id: relatedExchange
+  description: Provides the related Exchanges, if applicable.
+  display_name: relatedExchange
+  cardinality: multi
+- id: assetType
+  description: Specifies the type of asset.
+  display_name: assetType
+- id: commodityProductDefinition
+  description: Specifies the commodity underlier in the event that no ISDA Commodity
+    Reference Benchmark exists.
+  display_name: commodityProductDefinition
+- id: priceQuoteType
+  description: Describes the required quote type of the underlying price that will
+    be observed. Example values include 'Bid, 'Ask', 'Settlement' (for a futures contract)
+    and 'WeightedAverage' (for some published prices and indices).
+  display_name: priceQuoteType
+- id: deliveryDateReference
+  description: Specifies the parameters for identifying the relevant contract date
+    when the commodity reference price is a futures contract.
+  display_name: deliveryDateReference
+- id: description
+  description: Provides additional information about the commodity underlier.
+  display_name: description

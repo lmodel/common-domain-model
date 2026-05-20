@@ -1,0 +1,13 @@
+# metamodel_version: 1.11.0id: ObservationEvent
+schema_generating: true
+description: Specifies the necessary information to create any observation event.
+display_name: ObservationEvent
+document_category: ObservationEvent
+weight: 20
+fields:
+- id: creditEvent
+  description: Specifies the necessary information to create a credit event.
+  display_name: creditEvent
+- id: corporateAction
+  description: Specifies the necessary information to create a corporate action.
+  display_name: corporateAction

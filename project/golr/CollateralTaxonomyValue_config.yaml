@@ -1,0 +1,38 @@
+# metamodel_version: 1.11.0id: CollateralTaxonomyValue
+schema_generating: true
+description: Specifies the collateral taxonomy value, either as a specified enumeration
+  or as a string.
+display_name: CollateralTaxonomyValue
+document_category: CollateralTaxonomyValue
+weight: 20
+fields:
+- id: eu_EMIR_EligibleCollateral
+  description: 'Identifies European Union Eligible Collateral Assets classification
+    categories based on EMIR Uncleared Margin Rules. Eligible Collateral asset classes
+    for both initial margin (IM) and variation margin (VM) posted and collected between
+    specified entities. Please note: EMIR regulation will detail which eligible collateral
+    assets classes apply to each type of entity pairing (counterparty) and which apply
+    to posting of IM and VM'
+  display_name: eu_EMIR_EligibleCollateral
+  cardinality: multi
+- id: uk_EMIR_EligibleCollateral
+  description: 'Identifies United Kingdom Eligible Collateral Assets classification
+    categories based on UK Onshored EMIR Uncleared Margin Rules Eligible Collateral
+    asset classes for both initial margin (IM) and variation margin (VM) posted and
+    collected between specified entities. Please note: UK EMIR regulation will detail
+    which eligible collateral assets classes apply to each type of entity pairing
+    (counterparty) and which apply to posting of IM and VM.'
+  display_name: uk_EMIR_EligibleCollateral
+  cardinality: multi
+- id: us_CFTC_PR_EligibleCollateral
+  description: "Identifies US Eligible Collateral Assets classification categories\
+    \ based on Uncleared Margin Rules published by the CFTC and the US Prudential\
+    \ Regulator. Note: While the same basic categories exist in the CFTC and US Prudential\
+    \ Regulators\u2019 margin rules, the precise definitions or application of those\
+    \ rules could differ between the two rules."
+  display_name: us_CFTC_PR_EligibleCollateral
+  cardinality: multi
+- id: nonEnumeratedTaxonomyValue
+  description: Identifies the taxonomy value when not specified as an enumeration.
+  display_name: nonEnumeratedTaxonomyValue
+  cardinality: multi

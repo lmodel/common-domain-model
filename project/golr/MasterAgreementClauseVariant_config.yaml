@@ -1,0 +1,33 @@
+# metamodel_version: 1.11.0id: MasterAgreementClauseVariant
+schema_generating: true
+description: Sets the details for a specific variant associated to a clause in a Master
+  Agreement.
+display_name: MasterAgreementClauseVariant
+document_category: MasterAgreementClauseVariant
+weight: 20
+fields:
+- id: identifier
+  description: Unique identifier for this variant.
+  display_name: MasterAgreementClauseVariant_identifier
+  cardinality: multi
+- id: name
+  description: Optional textual description of the variant.
+  display_name: MasterAgreementClauseVariant_name
+- id: counterparty
+  description: Optional counterparty role. This can be used where a clause needs to
+    assign a different variant to the different parties on the agreement based upon
+    their role i.e. Party A or Party B.
+  display_name: MasterAgreementClauseVariant_counterparty
+  cardinality: multi
+- id: otherParty
+  description: Optional party. This can be used where a clause needs to assign different
+    variants to different parties who may or may not be on the agreement.
+  display_name: MasterAgreementClauseVariant_otherParty
+  cardinality: multi
+- id: variableSet
+  description: For some variants of some clauses additional details are required to
+    work out what has been elected. This array can be used to define the name and
+    value of these variables. Please refer to the agreement documentation for more
+    details of the variables that are available for any clause.
+  display_name: MasterAgreementClauseVariant_variableSet
+  cardinality: multi

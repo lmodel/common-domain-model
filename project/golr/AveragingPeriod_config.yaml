@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: AveragingPeriod
+schema_generating: true
+description: Period over which an average value is taken.
+display_name: AveragingPeriod
+document_category: AveragingPeriod
+weight: 20
+fields:
+- id: schedule
+  description: A schedule for generating averaging observation dates.
+  display_name: AveragingPeriod_schedule
+  cardinality: multi
+- id: averagingDateTimes
+  description: An unweighted list of averaging observation date and times.
+  display_name: averagingDateTimes
+- id: averagingObservations
+  description: A weighted list of averaging observation date and times.
+  display_name: averagingObservations
+- id: marketDisruption
+  description: The market disruption event as defined by ISDA 2002 Definitions.
+  display_name: marketDisruption

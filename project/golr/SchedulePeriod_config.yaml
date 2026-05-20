@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: SchedulePeriod
+schema_generating: true
+description: A class that defines the period of a schedule. The period contains a
+  set of start and end dates, quantities, fixing, and pricing data.
+display_name: SchedulePeriod
+document_category: SchedulePeriod
+weight: 20
+fields:
+- id: calculationPeriod
+  description: Period for which the payment is generated.
+  display_name: SchedulePeriod_calculationPeriod
+- id: paymentDate
+  description: Adjusted payment date.
+  display_name: SchedulePeriod_paymentDate
+- id: fixingPeriod
+  description: Period over which the underlying price is observed.
+  display_name: fixingPeriod
+- id: deliveryPeriod
+  description: Period and time profile over which the delivery takes place.
+  display_name: deliveryPeriod

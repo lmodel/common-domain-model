@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: TermsChangeInstruction
+schema_generating: true
+description: Specifies instructions for terms change consisting of the new transaction
+  terms, and the renegotiation fee.
+display_name: TermsChangeInstruction
+document_category: TermsChangeInstruction
+weight: 20
+fields:
+- id: product
+  description: product to be changed
+  display_name: TermsChangeInstruction_product
+- id: ancillaryParty
+  description: ancillary party to be changed
+  display_name: TermsChangeInstruction_ancillaryParty
+  cardinality: multi
+- id: adjustment
+  display_name: adjustment

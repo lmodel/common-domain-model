@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: AveragingSchedule
+schema_generating: true
+description: Class to representing a method for generating a series of dates.
+display_name: AveragingSchedule
+document_category: AveragingSchedule
+weight: 20
+fields:
+- id: startDate
+  description: Date on which this period begins.
+  display_name: AveragingSchedule_startDate
+- id: endDate
+  description: Date on which this period ends.
+  display_name: AveragingSchedule_endDate
+- id: averagingPeriodFrequency
+  description: The frequency at which averaging period occurs with the regular part
+    of the valuation schedule and their roll date convention.
+  display_name: averagingPeriodFrequency

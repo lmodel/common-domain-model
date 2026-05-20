@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: SubstitutionProvisions
+schema_generating: true
+description: Defines collateral substitution provisions such as how many and with
+  how much notice are substitutions allowed.
+display_name: SubstitutionProvisions
+document_category: SubstitutionProvisions
+weight: 20
+fields:
+- id: numberOfSubstitutionsAllowed
+  description: Specifies if 1 or more substitutions are allowed.
+  display_name: numberOfSubstitutionsAllowed
+- id: noticeDeadlinePeriod
+  description: Defines the min period for notify of a substitution.
+  display_name: noticeDeadlinePeriod
+- id: noticeDeadlineDateTime
+  description: A specific date and time for the notice deadline
+  display_name: noticeDeadlineDateTime

@@ -1,0 +1,26 @@
+# metamodel_version: 1.11.0id: CheckEligibilityResult
+schema_generating: true
+description: Result for the CheckEligibilityByDetails and CheckEligibilityForProduct
+  functions
+display_name: CheckEligibilityResult
+document_category: CheckEligibilityResult
+weight: 20
+fields:
+- id: isEligible
+  description: a simple boolean which is set to true if the asset described in the
+    EligibilityQuery input is eligible
+  display_name: isEligible
+- id: matchingEligibleCriteria
+  description: if there was a match, this will be the one or more criteria that were
+    supplied in the EligbilityCollateralSpecification which matched with the query
+    input
+  display_name: matchingEligibleCriteria
+  cardinality: multi
+- id: eligibilityQuery
+  description: a copy of the input query that was checked against the eligible collateral
+    specification
+  display_name: eligibilityQuery
+- id: specification
+  description: a copy of the input EligbilityCollateralSpecification that was checked
+    against the query
+  display_name: specification

@@ -1,0 +1,21 @@
+# metamodel_version: 1.11.0id: NotificationTime
+schema_generating: true
+description: Specifies the time by which a demand for the Transfer of Eligible Credit
+  Support or Posted Credit Support needs to be made in order for the transfer to take
+  place in accordance with the Transfer Timing provisions.
+display_name: NotificationTime
+document_category: NotificationTime
+weight: 20
+fields:
+- id: partyElections
+  description: The parties' Notification Time election.
+  display_name: NotificationTime_partyElections
+  cardinality: multi
+- id: disputeNotificationReference
+  description: The determination of whether reference is made to dispute resolution
+    notification timing in the agreement.
+  display_name: disputeNotificationReference
+- id: transferTimingProviso
+  description: The determination of whether transfer timing language is applicable
+    or not.
+  display_name: transferTimingProviso

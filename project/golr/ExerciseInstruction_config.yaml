@@ -1,0 +1,31 @@
+# metamodel_version: 1.11.0id: ExerciseInstruction
+schema_generating: true
+description: Specifies the information required to communicate the choices made by
+  the exercising party, in a financial product endowing the party with at least one
+  option.
+display_name: ExerciseInstruction
+document_category: ExerciseInstruction
+weight: 20
+fields:
+- id: exerciseQuantity
+  description: Contains instructions for exercising the option including a quantity
+    change, and optionally a transfer.
+  display_name: exerciseQuantity
+- id: exerciseOption
+  description: Specifies the Option Payout being exercised on the trade.
+  display_name: exerciseOption
+- id: exerciseDate
+  description: Specifies the date on which an option contained within the financial
+    product would be exercised. The date may be omitted if the contractual product
+    allows for only a single date of exercise (European exercise).
+  display_name: exerciseDate
+- id: exerciseTime
+  description: 'Specifies the time at which an option contained within the financial
+    product woulld be exercised. The time may be omitted if the contractual product
+    allows for only a single time of exercise (European exercise). '
+  display_name: exerciseTime
+- id: replacementTradeIdentifier
+  description: Specifies the trade identifier to apply to the replacement trade for
+    physical exercise.
+  display_name: replacementTradeIdentifier
+  cardinality: multi

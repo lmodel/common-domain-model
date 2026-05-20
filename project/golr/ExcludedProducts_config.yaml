@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: ExcludedProducts
+schema_generating: true
+description: Description of the relevant derivative transactions excluded from the
+  calculation of exposure.
+display_name: ExcludedProducts
+document_category: ExcludedProducts
+weight: 20
+fields:
+- id: product
+  description: Description of the relevant derivative transactions excluded from the
+    calculation of exposure.
+  display_name: ExcludedProducts_product
+  cardinality: multi
+- id: branch
+  description: Description of the specific branch entered into by the relevant party.
+  display_name: branch
+  cardinality: multi
+- id: excluded
+  description: A flag to indicate whether transactions entered into by a specific
+    branch with respect to the relevant party are excluded; set to True if excluded,
+    false if included.
+  display_name: ExcludedProducts_excluded

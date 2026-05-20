@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: BoundedVariance
+schema_generating: true
+display_name: BoundedVariance
+document_category: BoundedVariance
+weight: 20
+fields:
+- id: realisedVarianceMethod
+  description: The contract specifies which price must satisfy the boundary condition.
+  display_name: realisedVarianceMethod
+- id: daysInRangeAdjustment
+  description: The contract specifies whether the notional should be scaled by the
+    Number of Days in Range divided by the Expected N. The number of Days in Ranges
+    refers to the number of returns that contribute to the realized volatility.
+  display_name: daysInRangeAdjustment
+- id: upperBarrier
+  description: All observations above this price level will be excluded from the variance
+    calculation.
+  display_name: upperBarrier
+- id: lowerBarrier
+  description: All observations below this price level will be excluded from the variance
+    calculation.
+  display_name: lowerBarrier

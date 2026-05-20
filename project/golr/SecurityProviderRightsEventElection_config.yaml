@@ -1,0 +1,13 @@
+# metamodel_version: 1.11.0id: SecurityProviderRightsEventElection
+schema_generating: true
+description: A class to specify party specific Secured Party Rights Event language.
+display_name: SecurityProviderRightsEventElection
+document_category: SecurityProviderRightsEventElection
+weight: 20
+fields:
+- id: party
+  description: The elective party.
+  display_name: SecurityProviderRightsEventElection_party
+- id: rightsEvent
+  description: If True, the Rights Event language applies for the specified Party.
+  display_name: SecurityProviderRightsEventElection_rightsEvent

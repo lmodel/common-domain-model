@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: AssetIdentifier
+schema_generating: true
+description: The unique identifier for an Asset, specified using an Asset Identifier
+  Type enumerator.
+display_name: AssetIdentifier
+document_category: AssetIdentifier
+weight: 20
+fields:
+- id: identifier
+  description: The identifier value.
+  display_name: AssetIdentifier_identifier
+  cardinality: multi
+- id: identifierType
+  description: Defines the symbology source of the Asset Identifier, eg CUSIP, ISIN,
+    etc.
+  display_name: identifierType

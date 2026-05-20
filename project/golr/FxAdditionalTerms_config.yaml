@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: FxAdditionalTerms
+schema_generating: true
+description: TransactionAdditionalTerms which apply to the CurrencyPair asset class.
+display_name: FxAdditionalTerms
+document_category: FxAdditionalTerms
+weight: 20
+fields:
+- id: disruptionEvents
+  display_name: disruptionEvents
+- id: determinationTerms
+  display_name: FxAdditionalTerms_determinationTerms
+  cardinality: multi
+- id: noFaultTermination
+  display_name: noFaultTermination

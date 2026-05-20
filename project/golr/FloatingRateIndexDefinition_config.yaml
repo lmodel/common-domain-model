@@ -1,0 +1,41 @@
+# metamodel_version: 1.11.0id: FloatingRateIndexDefinition
+schema_generating: true
+display_name: FloatingRateIndexDefinition
+document_category: FloatingRateIndexDefinition
+weight: 20
+fields:
+- id: fro
+  description: The underlying FRO name and designated maturity.
+  display_name: fro
+- id: calculationDefaults
+  description: Any calculation default values.
+  display_name: calculationDefaults
+- id: supportedDefinition
+  description: The definition version or versions supported by the FRO.
+  display_name: supportedDefinition
+  cardinality: multi
+- id: definitionalSource
+  description: The source of an FRO, particularly if not a Contractual Definition
+    (e.g. the broker rates matrix).
+  display_name: definitionalSource
+- id: designatedMaturityApplicable
+  display_name: designatedMaturityApplicable
+- id: mappings
+  description: Any mappings to other FRos.
+  display_name: mappings
+- id: externalMappings
+  description: Any mappings to other codes for this index.
+  display_name: externalMappings
+- id: inLoan
+  description: YES / NO to flag FROs identified by the FpML Syndicated Loan WG as
+    having underlying benchmark that may also be referenced in syndicated loans.
+  display_name: inLoan
+- id: history
+  description: FRO History
+  display_name: history
+- id: deprecationReason
+  description: Deprecation and Code Descriptions
+  display_name: deprecationReason
+- id: fpmlDescription
+  description: FpML Description
+  display_name: fpmlDescription

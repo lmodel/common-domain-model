@@ -1,0 +1,52 @@
+# metamodel_version: 1.11.0id: ForeignExchangeRateIndex
+schema_generating: true
+description: Specification of a rate based on the exchange of a pair of cash assets
+  in specific currencies, e.g. USD versus GBP.
+display_name: ForeignExchangeRateIndex
+document_category: ForeignExchangeRateIndex
+weight: 20
+fields:
+- id: identifier
+  description: Asset Identifiers are used to uniquely identify an Asset, using a specified
+    Asset Identifier Type.
+  display_name: identifier
+  cardinality: multi
+- id: taxonomy
+  description: Defines the taxonomy of an object by combining a taxonomy source (i.e.
+    the rules to classify the object) and a value (i.e. the output of those rules
+    on the object.
+  display_name: taxonomy
+  cardinality: multi
+- id: isExchangeListed
+  description: Defines whether the Asset is listed on a public exchange.
+  display_name: isExchangeListed
+- id: exchange
+  description: If the Asset is listed, defines the public exchange of the listing.
+  display_name: exchange
+- id: relatedExchange
+  description: Provides the related Exchanges, if applicable.
+  display_name: relatedExchange
+  cardinality: multi
+- id: assetType
+  description: Specifies the type of asset.
+  display_name: assetType
+- id: name
+  description: A description of the Index.
+  display_name: IndexBase_name
+- id: provider
+  description: The organisation that creates or maintains the Index.
+  display_name: provider
+- id: assetClass
+  description: The Asset Class of the Index.
+  display_name: IndexBase_assetClass
+- id: quotedCurrencyPair
+  description: Describes the composition of a rate that has been quoted or is to be
+    quoted.
+  display_name: quotedCurrencyPair
+- id: primaryFxSpotRateSource
+  description: Specifies the primary source from which a rate should be observed.
+  display_name: primaryFxSpotRateSource
+- id: secondaryFxSpotRateSource
+  description: Specifies an alternative, or secondary, source from which a rate should
+    be observed.
+  display_name: secondaryFxSpotRateSource

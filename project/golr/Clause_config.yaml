@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: Clause
+schema_generating: true
+description: A type for documenting additional clause that cannot yet be represented
+  with the model and yet needed for a digital representation of the agreement.
+display_name: Clause
+document_category: Clause
+weight: 20
+fields:
+- id: identifier
+  description: The  name or identifier associated to this clause.
+  display_name: Clause_identifier
+  cardinality: multi
+- id: terms
+  description: Content of this bespoke clause.
+  display_name: terms
+- id: subcomponents
+  description: Additional hierarchical components of the clause if relevant.
+  display_name: subcomponents
+  cardinality: multi

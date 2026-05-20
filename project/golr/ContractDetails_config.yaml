@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: ContractDetails
+schema_generating: true
+description: Defines specific attributes that relate to contractual details of trades.
+display_name: ContractDetails
+document_category: ContractDetails
+weight: 20
+fields:
+- id: documentation
+  description: Represents the legal document(s) that governs a trade and associated
+    contractual product terms, either as a reference to such documents when specified
+    as part of the CDM, or through identification of some of the key terms of those
+    documents, such as the type of document, the document identifier, the publisher,
+    the document vintage and the agreement date.
+  display_name: documentation
+  cardinality: multi
+- id: governingLaw
+  description: Represents the law governing the trade and associated contractual product
+    terms.
+  display_name: governingLaw

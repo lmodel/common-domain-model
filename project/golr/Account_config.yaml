@@ -1,0 +1,27 @@
+# metamodel_version: 1.11.0id: Account
+schema_generating: true
+description: A class to specify an account as an account number alongside, optionally.
+  an account name, an account type, an account beneficiary and a servicing party.
+display_name: Account
+document_category: Account
+weight: 20
+fields:
+- id: partyReference
+  description: A reference to the party to which the account refers to.
+  display_name: Account_partyReference
+- id: accountNumber
+  description: The account number.
+  display_name: accountNumber
+- id: accountName
+  description: The name by which the account is known.
+  display_name: accountName
+- id: accountType
+  description: The type of account, e.g. client, house.
+  display_name: accountType
+- id: accountBeneficiary
+  description: A reference to the party beneficiary of the account.
+  display_name: accountBeneficiary
+- id: servicingParty
+  description: The reference to the legal entity that services the account, i.e. in
+    the books of which the account is held.
+  display_name: servicingParty

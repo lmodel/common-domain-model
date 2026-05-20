@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: CalculatedRateObservationDatesAndWeights
+schema_generating: true
+description: Type for reporting the observations dates and the corresponding weights
+  going into a daily calculated rate
+display_name: CalculatedRateObservationDatesAndWeights
+document_category: CalculatedRateObservationDatesAndWeights
+weight: 20
+fields:
+- id: observationDates
+  description: The observation date upon which the rate is observed.
+  display_name: observationDates
+  cardinality: multi
+- id: weights
+  description: The corresponding weight for each date.
+  display_name: weights
+  cardinality: multi

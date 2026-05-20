@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: RetrospectiveEffect
+schema_generating: true
+description: A class to specify the retrospective effect exception to the regulatory
+  regime clause of Initial Margin documents as either a normalized value specified
+  as part of an enumeration or a customized value specified of type string.
+display_name: RetrospectiveEffect
+document_category: RetrospectiveEffect
+weight: 20
+fields:
+- id: standardisedException
+  description: The Standard Initial Margin Model exception when specified by the party
+    according to one of the enumerated values.
+  display_name: standardisedException
+- id: asSpecified
+  description: The Standard Initial Margin Model exception when specified as a customized
+    approach by the party.
+  display_name: RetrospectiveEffect_asSpecified

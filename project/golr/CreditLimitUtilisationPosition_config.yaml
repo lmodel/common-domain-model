@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: CreditLimitUtilisationPosition
+schema_generating: true
+display_name: CreditLimitUtilisationPosition
+document_category: CreditLimitUtilisationPosition
+weight: 20
+fields:
+- id: shortPosition
+  description: Credit limit utilisation attributable to short positions.
+  display_name: shortPosition
+- id: longPosition
+  description: Credit limit utilisation attributable to long positions.
+  display_name: longPosition
+- id: global_
+  description: Global credit limit utilisation amount, agnostic of long/short position
+    direction.
+  display_name: global_

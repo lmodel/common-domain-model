@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: WorkflowStepApproval
+schema_generating: true
+description: 'Party approvals associated to the current WorkflowStep. '
+display_name: WorkflowStepApproval
+document_category: WorkflowStepApproval
+weight: 20
+fields:
+- id: approved
+  description: Flag denoting whether the workflow step is approved or not
+  display_name: approved
+- id: party
+  description: Reference to the Party who is approving/rejecting this workflow step
+  display_name: WorkflowStepApproval_party
+- id: rejectedReason
+  description: Optional reason for rejecting the workflow step
+  display_name: rejectedReason
+- id: timestamp
+  description: Timestamp of the approval
+  display_name: WorkflowStepApproval_timestamp

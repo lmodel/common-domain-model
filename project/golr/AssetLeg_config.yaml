@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: AssetLeg
+schema_generating: true
+description: Defines each asset movement of an asset payout.
+display_name: AssetLeg
+document_category: AssetLeg
+weight: 20
+fields:
+- id: settlementDate
+  description: Specifies the settlement date of securities.  In a repo transaction
+    the purchase date would always be the effective date as specified under Economic
+    Terms, the repurchase date would always be the termination date as specified under
+    Economic Terms.
+  display_name: AssetLeg_settlementDate
+- id: deliveryMethod
+  description: Specifies a delivery method for the security transaction.
+  display_name: deliveryMethod

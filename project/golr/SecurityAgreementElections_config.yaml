@@ -1,0 +1,38 @@
+# metamodel_version: 1.11.0id: SecurityAgreementElections
+schema_generating: true
+description: The set of elections which specify a Security Agremeent.
+display_name: SecurityAgreementElections
+document_category: SecurityAgreementElections
+weight: 20
+fields:
+- id: pledgedAccount
+  description: The pledged account associated with the agreement.
+  display_name: pledgedAccount
+- id: enforcementEvent
+  description: Enforcement Events specific to the agreement.
+  display_name: enforcementEvent
+- id: deliveryInLieuRight
+  description: Delivery In Lieu rights.
+  display_name: deliveryInLieuRight
+- id: fullDischarge
+  description: Full Discharge condition.
+  display_name: fullDischarge
+- id: appropriatedCollateralValuation
+  description: The election for the Valuation of Appropriate Collateral.
+  display_name: appropriatedCollateralValuation
+- id: processAgent
+  description: The Process Agent that might be appointed by the parties to the agreement.
+  display_name: SecurityAgreementElections_processAgent
+- id: jurisdictionRelatedTerms
+  description: The jurisdiction specific terms.
+  display_name: SecurityAgreementElections_jurisdictionRelatedTerms
+- id: additionalAmendments
+  description: Any additional amendments that might be specified by the parties to
+    the agreement.
+  display_name: additionalAmendments
+- id: additionalBespokeTerms
+  description: Any additional terms that might be specified applicable.
+  display_name: additionalBespokeTerms
+- id: executionTerms
+  description: The location and language of execution to determine duty to be paid.
+  display_name: executionTerms

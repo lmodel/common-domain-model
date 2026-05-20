@@ -1,0 +1,31 @@
+# metamodel_version: 1.11.0id: CollateralInterestParameters
+schema_generating: true
+description: Represents the floating interest calculation and distribution parameters
+  for a single currency.
+display_name: CollateralInterestParameters
+document_category: CollateralInterestParameters
+weight: 20
+fields:
+- id: postingParty
+  description: Represents the party to which these parameters apply (the applicable
+    party).  In other words, if the parameters are different depending on which party
+    is posting/holding the collateral, for which party to the Collateral Agreement
+    (Party 1 or Party 2) that is posting the collateral do these parameters apply?
+  display_name: CollateralInterestParameters_postingParty
+- id: marginType
+  description: Specifies the type of margin for which interest is being calculated,
+    if the parameters are different depending on type of margin (initial or variation).
+  display_name: marginType
+- id: currency
+  description: Specifies the currency for which the parameters are captured.
+  display_name: CollateralInterestParameters_currency
+- id: interestCalculationParameters
+  description: Represents the basic interest calculation parameters.
+  display_name: interestCalculationParameters
+- id: interestCalculationFrequency
+  description: Represents how often and when interest is calculated.
+  display_name: interestCalculationFrequency
+- id: interestHandlingParameters
+  description: Represents the parameters describing how and when interest transfer
+    occurs.
+  display_name: interestHandlingParameters

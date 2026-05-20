@@ -87453,7 +87453,7 @@ classes:
     class_uri: common_domain_model:Id
 metamodel_version: 1.11.0
 source_file: common_domain_model.yaml
-source_file_date: '2026-05-18T18:27:42'
+source_file_date: '2026-05-20T15:58:36'
 source_file_size: 2034
-generation_date: '2026-05-18T18:29:47'
+generation_date: '2026-05-20T16:01:00'
 

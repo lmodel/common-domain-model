@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: PayerReceiver
+schema_generating: true
+description: Specifies the parties responsible for making and receiving payments defined
+  by this structure.
+display_name: PayerReceiver
+document_category: PayerReceiver
+weight: 20
+fields:
+- id: payer
+  description: Specifies the counterparty responsible for making the payments defined
+    by this structure.  The party is one of the two principal parties to the transaction.
+  display_name: payer
+- id: receiver
+  description: Specifies the party that receives the payments corresponding to this
+    structure.  The party is one of the two counterparties to the transaction.
+  display_name: receiver

@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: Othr
+schema_generating: true
+display_name: Othr
+document_category: Othr
+weight: 20
+fields:
+- id: finInstrmGnlAttrbts
+  display_name: finInstrmGnlAttrbts
+- id: derivInstrmAttrbts
+  display_name: derivInstrmAttrbts
+- id: id
+  display_name: Othr_id
+- id: schmeNm
+  display_name: schmeNm

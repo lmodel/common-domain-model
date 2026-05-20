@@ -1,0 +1,40 @@
+# metamodel_version: 1.11.0id: AdditionalDisruptionEvents
+schema_generating: true
+description: A type for defining the Additional Disruption Events.
+display_name: AdditionalDisruptionEvents
+document_category: AdditionalDisruptionEvents
+weight: 20
+fields:
+- id: changeInLaw
+  display_name: changeInLaw
+- id: failureToDeliver
+  description: If true, failure to deliver is applicable.
+  display_name: failureToDeliver
+- id: insolvencyFiling
+  display_name: insolvencyFiling
+- id: hedgingDisruption
+  display_name: hedgingDisruption
+- id: increasedCostOfHedging
+  display_name: increasedCostOfHedging
+- id: foreignOwnershipEvent
+  display_name: foreignOwnershipEvent
+- id: lossOfStockBorrow
+  display_name: lossOfStockBorrow
+- id: maximumStockLoanRate
+  description: Specifies the maximum stock loan rate for Loss of Stock Borrow. A percentage
+    of 5% is represented as 0.05.
+  display_name: maximumStockLoanRate
+- id: increasedCostOfStockBorrow
+  display_name: increasedCostOfStockBorrow
+- id: initialStockLoanRate
+  description: Specifies the initial stock loan per ISDA Def. A percentage of 5% is
+    represented as 0.05.
+  display_name: initialStockLoanRate
+- id: determiningParty
+  description: Specifies the party which determines additional disruption events.
+  display_name: determiningParty
+- id: additionalBespokeTerms
+  description: Where parties may optionnaly describe any extra bespoke agreements,
+    in regards of the standardized Extraordinary Events.
+  display_name: AdditionalDisruptionEvents_additionalBespokeTerms
+  cardinality: multi

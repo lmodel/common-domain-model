@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: ResolutionValue
+schema_generating: true
+description: Methodology for resolving disputes in respect of the determination of
+  the value of collateral.
+display_name: ResolutionValue
+document_category: ResolutionValue
+weight: 20
+fields:
+- id: cash
+  description: Details of how cash collateral is valued when resolving disputes.
+  display_name: cash
+- id: securities
+  description: Details of how securities collateral is valued when resolving disputes.
+  display_name: securities
+- id: fallback
+  description: Represents whether a fallback calculation method is applicable. 'True'
+    if fallback calculation method is applicable.
+  display_name: fallback
+- id: additionalLanguage
+  description: The additional language that might be specified by the parties to the
+    legal agreement.
+  display_name: ResolutionValue_additionalLanguage

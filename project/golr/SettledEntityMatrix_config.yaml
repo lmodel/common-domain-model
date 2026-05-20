@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: SettledEntityMatrix
+schema_generating: true
+description: A class to specify the Relevant Settled Entity Matrix.
+display_name: SettledEntityMatrix
+document_category: SettledEntityMatrix
+weight: 20
+fields:
+- id: matrixSource
+  description: Relevant settled entity matrix source.
+  display_name: matrixSource
+- id: publicationDate
+  description: Specifies the publication date of the applicable version of the matrix.
+    When this element is omitted, the Standard Terms Supplement defines rules for
+    which version of the matrix is applicable.
+  display_name: SettledEntityMatrix_publicationDate

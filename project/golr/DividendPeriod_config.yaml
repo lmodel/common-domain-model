@@ -1,0 +1,30 @@
+# metamodel_version: 1.11.0id: DividendPeriod
+schema_generating: true
+description: Time bounded dividend payment periods, each with a dividend payment date
+  per period.
+display_name: DividendPeriod
+document_category: DividendPeriod
+weight: 20
+fields:
+- id: startDate
+  description: Dividend period start date.
+  display_name: DividendPeriod_startDate
+- id: endDate
+  description: Dividend period end date.
+  display_name: DividendPeriod_endDate
+- id: dateAdjustments
+  description: Date adjustments for all unadjusted dates in this dividend period.
+  display_name: DividendPeriod_dateAdjustments
+- id: basketConstituent
+  description: For basket underliers, reference to the basket component which is paying
+    dividends in the specified period.
+  display_name: DividendPeriod_basketConstituent
+  cardinality: multi
+- id: dividendPaymentDate
+  description: Specifies when the dividend will be paid to the receiver of the equity
+    return. Has the meaning as defined in the ISDA 2002 Equity Derivatives Definitions.
+    Is not applicable in the case of a dividend reinvestment election.
+  display_name: dividendPaymentDate
+- id: dividendValuationDate
+  description: Specifies the dividend valuation dates of the swap.
+  display_name: dividendValuationDate

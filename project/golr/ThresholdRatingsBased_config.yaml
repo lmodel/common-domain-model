@@ -1,0 +1,50 @@
+# metamodel_version: 1.11.0id: ThresholdRatingsBased
+schema_generating: true
+description: Defines that the Threshold is based on Ratings condition(s).
+display_name: ThresholdRatingsBased
+document_category: ThresholdRatingsBased
+weight: 20
+fields:
+- id: zeroEvent
+  description: Indicates whether a trigger applies for the Threshold or Minimum Transfer
+    Amount to fall to zero. If 'True' then such a trigger exists.
+  display_name: zeroEvent
+- id: event
+  description: Specifies the relevant trigger for the Threshold or Minimum Transfer
+    Amount to fall to zero.
+  display_name: event
+  cardinality: multi
+- id: currency
+  description: The threshold currency code.
+  display_name: ThresholdRatingsBased_currency
+- id: ratingType
+  description: The relevant rating type.
+  display_name: ratingType
+- id: variableSet
+  description: Defines a combination of Rating Agency, Rating Value, Threshold amount
+    and Currency code.
+  display_name: variableSet
+  cardinality: multi
+- id: ratedParty
+  description: The party to which a rating applies.
+  display_name: ratedParty
+- id: namedEntity
+  description: Details the Named Entity where the Rated Party is Named Entity.
+  display_name: namedEntity
+- id: namedAffiliate
+  description: Details the Named Affiliate where the Rated Party is Named Affiliate.
+  display_name: namedAffiliate
+- id: compare
+  description: Where two ratings are specified whether the higher or lower rating
+    prevails.
+  display_name: compare
+- id: noRating
+  description: What conditions apply where a party has no rating.
+  display_name: noRating
+- id: notRatedBy
+  description: Defines where conditions apply if no Rating where ratings may not exist.
+  display_name: notRatedBy
+- id: numberOfRatingAgencies
+  description: Defines the number of Rating Agencies that the Party must be rated
+    by.
+  display_name: numberOfRatingAgencies

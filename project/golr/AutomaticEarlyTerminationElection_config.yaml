@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: AutomaticEarlyTerminationElection
+schema_generating: true
+description: A class to specify the party elections specific to the Automatic Early
+  Termination Clause.
+display_name: AutomaticEarlyTerminationElection
+document_category: AutomaticEarlyTerminationElection
+weight: 20
+fields:
+- id: party
+  description: The party for which the Automatic Early Termination provisions are
+    being specified.
+  display_name: AutomaticEarlyTerminationElection_party
+- id: isApplicable
+  description: A boolean election to specify whether the Automatic Early Termination
+    provisions of Section 6(a) are applicable (True) or not applicable (False).
+  display_name: AutomaticEarlyTerminationElection_isApplicable

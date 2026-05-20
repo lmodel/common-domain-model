@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: AdditionalTerminationEvent
+schema_generating: true
+description: A class to specify an optional termination event, additional to the Termination
+  Events that will be deemed an Access Condition (Initial Margin CSA) or a Specified
+  Condition (Variation Margin CSA).
+display_name: AdditionalTerminationEvent
+document_category: AdditionalTerminationEvent
+weight: 20
+fields:
+- id: name
+  description: The name of the additional termination event.
+  display_name: AdditionalTerminationEvent_name
+- id: applicableParty
+  description: Whether the additional termination event is applicable for the relevant
+    party.
+  display_name: applicableParty
+  cardinality: multi

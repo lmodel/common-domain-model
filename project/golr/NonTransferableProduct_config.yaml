@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: NonTransferableProduct
+schema_generating: true
+description: A data type to specify the financial product's economic terms, alongside
+  the product identification and product taxonomy. The non-transferable product data
+  type represents a product that can be traded (as part of a TradableProduct) but
+  cannot be transferred to others.  It is meant to be used across the pre-execution,
+  execution and (as part of the Contract) post-execution lifecycle contexts.
+display_name: NonTransferableProduct
+document_category: NonTransferableProduct
+weight: 20
+fields:
+- id: identifier
+  description: 'Comprises a identifier and a source to uniquely identify the nonTransferableProduct. '
+  display_name: NonTransferableProduct_identifier
+  cardinality: multi
+- id: taxonomy
+  description: Specifies the product taxonomy, which is composed of a taxonomy value
+    and a taxonomy source.
+  display_name: NonTransferableProduct_taxonomy
+  cardinality: multi
+- id: economicTerms
+  description: The price forming features, including payouts and provisions.
+  display_name: economicTerms

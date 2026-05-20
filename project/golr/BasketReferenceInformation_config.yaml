@@ -1,0 +1,29 @@
+# metamodel_version: 1.11.0id: BasketReferenceInformation
+schema_generating: true
+description: CDS Basket Reference Information.
+display_name: BasketReferenceInformation
+document_category: BasketReferenceInformation
+weight: 20
+fields:
+- id: basketName
+  description: The name of the basket expressed as a free format string. FpML does
+    not define usage rules for this element.
+  display_name: basketName
+- id: basketId
+  description: A CDS basket identifier.
+  display_name: basketId
+  cardinality: multi
+- id: referencePool
+  description: This element contains all the reference pool items to define the reference
+    entity and reference obligation(s) in the basket.
+  display_name: referencePool
+- id: nthToDefault
+  description: N th reference obligation to default triggers payout.
+  display_name: nthToDefault
+- id: mthToDefault
+  description: M th reference obligation to default to allow representation of N th
+    to M th defaults.
+  display_name: mthToDefault
+- id: tranche
+  description: This element contains CDS tranche terms.
+  display_name: BasketReferenceInformation_tranche

@@ -1,0 +1,29 @@
+# metamodel_version: 1.11.0id: EligibleCollateralCriteria
+schema_generating: true
+description: Represents a set of criteria used to specify eligible collateral.
+display_name: EligibleCollateralCriteria
+document_category: EligibleCollateralCriteria
+weight: 20
+fields:
+- id: collateralCriteria
+  description: The specific criteria that applies. It can be created using AND, OR
+    and NOT logic, and both asset and issuer characteristics.
+  display_name: collateralCriteria
+- id: appliesTo
+  description: Specifies which of the two counterparties the criteria applies to (either
+    one or both counterparties). This attribute is optional, in case the applicable
+    party is already specified elsewhere within a party election.
+  display_name: appliesTo
+  cardinality: multi
+- id: restrictTo
+  description: Restrict the criteria to only apply to a specific type of margin, ie
+    IM or VM.
+  display_name: restrictTo
+- id: ratingPriorityResolution
+  description: Denotes which Criteria has priority if more than one agency rating
+    applies.
+  display_name: ratingPriorityResolution
+- id: treatment
+  description: Identifies the treatment of specified collateral, e.g., haircuts,holding
+    limits or exclusions.
+  display_name: EligibleCollateralCriteria_treatment

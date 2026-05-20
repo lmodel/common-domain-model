@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: SubstitutedRegimeTerms
+schema_generating: true
+description: Specifies the applicability of the Substituted Regime as denoted in the
+  Substituted Regime Table as part of certain legal agreements, such as such as the
+  ISDA 2016 and 2018 CSA for Initial Margin.
+display_name: SubstitutedRegimeTerms
+document_category: SubstitutedRegimeTerms
+weight: 20
+fields:
+- id: party
+  description: The party for which the regime terms are being specified when acting
+    as collateral taker.
+  display_name: SubstitutedRegimeTerms_party
+- id: isApplicable
+  description: The specification of whether the regime is elected as applicable to
+    the party when acting as collateral taker.
+  display_name: SubstitutedRegimeTerms_isApplicable

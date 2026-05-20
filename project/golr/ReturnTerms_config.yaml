@@ -1,0 +1,24 @@
+# metamodel_version: 1.11.0id: ReturnTerms
+schema_generating: true
+description: Specifies the type of return of a performance payout.
+display_name: ReturnTerms
+document_category: ReturnTerms
+weight: 20
+fields:
+- id: priceReturnTerms
+  description: Return terms based upon the underlier's observed price.
+  display_name: priceReturnTerms
+- id: dividendReturnTerms
+  description: Return terms based upon dividend payments associated to the underlier.
+  display_name: dividendReturnTerms
+- id: varianceReturnTerms
+  description: Return terms based upon the observed variance of the underlier's price.
+  display_name: varianceReturnTerms
+- id: volatilityReturnTerms
+  description: Return terms based upon the observed volatility of the underlier's
+    price.
+  display_name: volatilityReturnTerms
+- id: correlationReturnTerms
+  description: Return terms based upon the observed correlation between the components
+    of the underlying basket.
+  display_name: correlationReturnTerms

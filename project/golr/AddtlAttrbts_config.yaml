@@ -1,0 +1,10 @@
+# metamodel_version: 1.11.0id: AddtlAttrbts
+schema_generating: true
+display_name: AddtlAttrbts
+document_category: AddtlAttrbts
+weight: 20
+fields:
+- id: rskRdcgTx
+  display_name: rskRdcgTx
+- id: sctiesFincgTxInd
+  display_name: sctiesFincgTxInd

@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: SpecifiedConditionOrAccessCondition
+schema_generating: true
+description: Specifies the events elected by the parties that are deemed an Access
+  Condition (for Initial Margin CSA) or a Specified Condition (for Variation Margin
+  and Legacy CSA), which, if triggered, may temporarily or permanently suspend rights
+  to rehypothecate, transfer, or substitute collateral.
+display_name: SpecifiedConditionOrAccessCondition
+document_category: SpecifiedConditionOrAccessCondition
+weight: 20
+fields:
+- id: isApplicable
+  description: Indicates whether events that could temporarily or permanently suspend
+    rights to rehypothecate, transfer or substitute collateral are applicable. If
+    applicable,'True'. If not applicable,'False'.
+  display_name: SpecifiedConditionOrAccessCondition_isApplicable
+- id: partyElection
+  description: The party specific elections.
+  display_name: SpecifiedConditionOrAccessCondition_partyElection
+  cardinality: multi
+- id: additionalLanguage
+  description: The additional language that might be specified by the parties to the
+    legal agreement.
+  display_name: SpecifiedConditionOrAccessCondition_additionalLanguage

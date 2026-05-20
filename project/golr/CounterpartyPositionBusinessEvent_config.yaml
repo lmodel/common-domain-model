@@ -1,0 +1,37 @@
+# metamodel_version: 1.11.0id: CounterpartyPositionBusinessEvent
+schema_generating: true
+description: A business event represents a life cycle event of a position. The combination
+  of the state changes results in a qualifiable life cycle event.
+display_name: CounterpartyPositionBusinessEvent
+document_category: CounterpartyPositionBusinessEvent
+weight: 20
+fields:
+- id: intent
+  description: The intent attribute is meant to be specified when the event qualification
+    cannot be programmatically inferred from the event features. As a result it is
+    only associated with those primitives that can give way to such ambiguity, the
+    quantityChange being one of those.
+  display_name: intent
+- id: corporateActionIntent
+  description: The intent of a corporate action on the position.
+  display_name: corporateActionIntent
+- id: eventDate
+  description: Specifies the date on which the event is taking place. This date is
+    equal to the trade date in the case of a simple execution.  However it can be
+    different from the trade date, for example in the case of a partial termination.
+  display_name: eventDate
+- id: effectiveDate
+  description: The date on which the event contractually takes effect, when different
+    from the event date.
+  display_name: CounterpartyPositionBusinessEvent_effectiveDate
+- id: packageInformation
+  description: Specifies the package information in case the business event represents
+    several trades executed as a package (hence this attribute is optional). The package
+    information is only instantiated once at the business event level to preserve
+    referential integrity, whereas individual trades make reference to it to identify
+    that they are part of a package.
+  display_name: packageInformation
+- id: after
+  description: Specifies the after position state(s) created.
+  display_name: CounterpartyPositionBusinessEvent_after
+  cardinality: multi

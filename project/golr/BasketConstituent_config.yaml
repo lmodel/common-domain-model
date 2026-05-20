@@ -1,0 +1,31 @@
+# metamodel_version: 1.11.0id: BasketConstituent
+schema_generating: true
+description: Identifies the constituents of the basket
+display_name: BasketConstituent
+document_category: BasketConstituent
+weight: 20
+fields:
+- id: quantity
+  description: Specifies a quantity schedule to be associated to an individual underlier
+    that is a basket constituent. The multiple cardinality is aligned to the one of
+    the PriceQuantity->quantity that this quantity is referencing.
+  display_name: BasketConstituent_quantity
+  cardinality: multi
+- id: initialValuationPrice
+  description: Specifies an initial price schedule to be associated to an individual
+    underlier that is a basket constituent. The multiple cardinality is aligned to
+    the one of the PriceQuantity->price that this price is referencing.
+  display_name: initialValuationPrice
+  cardinality: multi
+- id: interimValuationPrice
+  description: Specifies an interim price schedule to be associated to an individual
+    underlier that is a basket constituent. The multiple cardinality is aligned to
+    the one of the PriceQuantity->price that this price is referencing.
+  display_name: interimValuationPrice
+  cardinality: multi
+- id: finalValuationPrice
+  description: Specifies a final price schedule to be associated to an individual
+    underlier that is a basket constituent. The multiple cardinality is aligned to
+    the one of the PriceQuantity->price that this price is referencing.
+  display_name: finalValuationPrice
+  cardinality: multi

@@ -1,0 +1,21 @@
+# metamodel_version: 1.11.0id: AssetDeliveryInformation
+schema_generating: true
+description: Contains the information relative to the delivery of the asset.
+display_name: AssetDeliveryInformation
+document_category: AssetDeliveryInformation
+weight: 20
+fields:
+- id: periods
+  description: Defines the periods of delivery, including the delivery profile.
+  display_name: periods
+- id: location
+  description: Defines the location of the delivery of the commodity.
+  display_name: AssetDeliveryInformation_location
+  cardinality: multi
+- id: deliveryCapacity
+  description: The number of units included in the transaction for each delivery interval
+  display_name: deliveryCapacity
+- id: commodityGrade
+  description: Grade of product being delivered (e.g., grade of oil).
+  display_name: commodityGrade
+  cardinality: multi

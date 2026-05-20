@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: CollateralTreatment
+schema_generating: true
+description: Specifies the treatment terms for the eligible collateral criteria specified.
+display_name: CollateralTreatment
+document_category: CollateralTreatment
+weight: 20
+fields:
+- id: valuationTreatment
+  description: Specification of the valuation treatment for the specified collateral.
+  display_name: valuationTreatment
+- id: concentrationLimit
+  description: Specification of concentration limits applicable to the collateral
+    criteria.
+  display_name: concentrationLimit
+  cardinality: multi
+- id: isIncluded
+  description: A boolean attribute to specify whether collateral critieria are inclusion
+    (True) or exclusion (False) criteria.
+  display_name: isIncluded

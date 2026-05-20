@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: StandardizedSchedule
+schema_generating: true
+display_name: StandardizedSchedule
+document_category: StandardizedSchedule
+weight: 20
+fields:
+- id: assetClass
+  display_name: assetClass
+- id: productClass
+  display_name: productClass
+- id: notional
+  display_name: notional
+- id: notionalCurrency
+  display_name: notionalCurrency
+- id: durationInYears
+  display_name: durationInYears

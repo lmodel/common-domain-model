@@ -1,0 +1,57 @@
+# metamodel_version: 1.11.0id: PortfolioReturnTerms
+schema_generating: true
+description: Specifies an individual type of return of a Performance Payout, when
+  such individual return is part of an aggregation of multiple similar returns, at
+  Performance Payout level.
+display_name: PortfolioReturnTerms
+document_category: PortfolioReturnTerms
+weight: 20
+fields:
+- id: priceReturnTerms
+  description: Return terms based upon the underlier's observed price.
+  display_name: priceReturnTerms
+- id: dividendReturnTerms
+  description: Return terms based upon dividend payments associated to the underlier.
+  display_name: dividendReturnTerms
+- id: varianceReturnTerms
+  description: Return terms based upon the observed variance of the underlier's price.
+  display_name: varianceReturnTerms
+- id: volatilityReturnTerms
+  description: Return terms based upon the observed volatility of the underlier's
+    price.
+  display_name: volatilityReturnTerms
+- id: correlationReturnTerms
+  description: Return terms based upon the observed correlation between the components
+    of the underlying basket.
+  display_name: correlationReturnTerms
+- id: payerReceiver
+  description: Canonical representation of the payer and receiver parties applicable
+    to each individual return leg.
+  display_name: PortfolioReturnTerms_payerReceiver
+- id: underlier
+  description: Defines the product that is the subject of a tradable product definition,
+    an underlying product definition, a physical exercise, a position, or other purposes.
+  display_name: PortfolioReturnTerms_underlier
+- id: quantity
+  description: Specifies a quantity schedule for the underlier, which applies to each
+    individual return leg.
+  display_name: PortfolioReturnTerms_quantity
+- id: initialValuationPrice
+  description: Specifies the initial valuation price(s) of the underlier. This price
+    can be expressed either as an actual amount/currency, as a determination method,
+    or by reference to another value specified in the swap document.
+  display_name: PortfolioReturnTerms_initialValuationPrice
+  cardinality: multi
+- id: interimValuationPrice
+  description: Specifies the initial valuation price(s) of the underlier. This price
+    can be expressed either as an actual amount/currency, as a determination method,
+    or by reference to another value specified in the swap document.
+  display_name: PortfolioReturnTerms_interimValuationPrice
+  cardinality: multi
+- id: finalValuationPrice
+  description: '2018 ISDA CDM Equity Confirmation for Security Equity Swap: Final
+    Price | Specifies the final valuation price of the underlier. This price can be
+    expressed either as an actual amount/currency, as a determination method, or by
+    reference to another value specified in the swap document.'
+  display_name: PortfolioReturnTerms_finalValuationPrice
+  cardinality: multi

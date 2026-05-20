@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: PostingObligations
+schema_generating: true
+description: A class to specify the collateral posting obligations of the security
+  provider or security providers as specified in the corresponding agreement.
+display_name: PostingObligations
+document_category: PostingObligations
+weight: 20
+fields:
+- id: securityProvider
+  description: The security provider party(ies) to which the posting obligations apply
+    to, which can be either one of the parties to the legal agreement, or both of
+    those.
+  display_name: securityProvider
+  cardinality: multi
+- id: partyElection
+  description: The specification of the collateral posting obligations for the security
+    provider party(ies).
+  display_name: PostingObligations_partyElection
+  cardinality: multi

@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: CollateralBalance
+schema_generating: true
+description: Represents common attributes to define a collateral balance recorded
+  by the principal as held or posted.
+display_name: CollateralBalance
+document_category: CollateralBalance
+weight: 20
+fields:
+- id: collateralBalanceStatus
+  description: Defines the collateral balance breakdown of settlement status.
+  display_name: collateralBalanceStatus
+- id: haircutIndicator
+  description: Indicates if the collateral balance amount is based on pre or post
+    haircut, if a haircut is associated with the collateral asset
+  display_name: haircutIndicator
+- id: amountBaseCurrency
+  description: Specifies the collateral balance amount in base currency determined
+    within a collateral legal agreement, or defined for reporting purposes.
+  display_name: amountBaseCurrency
+- id: payerReceiver
+  description: Specifies each of the parties in the collateral balance and its perspective
+    with regards to the direction of the collateral balance, posted or received.
+  display_name: CollateralBalance_payerReceiver

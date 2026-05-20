@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: BespokeTransferTiming
+schema_generating: true
+description: A class to specify any bespoke Transfer Timing language by each party
+  to the agreement.
+display_name: BespokeTransferTiming
+document_category: BespokeTransferTiming
+weight: 20
+fields:
+- id: isApplicable
+  description: A boolean flag to specify whether bespoke transfer terms are applicable
+    or not.
+  display_name: BespokeTransferTiming_isApplicable
+- id: bespokeTransferTimingTerms
+  description: The bespoke transfer timing terms applicable to the agreement.
+  display_name: bespokeTransferTimingTerms

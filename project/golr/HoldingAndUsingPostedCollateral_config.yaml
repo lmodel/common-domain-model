@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: HoldingAndUsingPostedCollateral
+schema_generating: true
+description: Specifies the conditions that need to be satisfied before the Secured
+  Party or Custodian acting on its behalf can hold and use posted collateral.
+display_name: HoldingAndUsingPostedCollateral
+document_category: HoldingAndUsingPostedCollateral
+weight: 20
+fields:
+- id: partyElection
+  description: The parties' elections for the holding and using of posted collateral.
+  display_name: HoldingAndUsingPostedCollateral_partyElection
+  cardinality: multi
+- id: additionalLanguage
+  description: The additional language that might be specified by the parties to the
+    legal agreement.
+  display_name: HoldingAndUsingPostedCollateral_additionalLanguage

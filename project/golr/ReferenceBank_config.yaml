@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: ReferenceBank
+schema_generating: true
+description: A class to describe an institution (party) identified by means of a coding
+  scheme and an optional name.
+display_name: ReferenceBank
+document_category: ReferenceBank
+weight: 20
+fields:
+- id: referenceBankId
+  description: An institution (party) identifier, e.g. a bank identifier code (BIC).
+    FpML specifies a referenceBankIdScheme.
+  display_name: referenceBankId
+- id: referenceBankName
+  description: The name of the institution (party). A free format string. FpML does
+    not define usage rules for the element.
+  display_name: referenceBankName

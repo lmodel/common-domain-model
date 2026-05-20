@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: StandardizedScheduleTradeInfo
+schema_generating: true
+display_name: StandardizedScheduleTradeInfo
+document_category: StandardizedScheduleTradeInfo
+weight: 20
+fields:
+- id: assetClass
+  display_name: StandardizedScheduleTradeInfo_assetClass
+- id: productClass
+  display_name: StandardizedScheduleTradeInfo_productClass
+- id: grossInitialMargin
+  display_name: grossInitialMargin
+- id: markToMarketValue
+  display_name: markToMarketValue

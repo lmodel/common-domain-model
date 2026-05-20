@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: FloatingRateIndexFixingDetails
+schema_generating: true
+description: This type holds parameters defining the fixingt time and offset for a
+  floating rate index.
+display_name: FloatingRateIndexFixingDetails
+document_category: FloatingRateIndexFixingDetails
+weight: 20
+fields:
+- id: fixingTime
+  description: Parameters defining the normal fixing time (can vary by index tenor
+    / designated maturity).
+  display_name: FloatingRateIndexFixingDetails_fixingTime
+- id: fixingOffset
+  description: Parameters defining the normal fixing offset (can vary by index tenor
+    / designated maturity).
+  display_name: fixingOffset

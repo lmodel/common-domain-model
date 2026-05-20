@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: CreditNotations
+schema_generating: true
+description: Represents the credit rating notation higher level construct, which provides
+  the ability to specify multiple rating notations.
+display_name: CreditNotations
+document_category: CreditNotations
+weight: 20
+fields:
+- id: creditNotation
+  description: Specifies only one credit notation is determined.
+  display_name: creditNotation
+- id: creditNotations
+  description: Specifies if several credit notations exist, alongside an 'any' or
+    'all' or all condition.
+  display_name: creditNotations

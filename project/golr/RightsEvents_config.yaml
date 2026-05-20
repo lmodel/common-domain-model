@@ -1,0 +1,27 @@
+# metamodel_version: 1.11.0id: RightsEvents
+schema_generating: true
+description: A class to specify the rights of Security Taker and/or Security Provider
+  when an Early Termination or Access Condition event has occurred.
+display_name: RightsEvents
+document_category: RightsEvents
+weight: 20
+fields:
+- id: securityTakerRightsEvent
+  description: The bespoke provisions that might be specified by the parties to the
+    agreement applicable to a Security Taker Rights Event.
+  display_name: securityTakerRightsEvent
+- id: controlAgreementNecEvent
+  description: The bespoke provisions that might be specified by the parties to the
+    agreement applicable to a Notice of Exclusive Control Event.
+  display_name: controlAgreementNecEvent
+- id: securityProviderRightsEvent
+  description: The bespoke provisions that might be specified by the parties to the
+    agreement applicable to a Security Provider Rights Event.
+  display_name: securityProviderRightsEvent
+- id: deliveryInLieuRight
+  description: The specification of whether Delivery In Lieu language is applicable
+    to the agreement (true) or not (false).
+  display_name: RightsEvents_deliveryInLieuRight
+- id: additionalRightsEvent
+  description: The Additional Rights Event election.
+  display_name: additionalRightsEvent

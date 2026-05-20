@@ -1,0 +1,33 @@
+# metamodel_version: 1.11.0id: UnscheduledTransfer
+schema_generating: true
+description: An ad-hoc transfer instigated by a party to the contract.
+display_name: UnscheduledTransfer
+document_category: UnscheduledTransfer
+weight: 20
+fields:
+- id: quantity
+  description: Represents the amount of the asset to be transferred. The cashflow
+    amount is always a positive number, as the cashflow direction is implied by the
+    payer/receiver attribute.
+  display_name: AssetFlowBase_quantity
+- id: asset
+  description: Represents the object that is subject to the transfer, it could be
+    an asset or a reference.
+  display_name: AssetFlowBase_asset
+- id: settlementDate
+  description: Represents the date on which the transfer to due.
+  display_name: AssetFlowBase_settlementDate
+- id: paymentDiscounting
+  description: FpML specifies the FpML PaymentDiscounting.model group for representing
+    the discounting elements that can be associated with a payment.
+  display_name: paymentDiscounting
+- id: identifier
+  description: Represents a unique reference to the transfer.
+  display_name: TransferBase_identifier
+  cardinality: multi
+- id: payerReceiver
+  description: Represents the parties to the transfer and their role.
+  display_name: TransferBase_payerReceiver
+- id: transferType
+  description: Specifies the type of unscheduled transfer.
+  display_name: transferType

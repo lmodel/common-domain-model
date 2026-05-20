@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: FailureToPay
+schema_generating: true
+display_name: FailureToPay
+document_category: FailureToPay
+weight: 20
+fields:
+- id: applicable
+  description: Indicates whether the failure to pay provision is applicable.
+  display_name: FailureToPay_applicable
+- id: gracePeriodExtension
+  description: 'If this element is specified, indicates whether or not a grace period
+    extension is applicable. ISDA 2003 Term: Grace Period Extension Applicable.'
+  display_name: gracePeriodExtension
+- id: paymentRequirement
+  description: 'Specifies a threshold for the failure to pay credit event. Market
+    standard is USD 1,000,000 (JPY 100,000,000 for Japanese Yen trades) or its equivalent
+    in the relevant obligation currency. This is applied on an aggregate basis across
+    all Obligations of the Reference Entity. Intended to prevent technical/operational
+    errors from triggering credit events. ISDA 2003 Term: Payment Requirement'
+  display_name: paymentRequirement

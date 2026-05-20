@@ -1,0 +1,5587 @@
+// DBML generated from LinkML schema
+
+Project {
+  name: 'common_domain_model'
+}
+
+Table AdjustableDate {
+unadjustedDate date
+dateAdjustments varchar
+dateAdjustmentsReference varchar
+adjustedDate date
+}
+
+Table AdjustableDates {
+AdjustableDates_unadjustedDate date
+dateAdjustments varchar
+AdjustableDates_adjustedDate date
+}
+
+Table AdjustableOrAdjustedDate {
+AdjustableOrAdjustedDate_unadjustedDate date
+dateAdjustments varchar
+adjustedDate date
+}
+
+Table AdjustableOrAdjustedOrRelativeDate {
+AdjustableOrAdjustedOrRelativeDate_unadjustedDate date
+dateAdjustments varchar
+adjustedDate date
+relativeDate varchar
+}
+
+Table AdjustableOrRelativeDate {
+adjustableDate varchar
+AdjustableOrRelativeDate_relativeDate varchar
+}
+
+Table AdjustableOrRelativeDates {
+adjustableDates varchar
+relativeDates varchar
+}
+
+Table AdjustedRelativeDateOffset {
+Period_periodMultiplier int [not null]
+Period_period varchar [not null]
+dayType varchar
+businessDayConvention varchar [not null]
+businessCenters varchar
+RelativeDateOffset_businessCentersReference varchar
+dateRelativeTo date
+adjustedDate date
+relativeDateAdjustments varchar
+}
+
+Table BusinessCenters {
+businessCenter varchar
+commodityBusinessCalendar varchar
+businessCentersReference varchar
+}
+
+Table BusinessCenterTime {
+hourMinuteTime varchar [not null]
+BusinessCenterTime_businessCenter varchar [not null]
+}
+
+Table BusinessDateRange {
+startDate date [not null]
+endDate date [not null]
+businessDayConvention varchar [not null]
+businessCenters varchar
+}
+
+Table BusinessDayAdjustments {
+BusinessDayAdjustments_businessDayConvention varchar [not null]
+businessCenters varchar
+}
+
+Table DateRange {
+startDate date [not null]
+endDate date [not null]
+}
+
+Table DateList {
+date date [not null]
+}
+
+Table DateTimeList {
+dateTime datetime [not null]
+}
+
+Table Frequency {
+periodMultiplier int [not null]
+period varchar [not null]
+}
+
+Table Offset {
+Period_periodMultiplier int [not null]
+Period_period varchar [not null]
+dayType varchar
+}
+
+Table CustomisableOffset {
+offset varchar
+customProvision varchar
+}
+
+Table Period {
+Period_periodMultiplier int [not null]
+Period_period varchar [not null]
+}
+
+Table RelativeDates {
+Period_periodMultiplier int [not null]
+Period_period varchar [not null]
+dayType varchar
+businessDayConvention varchar [not null]
+businessCenters varchar
+RelativeDateOffset_businessCentersReference varchar
+dateRelativeTo date
+adjustedDate date
+periodSkip int
+scheduleBounds varchar
+}
+
+Table RelativeDateOffset {
+Period_periodMultiplier int [not null]
+Period_period varchar [not null]
+dayType varchar
+businessDayConvention varchar [not null]
+businessCenters varchar
+RelativeDateOffset_businessCentersReference varchar
+dateRelativeTo date
+adjustedDate date
+}
+
+Table TimeZone {
+time varchar [not null]
+location varchar
+}
+
+Table DirectOrRelativeTime {
+directTime varchar
+relativeTime varchar
+}
+
+Table RelativeTime {
+offsetTimeUnit varchar
+offsetMultiplier int
+rounding varchar
+timeRelativeTo varchar
+}
+
+Table RelativeTimeOffset {
+offsetTimeUnit varchar
+offsetMultiplier int
+rounding varchar
+}
+
+Table TimeRounding {
+roundingDirection varchar [not null]
+roundToUnit varchar
+}
+
+Table PeriodRange {
+lowerBound varchar
+upperBound varchar
+}
+
+Table PeriodBound {
+PeriodBound_period varchar [not null]
+inclusive boolean [not null]
+}
+
+Table AveragingSchedule {
+AveragingSchedule_startDate date [not null]
+AveragingSchedule_endDate date [not null]
+averagingPeriodFrequency varchar [not null]
+}
+
+Table AdjustableRelativeOrPeriodicDates {
+adjustableDates varchar
+relativeDates varchar
+periodicDates varchar
+}
+
+Table PeriodicDates {
+PeriodicDates_startDate varchar [not null]
+PeriodicDates_endDate varchar [not null]
+periodFrequency varchar
+periodDatesAdjustments varchar
+PeriodicDates_dayType varchar
+}
+
+Table CalculationPeriodFrequency {
+periodMultiplier int [not null]
+period varchar [not null]
+rollConvention varchar [not null]
+balanceOfFirstPeriod boolean
+}
+
+Table CalculationFrequency {
+CalculationFrequency_period varchar [not null]
+monthOfYear varchar
+dayOfMonth varchar
+dayOfWeek varchar
+weekOfMonth varchar
+offsetDays varchar [not null]
+dateLocation varchar [not null]
+CalculationFrequency_businessCenter varchar
+}
+
+Table UnitType {
+capacityUnit varchar
+weatherUnit varchar
+financialUnit varchar
+currency varchar
+}
+
+Table MeasureBase {
+value varchar
+unit varchar
+}
+
+Table Measure {
+value varchar
+unit varchar
+}
+
+Table MeasureSchedule {
+value varchar
+unit varchar
+datedValue varchar
+}
+
+Table QuantitySchedule {
+value varchar
+unit varchar
+datedValue varchar
+multiplier varchar
+frequency varchar
+}
+
+Table Quantity {
+value varchar
+unit varchar
+datedValue varchar
+multiplier varchar
+frequency varchar
+}
+
+Table NonNegativeQuantity {
+value varchar
+unit varchar
+datedValue varchar
+multiplier varchar
+frequency varchar
+}
+
+Table NonNegativeStep {
+stepDate date [not null]
+stepValue varchar [not null]
+}
+
+Table NonNegativeQuantitySchedule {
+value varchar
+unit varchar
+datedValue varchar
+multiplier varchar
+frequency varchar
+}
+
+Table Rounding {
+Rounding_roundingDirection varchar [not null]
+precision int
+}
+
+Table Schedule {
+Schedule_value varchar [not null]
+Schedule_datedValue varchar
+}
+
+Table DatedValue {
+DatedValue_date date [not null]
+DatedValue_value varchar [not null]
+}
+
+Table NumberRange {
+NumberRange_lowerBound varchar
+NumberRange_upperBound varchar
+}
+
+Table NumberBound {
+number varchar [not null]
+NumberBound_inclusive boolean [not null]
+}
+
+Table MoneyRange {
+MoneyRange_lowerBound varchar
+MoneyRange_upperBound varchar
+}
+
+Table MoneyBound {
+money varchar [not null]
+MoneyBound_inclusive boolean [not null]
+}
+
+Table AveragingCalculationMethod {
+isWeighted boolean [not null]
+calculationMethod varchar [not null]
+}
+
+Table AssetBase {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+}
+
+Table AssetIdentifier {
+AssetIdentifier_identifier varchar [not null]
+identifierType varchar [not null]
+}
+
+Table InstrumentBase {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+}
+
+Table ProductIdentifier {
+ProductIdentifier_identifier varchar [not null]
+source varchar [not null]
+}
+
+Table TaxonomyValue {
+name varchar
+classification varchar
+}
+
+Table Taxonomy {
+Taxonomy_source varchar [not null]
+Taxonomy_value varchar
+}
+
+Table ProductTaxonomy {
+Taxonomy_source varchar [not null]
+Taxonomy_value varchar
+primaryAssetClass varchar
+secondaryAssetClass varchar
+productQualifier varchar
+}
+
+Table Cash {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+}
+
+Table Commodity {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+commodityProductDefinition varchar
+priceQuoteType varchar [not null]
+deliveryDateReference varchar
+description varchar
+}
+
+Table CommodityProductDefinition {
+referenceFramework varchar [not null]
+priceSource varchar
+commodityInfoPublisher varchar
+exchangeId varchar [not null]
+}
+
+Table DeliveryDateParameters {
+}
+
+Table CommodityReferenceFramework {
+commodityName varchar [not null]
+capacityUnit varchar
+weatherUnit varchar
+CommodityReferenceFramework_currency varchar [not null]
+}
+
+Table DigitalAsset {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+}
+
+Table ListedDerivative {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+deliveryTerm varchar
+optionType varchar
+strike varchar
+}
+
+Table Loan {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+borrower varchar
+lien varchar
+facilityType varchar
+creditAgreementDate date
+tranche varchar
+}
+
+Table CollateralTaxonomy {
+taxonomyValue varchar [not null]
+taxonomySource varchar [not null]
+}
+
+Table CollateralTaxonomyValue {
+eu_EMIR_EligibleCollateral varchar
+uk_EMIR_EligibleCollateral varchar
+us_CFTC_PR_EligibleCollateral varchar
+nonEnumeratedTaxonomyValue varchar
+}
+
+Table Security {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+securityType varchar [not null]
+debtType varchar
+equityType varchar
+fundType varchar
+}
+
+Table EquityType {
+EquityType_equityType varchar
+depositaryReceipt varchar
+}
+
+Table DebtType {
+debtEconomics varchar
+}
+
+Table DebtEconomics {
+seniority varchar
+interest varchar
+principal varchar
+secured varchar
+redemption varchar
+}
+
+Table DebtRedemption {
+redemptionType varchar
+putCall varchar
+party varchar
+}
+
+Table SecuredDebt {
+securedType varchar
+assetBacked varchar
+collateralizedObligation varchar
+coveredBond varchar
+propertyType varchar
+}
+
+Table CollateralGuarantorType {
+guarantorType varchar [not null]
+}
+
+Table CollateralIssuerType {
+issuerType varchar [not null]
+supraNationalType varchar
+quasiGovernmentType varchar
+regionalGovernmentType varchar
+specialPurposeVehicleType varchar
+}
+
+Table QuasiGovernmentIssuerType {
+sovereignEntity boolean [not null]
+sovereignRecourse boolean
+}
+
+Table RegionalGovernmentIssuerType {
+RegionalGovernmentIssuerType_sovereignRecourse boolean [not null]
+}
+
+Table SpecialPurposeVehicleIssuerType {
+creditRisk varchar
+}
+
+Table TaxonomyClassification {
+className varchar
+TaxonomyClassification_value varchar [not null]
+TaxonomyClassification_description varchar
+ordinal int
+}
+
+Table AssetType {
+AssetType_assetType varchar [not null]
+AssetType_securityType varchar [not null]
+AssetType_debtType varchar
+AssetType_equityType varchar
+AssetType_fundType varchar
+otherAssetType varchar
+}
+
+Table PriceSource {
+pricePublisher varchar [not null]
+priceSourceLocation varchar
+priceSourceHeading varchar
+priceSourceTime varchar
+}
+
+Table Asset {
+}
+
+Table Instrument {
+}
+
+Table NotDomesticCurrency {
+applicable boolean [not null]
+NotDomesticCurrency_currency varchar
+}
+
+Table Obligations {
+category varchar [not null]
+notSubordinated boolean
+specifiedCurrency varchar
+notSovereignLender boolean
+notDomesticCurrency varchar
+notDomesticLaw boolean
+listed boolean
+notDomesticIssuance boolean
+fullFaithAndCreditObLiability boolean
+generalFundObligationLiability boolean
+revenueObligationLiability boolean
+notContingent boolean
+excluded varchar
+othReferenceEntityObligations varchar
+designatedPriority varchar
+cashSettlementOnly boolean
+deliveryOfCommitments boolean
+continuity boolean
+}
+
+Table SpecifiedCurrency {
+SpecifiedCurrency_applicable boolean [not null]
+SpecifiedCurrency_currency varchar
+}
+
+Table CodeList {
+identification varchar [not null]
+codes varchar
+}
+
+Table CodeListIdentification {
+CodeListIdentification_description varchar
+publicationDate varchar
+shortName varchar [not null]
+version varchar [not null]
+codeShortId varchar
+canonicalUri varchar [not null]
+canonicalVersionUri varchar
+locationUri varchar
+}
+
+Table CodeValue {
+CodeValue_value varchar [not null]
+CodeValue_description varchar
+CodeValue_source varchar [not null]
+effectiveDate date
+deprecatedDate date
+}
+
+Table AssignedIdentifier {
+AssignedIdentifier_identifier varchar [not null]
+AssignedIdentifier_version int [not null]
+}
+
+Table Identifier {
+issuerReference varchar
+issuer varchar
+assignedIdentifier varchar [not null]
+}
+
+Table IdentifiedList {
+listId varchar [not null]
+componentId varchar [not null]
+price varchar
+}
+
+Table LocationIdentifier {
+issuerReference varchar
+issuer varchar
+assignedIdentifier varchar [not null]
+locationIdentifierType varchar
+}
+
+Table Counterparty {
+role varchar [not null]
+partyReference varchar [not null]
+}
+
+Table AncillaryParty {
+AncillaryParty_role varchar [not null]
+AncillaryParty_partyReference varchar [not null]
+onBehalfOf varchar
+}
+
+Table BuyerSeller {
+buyer varchar [not null]
+seller varchar [not null]
+}
+
+Table PayerReceiver {
+payer varchar [not null]
+receiver varchar [not null]
+}
+
+Table PartyReferencePayerReceiver {
+payerPartyReference varchar [not null]
+payerAccountReference varchar
+receiverPartyReference varchar [not null]
+receiverAccountReference varchar
+}
+
+Table ReferenceBank {
+referenceBankId varchar [not null]
+referenceBankName varchar
+}
+
+Table ReferenceBanks {
+referenceBank varchar [not null]
+}
+
+Table RelatedParty {
+RelatedParty_partyReference varchar [not null]
+accountReference varchar
+RelatedParty_role varchar [not null]
+}
+
+Table Account {
+Account_partyReference varchar [not null]
+accountNumber varchar [not null]
+accountName varchar
+accountType varchar
+accountBeneficiary varchar
+servicingParty varchar
+}
+
+Table Address {
+street varchar [not null]
+city varchar
+state varchar
+country varchar
+postalCode varchar
+}
+
+Table BusinessUnit {
+BusinessUnit_name varchar [not null]
+BusinessUnit_identifier varchar [not null]
+contactInformation varchar
+}
+
+Table ContactInformation {
+telephone varchar
+address varchar
+email varchar
+webPage varchar
+}
+
+Table LegalEntity {
+LegalEntity_name varchar [not null]
+entityIdentifier varchar
+}
+
+Table NaturalPerson {
+personId varchar
+honorific varchar
+firstName varchar
+middleName varchar
+initial varchar
+surname varchar
+suffix varchar
+dateOfBirth date
+NaturalPerson_contactInformation varchar
+}
+
+Table NaturalPersonRole {
+personReference varchar [not null]
+NaturalPersonRole_role varchar [not null]
+}
+
+Table Party {
+partyId varchar [not null]
+Party_name varchar
+businessUnit varchar
+person varchar
+personRole varchar
+account varchar
+Party_contactInformation varchar
+}
+
+Table PartyIdentifier {
+PartyIdentifier_identifier varchar [not null]
+PartyIdentifier_identifierType varchar [not null]
+}
+
+Table EntityIdentifier {
+EntityIdentifier_identifier varchar [not null]
+EntityIdentifier_identifierType varchar [not null]
+}
+
+Table PersonIdentifier {
+PersonIdentifier_identifier varchar [not null]
+PersonIdentifier_identifierType varchar [not null]
+PersonIdentifier_country varchar
+}
+
+Table PartyRole {
+PartyRole_partyReference varchar [not null]
+PartyRole_role varchar [not null]
+ownershipPartyReference varchar
+}
+
+Table TelephoneNumber {
+telephoneNumberType varchar
+TelephoneNumber_number varchar [not null]
+}
+
+Table AncillaryEntity {
+ancillaryParty varchar
+legalEntity varchar
+}
+
+Table ContractFormationInstruction {
+legalAgreement varchar
+}
+
+Table Instruction {
+primitiveInstruction varchar
+before varchar
+}
+
+Table PrimitiveInstruction {
+contractFormation varchar
+execution varchar
+exercise varchar
+partyChange varchar
+quantityChange varchar
+reset varchar
+split varchar
+termsChange varchar
+transfer varchar
+indexTransition varchar
+stockSplit varchar
+observation varchar
+valuation varchar
+}
+
+Table BusinessEvent {
+EventInstruction_intent varchar [not null]
+corporateActionIntent varchar
+eventDate date
+eventTime varchar
+EventInstruction_effectiveDate date
+effectiveTime varchar
+packageInformation varchar
+instruction varchar
+eventQualifier varchar
+after varchar
+}
+
+Table CounterpartyPositionBusinessEvent {
+intent varchar [not null]
+corporateActionIntent varchar
+eventDate date
+CounterpartyPositionBusinessEvent_effectiveDate date
+packageInformation varchar
+CounterpartyPositionBusinessEvent_after varchar
+}
+
+Table ObservationInstruction {
+observationEvent varchar [not null]
+}
+
+Table ValuationInstruction {
+ValuationInstruction_valuation varchar [not null]
+replace boolean [not null]
+}
+
+Table ExecutionInstruction {
+product varchar [not null]
+priceQuantity varchar [not null]
+counterparty varchar [not null]
+ExecutionInstruction_ancillaryParty varchar
+parties varchar [not null]
+partyRoles varchar
+executionDetails varchar [not null]
+tradeDate date [not null]
+tradeTime varchar
+tradeIdentifier varchar [not null]
+collateral varchar
+lotIdentifier varchar
+}
+
+Table ExerciseInstruction {
+exerciseQuantity varchar [not null]
+exerciseOption varchar
+exerciseDate varchar
+exerciseTime varchar
+replacementTradeIdentifier varchar
+}
+
+Table ResetInstruction {
+payout varchar [not null]
+rateRecordDate date
+resetDate date [not null]
+}
+
+Table CalculateTransferInstruction {
+tradeState varchar [not null]
+CalculateTransferInstruction_payout varchar [not null]
+resets varchar
+payerReceiver varchar
+quantity varchar
+CalculateTransferInstruction_date date [not null]
+}
+
+Table TransferInstruction {
+transferState varchar
+}
+
+Table QuantityChangeInstruction {
+change varchar [not null]
+direction varchar [not null]
+QuantityChangeInstruction_lotIdentifier varchar
+}
+
+Table IndexTransitionInstruction {
+IndexTransitionInstruction_priceQuantity varchar [not null]
+IndexTransitionInstruction_effectiveDate date [not null]
+cashTransfer varchar
+}
+
+Table TermsChangeInstruction {
+TermsChangeInstruction_product varchar [not null]
+TermsChangeInstruction_ancillaryParty varchar
+adjustment varchar
+}
+
+Table SplitInstruction {
+breakdown varchar [not null]
+}
+
+Table PartyChangeInstruction {
+PartyChangeInstruction_counterparty varchar [not null]
+PartyChangeInstruction_ancillaryParty varchar
+partyRole varchar
+tradeId varchar [not null]
+}
+
+Table TradeState {
+trade varchar [not null]
+TradeState_state varchar
+resetHistory varchar
+transferHistory varchar
+observationHistory varchar
+valuationHistory varchar
+}
+
+Table CounterpartyPositionState {
+counterpartyPosition varchar [not null]
+CounterpartyPositionState_state varchar
+observationHistory varchar
+valuationHistory varchar
+}
+
+Table ObservationEvent {
+creditEvent varchar
+corporateAction varchar
+}
+
+Table Reset {
+resetValue varchar [not null]
+Reset_resetDate date [not null]
+rateRecordDate date
+observations varchar [not null]
+averagingMethodology varchar
+}
+
+Table State {
+closedState varchar
+positionState varchar
+}
+
+Table TransferState {
+TransferState_transfer varchar [not null]
+transferStatus varchar
+}
+
+Table UnscheduledTransfer {
+AssetFlowBase_quantity varchar [not null]
+AssetFlowBase_asset varchar [not null]
+AssetFlowBase_settlementDate varchar [not null]
+paymentDiscounting varchar
+TransferBase_identifier varchar [not null]
+TransferBase_payerReceiver varchar [not null]
+transferType varchar
+}
+
+Table ScheduledTransfer {
+AssetFlowBase_quantity varchar [not null]
+AssetFlowBase_asset varchar [not null]
+AssetFlowBase_settlementDate varchar [not null]
+paymentDiscounting varchar
+TransferBase_identifier varchar [not null]
+TransferBase_payerReceiver varchar [not null]
+ScheduledTransfer_transferType varchar [not null]
+corporateActionTransferType varchar
+payoutReference varchar
+}
+
+Table TransferBase {
+AssetFlowBase_quantity varchar [not null]
+AssetFlowBase_asset varchar [not null]
+AssetFlowBase_settlementDate varchar [not null]
+paymentDiscounting varchar
+TransferBase_identifier varchar [not null]
+TransferBase_payerReceiver varchar [not null]
+}
+
+Table TradeIdentifier {
+issuerReference varchar
+issuer varchar
+assignedIdentifier varchar [not null]
+TradeIdentifier_identifierType varchar [not null]
+}
+
+Table PositionIdentifier {
+issuerReference varchar
+issuer varchar
+assignedIdentifier varchar [not null]
+PositionIdentifier_identifierType varchar [not null]
+}
+
+Table Valuation {
+amount varchar [not null]
+timestamp datetime [not null]
+method varchar
+Valuation_source varchar [not null]
+scope varchar [not null]
+delta varchar
+valuationTiming varchar
+priceComponent varchar
+}
+
+Table Trade {
+TradableProduct_product varchar [not null]
+tradeLot varchar [not null]
+TradableProduct_counterparty varchar [not null]
+TradableProduct_ancillaryParty varchar
+TradableProduct_adjustment varchar
+Trade_tradeIdentifier varchar [not null]
+Trade_tradeDate date [not null]
+tradeTime varchar
+Trade_party varchar
+Trade_partyRole varchar
+Trade_executionDetails varchar [not null]
+contractDetails varchar
+clearedDate date
+Trade_collateral varchar
+Trade_account varchar
+}
+
+Table ExecutionDetails {
+executionType varchar [not null]
+executionVenue varchar
+packageReference varchar
+}
+
+Table ContractDetails {
+documentation varchar
+governingLaw varchar
+}
+
+Table Lineage {
+tradeReference varchar
+eventReference varchar
+portfolioStateReference varchar
+}
+
+Table StockSplitInstruction {
+adjustmentRatio varchar [not null]
+StockSplitInstruction_effectiveDate date [not null]
+}
+
+Table CreditEvent {
+creditEventType varchar [not null]
+eventDeterminationDate date [not null]
+auctionDate date
+finalPrice varchar
+recoveryPercent varchar
+publiclyAvailableInformation varchar
+referenceInformation varchar [not null]
+}
+
+Table CorporateAction {
+corporateActionType varchar [not null]
+exDate date [not null]
+payDate date [not null]
+recordDate date
+announcementDate date
+underlier varchar [not null]
+adjustmentFactor varchar
+informationSource varchar
+dividendObservation varchar
+bespokeEventDescription varchar
+}
+
+Table AdjustmentFactor {
+AdjustmentFactor_value varchar [not null]
+calculationTerms varchar
+}
+
+Table AdjustmentFactorCalculationTerms {
+shareForShareRatio varchar
+shareForRightsRatio varchar
+rightsSubscriptionPrice varchar
+dividendRatio varchar
+spinOff varchar
+merger varchar
+accrualFactor varchar
+lastFixingPriceBeforeAdjustment varchar
+dividendObservation varchar
+bespokeCalculationFormula varchar
+}
+
+Table AccrualFactor {
+AccrualFactor_value varchar [not null]
+AccrualFactor_calculationTerms varchar
+}
+
+Table AccrualFactorCalculationTerms {
+tenorTillMaturity varchar [not null]
+dayCountFraction varchar [not null]
+interpolationTerms varchar
+}
+
+Table SpinOff {
+parentSecurity varchar [not null]
+parentSecurityPrice varchar [not null]
+childSecurity varchar [not null]
+childSecurityPrice varchar [not null]
+}
+
+Table Merger {
+purchaserSecurity varchar [not null]
+purchaserSecurityPrice varchar [not null]
+acquiredSecurity varchar [not null]
+acquiredSecurityPrice varchar [not null]
+}
+
+Table ClearingInstruction {
+alphaContract varchar [not null]
+clearingParty varchar [not null]
+party1 varchar [not null]
+party2 varchar [not null]
+clearerParty1 varchar
+clearerParty2 varchar
+isOpenOffer boolean
+}
+
+Table ExerciseEvent {
+adjustedExerciseDate date [not null]
+adjustedRelevantSwapEffectiveDate date [not null]
+adjustedCashSettlementValuationDate date
+adjustedCashSettlementPaymentDate date
+adjustedExerciseFeePaymentDate date
+}
+
+Table ReturnInstruction {
+ReturnInstruction_quantity varchar [not null]
+}
+
+Table SecurityLendingInvoice {
+sendingParty varchar [not null]
+receivingParty varchar [not null]
+billingStartDate date [not null]
+billingEndDate date [not null]
+billingRecord varchar [not null]
+billingSummary varchar [not null]
+}
+
+Table BillingInstruction {
+sendingParty varchar [not null]
+receivingParty varchar [not null]
+billingStartDate date [not null]
+billingEndDate date [not null]
+billingRecordInstruction varchar [not null]
+BillingInstruction_billingSummary varchar [not null]
+}
+
+Table BillingRecordInstruction {
+BillingRecordInstruction_tradeState varchar [not null]
+BillingRecordInstruction_observation varchar [not null]
+recordStartDate date [not null]
+recordEndDate date [not null]
+settlementDate date [not null]
+}
+
+Table BillingSummaryInstruction {
+summaryAmountType varchar [not null]
+}
+
+Table BillingRecord {
+BillingRecord_tradeState varchar [not null]
+recordTransfer varchar [not null]
+recordStartDate date [not null]
+recordEndDate date [not null]
+minimumFee varchar
+}
+
+Table BillingSummary {
+summaryTransfer varchar
+summaryAmountType varchar [not null]
+}
+
+Table TradePricingReport {
+TradePricingReport_trade varchar [not null]
+pricingTime varchar [not null]
+discountingIndex varchar
+}
+
+Table MarginCallBase {
+instructionType varchar [not null]
+MarginCallBase_party varchar
+MarginCallBase_partyRole varchar
+clearingBroker varchar
+callIdentifier varchar
+callAgreementType varchar [not null]
+agreementMinimumTransferAmount varchar
+agreementThreshold varchar
+agreementRounding varchar
+regMarginType varchar [not null]
+regIMRole varchar
+baseCurrencyExposure varchar
+collateralPortfolio varchar
+independentAmountBalance varchar
+}
+
+Table Exposure {
+tradePortfolio varchar [not null]
+aggregateValue varchar [not null]
+calculationDateTime datetime
+valuationDateTime datetime [not null]
+}
+
+Table MarginCallExposure {
+instructionType varchar [not null]
+MarginCallBase_party varchar
+MarginCallBase_partyRole varchar
+clearingBroker varchar
+callIdentifier varchar
+callAgreementType varchar [not null]
+agreementMinimumTransferAmount varchar
+agreementThreshold varchar
+agreementRounding varchar
+regMarginType varchar [not null]
+regIMRole varchar
+baseCurrencyExposure varchar
+collateralPortfolio varchar
+independentAmountBalance varchar
+overallExposure varchar [not null]
+simmIMExposure varchar
+scheduleGridIMExposure varchar
+}
+
+Table CollateralBalance {
+collateralBalanceStatus varchar
+haircutIndicator varchar
+amountBaseCurrency varchar [not null]
+CollateralBalance_payerReceiver varchar [not null]
+}
+
+Table CollateralPortfolio {
+portfolioIdentifier varchar
+collateralPosition varchar
+collateralBalance varchar
+CollateralPortfolio_legalAgreement varchar
+}
+
+Table CollateralPosition {
+PositionBase_priceQuantity varchar [not null]
+PositionBase_product varchar [not null]
+asset varchar
+cashBalance varchar
+PositionBase_tradeReference varchar
+treatment varchar
+collateralPositionStatus varchar
+}
+
+Table MarginCallIssuance {
+instructionType varchar [not null]
+MarginCallBase_party varchar
+MarginCallBase_partyRole varchar
+clearingBroker varchar
+callIdentifier varchar
+callAgreementType varchar [not null]
+agreementMinimumTransferAmount varchar
+agreementThreshold varchar
+agreementRounding varchar
+regMarginType varchar [not null]
+regIMRole varchar
+baseCurrencyExposure varchar
+collateralPortfolio varchar
+independentAmountBalance varchar
+callAmountInBaseCurrency varchar [not null]
+recallNonCashCollateralDescription varchar
+}
+
+Table MarginCallInstructionType {
+callType varchar [not null]
+visibilityIndicator boolean
+}
+
+Table MarginCallResponseAction {
+collateralPositionComponent varchar [not null]
+marginCallAction varchar [not null]
+}
+
+Table MarginCallResponse {
+instructionType varchar [not null]
+MarginCallBase_party varchar
+MarginCallBase_partyRole varchar
+clearingBroker varchar
+callIdentifier varchar
+callAgreementType varchar [not null]
+agreementMinimumTransferAmount varchar
+agreementThreshold varchar
+agreementRounding varchar
+regMarginType varchar [not null]
+regIMRole varchar
+baseCurrencyExposure varchar
+collateralPortfolio varchar
+independentAmountBalance varchar
+marginCallResponseAction varchar [not null]
+marginResponseType varchar [not null]
+agreedAmountBaseCurrency varchar [not null]
+}
+
+Table ClosedState {
+ClosedState_state varchar [not null]
+activityDate date [not null]
+ClosedState_effectiveDate date
+lastPaymentDate date
+}
+
+Table Transfer {
+}
+
+Table ContractBase {
+ContractBase_contractDetails varchar
+ContractBase_executionDetails varchar [not null]
+ContractBase_collateral varchar
+}
+
+Table CounterpartyPosition {
+ContractBase_contractDetails varchar
+ContractBase_executionDetails varchar [not null]
+ContractBase_collateral varchar
+positionIdentifier varchar
+openDateTime datetime
+CounterpartyPosition_tradeReference varchar
+CounterpartyPosition_party varchar
+CounterpartyPosition_partyRole varchar
+positionBase varchar [not null]
+}
+
+Table PositionBase {
+PositionBase_priceQuantity varchar [not null]
+PositionBase_product varchar [not null]
+asset varchar
+cashBalance varchar
+PositionBase_tradeReference varchar
+}
+
+Table Position {
+PositionBase_priceQuantity varchar [not null]
+PositionBase_product varchar [not null]
+asset varchar
+cashBalance varchar
+PositionBase_tradeReference varchar
+}
+
+Table PortfolioState {
+positions varchar
+lineage varchar [not null]
+}
+
+Table AggregationParameters {
+AggregationParameters_dateTime datetime [not null]
+totalPosition boolean
+positionStatus varchar
+AggregationParameters_party varchar
+AggregationParameters_product varchar [not null]
+AggregationParameters_productQualifier varchar
+tradeReference varchar
+}
+
+Table Portfolio {
+aggregationParameters varchar [not null]
+portfolioState varchar [not null]
+}
+
+Table Inventory {
+inventoryRecord varchar
+}
+
+Table InventoryRecord {
+identifer varchar [not null]
+security varchar [not null]
+}
+
+Table AvailableInventory {
+availableInventoryType varchar [not null]
+AvailableInventory_identifer varchar [not null]
+comment varchar
+messageInformation varchar
+AvailableInventory_party varchar
+AvailableInventory_partyRole varchar
+availableInventoryRecord varchar
+}
+
+Table AvailableInventoryRecord {
+identifer varchar [not null]
+security varchar [not null]
+expirationDateTime datetime
+AvailableInventoryRecord_collateral varchar
+AvailableInventoryRecord_partyRole varchar
+AvailableInventoryRecord_quantity varchar
+interestRate varchar
+dividendTerms varchar
+AvailableInventoryRecord_comment varchar
+}
+
+Table SecurityLocate {
+availableInventoryType varchar [not null]
+AvailableInventory_identifer varchar [not null]
+comment varchar
+messageInformation varchar
+AvailableInventory_party varchar
+AvailableInventory_partyRole varchar
+availableInventoryRecord varchar
+}
+
+Table CreditLimitInformation {
+limitApplicable varchar [not null]
+}
+
+Table CreditLimitUtilisation {
+executed varchar
+pending varchar
+}
+
+Table CreditLimitUtilisationPosition {
+shortPosition varchar
+longPosition varchar
+global_ varchar
+}
+
+Table CustomisedWorkflow {
+itemName varchar [not null]
+itemValue varchar [not null]
+}
+
+Table WorkflowStepApproval {
+approved boolean [not null]
+WorkflowStepApproval_party varchar [not null]
+rejectedReason varchar
+WorkflowStepApproval_timestamp varchar [not null]
+}
+
+Table WorkflowStep {
+businessEvent varchar
+counterpartyPositionBusinessEvent varchar
+proposedEvent varchar
+rejected boolean
+approval varchar
+previousWorkflowStep varchar
+nextEvent varchar
+WorkflowStep_messageInformation varchar
+WorkflowStep_timestamp varchar [not null]
+eventIdentifier varchar [not null]
+action varchar
+WorkflowStep_party varchar
+WorkflowStep_account varchar
+WorkflowStep_lineage varchar [not null]
+creditLimitInformation varchar
+workflowState varchar
+}
+
+Table Workflow {
+steps varchar [not null]
+}
+
+Table EventInstruction {
+EventInstruction_intent varchar [not null]
+corporateActionIntent varchar
+eventDate date
+eventTime varchar
+EventInstruction_effectiveDate date
+effectiveTime varchar
+packageInformation varchar
+instruction varchar
+}
+
+Table EventTimestamp {
+EventTimestamp_dateTime datetime [not null]
+qualification varchar [not null]
+}
+
+Table WorkflowState {
+workflowStatus varchar [not null]
+WorkflowState_comment varchar
+partyCustomisedWorkflow varchar
+warehouseIdentity varchar
+}
+
+Table LimitApplicable {
+limitType varchar
+clipSize int
+amountUtilized varchar
+utilization varchar
+amountRemaining varchar
+LimitApplicable_currency varchar
+velocity varchar
+}
+
+Table LimitApplicableExtended {
+limitType varchar
+clipSize int
+amountUtilized varchar
+utilization varchar
+amountRemaining varchar
+LimitApplicable_currency varchar
+velocity varchar
+limitLevel varchar
+limitAmount varchar
+limitImpactDueToTrade varchar
+}
+
+Table MessageInformation {
+messageId varchar [not null]
+sentBy varchar
+sentTo varchar
+copyTo varchar
+}
+
+Table PartyCustomisedWorkflow {
+PartyCustomisedWorkflow_partyReference varchar [not null]
+partyName varchar
+customisedWorkflow varchar [not null]
+}
+
+Table Velocity {
+Velocity_periodMultiplier int [not null]
+Velocity_period varchar [not null]
+}
+
+Table ContractualMatrix {
+matrixType varchar [not null]
+matrixTerm varchar
+}
+
+Table ContractualTermsSupplement {
+contractualTermsSupplementType varchar [not null]
+ContractualTermsSupplement_publicationDate date
+}
+
+Table OtherAgreement {
+OtherAgreement_identifier varchar [not null]
+otherAgreementType varchar [not null]
+OtherAgreement_version varchar [not null]
+OtherAgreement_date date [not null]
+}
+
+Table Resource {
+resourceId varchar [not null]
+resourceType varchar
+language varchar
+sizeInBytes varchar
+length varchar
+mimeType varchar
+Resource_name varchar
+comments varchar
+string varchar
+url varchar
+}
+
+Table ResourceLength {
+lengthUnit varchar [not null]
+lengthValue varchar [not null]
+}
+
+Table AgreementTerms {
+agreement varchar [not null]
+clauseLibrary boolean
+AgreementTerms_counterparty varchar [not null]
+}
+
+Table LegalAgreement {
+agreementDate date
+LegalAgreementBase_effectiveDate date
+LegalAgreementBase_identifier varchar [not null]
+legalAgreementIdentification varchar [not null]
+contractualParty varchar [not null]
+otherParty varchar
+attachment varchar
+agreementTerms varchar
+relatedAgreements varchar
+umbrellaAgreement varchar
+}
+
+Table LegalAgreementBase {
+agreementDate date
+LegalAgreementBase_effectiveDate date
+LegalAgreementBase_identifier varchar [not null]
+legalAgreementIdentification varchar [not null]
+contractualParty varchar [not null]
+otherParty varchar
+attachment varchar
+}
+
+Table LegalAgreementIdentification {
+LegalAgreementIdentification_governingLaw varchar
+agreementName varchar [not null]
+publisher varchar
+vintage int
+}
+
+Table AgreementName {
+agreementType varchar [not null]
+creditSupportAgreementType varchar
+creditSupportAgreementMarginType varchar
+contractualDefinitionsType varchar
+contractualTermsSupplement varchar
+contractualMatrix varchar
+masterAgreementType varchar
+masterConfirmationType varchar
+masterConfirmationAnnexType varchar
+otherAgreement varchar
+brokerConfirmationType varchar
+}
+
+Table UmbrellaAgreement {
+agreementSet varchar [not null]
+}
+
+Table UmbrellaAgreementParty {
+UmbrellaAgreementParty_party varchar
+actingAs varchar
+UmbrellaAgreementParty_partyRole varchar
+nonLegalEntity varchar
+parentParty varchar
+}
+
+Table NonLegalEntity {
+NonLegalEntity_identifier varchar [not null]
+NonLegalEntity_identifierType varchar [not null]
+}
+
+Table UmbrellaAgreementSet {
+agreement varchar [not null]
+UmbrellaAgreementSet_party varchar [not null]
+additionalLanguage varchar
+}
+
+Table ContactInformationElection {
+ContactInformationElection_partyReference varchar [not null]
+primaryContactInformation varchar
+}
+
+Table NoticeInformationElection {
+ContactInformationElection_partyReference varchar [not null]
+primaryContactInformation varchar
+additionalContactInformation varchar
+}
+
+Table NoticeContactInformation {
+telephone varchar
+address varchar
+email varchar
+webPage varchar
+naturalPerson varchar
+additionalInformation varchar
+}
+
+Table TransferInformationElection {
+ContactInformationElection_partyReference varchar [not null]
+primaryContactInformation varchar
+}
+
+Table TransferContactInformation {
+telephone varchar
+address varchar
+email varchar
+webPage varchar
+TransferContactInformation_account varchar
+TransferContactInformation_additionalInformation varchar
+}
+
+Table OtherAgreementTerms {
+isSpecified boolean [not null]
+legalDocument varchar
+}
+
+Table Agreement {
+creditSupportAgreementElections varchar
+collateralTransferAgreementElections varchar
+securityAgreementElections varchar
+masterAgreementSchedule varchar
+transactionAdditionalTerms varchar
+masterAgreementElections varchar
+}
+
+Table CreditSupportAgreementInitialMarginElections {
+baseAndEligibleCurrency varchar [not null]
+conditionsPrecedent varchar
+substitution varchar
+disputeResolution varchar [not null]
+holdingAndUsingPostedCollateral varchar
+distributionAndInterestPayment varchar
+otherEligibleAndPostedSupport varchar
+demandsAndNotices varchar
+additionalRepresentations varchar
+masterAgreementDatedAsOfDate varchar
+finalReturns varchar [not null]
+regime varchar [not null]
+oneWayProvisions varchar [not null]
+generalSimmElections varchar
+identifiedCrossCurrencySwap boolean
+sensitivityMethodologies varchar [not null]
+fxHaircutCurrency varchar
+postingObligations varchar [not null]
+substitutedRegime varchar
+coveredTransactions varchar
+rightsEvents varchar [not null]
+custodyArrangements varchar
+otherAgreements varchar
+terminationCurrencyAmendment varchar [not null]
+minimumTransferAmountAmendment varchar [not null]
+interpretationTerms varchar
+processAgent varchar [not null]
+appropriatedCollateralValuation varchar
+jurisdictionRelatedTerms varchar
+additionalAmendments varchar
+additionalBespokeTerms varchar
+trustSchemeAddendum boolean [not null]
+clientAssetSourcebookAdditionalLanguage varchar
+creditSupportObligations varchar [not null]
+calculationAndTiming varchar [not null]
+}
+
+Table CreditSupportAgreementVariationMarginElections {
+baseAndEligibleCurrency varchar [not null]
+conditionsPrecedent varchar
+substitution varchar
+disputeResolution varchar [not null]
+holdingAndUsingPostedCollateral varchar
+distributionAndInterestPayment varchar
+otherEligibleAndPostedSupport varchar
+demandsAndNotices varchar
+additionalRepresentations varchar
+masterAgreementDatedAsOfDate varchar
+finalReturns varchar [not null]
+fxHaircutCurrency varchar
+exchangeDate varchar
+CreditSupportAgreementVariationMarginElections_coveredTransactions varchar [not null]
+creditSupportOffsets boolean [not null]
+custodyArrangements varchar
+addressesForTransfer varchar
+otherAgreements varchar
+securityInterestForObligations varchar [not null]
+CreditSupportAgreementVariationMarginElections_creditSupportObligations varchar [not null]
+CreditSupportAgreementVariationMarginElections_calculationAndTiming varchar [not null]
+}
+
+Table CreditSupportAgreementLegacyElections {
+baseAndEligibleCurrency varchar [not null]
+conditionsPrecedent varchar
+substitution varchar
+disputeResolution varchar [not null]
+holdingAndUsingPostedCollateral varchar
+distributionAndInterestPayment varchar
+otherEligibleAndPostedSupport varchar
+demandsAndNotices varchar
+additionalRepresentations varchar
+masterAgreementDatedAsOfDate varchar
+finalReturns varchar [not null]
+exchangeDate varchar
+addressesForTransfer varchar
+CreditSupportAgreementLegacyElections_securityInterestForObligations varchar [not null]
+singlePostingParty varchar
+CreditSupportAgreementLegacyElections_creditSupportObligations varchar [not null]
+CreditSupportAgreementLegacyElections_calculationAndTiming varchar [not null]
+}
+
+Table CreditSupportAgreementElectionsBase {
+baseAndEligibleCurrency varchar [not null]
+conditionsPrecedent varchar
+substitution varchar
+disputeResolution varchar [not null]
+holdingAndUsingPostedCollateral varchar
+distributionAndInterestPayment varchar
+otherEligibleAndPostedSupport varchar
+demandsAndNotices varchar
+additionalRepresentations varchar
+masterAgreementDatedAsOfDate varchar
+finalReturns varchar [not null]
+}
+
+Table CollateralTransferAgreementElections {
+regime varchar [not null]
+oneWayProvisions varchar [not null]
+generalSimmElections varchar
+identifiedCrossCurrencySwap boolean
+sensitivityMethodologies varchar [not null]
+fxHaircutCurrency varchar
+postingObligations varchar [not null]
+substitutedRegime varchar
+baseAndEligibleCurrency varchar [not null]
+CollateralTransferAgreementElections_creditSupportObligations varchar [not null]
+CollateralTransferAgreementElections_calculationAndTiming varchar [not null]
+conditionsPrecedent varchar
+substitution varchar
+disputeResolution varchar [not null]
+CollateralTransferAgreementElections_rightsEvents varchar [not null]
+custodyArrangements varchar
+additionalRepresentations varchar
+demandsAndNotices varchar
+addressesForTransfer varchar
+otherAgreements varchar
+terminationCurrencyAmendment varchar [not null]
+minimumTransferAmountAmendment varchar [not null]
+interpretationTerms varchar
+CollateralTransferAgreementElections_processAgent varchar [not null]
+jurisdictionRelatedTerms varchar
+additionalAmendments varchar
+additionalBespokeTerms varchar
+pledgeeRepresentativeRider varchar
+CollateralTransferAgreementElections_finalReturns varchar [not null]
+}
+
+Table SecurityAgreementElections {
+pledgedAccount varchar
+enforcementEvent varchar
+deliveryInLieuRight boolean
+fullDischarge boolean
+appropriatedCollateralValuation varchar
+SecurityAgreementElections_processAgent varchar [not null]
+SecurityAgreementElections_jurisdictionRelatedTerms varchar
+additionalAmendments varchar
+additionalBespokeTerms varchar
+executionTerms varchar
+}
+
+Table PostedCreditSupportItem {
+cashOrSecurityValue varchar [not null]
+haircutPercentage varchar [not null]
+fxHaircutPercentage varchar
+additionalHaircutPercentage varchar
+disputedCashOrSecurityValue varchar [not null]
+}
+
+Table AdditionalRepresentation {
+partyElection varchar [not null]
+customElection varchar
+}
+
+Table AdditionalRepresentationElection {
+AdditionalRepresentationElection_party varchar [not null]
+isApplicable boolean [not null]
+AdditionalRepresentationElection_additionalLanguage varchar
+}
+
+Table AdditionalRepresentations {
+additionalRepresentation varchar
+regulatoryComplianceRepresentation boolean
+}
+
+Table AdditionalRightsEvent {
+AdditionalRightsEvent_isApplicable boolean [not null]
+AdditionalRightsEvent_qualification varchar [not null]
+}
+
+Table AdditionalTerminationEvent {
+AdditionalTerminationEvent_name varchar [not null]
+applicableParty varchar [not null]
+}
+
+Table AdditionalType {
+standardValue varchar [not null]
+customValue varchar
+}
+
+Table AmendmentEffectiveDate {
+AmendmentEffectiveDate_date date [not null]
+specificDate varchar
+AmendmentEffectiveDate_customProvision varchar
+}
+
+Table ApplicableRegime {
+ApplicableRegime_regime varchar [not null]
+additionalRegime varchar
+regimeTerms varchar [not null]
+additionalType varchar
+additionalTerms varchar
+}
+
+Table AppropriatedCollateralValuation {
+AppropriatedCollateralValuation_isSpecified boolean [not null]
+election varchar
+}
+
+Table BespokeCalculationDate {
+BespokeCalculationDate_isApplicable boolean [not null]
+calculationDateImTerms varchar
+}
+
+Table BespokeCalculationTime {
+asCalculationAgent boolean [not null]
+bespokeCalculationTimeTerms varchar
+}
+
+Table BespokeTransferTiming {
+BespokeTransferTiming_isApplicable boolean [not null]
+bespokeTransferTimingTerms varchar
+}
+
+Table CalculationAgentTerms {
+CalculationAgentTerms_party varchar
+bespokeCalculationAgentTerms varchar
+}
+
+Table CalculationAndTimingLegacy {
+notificationTime varchar [not null]
+valuationDate varchar [not null]
+valuationTime varchar [not null]
+valuationAgent varchar [not null]
+}
+
+Table CalculationAndTimingVariationMargin {
+notificationTime varchar [not null]
+valuationDate varchar [not null]
+valuationTime varchar [not null]
+CalculationAndTimingVariationMargin_valuationAgent varchar [not null]
+valuationDateLocation varchar [not null]
+}
+
+Table CalculationAndTimingInitialMargin {
+notificationTime varchar [not null]
+calculationAgentTerms varchar [not null]
+bespokeCalculationDate varchar
+bespokeCalculationTime varchar
+calculationDateLocation varchar [not null]
+cashSettlementDay varchar
+securitiesSettlementDay varchar
+}
+
+Table CalculationAndTimingCollateralTransferAgreement {
+notificationTime varchar [not null]
+CalculationAndTimingCollateralTransferAgreement_calculationAgentTerms varchar [not null]
+bespokeCalculationDate varchar
+bespokeCalculationTime varchar
+CalculationAndTimingCollateralTransferAgreement_calculationDateLocation varchar [not null]
+cashSettlementDay varchar
+securitiesSettlementDay varchar
+}
+
+Table CalculationAndTimingBase {
+notificationTime varchar [not null]
+}
+
+Table CalculationCurrencyElection {
+CalculationCurrencyElection_party varchar [not null]
+isBaseCurrency boolean [not null]
+CalculationCurrencyElection_currency varchar
+}
+
+Table ValuationCalculationDateLocation {
+ValuationCalculationDateLocation_partyElection varchar [not null]
+}
+
+Table ValuationCalculationDateLocationElection {
+ValuationCalculationDateLocationElection_party varchar [not null]
+ValuationCalculationDateLocationElection_businessCenter varchar
+customLocation varchar
+}
+
+Table CollateralAccessBreach {
+CollateralAccessBreach_isApplicable boolean [not null]
+cabEndDateElection boolean
+cabEndDate varchar
+cabEndDateTerms varchar
+}
+
+Table CollateralManagementAgreement {
+CollateralManagementAgreement_partyElection varchar [not null]
+}
+
+Table CollateralManagementAgreementElection {
+CollateralManagementAgreementElection_party varchar [not null]
+collateralManagementAgreement varchar [not null]
+}
+
+Table CollateralRounding {
+deliveryAmount varchar [not null]
+deliveryDirection varchar [not null]
+returnAmount varchar [not null]
+returnDirection varchar [not null]
+CollateralRounding_currency varchar [not null]
+other varchar
+}
+
+Table ConditionsPrecedent {
+conditionsPrecedentElection varchar
+ConditionsPrecedent_customProvision varchar
+specifiedConditionOrAccessCondition varchar
+}
+
+Table ControlAgreement {
+ControlAgreement_partyElection varchar [not null]
+}
+
+Table ControlAgreementElections {
+ControlAgreementElections_party varchar [not null]
+controlAgreementAsCsd boolean [not null]
+consistencyWithControlAgreement boolean
+relationshipWithControlAgreement boolean
+}
+
+Table ControlAgreementNecEvent {
+controlAgreementNecEventElection varchar [not null]
+}
+
+Table ControlAgreementNecEventElection {
+ControlAgreementNecEventElection_party varchar [not null]
+necEvent boolean [not null]
+}
+
+Table Custodian {
+Custodian_partyElection varchar [not null]
+}
+
+Table CustodianElection {
+CustodianElection_party varchar [not null]
+custodian varchar
+segregatedCashAccount varchar
+segregatedSecurityAccount varchar
+legacyVMCustodian varchar
+legacyNamedEntity varchar
+CustodianElection_additionalLanguage varchar
+}
+
+Table CustodianEvent {
+CustodianEvent_isApplicable boolean [not null]
+CustodianEvent_endDate varchar [not null]
+}
+
+Table CustodianEventEndDate {
+daysAfterCustodianEvent varchar [not null]
+releaseDate varchar [not null]
+safekeepingPeriodExpiry varchar
+dateOfTimelyStatement varchar [not null]
+}
+
+Table CustodianRisk {
+CustodianRisk_partyElection varchar [not null]
+}
+
+Table CustodianRiskElection {
+CustodianRiskElection_party varchar
+CustodianRiskElection_isSpecified boolean [not null]
+CustodianRiskElection_qualification varchar [not null]
+}
+
+Table CustodianTerms {
+minimumAssets varchar
+minimumRating varchar
+initialDesignation varchar
+}
+
+Table CustodyArrangements {
+isCreditSupportDocument boolean
+hasControlAgreementLanguage boolean
+otherProvisions varchar
+collateralAccessBreach varchar
+custodianRisk varchar
+controlAgreement varchar
+custodianEvent varchar
+CustodyArrangements_custodian varchar
+CustodyArrangements_collateralManagementAgreement varchar [not null]
+}
+
+Table DisputeResolution {
+resolutionTime varchar
+otherTerms varchar
+alternativeTerms varchar
+recalculationOfValue varchar
+legacyAlternative varchar
+DisputeResolution_value varchar
+}
+
+Table ElectiveAmountElection {
+ElectiveAmountElection_party varchar [not null]
+electiveAmount varchar
+ElectiveAmountElection_amount varchar [not null]
+ElectiveAmountElection_customElection varchar
+}
+
+Table EnforcementEvent {
+earlyTerminationDate boolean [not null]
+failureToPay boolean
+}
+
+Table ExecutionLanguage {
+standardLanguage boolean [not null]
+numberOfOriginals varchar
+otherLanguage varchar
+}
+
+Table ExecutionLocation {
+executionLocation varchar [not null]
+ExecutionLocation_otherLanguage varchar
+dutyPayer varchar
+dutyPayerLanguage varchar
+dutyPaymentDate date
+dutyPaymentLanguage varchar
+}
+
+Table ExecutionTerms {
+executionLanguage varchar [not null]
+ExecutionTerms_executionLocation varchar [not null]
+}
+
+Table FrenchLawAddendum {
+FrenchLawAddendum_isApplicable boolean [not null]
+FrenchLawAddendum_partyElection varchar [not null]
+}
+
+Table FrenchLawAddendumElection {
+FrenchLawAddendumElection_party varchar [not null]
+FrenchLawAddendumElection_isApplicable boolean [not null]
+addendumLanguage varchar
+}
+
+Table FxHaircutCurrency {
+isTerminationCurrency boolean [not null]
+fxDesignatedCurrency varchar
+}
+
+Table GeneralSimmElections {
+simmVersion varchar
+simmCalculationCurrency varchar [not null]
+}
+
+Table HoldingAndUsingPostedCollateral {
+HoldingAndUsingPostedCollateral_partyElection varchar [not null]
+HoldingAndUsingPostedCollateral_additionalLanguage varchar
+}
+
+Table HoldingAndUsingPostedCollateralElection {
+HoldingAndUsingPostedCollateralElection_party varchar [not null]
+eligibilityToHoldCollateral varchar [not null]
+useOfPostedCollateral boolean [not null]
+}
+
+Table IneligibleCreditSupport {
+totalIneligibilityDate varchar
+transferIneligibilityDate varchar
+specifiedParty varchar
+}
+
+Table InterestAdjustment {
+InterestAdjustment_isApplicable boolean [not null]
+periodicity varchar [not null]
+}
+
+Table InterestAdjustmentPeriodicity {
+standardElection varchar
+InterestAdjustmentPeriodicity_customElection varchar
+}
+
+Table InterestAmount {
+InterestAmount_returnAmount varchar [not null]
+InterestAmount_deliveryAmount varchar [not null]
+}
+
+Table JapaneseSecuritiesProvisions {
+JapaneseSecuritiesProvisions_isApplicable boolean [not null]
+relevantProvisionsElection boolean
+relevantProvisionsTerms varchar
+amendmentsToJapaneseProvisions boolean
+amendmentsToJapaneseProvisionsTerms varchar
+clearstreamAmendmentToJapaneseProvisions boolean
+}
+
+Table JurisdictionRelatedTerms {
+japaneseSecuritiesProvisions varchar
+exclusiveJurisdiction boolean
+juryWaiver boolean
+frenchLawAddendum varchar
+belgianLawSecurityAgreement boolean
+}
+
+Table MarginApproach {
+marginApproach varchar [not null]
+}
+
+Table MinimumTransferAmountAmendment {
+MinimumTransferAmountAmendment_isApplicable boolean [not null]
+MinimumTransferAmountAmendment_effectiveDate varchar
+partyElections varchar
+}
+
+Table NotificationTime {
+NotificationTime_partyElections varchar [not null]
+disputeNotificationReference boolean
+transferTimingProviso boolean
+}
+
+Table NotificationTimeElection {
+NotificationTimeElection_party varchar [not null]
+NotificationTimeElection_notificationTime varchar [not null]
+customNotification varchar
+localBusinessDay boolean
+}
+
+Table OneWayProvisions {
+OneWayProvisions_isApplicable boolean [not null]
+postingParty varchar
+}
+
+Table OtherAgreements {
+otherCSA varchar
+japaneseLawCsa varchar
+}
+
+Table OtherEligibleAndPostedSupport {
+applicableValue boolean
+applicableTransfer boolean
+OtherEligibleAndPostedSupport_value varchar
+}
+
+Table PartyAgreementIdentifier {
+PartyAgreementIdentifier_partyReference varchar [not null]
+documentIdentifier varchar [not null]
+}
+
+Table PostingObligations {
+securityProvider varchar [not null]
+PostingObligations_partyElection varchar [not null]
+}
+
+Table PostingObligationsElection {
+PostingObligationsElection_party varchar [not null]
+asPermitted boolean [not null]
+eligibleCollateral varchar
+excludedCollateral varchar
+PostingObligationsElection_additionalLanguage varchar
+}
+
+Table ProcessAgent {
+ProcessAgent_partyElection varchar [not null]
+}
+
+Table ProcessAgentElection {
+ContactInformationElection_partyReference varchar [not null]
+primaryContactInformation varchar
+ProcessAgentElection_isApplicable boolean [not null]
+entity varchar
+ProcessAgentElection_additionalInformation varchar
+}
+
+Table RecalculationOfValue {
+RecalculationOfValue_partyElection varchar [not null]
+}
+
+Table RecalculationOfValueElection {
+RecalculationOfValueElection_party varchar [not null]
+recalculationOfValueElection varchar [not null]
+recalculationOfValueTerms varchar
+}
+
+Table Regime {
+applicableRegime varchar [not null]
+fallbackToMandatoryMethodDays varchar
+}
+
+Table RegimeTerms {
+RegimeTerms_party varchar [not null]
+RegimeTerms_isApplicable varchar [not null]
+asSpecified varchar
+simmException varchar
+retrospectiveEffect varchar
+}
+
+Table PledgeeRepresentativeRider {
+PledgeeRepresentativeRider_isApplicable boolean [not null]
+PledgeeRepresentativeRider_party varchar
+representativeTerms varchar
+representativeEvent varchar
+representativeEventTerms varchar
+representativeEndDate varchar
+}
+
+Table RetrospectiveEffect {
+standardisedException varchar
+RetrospectiveEffect_asSpecified varchar
+}
+
+Table RightsEvents {
+securityTakerRightsEvent varchar [not null]
+controlAgreementNecEvent varchar
+securityProviderRightsEvent varchar [not null]
+RightsEvents_deliveryInLieuRight boolean
+additionalRightsEvent varchar
+}
+
+Table SecuredPartyRightsEvent {
+securedPartyRightsEventElection varchar
+earlyTerminationDateOptionalLanguage boolean [not null]
+failureToPayEarlyTermination boolean
+}
+
+Table SecuredPartyRightsEventElection {
+SecuredPartyRightsEventElection_party varchar [not null]
+rightsEvent boolean [not null]
+}
+
+Table SecurityProviderRightsEvent {
+SecurityProviderRightsEvent_partyElection varchar [not null]
+includeCoolingOffLanguage boolean [not null]
+SecurityProviderRightsEvent_fullDischarge boolean
+automaticSetOff boolean
+SecurityProviderRightsEvent_customElection varchar
+}
+
+Table SecurityProviderRightsEventElection {
+SecurityProviderRightsEventElection_party varchar [not null]
+SecurityProviderRightsEventElection_rightsEvent boolean [not null]
+}
+
+Table SensitivityMethodologies {
+SensitivityMethodologies_partyElection varchar [not null]
+}
+
+Table SensitivityMethodologiesPartyElection {
+SensitivityMethodologiesPartyElection_party varchar [not null]
+sensitivityToEquity varchar [not null]
+sensitivityToCommodity varchar [not null]
+}
+
+Table SensitivityToEquity {
+sensitivityToIndices varchar [not null]
+sensitivityToFunds varchar [not null]
+sensitivityToETFs varchar [not null]
+}
+
+Table SensitivityMethodology {
+specifiedMethodology varchar
+customMethodology varchar
+}
+
+Table SimmCalculationCurrency {
+SimmCalculationCurrency_partyElection varchar [not null]
+}
+
+Table SimmException {
+standardisedException varchar
+simmExceptionApplicable varchar
+SimmException_asSpecified varchar
+}
+
+Table SimmVersion {
+SimmVersion_isSpecified boolean [not null]
+partyVersion varchar
+SimmVersion_asSpecified varchar
+}
+
+Table SubstitutedRegime {
+SubstitutedRegime_regime varchar [not null]
+additionalRegime varchar
+SubstitutedRegime_regimeTerms varchar [not null]
+}
+
+Table SubstitutedRegimeTerms {
+SubstitutedRegimeTerms_party varchar [not null]
+SubstitutedRegimeTerms_isApplicable boolean [not null]
+}
+
+Table Substitution {
+Substitution_partyElection varchar [not null]
+}
+
+Table SubstitutionPartyElection {
+SubstitutionPartyElection_party varchar [not null]
+needsConsent boolean [not null]
+substitutionDateLanguage varchar
+specificConsentLanguage varchar
+legacyConsent varchar
+}
+
+Table TerminationCurrencyAmendment {
+TerminationCurrencyAmendment_isApplicable boolean [not null]
+TerminationCurrencyAmendment_effectiveDate varchar
+TerminationCurrencyAmendment_partyElection varchar [not null]
+}
+
+Table TerminationCurrencyElection {
+TerminationCurrencyElection_party varchar [not null]
+TerminationCurrencyElection_isSpecified boolean [not null]
+TerminationCurrencyElection_currency varchar
+}
+
+Table AdditionalObligations {
+AdditionalObligations_party varchar [not null]
+additionalObligations varchar [not null]
+}
+
+Table BaseAndEligibleCurrency {
+baseCurrency varchar [not null]
+baseCurrencyTerminationCurrency boolean [not null]
+baseCurrencyOther varchar
+eligibleCurrency varchar
+eligibleCurrencyInclBaseCurrency boolean [not null]
+eligibleCurrencyOther varchar
+}
+
+Table CoveredTransactions {
+inclusionDate date
+CoveredTransactions_coveredTransactions varchar
+bespokeCoveredTransactions varchar
+CoveredTransactions_additionalObligations varchar [not null]
+exposure varchar
+}
+
+Table CreditSupportObligationsBase {
+CreditSupportObligationsBase_deliveryAmount varchar [not null]
+CreditSupportObligationsBase_returnAmount varchar [not null]
+minimumTransferAmount varchar [not null]
+collateralTransferTiming varchar
+bespokeTransferTiming varchar
+}
+
+Table CreditSupportObligationsLegacy {
+CreditSupportObligationsBase_deliveryAmount varchar [not null]
+CreditSupportObligationsBase_returnAmount varchar [not null]
+minimumTransferAmount varchar [not null]
+collateralTransferTiming varchar
+bespokeTransferTiming varchar
+threshold varchar [not null]
+CreditSupportObligationsLegacy_rounding varchar [not null]
+independentAmount varchar [not null]
+creditSupportAmount varchar [not null]
+eligibleCreditSupport varchar [not null]
+}
+
+Table CreditSupportObligationsInitialMargin {
+CreditSupportObligationsBase_deliveryAmount varchar [not null]
+CreditSupportObligationsBase_returnAmount varchar [not null]
+minimumTransferAmount varchar [not null]
+collateralTransferTiming varchar
+bespokeTransferTiming varchar
+CreditSupportObligationsInitialMargin_marginApproach varchar [not null]
+otherEligibleSupportIM varchar
+CreditSupportObligationsInitialMargin_rounding varchar [not null]
+threshold varchar [not null]
+creditSupportAmount varchar [not null]
+}
+
+Table CreditSupportObligationsCollateralTransferAgreement {
+CreditSupportObligationsBase_deliveryAmount varchar [not null]
+CreditSupportObligationsBase_returnAmount varchar [not null]
+minimumTransferAmount varchar [not null]
+collateralTransferTiming varchar
+bespokeTransferTiming varchar
+CreditSupportObligationsCollateralTransferAgreement_marginApproach varchar [not null]
+otherEligibleSupportIM varchar
+threshold varchar [not null]
+creditSupportAmount varchar [not null]
+CreditSupportObligationsCollateralTransferAgreement_rounding varchar
+}
+
+Table CreditSupportObligationsVariationMargin {
+CreditSupportObligationsBase_deliveryAmount varchar [not null]
+CreditSupportObligationsBase_returnAmount varchar [not null]
+minimumTransferAmount varchar [not null]
+collateralTransferTiming varchar
+bespokeTransferTiming varchar
+ineligibleCreditSupport varchar
+majorCurrency varchar
+fxHaircut varchar
+CreditSupportObligationsVariationMargin_rounding varchar [not null]
+eligibleCreditSupport varchar [not null]
+}
+
+Table EligibleCreditSupport {
+EligibleCreditSupport_partyElection varchar [not null]
+}
+
+Table EligibleCollateralElection {
+PostingObligationsElection_party varchar [not null]
+asPermitted boolean [not null]
+eligibleCollateral varchar
+excludedCollateral varchar
+PostingObligationsElection_additionalLanguage varchar
+otherEligibleSupport varchar [not null]
+}
+
+Table SecurityInterestForObligations {
+SecurityInterestForObligations_party varchar [not null]
+obligations varchar [not null]
+obligee varchar [not null]
+SecurityInterestForObligations_other varchar
+}
+
+Table SinglePostingParty {
+SinglePostingParty_party varchar
+other varchar
+}
+
+Table Threshold {
+Threshold_partyElection varchar [not null]
+}
+
+Table ThresholdMinimumTransferAmountBase {
+zeroEvent boolean [not null]
+event varchar
+}
+
+Table ThresholdElection {
+ThresholdElection_party varchar [not null]
+fixedAmount varchar
+ratingsBased varchar
+infinity boolean
+other varchar
+}
+
+Table ThresholdRatingsBased {
+zeroEvent boolean [not null]
+event varchar
+ThresholdRatingsBased_currency varchar [not null]
+ratingType varchar [not null]
+variableSet varchar
+ratedParty varchar
+namedEntity varchar
+namedAffiliate varchar
+compare varchar
+noRating boolean [not null]
+notRatedBy varchar
+numberOfRatingAgencies varchar
+}
+
+Table CSAThresholdVariableSet {
+CSAThresholdVariableSet_name varchar
+CSAThresholdVariableSet_value varchar
+CSAThresholdVariableSet_amount int [not null]
+}
+
+Table MinimumTransferAmount {
+MinimumTransferAmount_partyElection varchar [not null]
+}
+
+Table MinimumTransferAmountElection {
+MinimumTransferAmountElection_party varchar [not null]
+MinimumTransferAmountElection_fixedAmount varchar
+MinimumTransferAmountElection_ratingsBased varchar
+other varchar
+}
+
+Table ThresholdMinimumTransferAmountFixedAmount {
+zeroEvent boolean [not null]
+event varchar
+ThresholdMinimumTransferAmountFixedAmount_amount varchar [not null]
+}
+
+Table MinimumTransferAmountRatingsBased {
+zeroEvent boolean [not null]
+event varchar
+MinimumTransferAmountRatingsBased_currency varchar [not null]
+ratingType varchar [not null]
+MinimumTransferAmountRatingsBased_variableSet varchar
+ratedParty varchar
+namedEntity varchar
+namedAffiliate varchar
+compare varchar
+noRating boolean [not null]
+notRatedBy varchar
+numberOfRatingAgencies varchar
+}
+
+Table CSAMinimumTransferAmountVariableSet {
+CSAMinimumTransferAmountVariableSet_name varchar
+CSAMinimumTransferAmountVariableSet_value varchar
+CSAMinimumTransferAmountVariableSet_amount int [not null]
+amountIsInfinity boolean
+}
+
+Table MasterAgreementDatedAsOfDate {
+MasterAgreementDatedAsOfDate_masterAgreementDatedAsOfDate date
+MasterAgreementDatedAsOfDate_additionalLanguage varchar
+}
+
+Table CSADeliveryAmount {
+CSADeliveryAmount_deliveryAmount varchar [not null]
+CSADeliveryAmount_additionalLanguage varchar
+}
+
+Table CSAReturnAmount {
+CSAReturnAmount_returnAmount varchar [not null]
+}
+
+Table ValuationTime {
+day varchar
+ValuationTime_location varchar
+ValuationTime_time varchar [not null]
+hourminutetime varchar
+timezone varchar
+ValuationTime_additionalLanguage varchar
+}
+
+Table FinalReturns {
+FinalReturns_applicable boolean [not null]
+FinalReturns_additionalLanguage varchar
+}
+
+Table CSAValuationDate {
+CSAValuationDate_date varchar [not null]
+CSAValuationDate_day varchar
+calendarDay varchar
+CSAValuationDate_frequency varchar
+CSAValuationDate_additionalLanguage varchar
+}
+
+Table ValuationAgent {
+ValuationAgent_party varchar
+ValuationAgent_valuationAgent varchar [not null]
+ValuationAgent_additionalLanguage varchar
+}
+
+Table ExposureScope {
+ExposureScope_partyElection varchar [not null]
+}
+
+Table LegacyExposureScopeElection {
+LegacyExposureScopeElection_party varchar [not null]
+excludedTransactions boolean [not null]
+excludedProducts varchar
+LegacyExposureScopeElection_additionalLanguage varchar
+}
+
+Table ExcludedProducts {
+ExcludedProducts_product varchar [not null]
+branch varchar
+ExcludedProducts_excluded boolean [not null]
+}
+
+Table CreditSupportAmount {
+CreditSupportAmount_creditSupportAmount varchar [not null]
+CreditSupportAmount_additionalLanguage varchar
+}
+
+Table LegacyResolutionAlternative {
+resolutionAlternative varchar
+LegacyResolutionAlternative_amount varchar [not null]
+LegacyResolutionAlternative_additionalLanguage varchar
+}
+
+Table ResolutionValue {
+cash varchar
+securities varchar
+fallback boolean
+ResolutionValue_additionalLanguage varchar
+}
+
+Table CollateralTransferTiming {
+transferSettlementTiming varchar
+collateralTransferTimingDefinition varchar
+}
+
+Table TransferSettlementTiming {
+cashCollateralTransferSettlementTime varchar
+securititesCollateralTransferSettlementTime varchar
+TransferSettlementTiming_additionalLanguage varchar
+}
+
+Table CollateralTransferTimingDefinition {
+CollateralTransferTimingDefinition_isApplicable boolean [not null]
+CollateralTransferTimingDefinition_additionalLanguage varchar
+}
+
+Table CollateralValueMethod {
+cashCollateral varchar
+securitiesCollateral varchar
+CollateralValueMethod_additionalLanguage varchar
+}
+
+Table CreditSupportDocument {
+creditSupportDocumentElection varchar [not null]
+}
+
+Table CreditSupportDocumentElection {
+CreditSupportDocumentElection_party varchar [not null]
+creditSupportDocumentTerms varchar [not null]
+creditSupportDocumentTypes varchar
+creditSupportDocument varchar
+bespokeCreditSuppportDocument varchar
+}
+
+Table CreditSupportProvider {
+creditSupportProviderElection varchar [not null]
+}
+
+Table CreditSupportProviderElection {
+CreditSupportProviderElection_party varchar [not null]
+creditSupportProviderTerms varchar [not null]
+creditSupportProvider varchar
+bespokeCreditSuppportProvider varchar
+}
+
+Table SpecifiedConditionOrAccessCondition {
+SpecifiedConditionOrAccessCondition_isApplicable boolean [not null]
+SpecifiedConditionOrAccessCondition_partyElection varchar [not null]
+SpecifiedConditionOrAccessCondition_additionalLanguage varchar
+}
+
+Table SpecifiedOrAccessConditionPartyElection {
+SpecifiedOrAccessConditionPartyElection_party varchar [not null]
+specifiedOrAccessCondition varchar
+additionalTerminationEvent varchar
+specifiedAdditionalTerminationEvent varchar
+}
+
+Table LegacyIndependentAmount {
+LegacyIndependentAmount_partyElection varchar [not null]
+LegacyIndependentAmount_additionalLanguage varchar
+}
+
+Table LegacyIndependentAmountParty {
+LegacyIndependentAmountParty_party varchar [not null]
+LegacyIndependentAmountParty_isApplicable boolean [not null]
+LegacyIndependentAmountParty_fixedAmount varchar
+LegacyIndependentAmountParty_ratingsBased varchar
+ratingsXExposure varchar
+}
+
+Table IndependentAmountRatings {
+IndependentAmountRatings_compare varchar [not null]
+IndependentAmountRatings_ratedParty varchar [not null]
+IndependentAmountRatings_namedAffiliate varchar
+IndependentAmountRatings_namedEntity varchar
+ratingType varchar [not null]
+}
+
+Table LegacyIndependentAmountRatingsBased {
+IndependentAmountRatings_compare varchar [not null]
+IndependentAmountRatings_ratedParty varchar [not null]
+IndependentAmountRatings_namedAffiliate varchar
+IndependentAmountRatings_namedEntity varchar
+ratingType varchar [not null]
+LegacyIndependentAmountRatingsBased_variableSet varchar [not null]
+LegacyIndependentAmountRatingsBased_currency varchar
+}
+
+Table RatingAgencyAmount {
+ratingVariableSet varchar [not null]
+RatingAgencyAmount_amount varchar [not null]
+}
+
+Table LegacyIndependentAmountRatingsXExposure {
+IndependentAmountRatings_compare varchar [not null]
+IndependentAmountRatings_ratedParty varchar [not null]
+IndependentAmountRatings_namedAffiliate varchar
+IndependentAmountRatings_namedEntity varchar
+ratingType varchar [not null]
+highestLowestVariableSet varchar
+compareVariableSet varchar
+}
+
+Table RatingMultiplier {
+ratingVariableSet varchar [not null]
+exposureMultiplier varchar [not null]
+}
+
+Table DirectionRatingMultiplier {
+DirectionRatingMultiplier_variableSet varchar [not null]
+exposureMultiplier varchar [not null]
+}
+
+Table AllDirectionRating {
+allDirectionRating varchar [not null]
+}
+
+Table AnyDirectionRating {
+anyDirectionRating varchar [not null]
+}
+
+Table DirectionRating {
+agency varchar [not null]
+notation varchar [not null]
+scale varchar
+debt varchar
+outlook varchar
+creditWatch varchar
+DirectionRating_direction varchar [not null]
+}
+
+Table EligibilityToHoldCollateral {
+custodianEligibility boolean [not null]
+initialCustodian varchar
+criteria varchar
+eligibleCountry varchar
+custodianCondition varchar
+}
+
+Table AllEligibilityToHoldCollateralCriteria {
+allCriteria varchar [not null]
+}
+
+Table AnyEligibilityToHoldCollateralCriteria {
+anyCriteria varchar [not null]
+}
+
+Table AmountOfNetCapital {
+amountOfNetCapital varchar
+}
+
+Table RatingAgencyValue {
+agency varchar [not null]
+notation varchar [not null]
+scale varchar
+debt varchar
+outlook varchar
+creditWatch varchar
+ratingType varchar [not null]
+}
+
+Table DemandsAndNotices {
+DemandsAndNotices_partyElection varchar [not null]
+deemedEffectiveNextLBD boolean [not null]
+}
+
+Table AddressesForTransfer {
+AddressesForTransfer_partyElection varchar [not null]
+}
+
+Table CreditSupportAgreementElections {
+}
+
+Table DirectionRatingSet {
+}
+
+Table EligibilityToHoldCollateralCriteria {
+}
+
+Table MasterAgreementSchedule {
+clause varchar [not null]
+}
+
+Table MasterAgreementClause {
+MasterAgreementClause_identifer varchar [not null]
+MasterAgreementClause_name varchar
+MasterAgreementClause_counterparty varchar [not null]
+MasterAgreementClause_otherParty varchar
+variant varchar [not null]
+}
+
+Table MasterAgreementClauseVariant {
+MasterAgreementClauseVariant_identifier varchar [not null]
+MasterAgreementClauseVariant_name varchar
+MasterAgreementClauseVariant_counterparty varchar [not null]
+MasterAgreementClauseVariant_otherParty varchar
+MasterAgreementClauseVariant_variableSet varchar
+}
+
+Table MasterAgreementVariableSet {
+MasterAgreementVariableSet_variableSet varchar
+MasterAgreementVariableSet_name varchar
+MasterAgreementVariableSet_value varchar
+}
+
+Table MasterAgreementBase {
+}
+
+Table MasterAgreementElections {
+}
+
+Table GlobalMasterRepoAgreement {
+}
+
+Table MasterAgreement {
+automaticEarlyTermination varchar [not null]
+terminationCurrency varchar [not null]
+addressForNotices varchar [not null]
+nonContractualObligations boolean [not null]
+MasterAgreement_creditSupportDocument varchar [not null]
+MasterAgreement_creditSupportProvider varchar [not null]
+specifiedEntities varchar [not null]
+}
+
+Table AutomaticEarlyTermination {
+fallbackAET boolean [not null]
+indemnity boolean [not null]
+AutomaticEarlyTermination_partyElection varchar [not null]
+}
+
+Table AutomaticEarlyTerminationElection {
+AutomaticEarlyTerminationElection_party varchar [not null]
+AutomaticEarlyTerminationElection_isApplicable boolean [not null]
+}
+
+Table TerminationCurrency {
+statedTerminationCurrency varchar
+partyOptionTerminationCurrency varchar
+}
+
+Table TerminationCurrencySelection {
+statedCurrency varchar
+fallbackCurrency varchar
+TerminationCurrencySelection_partyElection varchar [not null]
+bothAffected varchar
+}
+
+Table PartyOptionTerminationCurrency {
+bothAffectedTermCurrencyOption varchar
+terminationCurrencySpecifiedCondition varchar
+terminationCurrencyCondition varchar [not null]
+}
+
+Table PartyTerminationCurrencySelection {
+PartyTerminationCurrencySelection_party varchar [not null]
+statedPartyCurrency varchar [not null]
+}
+
+Table SpecifiedEntities {
+specifiedEntityClause varchar [not null]
+specifiedEntity varchar [not null]
+}
+
+Table SpecifiedEntity {
+SpecifiedEntity_party varchar [not null]
+specifiedEntityTerms varchar [not null]
+SpecifiedEntity_specifiedEntity varchar [not null]
+materialSubsidiaryTerms varchar
+otherSpecifiedEntityTerms varchar
+}
+
+Table GlobalMasterSecuritiesLendingAgreement {
+GlobalMasterSecuritiesLendingAgreement_collateral varchar [not null]
+GlobalMasterSecuritiesLendingAgreement_baseCurrency varchar [not null]
+eventsOfDefault varchar [not null]
+}
+
+Table CollateralSpecification {
+standardDefinitionOfMarketValueUsed boolean [not null]
+definitionOfMarketValueNonStandard varchar
+aggregation varchar [not null]
+nettingObligationsApply varchar [not null]
+failureToDevliverIndemnityApplies varchar [not null]
+CollateralSpecification_notificationTime varchar [not null]
+}
+
+Table BaseCurrency {
+BaseCurrency_baseCurrency varchar [not null]
+baseCurrencyMustBeFreelyConvertible boolean
+baseCurrencyIfOriginalNotFreelyConvertible varchar
+}
+
+Table EventsOfDefaultElection {
+EventsOfDefaultElection_party varchar [not null]
+automaticEarlyTerminationApplies varchar [not null]
+existingLoans varchar
+automation varchar
+automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple boolean [not null]
+automaticEarlyTerminationRequiredDueToSystemOfLaw boolean [not null]
+automaticEarlyTerminationInModifiedForm boolean [not null]
+automaticEarlyTerminationOther varchar
+}
+
+Table EventsOfDefault {
+EventsOfDefault_partyElection varchar [not null]
+}
+
+Table Aggregation {
+aggregationType varchar [not null]
+loansCanBeGrouped boolean [not null]
+otherDetails varchar
+}
+
+Table TransactionAdditionalTerms {
+equityAdditionalTerms varchar
+foreignExchangeAdditionalTerms varchar
+commoditiesAdditionalTerms varchar
+creditAdditionalTerms varchar
+interestRateAdditionalTerms varchar
+digitalAssetAdditionalTerms varchar
+}
+
+Table EquityAdditionalTerms {
+extraordinaryEvents varchar
+determinationTerms varchar [not null]
+substitutionProvision varchar
+}
+
+Table UnderlierSubstitutionProvision {
+whoMaySubstitute varchar [not null]
+substitutionBeSpokeTerms varchar
+substitutionTriggerEvents varchar
+disputingParty varchar
+}
+
+Table ExtraordinaryEvents {
+ExtraordinaryEvents_additionalBespokeTerms varchar
+mergerEvents varchar
+tenderOfferEvents varchar
+compositionOfCombinedConsideration boolean
+indexAdjustmentEvents varchar
+additionalDisruptionEvents varchar
+failureToDeliver boolean
+representations varchar
+nationalizationOrInsolvency varchar
+delisting varchar
+}
+
+Table AdditionalDisruptionEvents {
+changeInLaw boolean
+failureToDeliver boolean
+insolvencyFiling boolean
+hedgingDisruption boolean
+increasedCostOfHedging boolean
+foreignOwnershipEvent boolean
+lossOfStockBorrow boolean
+maximumStockLoanRate varchar
+increasedCostOfStockBorrow boolean
+initialStockLoanRate varchar
+determiningParty varchar
+AdditionalDisruptionEvents_additionalBespokeTerms varchar
+}
+
+Table Clause {
+Clause_identifier varchar [not null]
+terms varchar
+subcomponents varchar
+}
+
+Table MasterConfirmationBase {
+}
+
+Table BrokerConfirmation {
+BrokerConfirmation_brokerConfirmationType varchar [not null]
+}
+
+Table EquitySwapMasterConfirmation2018 {
+typeOfSwapElection varchar [not null]
+pricingMethodElection varchar [not null]
+linearInterpolationElection varchar [not null]
+settlementTerms varchar [not null]
+valuationDates varchar [not null]
+equityCashSettlementDates varchar [not null]
+}
+
+Table EquityMasterConfirmation {
+}
+
+Table FxAdditionalTerms {
+disruptionEvents varchar
+FxAdditionalTerms_determinationTerms varchar [not null]
+noFaultTermination boolean
+}
+
+Table Representations {
+nonReliance boolean [not null]
+agreementsRegardingHedging boolean [not null]
+indexDisclaimer boolean
+additionalAcknowledgements boolean
+Representations_additionalBespokeTerms varchar
+}
+
+Table IndexAdjustmentEvents {
+indexModification varchar [not null]
+indexCancellation varchar [not null]
+indexDisruption varchar [not null]
+}
+
+Table DeterminationRolesAndTerms {
+determinationRole varchar [not null]
+whoToDetermine varchar [not null]
+DeterminationRolesAndTerms_disputingParty varchar
+fallbackLanguageBespokeTerms varchar
+}
+
+Table EquityCorporateEvents {
+shareForShare varchar [not null]
+shareForOther varchar [not null]
+shareForCombined varchar [not null]
+}
+
+Table FxDisruptionEvents {
+illegalityOrImpossibility varchar
+forceMajeureOrActOfSState varchar
+eventCurrency varchar
+priceSourceDisruption varchar
+benchmarkObligationDefault varchar
+dualExchangeRate varchar
+inconvertibilityOrNonTransferability varchar
+governmentalAuthorityDefault varchar
+illiquidity varchar
+materialChangeInCircumstance varchar
+nationalization varchar
+priceMateriality varchar
+FxDisruptionEvents_fallbackLanguageBespokeTerms varchar
+}
+
+Table GovernmentalAuthorityDefault {
+governmentalAuthorityDefaultIsApplicable boolean [not null]
+escrowArrangement varchar
+localSubstituteProvisionType varchar
+specifiedValue varchar
+maximumDaysOfDisruption varchar
+}
+
+Table Illiquidity {
+illiquidityIsApplicable boolean [not null]
+escrowArrangement varchar
+minimumAmount varchar
+fallbackReferencePrice varchar
+illiquidityValuationDate varchar
+}
+
+Table MaterialChangeInCircumstance {
+materialChangeInCircumstanceIsApplicable boolean [not null]
+escrowArrangement varchar
+maximumDaysOfDisruption varchar
+}
+
+Table Nationalization {
+nationalizationIsApplicable boolean [not null]
+relevantAffiliate varchar
+escrowArrangement varchar
+assignmentOfClaim boolean
+maximumDaysOfDisruption varchar
+}
+
+Table PriceMateriality {
+priceMaterialityIsApplicable boolean [not null]
+escrowArrangement varchar
+fallbackReferencePrice varchar
+}
+
+Table FxPriceSourceDisruption {
+priceSourceDisruptionIsApplicable boolean [not null]
+fallbackReferencePrice varchar
+escrowArrangement varchar
+}
+
+Table FxBenchmarkObligationDefault {
+benchmarkObligationDefaultIsApplicable boolean [not null]
+localSubstituteProvisionType varchar
+specifiedValue varchar
+escrowArrangement varchar
+}
+
+Table FxDualExchangeRate {
+dualExchangeRateIsApplicable boolean [not null]
+FxDualExchangeRate_fallbackReferencePrice varchar
+escrowArrangement varchar
+}
+
+Table FxInconvertibilityOrNonTransferability {
+generalInconvertibility varchar
+generalNonTransferability varchar
+specificInconvertibility varchar
+specificNonTransferability varchar
+}
+
+Table GeneralInconvertibility {
+generalInconvertibilityIsApplicable boolean [not null]
+localSubstituteProvisionType varchar
+GeneralInconvertibility_maximumDaysOfDisruption varchar
+nonDeliverableSubstitute varchar
+GeneralInconvertibility_escrowArrangement varchar
+}
+
+Table GeneralNonTransferability {
+generalNonTransferabilityIsApplicable boolean [not null]
+localSubstituteProvisionType varchar
+GeneralNonTransferability_maximumDaysOfDisruption varchar
+nonDeliverableSubstitute varchar
+GeneralNonTransferability_escrowArrangement varchar
+}
+
+Table SpecificInconvertibility {
+specificInconvertibilityIsApplicable boolean [not null]
+minimumAmount varchar
+relevantClass varchar
+localSubstituteProvisionType varchar
+SpecificInconvertibility_maximumDaysOfDisruption varchar
+nonDeliverableSubstitute varchar
+SpecificInconvertibility_escrowArrangement varchar
+}
+
+Table SpecificNonTransferability {
+specificNonTransferabilityIsApplicable boolean [not null]
+relevantClass varchar
+localSubstituteProvisionType varchar
+maximumDaysOfDisruption varchar
+nonDeliverableSubstitute varchar
+escrowArrangement varchar
+}
+
+Table EscrowArrangement {
+escrowArrangementIsApplicable boolean [not null]
+maximumDaysOfDisruption varchar
+bespokeEscrowArrangements varchar
+}
+
+Table EventCurrency {
+EventCurrency_eventCurrency varchar [not null]
+eventCurrentAmount varchar
+eventCurrencyBuyerSeller varchar
+}
+
+Table NonDeliverableSubstitute {
+nonDeliverableSubstituteIsApplicable boolean [not null]
+NonDeliverableSubstitute_valuationDate varchar [not null]
+NonDeliverableSubstitute_settlementDate varchar [not null]
+settlementRateOption varchar
+}
+
+Table StandardizedSchedule {
+assetClass varchar [not null]
+productClass varchar [not null]
+notional varchar [not null]
+notionalCurrency varchar [not null]
+durationInYears varchar
+}
+
+Table StandardizedScheduleTradeInfo {
+StandardizedScheduleTradeInfo_assetClass varchar [not null]
+StandardizedScheduleTradeInfo_productClass varchar [not null]
+grossInitialMargin varchar
+markToMarketValue varchar
+}
+
+Table StandardizedScheduleInitialMargin {
+tradeInfo varchar
+netInitialMargin varchar [not null]
+}
+
+Table IndexBase {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+IndexBase_name varchar
+provider varchar
+IndexBase_assetClass varchar [not null]
+}
+
+Table FloatingRateIndex {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+IndexBase_name varchar
+provider varchar
+IndexBase_assetClass varchar [not null]
+floatingRateIndex varchar [not null]
+indexTenor varchar
+}
+
+Table ForeignExchangeRateIndex {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+IndexBase_name varchar
+provider varchar
+IndexBase_assetClass varchar [not null]
+quotedCurrencyPair varchar [not null]
+primaryFxSpotRateSource varchar [not null]
+secondaryFxSpotRateSource varchar
+}
+
+Table InflationIndex {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+IndexBase_name varchar
+provider varchar
+IndexBase_assetClass varchar [not null]
+inflationRateIndex varchar [not null]
+indexTenor varchar
+}
+
+Table CreditIndex {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+IndexBase_name varchar
+provider varchar
+IndexBase_assetClass varchar [not null]
+indexSeries int
+indexAnnexVersion int
+indexAnnexDate date
+indexAnnexSource varchar
+excludedReferenceEntity varchar
+CreditIndex_tranche varchar
+settledEntityMatrix varchar
+indexFactor varchar
+CreditIndex_seniority varchar
+}
+
+Table EquityIndex {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+IndexBase_name varchar
+provider varchar
+IndexBase_assetClass varchar [not null]
+}
+
+Table OtherIndex {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+IndexBase_name varchar
+provider varchar
+IndexBase_assetClass varchar [not null]
+OtherIndex_description varchar
+}
+
+Table PriceQuantity {
+PriceQuantity_price varchar
+PriceQuantity_quantity varchar
+observable varchar
+PriceQuantity_effectiveDate varchar
+}
+
+Table PriceComposite {
+baseValue varchar [not null]
+operand varchar [not null]
+arithmeticOperator varchar [not null]
+operandType varchar
+}
+
+Table PriceSchedule {
+value varchar
+unit varchar
+datedValue varchar
+perUnitOf varchar
+priceType varchar [not null]
+priceSubType varchar
+priceExpression varchar
+composite varchar
+PriceSchedule_arithmeticOperator varchar [not null]
+premiumType varchar
+}
+
+Table Price {
+value varchar
+unit varchar
+datedValue varchar
+perUnitOf varchar
+priceType varchar [not null]
+priceSubType varchar
+priceExpression varchar
+composite varchar
+PriceSchedule_arithmeticOperator varchar [not null]
+premiumType varchar
+}
+
+Table Basket {
+identifier varchar [not null]
+taxonomy varchar
+isExchangeListed boolean
+exchange varchar
+relatedExchange varchar
+assetType varchar [not null]
+basketConstituent varchar [not null]
+}
+
+Table BasketConstituent {
+BasketConstituent_quantity varchar
+initialValuationPrice varchar
+interimValuationPrice varchar
+finalValuationPrice varchar
+}
+
+Table InformationSource {
+sourceProvider varchar [not null]
+sourcePage varchar
+sourcePageHeading varchar
+}
+
+Table Money {
+value varchar
+unit varchar
+datedValue varchar
+multiplier varchar
+frequency varchar
+}
+
+Table QuotedCurrencyPair {
+currency1 varchar [not null]
+currency2 varchar [not null]
+quoteBasis varchar [not null]
+}
+
+Table Curve {
+interestRateCurve varchar
+commodityCurve varchar
+}
+
+Table InterestRateCurve {
+floatingRateIndex varchar [not null]
+tenor varchar [not null]
+}
+
+Table TransactedPrice {
+marketFixedRate varchar
+initialPoints varchar
+marketPrice varchar
+quotationStyle varchar
+}
+
+Table ReferenceSwapCurve {
+swapUnwindValue varchar [not null]
+makeWholeAmount varchar
+}
+
+Table MakeWholeAmount {
+floatingRateIndex varchar [not null]
+SwapCurveValuation_indexTenor varchar
+spread varchar [not null]
+side varchar
+interpolationMethod varchar
+earlyCallDate date [not null]
+}
+
+Table SwapCurveValuation {
+floatingRateIndex varchar [not null]
+SwapCurveValuation_indexTenor varchar
+spread varchar [not null]
+side varchar
+}
+
+Table ValuationDates {
+initialValuationDate varchar
+interimValuationDate varchar
+finalValuationDate varchar [not null]
+}
+
+Table PerformanceValuationDates {
+determinationMethod varchar [not null]
+PerformanceValuationDates_valuationDates varchar [not null]
+PerformanceValuationDates_valuationDate varchar [not null]
+PerformanceValuationDates_valuationTime varchar [not null]
+valuationTimeType varchar
+}
+
+Table FxRateSourceFixing {
+settlementRateSource varchar [not null]
+fixingDate varchar [not null]
+}
+
+Table FxInformationSource {
+sourceProvider varchar [not null]
+sourcePage varchar
+sourcePageHeading varchar
+fixingTime varchar
+}
+
+Table FallbackReferencePrice {
+valuationPostponement varchar
+fallBackSettlementRateOption varchar
+fallbackSurveyValuationPostponement boolean
+calculationAgentDetermination varchar
+}
+
+Table ValuationPostponement {
+maximumDaysOfPostponement int [not null]
+}
+
+Table FxRate {
+FxRate_quotedCurrencyPair varchar [not null]
+rate varchar
+}
+
+Table FxSpotRateSource {
+primarySource varchar [not null]
+secondarySource varchar
+}
+
+Table RateObservation {
+RateObservation_resetDate date [not null]
+adjustedFixingDate date
+observedRate varchar
+treatedRate varchar
+observationWeight int
+rateReference varchar
+forecastRate varchar
+treatedForecastRate varchar
+}
+
+Table CreditNotation {
+agency varchar [not null]
+notation varchar [not null]
+scale varchar
+debt varchar
+outlook varchar
+creditWatch varchar
+}
+
+Table CreditNotations {
+creditNotation varchar
+creditNotations varchar
+}
+
+Table CreditRatingDebt {
+CreditRatingDebt_debtType varchar
+debtTypes varchar
+}
+
+Table MultipleCreditNotations {
+condition varchar [not null]
+MultipleCreditNotations_creditNotation varchar [not null]
+mismatchResolution varchar
+referenceAgency varchar
+}
+
+Table MultipleDebtTypes {
+MultipleDebtTypes_condition varchar [not null]
+MultipleDebtTypes_debtType varchar [not null]
+}
+
+Table FxSettlementRateSource {
+FxSettlementRateSource_settlementRateOption varchar
+nonstandardSettlementRate varchar
+}
+
+Table CalculationAgent {
+calculationAgentParty varchar
+calculationAgentPartyEnum varchar
+calculationAgentBusinessCenter varchar
+}
+
+Table SettlementRateOption {
+SettlementRateOption_settlementRateOption varchar [not null]
+SettlementRateOption_priceSourceDisruption varchar
+}
+
+Table MultipleValuationDates {
+businessDays int
+businessDaysThereafter int
+numberValuationDates int
+}
+
+Table SingleValuationDate {
+businessDays int
+}
+
+Table ValuationSource {
+ValuationSource_quotedCurrencyPair varchar [not null]
+ValuationSource_informationSource varchar
+ValuationSource_settlementRateOption varchar
+referenceBanks varchar
+dealerOrCCP varchar
+}
+
+Table PriceSourceDisruption {
+PriceSourceDisruption_fallbackReferencePrice varchar [not null]
+}
+
+Table ValuationMethod {
+valuationSource varchar [not null]
+quotationMethod varchar
+valuationMethod varchar
+quotationAmount varchar
+minimumQuotationAmount varchar
+cashCollateralValuationMethod varchar
+}
+
+Table CashCollateralValuationMethod {
+applicableCsa varchar
+cashCollateralCurrency varchar
+cashCollateralInterestRate varchar
+agreedDiscountRate varchar
+protectedParty varchar
+prescribedDocumentationAdjustment boolean
+}
+
+Table DividendApplicability {
+optionsExchangeDividends boolean
+additionalDividends boolean
+allDividends boolean
+}
+
+Table Index {
+}
+
+Table InterestRateIndex {
+}
+
+Table Observable {
+}
+
+Table FloatingRateCalculationParameters {
+FloatingRateCalculationParameters_calculationMethod varchar [not null]
+observationShiftCalculation varchar
+lookbackCalculation varchar
+lockoutCalculation varchar
+applicableBusinessDays varchar
+observationParameters varchar
+}
+
+Table FallbackRateParameters {
+FallbackRateParameters_floatingRateIndex varchar [not null]
+FallbackRateParameters_effectiveDate date
+calculationParameters varchar
+spreadAdjustment varchar
+}
+
+Table OffsetCalculation {
+OffsetCalculation_offsetDays int [not null]
+}
+
+Table ObservationShiftCalculation {
+ObservationShiftCalculation_offsetDays int [not null]
+calculationBase varchar
+additionalBusinessDays varchar
+}
+
+Table ObservationParameters {
+observationCapRate varchar
+observationFloorRate varchar
+}
+
+Table CalculatedRateDetails {
+CalculatedRateDetails_observations varchar [not null]
+weightedRates varchar
+growthFactor varchar
+compoundedGrowth varchar
+CalculatedRateDetails_aggregateValue varchar [not null]
+aggregateWeight varchar
+calculatedRate varchar
+}
+
+Table CalculatedRateObservations {
+observationDates date
+weights varchar
+observedRates varchar
+processedRates varchar
+}
+
+Table CalculatedRateObservationDatesAndWeights {
+observationDates date
+weights varchar
+}
+
+Table FloatingRateIndexDefinition {
+fro varchar [not null]
+calculationDefaults varchar
+supportedDefinition varchar
+definitionalSource varchar
+designatedMaturityApplicable boolean
+mappings varchar
+externalMappings varchar
+inLoan boolean
+history varchar
+deprecationReason varchar
+fpmlDescription varchar
+}
+
+Table FloatingRateIndexIdentification {
+FloatingRateIndexIdentification_floatingRateIndex varchar [not null]
+FloatingRateIndexIdentification_currency varchar
+froType varchar
+}
+
+Table FloatingRateIndexCalculationDefaults {
+FloatingRateIndexCalculationDefaults_category varchar [not null]
+indexStyle varchar
+FloatingRateIndexCalculationDefaults_method varchar
+fixing varchar
+FloatingRateIndexCalculationDefaults_dayCountFraction varchar [not null]
+FloatingRateIndexCalculationDefaults_applicableBusinessDays varchar
+publicationCalendar varchar
+}
+
+Table ContractualDefinition {
+ContractualDefinition_identifier varchar [not null]
+contractualDefinitionIdentifier varchar
+ContractualDefinition_publicationDate date
+}
+
+Table ContractualDefinitionIdentifier {
+contractualDefinitionType varchar [not null]
+contractualDefinitionVersion varchar
+}
+
+Table FloatingRateIndexMap {
+index_ varchar
+FloatingRateIndexMap_contractualDefinitionIdentifier varchar
+FloatingRateIndexMap_identifier varchar [not null]
+}
+
+Table FloatingRateIndexMappings {
+mapsTo varchar
+mapsFrom varchar
+}
+
+Table FloatingRateIndexExternalMap {
+externalId varchar [not null]
+externalStandard varchar
+}
+
+Table FloatingRateIndexExternalMappings {
+isoCode varchar
+}
+
+Table FroHistory {
+FroHistory_startDate date [not null]
+firstDefinedIn varchar
+updateDate date
+lastUpdatedIn varchar
+FroHistory_endDate date [not null]
+}
+
+Table FloatingRateIndexFixingDetails {
+FloatingRateIndexFixingDetails_fixingTime varchar
+fixingOffset varchar
+}
+
+Table FloatingRateIndexFixingTime {
+hourMinuteTime varchar [not null]
+BusinessCenterTime_businessCenter varchar [not null]
+designatedMaturity varchar
+fixingTimeDefinition varchar
+fixingReason varchar
+}
+
+Table FloatingRateIndexFixingOffset {
+Period_periodMultiplier int [not null]
+Period_period varchar [not null]
+BusinessDayOffset_businessCenters varchar
+fixingOffsetDefinition varchar
+fixingOffsetReason varchar
+FloatingRateIndexFixingOffset_designatedMaturity varchar
+}
+
+Table BusinessDayOffset {
+Period_periodMultiplier int [not null]
+Period_period varchar [not null]
+BusinessDayOffset_businessCenters varchar
+fixingOffsetDefinition varchar
+fixingOffsetReason varchar
+}
+
+Table Trigger {
+level varchar
+creditEvents varchar
+creditEventsReference varchar
+triggerType varchar
+triggerTimeType varchar
+}
+
+Table TriggerEvent {
+schedule varchar
+triggerDates varchar
+trigger varchar [not null]
+featurePayment varchar
+}
+
+Table CreditEvents {
+bankruptcy boolean
+CreditEvents_failureToPay varchar
+failureToPayPrincipal boolean
+failureToPayInterest boolean
+obligationDefault boolean
+obligationAcceleration boolean
+repudiationMoratorium boolean
+restructuring varchar
+governmentalIntervention boolean
+distressedRatingsDowngrade boolean
+maturityExtension boolean
+writedown boolean
+impliedWritedown boolean
+defaultRequirement varchar
+creditEventNotice varchar
+}
+
+Table CreditEventNotice {
+notifyingParty varchar [not null]
+CreditEventNotice_businessCenter varchar
+CreditEventNotice_publiclyAvailableInformation varchar
+}
+
+Table FailureToPay {
+FailureToPay_applicable boolean [not null]
+gracePeriodExtension varchar
+paymentRequirement varchar
+}
+
+Table GracePeriodExtension {
+GracePeriodExtension_applicable boolean [not null]
+gracePeriod varchar
+}
+
+Table PubliclyAvailableInformation {
+standardPublicSources boolean
+publicSource varchar
+specifiedNumber int
+}
+
+Table Restructuring {
+Restructuring_applicable boolean [not null]
+restructuringType varchar
+multipleHolderObligation boolean
+multipleCreditEventNotices boolean
+}
+
+Table FeaturePayment {
+FeaturePayment_payerReceiver varchar [not null]
+levelPercentage varchar
+FeaturePayment_amount varchar [not null]
+FeaturePayment_time varchar [not null]
+FeaturePayment_currency varchar
+paymentDate varchar
+}
+
+Table Observation {
+observedValue varchar [not null]
+observationIdentifier varchar [not null]
+}
+
+Table ObservationIdentifier {
+ObservationIdentifier_observable varchar [not null]
+observationDate date [not null]
+observationTime varchar
+ObservationIdentifier_informationSource varchar
+determinationMethodology varchar
+}
+
+Table DeterminationMethodology {
+DeterminationMethodology_determinationMethod varchar [not null]
+averagingMethod varchar
+}
+
+Table CommodityPayout {
+PayoutBase_payerReceiver varchar [not null]
+PayoutBase_priceQuantity varchar [not null]
+principalPayment varchar
+PayoutBase_settlementTerms varchar [not null]
+averagingFeature varchar
+commodityPriceReturnTerms varchar
+pricingDates varchar [not null]
+CommodityPayout_schedule varchar
+calculationPeriodDates varchar
+paymentDates varchar [not null]
+CommodityPayout_underlier varchar [not null]
+fxFeature varchar
+delivery varchar
+}
+
+Table AssetDeliveryInformation {
+periods varchar
+AssetDeliveryInformation_location varchar
+deliveryCapacity varchar
+commodityGrade varchar
+}
+
+Table AssetDeliveryPeriods {
+profile varchar
+AssetDeliveryPeriods_startDate date [not null]
+AssetDeliveryPeriods_endDate date [not null]
+}
+
+Table CalculationScheduleDeliveryPeriods {
+profile varchar
+AssetDeliveryPeriods_startDate date [not null]
+AssetDeliveryPeriods_endDate date [not null]
+deliveryCapacity varchar
+priceTimeIntervalQuantity varchar
+}
+
+Table AssetDeliveryProfile {
+loadType varchar
+block varchar
+bankHolidaysTreatment varchar
+}
+
+Table AssetDeliveryProfileBlock {
+startTime varchar
+endTime varchar
+AssetDeliveryProfileBlock_dayOfWeek varchar
+deliveryCapacity varchar
+priceTimeIntervalQuantity varchar
+}
+
+Table CreditDefaultPayout {
+PayoutBase_payerReceiver varchar [not null]
+PayoutBase_priceQuantity varchar [not null]
+principalPayment varchar
+PayoutBase_settlementTerms varchar [not null]
+generalTerms varchar [not null]
+protectionTerms varchar
+transactedPrice varchar
+}
+
+Table GeneralTerms {
+GeneralTerms_referenceInformation varchar [not null]
+indexReferenceInformation varchar
+basketReferenceInformation varchar
+additionalTerm varchar
+GeneralTerms_substitution boolean
+modifiedEquityDelivery boolean
+}
+
+Table InterestRatePayout {
+PayoutBase_payerReceiver varchar [not null]
+PayoutBase_priceQuantity varchar [not null]
+principalPayment varchar
+PayoutBase_settlementTerms varchar [not null]
+rateSpecification varchar
+InterestRatePayout_dayCountFraction varchar [not null]
+InterestRatePayout_calculationPeriodDates varchar
+InterestRatePayout_paymentDates varchar [not null]
+InterestRatePayout_paymentDate varchar
+paymentDelay boolean
+resetDates varchar
+discountingMethod varchar
+compoundingMethod varchar
+cashflowRepresentation varchar
+stubPeriod varchar
+bondReference varchar
+InterestRatePayout_fixedAmount varchar
+floatingAmount varchar
+spreadCalculationMethod varchar
+}
+
+Table DividendPayoutRatio {
+totalRatio varchar [not null]
+cashRatio varchar
+nonCashRatio varchar
+DividendPayoutRatio_basketConstituent varchar [not null]
+}
+
+Table AdditionalFixedPayments {
+interestShortfallReimbursement boolean
+principalShortfallReimbursement boolean
+writedownReimbursement boolean
+}
+
+Table BasketReferenceInformation {
+basketName varchar
+basketId varchar
+referencePool varchar [not null]
+nthToDefault int
+mthToDefault int
+BasketReferenceInformation_tranche varchar
+}
+
+Table FloatingAmountEvents {
+FloatingAmountEvents_failureToPayPrincipal boolean
+interestShortfall varchar
+FloatingAmountEvents_writedown boolean
+FloatingAmountEvents_impliedWritedown boolean
+floatingAmountProvisions varchar
+additionalFixedPayments varchar
+}
+
+Table FloatingAmountProvisions {
+wacCapInterestProvision boolean
+stepUpProvision boolean
+}
+
+Table InterestShortFall {
+interestShortfallCap varchar [not null]
+compounding boolean [not null]
+rateSource varchar
+}
+
+Table ProtectionTerms {
+ProtectionTerms_creditEvents varchar
+ProtectionTerms_obligations varchar [not null]
+floatingAmountEvents varchar
+}
+
+Table ReferenceInformation {
+referenceEntity varchar [not null]
+referenceObligation varchar
+noReferenceObligation boolean
+unknownReferenceObligation boolean
+allGuarantees boolean
+referencePrice varchar
+referencePolicy boolean
+securedList boolean
+}
+
+Table ReferenceObligation {
+ReferenceObligation_security varchar [not null]
+loan varchar
+primaryObligor varchar
+primaryObligorReference varchar
+guarantor varchar
+guarantorReference varchar
+standardReferenceObligation boolean
+}
+
+Table ReferencePair {
+ReferencePair_referenceEntity varchar [not null]
+ReferencePair_referenceObligation varchar
+noReferenceObligation boolean
+entityType varchar [not null]
+}
+
+Table ReferencePool {
+referencePoolItem varchar [not null]
+}
+
+Table ReferencePoolItem {
+constituentWeight varchar
+referencePair varchar [not null]
+protectionTermsReference varchar
+cashSettlementTermsReference varchar
+physicalSettlementTermsReference varchar
+}
+
+Table SettledEntityMatrix {
+matrixSource varchar [not null]
+SettledEntityMatrix_publicationDate date
+}
+
+Table Tranche {
+attachmentPoint varchar [not null]
+exhaustionPoint varchar [not null]
+incurredRecoveryApplicable boolean
+}
+
+Table DividendCurrency {
+DividendCurrency_currency varchar
+DividendCurrency_determinationMethod varchar [not null]
+currencyReference varchar
+}
+
+Table DividendDateReference {
+dateReference varchar [not null]
+paymentDateOffset varchar
+}
+
+Table DividendPaymentDate {
+dividendDateReference varchar
+dividendDate varchar
+}
+
+Table DividendReturnTerms {
+dividendPayoutRatio varchar
+dividendReinvestment boolean
+dividendEntitlement varchar
+dividendAmountType varchar
+performance varchar
+firstOrSecondPeriod varchar
+extraordinaryDividendsParty varchar
+excessDividendAmount varchar
+dividendCurrency varchar
+nonCashDividendTreatment varchar
+dividendComposition varchar
+specialDividends boolean
+materialDividend boolean
+dividendPeriod varchar
+}
+
+Table DividendPeriod {
+DividendPeriod_startDate varchar [not null]
+DividendPeriod_endDate varchar [not null]
+DividendPeriod_dateAdjustments varchar [not null]
+DividendPeriod_basketConstituent varchar [not null]
+dividendPaymentDate varchar [not null]
+dividendValuationDate varchar
+}
+
+Table PriceReturnTerms {
+returnType varchar [not null]
+conversionFactor varchar
+performance varchar
+}
+
+Table ReturnTermsBase {
+valuationTerms varchar [not null]
+annualizationFactor int
+dividendApplicability varchar
+equityUnderlierProvisions varchar
+sharePriceDividendAdjustment boolean
+expectedN int [not null]
+initialLevel varchar
+initialLevelSource varchar
+meanAdjustment boolean
+performance varchar
+}
+
+Table VarianceReturnTerms {
+valuationTerms varchar [not null]
+annualizationFactor int
+dividendApplicability varchar
+equityUnderlierProvisions varchar
+sharePriceDividendAdjustment boolean
+expectedN int [not null]
+initialLevel varchar
+initialLevelSource varchar
+meanAdjustment boolean
+performance varchar
+varianceStrikePrice varchar
+volatilityStrikePrice varchar
+varianceCapFloor varchar
+volatilityCapFloor varchar
+vegaNotionalAmount varchar
+exchangeTradedContractNearest varchar
+}
+
+Table VolatilityReturnTerms {
+valuationTerms varchar [not null]
+annualizationFactor int
+dividendApplicability varchar
+equityUnderlierProvisions varchar
+sharePriceDividendAdjustment boolean
+expectedN int [not null]
+initialLevel varchar
+initialLevelSource varchar
+meanAdjustment boolean
+performance varchar
+VolatilityReturnTerms_volatilityStrikePrice varchar [not null]
+VolatilityReturnTerms_volatilityCapFloor varchar
+VolatilityReturnTerms_exchangeTradedContractNearest varchar
+}
+
+Table CorrelationReturnTerms {
+valuationTerms varchar [not null]
+annualizationFactor int
+dividendApplicability varchar
+equityUnderlierProvisions varchar
+sharePriceDividendAdjustment boolean
+expectedN int [not null]
+initialLevel varchar
+initialLevelSource varchar
+meanAdjustment boolean
+performance varchar
+correlationStrikePrice varchar [not null]
+boundedCorrelation varchar
+numberOfDataSeries int
+}
+
+Table ValuationTerms {
+futuresPriceValuation boolean
+optionsPriceValuation boolean
+numberOfValuationDates int
+dividendValuationDates varchar
+fPVFinalPriceElectionFallback varchar
+multipleExchangeIndexAnnexFallback boolean
+componentSecurityIndexAnnexFallback boolean
+}
+
+Table EquityUnderlierProvisions {
+EquityUnderlierProvisions_multipleExchangeIndexAnnexFallback boolean
+EquityUnderlierProvisions_componentSecurityIndexAnnexFallback boolean
+localJurisdiction varchar
+relevantJurisdiction varchar
+}
+
+Table VarianceCapFloor {
+varianceCap boolean [not null]
+unadjustedVarianceCap varchar
+boundedVariance varchar
+}
+
+Table BoundedVariance {
+realisedVarianceMethod varchar [not null]
+daysInRangeAdjustment boolean [not null]
+upperBarrier varchar
+lowerBarrier varchar
+}
+
+Table VolatilityCapFloor {
+VolatilityCapFloor_applicable boolean [not null]
+totalVolatilityCap varchar
+volatilityCapFactor varchar
+}
+
+Table BoundedCorrelation {
+minimumBoundaryPercent varchar
+maximumBoundaryPercent varchar
+}
+
+Table BondReference {
+bond varchar [not null]
+conditionPrecedentBond boolean [not null]
+discrepancyClause boolean
+couponRate varchar
+}
+
+Table CashflowRepresentation {
+cashflowsMatchParameters boolean [not null]
+paymentCalculationPeriod varchar
+}
+
+Table DiscountingMethod {
+discountingType varchar [not null]
+discountRate varchar
+discountRateDayCountFraction varchar
+}
+
+Table FloatingRateDefinition {
+FloatingRateDefinition_calculatedRate varchar
+rateObservation varchar
+floatingRateMultiplier varchar
+FloatingRateDefinition_spread varchar [not null]
+capRate varchar
+floorRate varchar
+}
+
+Table InflationRateSpecification {
+rateOption varchar
+spreadSchedule varchar
+capRateSchedule varchar
+floorRateSchedule varchar
+floatingRateMultiplierSchedule varchar
+rateTreatment varchar
+calculationParameters varchar
+fallbackRate varchar
+initialRate varchar
+finalRateRounding varchar
+FloatingRateSpecification_averagingMethod varchar
+negativeInterestRateTreatment varchar
+inflationLag varchar [not null]
+indexSource varchar [not null]
+mainPublication varchar [not null]
+InflationRateSpecification_interpolationMethod varchar [not null]
+initialIndexLevel varchar
+fallbackBondApplicable boolean [not null]
+InflationRateSpecification_calculationMethod varchar [not null]
+calculationStyle varchar
+finalPrincipalExchangeCalculation varchar
+}
+
+Table FloatingRateBase {
+rateOption varchar
+spreadSchedule varchar
+capRateSchedule varchar
+floorRateSchedule varchar
+}
+
+Table FloatingRate {
+rateOption varchar
+spreadSchedule varchar
+capRateSchedule varchar
+floorRateSchedule varchar
+floatingRateMultiplierSchedule varchar
+rateTreatment varchar
+calculationParameters varchar
+fallbackRate varchar
+}
+
+Table FloatingRateSpecification {
+rateOption varchar
+spreadSchedule varchar
+capRateSchedule varchar
+floorRateSchedule varchar
+floatingRateMultiplierSchedule varchar
+rateTreatment varchar
+calculationParameters varchar
+fallbackRate varchar
+initialRate varchar
+finalRateRounding varchar
+FloatingRateSpecification_averagingMethod varchar
+negativeInterestRateTreatment varchar
+}
+
+Table FixedRateSpecification {
+rateSchedule varchar
+}
+
+Table FutureValueAmount {
+FutureValueAmount_quantity varchar
+FutureValueAmount_currency varchar [not null]
+calculationPeriodNumberOfDays int [not null]
+valueDate date [not null]
+}
+
+Table SpreadSchedule {
+RateSchedule_price varchar [not null]
+spreadScheduleType varchar
+}
+
+Table StubFloatingRate {
+StubFloatingRate_floatingRateIndex varchar [not null]
+StubFloatingRate_indexTenor varchar
+StubFloatingRate_floatingRateMultiplierSchedule varchar
+StubFloatingRate_spreadSchedule varchar
+rateTreatment varchar
+StubFloatingRate_capRateSchedule varchar
+StubFloatingRate_floorRateSchedule varchar
+}
+
+Table StubValue {
+floatingRate varchar
+stubRate varchar
+stubAmount varchar
+}
+
+Table FixedAmountCalculationDetails {
+calculationPeriod varchar [not null]
+calculationPeriodNotionalAmount varchar [not null]
+fixedRate varchar [not null]
+yearFraction varchar [not null]
+calculatedAmount varchar [not null]
+}
+
+Table RateSpecification {
+}
+
+Table CalculationPeriodData {
+startDate date [not null]
+endDate date [not null]
+daysInPeriod int [not null]
+daysInLeapYearPeriod int [not null]
+isFirstPeriod boolean [not null]
+isLastPeriod boolean [not null]
+}
+
+Table StubPeriod {
+calculationPeriodDatesReference varchar [not null]
+initialStub varchar
+finalStub varchar
+}
+
+Table CalculationPeriodBase {
+adjustedStartDate date
+adjustedEndDate date
+}
+
+Table CalculationPeriod {
+adjustedStartDate date
+adjustedEndDate date
+unadjustedStartDate date
+unadjustedEndDate date
+CalculationPeriod_calculationPeriodNumberOfDays int [not null]
+notionalAmount varchar
+fxLinkedNotionalAmount varchar
+floatingRateDefinition varchar
+CalculationPeriod_fixedRate varchar [not null]
+dayCountYearFraction varchar
+forecastAmount varchar
+CalculationPeriod_forecastRate varchar
+}
+
+Table CalculationPeriodDates {
+CalculationPeriodDates_effectiveDate varchar
+terminationDate varchar
+calculationPeriodDatesAdjustments varchar
+firstPeriodStartDate varchar
+firstRegularPeriodStartDate date
+firstCompoundingPeriodEndDate date
+lastRegularPeriodEndDate date
+stubPeriodType varchar
+calculationPeriodFrequency varchar
+}
+
+Table DateRelativeToCalculationPeriodDates {
+DateRelativeToCalculationPeriodDates_calculationPeriodDatesReference varchar [not null]
+}
+
+Table DateRelativeToValuationDates {
+valuationDatesReference varchar [not null]
+}
+
+Table DateRelativeToPaymentDates {
+paymentDatesReference varchar [not null]
+}
+
+Table FxLinkedNotionalAmount {
+FxLinkedNotionalAmount_resetDate date [not null]
+adjustedFxSpotFixingDate date
+observedFxSpotRate varchar
+FxLinkedNotionalAmount_notionalAmount varchar
+}
+
+Table FxLinkedNotionalSchedule {
+varyingNotionalCurrency varchar [not null]
+varyingNotionalFixingDates varchar [not null]
+fxSpotRateSource varchar [not null]
+FxLinkedNotionalSchedule_fixingTime varchar
+varyingNotionalInterimExchangePaymentDates varchar [not null]
+}
+
+Table PaymentCalculationPeriod {
+unadjustedPaymentDate date
+adjustedPaymentDate date
+PaymentCalculationPeriod_calculationPeriod varchar [not null]
+fixedPaymentAmount varchar
+discountFactor varchar
+forecastPaymentAmount varchar
+presentValueAmount varchar
+}
+
+Table RateSchedule {
+RateSchedule_price varchar [not null]
+}
+
+Table ObservationDates {
+observationSchedule varchar
+periodicSchedule varchar
+parametricDates varchar
+}
+
+Table ObservationSchedule {
+ObservationSchedule_observationDate varchar [not null]
+dateAdjustments varchar
+}
+
+Table ObservationDate {
+ObservationDate_unadjustedDate date
+adjustedDate date
+weight varchar
+observationReference varchar
+}
+
+Table ObservationTerms {
+ObservationTerms_observationTime varchar
+observationTimeType varchar
+ObservationTerms_informationSource varchar
+ObservationTerms_precision varchar
+ObservationTerms_calculationPeriodDates varchar
+ObservationTerms_observationDates varchar [not null]
+numberOfObservationDates int
+}
+
+Table ParametricDates {
+ParametricDates_dayType varchar [not null]
+dayDistribution varchar
+ParametricDates_dayOfWeek varchar
+dayFrequency varchar
+lag varchar
+ParametricDates_businessCenters varchar [not null]
+}
+
+Table Lag {
+lagDuration varchar [not null]
+firstObservationDateOffset varchar
+}
+
+Table ResetDates {
+ResetDates_calculationPeriodDatesReference varchar [not null]
+resetRelativeTo varchar
+initialFixingDate varchar
+fixingDates varchar
+finalFixingDate varchar
+rateCutOffDaysOffset varchar
+resetFrequency varchar
+resetDatesAdjustments varchar
+}
+
+Table StubCalculationPeriodAmount {
+calculationPeriodDatesReference varchar [not null]
+initialStub varchar
+finalStub varchar
+}
+
+Table AveragingObservationList {
+averagingObservation varchar [not null]
+}
+
+Table AveragingPeriod {
+AveragingPeriod_schedule varchar
+averagingDateTimes varchar
+averagingObservations varchar
+marketDisruption varchar
+}
+
+Table WeightedAveragingObservation {
+WeightedAveragingObservation_dateTime datetime [not null]
+observationNumber int
+WeightedAveragingObservation_weight varchar [not null]
+}
+
+Table AmountSchedule {
+Schedule_value varchar [not null]
+Schedule_datedValue varchar
+AmountSchedule_currency varchar [not null]
+}
+
+Table InitialFixingDate {
+relativeDateOffset varchar
+InitialFixingDate_initialFixingDate date
+}
+
+Table PaymentDates {
+paymentFrequency varchar
+firstPaymentDate date
+lastRegularPaymentDate date
+paymentDateSchedule varchar
+payRelativeTo varchar
+paymentDaysOffset varchar
+paymentDatesAdjustments varchar
+}
+
+Table PaymentDateSchedule {
+interimPaymentDates varchar
+finalPaymentDate varchar
+}
+
+Table ResetFrequency {
+periodMultiplier int [not null]
+period varchar [not null]
+weeklyRollConvention varchar
+}
+
+Table FinalCalculationPeriodDateAdjustment {
+relevantUnderlyingDateReference varchar [not null]
+swapStreamReference varchar [not null]
+FinalCalculationPeriodDateAdjustment_businessDayConvention varchar [not null]
+}
+
+Table FloatingAmountCalculationDetails {
+calculationPeriod varchar [not null]
+calculationPeriodNotionalAmount varchar [not null]
+FloatingAmountCalculationDetails_floatingRate varchar
+processingDetails varchar
+appliedRate varchar [not null]
+yearFraction varchar [not null]
+calculatedAmount varchar [not null]
+spreadExclusiveCalculatedAMount varchar [not null]
+}
+
+Table FloatingRateSettingDetails {
+calculationDetails varchar
+FloatingRateSettingDetails_observationDate date [not null]
+FloatingRateSettingDetails_resetDate date [not null]
+FloatingRateSettingDetails_floatingRate varchar [not null]
+}
+
+Table FloatingRateProcessingDetails {
+rawRate varchar [not null]
+processingParameters varchar
+processedRate varchar [not null]
+spreadExclusiveRate varchar [not null]
+}
+
+Table FloatingRateProcessingParameters {
+FloatingRateProcessingParameters_initialRate varchar
+FloatingRateProcessingParameters_multiplier varchar
+FloatingRateProcessingParameters_spread varchar [not null]
+FloatingRateProcessingParameters_treatment varchar
+FloatingRateProcessingParameters_capRate varchar
+FloatingRateProcessingParameters_floorRate varchar
+FloatingRateProcessingParameters_rounding varchar
+negativeTreatment varchar
+}
+
+Table EligibilityQuery {
+maturity varchar [not null]
+collateralAssetType varchar [not null]
+assetCountryOfOrigin varchar [not null]
+denominatedCurrency varchar [not null]
+agencyRating varchar [not null]
+EligibilityQuery_issuerType varchar [not null]
+issuerName varchar [not null]
+}
+
+Table CheckEligibilityResult {
+isEligible boolean [not null]
+matchingEligibleCriteria varchar
+eligibilityQuery varchar [not null]
+specification varchar [not null]
+}
+
+Table Collateral {
+Collateral_independentAmount varchar [not null]
+Collateral_portfolioIdentifier varchar
+Collateral_collateralPortfolio varchar
+collateralProvisions varchar
+}
+
+Table CollateralProvisions {
+collateralType varchar [not null]
+CollateralProvisions_eligibleCollateral varchar
+substitutionProvisions varchar
+}
+
+Table SubstitutionProvisions {
+numberOfSubstitutionsAllowed int
+noticeDeadlinePeriod varchar
+noticeDeadlineDateTime datetime
+}
+
+Table IndependentAmount {
+payerPartyReference varchar [not null]
+payerAccountReference varchar
+receiverPartyReference varchar [not null]
+receiverAccountReference varchar
+paymentDetail varchar [not null]
+}
+
+Table AgencyRatingCriteria {
+AgencyRatingCriteria_creditNotation varchar [not null]
+AgencyRatingCriteria_mismatchResolution varchar
+AgencyRatingCriteria_referenceAgency varchar
+boundary varchar
+}
+
+Table CollateralValuationTreatment {
+CollateralValuationTreatment_haircutPercentage varchar [not null]
+marginPercentage varchar
+CollateralValuationTreatment_fxHaircutPercentage varchar
+CollateralValuationTreatment_additionalHaircutPercentage varchar
+}
+
+Table EligibleCollateralSpecification {
+EligibleCollateralSpecification_identifier varchar [not null]
+EligibleCollateralSpecification_party varchar
+EligibleCollateralSpecification_counterparty varchar [not null]
+EligibleCollateralSpecification_criteria varchar [not null]
+EligibleCollateralSpecification_partyRole varchar
+}
+
+Table CollateralCriteriaBase {
+collateralCriteria varchar
+appliesTo varchar
+restrictTo varchar
+ratingPriorityResolution varchar
+}
+
+Table EligibleCollateralCriteria {
+collateralCriteria varchar
+appliesTo varchar
+restrictTo varchar
+ratingPriorityResolution varchar
+EligibleCollateralCriteria_treatment varchar [not null]
+}
+
+Table CollateralTreatment {
+valuationTreatment varchar
+concentrationLimit varchar
+isIncluded boolean [not null]
+}
+
+Table ConcentrationLimit {
+concentrationLimitCriteria varchar
+valueLimit varchar
+percentageLimit varchar
+}
+
+Table ConcentrationLimitCriteria {
+collateralCriteria varchar
+appliesTo varchar
+restrictTo varchar
+ratingPriorityResolution varchar
+concentrationLimitType varchar
+averageTradingVolume varchar
+}
+
+Table AverageTradingVolume {
+AverageTradingVolume_period varchar [not null]
+methodology varchar [not null]
+}
+
+Table IssuerCountryOfOrigin {
+issuerCountryOfOrigin varchar [not null]
+}
+
+Table AssetCountryOfOrigin {
+AssetCountryOfOrigin_assetCountryOfOrigin varchar [not null]
+}
+
+Table IssuerName {
+issuerName varchar [not null]
+}
+
+Table IssuerAgencyRating {
+issuerAgencyRating varchar [not null]
+}
+
+Table SovereignAgencyRating {
+sovereignAgencyRating varchar [not null]
+}
+
+Table AssetAgencyRating {
+assetAgencyRating varchar [not null]
+}
+
+Table AssetMaturity {
+maturityType varchar [not null]
+maturityRange varchar [not null]
+}
+
+Table ListingExchange {
+ListingExchange_exchange varchar [not null]
+}
+
+Table ListingSector {
+sector varchar [not null]
+}
+
+Table DomesticCurrencyIssued {
+domesticCurrencyIssued boolean [not null]
+}
+
+Table CounterpartyOwnIssuePermitted {
+counterpartyOwnIssuePermitted boolean [not null]
+}
+
+Table AllCriteria {
+AllCriteria_allCriteria varchar [not null]
+}
+
+Table AnyCriteria {
+AnyCriteria_anyCriteria varchar [not null]
+}
+
+Table NegativeCriteria {
+negativeCriteria varchar [not null]
+}
+
+Table DistributionAndInterestPayment {
+interestParameters varchar
+}
+
+Table CollateralInterestParameters {
+CollateralInterestParameters_postingParty varchar
+marginType varchar
+CollateralInterestParameters_currency varchar
+interestCalculationParameters varchar
+interestCalculationFrequency varchar
+interestHandlingParameters varchar
+}
+
+Table CollateralInterestCalculationParameters {
+CollateralInterestCalculationParameters_fixedRate varchar [not null]
+CollateralInterestCalculationParameters_floatingRate varchar
+inBaseCurrency boolean [not null]
+compoundingType varchar
+compoundingBusinessCenter varchar
+CollateralInterestCalculationParameters_dayCountFraction varchar [not null]
+CollateralInterestCalculationParameters_rounding varchar
+roundingFrequency varchar
+withholdingTaxRate varchar
+}
+
+Table CollateralAgreementFloatingRate {
+rateOption varchar
+spreadSchedule varchar
+capRateSchedule varchar
+floorRateSchedule varchar
+negativeInterest boolean [not null]
+compressibleSpread boolean [not null]
+}
+
+Table CollateralInterestHandlingParameters {
+interestPaymentHandling varchar [not null]
+paymentBusinessCenter varchar
+netPostedAndHeldInterest boolean [not null]
+netInterestWithMarginCalls boolean [not null]
+includeAccrualInMarginCalc boolean [not null]
+accrueInterestOnUnsettledInterest boolean
+onFullReturn boolean [not null]
+onPartialReturn boolean [not null]
+interestAmountApplication varchar
+interestRolloverLimit varchar
+writeoffLimit varchar
+alternativeToInterestAmount varchar
+alternativeProvision varchar
+cutoffTime varchar
+notification varchar
+}
+
+Table CollateralInterestNotification {
+CollateralInterestNotification_trigger varchar [not null]
+CollateralInterestNotification_offset varchar [not null]
+CollateralInterestNotification_notificationTime varchar [not null]
+notificationDayType varchar [not null]
+}
+
+Table InterestAmountApplication {
+InterestAmountApplication_returnAmount varchar [not null]
+InterestAmountApplication_deliveryAmount varchar [not null]
+}
+
+Table ReturnAmount {
+includesDefaultLanguage boolean
+ReturnAmount_customElection varchar
+}
+
+Table DeliveryAmount {
+DeliveryAmount_standardElection varchar
+DeliveryAmount_customElection varchar
+}
+
+Table SpecificAsset {
+}
+
+Table IndexType {
+equityIndex varchar
+}
+
+Table CollateralCriteria {
+}
+
+Table ComputedAmount {
+callFunction varchar [not null]
+ComputedAmount_amount varchar [not null]
+ComputedAmount_currency varchar
+}
+
+Table AssetFlowBase {
+AssetFlowBase_quantity varchar [not null]
+AssetFlowBase_asset varchar [not null]
+AssetFlowBase_settlementDate varchar [not null]
+paymentDiscounting varchar
+}
+
+Table AssetFlow {
+AssetFlowBase_quantity varchar [not null]
+AssetFlowBase_asset varchar [not null]
+AssetFlowBase_settlementDate varchar [not null]
+paymentDiscounting varchar
+AssetFlow_payerReceiver varchar [not null]
+assetFlowType varchar
+}
+
+Table QuantityMultiplier {
+fxLinkedNotionalSchedule varchar
+multiplierValue varchar
+}
+
+Table ResolvablePriceQuantity {
+resolvedQuantity varchar
+quantitySchedule varchar
+quantityReference varchar
+quantityMultiplier varchar
+ResolvablePriceQuantity_reset boolean
+futureValueNotional varchar
+priceSchedule varchar
+}
+
+Table PayoutBase {
+PayoutBase_payerReceiver varchar [not null]
+PayoutBase_priceQuantity varchar [not null]
+principalPayment varchar
+PayoutBase_settlementTerms varchar [not null]
+}
+
+Table CommodityPriceReturnTerms {
+CommodityPriceReturnTerms_rounding varchar
+CommodityPriceReturnTerms_spread varchar [not null]
+rollFeature varchar
+conversionFactor varchar
+}
+
+Table RollFeature {
+rollSourceCalendar varchar
+deliveryDateRollConvention varchar
+}
+
+Table PricingDates {
+specifiedDates varchar
+PricingDates_parametricDates varchar
+}
+
+Table ValuationDate {
+singleValuationDate varchar
+multipleValuationDates varchar
+ValuationDate_valuationDate varchar [not null]
+fxFixingDate varchar
+fxFixingSchedule varchar
+}
+
+Table CashSettlementTerms {
+cashSettlementMethod varchar
+CashSettlementTerms_valuationMethod varchar
+CashSettlementTerms_valuationDate varchar [not null]
+CashSettlementTerms_valuationTime varchar [not null]
+cashSettlementAmount varchar
+recoveryFactor varchar
+fixedSettlement boolean
+accruedInterest boolean
+}
+
+Table DeliverableObligations {
+accruedInterest boolean
+DeliverableObligations_category varchar [not null]
+notSubordinated boolean
+specifiedCurrency varchar
+notSovereignLender boolean
+notDomesticCurrency varchar
+notDomesticLaw boolean
+listed boolean
+DeliverableObligations_notContingent boolean
+notDomesticIssuance boolean
+assignableLoan varchar
+consentRequiredLoan varchar
+directLoanParticipation varchar
+transferable boolean
+maximumMaturity varchar
+acceleratedOrMatured boolean
+notBearer boolean
+fullFaithAndCreditObLiability boolean
+generalFundObligationLiability boolean
+revenueObligationLiability boolean
+indirectLoanParticipation varchar
+excluded varchar
+othReferenceEntityObligations varchar
+}
+
+Table LoanParticipation {
+PCDeliverableObligationCharac_applicable boolean [not null]
+partialCashSettlement boolean
+qualifyingParticipationSeller varchar
+}
+
+Table PCDeliverableObligationCharac {
+PCDeliverableObligationCharac_applicable boolean [not null]
+partialCashSettlement boolean
+}
+
+Table PhysicalSettlementPeriod {
+businessDaysNotSpecified boolean
+businessDays int
+maximumBusinessDays int
+}
+
+Table PhysicalSettlementTerms {
+clearedPhysicalSettlement boolean
+predeterminedClearingOrganizationParty varchar
+physicalSettlementPeriod varchar
+deliverableObligations varchar
+escrow boolean
+sixtyBusinessDaySettlementCap boolean
+}
+
+Table PercentageRule {
+paymentPercent varchar [not null]
+notionalAmountReference varchar [not null]
+}
+
+Table SettlementDate {
+adjustableOrRelativeDate varchar
+SettlementDate_valueDate date [not null]
+SettlementDate_adjustableDates varchar
+businessDateRange varchar
+cashSettlementBusinessDays int
+paymentDelay boolean
+}
+
+Table FxFixingDate {
+Period_periodMultiplier int [not null]
+Period_period varchar [not null]
+dayType varchar
+FxFixingDate_businessDayConvention varchar [not null]
+businessCenters varchar
+FxFixingDate_businessCentersReference varchar
+dateRelativeToPaymentDates varchar
+dateRelativeToCalculationPeriodDates varchar
+dateRelativeToValuationDates varchar
+FxFixingDate_fxFixingDate varchar
+}
+
+Table SettlementTerms {
+settlementType varchar [not null]
+transferSettlementType varchar
+settlementCurrency varchar
+SettlementBase_settlementDate varchar [not null]
+settlementCentre varchar
+settlementProvision varchar
+standardSettlementStyle varchar
+cashSettlementTerms varchar
+physicalSettlementTerms varchar
+}
+
+Table FixedPrice {
+FixedPrice_price varchar
+}
+
+Table PaymentDetail {
+paymentDate varchar
+paymentRule varchar [not null]
+paymentAmount varchar
+}
+
+Table PaymentDiscounting {
+PaymentDiscounting_discountFactor varchar
+PaymentDiscounting_presentValueAmount varchar
+}
+
+Table PaymentRule {
+percentageRule varchar
+}
+
+Table PrincipalPayments {
+initialPayment boolean [not null]
+finalPayment boolean [not null]
+intermediatePayment boolean [not null]
+varyingLegNotionalCurrency varchar
+principalPaymentSchedule varchar
+}
+
+Table PrincipalPaymentSchedule {
+initialPrincipalPayment varchar
+intermediatePrincipalPayment varchar
+finalPrincipalPayment varchar
+}
+
+Table PrincipalPayment {
+principalPaymentDate varchar
+PrincipalPayment_payerReceiver varchar
+principalAmount varchar
+PrincipalPayment_discountFactor varchar
+presentValuePrincipalAmount varchar
+}
+
+Table SettlementBase {
+settlementType varchar [not null]
+transferSettlementType varchar
+settlementCurrency varchar
+SettlementBase_settlementDate varchar [not null]
+settlementCentre varchar
+settlementProvision varchar
+standardSettlementStyle varchar
+}
+
+Table SettlementProvision {
+shapingProvisions varchar
+}
+
+Table ShapingProvision {
+shapeSchedule varchar [not null]
+}
+
+Table TransferableProduct {
+economicTerms varchar [not null]
+}
+
+Table EconomicTerms {
+EconomicTerms_effectiveDate varchar
+EconomicTerms_effectiveTime varchar
+terminationDate varchar
+terminationTime varchar
+EconomicTerms_dateAdjustments varchar
+EconomicTerms_payout varchar [not null]
+terminationProvision varchar
+calculationAgent varchar
+nonStandardisedTerms boolean
+EconomicTerms_collateral varchar
+}
+
+Table OptionPayout {
+PayoutBase_payerReceiver varchar [not null]
+PayoutBase_priceQuantity varchar [not null]
+principalPayment varchar
+PayoutBase_settlementTerms varchar [not null]
+buyerSeller varchar [not null]
+feature varchar
+observationTerms varchar
+OptionPayout_schedule varchar
+delivery varchar
+OptionPayout_underlier varchar [not null]
+OptionPayout_optionType varchar
+exerciseTerms varchar [not null]
+OptionPayout_strike varchar
+}
+
+Table ReturnTerms {
+priceReturnTerms varchar
+dividendReturnTerms varchar
+varianceReturnTerms varchar
+volatilityReturnTerms varchar
+correlationReturnTerms varchar
+}
+
+Table PerformancePayout {
+PayoutBase_payerReceiver varchar [not null]
+PayoutBase_priceQuantity varchar [not null]
+principalPayment varchar
+PayoutBase_settlementTerms varchar [not null]
+PerformancePayout_observationTerms varchar
+PerformancePayout_valuationDates varchar [not null]
+paymentDates varchar [not null]
+PerformancePayout_underlier varchar [not null]
+PerformancePayout_fxFeature varchar
+returnTerms varchar
+portfolioReturnTerms varchar
+PerformancePayout_initialValuationPrice varchar
+PerformancePayout_interimValuationPrice varchar
+PerformancePayout_finalValuationPrice varchar
+}
+
+Table PortfolioReturnTerms {
+priceReturnTerms varchar
+dividendReturnTerms varchar
+varianceReturnTerms varchar
+volatilityReturnTerms varchar
+correlationReturnTerms varchar
+PortfolioReturnTerms_payerReceiver varchar [not null]
+PortfolioReturnTerms_underlier varchar [not null]
+PortfolioReturnTerms_quantity varchar
+PortfolioReturnTerms_initialValuationPrice varchar
+PortfolioReturnTerms_interimValuationPrice varchar
+PortfolioReturnTerms_finalValuationPrice varchar
+}
+
+Table NonTransferableProduct {
+NonTransferableProduct_identifier varchar [not null]
+NonTransferableProduct_taxonomy varchar
+economicTerms varchar [not null]
+}
+
+Table TradeLot {
+TradeLot_lotIdentifier varchar
+TradeLot_priceQuantity varchar [not null]
+}
+
+Table TradableProduct {
+TradableProduct_product varchar [not null]
+tradeLot varchar [not null]
+TradableProduct_counterparty varchar [not null]
+TradableProduct_ancillaryParty varchar
+TradableProduct_adjustment varchar
+}
+
+Table ConstituentWeight {
+openUnits varchar
+basketPercentage varchar
+}
+
+Table SettlementPayout {
+PayoutBase_payerReceiver varchar [not null]
+PayoutBase_priceQuantity varchar [not null]
+principalPayment varchar
+PayoutBase_settlementTerms varchar [not null]
+SettlementPayout_underlier varchar [not null]
+SettlementPayout_deliveryTerm varchar
+delivery varchar
+SettlementPayout_schedule varchar
+}
+
+Table CalculationSchedule {
+schedulePeriod varchar [not null]
+}
+
+Table SchedulePeriod {
+SchedulePeriod_calculationPeriod varchar [not null]
+SchedulePeriod_paymentDate date [not null]
+fixingPeriod varchar [not null]
+deliveryPeriod varchar
+}
+
+Table FixedPricePayout {
+PayoutBase_payerReceiver varchar [not null]
+PayoutBase_priceQuantity varchar [not null]
+principalPayment varchar
+PayoutBase_settlementTerms varchar [not null]
+FixedPricePayout_paymentDates varchar [not null]
+fixedPrice varchar [not null]
+FixedPricePayout_schedule varchar
+}
+
+Table CancelableProvision {
+buyer varchar [not null]
+seller varchar [not null]
+exerciseNotice varchar
+followUpConfirmation boolean [not null]
+cancelableProvisionAdjustedDates varchar
+finalCalculationPeriodDateAdjustment varchar
+initialFee varchar
+callingParty varchar
+earliestDate varchar
+expirationDate varchar
+CancelableProvision_effectiveDate varchar
+effectivePeriod varchar
+earliestCancellationTime varchar
+latestCancelationTime varchar
+CancelableProvision_exerciseTerms varchar [not null]
+}
+
+Table CancelableProvisionAdjustedDates {
+cancellationEvent varchar [not null]
+}
+
+Table CancellationEvent {
+CancellationEvent_adjustedExerciseDate date [not null]
+adjustedEarlyTerminationDate date [not null]
+}
+
+Table EarlyTerminationEvent {
+EarlyTerminationEvent_adjustedExerciseDate date [not null]
+adjustedEarlyTerminationDate date [not null]
+EarlyTerminationEvent_adjustedCashSettlementValuationDate date [not null]
+EarlyTerminationEvent_adjustedCashSettlementPaymentDate date [not null]
+adjustedExerciseFeePaymentDate date
+}
+
+Table EarlyTerminationProvision {
+mandatoryEarlyTermination varchar
+mandatoryEarlyTerminationDateTenor varchar
+optionalEarlyTermination varchar
+optionalEarlyTerminationParameters varchar
+}
+
+Table ExercisePeriod {
+earliestExerciseDateTenor varchar [not null]
+exerciseFrequency varchar
+}
+
+Table ExtendibleProvision {
+buyer varchar [not null]
+seller varchar [not null]
+exerciseNotice varchar
+ExtendibleProvision_followUpConfirmation boolean [not null]
+extendibleProvisionAdjustedDates varchar
+callingParty varchar
+singlePartyOption varchar
+ExtendibleProvision_noticeDeadlinePeriod varchar
+noticeDeadlineDateTime datetime
+extensionTerm varchar
+extensionPeriod varchar
+ExtendibleProvision_exerciseTerms varchar [not null]
+}
+
+Table ExtendibleProvisionAdjustedDates {
+extensionEvent varchar [not null]
+}
+
+Table ExtensionEvent {
+ExtensionEvent_adjustedExerciseDate date [not null]
+adjustedExtendedTerminationDate date [not null]
+}
+
+Table MandatoryEarlyTermination {
+mandatoryEarlyTerminationDate varchar [not null]
+MandatoryEarlyTermination_calculationAgent varchar [not null]
+cashSettlement varchar [not null]
+mandatoryEarlyTerminationAdjustedDates varchar
+}
+
+Table MandatoryEarlyTerminationAdjustedDates {
+adjustedEarlyTerminationDate date [not null]
+MandatoryEarlyTerminationAdjustedDates_adjustedCashSettlementValuationDate date [not null]
+MandatoryEarlyTerminationAdjustedDates_adjustedCashSettlementPaymentDate date [not null]
+}
+
+Table OptionalEarlyTermination {
+OptionalEarlyTermination_singlePartyOption varchar
+mutualEarlyTermination boolean
+OptionalEarlyTermination_exerciseNotice varchar
+OptionalEarlyTermination_followUpConfirmation boolean [not null]
+OptionalEarlyTermination_calculationAgent varchar
+OptionalEarlyTermination_cashSettlement varchar [not null]
+optionalEarlyTerminationAdjustedDates varchar
+OptionalEarlyTermination_exerciseTerms varchar [not null]
+}
+
+Table OptionalEarlyTerminationAdjustedDates {
+earlyTerminationEvent varchar [not null]
+}
+
+Table AveragingFeature {
+averagingCalculation varchar [not null]
+averagingInOut varchar [not null]
+strikeFactor varchar
+averagingPeriodIn varchar
+averagingPeriodOut varchar
+}
+
+Table AveragingCalculation {
+AveragingCalculation_averagingMethod varchar [not null]
+AveragingCalculation_precision varchar [not null]
+}
+
+Table AveragingStrikeFeature {
+averagingCalculation varchar [not null]
+AveragingStrikeFeature_observationTerms varchar [not null]
+}
+
+Table Barrier {
+knockIn varchar
+knockOut varchar
+}
+
+Table CalendarSpread {
+expirationDateTwo varchar [not null]
+}
+
+Table Composite {
+Composite_determinationMethod varchar [not null]
+relativeDate varchar
+Composite_fxSpotRateSource varchar [not null]
+Composite_fixingTime varchar
+}
+
+Table FxFeature {
+referenceCurrency varchar [not null]
+FxFeature_composite varchar
+quanto varchar
+crossCurrency varchar
+}
+
+Table OptionFeature {
+OptionFeature_fxFeature varchar
+strategyFeature varchar
+OptionFeature_averagingFeature varchar
+barrier varchar
+passThrough varchar
+}
+
+Table TerminationProvision {
+cancelableProvision varchar
+earlyTerminationProvision varchar
+evergreenProvision varchar
+extendibleProvision varchar
+recallProvision varchar
+}
+
+Table RecallProvision {
+isRecallable boolean [not null]
+issuanceCutoffTime varchar
+RecallProvision_notificationTime varchar [not null]
+intendedSettlementDate varchar
+}
+
+Table OptionStrike {
+strikePrice varchar
+strikeReference varchar
+referenceSwapCurve varchar
+averagingStrikeFeature varchar
+}
+
+Table PassThrough {
+passThroughItem varchar [not null]
+}
+
+Table PassThroughItem {
+PassThroughItem_payerReceiver varchar [not null]
+passThroughPercentage varchar [not null]
+}
+
+Table Quanto {
+fxRate varchar
+Quanto_fxSpotRateSource varchar [not null]
+Quanto_fixingTime varchar
+}
+
+Table StrategyFeature {
+strikeSpread varchar
+calendarSpread varchar
+}
+
+Table StrikeSpread {
+upperStrike varchar [not null]
+upperStrikeNumberOfOptions varchar [not null]
+}
+
+Table ExerciseTerms {
+style varchar
+commencementDate varchar
+exerciseDates varchar
+ExerciseTerms_expirationDate varchar
+relevantUnderlyingDate varchar
+earliestExerciseTime varchar
+latestExerciseTime varchar
+expirationTime varchar
+expirationTimeType varchar [not null]
+multipleExercise varchar
+exerciseFeeSchedule varchar
+exerciseProcedure varchar
+exerciseFee varchar
+partialExercise varchar
+}
+
+Table AutomaticExercise {
+thresholdRate varchar
+AutomaticExercise_isApplicable boolean [not null]
+}
+
+Table ExerciseFee {
+payer varchar [not null]
+receiver varchar [not null]
+notionalReference varchar [not null]
+feeAmount varchar
+feeRate varchar
+feePaymentDate varchar [not null]
+}
+
+Table ExerciseFeeSchedule {
+payer varchar [not null]
+receiver varchar [not null]
+notionalReference varchar [not null]
+feeAmountSchedule varchar
+feeRateSchedule varchar
+feePaymentDate varchar [not null]
+}
+
+Table ExerciseNotice {
+exerciseNoticeGiver varchar [not null]
+exerciseNoticeReceiver varchar
+ExerciseNotice_businessCenter varchar [not null]
+}
+
+Table ExerciseProcedure {
+manualExercise varchar
+automaticExercise varchar
+followUpConfirmation boolean [not null]
+limitedRightToConfirm boolean
+splitTicket boolean
+}
+
+Table ManualExercise {
+exerciseNotice varchar
+fallbackExercise boolean
+}
+
+Table MultipleExercise {
+PartialExercise_notionalReference varchar [not null]
+integralMultipleAmount varchar
+minimumNotionalAmount varchar
+minimumNumberOfOptions int
+maximumNotionalAmount varchar
+maximumNumberOfOptions int
+}
+
+Table PartialExercise {
+PartialExercise_notionalReference varchar [not null]
+integralMultipleAmount varchar
+minimumNotionalAmount varchar
+minimumNumberOfOptions int
+}
+
+Table Strike {
+strikeRate varchar [not null]
+Strike_buyer varchar [not null]
+Strike_seller varchar [not null]
+}
+
+Table StrikeSchedule {
+RateSchedule_price varchar [not null]
+StrikeSchedule_buyer varchar [not null]
+StrikeSchedule_seller varchar [not null]
+}
+
+Table AssetPayout {
+PayoutBase_payerReceiver varchar [not null]
+PayoutBase_priceQuantity varchar [not null]
+principalPayment varchar
+PayoutBase_settlementTerms varchar [not null]
+assetLeg varchar [not null]
+AssetPayout_underlier varchar [not null]
+AssetPayout_minimumFee varchar
+AssetPayout_dividendTerms varchar
+tradeType varchar
+}
+
+Table DividendTerms {
+manufacturedIncomeRequirement varchar [not null]
+dividendEntitlement varchar
+minimumBillingAmount varchar
+}
+
+Table AssetLeg {
+AssetLeg_settlementDate varchar [not null]
+deliveryMethod varchar [not null]
+}
+
+Table EvergreenProvision {
+EvergreenProvision_singlePartyOption varchar
+noticePeriod varchar [not null]
+EvergreenProvision_noticeDeadlinePeriod varchar
+noticeDeadlineDateTime datetime
+extensionFrequency varchar [not null]
+finalPeriodFeeAdjustment varchar
+}
+
+Table Payout {
+}
+
+Table Underlier {
+}
+
+Table Product {
+}
+
+Table Document {
+finInstrmRptgTxRpt varchar [not null]
+}
+
+Table FinInstrmRptgTxRpt {
+tx varchar [not null]
+}
+
+Table Tx {
+newTx varchar [not null]
+tradDt varchar [not null]
+tradgCpcty varchar [not null]
+qty varchar [not null]
+pric varchar [not null]
+tradVn varchar [not null]
+ctryOfBrnch varchar [not null]
+}
+
+Table New {
+txId varchar [not null]
+exctgPty varchar [not null]
+invstmtPtyInd varchar [not null]
+submitgPty varchar [not null]
+buyr varchar [not null]
+sellr varchar [not null]
+ordrTrnsmssn varchar [not null]
+tx varchar [not null]
+finInstrm varchar [not null]
+invstmtDcsnPrsn varchar [not null]
+exctgPrsn varchar [not null]
+addtlAttrbts varchar [not null]
+}
+
+Table Sellr {
+acctOwnr varchar [not null]
+}
+
+Table Sngl {
+isin varchar [not null]
+indx varchar [not null]
+}
+
+Table OrdrTrnsmssn {
+trnsmssnInd varchar [not null]
+}
+
+Table DerivInstrmAttrbts {
+xpryDt varchar [not null]
+pricMltplr varchar [not null]
+undrlygInstrm varchar [not null]
+dlvryTp varchar [not null]
+}
+
+Table UndrlygInstrm {
+swp varchar [not null]
+}
+
+Table AcctOwnr {
+id varchar [not null]
+}
+
+Table InvstmtDcsnPrsn {
+prsn varchar [not null]
+}
+
+Table Buyr {
+acctOwnr varchar [not null]
+}
+
+Table Qty {
+Qty_unit varchar [not null]
+}
+
+Table FinInstrm {
+othr varchar [not null]
+}
+
+Table Pric {
+pric varchar [not null]
+bsisPts varchar [not null]
+}
+
+Table Prsn {
+ctryOfBrnch varchar [not null]
+othr varchar [not null]
+}
+
+Table FinInstrmGnlAttrbts {
+fullNm varchar [not null]
+clssfctnTp varchar [not null]
+ntnlCcy varchar [not null]
+}
+
+Table Nm {
+refRate varchar [not null]
+term varchar [not null]
+}
+
+Table SwpOut {
+sngl varchar [not null]
+}
+
+Table Othr {
+finInstrmGnlAttrbts varchar [not null]
+derivInstrmAttrbts varchar [not null]
+Othr_id varchar [not null]
+schmeNm varchar [not null]
+}
+
+Table ExctgPrsn {
+prsn varchar [not null]
+}
+
+Table Term {
+Term_unit varchar [not null]
+val varchar [not null]
+}
+
+Table Swp {
+swpIn varchar [not null]
+swpOut varchar [not null]
+}
+
+Table SchmeNm {
+prtry varchar [not null]
+}
+
+Table RefRate {
+RefRate_indx varchar [not null]
+nm varchar [not null]
+}
+
+Table AddtlAttrbts {
+rskRdcgTx varchar [not null]
+sctiesFincgTxInd varchar [not null]
+}
+
+Table SwpIn {
+sngl varchar [not null]
+}
+
+Table Indx {
+Indx_nm varchar [not null]
+}
+
+Table Id {
+lei varchar [not null]
+}

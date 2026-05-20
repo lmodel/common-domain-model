@@ -1,0 +1,40 @@
+# metamodel_version: 1.11.0id: LegacyIndependentAmountRatingsXExposure
+schema_generating: true
+description: Specifies that the Independent Amount is determined using both credit
+  rating and exposure metrics.
+display_name: LegacyIndependentAmountRatingsXExposure
+document_category: LegacyIndependentAmountRatingsXExposure
+weight: 20
+fields:
+- id: compare
+  description: Specifies how multiple credit ratings are compared when determining
+    the applicable Independent Amount, and whether that measure is highest, lowest,
+    or a comparison of either.
+  display_name: IndependentAmountRatings_compare
+- id: ratedParty
+  description: Specifies the party to whom the rating agency rating applies to for
+    the purposes of determining the Independent Amount.
+  display_name: IndependentAmountRatings_ratedParty
+- id: namedAffiliate
+  description: Details the Named Affiliate where the Rated Party is Named Affiliate.
+  display_name: IndependentAmountRatings_namedAffiliate
+- id: namedEntity
+  description: Details the Named Entity where the Rated Party is Named Entity.
+  display_name: IndependentAmountRatings_namedEntity
+- id: ratingType
+  description: The relevant rating type.
+  display_name: ratingType
+- id: highestLowestVariableSet
+  description: A logical container to hold a defined set of related data. In this
+    case the collation of Ratings Information and associated exposure multiplier where
+    highest or lowest of the associated credit ratings are used when determining the
+    applicable Independent Amount.
+  display_name: highestLowestVariableSet
+  cardinality: multi
+- id: compareVariableSet
+  description: A logical container to hold a defined set of related data. In this
+    case the collation of Ratings Information and associated exposure multiplier where
+    multiple credit ratings are compared when determining the applicable Independent
+    Amount.
+  display_name: compareVariableSet
+  cardinality: multi

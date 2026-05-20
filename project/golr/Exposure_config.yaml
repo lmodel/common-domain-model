@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: Exposure
+schema_generating: true
+description: Represents the current mark to market value or IM calculation value of
+  the trade portfolio as recorded by the principle (in base currency).
+display_name: Exposure
+document_category: Exposure
+weight: 20
+fields:
+- id: tradePortfolio
+  description: Represents a Portfolio that describes all the positions held at a given
+    time, in various states which can be either traded, settled, etc., with lineage
+    information to the previous state.
+  display_name: tradePortfolio
+- id: aggregateValue
+  description: Represents the aggregate value of the portfolio in base currency.
+  display_name: aggregateValue
+- id: calculationDateTime
+  description: Indicates the date when the exposure is calculated if different from
+    valuation date.
+  display_name: calculationDateTime
+- id: valuationDateTime
+  description: Indicates the valuation date of the exposure underlying the calculation.
+  display_name: valuationDateTime

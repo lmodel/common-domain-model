@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: FxBenchmarkObligationDefault
+schema_generating: true
+display_name: FxBenchmarkObligationDefault
+document_category: FxBenchmarkObligationDefault
+weight: 20
+fields:
+- id: benchmarkObligationDefaultIsApplicable
+  display_name: benchmarkObligationDefaultIsApplicable
+- id: localSubstituteProvisionType
+  display_name: localSubstituteProvisionType
+- id: specifiedValue
+  display_name: specifiedValue
+- id: escrowArrangement
+  display_name: escrowArrangement

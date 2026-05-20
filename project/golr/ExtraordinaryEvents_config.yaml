@@ -1,0 +1,32 @@
+# metamodel_version: 1.11.0id: ExtraordinaryEvents
+schema_generating: true
+description: Where the underlying is shares, defines market events affecting the issuer
+  of those shares that may require the terms of the transaction to be adjusted.
+display_name: ExtraordinaryEvents
+document_category: ExtraordinaryEvents
+weight: 20
+fields:
+- id: additionalBespokeTerms
+  description: Where parties may optionnaly describe any extra bespoke agreements,
+    in regards of the standardized Extraordinary Events.
+  display_name: ExtraordinaryEvents_additionalBespokeTerms
+  cardinality: multi
+- id: mergerEvents
+  display_name: mergerEvents
+- id: tenderOfferEvents
+  display_name: tenderOfferEvents
+- id: compositionOfCombinedConsideration
+  display_name: compositionOfCombinedConsideration
+- id: indexAdjustmentEvents
+  display_name: indexAdjustmentEvents
+- id: additionalDisruptionEvents
+  display_name: additionalDisruptionEvents
+- id: failureToDeliver
+  description: If true, failure to deliver is applicable.
+  display_name: failureToDeliver
+- id: representations
+  display_name: representations
+- id: nationalizationOrInsolvency
+  display_name: nationalizationOrInsolvency
+- id: delisting
+  display_name: delisting

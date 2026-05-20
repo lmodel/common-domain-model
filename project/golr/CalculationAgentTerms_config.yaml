@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: CalculationAgentTerms
+schema_generating: true
+description: Details of the party calculating the value of collateral to be delivered
+  or returned.
+display_name: CalculationAgentTerms
+document_category: CalculationAgentTerms
+weight: 20
+fields:
+- id: party
+  description: The party which is specified as Calculation Agent for Initial Margin.
+  display_name: CalculationAgentTerms_party
+- id: bespokeCalculationAgentTerms
+  description: The Calculation Agent (IM) terms when specified.
+  display_name: bespokeCalculationAgentTerms

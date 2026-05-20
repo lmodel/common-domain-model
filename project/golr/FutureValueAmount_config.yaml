@@ -1,0 +1,26 @@
+# metamodel_version: 1.11.0id: FutureValueAmount
+schema_generating: true
+description: A class defining a currency and a future value date.
+display_name: FutureValueAmount
+document_category: FutureValueAmount
+weight: 20
+fields:
+- id: quantity
+  description: Specifies quantity amount returned if not the full amount from the
+    TradeState, e.g. partial return
+  display_name: FutureValueAmount_quantity
+- id: currency
+  description: The currency in which the an amount is denominated. The list of valid
+    currencies is not presently positioned as an enumeration as part of the CDM because
+    that scope is limited to the values specified by ISDA and FpML. As a result, implementers
+    have to make reference to the relevant standard, such as the ISO 4217 standard
+    for currency codes.
+  display_name: FutureValueAmount_currency
+- id: calculationPeriodNumberOfDays
+  description: The number of days from the adjusted calculation period start date
+    to the adjusted value date, calculated in accordance with the applicable day count
+    fraction.
+  display_name: calculationPeriodNumberOfDays
+- id: valueDate
+  description: Adjusted value date of the future value amount.
+  display_name: valueDate

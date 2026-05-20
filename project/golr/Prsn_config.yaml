@@ -1,0 +1,10 @@
+# metamodel_version: 1.11.0id: Prsn
+schema_generating: true
+display_name: Prsn
+document_category: Prsn
+weight: 20
+fields:
+- id: ctryOfBrnch
+  display_name: ctryOfBrnch
+- id: othr
+  display_name: othr

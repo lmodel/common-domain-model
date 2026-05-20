@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: GeneralNonTransferability
+schema_generating: true
+display_name: GeneralNonTransferability
+document_category: GeneralNonTransferability
+weight: 20
+fields:
+- id: generalNonTransferabilityIsApplicable
+  display_name: generalNonTransferabilityIsApplicable
+- id: localSubstituteProvisionType
+  display_name: localSubstituteProvisionType
+- id: maximumDaysOfDisruption
+  description: Specifies how long to wait to get a quote from a settlement rate option
+    upon a price source disruption.
+  display_name: GeneralNonTransferability_maximumDaysOfDisruption
+- id: nonDeliverableSubstitute
+  display_name: nonDeliverableSubstitute
+- id: escrowArrangement
+  description: Refers to the segregation deposit procedure parties may want to commmit
+    into during the time a Disruption Event is effective
+  display_name: GeneralNonTransferability_escrowArrangement

@@ -1,0 +1,30 @@
+# metamodel_version: 1.11.0id: FloatingRateIndexCalculationDefaults
+schema_generating: true
+description: This holds the rate calculation defaults applicable for a floating rate
+  index.
+display_name: FloatingRateIndexCalculationDefaults
+document_category: FloatingRateIndexCalculationDefaults
+weight: 20
+fields:
+- id: category
+  description: The ISDA FRO category (e.g. screen rate or calculated rate).
+  display_name: FloatingRateIndexCalculationDefaults_category
+- id: indexStyle
+  description: The ISDA FRO style (e.g. term rate, swap rate, etc).
+  display_name: indexStyle
+- id: method
+  description: The ISDA FRO calculation method (e.g. OIS Compounding).
+  display_name: FloatingRateIndexCalculationDefaults_method
+- id: fixing
+  description: The default fixing details.
+  display_name: fixing
+  cardinality: multi
+- id: dayCountFraction
+  description: The default day count fraction.
+  display_name: FloatingRateIndexCalculationDefaults_dayCountFraction
+- id: applicableBusinessDays
+  description: The default applicable business days.
+  display_name: FloatingRateIndexCalculationDefaults_applicableBusinessDays
+- id: publicationCalendar
+  description: Publication Calendar (e.g. EUR-ICESWAP)
+  display_name: publicationCalendar

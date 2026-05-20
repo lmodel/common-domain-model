@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: SubstitutedRegime
+schema_generating: true
+description: A class to specify each party's election with respect to the Substituted
+  Regimes that will be applicable...
+display_name: SubstitutedRegime
+document_category: SubstitutedRegime
+weight: 20
+fields:
+- id: regime
+  description: The applicable regulatory regime, as specified through an enumeration.
+  display_name: SubstitutedRegime_regime
+- id: additionalRegime
+  description: The additional regulatory regime as specified by the parties.
+  display_name: additionalRegime
+- id: regimeTerms
+  description: Specifies the applicability of the Substituted Regime as denoted in
+    the Substituted Regime Table as part of certain legal agreements, such as the
+    ISDA 2016 and 2018 CSA for Initial Margin.
+  display_name: SubstitutedRegime_regimeTerms
+  cardinality: multi

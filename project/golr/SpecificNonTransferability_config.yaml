@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: SpecificNonTransferability
+schema_generating: true
+display_name: SpecificNonTransferability
+document_category: SpecificNonTransferability
+weight: 20
+fields:
+- id: specificNonTransferabilityIsApplicable
+  display_name: specificNonTransferabilityIsApplicable
+- id: relevantClass
+  display_name: relevantClass
+  cardinality: multi
+- id: localSubstituteProvisionType
+  display_name: localSubstituteProvisionType
+- id: maximumDaysOfDisruption
+  display_name: maximumDaysOfDisruption
+- id: nonDeliverableSubstitute
+  display_name: nonDeliverableSubstitute
+- id: escrowArrangement
+  display_name: escrowArrangement

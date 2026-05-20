@@ -1,0 +1,12 @@
+# metamodel_version: 1.11.0id: AssetMaturity
+schema_generating: true
+display_name: AssetMaturity
+document_category: AssetMaturity
+weight: 20
+fields:
+- id: maturityType
+  description: Specifies whether the maturity range is the remaining or original maturity.
+  display_name: maturityType
+- id: maturityRange
+  description: Represents a filter based on the underlying asset maturity.
+  display_name: maturityRange

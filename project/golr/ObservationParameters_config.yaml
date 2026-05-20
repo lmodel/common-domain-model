@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: ObservationParameters
+schema_generating: true
+description: Parameters on daily observed computed rates, specifically daily caps
+  and floors. This type is used to represent modular computed rates in interestRatePayouts.
+display_name: ObservationParameters
+document_category: ObservationParameters
+weight: 20
+fields:
+- id: observationCapRate
+  description: A daily observation cap rate.
+  display_name: observationCapRate
+- id: observationFloorRate
+  description: A daily observation floor rate.
+  display_name: observationFloorRate

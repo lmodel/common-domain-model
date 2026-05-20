@@ -1,0 +1,39 @@
+# metamodel_version: 1.11.0id: CollateralInterestCalculationParameters
+schema_generating: true
+description: Represents parameters for calculating the amount the floating interest
+  calculation, e.g.  for a single currency or defaults for all currencies.
+display_name: CollateralInterestCalculationParameters
+document_category: CollateralInterestCalculationParameters
+weight: 20
+fields:
+- id: fixedRate
+  description: Specifies the applicable fixed rate  if used.
+  display_name: CollateralInterestCalculationParameters_fixedRate
+- id: floatingRate
+  description: Specifies the floating interest rate to be used.
+  display_name: CollateralInterestCalculationParameters_floatingRate
+  cardinality: multi
+- id: inBaseCurrency
+  description: If True, specifies that the interest transfers should be converted
+    to base currency equivalent, or if False specifies that the transfer should be
+    in the currency of the collateral.
+  display_name: inBaseCurrency
+- id: compoundingType
+  description: Specifies the type of compounding to be applied (None, Business, Calendar).
+  display_name: compoundingType
+- id: compoundingBusinessCenter
+  description: Specifies the applicable business centers for compounding.
+  display_name: compoundingBusinessCenter
+  cardinality: multi
+- id: dayCountFraction
+  description: Specifies the day count fraction to use for that currency.
+  display_name: CollateralInterestCalculationParameters_dayCountFraction
+- id: rounding
+  description: Specifies the rounding rules for settling in that currency.
+  display_name: CollateralInterestCalculationParameters_rounding
+- id: roundingFrequency
+  description: Specifies when/how often is rounding applied?
+  display_name: roundingFrequency
+- id: withholdingTaxRate
+  description: Specifies the withholding tax rate if a withholding tax is applicable.
+  display_name: withholdingTaxRate

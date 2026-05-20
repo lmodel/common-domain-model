@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: DirectionRatingMultiplier
+schema_generating: true
+description: A logical container to hold a defined set of related data. In this case
+  the collation of Ratings Information and associated exposure multiplier.
+display_name: DirectionRatingMultiplier
+document_category: DirectionRatingMultiplier
+weight: 20
+fields:
+- id: variableSet
+  description: A logical container to hold a defined set of related data. In this
+    case the collation of Ratings Agency, Rating value and an associated direction.
+  display_name: DirectionRatingMultiplier_variableSet
+  cardinality: multi
+- id: exposureMultiplier
+  description: Specifies the multiplier applied to exposure based on the credit rating
+    of the rated party.
+  display_name: exposureMultiplier

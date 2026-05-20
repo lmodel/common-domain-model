@@ -1,0 +1,32 @@
+# metamodel_version: 1.11.0id: DisputeResolution
+schema_generating: true
+description: A class to specify the election terms under which a party disputes the
+  Value of any Transfer of Eligible Credit Support or Posted Credit Support.
+display_name: DisputeResolution
+document_category: DisputeResolution
+weight: 20
+fields:
+- id: resolutionTime
+  description: The time by which the dispute needs to be resolved, failure of which
+    would trigger a recalculation alongside a process that is specified as part of
+    the agreement.
+  display_name: resolutionTime
+- id: otherTerms
+  description: The custom Resolution Time election that might be specified by the
+    parties.
+  display_name: otherTerms
+- id: alternativeTerms
+  description: The alternative dispute resolution procedure if specified.
+  display_name: alternativeTerms
+- id: recalculationOfValue
+  description: The elections to specify terms for recalculation of the market value
+    of posted collateral.
+  display_name: recalculationOfValue
+- id: legacyAlternative
+  description: Alternative procedures to those in the pre-print for resolving collateral
+    related disputes.
+  display_name: legacyAlternative
+- id: value
+  description: Methodology for resolving disputes in respect of the determination
+    of the value of collateral.
+  display_name: DisputeResolution_value

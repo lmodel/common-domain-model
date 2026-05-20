@@ -1,0 +1,67 @@
+# metamodel_version: 1.11.0id: OptionPayout
+schema_generating: true
+description: ' The option payout specification terms. The associated globalKey denotes
+  the ability to associate a hash value to the respective OptionPayout instantiation
+  for the purpose of model cross-referencing, in support of functionality such as
+  the event effect and the lineage.'
+display_name: OptionPayout
+document_category: OptionPayout
+weight: 20
+fields:
+- id: payerReceiver
+  description: Canonical representation of the payer and receiver parties applicable
+    to each payout leg.
+  display_name: PayoutBase_payerReceiver
+- id: priceQuantity
+  description: Each payout leg must implement the quantity concept as a 'resolvable'
+    type, which allows for different payout legs to be linked to each other (e.g.
+    in the case of cross-curreny products).
+  display_name: PayoutBase_priceQuantity
+  cardinality: multi
+- id: principalPayment
+  description: The specification of the principal exchange. Optional as only applicable
+    in the case of cross-currency or zero-coupon swaps with a final payment.
+  display_name: principalPayment
+- id: settlementTerms
+  description: Each payout leg must specifies its settlement terms, including the
+    delivery type (i.e. cash vs physical, and their respective terms), the transfer
+    type (DvP etc.) and settlement date, if any.
+  display_name: PayoutBase_settlementTerms
+- id: buyerSeller
+  display_name: buyerSeller
+- id: feature
+  description: The option feature, such as quanto, Asian, barrier, knock.
+  display_name: feature
+- id: observationTerms
+  description: Class containing terms that are associated with observing a price/benchmark/index
+    across either single or multple observations. To be used for option contracts
+    that reference a benchmark price.
+  display_name: observationTerms
+- id: schedule
+  description: Allows the full representation of a payout by defining a set of schedule
+    periods. It supports standard schedule customization by expressing all the dates,
+    quantities, and pricing data in a non-parametric way.
+  display_name: OptionPayout_schedule
+  cardinality: multi
+- id: delivery
+  description: Contains the information relative to the delivery of the asset.
+  display_name: delivery
+- id: underlier
+  description: The financial product underlying the option, which can be of any type
+    including an Asset, Basket, Index or a NonTransferableProduct.
+  display_name: OptionPayout_underlier
+- id: optionType
+  description: The type of option transaction. From a usage standpoint, put/call is
+    the default option type, while payer/receiver indicator is used for options on
+    index credit default swaps, consistently with the industry practice. Straddle
+    is used for the case of straddle strategy, that combine a call and a put with
+    the same strike.
+  display_name: OptionPayout_optionType
+- id: exerciseTerms
+  description: The terms for exercising the option, which include the option style
+    (e.g. American style option), the exercise procedure (e.g. manual exercise) and
+    the settlement terms (e.g. physical vs. cash).
+  display_name: exerciseTerms
+- id: strike
+  description: Specifies the strike of the option
+  display_name: OptionPayout_strike

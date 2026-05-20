@@ -1,0 +1,10 @@
+# metamodel_version: 1.11.0id: Nm
+schema_generating: true
+display_name: Nm
+document_category: Nm
+weight: 20
+fields:
+- id: refRate
+  display_name: refRate
+- id: term
+  display_name: term

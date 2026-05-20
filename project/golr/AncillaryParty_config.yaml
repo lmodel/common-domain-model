@@ -1,0 +1,25 @@
+# metamodel_version: 1.11.0id: AncillaryParty
+schema_generating: true
+description: Defines an ancillary role enumerated value with an associated party reference.
+  The product is agnostic to the actual parties involved in the transaction, with
+  the party references abstracted away from the product definition and replaced by
+  the AncillaryRoleEnum. The AncillaryRoleEnum can then be positioned in the product
+  and this AncillaryParty type, which is positioned outside of the product definition,
+  allows the AncillaryRoleEnum to be associated with an actual party reference.
+display_name: AncillaryParty
+document_category: AncillaryParty
+weight: 20
+fields:
+- id: role
+  description: Specifies the AncillaryRoleEnum that is associated to the party reference.
+    An ancillary party is any involved party that is not one of the two principal
+    parties to the transaction.
+  display_name: AncillaryParty_role
+- id: partyReference
+  description: Specifies the party, or parties, associated to the ancillary role.
+  display_name: AncillaryParty_partyReference
+  cardinality: multi
+- id: onBehalfOf
+  description: Optionally specifies the counterparty that the ancillary party is acting
+    on behalf of.
+  display_name: onBehalfOf

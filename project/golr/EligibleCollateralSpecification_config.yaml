@@ -1,0 +1,30 @@
+# metamodel_version: 1.11.0id: EligibleCollateralSpecification
+schema_generating: true
+description: Represents a set of criteria used to specify eligible collateral.
+display_name: EligibleCollateralSpecification
+document_category: EligibleCollateralSpecification
+weight: 20
+fields:
+- id: identifier
+  description: Specifies the identifier(s) to uniquely identify eligible collateral
+    or a set of eligible collateral, such as a schedule or equivalant for an identity
+    issuer.
+  display_name: EligibleCollateralSpecification_identifier
+  cardinality: multi
+- id: party
+  description: The parties associated with the specification.
+  display_name: EligibleCollateralSpecification_party
+  cardinality: multi
+- id: counterparty
+  description: Specification of the roles of the counterparties to the specification.
+  display_name: EligibleCollateralSpecification_counterparty
+  cardinality: multi
+- id: criteria
+  description: Represents a set of criteria used to specify eligible collateral.
+  display_name: EligibleCollateralSpecification_criteria
+  cardinality: multi
+- id: partyRole
+  description: Specifies the role(s) that each of the party(s) is playing in the context
+    of the specification, eg Payor or Receiver.
+  display_name: EligibleCollateralSpecification_partyRole
+  cardinality: multi

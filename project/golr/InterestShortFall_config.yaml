@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: InterestShortFall
+schema_generating: true
+description: A class to specify the interest shortfall floating rate payment event.
+display_name: InterestShortFall
+document_category: InterestShortFall
+weight: 20
+fields:
+- id: interestShortfallCap
+  description: 'Specifies the nature of the interest Shortfall cap (i.e. Fixed Cap
+    or Variable Cap) in the case where it is applicable. ISDA 2003 Term: Interest
+    Shortfall Cap.'
+  display_name: interestShortfallCap
+- id: compounding
+  display_name: compounding
+- id: rateSource
+  description: The rate source in the case of a variable cap.
+  display_name: rateSource

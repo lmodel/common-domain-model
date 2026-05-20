@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: IndexAdjustmentEvents
+schema_generating: true
+description: Defines the specification of the consequences of Index Events
+display_name: IndexAdjustmentEvents
+document_category: IndexAdjustmentEvents
+weight: 20
+fields:
+- id: indexModification
+  description: Consequence of index modification.
+  display_name: indexModification
+- id: indexCancellation
+  description: Consequence of index cancellation.
+  display_name: indexCancellation
+- id: indexDisruption
+  description: Consequence of index disruption.
+  display_name: indexDisruption

@@ -1,0 +1,36 @@
+# metamodel_version: 1.11.0id: CustodianElection
+schema_generating: true
+description: A class to specify the custodian and custody account details for each
+  party to the agreement.
+display_name: CustodianElection
+document_category: CustodianElection
+weight: 20
+fields:
+- id: party
+  description: The elective party.
+  display_name: CustodianElection_party
+- id: custodian
+  description: The custody agent. While CreateiQ only specifies the custodian's name,
+    specifying the legal entity as part of the CDM is deemed more appropriate, while
+    this will still provide the ability to accommodate situations where only the entity
+    name is available, as the entityId attribute is optional as part of the LegalEntity
+    class.
+  display_name: custodian
+- id: segregatedCashAccount
+  description: The identification of the segregated cash account for the purpose of
+    holding cash collateral.
+  display_name: segregatedCashAccount
+- id: segregatedSecurityAccount
+  description: The identification of the segregated security account for the purpose
+    of holding security collateral.
+  display_name: segregatedSecurityAccount
+- id: legacyVMCustodian
+  description: Details how the Custodian is determined.
+  display_name: legacyVMCustodian
+- id: legacyNamedEntity
+  description: The identity of the relevant custodian where Named Entity is elected.
+  display_name: legacyNamedEntity
+- id: additionalLanguage
+  description: The additional language that might be specified by the parties to the
+    legal agreement.
+  display_name: CustodianElection_additionalLanguage

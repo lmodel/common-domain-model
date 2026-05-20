@@ -1,0 +1,39 @@
+# metamodel_version: 1.11.0id: CustodyArrangements
+schema_generating: true
+description: Describes how posted collateral is held, maintained, and safeguarded
+  by a custodian or third-party agent, in accordance with the terms of the governing
+  agreement.
+display_name: CustodyArrangements
+document_category: CustodyArrangements
+weight: 20
+fields:
+- id: isCreditSupportDocument
+  description: Unless specified as True, the Control Agreement is not a Credit Support
+    Document under the agreement with respect to a party.
+  display_name: isCreditSupportDocument
+- id: hasControlAgreementLanguage
+  description: Control Agreement language is specified when True.
+  display_name: hasControlAgreementLanguage
+- id: otherProvisions
+  description: Other Custom Provisions of Custody Arrangements.
+  display_name: otherProvisions
+- id: collateralAccessBreach
+  description: The elections specific to Collateral Access Breach language.
+  display_name: collateralAccessBreach
+- id: custodianRisk
+  description: The qualification of the Custodian Risk.
+  display_name: custodianRisk
+- id: controlAgreement
+  description: The party-specific election with respect to the control agreement.
+  display_name: controlAgreement
+- id: custodianEvent
+  description: Specifies if and until when a Custodian Event clause applies.
+  display_name: custodianEvent
+- id: custodian
+  description: The custodian and segregated account details for each party to the
+    agreement.
+  display_name: CustodyArrangements_custodian
+- id: collateralManagementAgreement
+  description: The designated Collateral Management Agreement with respect to the
+    elective party as the Obligee.
+  display_name: CustodyArrangements_collateralManagementAgreement

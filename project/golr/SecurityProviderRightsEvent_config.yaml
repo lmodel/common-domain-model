@@ -1,0 +1,27 @@
+# metamodel_version: 1.11.0id: SecurityProviderRightsEvent
+schema_generating: true
+description: A class to specify the Pledgor/Obligor/Chargor Rights Event election.
+display_name: SecurityProviderRightsEvent
+document_category: SecurityProviderRightsEvent
+weight: 20
+fields:
+- id: partyElection
+  description: A qualification as to whether the Additional Representation is applicable.
+  display_name: SecurityProviderRightsEvent_partyElection
+  cardinality: multi
+- id: includeCoolingOffLanguage
+  description: The Pledgor/Obligor/Chargor Rights Event election includes cooling
+    off language when the attribute is set of True.
+  display_name: includeCoolingOffLanguage
+- id: fullDischarge
+  description: If specified as applicable here, a Pledgor/Obligor/Chargor Rights Event
+    will not occur unless the Pledgor/Obligor/Chargor (A) has provided a statement
+    to the Secured Party in respect of such Early Termination Date.
+  display_name: SecurityProviderRightsEvent_fullDischarge
+- id: automaticSetOff
+  description: The Automatic Set-Off provision applies when the value is set to True.
+  display_name: automaticSetOff
+- id: customElection
+  description: A custom Pledgor/Obligor/Chargor Rights Event election might be specified
+    by the parties.
+  display_name: SecurityProviderRightsEvent_customElection

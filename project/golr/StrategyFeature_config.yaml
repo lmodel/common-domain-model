@@ -1,0 +1,13 @@
+# metamodel_version: 1.11.0id: StrategyFeature
+schema_generating: true
+description: A class for defining option strategy features.
+display_name: StrategyFeature
+document_category: StrategyFeature
+weight: 20
+fields:
+- id: strikeSpread
+  description: Definition of the upper strike in a strike spread.
+  display_name: strikeSpread
+- id: calendarSpread
+  description: Definition of the later expiration date in a calendar spread.
+  display_name: calendarSpread

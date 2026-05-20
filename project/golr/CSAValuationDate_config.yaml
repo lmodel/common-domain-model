@@ -1,0 +1,28 @@
+# metamodel_version: 1.11.0id: CSAValuationDate
+schema_generating: true
+description: Specifies the date on which the value of collateral or exposure are calculated
+  in accordance with the agreement.
+display_name: CSAValuationDate
+document_category: CSAValuationDate
+weight: 20
+fields:
+- id: date
+  description: Defines whether a date is defined by a certain day of the week or a
+    particular date in the month. If not specified here, then additional language
+    must be used.
+  display_name: CSAValuationDate_date
+  cardinality: multi
+- id: day
+  description: Specific day(s) or day of the week, if any, specified for Valuation
+    Time.
+  display_name: CSAValuationDate_day
+- id: calendarDay
+  description: Defines the day of the calendar if this is specified for in the ValuationDateDateEnum.
+  display_name: calendarDay
+- id: frequency
+  description: Defines the regularity of the date specified for the Valuation Date.
+  display_name: CSAValuationDate_frequency
+- id: additionalLanguage
+  description: The additional language that might be specified by the parties to the
+    legal agreement.
+  display_name: CSAValuationDate_additionalLanguage

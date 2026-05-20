@@ -1,0 +1,56 @@
+# metamodel_version: 1.11.0id: ExecutionInstruction
+schema_generating: true
+description: Specifies instructions for execution of a transaction, consisting of
+  a product, price, quantity, parties, trade identifier, execution details, and settlement
+  terms.
+display_name: ExecutionInstruction
+document_category: ExecutionInstruction
+weight: 20
+fields:
+- id: product
+  description: Defines the financial product to be executed and contract formed.
+  display_name: product
+- id: priceQuantity
+  description: Defines the prices (e.g. spread, equity price, FX rate), quantities
+    (e.g. currency amount, no. shares) and settlement terms (e.g. initial fee, broker
+    fee, up-front cds payment or option premium settlement) associated with the constituents
+    of the transacted product.
+  display_name: priceQuantity
+  cardinality: multi
+- id: counterparty
+  description: Maps two defined parties to counterparty enums for the transacted product.
+  display_name: counterparty
+  cardinality: multi
+- id: ancillaryParty
+  description: Maps any ancillary parties, e.g. parties involved in the transaction
+    that are not one of the two principal parties.
+  display_name: ExecutionInstruction_ancillaryParty
+  cardinality: multi
+- id: parties
+  description: Defines all parties to that execution, including agents and brokers.
+  display_name: parties
+  cardinality: multi
+- id: partyRoles
+  description: Defines the role(s) that party(ies) may have in relation to the execution.
+  display_name: partyRoles
+  cardinality: multi
+- id: executionDetails
+  description: Specifies the type and venue of execution, e.g. via voice, or electronically.
+  display_name: executionDetails
+- id: tradeDate
+  description: Denotes the trade/execution date.
+  display_name: tradeDate
+- id: tradeTime
+  description: Denotes the trade time and timezone as agreed by the parties to the
+    trade.
+  display_name: tradeTime
+- id: tradeIdentifier
+  description: Denotes one or more identifiers associated with the transaction.
+  display_name: tradeIdentifier
+  cardinality: multi
+- id: collateral
+  description: Detail the collateral requirement anticipated with the transaction.
+  display_name: collateral
+- id: lotIdentifier
+  description: Lot Identifier associated with the transaction.
+  display_name: lotIdentifier

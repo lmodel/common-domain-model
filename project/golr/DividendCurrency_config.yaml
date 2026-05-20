@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: DividendCurrency
+schema_generating: true
+description: A class to specify the currency in which the dividends will be denominated,
+  i.e. either in the dividend currency or in a currency specified as part of the contract.
+display_name: DividendCurrency
+document_category: DividendCurrency
+weight: 20
+fields:
+- id: currency
+  description: The currency in which the dividend is denominated. The list of valid
+    currencies is not presently positioned as an enumeration as part of the CDM because
+    that scope is limited to the values specified by ISDA and FpML. As a result, implementers
+    have to make reference to the relevant standard, such as the ISO 4217 standard
+    for currency codes.
+  display_name: DividendCurrency_currency
+- id: determinationMethod
+  description: Specifies the method according to which the dividend is determined,
+    e.g. the dividend currency.
+  display_name: DividendCurrency_determinationMethod
+- id: currencyReference
+  description: Reference to a currency specified elsewhere in the document
+  display_name: currencyReference

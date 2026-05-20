@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: Quanto
+schema_generating: true
+description: Determines the currency rate that the seller of the equity amounts will
+  apply at each valuation date for converting the respective amounts into a currency
+  that is different from the currency denomination of the underlier.
+display_name: Quanto
+document_category: Quanto
+weight: 20
+fields:
+- id: fxRate
+  description: Specifies a currency conversion rate.
+  display_name: fxRate
+  cardinality: multi
+- id: fxSpotRateSource
+  description: Specifies the methodology (reference source and, optionally, fixing
+    time) to be used for determining a currency conversion rate.
+  display_name: Quanto_fxSpotRateSource
+- id: fixingTime
+  description: The time at which the spot currency exchange rate will be observed.
+    It is specified as a time in a business day calendar location, e.g. 11:00am London
+    time.
+  display_name: Quanto_fixingTime

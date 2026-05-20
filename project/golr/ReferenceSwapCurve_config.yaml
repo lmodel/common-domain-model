@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: ReferenceSwapCurve
+schema_generating: true
+description: A complex type used to specify the option and convertible bond option
+  strike when expressed in reference to a swap curve.
+display_name: ReferenceSwapCurve
+document_category: ReferenceSwapCurve
+weight: 20
+fields:
+- id: swapUnwindValue
+  display_name: swapUnwindValue
+- id: makeWholeAmount
+  description: Amount to be paid by the buyer of the option if the option is exercised
+    prior to the Early Call Date. (The market practice in the convertible bond option
+    space being that the buyer should be penalised if he/she exercises the option
+    early on.)
+  display_name: makeWholeAmount

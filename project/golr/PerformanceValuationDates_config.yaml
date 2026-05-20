@@ -1,0 +1,30 @@
+# metamodel_version: 1.11.0id: PerformanceValuationDates
+schema_generating: true
+description: Defines how and when a performance type option or performance type swap
+  is to be valued.
+display_name: PerformanceValuationDates
+document_category: PerformanceValuationDates
+weight: 20
+fields:
+- id: determinationMethod
+  description: Specifies the method according to which an amount or a date is determined.
+  display_name: determinationMethod
+- id: valuationDates
+  description: '2018 ISDA CDM Equity Confirmation for Security Equity Swap: Pricing
+    Date'
+  display_name: PerformanceValuationDates_valuationDates
+- id: valuationDate
+  description: '2018 ISDA CDM Equity Confirmation for Security Equity Swap: Pricing
+    Date'
+  display_name: PerformanceValuationDates_valuationDate
+- id: valuationTime
+  description: The specific time of day at which the calculation agent values the
+    underlying. The SpecificTime is the only case when the valuationTime (time + business
+    center location  e.g. 10:00:00 USNY) should be provided. You should be able to
+    provide just the valuationTime without valuationTimeType, which infer that this
+    is a specific time.
+  display_name: PerformanceValuationDates_valuationTime
+- id: valuationTimeType
+  description: The time of day at which the calculation agent values the underlying,
+    for example the official closing time of the exchange.
+  display_name: valuationTimeType

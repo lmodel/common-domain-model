@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: PartyOptionTerminationCurrency
+schema_generating: true
+description: Specifies mechanism for Termination currency to be selected by the Non-defaulting
+  Party/party which is not the Affected Party.
+display_name: PartyOptionTerminationCurrency
+document_category: PartyOptionTerminationCurrency
+weight: 20
+fields:
+- id: bothAffectedTermCurrencyOption
+  description: Specifies termination currency where there are two Affected Parties
+    and they cannot agree on the termination currency.
+  display_name: bothAffectedTermCurrencyOption
+- id: terminationCurrencySpecifiedCondition
+  description: Specifies alternative conditions for selection of the termination currency.
+  display_name: terminationCurrencySpecifiedCondition
+- id: terminationCurrencyCondition
+  description: Specifies the enumerated conditions for selection of the termination
+    currency.
+  display_name: terminationCurrencyCondition

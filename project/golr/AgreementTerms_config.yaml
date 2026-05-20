@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: AgreementTerms
+schema_generating: true
+description: Specification of the content of a legal agreement.
+display_name: AgreementTerms
+document_category: AgreementTerms
+weight: 20
+fields:
+- id: agreement
+  description: Specification of the standard set of terms that define a legal agreement.
+  display_name: agreement
+- id: clauseLibrary
+  description: Specification of whether the agreement terms have been negotiated using
+    the clause library methodology.
+  display_name: clauseLibrary
+- id: counterparty
+  description: Specification of the roles of the counterparties to the agreement.
+  display_name: AgreementTerms_counterparty
+  cardinality: multi

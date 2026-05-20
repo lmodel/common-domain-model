@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: BespokeCalculationTime
+schema_generating: true
+description: A class to specify additional Calculation Time terms for the purposes
+  of Initial Margin.
+display_name: BespokeCalculationTime
+document_category: BespokeCalculationTime
+weight: 20
+fields:
+- id: asCalculationAgent
+  description: If set to True, the Calculation Time for Initial Margin is the time
+    as of which the Calculation Agent (IM) computes its end of day valuations of derivatives
+    transactions.
+  display_name: asCalculationAgent
+- id: bespokeCalculationTimeTerms
+  description: Additional Terms applicable to Calculation Time for Initial Margin.
+  display_name: bespokeCalculationTimeTerms

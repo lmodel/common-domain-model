@@ -1,0 +1,50 @@
+# metamodel_version: 1.11.0id: AdjustmentFactorCalculationTerms
+schema_generating: true
+description: Describes the input terms involved in the calculation of the adjustment
+  factor applied to the price of the underlier impacted by a Corporate Action.
+display_name: AdjustmentFactorCalculationTerms
+document_category: AdjustmentFactorCalculationTerms
+weight: 20
+fields:
+- id: shareForShareRatio
+  description: 'Multiple value, say ''M/N'' where ''M'' is the number of shares after
+    the event and ''N'' is the number of shares prior to the event. '
+  display_name: shareForShareRatio
+- id: shareForRightsRatio
+  description: 'Multiple value, say ''M/N'' where ''M'' is the number of rights after
+    the event, and ''N'' of shares prior to the event. '
+  display_name: shareForRightsRatio
+- id: rightsSubscriptionPrice
+  description: The price to pay per each right.
+  display_name: rightsSubscriptionPrice
+- id: dividendRatio
+  description: Multiplier value (e.g. 85 %, etc.) to calculate net dividend amount,
+    given gross amount before taking into account the relevant fiscal features.
+  display_name: dividendRatio
+- id: spinOff
+  description: Defines the underlier for both the Parent Company and the Child Compagny
+    involved in Spin Off corporate action, as well as the respective price observation
+    for each.
+  display_name: spinOff
+- id: merger
+  description: Defines the underlier for both the Purchaser Company and the Acquired
+    Compagny involved in Spin Off corporate action, as well as the respective price
+    observation for each.
+  display_name: merger
+- id: accrualFactor
+  description: The accrual rate and related terms, to adjust the price of an underlier
+    impacted by a Corporate Action when economic impact consists in freezing the underlier
+    price to last fixing and applying accruals for each remaining underlier price
+    fixing date required i.e. for each, adjustedPrice = lastFixingPrice x (1 + accrualRate
+    x DCF).
+  display_name: accrualFactor
+- id: lastFixingPriceBeforeAdjustment
+  description: The last fixing price of the Underlier affected by the CorporateAction,
+    before any adjustment with regards to the CorporateAction.
+  display_name: lastFixingPriceBeforeAdjustment
+- id: dividendObservation
+  description: To record observations of dividends.
+  display_name: dividendObservation
+- id: bespokeCalculationFormula
+  description: To describe the formula used to calculate the Adjustment Factor.
+  display_name: bespokeCalculationFormula

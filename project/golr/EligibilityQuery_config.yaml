@@ -1,0 +1,29 @@
+# metamodel_version: 1.11.0id: EligibilityQuery
+schema_generating: true
+description: Query to check against an EligibleCollateralSpecification
+display_name: EligibilityQuery
+document_category: EligibilityQuery
+weight: 20
+fields:
+- id: maturity
+  description: Maturity in years
+  display_name: maturity
+- id: collateralAssetType
+  description: The asset product type.
+  display_name: collateralAssetType
+- id: assetCountryOfOrigin
+  description: The asset country of origin.
+  display_name: assetCountryOfOrigin
+- id: denominatedCurrency
+  description: The underlying asset denominated currency.
+  display_name: denominatedCurrency
+- id: agencyRating
+  description: The agency rating based on default risk and creditors claim in event
+    of default associated with specific instrument.
+  display_name: agencyRating
+- id: issuerType
+  description: Represents a filter based on the type of entity issuing the asset.
+  display_name: EligibilityQuery_issuerType
+- id: issuerName
+  description: Specifies the issuing entity name or LEI.
+  display_name: issuerName

@@ -1,0 +1,44 @@
+# metamodel_version: 1.11.0id: OptionalEarlyTermination
+schema_generating: true
+description: 'A data defining:  an early termination provision where either or both
+  parties have the right to exercise.'
+display_name: OptionalEarlyTermination
+document_category: OptionalEarlyTermination
+weight: 20
+fields:
+- id: singlePartyOption
+  description: If optional early termination is not available to both parties then
+    this component specifies the buyer and seller of the option. In FpML, this attribute
+    is of type SinglePsrtyOption, which actually consists of the BuyerSeller.model.
+  display_name: OptionalEarlyTermination_singlePartyOption
+- id: mutualEarlyTermination
+  description: Used for specifying whether the Mutual Early Termination Right that
+    is detailed in the Master Confirmation will apply.
+  display_name: mutualEarlyTermination
+- id: exerciseNotice
+  description: Definition of the party to whom notice of exercise should be given.
+  display_name: OptionalEarlyTermination_exerciseNotice
+  cardinality: multi
+- id: followUpConfirmation
+  description: A flag to indicate whether follow-up confirmation of exercise (written
+    or electronic) is required following telephonic notice by the buyer to the seller
+    or seller's agent.
+  display_name: OptionalEarlyTermination_followUpConfirmation
+- id: calculationAgent
+  description: The ISDA Calculation Agent responsible for performing duties associated
+    with an optional early termination.
+  display_name: OptionalEarlyTermination_calculationAgent
+- id: cashSettlement
+  description: If specified, this means that cash settlement is applicable to the
+    transaction and defines the parameters associated with the cash settlement procedure.
+    If not specified, then physical settlement is applicable.
+  display_name: OptionalEarlyTermination_cashSettlement
+- id: optionalEarlyTerminationAdjustedDates
+  description: An early termination provision to terminate the trade at fair value
+    where one or both parties have the right to decide on termination.
+  display_name: optionalEarlyTerminationAdjustedDates
+- id: exerciseTerms
+  description: The exercise terms associated with the optional early termination,
+    including details such as exercise style, exercise fees, and any other relevant
+    conditions or terms.
+  display_name: OptionalEarlyTermination_exerciseTerms

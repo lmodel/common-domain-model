@@ -1,0 +1,36 @@
+# metamodel_version: 1.11.0id: EventsOfDefaultElection
+schema_generating: true
+description: The specific party elections for events of default.
+display_name: EventsOfDefaultElection
+document_category: EventsOfDefaultElection
+weight: 20
+fields:
+- id: party
+  description: The specified party.
+  display_name: EventsOfDefaultElection_party
+- id: automaticEarlyTerminationApplies
+  description: Does automatic early termination apply to the specified party?
+  display_name: automaticEarlyTerminationApplies
+- id: existingLoans
+  description: Are existing loans covered in the event of default (Only relevant to
+    2010 GMSLAs)?
+  display_name: existingLoans
+- id: automation
+  description: Are third party vendors allowed to automate the processing of loans
+    in the event of default (Only relevant to 2010 GMSLAs)?
+  display_name: automation
+- id: automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple
+  description: In the case where party is acting as an agent, is automatic early termination
+    specified on a per principle basis?
+  display_name: automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple
+- id: automaticEarlyTerminationRequiredDueToSystemOfLaw
+  description: Automatic early termination only applies if required due to system
+    of law, otherwise it is not applicable.
+  display_name: automaticEarlyTerminationRequiredDueToSystemOfLaw
+- id: automaticEarlyTerminationInModifiedForm
+  description: Automatic early termination applies in a modified form only.
+  display_name: automaticEarlyTerminationInModifiedForm
+- id: automaticEarlyTerminationOther
+  description: Optional string to capture any further information regarding the automatic
+    early termination even of default.
+  display_name: automaticEarlyTerminationOther

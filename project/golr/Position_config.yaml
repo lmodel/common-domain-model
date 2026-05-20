@@ -1,0 +1,26 @@
+# metamodel_version: 1.11.0id: Position
+schema_generating: true
+description: A Position describes how much of a given Product is being held and constitutes
+  the atomic element of a Portfolio.
+display_name: Position
+document_category: Position
+weight: 20
+fields:
+- id: priceQuantity
+  description: Position with many price quantities.
+  display_name: PositionBase_priceQuantity
+  cardinality: multi
+- id: product
+  description: The product underlying the position.
+  display_name: PositionBase_product
+- id: asset
+  description: The asset that underlies the position.
+  display_name: asset
+- id: cashBalance
+  description: The aggregate cost of proceeds.
+  display_name: cashBalance
+- id: tradeReference
+  description: Reference to the Contract, in case product is contractual and the contract
+    has been formed.
+  display_name: PositionBase_tradeReference
+  cardinality: multi

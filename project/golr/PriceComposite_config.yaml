@@ -1,0 +1,29 @@
+# metamodel_version: 1.11.0id: PriceComposite
+schema_generating: true
+description: Defines the inputs required to calculate a price as a simple composite
+  of 2 other values. The inputs consist of 2 numbers and a simple arithmetic operator.
+  This generic data type applies to a variety of use cases where a price is obtained
+  by simple composition, e.g. dirty = clean + accrued (Bond), forward rate = spot
+  rate + forward point (FX) etc.
+display_name: PriceComposite
+document_category: PriceComposite
+weight: 20
+fields:
+- id: baseValue
+  description: 'The 1st value in the arithmetic operation, which may be non-commutative
+    in some cases: Subtract, Divide). This 1st operand is called ''baseValue'' as
+    it refers to the price anchor in the arithmetic operation: e.g. the clean price
+    (Bond) or the spot rate (FX).'
+  display_name: baseValue
+- id: operand
+  description: 'The 2nd value in the arithmetic operation, which may be non-commutative
+    in some cases: Subtract, Divide). The 2nd operand is called ''operand'' to distinguish
+    it from the 1st one which is the price anchor.'
+  display_name: operand
+- id: arithmeticOperator
+  description: Specifies the arithmetic operator via an enumeration.
+  display_name: arithmeticOperator
+- id: operandType
+  description: 'Optionally qualifies the type of operand: e.g. accrued or forward
+    point.'
+  display_name: operandType

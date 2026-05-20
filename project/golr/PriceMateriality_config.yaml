@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: PriceMateriality
+schema_generating: true
+display_name: PriceMateriality
+document_category: PriceMateriality
+weight: 20
+fields:
+- id: priceMaterialityIsApplicable
+  display_name: priceMaterialityIsApplicable
+- id: escrowArrangement
+  display_name: escrowArrangement
+- id: fallbackReferencePrice
+  description: The method, prioritised by the order it is listed in this element,
+    to get a replacement rate for the disrupted settlement rate option.
+  display_name: fallbackReferencePrice

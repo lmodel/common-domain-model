@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: PartyCustomisedWorkflow
+schema_generating: true
+description: A class to specify a party-related, non-standardized data in a generic
+  form.
+display_name: PartyCustomisedWorkflow
+document_category: PartyCustomisedWorkflow
+weight: 20
+fields:
+- id: partyReference
+  description: Reference to the party to which the workflow pertains to.
+  display_name: PartyCustomisedWorkflow_partyReference
+- id: partyName
+  description: The party name to which the workflow pertains to.
+  display_name: partyName
+- id: customisedWorkflow
+  description: Non-standardized data in a generic form.
+  display_name: customisedWorkflow
+  cardinality: multi

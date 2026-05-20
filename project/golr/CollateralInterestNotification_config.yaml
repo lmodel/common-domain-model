@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: CollateralInterestNotification
+schema_generating: true
+description: Represents the parameters describing when notifications should be made
+  for required collateral interest transfers.
+display_name: CollateralInterestNotification
+document_category: CollateralInterestNotification
+weight: 20
+fields:
+- id: trigger
+  description: Specifies what triggers notification (should be enum) Interest Statement
+    Frequency, Period End Date.
+  display_name: CollateralInterestNotification_trigger
+- id: offset
+  description: Specifies the number of days before (negative) or after (positive)
+    the trigger event.
+  display_name: CollateralInterestNotification_offset
+- id: notificationTime
+  description: Specifies the time of day that the notification should occur.
+  display_name: CollateralInterestNotification_notificationTime
+- id: notificationDayType
+  description: The type of days on which notification should occur.
+  display_name: notificationDayType

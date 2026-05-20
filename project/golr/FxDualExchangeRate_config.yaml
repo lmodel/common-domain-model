@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: FxDualExchangeRate
+schema_generating: true
+display_name: FxDualExchangeRate
+document_category: FxDualExchangeRate
+weight: 20
+fields:
+- id: dualExchangeRateIsApplicable
+  display_name: dualExchangeRateIsApplicable
+- id: fallbackReferencePrice
+  description: The method, prioritised by the order it is listed in this element,
+    to get a replacement rate for the disrupted settlement rate option.
+  display_name: FxDualExchangeRate_fallbackReferencePrice
+- id: escrowArrangement
+  display_name: escrowArrangement

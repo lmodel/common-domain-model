@@ -1,0 +1,13 @@
+# metamodel_version: 1.11.0id: EnforcementEvent
+schema_generating: true
+description: A class to specify Enforcement Events specific to Security Agreements.
+display_name: EnforcementEvent
+document_category: EnforcementEvent
+weight: 20
+fields:
+- id: earlyTerminationDate
+  description: The early termination election.
+  display_name: earlyTerminationDate
+- id: failureToPay
+  description: The failure to pay election.
+  display_name: failureToPay

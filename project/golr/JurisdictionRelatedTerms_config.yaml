@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: JurisdictionRelatedTerms
+schema_generating: true
+description: A class to specify terms jurisdiction related terms.
+display_name: JurisdictionRelatedTerms
+document_category: JurisdictionRelatedTerms
+weight: 20
+fields:
+- id: japaneseSecuritiesProvisions
+  description: The Japanese Securities Provisions election.
+  display_name: japaneseSecuritiesProvisions
+- id: exclusiveJurisdiction
+  description: Classification of optional exclusive jurisdiction terms.
+  display_name: exclusiveJurisdiction
+- id: juryWaiver
+  description: The Jury Waiver conditions specific to the agreement.
+  display_name: juryWaiver
+- id: frenchLawAddendum
+  description: The French Law Addendum Provisions specific to the agreement.
+  display_name: frenchLawAddendum
+- id: belgianLawSecurityAgreement
+  description: The qualification of whether the Belgian Law Security Agreement Addendum
+    is deemed applicable by the parties (True) or not (False).
+  display_name: belgianLawSecurityAgreement

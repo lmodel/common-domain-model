@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: MoneyBound
+schema_generating: true
+description: The money bound is defined as a money amount and whether the bound is
+  inclusive.
+display_name: MoneyBound
+document_category: MoneyBound
+weight: 20
+fields:
+- id: money
+  description: The money amount to be used as the bound, e.g. 1,000 USD.
+  display_name: money
+- id: inclusive
+  description: Whether the money amount bound is inclusive, e.g. for a lower bound,
+    false would indicate greater than, whereas true would indicate greater than or
+    equal to.
+  display_name: MoneyBound_inclusive

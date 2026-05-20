@@ -1,0 +1,55 @@
+# metamodel_version: 1.11.0id: EconomicTerms
+schema_generating: true
+description: ' This class represents the full set of price-forming features associated
+  with a contractual product: the payout component, the notional/quantity, the effective
+  and termination date and the date adjustment provisions when applying uniformily
+  across the payout components. This class also includes the legal provisions which
+  have valuation implications: cancelable provision, extendible provision, early termination
+  provision and extraordinary events specification.'
+display_name: EconomicTerms
+document_category: EconomicTerms
+weight: 20
+fields:
+- id: effectiveDate
+  description: The first day of the terms of the trade. This day may be subject to
+    adjustment in accordance with a business day convention.
+  display_name: EconomicTerms_effectiveDate
+- id: effectiveTime
+  description: The time and zone of the first day of the terms of the trade. It can
+    also be specified in relation to another time.
+  display_name: EconomicTerms_effectiveTime
+- id: terminationDate
+  description: The last day of the terms of the trade. This date may be subject to
+    adjustments in accordance with the business day convention. It can also be specified
+    in relation to another scheduled date (e.g. the last payment date).
+  display_name: terminationDate
+- id: terminationTime
+  description: The time and zone of the last day of the terms of the trade. It can
+    also be specified in relation to another time.
+  display_name: terminationTime
+- id: dateAdjustments
+  description: The business day adjustment convention when it applies across all the
+    payout components. This specification of the business day convention and financial
+    business centers is used for adjusting any calculation period date if it would
+    otherwise fall on a day that is not a business day in the specified business center.
+  display_name: EconomicTerms_dateAdjustments
+- id: payout
+  description: The payout specifies the future cashflow computation methodology which
+    characterizes a financial product.
+  display_name: EconomicTerms_payout
+  cardinality: multi
+- id: terminationProvision
+  description: Contains optional provisions pertaining to the termination characteristics
+    of a contract.
+  display_name: terminationProvision
+- id: calculationAgent
+  description: The ISDA calculation agent responsible for performing duties as defined
+    in the applicable product definitions.
+  display_name: calculationAgent
+- id: nonStandardisedTerms
+  description: Specifies, when boolean value is True, that additional economic terms
+    exist that have not been included in the product representation.
+  display_name: nonStandardisedTerms
+- id: collateral
+  description: Represents the collateral obligations of a party.
+  display_name: EconomicTerms_collateral

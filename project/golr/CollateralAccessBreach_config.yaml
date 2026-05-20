@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: CollateralAccessBreach
+schema_generating: true
+description: A class to specify Collateral Access Breach language.
+display_name: CollateralAccessBreach
+document_category: CollateralAccessBreach
+weight: 20
+fields:
+- id: isApplicable
+  description: Collateral Access Breach terms are applicable when True and not applicable
+    when False.
+  display_name: CollateralAccessBreach_isApplicable
+- id: cabEndDateElection
+  description: Determination of whether the Collateral Access Breach end date is a
+    number of days (True) or specified (False).
+  display_name: cabEndDateElection
+- id: cabEndDate
+  description: The business days following the related Collateral Access Breach when
+    the additional terms end.
+  display_name: cabEndDate
+- id: cabEndDateTerms
+  description: Specific terms for when Collateral Access Breach terms end.
+  display_name: cabEndDateTerms

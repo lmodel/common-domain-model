@@ -1,0 +1,33 @@
+# metamodel_version: 1.11.0id: ClearingInstruction
+schema_generating: true
+description: All information required to perform the clear life cycle event; the clearing
+  party (CCP), the two parties facing each other on the alpha contract, and optionally
+  the parties acting as clearing members.
+display_name: ClearingInstruction
+document_category: ClearingInstruction
+weight: 20
+fields:
+- id: alphaContract
+  description: The contract that will be submitted to the clearing house for clearing.
+    The contract should indicate that it should be cleared by assigning a clearing
+    organisation as a party role.
+  display_name: alphaContract
+- id: clearingParty
+  description: The Central Counter party (CCP) that the contract will be submitted
+    to for clearing.
+  display_name: clearingParty
+- id: party1
+  description: First party facing the CCP if it is clearing for its own account.
+  display_name: party1
+- id: party2
+  description: Second party facing the CCP if it is clearing for its own account.
+  display_name: party2
+- id: clearerParty1
+  description: Optional party facing the CCP, acting as clearing member for party1.
+  display_name: clearerParty1
+- id: clearerParty2
+  description: Optional party facing the CCP, acting as clearing member for party2.
+  display_name: clearerParty2
+- id: isOpenOffer
+  description: Open Offer
+  display_name: isOpenOffer

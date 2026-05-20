@@ -1,0 +1,27 @@
+# metamodel_version: 1.11.0id: FloatingRateCalculationParameters
+schema_generating: true
+description: Defines the structures needed to represent the calculation parameters
+  for daily averaged and compounded modular rates as defined in the 2021 ISDA Definitions
+  in Section 7. This type is used to represent modular computed rates in interestRatePayouts.
+display_name: FloatingRateCalculationParameters
+document_category: FloatingRateCalculationParameters
+weight: 20
+fields:
+- id: calculationMethod
+  description: calculation type (averaging or compounding).
+  display_name: FloatingRateCalculationParameters_calculationMethod
+- id: observationShiftCalculation
+  description: any obervation shift parameters if applicable.
+  display_name: observationShiftCalculation
+- id: lookbackCalculation
+  description: any lookback  parameters if applicable.
+  display_name: lookbackCalculation
+- id: lockoutCalculation
+  description: any lockout  parameters if applicable.
+  display_name: lockoutCalculation
+- id: applicableBusinessDays
+  description: the business days that are applicable for the calculation.
+  display_name: applicableBusinessDays
+- id: observationParameters
+  description: ' any applicable observation parameters, such as daily caps or floors.'
+  display_name: observationParameters

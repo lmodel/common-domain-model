@@ -1,0 +1,33 @@
+# metamodel_version: 1.11.0id: PeriodicDates
+schema_generating: true
+description: A class for specifying a calculation period schedule.
+display_name: PeriodicDates
+document_category: PeriodicDates
+weight: 20
+fields:
+- id: startDate
+  description: The start date of the calculation period. FpML specifies that for interest
+    rate swaps this date must only be specified if it is not equal to the effective
+    date. It is always specified in the case of equity swaps and credit default swaps
+    with periodic payments. This date may be subject to adjustment in accordance with
+    a business day convention.
+  display_name: PeriodicDates_startDate
+- id: endDate
+  description: The end date of the calculation period. FpML specifies that for interest
+    rate swaps this date must only be specified if it is not equal to the termination
+    date. It is always specified in the case of equity swaps with periodic payments.
+    This date may be subject to adjustment in accordance with a business day convention.
+  display_name: PeriodicDates_endDate
+- id: periodFrequency
+  description: The frequency at which calculation period end dates occur with the
+    regular part of the calculation period schedule and their roll date convention.
+  display_name: periodFrequency
+- id: periodDatesAdjustments
+  description: The specification of the business day convention and financial business
+    centers used for adjusting any calculation period date if it would otherwise fall
+    on a day that is not a business day in the specified business center.
+  display_name: periodDatesAdjustments
+- id: dayType
+  description: Denotes the enumerated values to specify the day type classification
+    used in counting the number of days between two dates.
+  display_name: PeriodicDates_dayType

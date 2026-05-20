@@ -1,0 +1,28 @@
+# metamodel_version: 1.11.0id: PostingObligationsElection
+schema_generating: true
+description: Specifies the collateral posting obligations for the security provider
+  party(ies).
+display_name: PostingObligationsElection
+document_category: PostingObligationsElection
+weight: 20
+fields:
+- id: party
+  description: Specifies the party providing the security.
+  display_name: PostingObligationsElection_party
+- id: asPermitted
+  description: If set to True, the Control Agreement is a Credit Support Document
+    with respect to the party(ies).
+  display_name: asPermitted
+- id: eligibleCollateral
+  description: The eligible collateral as specified in relation to the pledgor/chargor/obligor(s)
+    posting obligation.
+  display_name: eligibleCollateral
+  cardinality: multi
+- id: excludedCollateral
+  description: The excluded collateral as specified in relation to the pledgor/chargor/obligor(s)
+    posting obligation.
+  display_name: excludedCollateral
+- id: additionalLanguage
+  description: The additional language that might be specified by the parties to the
+    legal agreement.
+  display_name: PostingObligationsElection_additionalLanguage

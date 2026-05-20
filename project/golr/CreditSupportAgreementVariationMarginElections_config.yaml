@@ -1,0 +1,92 @@
+# metamodel_version: 1.11.0id: CreditSupportAgreementVariationMarginElections
+schema_generating: true
+description: The set of elections which specify a Variation Margin Credit Support
+  Annex or Deed.
+display_name: CreditSupportAgreementVariationMarginElections
+document_category: CreditSupportAgreementVariationMarginElections
+weight: 20
+fields:
+- id: baseAndEligibleCurrency
+  description: The base and eligible currency(ies) for the document as specified by
+    the parties to the agreement.
+  display_name: baseAndEligibleCurrency
+- id: conditionsPrecedent
+  description: The set of elections that may overwrite the default Condition Precedent
+    provision, and the set of provisions that are deemed Access Condition.
+  display_name: conditionsPrecedent
+- id: substitution
+  description: The conditions under which the Security Provider can substitute posted
+    collateral.
+  display_name: substitution
+- id: disputeResolution
+  description: The election terms under which a party disputes (i) the Calculation
+    Agents calculation of a Delivery Amount or a Return Amount, or (ii) the Value
+    of any Transfer of Eligible Credit Support or Posted Credit Support.
+  display_name: disputeResolution
+- id: holdingAndUsingPostedCollateral
+  description: The elections for the holding and using of posted collateral by the
+    respective parties to the Credit Support Annex for Variation Margin.
+  display_name: holdingAndUsingPostedCollateral
+- id: distributionAndInterestPayment
+  description: The Distributions and Interest Payment terms specified as part of the
+    agreement.
+  display_name: distributionAndInterestPayment
+- id: otherEligibleAndPostedSupport
+  description: The Other Eligible Support elections associated with margin agreements.
+  display_name: otherEligibleAndPostedSupport
+- id: demandsAndNotices
+  description: The optional specification of address where the demands, specifications
+    and notices will be communicated to for each of the parties to the agreement.
+  display_name: demandsAndNotices
+- id: additionalRepresentations
+  description: The specification Additional Representations that may be applicable
+    to the agreement.
+  display_name: additionalRepresentations
+- id: masterAgreementDatedAsOfDate
+  description: Defines the dates agreed by the parties as the date of the Credit Support
+    Annex or Credit Support Deed.
+  display_name: masterAgreementDatedAsOfDate
+- id: finalReturns
+  description: A clause providing that final return collateral is to be provided without
+    consideration of any Minimum Transfer Amount and collateral haircut.
+  display_name: finalReturns
+- id: fxHaircutCurrency
+  description: The reference currency for the purpose of specifying the FX Haircut
+    relating to a posting obligation, as being either the Termination Currency or
+    an FX Designated Currency.
+  display_name: fxHaircutCurrency
+- id: exchangeDate
+  description: The bespoke exchange date terms that might be specified by the parties
+    to the agreement.
+  display_name: exchangeDate
+- id: coveredTransactions
+  description: The specification of transactions covered by the terms of the agreement.
+  display_name: CreditSupportAgreementVariationMarginElections_coveredTransactions
+- id: creditSupportOffsets
+  description: The specification of whether the standard Credit Support Offset provisions
+    are applicable (true) or not applicable (false).
+  display_name: creditSupportOffsets
+- id: custodyArrangements
+  description: The Custodian and Segregated Account details in respect of each party
+    to the agreement.
+  display_name: custodyArrangements
+- id: addressesForTransfer
+  description: The optional specification of address for transfer as specified by
+    the respective parties to the agreement.
+  display_name: addressesForTransfer
+- id: otherAgreements
+  description: The bespoke definition of other agreement terms as specified by the
+    parties to the agreement.
+  display_name: otherAgreements
+- id: securityInterestForObligations
+  description: The party to whom obligations under the Master Agreement are owed and
+    secured by the credit support arrangements. Applicable to 1994 NY CSA, 1995 English
+    Law CSD and 2016 New York Law VM CSA.
+  display_name: securityInterestForObligations
+- id: creditSupportObligations
+  description: The Credit Support Obligations applicable to the agreement.
+  display_name: CreditSupportAgreementVariationMarginElections_creditSupportObligations
+- id: calculationAndTiming
+  description: The set of elections for determining Valuation and Timing terms specific
+    to the agreement.
+  display_name: CreditSupportAgreementVariationMarginElections_calculationAndTiming

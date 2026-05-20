@@ -1,0 +1,34 @@
+# metamodel_version: 1.11.0id: CalculationFrequency
+schema_generating: true
+description: Represents the parameters for describing how often something (such as
+  collateral interest) is to be calculated.
+display_name: CalculationFrequency
+document_category: CalculationFrequency
+weight: 20
+fields:
+- id: period
+  description: Specifies the time period at which calculation is performed, e.g. 1
+    month.
+  display_name: CalculationFrequency_period
+- id: monthOfYear
+  description: Specifies the month of the year if used.
+  display_name: monthOfYear
+- id: dayOfMonth
+  description: Specifies the day of the month if used.
+  display_name: dayOfMonth
+- id: dayOfWeek
+  description: Specifies the day of the week if used.
+  display_name: dayOfWeek
+- id: weekOfMonth
+  description: Specifies the week of the month if used.
+  display_name: weekOfMonth
+- id: offsetDays
+  description: Specifies how many days from the trigger event should the payment occur.
+  display_name: offsetDays
+- id: dateLocation
+  description: Specifies where is the time measured.
+  display_name: dateLocation
+- id: businessCenter
+  description: Specifies the business center for adjustment of calculation period.
+  display_name: CalculationFrequency_businessCenter
+  cardinality: multi

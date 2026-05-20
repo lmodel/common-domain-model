@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: SensitivityMethodology
+schema_generating: true
+description: A class to specify the methodology according to which sensitivities are
+  computed.
+display_name: SensitivityMethodology
+document_category: SensitivityMethodology
+weight: 20
+fields:
+- id: specifiedMethodology
+  description: The methodology according to which sensitivities will be computed,
+    when specified through a normalized election.
+  display_name: specifiedMethodology
+- id: customMethodology
+  description: The methodology according to which sensitivities will be computed,
+    when specified through a custom election.
+  display_name: customMethodology

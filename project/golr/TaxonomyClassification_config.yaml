@@ -1,0 +1,21 @@
+# metamodel_version: 1.11.0id: TaxonomyClassification
+schema_generating: true
+display_name: TaxonomyClassification
+document_category: TaxonomyClassification
+weight: 20
+fields:
+- id: className
+  description: The name defined by the classification system for a specific attribute
+    in the taxonomy
+  display_name: className
+- id: value
+  description: The value set by the taxonomy that is specific to the className attribute.
+  display_name: TaxonomyClassification_value
+- id: description
+  description: A description of the class.
+  display_name: TaxonomyClassification_description
+- id: ordinal
+  description: In the case of multi-layered hierarchical classification systems such
+    as commodity classification, the layer the value and className occupy in the classification
+    hierarchy, where 1 represents the top-layer.
+  display_name: ordinal

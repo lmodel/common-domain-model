@@ -1,0 +1,68 @@
+# metamodel_version: 1.11.0id: VarianceReturnTerms
+schema_generating: true
+display_name: VarianceReturnTerms
+document_category: VarianceReturnTerms
+weight: 20
+fields:
+- id: valuationTerms
+  description: Contains all non-date valuation information.
+  display_name: valuationTerms
+- id: annualizationFactor
+  description: This specifies the numerator of an annualization factor. Frequently
+    this number is equal to the number of observations of prices in a year e.g. 252.
+  display_name: annualizationFactor
+- id: dividendApplicability
+  description: The parameters which define whether dividends are applicable
+  display_name: dividendApplicability
+- id: equityUnderlierProvisions
+  description: Contains Equity Underlyer provisions regarding jurisdiction and fallbacks.
+  display_name: equityUnderlierProvisions
+- id: sharePriceDividendAdjustment
+  description: Indicates whether the price of shares is adjusted for dividends or
+    not.
+  display_name: sharePriceDividendAdjustment
+- id: expectedN
+  description: Expected number of trading days.
+  display_name: expectedN
+- id: initialLevel
+  description: Contract will strike off this initial level. Providing just the initialLevel
+    without initialLevelSource, infers that this is AgreedInitialPrice - a specified
+    Initial Index Level.
+  display_name: initialLevel
+- id: initialLevelSource
+  description: In this context, this is AgreedInitialPrice - a specified Initial Index
+    Level.
+  display_name: initialLevelSource
+- id: meanAdjustment
+  description: Specifies whether Mean Adjustment is applicable or not in the calculation
+    of the Realized Volatility, Variance or Correlation
+  display_name: meanAdjustment
+- id: performance
+  description: Performance calculation, in accordance with Part 1 Section 12 of the
+    2018 ISDA CDM Equity Confirmation for Security Equity Swap, Para 75. 'Equity Performance'.
+    Cumulative performance is used as a notional multiplier factor on both legs of
+    an Equity Swap.
+  display_name: performance
+- id: varianceStrikePrice
+  description: Variance Strike Price in accordance with the ISDA 2011 Equity Derivatives
+    Definitions.
+  display_name: varianceStrikePrice
+- id: volatilityStrikePrice
+  description: Volatility Strike Price in accordance with the ISDA 2011 Equity Derivatives
+    Definitions.
+  display_name: volatilityStrikePrice
+- id: varianceCapFloor
+  description: Contains possible barriers for variance products, both variance-based
+    and underlier price based
+  display_name: varianceCapFloor
+- id: volatilityCapFloor
+  description: Contains containing volatility-based barriers
+  display_name: volatilityCapFloor
+- id: vegaNotionalAmount
+  description: Vega Notional represents the approximate gain/loss at maturity for
+    a 1% difference between RVol (realised vol) and KVol (strike vol). It does not
+    necessarily represent the Vega Risk of the trade.
+  display_name: vegaNotionalAmount
+- id: exchangeTradedContractNearest
+  description: Specification of the exchange traded contract nearest.
+  display_name: exchangeTradedContractNearest

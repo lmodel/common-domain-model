@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: RatingAgencyAmount
+schema_generating: true
+description: A logical container to hold a defined set of related data. In this case
+  the collation of Rating Information and an associated Independent Amount.
+display_name: RatingAgencyAmount
+document_category: RatingAgencyAmount
+weight: 20
+fields:
+- id: ratingVariableSet
+  description: Allows a grouping of Rating agencies and Rating values.
+  display_name: ratingVariableSet
+  cardinality: multi
+- id: amount
+  description: Specifies the notional or collateral Independent Amount.
+  display_name: RatingAgencyAmount_amount

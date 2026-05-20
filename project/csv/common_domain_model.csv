@@ -1,0 +1,781 @@
+id,mappings,description
+Account,,"A class to specify an account as an account number alongside, optionally. an account name, an account type, an account beneficiary and a servicing party."
+AccrualFactor,,"The accrual rate and related terms, to adjust the price of an underlier impacted by a Corporate Action when economic impact consists in freezing the underlier price to the last fixing then applying accruals per each remaining underlier price fixing date required i.e. for each fixing date, adjustedPrice = lastFixingPrice x accrualFactor, where: accrualFactor = (1 + accrualRateValue x DCF)."
+AccrualFactorCalculationTerms,,"Describes the input terms involved in the calculation of the accrual factor. Optionnally, long and short stub interpolation rates can be specified."
+AcctOwnr,,
+AdditionalDisruptionEvents,,A type for defining the Additional Disruption Events.
+AdditionalFixedPayments,,A class to specify the events that will give rise to the payment additional fixed payments.
+AdditionalObligations,,The election of party specific additional obligations applicable to the agreement.
+AdditionalRepresentation,,A class to specify the Additional Representation.
+AdditionalRepresentationElection,,A class to specify the parties' Additional Representation(s) election.
+AdditionalRepresentations,,A class to specify Additional Representations that may be applicable to an agreement.
+AdditionalRightsEvent,,A class to specify the Pledgor/Obligor/Chargor Additional Rights Event election.
+AdditionalTerminationEvent,,"A class to specify an optional termination event, additional to the Termination Events that will be deemed an Access Condition (Initial Margin CSA) or a Specified Condition (Variation Margin CSA)."
+AdditionalType,,The specification of the Additional Type of transaction that can require the collection or delivery of initial margin under a given regulatory regime for the purposes of Covered Transactions.
+Address,,A class to specify a post or street address.
+AddressesForTransfer,,Specifies the address for transfer as specified by the respective parties to the agreement.
+AddtlAttrbts,,
+AdjustableDate,,"A class for defining a date that shall be subject to adjustment if it would otherwise fall on a day that is not a business day in the specified business centers, together with the convention for adjusting the date."
+AdjustableDates,,"A class for defining a series of dates that shall be subject to adjustment if they would otherwise fall on a day that is not a business day in the specified business centers, together with the convention for adjusting the dates."
+AdjustableOrAdjustedDate,,"A class for defining a date that shall be subject to adjustment if it would otherwise fall on a day that is not a business day in the specified business centers, together with the convention for adjusting the date."
+AdjustableOrAdjustedOrRelativeDate,,"This Rosetta class specifies the date as either an unadjusted, adjusted or relative date. It supplements the features of the AdjustableOrAdjustedDate to support the credit default swap option premium, which uses the relative date construct."
+AdjustableOrRelativeDate,,A class giving the choice between defining a date as an explicit date together with applicable adjustments or as relative to some other (anchor) date.
+AdjustableOrRelativeDates,,A class giving the choice between defining a series of dates as an explicit list of dates together with applicable adjustments or as relative to some other series of (anchor) dates.
+AdjustableRelativeOrPeriodicDates,,"A class giving the choice between defining a series of dates as an explicit list of dates together with applicable adjustments or as relative to some other series of (anchor) dates, or as a calculation period schedule."
+AdjustedRelativeDateOffset,,A type defining a date (referred to as the derived date) as a relative offset from another date (referred to as the anchor date) plus optional date adjustments.
+AdjustmentFactor,,Describes the terms involved for adjusting the price of the underlier impacted by a Corporate Action.
+AdjustmentFactorCalculationTerms,,Describes the input terms involved in the calculation of the adjustment factor applied to the price of the underlier impacted by a Corporate Action.
+AgencyRatingCriteria,,Represents a class to specify a credit notation.
+Aggregation,,"The definitions for whether aggregation applies to the GMSLA, and if so how it applies."
+AggregationParameters,,Parameters to be used to filter events that are relevant to a given portfolio in order to calculate the state of this portfolio. The attributes correspond to all the possible aggregation criteria that can be used and these criteria can be combined. All the attributes are optional.
+Agreement,,Specification of the standard set of terms that define a legal agreement.
+AgreementName,,Specifies the agreement name through an agreement type and optional detailed sub agreement type.
+AgreementTerms,,Specification of the content of a legal agreement.
+AllCriteria,,Used to combine two or more Collateral Criteria using AND logic.
+AllDirectionRating,,Used to combine two or more Ratings and associated direction using AND logic.
+AllEligibilityToHoldCollateralCriteria,,Used to combine two or more Criteria using AND logic.
+AmendmentEffectiveDate,,"A class to specify the effective date of the Amendment to Termination Currency. This date can be specified as either an actual date, a specific date (e.g. the annex date) or as a custom provision."
+AmountOfNetCapital,,The amount of net capital.
+AmountSchedule,,A class to specify a currency amount or a currency amount schedule.
+AncillaryEntity,,"Holds an identifier for an ancillary entity, either identified directly via its ancillary role or directly as a legal entity."
+AncillaryParty,,"Defines an ancillary role enumerated value with an associated party reference. The product is agnostic to the actual parties involved in the transaction, with the party references abstracted away from the product definition and replaced by the AncillaryRoleEnum. The AncillaryRoleEnum can then be positioned in the product and this AncillaryParty type, which is positioned outside of the product definition, allows the AncillaryRoleEnum to be associated with an actual party reference."
+AnyCriteria,,Used to combine two or more Collateral Criteria using OR logic.
+AnyDirectionRating,,Used to combine two or more Ratings and associated direction using OR logic.
+AnyEligibilityToHoldCollateralCriteria,,Used to combine two or more Criteria using OR logic.
+ApplicableRegime,,"A class to specify the applicable regulatory regime(s) that parties to a legal agreement, such as the ISDA 2016 and 2018 CSA for Initial Margin, might be subject to."
+AppropriatedCollateralValuation,,A class to specify the Valuation of Appropriated Collateral.
+Asset,,"An Asset is defined as something that can be owned and transferred in the financial markets. As a choice data type, one and only one of the attributes must be used."
+AssetAgencyRating,,
+AssetBase,,The base data type to specify common attributes for all Assets.
+AssetCountryOfOrigin,,
+AssetDeliveryInformation,,Contains the information relative to the delivery of the asset.
+AssetDeliveryPeriods,,"Defines the periods of delivery, including the delivery profile."
+AssetDeliveryProfile,,"Defines the delivery profile of the asset, including the load type and the delivery intervals."
+AssetDeliveryProfileBlock,,"Defines a delivery profile block, including start and end time, days of the week, duration, delivery capacity and price time interval quantity."
+AssetFlow,,"Specifies an asset flow, i.e. the outcome of either of computation (e.g. interest accrual) or an assessment of some sort. The asset flow can then be turned into an asset transfer artefact to be used as the input to a payment system or the outcome of it. The associated globalKey denotes the ability to associate a hash value to the AssetFlow instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage."
+AssetFlowBase,,"Defines the basic parameters of an asset transfer, e.g. a cashflow: what (the asset), how much (the quantity) and when (the settlement date)."
+AssetIdentifier,,"The unique identifier for an Asset, specified using an Asset Identifier Type enumerator."
+AssetLeg,,Defines each asset movement of an asset payout.
+AssetMaturity,,
+AssetPayout,,"Security finance payout specification in case the product payout involves some form of security collateral, as in a securities financing transaction. Plus additional description for ICMA."
+AssetType,,Represents a class to allow specification of the asset product type.
+AssignedIdentifier,,A class to specify the identifier value and its associated version.
+AutomaticEarlyTermination,,A class to specify the Automatic Early Termination provision applicable to a Master Agreement.
+AutomaticEarlyTerminationElection,,A class to specify the party elections specific to the Automatic Early Termination Clause.
+AutomaticExercise,,A type to define automatic exercise of a swaption. With automatic exercise the option is deemed to have exercised if it is in the money by more than the threshold amount on the exercise date.
+AvailableInventory,,"A data type that can be used to describe the inventory of securities that a party holds. The securities are held in the AvailableInventoryRecord, with each item in the array being an individual security and its associated criteria. Criteria can include the quantity available, the rate at which the security is available to borrow at, as well as other details that can affect the decision as to whether a party wants to utilise the securities listed."
+AvailableInventoryRecord,,An individual piece of available inventory. This represents a single security and its associated criteria. The criteria are used to describe any restrictions on the securities.
+AverageTradingVolume,,Represents the average trading volume of an Equity product upon an exchange or set of exchanges.
+AveragingCalculation,,Defines parameters for use in cases when a valuation or other term is based on an average of market observations.
+AveragingCalculationMethod,,Defines the ways in which multiple values can be aggregated into a single value.
+AveragingFeature,,As per ISDA 2002 Definitions.
+AveragingObservationList,,An unordered list of weighted averaging observations.
+AveragingPeriod,,Period over which an average value is taken.
+AveragingSchedule,,Class to representing a method for generating a series of dates.
+AveragingStrikeFeature,,Defines the terms required to calculate the average observations associated with an averaging strike.
+Barrier,,As per ISDA 2002 Definitions.
+BaseAndEligibleCurrency,,The base and eligible currency(ies) for the document as specified by the parties to the agreement.
+BaseCurrency,,The definitions regarding base currency determinations relating to the GMSLA.
+Basket,,Defines a custom basket by referencing an identifier and its constituents.
+BasketConstituent,,Identifies the constituents of the basket
+BasketReferenceInformation,,CDS Basket Reference Information.
+BespokeCalculationDate,,A class to specify bespoke Calculation Date terms for the purposes of Initial Margin.
+BespokeCalculationTime,,A class to specify additional Calculation Time terms for the purposes of Initial Margin.
+BespokeTransferTiming,,A class to specify any bespoke Transfer Timing language by each party to the agreement.
+BillingInstruction,,Specifies the instructions for creation of a Security Lending billing invoice.
+BillingRecord,,Specifies individual records within a billing invoice.
+BillingRecordInstruction,,Specifies the instructions for creation of a billing record.
+BillingSummary,,Specifies individual summaries within a billing invoice.
+BillingSummaryInstruction,,Specifies the instructions for creation of a billing summary.
+BondReference,,Reference to a bond underlier to represent an asset swap or Condition Precedent Bond.
+BoundedCorrelation,,"Describes correlation bounds, which form a cap and a floor on the realized correlation."
+BoundedVariance,,
+BrokerConfirmation,,Identifies the market sector in which the trade has been arranged.
+BusinessCenters,,"A class for specifying the business day calendar location used in determining whether a day is a business day or not, either by specifying this business center by reference to an enumerated list that is maintained by the FpML standard, or by reference to such specification when it exists elsewhere as part of the instance document. This class corresponds to the FpML BusinessCentersOrReference.model."
+BusinessCenterTime,,"A class for defining a time with respect to a business day calendar location. For example, 11:00:00 GBLO."
+BusinessDateRange,,"A class defining a range of contiguous business days by defining an unadjusted first date, an unadjusted last date and a business day convention and business centers for adjusting the first and last dates if they would otherwise fall on a non business day in the specified business centers. The days between the first and last date must also be good business days in the specified centers to be counted in the range."
+BusinessDayAdjustments,,A class defining the business day convention and financial business centers used for adjusting any relevant date if it would otherwise fall on a day that is not a business day in the specified business center.
+BusinessDayOffset,,"This allows an offset to be specified as, for instance, N business days, with a business centers specified as included."
+BusinessEvent,,A business event represents a life cycle event of a trade. The combination of the state changes results in a qualifiable life cycle event. An example of a Business Event is a PartialTermination which is a defined by a quantity change primitive event.
+BusinessUnit,,A class to specify an organizational unit.
+BuyerSeller,,This class corresponds to the FpML BuyerSeller.model construct.
+Buyr,,
+CalculatedRateDetails,,"Type for reporting details of calculated rates, including the observations that went into the final reported rate."
+CalculatedRateObservationDatesAndWeights,,Type for reporting the observations dates and the corresponding weights going into a daily calculated rate
+CalculatedRateObservations,,Type for reporting observations that went into the final reported rate.
+CalculateTransferInstruction,,Defines the tradeState or payout on which to create a Transfer along with all necessary resets.
+CalculationAgent,,A class defining the ISDA calculation agent responsible for performing duties as defined in the applicable product definitions.
+CalculationAgentTerms,,Details of the party calculating the value of collateral to be delivered or returned.
+CalculationAndTimingBase,,"A logical container designed to hold a set of related data. In this case, designed to hold a set of clauses that are common amongst Legacy (1994/95), Variation Margin and Initial Margin Credit Support Documents in regards to Calculation, Valuation and Timing terms."
+CalculationAndTimingCollateralTransferAgreement,,"Specification of the Calculation, Valuation and Timing terms specific to the Initial Margin Credit Support Annex."
+CalculationAndTimingInitialMargin,,"Specification of the Calculation, Valuation and Timing terms specific to the Initial Margin Credit Support Annex."
+CalculationAndTimingLegacy,,"Specification of the Calculation, Valuation and Timing terms specific to the Legacy (1994/95) Credit Support Annex."
+CalculationAndTimingVariationMargin,,"Specification of the Calculation, Valuation and Timing terms specific to the Variation Margin Credit Support Annex."
+CalculationCurrencyElection,,A class to specify the ISDA SIMM Calculation Currency.
+CalculationFrequency,,Represents the parameters for describing how often something (such as collateral interest) is to be calculated.
+CalculationPeriod,,A data defining:  the parameters used in the calculation of a fixed or floating rate calculation period amount. This data forms:  part of cashflows representation of a swap stream.
+CalculationPeriodBase,,"The calculation period adjusted start and end dates, which are the baseline arguments needed to compute an interest accrual calculation."
+CalculationPeriodData,,
+CalculationPeriodDates,,"A data for:  defining the parameters used to generate the calculation period dates schedule, including the specification of any initial or final stub calculation periods. A calculation period schedule consists of an optional initial stub calculation period, one or more regular calculation periods and an optional final stub calculation period. In the absence of any initial or final stub calculation periods, the regular part of the calculation period schedule is assumed to be between the effective date and the termination date. No implicit stubs are allowed, i.e. stubs must be explicitly specified using an appropriate combination of firstPeriodStartDate, firstRegularPeriodStartDate and lastRegularPeriodEndDate."
+CalculationPeriodFrequency,,A class to specify the frequency at which calculation period end dates occur within the regular part of the calculation period schedule and their roll date convention.
+CalculationSchedule,,"A class that allows the full representation of a payout by defining a set of schedule periods. It supports standard schedule customization by expressing all the dates, quantities, and pricing data in a non-parametric way."
+CalculationScheduleDeliveryPeriods,,Period and time profile over which the delivery takes place.
+CalendarSpread,,A type for defining a calendar spread feature.
+CancelableProvision,,"A data defining:  the right of a party to cancel a swap transaction on the specified exercise dates. The provision is for 'walk-away' cancellation (i.e. the fair value of the swap is not paid). A fee payable on exercise can be specified. As a difference from the FpML construct, the canonical model extends the BuyerSeller class."
+CancelableProvisionAdjustedDates,,A data to:  define the adjusted dates for a cancelable provision on a swap transaction.
+CancellationEvent,,"The adjusted dates for a specific cancellation date, including the adjusted exercise date and adjusted termination date."
+Cash,,An Asset that consists solely of a monetary holding in a currency. The currency of the Cash asset is held in the string Identifier (from AssetBase) and the AssetIdTypeEnum must be set to define that a CurrencyCode is set.  The function SetCashCurrency can be used to create (or update) a Cash object and the function GetCashCurrency can be used to retrieve the currency of a Cash object.
+CashCollateralValuationMethod,,This type is a generic structure that can represent the parameters of several mid-market valuation and replacement value methods described in the 2021 ISDA Definitions.
+CashflowRepresentation,,A data defining:  the cashflow representation of a swap trade.
+CashSettlementTerms,,"Defines the terms required to compute and settle a cash settlement amount according to a fixing value, including the fixing source, fixing method and fixing date. In FpML, PhysicalSettlementTerms and CashSettlementTerms extend SettlementTerms. In the CDM, this extension paradigm has not been used because SettlementTerms class has been used for purposes related to securities transactions, while it is not used as such in the FpML standard (i.e. only as an abstract construct."
+CheckEligibilityResult,,Result for the CheckEligibilityByDetails and CheckEligibilityForProduct functions
+Clause,,A type for documenting additional clause that cannot yet be represented with the model and yet needed for a digital representation of the agreement.
+ClearingInstruction,,"All information required to perform the clear life cycle event; the clearing party (CCP), the two parties facing each other on the alpha contract, and optionally the parties acting as clearing members."
+ClosedState,,"A class to qualify the closed state of an execution or a contract through the combination or a state (e.g. terminated, novated) and a set of dates: activity date, effective date and, when relevant, last payment date."
+CodeList,,A type hold a list of codes for business data validation
+CodeListIdentification,,A type to identify the version of a codelist
+CodeValue,,A type to hold the value of the code in a codelist
+Collateral,,A type for defining the obligations of the counterparty subject to credit support requirements.
+CollateralAccessBreach,,A class to specify Collateral Access Breach language.
+CollateralAgreementFloatingRate,,Represents the parameters needed to calculate the floating rate paid on collateral holdings.
+CollateralBalance,,Represents common attributes to define a collateral balance recorded by the principal as held or posted.
+CollateralCriteria,,"The possible different terms that can be combined, using AND, OR and NOT logic, to define the issuers and/or assets that meet a given criteria for collateral."
+CollateralCriteriaBase,,Represents a set of criteria used to specify and describe collateral.
+CollateralGuarantorType,,Specifies the origin of entity guaranteeing the collateral.
+CollateralInterestCalculationParameters,,"Represents parameters for calculating the amount the floating interest calculation, e.g.  for a single currency or defaults for all currencies."
+CollateralInterestHandlingParameters,,"Represents parameters that describe how calculated interest amounts are handled, i.e. are they transferred/distributed, or is the collateral balance adjusted, is netting done, and any other special handling."
+CollateralInterestNotification,,Represents the parameters describing when notifications should be made for required collateral interest transfers.
+CollateralInterestParameters,,Represents the floating interest calculation and distribution parameters for a single currency.
+CollateralIssuerType,,Represents a class to allow specification of the type of entity issuing the collateral.
+CollateralManagementAgreement,,A class to specify the Collateral Management Agreement election.
+CollateralManagementAgreementElection,,A class to specify the Collateral Management Agreement election.
+CollateralPortfolio,,"Represents common attributes to define the details of collateral assets, to be used in margin call messaging and contribute to collateral balances e.g securities in a collateral account."
+CollateralPosition,,Specifies the individual components of collateral positions.
+CollateralProvisions,,Contains collateral attributes which can also inherit information from a GMRA
+CollateralRounding,,A class to specify the rounding methodology applicable to the Delivery Amount and the Return Amount.
+CollateralSpecification,,The definitions regarding collateral relating to the GMSLA.
+CollateralTaxonomy,,"Specifies the collateral taxonomy, which is composed of a taxonomy value and a taxonomy source."
+CollateralTaxonomyValue,,"Specifies the collateral taxonomy value, either as a specified enumeration or as a string."
+CollateralTransferAgreementElections,,The set of elections which specify a Collateral Transfer Agreement.
+CollateralTransferTiming,,"Specification of transfer / settlement timing for cash and securities collateral assuming that the notice is provided before the Notification Time (and with a 1LBD lag introduced if the notice is delivered after the Notification Time), and that securities allow for a further Local Business Day for transfer / settlement."
+CollateralTransferTimingDefinition,,Bespoke language removing the pre-print requirement to transfer legal title of securities collateral through written instructions to the relevant depository institution or other securities intermediaries solely for the purposes of the 1994 New York Law Credit Support Annex.
+CollateralTreatment,,Specifies the treatment terms for the eligible collateral criteria specified.
+CollateralValuationTreatment,,Specification of the valuation treatment for the specified collateral.
+CollateralValueMethod,,Details how particular types of collateral are valued (other than in respect of a default).
+Commodity,,Identifies a specific commodity by referencing a product identifier or by a product definition.
+CommodityPayout,,Payout based on the averaged price of a referenced underlier. (e.g. Commodities). Can represent both average (average of many) & bullet (average of 1) pricing
+CommodityPriceReturnTerms,,Defines parameters in which the commodity price is assessed.
+CommodityProductDefinition,,Specifies the commodity underlier in the event that no ISDA Commodity Reference Price exists.
+CommodityReferenceFramework,,Specifies the type of commodity.
+Composite,,Specifies the conditions to be applied for converting into a reference currency when the actual currency rate is not determined upfront.
+ComputedAmount,,"A class to specify the outcome of a computed amount, for testing purposes."
+ConcentrationLimit,,Represents a class to describe concentration limits that may be applicable to eligible collateral criteria.
+ConcentrationLimitCriteria,,Respresents a class to describe a set of criteria to describe specific assets that the concentration limits apply to.
+ConditionsPrecedent,,A class to specify the two set of elections that may overwrite the default Condition Precedent provision.
+ConstituentWeight,,"A class describing the weight of each of the underlier constituent within the basket, either in absolute or relative terms."
+ContactInformation,,"A class to specify contact information associated with a party: telephone, postal/street address, email and web page."
+ContactInformationElection,,Specifies the party reference and the associated contact information.
+ContractBase,,Encapsulates data features common to trade and position.
+ContractDetails,,Defines specific attributes that relate to contractual details of trades.
+ContractFormationInstruction,,"Specifies instructions to create a fully formed contract, with optional legal agreements."
+ContractualDefinition,,
+ContractualDefinitionIdentifier,,
+ContractualMatrix,,
+ContractualTermsSupplement,,A contractual supplement (such as those published by ISDA) and its publication date that will apply to the trade.
+ControlAgreement,,A class to specify the relationship between the Control Agreement and the Credit Support Agreement.
+ControlAgreementElections,,A class to specify the Control Agreement election sby each party to the agreement.
+ControlAgreementNecEvent,,A class to specify Control Agreement language related to delivery of a Notice of Exclusive Control.
+ControlAgreementNecEventElection,,A class to specify party specific Control Agreement language related to delivery of a Notice of Exclusive Control.
+CorporateAction,,Specifies the relevant data regarding a corporate action
+CorrelationReturnTerms,,
+Counterparty,,"Defines a counterparty enumerated value, e.g. Party1 or Party2, with an associated party reference. The product is agnostic to the actual parties to the transaction, with the party references abstracted away from the product definition and replaced by the CounterpartyEnum (e.g. values Party1 or Party2). The CounterpartyEnum can then be positioned in the product (e.g. to specify which counterparty is the payer, receiver etc) and this Counterparty type, which is positioned outside of the product definition, allows the CounterpartyEnum to be associated with an actual party reference."
+CounterpartyOwnIssuePermitted,,
+CounterpartyPosition,,A Position describes the accumulated effect of a set of securities or financial transactions.
+CounterpartyPositionBusinessEvent,,A business event represents a life cycle event of a position. The combination of the state changes results in a qualifiable life cycle event.
+CounterpartyPositionState,,"Defines the fundamental financial information that can be changed by a Primitive Event and by extension any business or life-cycle event. Each PositionState specifies where a Position is in its life-cycle. PositionState is a root type and as such, can be created independently to any other CDM data type, but can also be used as part of the CDM Event Model."
+CoveredTransactions,,Specification of Transactions covered by the legal agreement.
+CreditDefaultPayout,,"The credit default payout specification provides the details necessary for determining when a credit payout will be triggered as well as the parameters for calculating the payout and the settlement terms. The associated globalKey denotes the ability to associate a hash value to the CreditDefaultPayout instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage."
+CreditEvent,,Specifies the relevant data regarding a credit event.
+CreditEventNotice,,
+CreditEvents,,"A class to specify the applicable Credit Events that would trigger a settlement, as specified in the related Confirmation and defined in the ISDA 2014 Credit Definition article IV section 4.1."
+CreditIndex,,"Specification of an index based on credit risk, typically composed using corporate debt instruments in a region or industry sector, e.g. the iTraxx indices."
+CreditLimitInformation,,A class to represent the credit limit utilisation information.
+CreditLimitUtilisation,,Credit limit utilisation breakdown by executed trades and pending orders.
+CreditLimitUtilisationPosition,,
+CreditNotation,,"Represents a class to specify the credit notation as the combination of agency, notation, scale and debt type qualifications."
+CreditNotations,,"Represents the credit rating notation higher level construct, which provides the ability to specify multiple rating notations."
+CreditRatingDebt,,"Specifies the credit rating debt type(s) associated with the credit rating notation and scale. When several debt types are specified, they must be qualified through an 'any' or 'all'."
+CreditSupportAgreementElections,,The set of elections which specify a Credit Support Annex or Deed.
+CreditSupportAgreementElectionsBase,,"A logical container designed to hold a set of related data. In this case, designed to hold a set of clauses that are common amongst Legacy (1994/95), Variation Margin and Initial Margin Credit Support Documents."
+CreditSupportAgreementInitialMarginElections,,The set of elections which specify an Initial Margin Credit Support Annex or Deed.
+CreditSupportAgreementLegacyElections,,The set of elections which specify a Legacy (1994 or 1995) Credit Support Annex or Deed.
+CreditSupportAgreementVariationMarginElections,,The set of elections which specify a Variation Margin Credit Support Annex or Deed.
+CreditSupportAmount,,"The total amount one counterparty must deliver to the other at any time: the combination of the Exposure to that party and the net Independent Amounts it must post, minus any agreed Threshold."
+CreditSupportDocument,,Identification of party specific Credit Support Documents applicable to the document.
+CreditSupportDocumentElection,,"The party election of Credit Support Provider(s), if any."
+CreditSupportObligationsBase,,"A logical container designed to hold a set of related data. In this case, designed to hold a set of clauses that are common amongst Legacy (1994/95), Variation Margin and Initial Margin Credit Support Documents in regards to Credit Support Obligations."
+CreditSupportObligationsCollateralTransferAgreement,,Specification of the Credit Support Obligations applicable to the Initial Margin Credit Support Annex.
+CreditSupportObligationsInitialMargin,,Specification of the Credit Support Obligations applicable to the Initial Margin Credit Support Annex.
+CreditSupportObligationsLegacy,,Specification of the Credit Support Obligations applicable to the Legacy (1994/95) Credit Support Annex.
+CreditSupportObligationsVariationMargin,,Specification of the Credit Support Obligations applicable to the Variation Margin Credit Support Annex.
+CreditSupportProvider,,Identification of party specific Credit Support Providers applicable to the document.
+CreditSupportProviderElection,,"The party election of Credit Support Provider(s), if any."
+CSADeliveryAmount,,"In respect of a Valuation Date, the amount of collateral which a party is entitled to demand to be transferred to it as a Delivery Amount."
+CSAMinimumTransferAmountVariableSet,,"Defines a combination of Rating Agency, Rating Value, amount and Currency code."
+CSAReturnAmount,,"In respect of a Valuation Date, the amount of collateral which a party is entitled to demand to be recalled to it as a Return Amount."
+CSAThresholdVariableSet,,"Defines a combination of Rating Agency, Rating Value, Threshold amount and Currency code."
+CSAValuationDate,,Specifies the date on which the value of collateral or exposure are calculated in accordance with the agreement.
+Curve,,
+Custodian,,A class to specify the custodian and custody account details for each party to the agreement.
+CustodianElection,,A class to specify the custodian and custody account details for each party to the agreement.
+CustodianEvent,,A class to specify the Custodian Event.
+CustodianEventEndDate,,A class to specify the Custodian Event.
+CustodianRisk,,A class to specify the Custodian Risk elections specific to a Credit Support Agreement.
+CustodianRiskElection,,A class to specify the Custodian Risk.
+CustodianTerms,,A class to specify the requirements applicable to the custodian with respect to the holding of posted collateral.
+CustodyArrangements,,"Describes how posted collateral is held, maintained, and safeguarded by a custodian or third-party agent, in accordance with the terms of the governing agreement."
+CustomisableOffset,,"A class to specify an offset either as a normalized [multiplier, period, dayType] or as a custom provision of type string."
+CustomisedWorkflow,,"In its initial iteration, this class is meant to support the DTCC TIW workflow information."
+DatedValue,,"Defines a date and value pair. This definition is used for varying rate or amount schedules, e.g. a notional amortisation or a step-up coupon schedule."
+DateList,,List of dates.
+DateRange,,A class defining a contiguous series of calendar dates. The date range is defined as all the dates between and including the start and the end date. The start date must fall on or before the end date.
+DateRelativeToCalculationPeriodDates,,A data to:  provide the ability to point to multiple payment nodes in the document through the unbounded paymentDatesReference.
+DateRelativeToPaymentDates,,A data to:  provide the ability to point to multiple payment nodes in the document through the unbounded paymentDatesReference.
+DateRelativeToValuationDates,,A data to:  provide the ability to point to multiple payment nodes in the document through the unbounded paymentDatesReference.
+DateTimeList,,List of dateTimes.
+DebtEconomics,,Specifies selected economics of a debt security.
+DebtRedemption,,Specifies the redemption features and whether the redemption right is exercised at the discretion of the issuer or the holder.
+DebtType,,Specifies the type of debt security.
+DeliverableObligations,,A class to specify all the ISDA terms relevant to defining the deliverable obligations.
+DeliveryAmount,,A class to specify the application of Interest Amount with respect the Delivery Amount.
+DeliveryDateParameters,,Specifies a specific date or the parameters for identifying the relevant contract date when the commodity reference price is a futures contract.
+DemandsAndNotices,,"Specifies the address where the demands, specifications and notices will be communicated to for each of the parties to the agreement."
+DerivInstrmAttrbts,,
+DeterminationMethodology,,Specifies the method according to which an amount or a date is determined.
+DeterminationRolesAndTerms,,"Defines the roles and related terms which document the agreement of parties about any determination requirements ; mostly about Extraordinary Events, without being necessarily restricted to such scope, as further specified in the particular product at stake e.g. for instance when Calculation Agent is mentioned as the Price Determination Method enumarated value, etc."
+DigitalAsset,,"An Asset that exists only in digital form, eg Bitcoin or Ethereum, that is not backed by other Assets; excludes the digital representation of other Assets, eg coins or Tokenised assets."
+DirectionRating,,"A logical container to hold a defined set of related data. In this case the collation of Ratings Agency, Rating value and an associated direction."
+DirectionRatingMultiplier,,A logical container to hold a defined set of related data. In this case the collation of Ratings Information and associated exposure multiplier.
+DirectionRatingSet,,"A logical container to hold a defined set of related data. In this case the collation of Ratings Agency, Rating value and an associated direction that are grouped by either AND or OR logic."
+DirectOrRelativeTime,,Represents a time definition that can be either an absolute (direct) time or a time calculated relative to another referenced time. Either one directTime or one relativeTime should be provided
+DiscountingMethod,,"A data defining:  discounting information. The 2000 ISDA definitions, section 8.4. discounting (related to the calculation of a discounted fixed amount or floating amount) apply. This type must only be included if discounting applies."
+DisputeResolution,,A class to specify the election terms under which a party disputes the Value of any Transfer of Eligible Credit Support or Posted Credit Support.
+DistributionAndInterestPayment,,A class to specify the Distributions and Interest Payment provisions applicable to the collateral agreement.
+DividendApplicability,,The parameters which define whether dividends are applicable
+DividendCurrency,,"A class to specify the currency in which the dividends will be denominated, i.e. either in the dividend currency or in a currency specified as part of the contract."
+DividendDateReference,,"A class to specify the dividend date by reference to another date, with the ability to apply and offset. This class doesn't exist in FpML and is meant to simplify the choice constraint associated with the DividendPaymentDate class."
+DividendPaymentDate,,"A class describing the date on which the dividend will be paid/received. This class is also used to specify the date on which the FX rate will be determined, when applicable."
+DividendPayoutRatio,,"A class describing the dividend payout ratio associated with an equity underlier. In certain cases the actual ratio is not known on trade inception, and only general conditions are then specified."
+DividendPeriod,,"Time bounded dividend payment periods, each with a dividend payment date per period."
+DividendReturnTerms,,"A class describing the conditions governing the payment of dividends to the receiver of the equity return, with the exception of the dividend payout ratio, which is defined for each of the underlying components."
+DividendTerms,,Information related to dividends and payments.
+Document,,
+DomesticCurrencyIssued,,
+EarlyTerminationEvent,,A data to:  define the adjusted dates associated with an early termination provision.
+EarlyTerminationProvision,,"A data defining:  an early termination provision for a swap. This early termination is at fair value, i.e. on termination the fair value of the product must be settled between the parties."
+EconomicTerms,,"This class represents the full set of price-forming features associated with a contractual product: the payout component, the notional/quantity, the effective and termination date and the date adjustment provisions when applying uniformily across the payout components. This class also includes the legal provisions which have valuation implications: cancelable provision, extendible provision, early termination provision and extraordinary events specification."
+ElectiveAmountElection,,A class to specify the party elective amounts which can be used for the purpose of specifying elections such as the ISDA CSA Threshold and Minimum Transfer Amount.
+EligibilityQuery,,Query to check against an EligibleCollateralSpecification
+EligibilityToHoldCollateral,,Specifies the conditions under which a party and its custodian(s) are entitled to hold collateral.
+EligibilityToHoldCollateralCriteria,,Defines a set of Criteria required by the party and its custodian to hold the other party's Posted Collateral.
+EligibleCollateralCriteria,,Represents a set of criteria used to specify eligible collateral.
+EligibleCollateralElection,,Specifies the collateral posting obligations for the security provider party(ies).
+EligibleCollateralSpecification,,Represents a set of criteria used to specify eligible collateral.
+EligibleCreditSupport,,Specifies the collateral posting obligations of the security provider or security providers as specified in the corresponding agreement
+EnforcementEvent,,A class to specify Enforcement Events specific to Security Agreements.
+EntityIdentifier,,"Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash value to the EntityIdentifier instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage."
+EquityAdditionalTerms,,Transaction AdditionalTerms that apply to Equity asset class.
+EquityCorporateEvents,,A class for defining the merger events and their treatment.
+EquityIndex,,"Specification of an index based on equity securities, e.g. the S&P 500."
+EquityMasterConfirmation,,"Specification for General Terms and Elections of an Equity Master Confirmation that is applicable across multiple Equity confirmations and is referenced by each of these confirmations, an example of which being the 2018 ISDA CDM Equity Confirmation for Security Equity Swap."
+EquitySwapMasterConfirmation2018,,Specification for the General Terms and Relationship Supplement Elections as provided in the 2018 ISDA CDM Equity Confirmation for Security Equity Swap.
+EquityType,,
+EquityUnderlierProvisions,,
+EscrowArrangement,,Refers to the segregation deposit procedure parties may want to commmit into during the time a Disruption Event is effective
+EventCurrency,,Defines the currency referenced as such in any terms related to FX Disruption Events
+EventInstruction,,Specifies instructions to create a BusinessEvent.
+EventsOfDefault,,The definitions regarding any different events of default relating to the GMSLA.
+EventsOfDefaultElection,,The specific party elections for events of default.
+EventTimestamp,,"A class to represent the various set of timestamps that can be associated with lifecycle events, as a collection of [dateTime, qualifier]."
+EvergreenProvision,,Specifies a transaction which automatically extends for a specified timeframe until the exercise of an embedded option.
+ExcludedProducts,,Description of the relevant derivative transactions excluded from the calculation of exposure.
+ExctgPrsn,,
+ExecutionDetails,,Defines specific attributes that relate to trade executions.
+ExecutionInstruction,,"Specifies instructions for execution of a transaction, consisting of a product, price, quantity, parties, trade identifier, execution details, and settlement terms."
+ExecutionLanguage,,A class to specify execution language terms of a Security Agreement.
+ExecutionLocation,,A class to specify execution location terms of a Security Agreement.
+ExecutionTerms,,A class to specify execution location and language of execution to determine duty to be paid.
+ExerciseEvent,,A data defining:  the adjusted dates associated with a particular exercise event.
+ExerciseFee,,"A class defining the fee payable on exercise of an option. This fee may be defined as an amount or a percentage of the notional exercised. As a difference with FpML, it extends the BuyerSeller class."
+ExerciseFeeSchedule,,"A class to define a fee or schedule of fees to be payable on the exercise of an option. This fee may be defined as an amount or a percentage of the notional exercised. As a difference with FpML, it extends the BuyerSeller class."
+ExerciseInstruction,,"Specifies the information required to communicate the choices made by the exercising party, in a financial product endowing the party with at least one option."
+ExerciseNotice,,"Defines to whom and where notice of execution should be given. The exerciseNoticeGiver refers to one or both of the principal parties of the trade. If present the exerciseNoticeReceiver refers to a party, other than the principal party, to whom notice should be given."
+ExercisePeriod,,"This defines the time interval to the start of the exercise period, i.e. the earliest exercise date, and the frequency of subsequent exercise dates (if any)."
+ExerciseProcedure,,A class describing how notice of exercise should be given. This can be either manual or automatic.
+ExerciseTerms,,A class defining the exercise period for an option together with any rules governing the notional amount of the underlying which can be exercised on any given exercise date and any associated exercise fees.
+Exposure,,Represents the current mark to market value or IM calculation value of the trade portfolio as recorded by the principle (in base currency).
+ExposureScope,,"Optionally, for each party, specifies the amendments to the included coverage in the calculation of Exposure."
+ExtendibleProvision,,"A data defining:  an option to extend an existing swap transaction on the specified exercise dates for a term ending on the specified new termination date. As a difference from FpML, it extends the BuyerSeller class, which represents the BuyerSeller.model."
+ExtendibleProvisionAdjustedDates,,A data defining:  the adjusted dates associated with a provision to extend a swap.
+ExtensionEvent,,A data to:  define the adjusted dates associated with an individual extension event.
+ExtraordinaryEvents,,"Where the underlying is shares, defines market events affecting the issuer of those shares that may require the terms of the transaction to be adjusted."
+FailureToPay,,
+FallbackRateParameters,,Defines the structure needed to represent fallback rate parameters. This type is used to represent modular computed rates in interestRatePayouts.
+FallbackReferencePrice,,"The method, prioritised by the order it is listed in this element, to get a replacement rate for the disrupted settlement rate option."
+FeaturePayment,,Payment made following trigger occurrence.
+FinalCalculationPeriodDateAdjustment,,A data to:  define business date convention adjustment to final payment period per leg.
+FinalReturns,,A clause providing that final return collateral is to be provided without consideration of any Minimum Transfer Amount and collateral haircut.
+FinInstrm,,
+FinInstrmGnlAttrbts,,
+FinInstrmRptgTxRpt,,
+FixedAmountCalculationDetails,,Type for reporting the detailed results of calculating a cash flow for a calculation period.  This is enhanced relative to the FpML-based cashflows structure to allow more information to be returned about daily compounded rates.
+FixedPrice,,A predefined price accorded by the counterparties.
+FixedPricePayout,,Represents a fixed price payout. There is no underlier associated with this payout type and is based on fixed pricing per a given unit (e.g. in commodities price per barrel)
+FixedRateSpecification,,Type defining the specification for a fixed rate.
+FloatingAmountCalculationDetails,,Type for reporting the detailed results of calculating a cash flow for a calculation period.  This is enhanced relative to the FpML-based cashflows structure to allow more information to be returned about daily compounded rates.
+FloatingAmountEvents,,"A class to specify the ISDA terms relating to the floating rate payment events and the implied additional fixed payments, applicable to the credit derivatives transactions on mortgage-backed securities with pay-as-you-go or physical settlement."
+FloatingAmountProvisions,,
+FloatingRate,,
+FloatingRateBase,,"A class defining a floating interest rate through the specification of the floating rate index, the tenor, the multiplier schedule, the spread, the qualification of whether a specific rate treatment and/or a cap or floor apply."
+FloatingRateCalculationParameters,,Defines the structures needed to represent the calculation parameters for daily averaged and compounded modular rates as defined in the 2021 ISDA Definitions in Section 7. This type is used to represent modular computed rates in interestRatePayouts.
+FloatingRateDefinition,,A data defining:  parameters associated with a floating rate reset. This data forms:  part of the cashflows representation of a stream.
+FloatingRateIndex,,"Specification of an interest rate index which can change over time, e.g. the SONIA (Sterling Overnight Index Average) in the UK."
+FloatingRateIndexCalculationDefaults,,This holds the rate calculation defaults applicable for a floating rate index.
+FloatingRateIndexDefinition,,
+FloatingRateIndexExternalMap,,A map for a single FRO to or from an equivalent or similar codes in a different standard such as ISO.
+FloatingRateIndexExternalMappings,,Represents the mappings of FRO codes to other.
+FloatingRateIndexFixingDetails,,This type holds parameters defining the fixingt time and offset for a floating rate index.
+FloatingRateIndexFixingOffset,,This type holds parameters defining the normal fixing offset for a floating rate index.
+FloatingRateIndexFixingTime,,This type holds parameters defining the normal fixing time for a floating rate index.
+FloatingRateIndexIdentification,,
+FloatingRateIndexMap,,A map for a single FRO to or from an equivalent or similar FRO in a different contractual definitions version.
+FloatingRateIndexMappings,,This type defines mappings between FROs in different definitional versions.
+FloatingRateProcessingDetails,,"Type for reporting the details of the rate treatment.  This could potentially be replaced by the existing FloatingRateDefinition type , but this is slightly more detailed."
+FloatingRateProcessingParameters,,Type to hold the processing parameters that should be or were used to calculate a floating amount.  These parameters can vary over a schedule so this type holds the acutal values applicable to this calculation.
+FloatingRateSettingDetails,,"Type for reporting the raw (untreated) observed or calculated rate for a calculation period.  If this is a calculated rate, it allows details of the observations and the resulting rate to be returned."
+FloatingRateSpecification,,"A class to specify the floating interest rate by extending the floating rate definition with a set of attributes that specify such rate: the initial value specified as part of the trade, the rounding convention, the averaging method and the negative interest rate treatment."
+ForeignExchangeRateIndex,,"Specification of a rate based on the exchange of a pair of cash assets in specific currencies, e.g. USD versus GBP."
+FrenchLawAddendum,,A class to specify party specific elections when a Collateral Transfer Agreement is governed by French Law.
+FrenchLawAddendumElection,,A class to specify party specific French Law Addendum language.
+Frequency,,"A class for defining a date frequency, e.g. one day, three months, through the combination of an integer value and a standardized period value that is specified as part of an enumeration."
+FroHistory,,FRO History
+FutureValueAmount,,A class defining a currency and a future value date.
+FxAdditionalTerms,,TransactionAdditionalTerms which apply to the CurrencyPair asset class.
+FxBenchmarkObligationDefault,,
+FxDisruptionEvents,,Additional Provisions for a Confirmation of an FX or Currency Option Transaction
+FxDualExchangeRate,,
+FxFeature,,A type for defining FX Features.
+FxFixingDate,,Extends the Offset structure to specify an FX fixing date as an offset to dates specified somewhere else in the document.
+FxHaircutCurrency,,"A class to specify the reference currency for the purpose of specifying the FX Haircut relating to a posting obligation, as being either the Termination Currency or an FX Designated Currency."
+FxInconvertibilityOrNonTransferability,,
+FxInformationSource,,Information source specific to Foreign Exchange products.
+FxLinkedNotionalAmount,,A data to:  describe the cashflow representation for FX linked notionals.
+FxLinkedNotionalSchedule,,A data to:  describe a notional schedule where each notional that applies to a calculation period is calculated with reference to a notional amount or notional amount schedule in a different currency by means of a spot currency exchange rate which is normally observed at the beginning of each period.
+FxPriceSourceDisruption,,
+FxRate,,"A class describing the rate of a currency conversion: pair of currency, quotation mode and exchange rate."
+FxRateSourceFixing,,Describes a rate source to be fixed and the date the fixing occurs
+FxSettlementRateSource,,The source of the Foreign Exchange settlement rate.
+FxSpotRateSource,,A class defining the rate source and fixing time for an FX rate.
+GeneralInconvertibility,,
+GeneralNonTransferability,,
+GeneralSimmElections,,A class to specify the ISDA SIMM as the Method for all Covered Transactions with respect to all Regimes.
+GeneralTerms,,"A class specifying a set of non-monetary terms for the Credit Derivative Transaction, including the buyer and seller and selected items from the ISDA 2014 Credit Definition article II, such as the reference obligation and related terms. The CDM GeneralTerms class corresponds to the FpML GeneralTerms complex type, except that the effectiveDate and scheduledTerminationDate have been positioned as part of the InterestRatePayout class in the CDM instead of in GeneralTerms."
+GlobalMasterRepoAgreement,,The set of elections that define a GMRA
+GlobalMasterSecuritiesLendingAgreement,,The set of elections that define a GMSLA.
+GovernmentalAuthorityDefault,,
+GracePeriodExtension,,
+HoldingAndUsingPostedCollateral,,Specifies the conditions that need to be satisfied before the Secured Party or Custodian acting on its behalf can hold and use posted collateral.
+HoldingAndUsingPostedCollateralElection,,Specifies the parties' elections related to the holding and using of posted collateral.
+Id,,
+IdentifiedList,,"Attaches an identifier to a collection of objects, when those objects themselves can each be represented by an identifier. One use case is the representation of package transactions, where each component is a separate trade with its own identifier, and those trades are linked together as a package with its own identifier. The data type has been named generically rather than referring to 'packages' as it may have a number of other uses."
+Identifier,,"A class to specify a generic identifier, applicable to CDM artefacts such as executions, contracts, lifecycle events and legal documents. An issuer can be associated with the actual identifier value as a way to properly qualify it."
+Illiquidity,,
+IndependentAmount,,"A class specifying the Independent Amount as the combination of a payer/receiver, a payment amount, a payment date and an associated payment calculation rule."
+IndependentAmountRatings,,"A logical container designed to hold a set of related data. In this case, designed to hold a set of information required when Independent Amount is determined using credit ratings."
+Index,,"An Index is an Observable which is computed based on the prices, rates or valuations of a number of assets that are tracked in a standardized way.  Examples include equity market indices as well as indices on interest rates, inflation and credit instruments."
+IndexAdjustmentEvents,,Defines the specification of the consequences of Index Events
+IndexBase,,Identifies an index by referencing an identifier.
+IndexTransitionInstruction,,Defines the information needed to create a Index Transition Business Event.
+IndexType,,Specification of an index.
+Indx,,
+IneligibleCreditSupport,,Identifies collateral that has been designated as not meeting the eligibility criteria set out in the agreement.
+InflationIndex,,"Specification of an index that measures inflation in a specific market, e.g. the US Consumer Price Index."
+InflationRateSpecification,,A data to:  specify the inflation rate.
+InformationSource,,A class defining the source for a piece of information (e.g. a rate fix or an FX fixing). The attribute names have been adjusted from FpML to address the fact that the information is not limited to rates.
+InitialFixingDate,,"A CDM class which purpose is to specify the initial fixing date either alongside the FpML interest rate specification as an offset of another date, or alongside the credit derivative specification as an unadjusted date."
+Instruction,,Instruction to a function that will be used to perform a business event
+Instrument,,A type of Asset that is issued by one party to one or more others.
+InstrumentBase,,Defines the common attributes for all Instrument data types.
+InterestAdjustment,,A class to specify whether the Interest Adjustment is applicable and what its periodicity is.
+InterestAdjustmentPeriodicity,,A class to specify the Interest Adjustment periodicity.
+InterestAmount,,A class to specify the application of Interest Amount with respect to the Delivery Amount and the Return Amount.
+InterestAmountApplication,,A class to specify the application of Interest Amount with respect to the Delivery Amount and the Return Amount.
+InterestRateCurve,,
+InterestRateIndex,,An index based in interest rates or inflation rates in a certain market.
+InterestRatePayout,,"A class to specify all of the terms necessary to define and calculate a cash flow based on a fixed, a floating or an inflation index rate. The interest rate payout can be applied to interest rate swaps and FRA (which both have two associated interest rate payouts), credit default swaps (to represent the fee leg when subject to periodic payments) and equity swaps (to represent the funding leg). The associated globalKey denotes the ability to associate a hash value to the InterestRatePayout instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage."
+InterestShortFall,,A class to specify the interest shortfall floating rate payment event.
+Inventory,,A data type that can be used to describe an inventory of securities.
+InventoryRecord,,An individual piece of inventory. This represents a single security.
+InvstmtDcsnPrsn,,
+IssuerAgencyRating,,
+IssuerCountryOfOrigin,,
+IssuerName,,
+JapaneseSecuritiesProvisions,,A class to specify Japanese Securities Provision elections.
+JurisdictionRelatedTerms,,A class to specify terms jurisdiction related terms.
+Lag,,The pricing period per calculation period if the pricing days do not wholly fall within the respective calculation period.
+LegacyExposureScopeElection,,Specification of amendments to the calculation of Exposure in terms of the Transactions and Products covered.
+LegacyIndependentAmount,,"Sets out the additional amount of collateral that is required to be delivered by that party irrespective of the mark-to-market exposure under the related Transactions. It may take the form of a fixed amount, or be determined using credit ratings."
+LegacyIndependentAmountParty,,The party specific elections for the Independent Amount clause.
+LegacyIndependentAmountRatingsBased,,Specifies that the Independent Amount is determined using a credit rating.
+LegacyIndependentAmountRatingsXExposure,,Specifies that the Independent Amount is determined using both credit rating and exposure metrics.
+LegacyResolutionAlternative,,Alternative procedures to those in the pre-print for resolving collateral related disputes.
+LegalAgreement,,"The specification of a legal agreement between two parties, being negotiated or having been executed. This includes the baseline information and the optional specialised elections"
+LegalAgreementBase,,"Specifies the legal agreement baseline information, being negotiated or having been executed. It excludes specialized elections"
+LegalAgreementIdentification,,"Specifies the type of legal agreement, identified via a set of composable attributes: agreementName, publisher, governing law and version, e.g. ISDA 2013 Standard Credit Support Annex English Law."
+LegalEntity,,"A class to specify a legal entity, with a required name and an optional entity identifier (such as the LEI)."
+LimitApplicable,,
+LimitApplicableExtended,,"A class to represent the CDM attributes that are not part of the FpML standard. Once broader usage is confirmed, it is expected that those two classes can be collapsed."
+Lineage,,"A class to provide lineage information across lifecycle events through a pointer or set of pointers into the event(s), contract(s) and, possibly, payout components that the event is dependent on or relates to. As an example, if an contractFormation event is corrected, the correction event will have a lineage into the initial event, which takes the form of a globalKey into that initial contract formation event. Two referencing mechanisms are provided as part of the CDM: either the globalKey, which corresponds to the hash value of the CDM class which is referred to, or a reference qualifier which is meant to provide support for the ingestion of xml documents with id/href mechanisms. The CDM recommends the use of the globalKey and provides a default implementation which is accessible in the generated code through org.isda.cdm.globalKey.GlobalKeyHashCalculator. If implementers want to use an alternative hashing mechanism, the API in which they need to plug it is com.rosetta.model.lib.HashFunction."
+ListedDerivative,,A securitized derivative on another asset.
+ListingExchange,,Specifies a filter based on a stock exchange.
+ListingSector,,Specifies a filter based on an industry sector.
+Loan,,Identifies a loan by referencing an asset identifier and through an optional set of attributes.
+LoanParticipation,,"A class to specify loan with a participation agreement whereby the buyer is capable of creating, or procuring the creation of, a contractual right in favour of the seller that provides the seller with recourse to the participation seller for a specified share in any payments due under the relevant loan which are received by the participation seller. ISDA 2003 Term: Direct Loan Participation."
+LocationIdentifier,,Specifies a location identifier. An issuer and an identifier type can be associated with the actual identifier value as a way to properly qualify it.
+MakeWholeAmount,,A class to specify the amount to be paid by the buyer of the option if the option is exercised prior to the Early Call Date (typically applicable to the convertible bond options).
+MandatoryEarlyTermination,,A data to:  define an early termination provision for which exercise is mandatory.
+MandatoryEarlyTerminationAdjustedDates,,A data defining:  the adjusted dates associated with a mandatory early termination provision.
+ManualExercise,,"A class defining manual exercise, i.e. that the option buyer counterparty must give notice to the option seller of exercise."
+MarginApproach,,A class for selection of Margin Approach.
+MarginCallBase,,Represents common attributes required for Issuance and Response to a Margin Call action as a result of a demand for delivery or return of collateral determined under a legal agreement such as a credit support document or equivalent.
+MarginCallExposure,,Represents attributes required for mark to market value or IM calculation value of the trade portfolio as recorded by the principle (in base currency).
+MarginCallInstructionType,,"Represents enumeration values to specify the call notification type, direction, specific action type."
+MarginCallIssuance,,Represents common attributes required for a Margin Call Issuance under a legal agreement such as a credit support document or equivalent.
+MarginCallResponse,,Represents common attributes required for a Margin Call Response under a legal agreement such as a credit support document or equivalent.
+MarginCallResponseAction,,"Specifies the margin call action details, including collateral to be moved and its direction."
+MasterAgreement,,The set of elections that define an ISDA Master Agreement.
+MasterAgreementBase,,A set of elections that can be shared across master agreement types - this should be built upon for specific contracts.
+MasterAgreementClause,,Defines clauses that make up a Master Agreement.
+MasterAgreementClauseVariant,,Sets the details for a specific variant associated to a clause in a Master Agreement.
+MasterAgreementDatedAsOfDate,,Defines the dates agreed by the parties as the date of the Credit Support Annex or Credit Support Deed.
+MasterAgreementElections,,A representation of a master agreement extended from a base agreement of shared elections.
+MasterAgreementSchedule,,The set of elections which specify a Master Agreement.
+MasterAgreementVariableSet,,Defines a type where additional variables associated to clauses and their variants can be described.
+MasterConfirmationBase,,Legal agreement specification for General Terms and Elections that are applicable across multiple confirmations and are referenced by these confirmations.
+MaterialChangeInCircumstance,,
+Measure,,Defines a concrete measure as a number associated to a unit. It extends MeasureBase by requiring the value attribute to be present. A measure may be unit-less so the unit attribute is still optional.
+MeasureBase,,Provides an abstract type to define a measure as a number associated to a unit. This type is abstract because all its attributes are optional. The types that extend it can specify further existence constraints.
+MeasureSchedule,,"A set of measures, all in the same unit, where the values are defined through a schedule of steps. The initial value may be defined either as part of the steps, or using the single amount attribute."
+Merger,,"Defines the underlier for both the Purchaser Company and the Acquired Compagny involved in Merger corporate action, as well as th respective price observation for each."
+MessageInformation,,This class corresponds to the components of the FpML MessageHeader.model.
+MinimumTransferAmount,,"Represents the threshold specified in the agreement below which collateral need not be delivered, and represents the smallest incremental value of exposure that must be reached before the parties are obliged to transfer collateral."
+MinimumTransferAmountAmendment,,A class to specify whether Amendment to Minimum Transfer Amount language is applicable or not.
+MinimumTransferAmountElection,,"Specifies the method by which the minimum transfer amount is defined, such as a fixed amount, ratings based, or an alternative basis set out in the agreement."
+MinimumTransferAmountRatingsBased,,Defines that the Minimum Transfer Amount (MTA) is based on a Ratings condition(s).
+Money,,Defines a monetary amount in a specified currency.
+MoneyBound,,The money bound is defined as a money amount and whether the bound is inclusive.
+MoneyRange,,"The money range defined as either a lower and upper money bound, or both."
+MultipleCreditNotations,,Represetns a class to specify multiple credit notations alongside a conditional 'any' or 'all' qualifier.
+MultipleDebtTypes,,Represents a class to specify multiple credit debt types alongside a conditional 'any' or 'all' qualifier.
+MultipleExercise,,"A class defining multiple exercises. As defined in the 2000 ISDA Definitions, Section 12.4. Multiple Exercise, the buyer of the option has the right to exercise all or less than all the unexercised notional amount of the underlying swap on one or more days in the exercise period, but on any such day may not exercise less than the minimum notional amount or more than the maximum notional amount, and if an integral multiple amount is specified, the notional exercised must be equal to or, be an integral multiple of, the integral multiple amount. In FpML, MultipleExercise is built upon the PartialExercise.model."
+MultipleValuationDates,,
+Nationalization,,
+NaturalPerson,,A class to represent the attributes that are specific to a natural person.
+NaturalPersonRole,,A class to specify the role(s) that natural person(s) may have in relation to the contract.
+NegativeCriteria,,Used to apply a NOT logic condition to a single Collateral Criteria.
+New,,
+Nm,,
+NonDeliverableSubstitute,,
+NonLegalEntity,,Specifies a non-legal entity that exists in the agreement with a defined relationship to a Legal entity to the agreement
+NonNegativeQuantity,,"Specifies a quantity as a non-negative number, which condition is enforced through a data rule that only applies to the extending class."
+NonNegativeQuantitySchedule,,
+NonNegativeStep,,"A class defining a step date and non-negative step value pair. This step definitions are used to define varying rate or amount schedules, e.g. a notional amortisation or a step-up coupon schedule."
+NonTransferableProduct,,"A data type to specify the financial product's economic terms, alongside the product identification and product taxonomy. The non-transferable product data type represents a product that can be traded (as part of a TradableProduct) but cannot be transferred to others.  It is meant to be used across the pre-execution, execution and (as part of the Contract) post-execution lifecycle contexts."
+NotDomesticCurrency,,A class to specify the ISDA 2003 Term: Not Domestic Currency.
+NoticeContactInformation,,"Specifies notice information including address and, optionally, an associated person. This type also supports the ISDA CSA representation as a single string, through the address attribute in Contact Information."
+NoticeInformationElection,,Specifies the party reference and the associated notice and contact information.
+NotificationTime,,Specifies the time by which a demand for the Transfer of Eligible Credit Support or Posted Credit Support needs to be made in order for the transfer to take place in accordance with the Transfer Timing provisions.
+NotificationTimeElection,,A class to specify the notification time election by the respective parties to the agreement.
+NumberBound,,The number bound is defined as a number and whether the bound is inclusive.
+NumberRange,,"The number range defined as either a lower and upper number bound, or both."
+Obligations,,A class to specify the underlying obligations of the reference entity on which protection is purchased or sold through the Credit Default Swap.
+Observable,,"Specifies the object to be observed for a price, it could be an asset or a reference."
+Observation,,"Defines a single, numerical value that was observed in the marketplace. Observations of market data are made independently to business events or trade life-cycle events, so data instances of Observation can be created independently of any other model type, hence it is annotated as a root type. Observations will be broadly reused in many situations, so references to Observation are supported via the 'key' annotation."
+ObservationDate,,Specifies a single date on which market observations take place and specifies optional associated weighting.
+ObservationDates,,Describes date details for a set of observation dates in parametric or non-parametric form.
+ObservationEvent,,Specifies the necessary information to create any observation event.
+ObservationIdentifier,,Defines the parameters needed to uniquely identify a piece of data among the population of all available market data.
+ObservationInstruction,,Specifies inputs needed to process an observation.
+ObservationParameters,,"Parameters on daily observed computed rates, specifically daily caps and floors. This type is used to represent modular computed rates in interestRatePayouts."
+ObservationSchedule,,Specifies a single date on which market observations take place and specifies optional associated weighting.
+ObservationShiftCalculation,,Parameters to describe the observation shift for a daily compounded or averaged floating rate. This type is used to represent modular computed rates in interestRatePayouts.
+ObservationTerms,,Class containing terms that are associated with observing a price/benchmark/index across either single or multiple observations.
+Offset,,"A class defining an offset used in calculating a new date relative to a reference date, e.g. calendar days, business days, commodity Business days, etc."
+OffsetCalculation,,Defines business day shifts for daily componded or averaged rates.  This type is used for lookback and lockout rates. This type is used to represent modular computed rates in interestRatePayouts.
+OneWayProvisions,,A class to specify whether One Way Provisions apply.
+OptionalEarlyTermination,,A data defining:  an early termination provision where either or both parties have the right to exercise.
+OptionalEarlyTerminationAdjustedDates,,A data defining:  the adjusted dates associated with an optional early termination provision.
+OptionFeature,,Defines additional optional features that can be included in an option contract.
+OptionPayout,,"The option payout specification terms. The associated globalKey denotes the ability to associate a hash value to the respective OptionPayout instantiation for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage."
+OptionStrike,,Defines the strike price of an option.
+OrdrTrnsmssn,,
+OtherAgreement,,A class for defining an agreement executed between parties.
+OtherAgreements,,The bespoke definition of other agreements or other credit support annex terms as specified by the parties to the agreement.
+OtherAgreementTerms,,"A class to specify a related legal agreement. For example, ISDA 2016 Credit Support Annex for Initial Margin, paragraph 13, General Principles, (s): Other CSA and Japanese Law CSA (VM). | ISDA 2016 Credit Support Annex for Variation Margin, paragraph 13, (o): Other CSA."
+OtherEligibleAndPostedSupport,,Specifies the Other Eligible Support elections.
+OtherIndex,,Specification of a user-defined index that does not meet the criteria of other Index data types.
+Othr,,
+ParametricDates,,Defines rules for the dates on which the price will be determined.
+PartialExercise,,"A class defining partial exercise. As defined in the 2000 ISDA Definitions, Section 12.3 Partial Exercise, the buyer of the option may exercise all or less than all the notional amount of the underlying swap but may not be less than the minimum notional amount (if specified) and must be an integral multiple of the integral multiple amount if specified."
+Party,,"A class to specify a party, without a qualification as to whether this party is a legal entity or a natural person, although the model provides the ability to associate a person (or set of persons) to a party, which use case would imply that such party would be a legal entity (even if not formally specified as such)."
+PartyAgreementIdentifier,,A class defining a legal agreement identifier issued by the indicated party.
+PartyChangeInstruction,,"Specifies instruction to change the party on a trade. This primitive instruction is used in a number of scenarios including: clearing, allocation and novation. The instrution must include a trade identifier, because a change of party effectively results in a different trade."
+PartyCustomisedWorkflow,,"A class to specify a party-related, non-standardized data in a generic form."
+PartyIdentifier,,"Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash value to the PartyIdentifier instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage."
+PartyOptionTerminationCurrency,,Specifies mechanism for Termination currency to be selected by the Non-defaulting Party/party which is not the Affected Party.
+PartyReferencePayerReceiver,,Specifies the parties responsible for making and receiving payments defined by this structure.
+PartyRole,,"A class to specify the role(s) that party(ies) may have in relation to the execution, contract or other legal agreement."
+PartyTerminationCurrencySelection,,Specifies the termination currency to be used by a party when it is the Non-Defaulting Party or the Party which is not the Affected Party.
+PassThrough,,Type which contains pass through payments.
+PassThroughItem,,Class to represent a single pass through payment.
+PayerReceiver,,Specifies the parties responsible for making and receiving payments defined by this structure.
+PaymentCalculationPeriod,,A data defining:  the adjusted payment date and associated calculation period parameters required to calculate the actual or projected payment amount. This data forms:  part of the cashflow representation of a swap stream.
+PaymentDates,,"Specifies the parameters to generate the payment date schedule, either through a parametric representation or by reference to specified dates."
+PaymentDateSchedule,,"The payment dates when specified as relative to a set of dates specified somewhere else in the instance document/transaction, e.g. the valuation dates as typically the case for equity swaps, or when specified as a calculation period schedule."
+PaymentDetail,,
+PaymentDiscounting,,This class corresponds to the FpML PaymentDiscounting.model group for representing the discounting elements that can be associated with a payment.
+PaymentRule,,"A class defining the payment calculation rule. As of FpML 5.10, percentage rule is the only calculation rule that has been specified as part of the standard."
+Payout,,"Represents the set of future cashflow methodologies in the form of specific payout data type(s) which result from the financial product.  Examples: a trade in a cash asset will use only a settlement payout; for derivatives, two interest rate payouts can be combined to specify an interest rate swap; one interest rate payout can be combined with a credit default payout to specify a credit default swap."
+PayoutBase,,A data type that contains the common attributes (e.g. payer and receiver parties) and validation conditions that apply across all payout types
+PCDeliverableObligationCharac,,A class to specify the Partial Cash Deliverable Obligation Characteristic.
+PercentageRule,,A class defining a content model for a calculation rule defined as percentage of the notional amount.
+PerformancePayout,,"Contains the necessary specifications for all performance payouts, encompassing equity return, dividend, variance, volatility and correlation products."
+PerformanceValuationDates,,Defines how and when a performance type option or performance type swap is to be valued.
+Period,,A class to define recurring periods or time offsets.
+PeriodBound,,Indicator to specify if the period bound is defined as a period and whether the bound is inclusive.
+PeriodicDates,,A class for specifying a calculation period schedule.
+PeriodRange,,"Indicates The period range defined as either a lower and upper period bound, or both."
+PersonIdentifier,,"Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash value to the PersonIdentifier instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage."
+PhysicalSettlementPeriod,,
+PhysicalSettlementTerms,,Specifies Physical Settlement Terms characteristics for the settlement of a Credit Default Swap or Option.
+PledgeeRepresentativeRider,,The terms of the Rider for the ISDA Euroclear 2019 Collateral Transfer Agreement with respect to the use of a Pledgee Representative attached to this Agreement.
+Portfolio,,"A Portfolio represents an aggregation of multiple Positions, by describing the parameters that this Portfolio should be aggregated based on. The resulting PortfolioState is calculated using these aggregation parameters as inputs, by aggregating all the Events that are relevant to this Portfolio. The concept of Portfolio works at all levels in the model: from the highest for a given LegalEntity for instance, to the lowest to account for security substitutions in a secutity financing transaction. As such, Portfolio can be used either above or below the Contract level."
+PortfolioReturnTerms,,"Specifies an individual type of return of a Performance Payout, when such individual return is part of an aggregation of multiple similar returns, at Performance Payout level."
+PortfolioState,,"State-full representation of a Portfolio that describes all the positions held at a given time, in various states which can be either traded, settled, etc., with lineage information to the previous state"
+Position,,A Position describes how much of a given Product is being held and constitutes the atomic element of a Portfolio.
+PositionBase,,"Base class to describe a Position, which could be a group of products (e.g. trade portfolio) or a group of assets (e.g. collateral portfolio)."
+PositionIdentifier,,"Defines a position identifier as a special case of the generic identifier type, that also includes the position identifier class."
+PostedCreditSupportItem,,"Posted Credit Support item with corresponding Valuation Percentage, FX Haircut Percentage and any related disputed Posted Credit Support valuation."
+PostingObligations,,A class to specify the collateral posting obligations of the security provider or security providers as specified in the corresponding agreement.
+PostingObligationsElection,,Specifies the collateral posting obligations for the security provider party(ies).
+Pric,,
+Price,,Specifies a price as a single value to be associated to a financial product. This data type extends PriceSchedule and requires that only the amount value exists.
+PriceComposite,,"Defines the inputs required to calculate a price as a simple composite of 2 other values. The inputs consist of 2 numbers and a simple arithmetic operator. This generic data type applies to a variety of use cases where a price is obtained by simple composition, e.g. dirty = clean + accrued (Bond), forward rate = spot rate + forward point (FX) etc."
+PriceMateriality,,
+PriceQuantity,,"Defines a settlement as an exchange between two parties of a specified quantity of an asset (the quantity) against a specified quantity of another asset (the price). The settlement is optional and can be either cash or physical. The quantity can additionally be specified in terms of one or more currency amounts. In the case of non-cash products, the settlement of the price/quantity would not be specified here and instead would be delegated to the product mechanics, as parameterised by the price/quantity values."
+PriceReturnTerms,,
+PriceSchedule,,"Specifies the price of a financial instrument in a trade as a schedule of measures. A price generically expresses the value of an exchange as a ratio: it measures the amount of one thing needed to be exchanged for 1 unit of another thing (e.g. cash in a specific currency in exchange for a bond or share). This generic representation can be used to support any type of financial price beyond just cash price: e.g. an interest rate, a foreign exchange rate, etc. This data type is generically based on a schedule and can also be used to represent a price as a single value."
+PriceSource,,"Specifies a publication that provides the commodity price, including, where applicable, the details of where in the publication the price is published."
+PriceSourceDisruption,,A data defining:  the parameters used to get a price quote to replace the settlement rate option that is disrupted.
+PricingDates,,Specifies specific dates or parametric rules for the dates on which the price will be determined
+PrimitiveInstruction,,A Primitive Instruction describes the inputs required to pass into the corresponding PrimitiveEvent function.
+PrincipalPayment,,Any kind of principal payments when the amount is known and thus fixed.
+PrincipalPayments,,A class defining which principal exchanges occur for the stream.
+PrincipalPaymentSchedule,,Describe dates schedules for Principal Exchanges and related role of the parties when known.
+ProcessAgent,,Specifies the Process Agent that might be appointed by the parties as part of a Credit Support Annex/Deed or Collateral Transfer Agreement.
+ProcessAgentElection,,Specifies the parties' respective elections with respect to the Process Agent.
+Product,,Enables either a TransferableProduct or a NonTransferableProduct to be used in an underlier.
+ProductIdentifier,,"Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash value to the ProductIdentifier instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage."
+ProductTaxonomy,,"Specifies the product taxonomy, which is composed of a taxonomy value and a taxonomy source."
+ProtectionTerms,,"A class to specify the terms for calculating a payout to protect the buyer of the swap in the case of a qualified credit event. These terms include the applicable credit events, the reference obligation, and in the case of a CDS on mortgage-backed securities, the floatingAmountEvents."
+Prsn,,
+PubliclyAvailableInformation,,
+Qty,,
+Quantity,,"Specifies a quantity as a single value to be associated to a financial product, for example a transfer amount resulting from a trade. This data type extends QuantitySchedule and requires that only the single amount value exists."
+QuantityChangeInstruction,,"Instructions required to create a Quantity Change Primitive Event, which can be either an increase, a decrease or a replacement. An increase adds a new trade lot to the original trade, whereas a decrease subtracts from an existing trade lot's quantity. A replacement updates the quantity of an existing trade lot to the new value."
+QuantityMultiplier,,"Class to specify a mechanism for a quantity to be set as a multiplier to another (reference) quantity, based on a price observation. At the moment this class only supports FX or Equity-linked notional and re-uses existing building blocks for those 2 cases, until such time when component can be made more generic. This captures the case of resetting cross-currency swaps and resetting equity swaps."
+QuantitySchedule,,Specifies a quantity schedule to be associated to a financial product to represent a trade amount. This data type extends MeasureSchedule with several unit or multiplier attributes that are used to define financial quantities. This data type is generically based on a schedule and can also be used to represent a quantity as a single value.
+Quanto,,Determines the currency rate that the seller of the equity amounts will apply at each valuation date for converting the respective amounts into a currency that is different from the currency denomination of the underlier.
+QuasiGovernmentIssuerType,,Represents a class to allow specification of different types of Quasi Government collateral.
+QuotedCurrencyPair,,A class that describes the composition of a rate that has been quoted or is to be quoted. This includes the two currencies and the quotation relationship between the two currencies and is used as a building block throughout the FX specification.
+RateObservation,,A class defining parameters associated with an individual observation or fixing. This class forms part of the cashflow representation of a stream.
+RateSchedule,,"A class defining a schedule of rates or amounts in terms of an initial value and then a series of step date and value pairs. On each step date the rate or amount changes to the new step value. The series of step date and value pairs are optional. If not specified, this implies that the initial value remains unchanged over time."
+RateSpecification,,"A data type to specify the fixed interest rate, floating interest rate or inflation rate."
+RatingAgencyAmount,,A logical container to hold a defined set of related data. In this case the collation of Rating Information and an associated Independent Amount.
+RatingAgencyValue,,"A logical container designed to hold a set of related data. In this case the Rating Agency, Rating Value and Rating Type."
+RatingMultiplier,,A logical container to hold a defined set of related data. In this case the collation of Ratings Information and associated exposure multiplier.
+RecalculationOfValue,,A class to specify terms for Recalculation of the Market Value of Posted Collateral when a dispute has been failed to be resolved by Resolution Time.
+RecalculationOfValueElection,,A class to specify Recalculation of Value terms that will be applicable.
+RecallProvision,,"Defines the additional features that allow securities to be recalled by the lender before the term of the loan. A recall is not the same as an early termination, but may result in the early termination of a loan."
+ReferenceBank,,A class to describe an institution (party) identified by means of a coding scheme and an optional name.
+ReferenceBanks,,A class defining the list of reference institutions polled for relevant rates or prices when determining the cash settlement amount for a product where cash settlement is applicable.
+ReferenceInformation,,A class specifying the Credit Default Swap Reference Information.
+ReferenceObligation,,A class to specify the reference obligation that is associated with a credit derivative instrument.
+ReferencePair,,
+ReferencePool,,This type contains all the reference pool items to define the reference entity and reference obligation(s) in the basket.
+ReferencePoolItem,,This type contains all the constituent weight and reference information.
+ReferenceSwapCurve,,A complex type used to specify the option and convertible bond option strike when expressed in reference to a swap curve.
+RefRate,,
+Regime,,A class to specify one or more regimes that may be specified as relevant to a legal agreement.
+RegimeTerms,,A class that is used by the ApplicableRegime and the AdditionalRegime classes to specify the regulatory regime terms.
+RegionalGovernmentIssuerType,,Represents a class to allow specification of different type of Regional government collateral.
+RelatedParty,,
+RelativeDateOffset,,"A class defining a date (referred to as the derived date) as a relative offset from another date (referred to as the anchor date). If the anchor date is itself an adjustable date then the offset is assumed to be calculated from the adjusted anchor date. A number of different scenarios can be supported, namely; 1) the derived date may simply be a number of calendar periods (days, weeks, months or years) preceding or following the anchor date; 2) the unadjusted derived date may be a number of calendar periods (days, weeks, months or years) preceding or following the anchor date with the resulting unadjusted derived date subject to adjustment in accordance with a specified business day convention, i.e. the derived date must fall on a good business day; 3) the derived date may be a number of business days preceding or following the anchor date. Note that the businessDayConvention specifies any required adjustment to the unadjusted derived date. A negative or positive value in the periodMultiplier indicates whether the unadjusted derived precedes or follows the anchor date. The businessDayConvention should contain a value NONE if the day type element contains a value of Business (since specifying a negative or positive business days offset would already guarantee that the derived date would fall on a good business day in the specified business centers)."
+RelativeDates,,A class describing a set of dates defined as relative to another set of dates.
+RelativeTime,,Defines a time value calculated relative to a reference time. The final value is derived by applying any offset and rounding rules inherited from RelativeTimeOffset to the reference time.
+RelativeTimeOffset,,"Describes how a time is offset from a reference point, including the unit, magnitude, and rounding behavior."
+Representations,,
+Reset,,"Defines the reset value or fixing value produced in cashflow calculations, during the life-cycle of a financial instrument. The reset process defined in Create_Reset function joins product definition details with observations to compute the reset value."
+ResetDates,,A data defining:  the parameters used to generate the reset dates schedule and associated fixing dates. The reset dates are the dates on which the new index value (which is observed on the fixing date) is applied for each period and on which the interest rate hence begins to accrue.
+ResetFrequency,,"A class defining the reset frequency. In the case of a weekly reset, also specifies the day of the week that the reset occurs. If the reset frequency is greater than the calculation period frequency the this implies that more or more reset dates is established for each calculation period and some form of rate averaging is applicable. The specific averaging method of calculation is specified in FloatingRateCalculation. In case the reset frequency is of value T (term), the period is defined by the swap/swapStream/calculationPerioDates/effectiveDate and the swap/swapStream/calculationPerioDates/terminationDate."
+ResetInstruction,,Defines the information needed to create a Reset Business Event.
+ResolutionValue,,Methodology for resolving disputes in respect of the determination of the value of collateral.
+ResolvablePriceQuantity,,"Generic class to specify the quantity for different payout legs in a contractual product, when that quantity can vary across payout legs or across time. A resolvable quantity can always be resolved into a single quantity from the quantity notation which has a corresponding asset identifier. In addition to the base case, where quantity is directly specified as a number as part of the quantity notation, the other use cases are: (i) quantity based on some pre-defined schedule (eg amortising notional), (ii) quantity based on some pre-defined events (eg resetting cross-currency notional), or quantity set as reference to another quantity (eg equity notional as no. securities x price)."
+Resource,,"Describes the resource that contains the media representation of a business event (i.e used for stating the Publicly Available Information). For example, can describe a file or a URL that represents the event. This type is an extended version of a type defined by RIXML (www.rixml.org).  Rosetta restricts the FpML implementation by not providing the ability to associated a document in hexadecimalBinary or base64Binary until such time that actual use cases will come up."
+ResourceLength,,A class to indicate the length of the resource.
+Restructuring,,
+RetrospectiveEffect,,A class to specify the retrospective effect exception to the regulatory regime clause of Initial Margin documents as either a normalized value specified as part of an enumeration or a customized value specified of type string.
+ReturnAmount,,A class to specify the application of Interest Amount with respect the Return Amount.
+ReturnInstruction,,Specifies the information required to create the return of a Security Finance Transaction.
+ReturnTerms,,Specifies the type of return of a performance payout.
+ReturnTermsBase,,"Contains all common elements in variance, volatility and correlation return Terms."
+RightsEvents,,A class to specify the rights of Security Taker and/or Security Provider when an Early Termination or Access Condition event has occurred.
+RollFeature,,Used in conjunction with an exchange-based pricing source. Identifies a way in which the futures contracts referenced will roll between periods.
+Rounding,,Defines rounding rules and precision to be used in the rounding of a number.
+Schedule,,"A class defining a schedule of rates or amounts in terms of an initial value and then a series of step date and value pairs. On each step date the rate or amount changes to the new step value. The series of step date and value pairs are optional. If not specified, this implies that the initial value remains unchanged over time."
+ScheduledTransfer,,A scheduled transfer built into the contract.
+SchedulePeriod,,"A class that defines the period of a schedule. The period contains a set of start and end dates, quantities, fixing, and pricing data."
+SchmeNm,,
+SecuredDebt,,
+SecuredPartyRightsEvent,,A class to specify Secured Party Rights Event language.
+SecuredPartyRightsEventElection,,A class to specify party specific Secured Party Rights Event language.
+Security,,Identifies a security by referencing an identifier and by specifying the sector.
+SecurityAgreementElections,,The set of elections which specify a Security Agremeent.
+SecurityInterestForObligations,,"Security Interest for Obligations clause applicable to 1994 NY CSA, 1995 English Law CSA, 1995 English Law Credit Support Deed, 2016 English Law VM CSA and 2016 New York Law VM CSA."
+SecurityLendingInvoice,,Specifies the information required for inclusion in a securities lending billing invoice.
+SecurityLocate,,"A locate is an approval from a broker that needs to be obtained prior to effecting a short sale in an equity security. Similar to security availability, a borrower can request a single or multiple securities, but at least one must be requested."
+SecurityProviderRightsEvent,,A class to specify the Pledgor/Obligor/Chargor Rights Event election.
+SecurityProviderRightsEventElection,,A class to specify party specific Secured Party Rights Event language.
+Sellr,,
+SensitivityMethodologies,,A class to specificy methodologies to compute sensitivities specific to the agreement.
+SensitivityMethodologiesPartyElection,,A class to specificy methodologies to compute sensitivities specific to the agreement.
+SensitivityMethodology,,A class to specify the methodology according to which sensitivities are computed.
+SensitivityToEquity,,Represents risk sensitivity calculated with respect to the value of an individual equity instrument.
+SettledEntityMatrix,,A class to specify the Relevant Settled Entity Matrix.
+SettlementBase,,A base class to be extended by the SettlementTerms class.
+SettlementDate,,"A data defining the settlement date(s) for cash or physical settlement as either a set of explicit dates, together with applicable adjustments, or as a date relative to some other (anchor) date, or as any date in a range of contiguous business days. This data type provides a level of abstraction on top of the different legacy methods used to specify a settlement / payment date, which vary across product types, asset classes and delivery types."
+SettlementPayout,,"Represents a forward settling payout. The underlier attribute captures the underlying payout, which is settled according to the settlementTerms attribute (which is part of PayoutBase). Both FX Spot and FX Forward should use this component."
+SettlementProvision,,"Defines parameters that regulate a settlement, for instance whether this settlement should be netted with other ones or broken-down into smaller amounts."
+SettlementRateOption,,Defines the settlement rate option to use for fixing in case of cash settlement. Currently only applicable to foreign exchange fixing in case of cross-currency settlement.
+SettlementTerms,,"Specifies the settlement terms, which can either be cash, physical, or fx-based cash-settlement. This class can be used for the settlement of options and forwards, cash transactions (e.g. securities or foreign exchange), or in case of credit event."
+ShapingProvision,,"Defines the applicable settlement limits that may require a settlement to be 'shaped', i.e. broken-down into smaller amounts."
+SimmCalculationCurrency,,A class to specify the SIMM Calculation Currency elections by each party to the agreement.
+SimmException,,A class to specify the SIMM exception to the regulatory regime clause.
+SimmVersion,,A class to specify the ISDA SIMM version that applies to the ISDA 2018 CSA for Initial Margin.
+SinglePostingParty,,"Where only a single  party is explicitly designated to post collateral, the party which is specified as the sole poster of collateral."
+SingleValuationDate,,A class to specify the number of business days after satisfaction of all conditions to settlement.
+Sngl,,
+SovereignAgencyRating,,
+SpecialPurposeVehicleIssuerType,,Represents a class to allow specification of different types of special purpose vehicle (SPV) collateral.
+SpecificAsset,,"A single, specifically identified Asset chosen from the Asset data type"
+SpecificInconvertibility,,
+SpecificNonTransferability,,
+SpecifiedConditionOrAccessCondition,,"Specifies the events elected by the parties that are deemed an Access Condition (for Initial Margin CSA) or a Specified Condition (for Variation Margin and Legacy CSA), which, if triggered, may temporarily or permanently suspend rights to rehypothecate, transfer, or substitute collateral."
+SpecifiedCurrency,,
+SpecifiedEntities,,A provision that allows each party to specify its Specified Entities for certain Events of Default and Termination Events.
+SpecifiedEntity,,The party specific election of Specified Entities for the Event of Default or Termination Event specified.
+SpecifiedOrAccessConditionPartyElection,,The party specific elections in respect to the Specified Condition and Access Condition clause.
+SpinOff,,"Defines the underlier for both the Parent Company and the Child Compagny involved in Spin Off corporate action, as well as th respective price observation for each."
+SplitInstruction,,"Specifies instructions for a split, consisting of a breakdown of instructions to be applied to each branch of the split. This instruction can be used to duplicate a trade, as in a clearing scenario, or to split a trade into smaller quantities (in which case each breakdown instruction needs to include a quantity change), as in an allocation."
+SpreadSchedule,,Adds an optional spread type element to the Schedule to identify a long or short spread value.
+StandardizedSchedule,,
+StandardizedScheduleInitialMargin,,
+StandardizedScheduleTradeInfo,,
+State,,"Defines the state of a trade at a point in the Trade's life cycle. Trades have many state dimensions, all of which are represented here. For example, states useful for position keeping are represented alongside those needed for regulatory reporting."
+StockSplitInstruction,,Data required to perform a stock split business event.
+StrategyFeature,,A class for defining option strategy features.
+Strike,,A class describing a single cap or floor rate.
+StrikeSchedule,,A class describing a schedule of cap or floor rates.
+StrikeSpread,,A class for defining a strike spread feature.
+StubCalculationPeriodAmount,,"A data defining:  how the initial or final stub calculation period amounts is calculated. For example, the rate to be applied to the initial or final stub calculation period may be the linear interpolation of two different tenors for the floating rate index specified in the calculation period amount component, e.g. A two month stub period may used the linear interpolation of a one month and three month floating rate. The different rate tenors would be specified in this component. Note that a maximum of two rate tenors can be specified. If a stub period uses a single index tenor and this is the same as that specified in the calculation period amount component then the initial stub or final stub component, as the case may be, must not be included."
+StubFloatingRate,,A class defining a floating rate.
+StubPeriod,,"A class defining how the initial or final stub calculation period amounts is calculated. For example, the rate to be applied to the initial or final stub calculation period may be the linear interpolation of two different tenors for the floating rate index specified in the calculation period amount component, e.g. A two month stub period may used the linear interpolation of a one month and three month floating rate. The different rate tenors would be specified in this component. Note that a maximum of two rate tenors can be specified. If a stub period uses a single index tenor and this is the same as that specified in the calculation period amount component then the initial stub or final stub component, as the case may be, must not be included."
+StubValue,,"A type defining how a stub calculation period amount is calculated. A single floating rate tenor different to that used for the regular part of the calculation periods schedule may be specified, or two floating rate tenors many be specified. If two floating rate tenors are specified then Linear Interpolation (in accordance with the 2000 ISDA Definitions, Section 8.3 Interpolation) is assumed to apply. Alternatively, an actual known stub rate or stub amount may be specified."
+SubstitutedRegime,,A class to specify each party's election with respect to the Substituted Regimes that will be applicable...
+SubstitutedRegimeTerms,,"Specifies the applicability of the Substituted Regime as denoted in the Substituted Regime Table as part of certain legal agreements, such as such as the ISDA 2016 and 2018 CSA for Initial Margin."
+Substitution,,"A class to specify the conditions under which the Security Provider can substitute posted collateral. The details required for 'Legacy' agreements are substantially different to those required for newer agreements; where the agreement is a 1994 or 1995 CSA, or 1995 CSD, the legacyConsent attribute needs to be used which contains additional values beyond a simple true/false value."
+SubstitutionPartyElection,,Party specific elections for substitution of posted collateral.
+SubstitutionProvisions,,Defines collateral substitution provisions such as how many and with how much notice are substitutions allowed.
+SwapCurveValuation,,"A class to specify a valuation swap curve, which is used as part of the strike construct for the bond and convertible bond options."
+Swp,,
+SwpIn,,
+SwpOut,,
+Taxonomy,,Defines the taxonomy of an object by combining a taxonomy source (i.e. the rules to classify the object) and a value (i.e. the output of those rules on the object).
+TaxonomyClassification,,
+TaxonomyValue,,Defines a taxonomy value as either a simple string or a more granular expression with class names and values for each class.
+TelephoneNumber,,"A class to specify a telephone number as a type of phone number (e.g. work, personal, ...) alongside with the actual number."
+Term,,
+TerminationCurrency,,Specifies how the Termination Currency for the agreement will be determined.
+TerminationCurrencyAmendment,,A class to specify the Amendment to Termination Currency elections by the parties to the agreement.
+TerminationCurrencyElection,,A class to specify the Amendment to Termination Currency election by the parties to the agreement.
+TerminationCurrencySelection,,Specifies Termination Currency where a currency is stated at the time the agreement is entered into.
+TerminationProvision,,A class for defining option provisions.
+TermsChangeInstruction,,"Specifies instructions for terms change consisting of the new transaction terms, and the renegotiation fee."
+Threshold,,Represents the amount of unsecured risk that a party is willing to tolerate without holding any posted collateral provided by the other party.
+ThresholdElection,,"Specifies whether the threshold is rating based, a fixed amount, or infinity."
+ThresholdMinimumTransferAmountBase,,"A logical container designed to hold a set of related data. In this case, designed to hold a set of information required to specify conditions under which Threshold or Minimum Transfer Amount can fall to zero."
+ThresholdMinimumTransferAmountFixedAmount,,Defines the Threshold or the Minimum Transfer Amount (MTA) as a fixed amount.
+ThresholdRatingsBased,,Defines that the Threshold is based on Ratings condition(s).
+TimeRounding,,"Specifies how a calculated time should be rounded, including both the direction of rounding and the unit to which the time is rounded. Rounding is applied after all offsets have been calculated."
+TimeZone,,The time alongside with the timezone location information. This class makes use of the FpML TimezoneLocation construct.
+TradableProduct,,"Definition of a product as ready to be traded, i.e. included in an execution or contract, by associating a specific price and quantity to this product plus an (optional) mechanism for any potential future quantity adjustment."
+Trade,,Defines the output of a financial transaction between parties - a Business Event. A Trade impacts the financial position (i.e. the balance sheet) of involved parties.
+TradeIdentifier,,"Defines a trade identifier as a special case of the generic identifier type, that also includes the trade identifier class."
+TradeLot,,"Specifies the price and quantity of a trade lot, where the same product could be traded multiple times with the same counterparty but in different lots (at a different date, in a different quantity and at a different price). One trade lot combined with a product definition specifies the entire economics of a trade. The lifecycle mechanics of each such trade lot (e.g. cashflow payments) is independent of the other lots."
+TradePricingReport,,The attributes that are specific for consensus based pricing reporting.
+TradeState,,"Defines the fundamental financial information that can be changed by a Primitive Event and by extension any business or life-cycle event. Each TradeState specifies where a Trade is in its life-cycle. TradeState is a root type and as such, can be created independently to any other CDM data type, but can also be used as part of the CDM Event Model."
+Tranche,,The class to represent a CDS Tranche.
+TransactedPrice,,A class to represent the transacted price attributes that are positioned as part of the FpML FeeLeg.
+TransactionAdditionalTerms,,"Additional specification for the extraordinary events that may affect a trade and the related contractual rights and obligation of the parties when this happens. Such terms are typically required to extend the economics terms, for the purpose of producing the final legal contractual form of the Transaction."
+Transfer,,The type of transfer.
+TransferableProduct,,"A TransferableProduct is a type of financial product which can be held or transferred, represented as an Asset with the addition of specific EconomicTerms."
+TransferBase,,"Defines the movement of an Asset (eg cash, securities or commodities) between two parties on a date."
+TransferContactInformation,,"Specifies transfer information including address and, optionally, an associated account. This type also supports the ISDA CSA representation as a single string, through the address attribute in Contact Information."
+TransferInformationElection,,Specifies the party reference and the associated transfer & contact information.
+TransferInstruction,,Defines the payout on which to create a Transfer along with all necessary resets.
+TransferSettlementTiming,,"Specification of transfer / settlement timing for cash and securities collateral assuming that the notice is provided before the Notification Time (and with a 1LBD lag introduced if the notice is delivered after the Notification Time), and that securities allow for a further Local Business Day for transfer / settlement."
+TransferState,,"Defines the fundamental financial information associated with a Transfer event. Each TransferState specifies where a Transfer is in its life-cycle. TransferState is a root type and as such, can be created independently to any other CDM data type, but can also be used as part of the CDM Event Model."
+Trigger,,Trigger point at which feature is effective.
+TriggerEvent,,Observation point for trigger.
+Tx,,
+UmbrellaAgreement,,"Specifies the set of agreements, the parties of which are set within UmbrellaAgreementSet, beyond the two contracting parties to that agreement."
+UmbrellaAgreementParty,,Specifies the entities that are part of the umbrella agreement.
+UmbrellaAgreementSet,,Represents the groups of agreement term elections that exist within the agreement and to which entities that particular group of elections apply. Where all entities under the umbrella have the same set of elections only one agreement set will exist. At least one agreement set must be defined for an Umbrella agreement
+Underlier,,"The underlying financial product that will be physically or cash settled, which can be of any type, eg an asset such as cash or a security, a product, or the cash settlement of an index rate.  Conditions are usually applied when used in a data type, such as a payout, to ensure this aligns with the use case."
+UnderlierSubstitutionProvision,,Where parties describe any substitution terms.
+UndrlygInstrm,,
+UnitType,,"Defines the unit to be used for price, quantity, or other purposes"
+UnscheduledTransfer,,An ad-hoc transfer instigated by a party to the contract.
+Valuation,,"Defines the value of an investment, asset, or security"
+ValuationAgent,,Details of the party valuating the collateral to be delivered or returned.
+ValuationCalculationDateLocation,,Specification of the Calculation Date Location for the respective parties to the legal agreement.
+ValuationCalculationDateLocationElection,,A class to specify each of the party elections with respect to the Calculation Date Location.
+ValuationDate,,"A single object that represents the different methods to specify a valuation date, as used for cash settlement. The Single / Multiple ValuationDate is used for the determination of recovery in a credit event, the RelativeDateOffset is used for cash-settled option, and FxFixingDate is used for cross-currency settlement."
+ValuationDates,,"Defines how and when a performance type option or performance type swap is to be valued, including initial, interim and final valuation dates."
+ValuationInstruction,,Specifies inputs needed to process a valuation.
+ValuationMethod,,"Specifies the parameters required to obtain a valuation, including the source, quotation method (bid, mid etc.) and any applicable quotation amount."
+ValuationPostponement,,Specifies how long to wait to get a quote from a settlement rate option upon a price source disruption.
+ValuationSource,,"A class describing the method for obtaining a settlement rate, specified through either an information source (page), a settlement rate option (fixing) or by using quotes from reference banks."
+ValuationTerms,,
+ValuationTime,,Specifies the time by which the value of the collateral and obligations to transfer or return collateral are to be calculated relative to the Valuation Date.
+VarianceCapFloor,,
+VarianceReturnTerms,,
+Velocity,,
+VolatilityCapFloor,,Contains volatility-based barriers. Volatility Cap needs to be specified in accordance with the ISDA 2011 Equity Derivatives Definitions.
+VolatilityReturnTerms,,
+WeightedAveragingObservation,,A single weighted averaging observation.
+Workflow,,A collection of workflow steps which together make up an entire workflow sequence.
+WorkflowState,,"A class to specify workflow information, which is conceptually applicable to all lifecycle events."
+WorkflowStep,,"A workflow step represents the state of a business event. The workflow step contains a reference to a previous WorkflowStep in order to preserve lineage. A workflow step is accepted if it contains a business event, proposed if proposedEvent is present and is rejected if the rejected flag is set."
+WorkflowStepApproval,,Party approvals associated to the current WorkflowStep.
+

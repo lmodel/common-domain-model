@@ -1,0 +1,39 @@
+# metamodel_version: 1.11.0id: PaymentCalculationPeriod
+schema_generating: true
+description: 'A data defining:  the adjusted payment date and associated calculation
+  period parameters required to calculate the actual or projected payment amount.
+  This data forms:  part of the cashflow representation of a swap stream.'
+display_name: PaymentCalculationPeriod
+document_category: PaymentCalculationPeriod
+weight: 20
+fields:
+- id: unadjustedPaymentDate
+  description: The unadjusted payment date.
+  display_name: unadjustedPaymentDate
+- id: adjustedPaymentDate
+  description: The adjusted payment date. This date should already be adjusted for
+    any applicable business day convention. This component is not intended for use
+    in trade confirmation but may be specified to allow the fee structure to also
+    serve as a cashflow type component.
+  display_name: adjustedPaymentDate
+- id: calculationPeriod
+  description: The parameters used in the calculation of a fixed or floating rate
+    calculation period amount. A list of calculation period elements may be ordered
+    in the document by ascending start date. An FpML document which contains an unordered
+    list of calculation periods is still regarded as a conformant document.
+  display_name: PaymentCalculationPeriod_calculationPeriod
+  cardinality: multi
+- id: fixedPaymentAmount
+  description: A known fixed payment amount.
+  display_name: fixedPaymentAmount
+- id: discountFactor
+  description: A decimal value representing the discount factor used to calculate
+    the present value of cash flow.
+  display_name: discountFactor
+- id: forecastPaymentAmount
+  description: A monetary amount representing the forecast of the future value of
+    the payment.
+  display_name: forecastPaymentAmount
+- id: presentValueAmount
+  description: A monetary amount representing the present value of the forecast payment.
+  display_name: presentValueAmount

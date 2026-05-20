@@ -1,0 +1,34 @@
+# metamodel_version: 1.11.0id: CashCollateralValuationMethod
+schema_generating: true
+description: This type is a generic structure that can represent the parameters of
+  several mid-market valuation and replacement value methods described in the 2021
+  ISDA Definitions.
+display_name: CashCollateralValuationMethod
+document_category: CashCollateralValuationMethod
+weight: 20
+fields:
+- id: applicableCsa
+  description: This may be used to specify what type of CSA (credit support annex/agreement)
+    is to be used for cash settlement purposes.
+  display_name: applicableCsa
+- id: cashCollateralCurrency
+  description: This may be used to indicate the currency of cash collateral for cash
+    settlement purposes.
+  display_name: cashCollateralCurrency
+- id: cashCollateralInterestRate
+  description: This may be used to indicate the interest rate to be used for cash
+    collateral for cash settlement purposes.
+  display_name: cashCollateralInterestRate
+- id: agreedDiscountRate
+  description: This may be used to indicate the discount rate to be used for cash
+    collateral for cash settlement purposes.
+  display_name: agreedDiscountRate
+- id: protectedParty
+  description: This may be used to specify which party is protected (e.g. under Replacement
+    Value cash settlement methods).
+  display_name: protectedParty
+  cardinality: multi
+- id: prescribedDocumentationAdjustment
+  description: This may be used to indicate that 'prescribed documentation adjustment'
+    is applicable.
+  display_name: prescribedDocumentationAdjustment

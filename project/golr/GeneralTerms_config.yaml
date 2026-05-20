@@ -1,0 +1,36 @@
+# metamodel_version: 1.11.0id: GeneralTerms
+schema_generating: true
+description: ' A class specifying a set of non-monetary terms for the Credit Derivative
+  Transaction, including the buyer and seller and selected items from the ISDA 2014
+  Credit Definition article II, such as the reference obligation and related terms.
+  The CDM GeneralTerms class corresponds to the FpML GeneralTerms complex type, except
+  that the effectiveDate and scheduledTerminationDate have been positioned as part
+  of the InterestRatePayout class in the CDM instead of in GeneralTerms.'
+display_name: GeneralTerms
+document_category: GeneralTerms
+weight: 20
+fields:
+- id: referenceInformation
+  description: This attribute contains all the terms relevant to defining the reference
+    entity and reference obligation(s).
+  display_name: GeneralTerms_referenceInformation
+- id: indexReferenceInformation
+  description: This attribute contains all the terms relevant to the underlying Index.
+  display_name: indexReferenceInformation
+- id: basketReferenceInformation
+  description: This attribute contains all the terms relevant to defining the Credit
+    Default Swap Basket.
+  display_name: basketReferenceInformation
+- id: additionalTerm
+  description: This attribute is used for representing information contained in the
+    Additional Terms field of the 2003 Master Credit Derivatives confirm.
+  display_name: additionalTerm
+  cardinality: multi
+- id: substitution
+  description: Value of this attribute set to 'true' indicates that substitution is
+    applicable.
+  display_name: GeneralTerms_substitution
+- id: modifiedEquityDelivery
+  description: Value of this attribute set to 'true' indicates that modified equity
+    delivery is applicable.
+  display_name: modifiedEquityDelivery

@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: ConditionsPrecedent
+schema_generating: true
+description: A class to specify the two set of elections that may overwrite the default
+  Condition Precedent provision.
+display_name: ConditionsPrecedent
+document_category: ConditionsPrecedent
+weight: 20
+fields:
+- id: conditionsPrecedentElection
+  description: The election to specify whether the standard Conditions Precedent apply.
+  display_name: conditionsPrecedentElection
+- id: customProvision
+  description: The custom provisions that might be specified by the parties to the
+    agreement for the purpose of overwriting the default Condition Precedent provision
+    specified in the CSA.
+  display_name: ConditionsPrecedent_customProvision
+- id: specifiedConditionOrAccessCondition
+  description: Specifies the events elected by the parties that are deemed an Access
+    Condition (for Initial Margin CSA) or a Specified Condition (for Variation Margin
+    and Legacy CSA), which, if triggered, may temporarily or permanently suspend rights
+    to rehypothecate, transfer, or substitute collateral.
+  display_name: specifiedConditionOrAccessCondition

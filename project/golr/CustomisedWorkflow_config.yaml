@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: CustomisedWorkflow
+schema_generating: true
+description: In its initial iteration, this class is meant to support the DTCC TIW
+  workflow information.
+display_name: CustomisedWorkflow
+document_category: CustomisedWorkflow
+weight: 20
+fields:
+- id: itemName
+  description: In this initial iteration, this corresponds to the DTCC TIW element
+    name.
+  display_name: itemName
+- id: itemValue
+  description: In this initial iteration, this corresponds to the DTCC value.
+  display_name: itemValue

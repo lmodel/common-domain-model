@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: MessageInformation
+schema_generating: true
+description: This class corresponds to the components of the FpML MessageHeader.model.
+display_name: MessageInformation
+document_category: MessageInformation
+weight: 20
+fields:
+- id: messageId
+  description: A unique identifier assigned to the message.
+  display_name: messageId
+- id: sentBy
+  description: The identifier for the originator of a message instance.
+  display_name: sentBy
+- id: sentTo
+  description: The identifier(s) for the recipient(s) of a message instance.
+  display_name: sentTo
+  cardinality: multi
+- id: copyTo
+  description: A unique identifier (within the specified coding scheme) giving the
+    details of some party to whom a copy of this message will be sent for reference.
+  display_name: copyTo
+  cardinality: multi

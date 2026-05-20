@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: PhysicalSettlementPeriod
+schema_generating: true
+display_name: PhysicalSettlementPeriod
+document_category: PhysicalSettlementPeriod
+weight: 20
+fields:
+- id: businessDaysNotSpecified
+  description: An explicit indication that a number of business days are not specified
+    and therefore ISDA fallback provisions should apply.
+  display_name: businessDaysNotSpecified
+- id: businessDays
+  description: 'A number of business days. Its precise meaning is dependant on the
+    context in which this element is used. ISDA 2003 Term: Business Day.'
+  display_name: businessDays
+- id: maximumBusinessDays
+  description: A maximum number of business days. Its precise meaning is dependant
+    on the context in which this element is used. Intended to be used to limit a particular
+    ISDA fallback provision.
+  display_name: maximumBusinessDays

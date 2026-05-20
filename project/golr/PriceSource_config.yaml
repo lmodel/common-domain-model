@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: PriceSource
+schema_generating: true
+description: Specifies a publication that provides the commodity price, including,
+  where applicable, the details of where in the publication the price is published.
+display_name: PriceSource
+document_category: PriceSource
+weight: 20
+fields:
+- id: pricePublisher
+  description: 'Defines a publication in which the price can be found. (e.g Gas Daily,
+    Platts Bloomberg. Commodity publishers can be found at this URL:  http://www.fpml.org/coding-scheme/commodity-information-provider>'
+  display_name: pricePublisher
+- id: priceSourceLocation
+  description: Specifies the location of the price which may be a specific page, electornic
+    screen name, or a code (e.g. a RIC code) where the price can be found.
+  display_name: priceSourceLocation
+- id: priceSourceHeading
+  description: Specifies the heading or field name for the price  on a given page
+    or screen, where applicable.
+  display_name: priceSourceHeading
+- id: priceSourceTime
+  description: Specifies the time at which the price should be observed.
+  display_name: priceSourceTime

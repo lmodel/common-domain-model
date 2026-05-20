@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: ValuationInstruction
+schema_generating: true
+description: Specifies inputs needed to process a valuation.
+display_name: ValuationInstruction
+document_category: ValuationInstruction
+weight: 20
+fields:
+- id: valuation
+  description: Contains all information related to a valuation.
+  display_name: ValuationInstruction_valuation
+  cardinality: multi
+- id: replace
+  description: Specifies whether the previous valuation tracks in the valuation history
+    are removed (True) or kept (False).
+  display_name: replace

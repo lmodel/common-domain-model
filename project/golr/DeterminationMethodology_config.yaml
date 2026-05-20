@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: DeterminationMethodology
+schema_generating: true
+description: Specifies the method according to which an amount or a date is determined.
+display_name: DeterminationMethodology
+document_category: DeterminationMethodology
+weight: 20
+fields:
+- id: determinationMethod
+  description: Represents a more granular dimention of observation. Typically relevent
+    for resolving a unique equity price, which can be expressed as trade-weighted
+    or volume-weighted averages.
+  display_name: DeterminationMethodology_determinationMethod
+- id: averagingMethod
+  description: Specifies enumerations for the type of averaging calculation.
+  display_name: averagingMethod

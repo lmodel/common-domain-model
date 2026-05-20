@@ -1,0 +1,21 @@
+# metamodel_version: 1.11.0id: IneligibleCreditSupport
+schema_generating: true
+description: Identifies collateral that has been designated as not meeting the eligibility
+  criteria set out in the agreement.
+display_name: IneligibleCreditSupport
+document_category: IneligibleCreditSupport
+weight: 20
+fields:
+- id: totalIneligibilityDate
+  description: Specifies the date from which all credit support provided by a party
+    is treated as ineligible under the agreement.
+  display_name: totalIneligibilityDate
+- id: transferIneligibilityDate
+  description: Specifies the date from which the transfer of credit support by a party
+    is treated as ineligible under the agreement.
+  display_name: transferIneligibilityDate
+- id: specifiedParty
+  description: Identifies a party designated in the agreement for the purpose of applying
+    particular rights, obligations, or elections.
+  display_name: specifiedParty
+  cardinality: multi

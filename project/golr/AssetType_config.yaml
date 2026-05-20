@@ -1,0 +1,26 @@
+# metamodel_version: 1.11.0id: AssetType
+schema_generating: true
+description: Represents a class to allow specification of the asset product type.
+display_name: AssetType
+document_category: AssetType
+weight: 20
+fields:
+- id: assetType
+  description: Represents a filter based on the type of collateral asset.
+  display_name: AssetType_assetType
+- id: securityType
+  description: Represents a filter based on the type of security.
+  display_name: AssetType_securityType
+- id: debtType
+  description: Represents a filter based on the type of bond.
+  display_name: AssetType_debtType
+- id: equityType
+  description: Represents a filter based on the type of equity.
+  display_name: AssetType_equityType
+- id: fundType
+  description: Represents a filter based on the type of fund.
+  display_name: AssetType_fundType
+- id: otherAssetType
+  description: Specifies the eligible asset type when not enumerated.
+  display_name: otherAssetType
+  cardinality: multi

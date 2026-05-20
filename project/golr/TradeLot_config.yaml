@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: TradeLot
+schema_generating: true
+description: Specifies the price and quantity of a trade lot, where the same product
+  could be traded multiple times with the same counterparty but in different lots
+  (at a different date, in a different quantity and at a different price). One trade
+  lot combined with a product definition specifies the entire economics of a trade.
+  The lifecycle mechanics of each such trade lot (e.g. cashflow payments) is independent
+  of the other lots.
+display_name: TradeLot
+document_category: TradeLot
+weight: 20
+fields:
+- id: lotIdentifier
+  description: Specifies one or more identifiers for the lot, if any.
+  display_name: TradeLot_lotIdentifier
+  cardinality: multi
+- id: priceQuantity
+  description: 'Specifies the settlement characteristics of a trade lot: price, quantity,
+    observable (optionally) and the settlement terms. This attribute has a multiple
+    cardinality to allow to specify the price, quantity and observable of different
+    legs in a single, composite product (e.g. a Swap).'
+  display_name: TradeLot_priceQuantity
+  cardinality: multi

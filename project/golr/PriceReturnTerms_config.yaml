@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: PriceReturnTerms
+schema_generating: true
+display_name: PriceReturnTerms
+document_category: PriceReturnTerms
+weight: 20
+fields:
+- id: returnType
+  description: The type of return associated with the equity swap.
+  display_name: returnType
+- id: conversionFactor
+  description: Defines the conversion applied if the quantity unit on contract is
+    different from unit on referenced underlier.
+  display_name: conversionFactor
+- id: performance
+  description: Performance calculation, in accordance with Part 1 Section 12 of the
+    2018 ISDA CDM Equity Confirmation for Security Equity Swap, Para 75. 'Equity Performance'.
+    Cumulative performance is used as a notional multiplier factor on both legs of
+    an Equity Swap.
+  display_name: performance

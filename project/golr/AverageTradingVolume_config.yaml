@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: AverageTradingVolume
+schema_generating: true
+description: Represents the average trading volume of an Equity product upon an exchange
+  or set of exchanges.
+display_name: AverageTradingVolume
+document_category: AverageTradingVolume
+weight: 20
+fields:
+- id: period
+  description: Represents the period of the equities average trading volume on the
+    exchange/s.
+  display_name: AverageTradingVolume_period
+- id: methodology
+  description: Indicates the type of equity average trading volume being stated (single)
+    the highest amount on one exchange, or (consolidated) volumes across multiple
+    exchanges.
+  display_name: methodology

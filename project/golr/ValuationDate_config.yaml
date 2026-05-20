@@ -1,0 +1,43 @@
+# metamodel_version: 1.11.0id: ValuationDate
+schema_generating: true
+description: A single object that represents the different methods to specify a valuation
+  date, as used for cash settlement. The Single / Multiple ValuationDate is used for
+  the determination of recovery in a credit event, the RelativeDateOffset is used
+  for cash-settled option, and FxFixingDate is used for cross-currency settlement.
+display_name: ValuationDate
+document_category: ValuationDate
+weight: 20
+fields:
+- id: singleValuationDate
+  description: 'Where single valuation date is specified as being applicable for cash
+    settlement, this element specifies the number of business days after satisfaction
+    of all conditions to settlement when such valuation date occurs. ISDA 2003 Term:
+    Single Valuation Date.'
+  display_name: singleValuationDate
+- id: multipleValuationDates
+  description: 'Where multiple valuation dates are specified as being applicable for
+    cash settlement, this element specifies (a) the number of applicable valuation
+    dates, and (b) the number of business days after satisfaction of all conditions
+    to settlement when the first such valuation date occurs, and (c) the number of
+    business days thereafter of each successive valuation date. ISDA 2003 Term: Multiple
+    Valuation Dates.'
+  display_name: multipleValuationDates
+- id: valuationDate
+  description: The date on which the cash settlement amount will be determined according
+    to the cash settlement method if the parties have not otherwise been able to agree
+    the cash settlement amount. This attribute was formerly part of 'OptionCashSettlement',
+    which is now being harmonised into a common 'CashSettlementTerms' that includes
+    a 'ValuationDate'.
+  display_name: ValuationDate_valuationDate
+- id: fxFixingDate
+  description: The date on which the currency rate will be determined for the purpose
+    of specifying the amount in deliverable currency. This attribute was formerly
+    part of 'NonDeliverableSettlement', which is now being harmonised into a common
+    'CashSettlementTerms' that includes a 'ValuationDate'.
+  display_name: fxFixingDate
+- id: fxFixingSchedule
+  description: The date, when expressed as a schedule of date(s), on which the currency
+    rate will be determined for the purpose of specifying the amount in deliverable
+    currency. This attribute was formerly part of 'NonDeliverableSettlement', which
+    is now being harmonised into a common 'CashSettlementTerms' that includes a 'ValuationDate'.
+  display_name: fxFixingSchedule

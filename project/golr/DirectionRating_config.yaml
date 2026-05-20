@@ -1,0 +1,38 @@
+# metamodel_version: 1.11.0id: DirectionRating
+schema_generating: true
+description: A logical container to hold a defined set of related data. In this case
+  the collation of Ratings Agency, Rating value and an associated direction.
+display_name: DirectionRating
+document_category: DirectionRating
+weight: 20
+fields:
+- id: agency
+  description: Specifies The credit agency to which the other variables (notation,
+    scale, debt type) refer to.
+  display_name: agency
+- id: notation
+  description: Specifies The credit rating notation. As it varies among credit rating
+    agencies, FpML doesn't specify a default scheme.
+  display_name: notation
+- id: scale
+  description: Specifies the credit rating scale, with a typical distinction between
+    short term, long term. FpML doesn't specify a default scheme, which is hence not
+    specified as an enumeration as part of the CDM.
+  display_name: scale
+- id: debt
+  description: Specifies the credit rating debt type (e.g. long term, high yield,
+    deposits, ...) associated with the credit rating notation and scale.
+  display_name: debt
+- id: outlook
+  description: Assesses the potential direction of a long-term credit rating over
+    the intermediate term, which is generally up to two years for investment grade
+    and generally up to one year for speculative grade.
+  display_name: outlook
+- id: creditWatch
+  description: Indicates the potential direction of a short-term or long-term rating.
+    It focuses on identifiable events and short-term trends that cause ratings to
+    be placed under special surveillance.
+  display_name: creditWatch
+- id: direction
+  description: Specifies the direction of measurement for the rated party.
+  display_name: DirectionRating_direction

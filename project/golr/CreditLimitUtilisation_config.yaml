@@ -1,0 +1,13 @@
+# metamodel_version: 1.11.0id: CreditLimitUtilisation
+schema_generating: true
+description: Credit limit utilisation breakdown by executed trades and pending orders.
+display_name: CreditLimitUtilisation
+document_category: CreditLimitUtilisation
+weight: 20
+fields:
+- id: executed
+  description: Credit limit utilisation attributable to executed trades.
+  display_name: executed
+- id: pending
+  description: Credit limit utilisation attributable to pending unexecuted orders.
+  display_name: pending

@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: RelatedParty
+schema_generating: true
+display_name: RelatedParty
+document_category: RelatedParty
+weight: 20
+fields:
+- id: partyReference
+  description: Reference to a party.
+  display_name: RelatedParty_partyReference
+- id: accountReference
+  description: Reference to an account.
+  display_name: accountReference
+- id: role
+  description: The category of the relationship. The related party performs the role
+    specified in this field for the base party. For example, if the role is ,Guarantor,
+    the related party acts as a guarantor for the base party.
+  display_name: RelatedParty_role

@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: ValuationDates
+schema_generating: true
+description: Defines how and when a performance type option or performance type swap
+  is to be valued, including initial, interim and final valuation dates.
+display_name: ValuationDates
+document_category: ValuationDates
+weight: 20
+fields:
+- id: initialValuationDate
+  description: Specifies the initial valuation dates of the underlyer.
+  display_name: initialValuationDate
+- id: interimValuationDate
+  description: Specifies the interim valuation dates of the underlyer.
+  display_name: interimValuationDate
+- id: finalValuationDate
+  description: Specifies the final valuation dates of the underlyer.
+  display_name: finalValuationDate

@@ -1,0 +1,25 @@
+# metamodel_version: 1.11.0id: MandatoryEarlyTermination
+schema_generating: true
+description: 'A data to:  define an early termination provision for which exercise
+  is mandatory.'
+display_name: MandatoryEarlyTermination
+document_category: MandatoryEarlyTermination
+weight: 20
+fields:
+- id: mandatoryEarlyTerminationDate
+  description: The early termination date associated with a mandatory early termination
+    of a swap.
+  display_name: mandatoryEarlyTerminationDate
+- id: calculationAgent
+  description: The ISDA Calculation Agent responsible for performing duties associated
+    with an optional early termination.
+  display_name: MandatoryEarlyTermination_calculationAgent
+- id: cashSettlement
+  description: If specified, this means that cash settlement is applicable to the
+    transaction and defines the parameters associated with the cash settlement procedure.
+    If not specified, then physical settlement is applicable.
+  display_name: cashSettlement
+- id: mandatoryEarlyTerminationAdjustedDates
+  description: The adjusted dates associated with a mandatory early termination provision.
+    These dates have been adjusted for any applicable business day convention.
+  display_name: mandatoryEarlyTerminationAdjustedDates

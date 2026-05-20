@@ -1,0 +1,40 @@
+# metamodel_version: 1.11.0id: ScheduledTransfer
+schema_generating: true
+description: A scheduled transfer built into the contract.
+display_name: ScheduledTransfer
+document_category: ScheduledTransfer
+weight: 20
+fields:
+- id: quantity
+  description: Represents the amount of the asset to be transferred. The cashflow
+    amount is always a positive number, as the cashflow direction is implied by the
+    payer/receiver attribute.
+  display_name: AssetFlowBase_quantity
+- id: asset
+  description: Represents the object that is subject to the transfer, it could be
+    an asset or a reference.
+  display_name: AssetFlowBase_asset
+- id: settlementDate
+  description: Represents the date on which the transfer to due.
+  display_name: AssetFlowBase_settlementDate
+- id: paymentDiscounting
+  description: FpML specifies the FpML PaymentDiscounting.model group for representing
+    the discounting elements that can be associated with a payment.
+  display_name: paymentDiscounting
+- id: identifier
+  description: Represents a unique reference to the transfer.
+  display_name: TransferBase_identifier
+  cardinality: multi
+- id: payerReceiver
+  description: Represents the parties to the transfer and their role.
+  display_name: TransferBase_payerReceiver
+- id: transferType
+  description: Specifies the type of scheduled transfer.
+  display_name: ScheduledTransfer_transferType
+- id: corporateActionTransferType
+  display_name: corporateActionTransferType
+- id: payoutReference
+  description: Represents the origin to the transfer as a reference for lineage purposes,
+    whether it originated from trade level settlement terms or from payment terms
+    on an economic payout.
+  display_name: payoutReference

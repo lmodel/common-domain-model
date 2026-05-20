@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: FallbackReferencePrice
+schema_generating: true
+description: The method, prioritised by the order it is listed in this element, to
+  get a replacement rate for the disrupted settlement rate option.
+display_name: FallbackReferencePrice
+document_category: FallbackReferencePrice
+weight: 20
+fields:
+- id: valuationPostponement
+  description: Specifies how long to wait to get a quote from a settlement rate option
+    upon a price source disruption.
+  display_name: valuationPostponement
+- id: fallBackSettlementRateOption
+  description: This settlement rate option will be used in its place.
+  display_name: fallBackSettlementRateOption
+  cardinality: multi
+- id: fallbackSurveyValuationPostponement
+  description: Request rate quotes from the market. This element is set as type Empty
+    in FpML. When present, the FpML synonym is mapped to a value True in the CDM.
+  display_name: fallbackSurveyValuationPostponement
+- id: calculationAgentDetermination
+  description: The calculation agent will decide the rate.
+  display_name: calculationAgentDetermination

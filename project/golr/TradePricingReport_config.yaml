@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: TradePricingReport
+schema_generating: true
+description: The attributes that are specific for consensus based pricing reporting.
+display_name: TradePricingReport
+document_category: TradePricingReport
+weight: 20
+fields:
+- id: trade
+  description: Represents the cosensus based pricing parameters on a trade basis.
+  display_name: TradePricingReport_trade
+- id: pricingTime
+  description: The regional exchange close time for the underlying contract,including
+    time zone, at which the trades should be priced. This provides an indication for
+    which regional snapshot should be used for pricing primarily for Global markets
+    where there are multiple regional close times.
+  display_name: pricingTime
+- id: discountingIndex
+  description: It specifies the interest payable on collateral delivered under a CSA
+    covering the trade.
+  display_name: discountingIndex

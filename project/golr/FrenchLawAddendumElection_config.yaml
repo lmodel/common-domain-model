@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: FrenchLawAddendumElection
+schema_generating: true
+description: A class to specify party specific French Law Addendum language.
+display_name: FrenchLawAddendumElection
+document_category: FrenchLawAddendumElection
+weight: 20
+fields:
+- id: party
+  description: The elective party.
+  display_name: FrenchLawAddendumElection_party
+- id: isApplicable
+  description: The qualification of whether the party elects specific language.
+  display_name: FrenchLawAddendumElection_isApplicable
+- id: addendumLanguage
+  description: The party specific language to be included in the agreement.
+  display_name: addendumLanguage

@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: CSAMinimumTransferAmountVariableSet
+schema_generating: true
+description: Defines a combination of Rating Agency, Rating Value, amount and Currency
+  code.
+display_name: CSAMinimumTransferAmountVariableSet
+document_category: CSAMinimumTransferAmountVariableSet
+weight: 20
+fields:
+- id: name
+  description: The name of the Rating Agency.
+  display_name: CSAMinimumTransferAmountVariableSet_name
+- id: value
+  description: The value assigned to the rating.
+  display_name: CSAMinimumTransferAmountVariableSet_value
+- id: amount
+  description: The Minimum Transfer Amount (MTA) applicable to the Rating.
+  display_name: CSAMinimumTransferAmountVariableSet_amount
+- id: amountIsInfinity
+  description: A flag that defines the Minimum Transfer Amount (MTA) as Infinity.
+  display_name: amountIsInfinity

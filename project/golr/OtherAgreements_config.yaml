@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: OtherAgreements
+schema_generating: true
+description: The bespoke definition of other agreements or other credit support annex
+  terms as specified by the parties to the agreement.
+display_name: OtherAgreements
+document_category: OtherAgreements
+weight: 20
+fields:
+- id: otherCSA
+  description: The bespoke definition of Other CSA as specified by the parties to
+    the agreement.
+  display_name: otherCSA
+- id: japaneseLawCsa
+  description: The bespoke definition of whether Japanese Law CSA (VM) are specified
+    by the parties to the agreement.
+  display_name: japaneseLawCsa

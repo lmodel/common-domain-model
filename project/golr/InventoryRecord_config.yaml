@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: InventoryRecord
+schema_generating: true
+description: An individual piece of inventory. This represents a single security.
+display_name: InventoryRecord
+document_category: InventoryRecord
+weight: 20
+fields:
+- id: identifer
+  description: Unique identifier for this record. This can be used to uniquely identify
+    a specific piece of inventory.
+  display_name: identifer
+- id: security
+  description: The security details.
+  display_name: security

@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: BillingRecordInstruction
+schema_generating: true
+description: Specifies the instructions for creation of a billing record.
+display_name: BillingRecordInstruction
+document_category: BillingRecordInstruction
+weight: 20
+fields:
+- id: tradeState
+  description: The trade for the individual billing record.
+  display_name: BillingRecordInstruction_tradeState
+- id: observation
+  description: The observations used to calculate the billing amount.
+  display_name: BillingRecordInstruction_observation
+  cardinality: multi
+- id: recordStartDate
+  description: The starting date of the period described by this record
+  display_name: recordStartDate
+- id: recordEndDate
+  description: The ending date of the period described by this record
+  display_name: recordEndDate
+- id: settlementDate
+  description: The date for settlement of the transfer.
+  display_name: settlementDate

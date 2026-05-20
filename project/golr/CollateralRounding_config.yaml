@@ -1,0 +1,32 @@
+# metamodel_version: 1.11.0id: CollateralRounding
+schema_generating: true
+description: A class to specify the rounding methodology applicable to the Delivery
+  Amount and the Return Amount.
+display_name: CollateralRounding
+document_category: CollateralRounding
+weight: 20
+fields:
+- id: deliveryAmount
+  description: The nearest integral multiple of Base Currency units to which the Delivery
+    Amount will be rounded in accordance with the specified rounding direction.
+  display_name: deliveryAmount
+- id: deliveryDirection
+  description: The rounding rule applicable to the Delivery Amount (which can be (i)
+    up to nearest; (ii) down to nearest).
+  display_name: deliveryDirection
+- id: returnAmount
+  description: The nearest integral multiple of Base Currency units to which the Return
+    Amount will be rounded in accordance with the specified rounding direction.
+  display_name: returnAmount
+- id: returnDirection
+  description: The rounding rule applicable to the Return Amount (which can be (i)
+    up to nearest; (ii) down to nearest).
+  display_name: returnDirection
+- id: currency
+  description: The currency in which the Delivery Amount and Return Amount rounding
+    amounts are specified.
+  display_name: CollateralRounding_currency
+- id: other
+  description: Utilised where the clause data structure is not able to capture a material
+    aspect of the clause.
+  display_name: other

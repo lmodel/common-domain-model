@@ -1,0 +1,33 @@
+# metamodel_version: 1.11.0id: ExerciseFee
+schema_generating: true
+description: A class defining the fee payable on exercise of an option. This fee may
+  be defined as an amount or a percentage of the notional exercised. As a difference
+  with FpML, it extends the BuyerSeller class.
+display_name: ExerciseFee
+document_category: ExerciseFee
+weight: 20
+fields:
+- id: payer
+  description: Specifies the counterparty responsible for making the payments defined
+    by this structure.  The party is one of the two principal parties to the transaction.
+  display_name: payer
+- id: receiver
+  description: Specifies the party that receives the payments corresponding to this
+    structure.  The party is one of the two counterparties to the transaction.
+  display_name: receiver
+- id: notionalReference
+  description: A pointer style reference to the associated notional schedule defined
+    elsewhere in the document.
+  display_name: notionalReference
+- id: feeAmount
+  description: The amount of fee to be paid on exercise. The fee currency is that
+    of the referenced notional.
+  display_name: feeAmount
+- id: feeRate
+  description: A fee represented as a percentage of some referenced notional. A percentage
+    of 5% would be represented as 0.05.
+  display_name: feeRate
+- id: feePaymentDate
+  description: The date on which exercise fee(s) will be paid. It is specified as
+    a relative date.
+  display_name: feePaymentDate

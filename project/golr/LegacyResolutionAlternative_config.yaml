@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: LegacyResolutionAlternative
+schema_generating: true
+description: Alternative procedures to those in the pre-print for resolving collateral
+  related disputes.
+display_name: LegacyResolutionAlternative
+document_category: LegacyResolutionAlternative
+weight: 20
+fields:
+- id: resolutionAlternative
+  description: Details of the alternative dispute resolution procedure (if any).
+  display_name: resolutionAlternative
+- id: amount
+  description: The maximum amount to which the difference between the calculations
+    by the valuation agent and disputing party can be split, where Split the Difference
+    is elected.
+  display_name: LegacyResolutionAlternative_amount
+- id: additionalLanguage
+  description: The additional language that might be specified by the parties to the
+    legal agreement.
+  display_name: LegacyResolutionAlternative_additionalLanguage

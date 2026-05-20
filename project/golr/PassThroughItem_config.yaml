@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: PassThroughItem
+schema_generating: true
+description: Class to represent a single pass through payment.
+display_name: PassThroughItem
+document_category: PassThroughItem
+weight: 20
+fields:
+- id: payerReceiver
+  description: This attribute doesn't exists in the FpML construct, which makes use
+    of the PayerReceiver.model group.
+  display_name: PassThroughItem_payerReceiver
+- id: passThroughPercentage
+  description: Percentage of payments from the underlier which are passed through.
+  display_name: passThroughPercentage

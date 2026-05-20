@@ -1,0 +1,32 @@
+# metamodel_version: 1.11.0id: CollateralPosition
+schema_generating: true
+description: Specifies the individual components of collateral positions.
+display_name: CollateralPosition
+document_category: CollateralPosition
+weight: 20
+fields:
+- id: priceQuantity
+  description: Position with many price quantities.
+  display_name: PositionBase_priceQuantity
+  cardinality: multi
+- id: product
+  description: The product underlying the position.
+  display_name: PositionBase_product
+- id: asset
+  description: The asset that underlies the position.
+  display_name: asset
+- id: cashBalance
+  description: The aggregate cost of proceeds.
+  display_name: cashBalance
+- id: tradeReference
+  description: Reference to the Contract, in case product is contractual and the contract
+    has been formed.
+  display_name: PositionBase_tradeReference
+  cardinality: multi
+- id: treatment
+  description: Specifies if there is any treatment to be applied to collateral, such
+    as percentage discount which will impact collateral value.
+  display_name: treatment
+- id: collateralPositionStatus
+  description: Indicates the collateral positions settlement status.
+  display_name: collateralPositionStatus

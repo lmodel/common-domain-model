@@ -1,0 +1,24 @@
+# metamodel_version: 1.11.0id: EquityUnderlierProvisions
+schema_generating: true
+display_name: EquityUnderlierProvisions
+document_category: EquityUnderlierProvisions
+weight: 20
+fields:
+- id: multipleExchangeIndexAnnexFallback
+  description: For an index option or swap transaction, a flag to indicate whether
+    a relevant Multiple Exchange Index Annex is applicable to the transaction. This
+    annex defines additional provisions which are applicable where an index is comprised
+    of component securities that are traded on multiple exchanges.
+  display_name: EquityUnderlierProvisions_multipleExchangeIndexAnnexFallback
+- id: componentSecurityIndexAnnexFallback
+  description: For an index option or swap transaction, a flag to indicate whether
+    a relevant Component Security Index Annex is applicable to the transaction.
+  display_name: EquityUnderlierProvisions_componentSecurityIndexAnnexFallback
+- id: localJurisdiction
+  description: The ISO 3166 standard code for the country within which the postal
+    address is located.
+  display_name: localJurisdiction
+- id: relevantJurisdiction
+  description: The ISO 3166 standard code for the country within which the postal
+    address is located.
+  display_name: relevantJurisdiction

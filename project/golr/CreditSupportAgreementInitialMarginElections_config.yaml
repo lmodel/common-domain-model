@@ -1,0 +1,148 @@
+# metamodel_version: 1.11.0id: CreditSupportAgreementInitialMarginElections
+schema_generating: true
+description: The set of elections which specify an Initial Margin Credit Support Annex
+  or Deed.
+display_name: CreditSupportAgreementInitialMarginElections
+document_category: CreditSupportAgreementInitialMarginElections
+weight: 20
+fields:
+- id: baseAndEligibleCurrency
+  description: The base and eligible currency(ies) for the document as specified by
+    the parties to the agreement.
+  display_name: baseAndEligibleCurrency
+- id: conditionsPrecedent
+  description: The set of elections that may overwrite the default Condition Precedent
+    provision, and the set of provisions that are deemed Access Condition.
+  display_name: conditionsPrecedent
+- id: substitution
+  description: The conditions under which the Security Provider can substitute posted
+    collateral.
+  display_name: substitution
+- id: disputeResolution
+  description: The election terms under which a party disputes (i) the Calculation
+    Agents calculation of a Delivery Amount or a Return Amount, or (ii) the Value
+    of any Transfer of Eligible Credit Support or Posted Credit Support.
+  display_name: disputeResolution
+- id: holdingAndUsingPostedCollateral
+  description: The elections for the holding and using of posted collateral by the
+    respective parties to the Credit Support Annex for Variation Margin.
+  display_name: holdingAndUsingPostedCollateral
+- id: distributionAndInterestPayment
+  description: The Distributions and Interest Payment terms specified as part of the
+    agreement.
+  display_name: distributionAndInterestPayment
+- id: otherEligibleAndPostedSupport
+  description: The Other Eligible Support elections associated with margin agreements.
+  display_name: otherEligibleAndPostedSupport
+- id: demandsAndNotices
+  description: The optional specification of address where the demands, specifications
+    and notices will be communicated to for each of the parties to the agreement.
+  display_name: demandsAndNotices
+- id: additionalRepresentations
+  description: The specification Additional Representations that may be applicable
+    to the agreement.
+  display_name: additionalRepresentations
+- id: masterAgreementDatedAsOfDate
+  description: Defines the dates agreed by the parties as the date of the Credit Support
+    Annex or Credit Support Deed.
+  display_name: masterAgreementDatedAsOfDate
+- id: finalReturns
+  description: A clause providing that final return collateral is to be provided without
+    consideration of any Minimum Transfer Amount and collateral haircut.
+  display_name: finalReturns
+- id: regime
+  description: The Regime Table provision , which determines the regulatory regime(s)
+    applicable to each of the parties to the agreement.
+  display_name: regime
+- id: oneWayProvisions
+  description: The determination of whether the One Way Provisions are applicable
+    (true) or not applicable (false).
+  display_name: oneWayProvisions
+- id: generalSimmElections
+  description: The specification of the ISDA SIMM Method for all Covered Transactions
+    with respect to all Regimes.
+  display_name: generalSimmElections
+- id: identifiedCrossCurrencySwap
+  description: The qualification of whether cross-currency swaps need to be identified
+    in the Confirmation so that the obligations to exchange principal be disregarded
+    for the purpose of determining the Delivery Amount or Return Amount.
+  display_name: identifiedCrossCurrencySwap
+- id: sensitivityMethodologies
+  description: The specification of methodologies to compute sensitivities specific
+    to the agreement.
+  display_name: sensitivityMethodologies
+- id: fxHaircutCurrency
+  description: The reference currency for the purpose of specifying the FX Haircut
+    relating to a posting obligation, as being either the Termination Currency or
+    an FX Designated Currency.
+  display_name: fxHaircutCurrency
+- id: postingObligations
+  description: The security providers posting obligations.
+  display_name: postingObligations
+- id: substitutedRegime
+  description: The specification of Additional regimes for purposes of determining
+    whether a Regulatory Event has occurred.
+  display_name: substitutedRegime
+  cardinality: multi
+- id: coveredTransactions
+  description: The specification of transactions covered by the terms of the agreement.
+  display_name: coveredTransactions
+- id: rightsEvents
+  description: The bespoke provisions that might be specified by the parties to the
+    agreement to specify the rights of Security Taker and/or Security Provider when
+    an Early Termination or Access Condition event has occurred.
+  display_name: rightsEvents
+- id: custodyArrangements
+  description: The Custodian and Segregated Account details in respect of each party
+    to the agreement.
+  display_name: custodyArrangements
+- id: otherAgreements
+  description: The bespoke definition of other agreement terms as specified by the
+    parties to the agreement.
+  display_name: otherAgreements
+- id: terminationCurrencyAmendment
+  description: The bespoke provision that might be specified by the parties to the
+    agreement applicable to Termination Currency.  Unless specified the definition
+    of Termination Currency has the meaning specified in the Schedule to the ISDA
+    Master Agreement.
+  display_name: terminationCurrencyAmendment
+- id: minimumTransferAmountAmendment
+  description: The bespoke provision that might be specified by the parties to the
+    agreement applicable to Minimum Transfer Amount.  Unless specified the definition
+    of Minimum Transfer Amount in any Other Regulatory CSA has the meaning specified
+    in such Other Regulatory CSA.
+  display_name: minimumTransferAmountAmendment
+- id: interpretationTerms
+  description: The bespoke provision that might be specified by the parties to the
+    agreement applicable to Interpretations.
+  display_name: interpretationTerms
+- id: processAgent
+  description: The Process Agent that might be appointed by the parties to the agreement.
+  display_name: processAgent
+- id: appropriatedCollateralValuation
+  description: The election for the Valuation of Appropriate Collateral.
+  display_name: appropriatedCollateralValuation
+- id: jurisdictionRelatedTerms
+  description: The jurisdiction specific terms relevant to the agreement.
+  display_name: jurisdictionRelatedTerms
+- id: additionalAmendments
+  description: Any additional amendments that might be specified by the parties to
+    the agreement.
+  display_name: additionalAmendments
+- id: additionalBespokeTerms
+  description: Any additional terms that might be specified applicable.
+  display_name: additionalBespokeTerms
+- id: trustSchemeAddendum
+  description: The qualification of whether Trust Scheme Addendum is applicable (True)
+    or not applicable (False).
+  display_name: trustSchemeAddendum
+- id: clientAssetSourcebookAdditionalLanguage
+  description: Details of language relating to Client Asset and Money Rules (CASS).
+  display_name: clientAssetSourcebookAdditionalLanguage
+- id: creditSupportObligations
+  description: The Credit Support Obligations applicable to the agreement.
+  display_name: creditSupportObligations
+- id: calculationAndTiming
+  description: The set of elections for determining Valuation and Timing terms specific
+    to the agreement.
+  display_name: calculationAndTiming

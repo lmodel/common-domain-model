@@ -1,0 +1,28 @@
+# metamodel_version: 1.11.0id: SpecifiedEntity
+schema_generating: true
+description: The party specific election of Specified Entities for the Event of Default
+  or Termination Event specified.
+display_name: SpecifiedEntity
+document_category: SpecifiedEntity
+weight: 20
+fields:
+- id: party
+  description: The elective party.
+  display_name: SpecifiedEntity_party
+- id: specifiedEntityTerms
+  description: The specified entity terms for the Event of Default or Termination
+    Event specified.
+  display_name: specifiedEntityTerms
+- id: specifiedEntity
+  description: The specified entities for the Event of Default or Termination Event
+    specified.
+  display_name: SpecifiedEntity_specifiedEntity
+  cardinality: multi
+- id: materialSubsidiaryTerms
+  description: The meaning of Material Subsidiary for the Event of Default or Termination
+    Event specified.
+  display_name: materialSubsidiaryTerms
+- id: otherSpecifiedEntityTerms
+  description: The non standard terms for the Event of Default or Termination Event
+    specified.
+  display_name: otherSpecifiedEntityTerms

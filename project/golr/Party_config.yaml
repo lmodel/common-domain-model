@@ -1,0 +1,43 @@
+# metamodel_version: 1.11.0id: Party
+schema_generating: true
+description: 'A class to specify a party, without a qualification as to whether this
+  party is a legal entity or a natural person, although the model provides the ability
+  to associate a person (or set of persons) to a party, which use case would imply
+  that such party would be a legal entity (even if not formally specified as such). '
+display_name: Party
+document_category: Party
+weight: 20
+fields:
+- id: partyId
+  description: The identifier associated with a party, e.g. the 20 digits LEI code.
+  display_name: partyId
+  cardinality: multi
+- id: name
+  description: The party name.
+  display_name: Party_name
+- id: businessUnit
+  description: Optional organization unit information used to describe the organization
+    units (e.g. trading desks) involved in a transaction or business process, incl.
+    the contact information (when relevant).
+  display_name: businessUnit
+  cardinality: multi
+- id: person
+  description: The person(s) who might be associated with the party as part of the
+    execution, contract or legal document.
+  display_name: person
+  cardinality: multi
+- id: personRole
+  description: 'The role of the person(s) '
+  display_name: personRole
+  cardinality: multi
+- id: account
+  description: The account that might be associated with the party. At most one account
+    can be specified, as it is expected that this information is used in the context
+    of a contract or legal document where only one account per party can be associated
+    with such object.
+  display_name: account
+- id: contactInformation
+  description: The postal/street address, telephone number, email address and/or web
+    page. If the contact information is specific to the associated business unit(s)
+    or person (s), it should be associated with those.
+  display_name: Party_contactInformation

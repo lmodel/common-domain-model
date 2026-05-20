@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: PeriodRange
+schema_generating: true
+description: Indicates The period range defined as either a lower and upper period
+  bound, or both.
+display_name: PeriodRange
+document_category: PeriodRange
+weight: 20
+fields:
+- id: lowerBound
+  description: Specifies the lower bound of a period range, e.g. greater than or equal
+    to 5Y.
+  display_name: lowerBound
+- id: upperBound
+  description: Specifies the upper bound of a period range, e.g. less than to 10Y.
+  display_name: upperBound

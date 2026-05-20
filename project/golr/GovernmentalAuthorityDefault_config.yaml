@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: GovernmentalAuthorityDefault
+schema_generating: true
+display_name: GovernmentalAuthorityDefault
+document_category: GovernmentalAuthorityDefault
+weight: 20
+fields:
+- id: governmentalAuthorityDefaultIsApplicable
+  display_name: governmentalAuthorityDefaultIsApplicable
+- id: escrowArrangement
+  display_name: escrowArrangement
+- id: localSubstituteProvisionType
+  display_name: localSubstituteProvisionType
+- id: specifiedValue
+  display_name: specifiedValue
+- id: maximumDaysOfDisruption
+  display_name: maximumDaysOfDisruption

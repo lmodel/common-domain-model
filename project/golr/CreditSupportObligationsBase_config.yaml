@@ -1,0 +1,33 @@
+# metamodel_version: 1.11.0id: CreditSupportObligationsBase
+schema_generating: true
+description: A logical container designed to hold a set of related data. In this case,
+  designed to hold a set of clauses that are common amongst Legacy (1994/95), Variation
+  Margin and Initial Margin Credit Support Documents in regards to Credit Support
+  Obligations.
+display_name: CreditSupportObligationsBase
+document_category: CreditSupportObligationsBase
+weight: 20
+fields:
+- id: deliveryAmount
+  description: In respect of a Valuation Date, the amount of collateral which a party
+    is entitled to demand to be transferred to it as a Delivery Amount.
+  display_name: CreditSupportObligationsBase_deliveryAmount
+- id: returnAmount
+  description: In respect of a Valuation Date, the amount of collateral which a party
+    is entitled to demand to be recalled to it as a Return Amount.
+  display_name: CreditSupportObligationsBase_returnAmount
+- id: minimumTransferAmount
+  description: Represents the threshold specified in the agreement below which collateral
+    need not be delivered, and represents the smallest incremental value of exposure
+    that must be reached before the parties are obliged to transfer collateral.
+  display_name: minimumTransferAmount
+- id: collateralTransferTiming
+  description: Specification of transfer / settlement timing for cash and securities
+    collateral assuming that the notice is provided before the Notification Time (and
+    with a 1LBD lag introduced if the notice is delivered after the Notification Time),
+    and that securities allow for a further Local Business Day for transfer / settlement.
+  display_name: collateralTransferTiming
+- id: bespokeTransferTiming
+  description: The time by which the transfer of collateral must take place when different
+    from the Regular Settlement Day as a result of parties' election.
+  display_name: bespokeTransferTiming

@@ -1,0 +1,24 @@
+# metamodel_version: 1.11.0id: AssetFlowBase
+schema_generating: true
+description: 'Defines the basic parameters of an asset transfer, e.g. a cashflow:
+  what (the asset), how much (the quantity) and when (the settlement date).'
+display_name: AssetFlowBase
+document_category: AssetFlowBase
+weight: 20
+fields:
+- id: quantity
+  description: Represents the amount of the asset to be transferred. The cashflow
+    amount is always a positive number, as the cashflow direction is implied by the
+    payer/receiver attribute.
+  display_name: AssetFlowBase_quantity
+- id: asset
+  description: Represents the object that is subject to the transfer, it could be
+    an asset or a reference.
+  display_name: AssetFlowBase_asset
+- id: settlementDate
+  description: Represents the date on which the transfer to due.
+  display_name: AssetFlowBase_settlementDate
+- id: paymentDiscounting
+  description: FpML specifies the FpML PaymentDiscounting.model group for representing
+    the discounting elements that can be associated with a payment.
+  display_name: paymentDiscounting

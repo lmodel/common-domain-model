@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: TimeRounding
+schema_generating: true
+description: Specifies how a calculated time should be rounded, including both the
+  direction of rounding and the unit to which the time is rounded. Rounding is applied
+  after all offsets have been calculated.
+display_name: TimeRounding
+document_category: TimeRounding
+weight: 20
+fields:
+- id: roundingDirection
+  description: The direction in which rounding is performed (e.g., up, down, or to
+    the nearest value).
+  display_name: roundingDirection
+- id: roundToUnit
+  description: The time unit to which the value should be rounded (e.g., minute, hour,
+    day).
+  display_name: roundToUnit

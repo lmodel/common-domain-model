@@ -1,0 +1,41 @@
+# metamodel_version: 1.11.0id: LegalAgreementBase
+schema_generating: true
+description: Specifies the legal agreement baseline information, being negotiated
+  or having been executed. It excludes specialized elections
+display_name: LegalAgreementBase
+document_category: LegalAgreementBase
+weight: 20
+fields:
+- id: agreementDate
+  description: The date on which the legal agreement has been agreed between the parties.
+    This corresponds to the Date of Deed in an English Law document.
+  display_name: agreementDate
+- id: effectiveDate
+  description: The date on which, or as of which, the agreement is effective, if different
+    from the agreement date. It is expected that it will most often correspond to
+    the agreement date, although there could be situations where the parties will
+    explicitly agree on a distinct effective date.
+  display_name: LegalAgreementBase_effectiveDate
+- id: identifier
+  description: The legal agreement identifier. Several identifiers can be specified.
+  display_name: LegalAgreementBase_identifier
+  cardinality: multi
+- id: legalAgreementIdentification
+  description: 'The type of legal agreement, identified via a set of composable attributes:
+    agreementName, publisher, governing law and version, e.g. ISDA 2013 Standard Credit
+    Support Annex English Law.'
+  display_name: legalAgreementIdentification
+- id: contractualParty
+  description: The two contractual parties to the legal agreement, which reference
+    information is positioned as part of the partyInformation attribute.
+  display_name: contractualParty
+  cardinality: multi
+- id: otherParty
+  description: The role(s) that other party(ies) may have in relation to the legal
+    agreement, further to the contractual parties.
+  display_name: otherParty
+  cardinality: multi
+- id: attachment
+  description: A human readable document, for example a confirmation.
+  display_name: attachment
+  cardinality: multi

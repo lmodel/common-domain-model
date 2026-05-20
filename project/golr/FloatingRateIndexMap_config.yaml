@@ -1,0 +1,21 @@
+# metamodel_version: 1.11.0id: FloatingRateIndexMap
+schema_generating: true
+description: A map for a single FRO to or from an equivalent or similar FRO in a different
+  contractual definitions version.
+display_name: FloatingRateIndexMap
+document_category: FloatingRateIndexMap
+weight: 20
+fields:
+- id: index_
+  description: ' The FRO name that is being mapped to/from.'
+  display_name: index_
+  cardinality: multi
+- id: contractualDefinitionIdentifier
+  description: Contractual Definition to which the map applies. Includes Document
+    Type and Document Version
+  display_name: FloatingRateIndexMap_contractualDefinitionIdentifier
+- id: identifier
+  description: Corresponds to the unique identifier of the Contractual Definition
+    to which the map applies
+  display_name: FloatingRateIndexMap_identifier
+  cardinality: multi

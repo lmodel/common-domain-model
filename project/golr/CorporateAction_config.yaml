@@ -1,0 +1,43 @@
+# metamodel_version: 1.11.0id: CorporateAction
+schema_generating: true
+description: Specifies the relevant data regarding a corporate action
+display_name: CorporateAction
+document_category: CorporateAction
+weight: 20
+fields:
+- id: corporateActionType
+  description: The type of corporate action taking place.
+  display_name: corporateActionType
+- id: exDate
+  description: The date on which the corporate action is known to have taken place.
+  display_name: exDate
+- id: payDate
+  description: The date on which resulting from the corporate action are delivered.
+  display_name: payDate
+- id: recordDate
+  description: The date on which the account phyical balance and related underlier
+    ownership is recorded by the custodian.
+  display_name: recordDate
+- id: announcementDate
+  description: The date on which the corporate action is announced by the issuer.
+  display_name: announcementDate
+- id: underlier
+  description: The underlier impacted by the corporate action.
+  display_name: underlier
+- id: adjustmentFactor
+  description: Specifies any additional details e.g. further descriptions depending
+    on the particular type of Corporate Action, adjustmentFactor, calculations
+  display_name: adjustmentFactor
+- id: informationSource
+  description: A class defining the source of data used in an Observation for any
+    purposes. The data is either sourced from a Provider, or from a Party.
+  display_name: informationSource
+- id: dividendObservation
+  description: To record observations of dividends.
+  display_name: dividendObservation
+- id: bespokeEventDescription
+  description: Corporate action triggered by the occurrence of an event which description
+    is seperatly agreed between the parties and/or described in any referenced agreement
+    (for instance bespoke term described in any string type objects present in most
+    root attributes of Agreement type).
+  display_name: bespokeEventDescription

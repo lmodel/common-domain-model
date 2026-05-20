@@ -1,0 +1,26 @@
+# metamodel_version: 1.11.0id: CustodianEventEndDate
+schema_generating: true
+description: A class to specify the Custodian Event.
+display_name: CustodianEventEndDate
+document_category: CustodianEventEndDate
+weight: 20
+fields:
+- id: daysAfterCustodianEvent
+  description: Election to specify the number of days after the occurrence of the
+    Custodian Event/Collateral Management Event for the purpose of qualifying the
+    CE/CME End Date.
+  display_name: daysAfterCustodianEvent
+- id: releaseDate
+  description: Election to specify the number of days prior to the termination of
+    the Control Agreement /Collateral Management Event for the purpose of qualifying
+    the CE/CME End Date, in the case where advance notice is given.
+  display_name: releaseDate
+- id: safekeepingPeriodExpiry
+  description: The parties' election to specify the number of days prior to the end
+    of the safekeeping period (Clearstream CTA) purpose of qualifying the CE/CME End
+    Date, in the case where advance notice is given.
+  display_name: safekeepingPeriodExpiry
+- id: dateOfTimelyStatement
+  description: The parties' election to specify the number of days one party has effectively
+    provided the Timely Statement to the other party.
+  display_name: dateOfTimelyStatement

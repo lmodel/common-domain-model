@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: SecuredPartyRightsEventElection
+schema_generating: true
+description: A class to specify party specific Secured Party Rights Event language.
+display_name: SecuredPartyRightsEventElection
+document_category: SecuredPartyRightsEventElection
+weight: 20
+fields:
+- id: party
+  description: The elective party.
+  display_name: SecuredPartyRightsEventElection_party
+- id: rightsEvent
+  description: A boolean attribute to specify whether a Secured Party Rights Event
+    will only occur upon the occurrence of one or more of the event specified in a
+    Control Agreement.
+  display_name: rightsEvent

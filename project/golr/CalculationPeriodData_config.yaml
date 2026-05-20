@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: CalculationPeriodData
+schema_generating: true
+display_name: CalculationPeriodData
+document_category: CalculationPeriodData
+weight: 20
+fields:
+- id: startDate
+  description: The first date of a date range.
+  display_name: startDate
+- id: endDate
+  description: The last date of a date range.
+  display_name: endDate
+- id: daysInPeriod
+  display_name: daysInPeriod
+- id: daysInLeapYearPeriod
+  display_name: daysInLeapYearPeriod
+- id: isFirstPeriod
+  display_name: isFirstPeriod
+- id: isLastPeriod
+  display_name: isLastPeriod

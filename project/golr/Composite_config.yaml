@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: Composite
+schema_generating: true
+description: Specifies the conditions to be applied for converting into a reference
+  currency when the actual currency rate is not determined upfront.
+display_name: Composite
+document_category: Composite
+weight: 20
+fields:
+- id: determinationMethod
+  description: Specifies the method according to which an amount or a date is determined.
+  display_name: Composite_determinationMethod
+- id: relativeDate
+  description: A date specified as some offset to another date (the anchor date).
+  display_name: relativeDate
+- id: fxSpotRateSource
+  description: Specifies the methodology (reference source and, optionally, fixing
+    time) to be used for determining a currency conversion rate.
+  display_name: Composite_fxSpotRateSource
+- id: fixingTime
+  description: The time at which the spot currency exchange rate will be observed.
+    It is specified as a time in a business day calendar location, e.g. 11:00am London
+    time.
+  display_name: Composite_fixingTime

@@ -75,8 +75,8 @@ website/.schema-temp
 
 # Derived schemas, generated from the schema.yaml
 tmp/
-project/
-!project/README.md
+# project/
+# !project/README.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

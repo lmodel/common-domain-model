@@ -1,0 +1,12 @@
+# metamodel_version: 1.11.0id: FinInstrmGnlAttrbts
+schema_generating: true
+display_name: FinInstrmGnlAttrbts
+document_category: FinInstrmGnlAttrbts
+weight: 20
+fields:
+- id: fullNm
+  display_name: fullNm
+- id: clssfctnTp
+  display_name: clssfctnTp
+- id: ntnlCcy
+  display_name: ntnlCcy

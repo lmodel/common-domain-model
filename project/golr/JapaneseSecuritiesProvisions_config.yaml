@@ -1,0 +1,30 @@
+# metamodel_version: 1.11.0id: JapaneseSecuritiesProvisions
+schema_generating: true
+description: A class to specify Japanese Securities Provision elections.
+display_name: JapaneseSecuritiesProvisions
+document_category: JapaneseSecuritiesProvisions
+weight: 20
+fields:
+- id: isApplicable
+  description: Japanese Securities Provisions are applicable when True and Not Applicable
+    when False.
+  display_name: JapaneseSecuritiesProvisions_isApplicable
+- id: relevantProvisionsElection
+  description: Recommended Japanese Securities Provisions are applicable when True,
+    additional Provisions are specified when False.
+  display_name: relevantProvisionsElection
+- id: relevantProvisionsTerms
+  description: Specific terms applicable to Recommended Japanese Securities Provisions.
+  display_name: relevantProvisionsTerms
+- id: amendmentsToJapaneseProvisions
+  description: Additional Amendments to Japanese Securities Provisions are specified
+    when True, and not specified when False.
+  display_name: amendmentsToJapaneseProvisions
+- id: amendmentsToJapaneseProvisionsTerms
+  description: Specific terms applicable to Additional Amendments to Japanese Securities
+    Provisions.
+  display_name: amendmentsToJapaneseProvisionsTerms
+- id: clearstreamAmendmentToJapaneseProvisions
+  description: Specification of whether Clearstream Event amendment language is included
+    (true) or excluded (false).
+  display_name: clearstreamAmendmentToJapaneseProvisions

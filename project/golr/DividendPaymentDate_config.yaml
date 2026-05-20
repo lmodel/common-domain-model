@@ -1,0 +1,13 @@
+# metamodel_version: 1.11.0id: DividendPaymentDate
+schema_generating: true
+description: A class describing the date on which the dividend will be paid/received.
+  This class is also used to specify the date on which the FX rate will be determined,
+  when applicable.
+display_name: DividendPaymentDate
+document_category: DividendPaymentDate
+weight: 20
+fields:
+- id: dividendDateReference
+  display_name: dividendDateReference
+- id: dividendDate
+  display_name: dividendDate

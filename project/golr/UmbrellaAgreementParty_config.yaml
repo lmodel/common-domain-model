@@ -1,0 +1,28 @@
+# metamodel_version: 1.11.0id: UmbrellaAgreementParty
+schema_generating: true
+description: Specifies the entities that are part of the umbrella agreement.
+display_name: UmbrellaAgreementParty
+document_category: UmbrellaAgreementParty
+weight: 20
+fields:
+- id: party
+  description: Specifies the party to the umbrella agreement
+  display_name: UmbrellaAgreementParty_party
+- id: actingAs
+  description: Specifies the CounterpartyRoleEnum, e.g. either Party1 or Party2, that
+    is associated to the party.
+  display_name: actingAs
+- id: partyRole
+  description: Represents the legal role that each defined entity to the agreement
+    performs within the structure of that agreement.
+  display_name: UmbrellaAgreementParty_partyRole
+- id: nonLegalEntity
+  description: Specifies a non-legal entity that exists in the agreement with a defined
+    relationship to a Legal entity to the agreement.
+  display_name: nonLegalEntity
+- id: parentParty
+  description: Represents the identification of a parent child relationship between
+    two entities in the Umbrella agreement, allowing non-legal entities to be linked
+    to the appropriate legal entity and allowing funds, portfolio or managed accounts
+    to be linked to their applicable Investment Manager or Agent within the agreement.
+  display_name: parentParty

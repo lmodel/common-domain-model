@@ -1,0 +1,21 @@
+# metamodel_version: 1.11.0id: Regime
+schema_generating: true
+description: A class to specify one or more regimes that may be specified as relevant
+  to a legal agreement.
+display_name: Regime
+document_category: Regime
+weight: 20
+fields:
+- id: applicableRegime
+  description: A class to specify the regime(s) that parties to a legal agreement,
+    such as the ISDA 2016 and 2018 CSA for Initial Margin, might agree to apply to
+    one or both parties when acting as collateral taker, and specific terms associated
+    with that application.
+  display_name: applicableRegime
+  cardinality: multi
+- id: fallbackToMandatoryMethodDays
+  description: The specification of the number of days after effective delivery of
+    notice that Mandatory method fallback applies. Specification is only required
+    when one or more Regimes have Fall Back to Mandatory Method elected as a SIMM
+    exception.
+  display_name: fallbackToMandatoryMethodDays

@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: GeneralInconvertibility
+schema_generating: true
+display_name: GeneralInconvertibility
+document_category: GeneralInconvertibility
+weight: 20
+fields:
+- id: generalInconvertibilityIsApplicable
+  display_name: generalInconvertibilityIsApplicable
+- id: localSubstituteProvisionType
+  display_name: localSubstituteProvisionType
+- id: maximumDaysOfDisruption
+  description: Specifies how long to wait to get a quote from a settlement rate option
+    upon a price source disruption.
+  display_name: GeneralInconvertibility_maximumDaysOfDisruption
+- id: nonDeliverableSubstitute
+  display_name: nonDeliverableSubstitute
+- id: escrowArrangement
+  description: Refers to the segregation deposit procedure parties may want to commmit
+    into during the time a Disruption Event is effective
+  display_name: GeneralInconvertibility_escrowArrangement

@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: CalculatedRateObservations
+schema_generating: true
+description: Type for reporting observations that went into the final reported rate.
+display_name: CalculatedRateObservations
+document_category: CalculatedRateObservations
+weight: 20
+fields:
+- id: observationDates
+  description: The observation date upon which the rate is observed.
+  display_name: observationDates
+  cardinality: multi
+- id: weights
+  description: The corresponding weight for each date.
+  display_name: weights
+  cardinality: multi
+- id: observedRates
+  description: The value observed for that date
+  display_name: observedRates
+  cardinality: multi
+- id: processedRates
+  description: The value after any processing, such as application of caps or floors.
+  display_name: processedRates
+  cardinality: multi

@@ -1,0 +1,26 @@
+# metamodel_version: 1.11.0id: CounterpartyPositionState
+schema_generating: true
+description: Defines the fundamental financial information that can be changed by
+  a Primitive Event and by extension any business or life-cycle event. Each PositionState
+  specifies where a Position is in its life-cycle. PositionState is a root type and
+  as such, can be created independently to any other CDM data type, but can also be
+  used as part of the CDM Event Model.
+display_name: CounterpartyPositionState
+document_category: CounterpartyPositionState
+weight: 20
+fields:
+- id: counterpartyPosition
+  description: Represents the Position that has been effected by a business or life-cycle
+    event.
+  display_name: counterpartyPosition
+- id: state
+  description: Represents the State of the Position through its life-cycle.
+  display_name: CounterpartyPositionState_state
+- id: observationHistory
+  description: Represents the observed events related to a particular product or process,
+    such as credit events or corporate actions.
+  display_name: observationHistory
+  cardinality: multi
+- id: valuationHistory
+  display_name: valuationHistory
+  cardinality: multi

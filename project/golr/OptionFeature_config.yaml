@@ -1,0 +1,27 @@
+# metamodel_version: 1.11.0id: OptionFeature
+schema_generating: true
+description: Defines additional optional features that can be included in an option
+  contract.
+display_name: OptionFeature
+document_category: OptionFeature
+weight: 20
+fields:
+- id: fxFeature
+  description: Describes a quanto or composite FX feature.
+  display_name: OptionFeature_fxFeature
+  cardinality: multi
+- id: strategyFeature
+  description: Defines a simple strategy feature.
+  display_name: strategyFeature
+- id: averagingFeature
+  description: Defines an option feature in which an average market observation price
+    is determined on valuation and compared to the strike to determine a settlement
+    amount.
+  display_name: OptionFeature_averagingFeature
+- id: barrier
+  description: Specifies a barrier feature.
+  display_name: barrier
+- id: passThrough
+  description: Specifies the rules for pass-through payments from the underlier, such
+    as dividends.
+  display_name: passThrough

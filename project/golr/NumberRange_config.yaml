@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: NumberRange
+schema_generating: true
+description: The number range defined as either a lower and upper number bound, or
+  both.
+display_name: NumberRange
+document_category: NumberRange
+weight: 20
+fields:
+- id: lowerBound
+  description: The lower bound of a number range, e.g. greater than or equal to 5.
+  display_name: NumberRange_lowerBound
+- id: upperBound
+  description: The upper bound of a number range, e.g. less than 10.
+  display_name: NumberRange_upperBound

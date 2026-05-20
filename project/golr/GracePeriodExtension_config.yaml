@@ -1,0 +1,14 @@
+# metamodel_version: 1.11.0id: GracePeriodExtension
+schema_generating: true
+display_name: GracePeriodExtension
+document_category: GracePeriodExtension
+weight: 20
+fields:
+- id: applicable
+  description: Indicates whether the grace period extension provision is applicable.
+  display_name: GracePeriodExtension_applicable
+- id: gracePeriod
+  description: 'The number of calendar or business days after any due date that the
+    reference entity has to fulfil its obligations before a failure to pay credit
+    event is deemed to have occurred. ISDA 2003 Term: Grace Period.'
+  display_name: gracePeriod

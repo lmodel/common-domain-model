@@ -1,0 +1,26 @@
+# metamodel_version: 1.11.0id: DividendPayoutRatio
+schema_generating: true
+description: A class describing the dividend payout ratio associated with an equity
+  underlier. In certain cases the actual ratio is not known on trade inception, and
+  only general conditions are then specified.
+display_name: DividendPayoutRatio
+document_category: DividendPayoutRatio
+weight: 20
+fields:
+- id: totalRatio
+  description: Specifies the total actual dividend payout ratio associated with the
+    equity underlier. A ratio of 90% should be expressed at 0.90.
+  display_name: totalRatio
+- id: cashRatio
+  description: Specifies the cash actual dividend payout ratio associated with the
+    equity underlier. A ratio of 90% should be expressed at 0.90.
+  display_name: cashRatio
+- id: nonCashRatio
+  description: Specifies the non cash actual dividend payout ratio associated with
+    the equity underlier. A ratio of 90% should be expressed at 0.90.
+  display_name: nonCashRatio
+- id: basketConstituent
+  description: In the case of a basket underlier, specifies to which component of
+    the basket this particular set of dividend payout ratios correspond.
+  display_name: DividendPayoutRatio_basketConstituent
+  cardinality: multi

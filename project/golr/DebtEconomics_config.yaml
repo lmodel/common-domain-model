@@ -1,0 +1,23 @@
+# metamodel_version: 1.11.0id: DebtEconomics
+schema_generating: true
+description: Specifies selected economics of a debt security.
+display_name: DebtEconomics
+document_category: DebtEconomics
+weight: 20
+fields:
+- id: seniority
+  description: Specifies the order of repayment in the event of a sale or bankruptcy
+    of the issuer or a related party (eg guarantor).
+  display_name: seniority
+- id: interest
+  description: Specifies the general rule for periodic interest rate payment.
+  display_name: interest
+- id: principal
+  description: Specifies the general rule for repayment of principal.
+  display_name: principal
+- id: secured
+  description: Specifies the type of secured debt.
+  display_name: secured
+- id: redemption
+  description: Specifies the general rule for redemption of a debt security.
+  display_name: redemption

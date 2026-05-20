@@ -1,0 +1,20 @@
+# metamodel_version: 1.11.0id: DiscountingMethod
+schema_generating: true
+description: 'A data defining:  discounting information. The 2000 ISDA definitions,
+  section 8.4. discounting (related to the calculation of a discounted fixed amount
+  or floating amount) apply. This type must only be included if discounting applies.'
+display_name: DiscountingMethod
+document_category: DiscountingMethod
+weight: 20
+fields:
+- id: discountingType
+  description: The discounting method that is applicable.
+  display_name: discountingType
+- id: discountRate
+  description: A discount rate, expressed as a decimal, to be used in the calculation
+    of a discounted amount. A discount amount of 5% would be represented as 0.05.
+  display_name: discountRate
+- id: discountRateDayCountFraction
+  description: A discount day count fraction to be used in the calculation of a discounted
+    amount.
+  display_name: discountRateDayCountFraction

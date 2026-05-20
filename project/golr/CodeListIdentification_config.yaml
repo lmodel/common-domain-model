@@ -1,0 +1,37 @@
+# metamodel_version: 1.11.0id: CodeListIdentification
+schema_generating: true
+description: A type to identify the version of a codelist
+display_name: CodeListIdentification
+document_category: CodeListIdentification
+weight: 20
+fields:
+- id: description
+  description: A description  of the code list, e.g. A list of codes identifying business
+    centers
+  display_name: CodeListIdentification_description
+- id: publicationDate
+  description: The most recent date the code list was published, e.g. 2021-10-05
+  display_name: publicationDate
+- id: shortName
+  description: A short name (without whitespace) for the code list, e.g. businessCenterScheme
+  display_name: shortName
+- id: version
+  description: The the most recent version of the codelist, eg. 9-1
+  display_name: version
+- id: codeShortId
+  description: The name of the code list, e.g. business-center
+  display_name: codeShortId
+- id: canonicalUri
+  description: Canonical URI which uniquely identifies all versions (collectively)
+    of the referenced code list. Must be an absolute URI. Must not be used as a de
+    facto location URI.
+  display_name: canonicalUri
+- id: canonicalVersionUri
+  description: Canonical URI which uniquely identifies a specific version of the referenced
+    code list. Must be an absolute URI. Must not be used as a de facto location URI.
+  display_name: canonicalVersionUri
+- id: locationUri
+  description: Suggested retrieval location for this version, in genericode format.
+    An application must signal an error to the user if a document retrieved using
+    a LocationUri is not in genericode format.
+  display_name: locationUri

@@ -1,0 +1,28 @@
+# metamodel_version: 1.11.0id: FloatingRateIndexFixingTime
+schema_generating: true
+description: This type holds parameters defining the normal fixing time for a floating
+  rate index.
+display_name: FloatingRateIndexFixingTime
+document_category: FloatingRateIndexFixingTime
+weight: 20
+fields:
+- id: hourMinuteTime
+  description: A time specified in hh:mm:ss format where the second component must
+    be '00', e.g. 11am would be represented as 11:00:00.
+  display_name: hourMinuteTime
+- id: businessCenter
+  description: A code identifying a business day calendar location. A business day
+    calendar location is drawn from the list identified by the business day calendar
+    location enumeration.
+  display_name: BusinessCenterTime_businessCenter
+  cardinality: multi
+- id: designatedMaturity
+  description: Allows a designed maturity to be specified for the fixing time.
+  display_name: designatedMaturity
+- id: fixingTimeDefinition
+  description: Legal text that underlies the Fixing Time. ISDA Fixing Time Definition.
+    (e.g. 09:30, Sydney time).
+  display_name: fixingTimeDefinition
+- id: fixingReason
+  description: Fixing Reason
+  display_name: fixingReason

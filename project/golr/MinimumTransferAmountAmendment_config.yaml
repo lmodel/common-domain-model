@@ -1,0 +1,19 @@
+# metamodel_version: 1.11.0id: MinimumTransferAmountAmendment
+schema_generating: true
+description: ' A class to specify whether Amendment to Minimum Transfer Amount language
+  is applicable or not.'
+display_name: MinimumTransferAmountAmendment
+document_category: MinimumTransferAmountAmendment
+weight: 20
+fields:
+- id: isApplicable
+  description: The definition of Minimum Transfer Amount in any Other Regulatory CSA
+    will be amended when applicable.
+  display_name: MinimumTransferAmountAmendment_isApplicable
+- id: effectiveDate
+  description: The effective date of the Amendment to Termination Currency.
+  display_name: MinimumTransferAmountAmendment_effectiveDate
+- id: partyElections
+  description: The party elective amounts.
+  display_name: partyElections
+  cardinality: multi

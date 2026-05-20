@@ -1,0 +1,24 @@
+# metamodel_version: 1.11.0id: LegacyIndependentAmountParty
+schema_generating: true
+description: The party specific elections for the Independent Amount clause.
+display_name: LegacyIndependentAmountParty
+document_category: LegacyIndependentAmountParty
+weight: 20
+fields:
+- id: party
+  description: Identifies the Party making the election.
+  display_name: LegacyIndependentAmountParty_party
+- id: isApplicable
+  description: Specifies whether Independent Amount is applicable to the elected party.
+    If applicable, 'True', and if not applicable then 'False'.
+  display_name: LegacyIndependentAmountParty_isApplicable
+- id: fixedAmount
+  description: Indicates the Independent Amount is specified as a fixed amount.
+  display_name: LegacyIndependentAmountParty_fixedAmount
+- id: ratingsBased
+  description: Indicates the Independent Amount is determined using a credit rating.
+  display_name: LegacyIndependentAmountParty_ratingsBased
+- id: ratingsXExposure
+  description: Indicates the Independent Amount is determined using both credit rating
+    and exposure metrics.
+  display_name: ratingsXExposure

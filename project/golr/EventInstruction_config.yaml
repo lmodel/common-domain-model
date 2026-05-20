@@ -1,0 +1,48 @@
+# metamodel_version: 1.11.0id: EventInstruction
+schema_generating: true
+description: Specifies instructions to create a BusinessEvent.
+display_name: EventInstruction
+document_category: EventInstruction
+weight: 20
+fields:
+- id: intent
+  description: The intent attribute is meant to be specified when the event qualification
+    cannot be programmatically inferred from the event features. As a result it is
+    only associated with those primitives that can give way to such ambiguity, the
+    quantityChange being one of those. An example of such is a reduction in the trade
+    notional, which could be interpreted as either a trade correction (unless a maximum
+    period of time post-event is specified as part of the qualification), a partial
+    termination or a portfolio rebalancing in the case of an equity swap. On the other
+    hand, an event such as the exercise is not expected to have an associated intent
+    as there should not be ambiguity.
+  display_name: EventInstruction_intent
+- id: corporateActionIntent
+  description: The intent of a corporate action on the position.
+  display_name: corporateActionIntent
+- id: eventDate
+  description: Specifies the date on which the event is taking place. This date is
+    equal to the trade date in the case of a simple execution.  However it can be
+    different from the trade date, for example in the case of a partial termination.
+  display_name: eventDate
+- id: eventTime
+  description: The time and zone of the date in which the event is taking place.
+  display_name: eventTime
+- id: effectiveDate
+  description: The date on which the event contractually takes effect, when different
+    from the event date.
+  display_name: EventInstruction_effectiveDate
+- id: effectiveTime
+  description: The time and zone of the date in which the event contractually takes
+    effect.
+  display_name: effectiveTime
+- id: packageInformation
+  description: Specifies the package information in case the business event represents
+    several trades executed as a package (hence this attribute is optional). The package
+    information is only instantiated once at the business event level to preserve
+    referential integrity, whereas individual trades make reference to it to identify
+    that they are part of a package.
+  display_name: packageInformation
+- id: instruction
+  description: Specifies the instructions to create the Business Event.
+  display_name: instruction
+  cardinality: multi

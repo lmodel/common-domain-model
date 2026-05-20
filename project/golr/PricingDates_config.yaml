@@ -1,0 +1,15 @@
+# metamodel_version: 1.11.0id: PricingDates
+schema_generating: true
+description: Specifies specific dates or parametric rules for the dates on which the
+  price will be determined
+display_name: PricingDates
+document_category: PricingDates
+weight: 20
+fields:
+- id: specifiedDates
+  description: Defines specified dates on which the price will be determined.
+  display_name: specifiedDates
+  cardinality: multi
+- id: parametricDates
+  description: Defines rules for the dates on which the price will be determined.
+  display_name: PricingDates_parametricDates

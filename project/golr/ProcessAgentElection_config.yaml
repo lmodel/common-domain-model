@@ -1,0 +1,24 @@
+# metamodel_version: 1.11.0id: ProcessAgentElection
+schema_generating: true
+description: Specifies the parties' respective elections with respect to the Process
+  Agent.
+display_name: ProcessAgentElection
+document_category: ProcessAgentElection
+weight: 20
+fields:
+- id: partyReference
+  description: The party to which the election and details apply.
+  display_name: ContactInformationElection_partyReference
+- id: primaryContactInformation
+  description: The main notice/address information of the party.
+  display_name: primaryContactInformation
+- id: isApplicable
+  description: The qualification of whether the Process Agent is applicable (True)
+    or not applicable (False).
+  display_name: ProcessAgentElection_isApplicable
+- id: entity
+  description: Specification of the process agent entity.
+  display_name: entity
+- id: additionalInformation
+  description: Additional information relating to the Process Agent.
+  display_name: ProcessAgentElection_additionalInformation

@@ -1,0 +1,21 @@
+# metamodel_version: 1.11.0id: WeightedAveragingObservation
+schema_generating: true
+description: A single weighted averaging observation.
+display_name: WeightedAveragingObservation
+document_category: WeightedAveragingObservation
+weight: 20
+fields:
+- id: dateTime
+  description: Observation date time, which should be used when literal observation
+    dates are required. The CDM specifies that the zoned date time is to be expressed
+    in accordance with ISO 8601, either as UTC as an offset to UTC.
+  display_name: WeightedAveragingObservation_dateTime
+  cardinality: multi
+- id: observationNumber
+  description: Observation number, which should be unique, within a series generated
+    by a date schedule.
+  display_name: observationNumber
+- id: weight
+  description: Observation weight, which is used as a multiplier for the observation
+    value.
+  display_name: WeightedAveragingObservation_weight

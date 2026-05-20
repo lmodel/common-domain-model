@@ -1,0 +1,33 @@
+# metamodel_version: 1.11.0id: CalculationAndTimingInitialMargin
+schema_generating: true
+description: Specification of the Calculation, Valuation and Timing terms specific
+  to the Initial Margin Credit Support Annex.
+display_name: CalculationAndTimingInitialMargin
+document_category: CalculationAndTimingInitialMargin
+weight: 20
+fields:
+- id: notificationTime
+  description: The time by which a demand for the Transfer of Eligible Credit Support
+    (IM) or Posted Credit Support (IM) needs to be made in order for the transfer
+    to take place in accordance with the Transfer Timing provisions.
+  display_name: notificationTime
+- id: calculationAgentTerms
+  description: Details of the party calculating the value of collateral to be delivered
+    or returned.
+  display_name: calculationAgentTerms
+- id: bespokeCalculationDate
+  description: The specification of bespoke Calculation Date terms for the purposes
+    of Initial or Variation Margin by the parties to the agreement.
+  display_name: bespokeCalculationDate
+- id: bespokeCalculationTime
+  description: Bespoke terms to describe the time as of which such party (or the Calculation
+    Agent (IM) (if applicale)) computes its end of day valuations of derivatives transactions.
+  display_name: bespokeCalculationTime
+- id: calculationDateLocation
+  description: The specified location where the credit exposure will be calculated
+    by the respective parties.
+  display_name: calculationDateLocation
+- id: cashSettlementDay
+  display_name: cashSettlementDay
+- id: securitiesSettlementDay
+  display_name: securitiesSettlementDay

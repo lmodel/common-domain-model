@@ -1,0 +1,24 @@
+# metamodel_version: 1.11.0id: RelativeTime
+schema_generating: true
+description: Defines a time value calculated relative to a reference time. The final
+  value is derived by applying any offset and rounding rules inherited from RelativeTimeOffset
+  to the reference time.
+display_name: RelativeTime
+document_category: RelativeTime
+weight: 20
+fields:
+- id: offsetTimeUnit
+  description: 'The unit of time for the offset (e.g., seconds, minutes, hours, days). '
+  display_name: offsetTimeUnit
+- id: offsetMultiplier
+  description: A time offset multiplier, e.g. 1, 2 or 3 etc. A negative value can
+    be used when specifying a negative offset, e.g. -2 hours.
+  display_name: offsetMultiplier
+- id: rounding
+  description: Optional rules that define how the calculated time should be rounded
+    after the offset has been applied.
+  display_name: rounding
+- id: timeRelativeTo
+  description: The reference time zone or base time from which the relative time is
+    calculated.
+  display_name: timeRelativeTo

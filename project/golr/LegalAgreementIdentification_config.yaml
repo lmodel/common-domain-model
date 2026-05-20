@@ -1,0 +1,25 @@
+# metamodel_version: 1.11.0id: LegalAgreementIdentification
+schema_generating: true
+description: 'Specifies the type of legal agreement, identified via a set of composable
+  attributes: agreementName, publisher, governing law and version, e.g. ISDA 2013
+  Standard Credit Support Annex English Law.'
+display_name: LegalAgreementIdentification
+document_category: LegalAgreementIdentification
+weight: 20
+fields:
+- id: governingLaw
+  description: The law governing the legal agreement, e.g. English Law, New York Law
+    or Japanese Law.
+  display_name: LegalAgreementIdentification_governingLaw
+- id: agreementName
+  description: The legal agreement name, e.g. Credit Support Annex for Variation Margin.
+  display_name: agreementName
+- id: publisher
+  description: The legal agreement publisher, e.g. ISDA.
+  display_name: publisher
+- id: vintage
+  description: In the case where successive definitions of the legal agreement have
+    been developed, the vintage identification. This is typically (but not necessarily)
+    done by referencing the year, e.g. 2013 in the case of the ISDA 2013 Standard
+    Credit Support Annex.
+  display_name: vintage

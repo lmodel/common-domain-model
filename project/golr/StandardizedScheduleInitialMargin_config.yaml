@@ -1,0 +1,11 @@
+# metamodel_version: 1.11.0id: StandardizedScheduleInitialMargin
+schema_generating: true
+display_name: StandardizedScheduleInitialMargin
+document_category: StandardizedScheduleInitialMargin
+weight: 20
+fields:
+- id: tradeInfo
+  display_name: tradeInfo
+  cardinality: multi
+- id: netInitialMargin
+  display_name: netInitialMargin

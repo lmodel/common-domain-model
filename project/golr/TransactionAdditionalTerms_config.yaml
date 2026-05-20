@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: TransactionAdditionalTerms
+schema_generating: true
+description: Additional specification for the extraordinary events that may affect
+  a trade and the related contractual rights and obligation of the parties when this
+  happens. Such terms are typically required to extend the economics terms, for the
+  purpose of producing the final legal contractual form of the Transaction.
+display_name: TransactionAdditionalTerms
+document_category: TransactionAdditionalTerms
+weight: 20
+fields:
+- id: equityAdditionalTerms
+  display_name: equityAdditionalTerms
+- id: foreignExchangeAdditionalTerms
+  display_name: foreignExchangeAdditionalTerms
+- id: commoditiesAdditionalTerms
+  display_name: commoditiesAdditionalTerms
+- id: creditAdditionalTerms
+  display_name: creditAdditionalTerms
+- id: interestRateAdditionalTerms
+  display_name: interestRateAdditionalTerms
+- id: digitalAssetAdditionalTerms
+  display_name: digitalAssetAdditionalTerms

@@ -1,0 +1,16 @@
+# metamodel_version: 1.11.0id: TimeZone
+schema_generating: true
+description: The time alongside with the timezone location information. This class
+  makes use of the FpML TimezoneLocation construct.
+display_name: TimeZone
+document_category: TimeZone
+weight: 20
+fields:
+- id: time
+  description: The observation time.
+  display_name: time
+- id: location
+  description: FpML specifies the timezoneLocationScheme by reference to the Time
+    Zone Database (a.k.a. tz database) maintained by IANA, the Internet Assigned Numbers
+    Authority.
+  display_name: location

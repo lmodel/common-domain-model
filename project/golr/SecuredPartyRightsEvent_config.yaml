@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: SecuredPartyRightsEvent
+schema_generating: true
+description: A class to specify Secured Party Rights Event language.
+display_name: SecuredPartyRightsEvent
+document_category: SecuredPartyRightsEvent
+weight: 20
+fields:
+- id: securedPartyRightsEventElection
+  display_name: securedPartyRightsEventElection
+  cardinality: multi
+- id: earlyTerminationDateOptionalLanguage
+  description: A boolean attribute to specify whether Failure to Pay Early Termination
+    language is included (True) or excluded (False) from the agreement.
+  display_name: earlyTerminationDateOptionalLanguage
+- id: failureToPayEarlyTermination
+  description: A boolean attribute to specify whether Failure to Pay Early Termination
+    language in the agreement is deemed applicable or not.
+  display_name: failureToPayEarlyTermination

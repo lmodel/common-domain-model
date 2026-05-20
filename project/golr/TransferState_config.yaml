@@ -1,0 +1,17 @@
+# metamodel_version: 1.11.0id: TransferState
+schema_generating: true
+description: Defines the fundamental financial information associated with a Transfer
+  event. Each TransferState specifies where a Transfer is in its life-cycle. TransferState
+  is a root type and as such, can be created independently to any other CDM data type,
+  but can also be used as part of the CDM Event Model.
+display_name: TransferState
+document_category: TransferState
+weight: 20
+fields:
+- id: transfer
+  description: Represents the Transfer that has been effected by a business or life-cycle
+    event.
+  display_name: TransferState_transfer
+- id: transferStatus
+  description: Represents the State of the Transfer through its life-cycle.
+  display_name: transferStatus

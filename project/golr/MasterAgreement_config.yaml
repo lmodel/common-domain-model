@@ -1,0 +1,38 @@
+# metamodel_version: 1.11.0id: MasterAgreement
+schema_generating: true
+description: The set of elections that define an ISDA Master Agreement.
+display_name: MasterAgreement
+document_category: MasterAgreement
+weight: 20
+fields:
+- id: automaticEarlyTermination
+  description: The specification of whether there is an automatic occurrence of an
+    Early Termination Date in respect of Transactions upon the occurrence of certain
+    bankruptcy / insolvency related events.
+  display_name: automaticEarlyTermination
+- id: terminationCurrency
+  description: Specification of the currency in which the termination payment is made
+    (including the process by which such currency is determined).
+  display_name: terminationCurrency
+- id: addressForNotices
+  description: Specification of the address and other details for notices.
+  display_name: addressForNotices
+- id: nonContractualObligations
+  description: Specification of whether the Governing Law clause extends to Non-Contractual
+    Obligations (True) or does not extend to Non-Contractual Obligations (False).
+  display_name: nonContractualObligations
+- id: creditSupportDocument
+  description: Identification of party specific Credit Support Documents applicable
+    to the document.
+  display_name: MasterAgreement_creditSupportDocument
+  cardinality: multi
+- id: creditSupportProvider
+  description: Identification of party specific Credit Support Providers applicable
+    to the document.
+  display_name: MasterAgreement_creditSupportProvider
+  cardinality: multi
+- id: specifiedEntities
+  description: A provision that allows each party to specify its Specified Entities
+    for certain Events of Default and Termination Events.
+  display_name: specifiedEntities
+  cardinality: multi

@@ -1,0 +1,22 @@
+# metamodel_version: 1.11.0id: SecuredDebt
+schema_generating: true
+display_name: SecuredDebt
+document_category: SecuredDebt
+weight: 20
+fields:
+- id: securedType
+  description: Specifies the type of secured debt product.
+  display_name: securedType
+- id: assetBacked
+  description: Specifies the type of Asset Backed Security.
+  display_name: assetBacked
+- id: collateralizedObligation
+  description: Specifies the type of Collateralized Obligation.
+  display_name: collateralizedObligation
+- id: coveredBond
+  description: Specifies the type of Covered Bond.
+  display_name: coveredBond
+- id: propertyType
+  description: Specifies the type of property when the security is linked to a property
+    asset.
+  display_name: propertyType

@@ -1,0 +1,12 @@
+# metamodel_version: 1.11.0id: FxRateSourceFixing
+schema_generating: true
+description: Describes a rate source to be fixed and the date the fixing occurs
+display_name: FxRateSourceFixing
+document_category: FxRateSourceFixing
+weight: 20
+fields:
+- id: settlementRateSource
+  display_name: settlementRateSource
+- id: fixingDate
+  description: The date on which the fixing is scheduled to occur.
+  display_name: fixingDate

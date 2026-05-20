@@ -1,0 +1,21 @@
+# metamodel_version: 1.11.0id: InformationSource
+schema_generating: true
+description: A class defining the source for a piece of information (e.g. a rate fix
+  or an FX fixing). The attribute names have been adjusted from FpML to address the
+  fact that the information is not limited to rates.
+display_name: InformationSource
+document_category: InformationSource
+weight: 20
+fields:
+- id: sourceProvider
+  description: An information source for obtaining a market data point. For example
+    Bloomberg, Reuters, Telerate, etc.
+  display_name: sourceProvider
+- id: sourcePage
+  description: A specific page for the source for obtaining a market data point. In
+    FpML, this is specified as a scheme, rateSourcePageScheme, for which no coding
+    Scheme or URI is specified.
+  display_name: sourcePage
+- id: sourcePageHeading
+  description: The heading for the source on a given source page.
+  display_name: sourcePageHeading

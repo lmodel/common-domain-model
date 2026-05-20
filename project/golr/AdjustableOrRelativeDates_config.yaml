@@ -1,0 +1,18 @@
+# metamodel_version: 1.11.0id: AdjustableOrRelativeDates
+schema_generating: true
+description: A class giving the choice between defining a series of dates as an explicit
+  list of dates together with applicable adjustments or as relative to some other
+  series of (anchor) dates.
+display_name: AdjustableOrRelativeDates
+document_category: AdjustableOrRelativeDates
+weight: 20
+fields:
+- id: adjustableDates
+  description: A series of dates that shall be subject to adjustment if they would
+    otherwise fall on a day that is not a business day in the specified business centers,
+    together with the convention for adjusting the date.
+  display_name: adjustableDates
+- id: relativeDates
+  description: A series of dates specified as some offset to another series of dates
+    (the anchor dates).
+  display_name: relativeDates

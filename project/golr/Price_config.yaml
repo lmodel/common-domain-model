@@ -1,0 +1,54 @@
+# metamodel_version: 1.11.0id: Price
+schema_generating: true
+description: Specifies a price as a single value to be associated to a financial product.
+  This data type extends PriceSchedule and requires that only the amount value exists.
+display_name: Price
+document_category: Price
+weight: 20
+fields:
+- id: value
+  description: Specifies the value of the measure as a number. Optional because in
+    a measure vector or schedule, this single value may be omitted.
+  display_name: value
+- id: unit
+  description: Qualifies the unit by which the amount is measured. Optional because
+    a measure may be unit-less (e.g. when representing a ratio between amounts in
+    the same unit).
+  display_name: unit
+- id: datedValue
+  description: A schedule of step date and value pairs. On each step date the associated
+    step value becomes effective. The step dates are used to order the steps by ascending
+    order. This attribute is optional so the data type may be used to define a schedule
+    with a single value.
+  display_name: datedValue
+  cardinality: multi
+- id: perUnitOf
+  description: Provides an attribute to define the unit of the thing being priced.
+    For example, {amount, unitOfAmount, PerUnitOfAmount} = [10, EUR, Shares] = (10.00
+    EUR/SHARE) * (300,000 SHARES) = EUR 3,000,000.00 (Shares cancel out in the calculation).
+  display_name: perUnitOf
+- id: priceType
+  description: 'Specifies the price type as an enumeration: interest rate, exchange
+    rate, asset price etc. This attribute is mandatory so that prices can always be
+    clasiffied according to their type. The price type implies some constraints on
+    the price''s units.'
+  display_name: priceType
+- id: priceSubType
+  description: Allows further classification of the chosen price type.
+  display_name: priceSubType
+- id: priceExpression
+  description: (Optionally) Specifies whether the price is expressed in absolute or
+    percentage terms.
+  display_name: priceExpression
+- id: composite
+  description: '(Optionally) Specifies the underlying price components if the price
+    can be expressed as a composite: e.g. dirty price = clean price + accrued.'
+  display_name: composite
+- id: arithmeticOperator
+  description: (Optionally) When the price is to be understood as an operator to apply
+    to an observable, i.e. a spread, multiplier or min/max.
+  display_name: PriceSchedule_arithmeticOperator
+- id: premiumType
+  description: (Optionally) Additional attribute that can further define any premium
+    to the price.
+  display_name: premiumType

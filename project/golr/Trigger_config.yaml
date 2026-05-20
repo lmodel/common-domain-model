@@ -1,0 +1,21 @@
+# metamodel_version: 1.11.0id: Trigger
+schema_generating: true
+description: Trigger point at which feature is effective.
+display_name: Trigger
+document_category: Trigger
+weight: 20
+fields:
+- id: level
+  description: The trigger level.
+  display_name: level
+  cardinality: multi
+- id: creditEvents
+  display_name: creditEvents
+- id: creditEventsReference
+  display_name: creditEventsReference
+- id: triggerType
+  description: The Triggering condition.
+  display_name: triggerType
+- id: triggerTimeType
+  description: The valuation time type of knock condition.
+  display_name: triggerTimeType
