@@ -3,10 +3,10 @@ name: cdm_base_staticdata_asset_credit
 description: LinkML schema for cdm.base.staticdata.asset.credit
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -14,8 +14,8 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_math
+  - linkml:types
+  - ./cdm_base_math
 
 subsets:
   cdm_base_staticdata_asset_credit:
@@ -152,8 +152,8 @@ classes:
   NotDomesticCurrency:
     description: 'A class to specify the ISDA 2003 Term: Not Domestic Currency.'
     slots:
-    - applicable
-    - currency
+      - applicable
+      - currency
     slot_usage:
       currency:
         description: An explicit specification of the domestic currency. The list of valid currencies is not presently positioned
@@ -161,54 +161,54 @@ classes:
           a result, implementers have to make reference to the relevant standard, such as the ISO 4217 standard for currency
           codes.
     in_subset:
-    - cdm_base_staticdata_asset_credit
+      - cdm_base_staticdata_asset_credit
 
   Obligations:
     description: A class to specify the underlying obligations of the reference entity on which protection is purchased or
       sold through the Credit Default Swap.
     rules:
-    - description: Choice rule to represent an FpML choice construct.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            fullFaithAndCreditObLiability:
-              required: true
-        - slot_conditions:
-            generalFundObligationLiability:
-              required: true
-        - slot_conditions:
-            revenueObligationLiability:
-              required: true
-      preconditions: {}
+      - description: Choice rule to represent an FpML choice construct.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                fullFaithAndCreditObLiability:
+                  required: true
+            - slot_conditions:
+                generalFundObligationLiability:
+                  required: true
+            - slot_conditions:
+                revenueObligationLiability:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: ObligationsChoice — optional choice fullFaithAndCreditObLiability, generalFundObligationLiability,
-      revenueObligationLiability'
+      - 'Rosetta condition: ObligationsChoice — optional choice fullFaithAndCreditObLiability, generalFundObligationLiability,
+        revenueObligationLiability'
     slots:
-    - category
-    - notSubordinated
-    - specifiedCurrency
-    - notSovereignLender
-    - notDomesticCurrency
-    - notDomesticLaw
-    - listed
-    - notDomesticIssuance
-    - fullFaithAndCreditObLiability
-    - generalFundObligationLiability
-    - revenueObligationLiability
-    - notContingent
-    - excluded
-    - othReferenceEntityObligations
-    - designatedPriority
-    - cashSettlementOnly
-    - deliveryOfCommitments
-    - continuity
+      - category
+      - notSubordinated
+      - specifiedCurrency
+      - notSovereignLender
+      - notDomesticCurrency
+      - notDomesticLaw
+      - listed
+      - notDomesticIssuance
+      - fullFaithAndCreditObLiability
+      - generalFundObligationLiability
+      - revenueObligationLiability
+      - notContingent
+      - excluded
+      - othReferenceEntityObligations
+      - designatedPriority
+      - cashSettlementOnly
+      - deliveryOfCommitments
+      - continuity
     in_subset:
-    - cdm_base_staticdata_asset_credit
+      - cdm_base_staticdata_asset_credit
 
   SpecifiedCurrency:
     slots:
-    - applicable
-    - currency
+      - applicable
+      - currency
     slot_usage:
       applicable:
         description: Indicates whether the specified currency provision is applicable.
@@ -218,4 +218,4 @@ classes:
           FpML. As a result, implementers have to make reference to the relevant standard, such as the ISO 4217 standard for
           currency codes.
     in_subset:
-    - cdm_base_staticdata_asset_credit
+      - cdm_base_staticdata_asset_credit

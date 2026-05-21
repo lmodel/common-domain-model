@@ -1,5 +1,5 @@
 # Auto generated from common_domain_model.yaml by namespacegen.py version: 0.0.1
-# Generation date: 2026-05-20T16:20:34
+# Generation date: 2026-05-21T21:20:26
 # Schema: common_domain_model
 #
 # id: https://w3id.org/lmodel/common-domain-model
@@ -28,7 +28,7 @@ class BiolinkNameSpace:
     """
 
     _namespaces = [
-        CurieNamespace('common_domain_model', 'https://w3id.org/lmodel/common_domain_model/'),
+        CurieNamespace('common_domain_model', 'https://w3id.org/lmodel/common-domain-model/'),
         CurieNamespace('fpml', 'http://www.fpml.org/coding-scheme/'),
         CurieNamespace('fpml_5_10', 'https://www.fpml.org/spec/fpml-5-10#'),
         CurieNamespace('gist', 'https://w3id.org/lmodel/gist/'),

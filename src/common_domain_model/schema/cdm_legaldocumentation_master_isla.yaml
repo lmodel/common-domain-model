@@ -3,10 +3,10 @@ name: cdm_legaldocumentation_master_isla
 description: LinkML schema for cdm.legaldocumentation.master.isla
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -15,13 +15,13 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_datetime
-- ./cdm_base_staticdata_asset_common
-- ./cdm_base_staticdata_party
-- ./cdm_legaldocumentation_master
-- ./cdm_event_common
-- ./cdm_legaldocumentation_csa
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_base_staticdata_party
+  - ./cdm_legaldocumentation_master
+  - ./cdm_event_common
+  - ./cdm_legaldocumentation_csa
 
 subsets:
   cdm_legaldocumentation_master_isla:
@@ -63,20 +63,20 @@ slots:
     description: Is the standard definition of 'Market Value' used in the GMSLA?
     required: true
     close_mappings:
-    - fpml_5_10:CollateralSpecification.standardDefinitionOfMarketValueUsed
+      - fpml_5_10:CollateralSpecification.standardDefinitionOfMarketValueUsed
 
   definitionOfMarketValueNonStandard:
     range: string
     description: If the definition of 'Market Value' is non standard, it can be specified here.
     close_mappings:
-    - fpml_5_10:CollateralSpecification.definitionOfMarketValueNonStandard
+      - fpml_5_10:CollateralSpecification.definitionOfMarketValueNonStandard
 
   aggregation:
     range: Aggregation
     description: How does paragraph 5.4 (aggregation) apply to the GMSLA?
     required: true
     close_mappings:
-    - fpml_5_10:CollateralSpecification.aggregation
+      - fpml_5_10:CollateralSpecification.aggregation
 
   nettingObligationsApply:
     range: ApplicabilityOfElectionEnum
@@ -84,26 +84,26 @@ slots:
       to the GMSLA?
     required: true
     close_mappings:
-    - fpml_5_10:CollateralSpecification.nettingObligationsApply
+      - fpml_5_10:CollateralSpecification.nettingObligationsApply
 
   failureToDevliverIndemnityApplies:
     range: ApplicabilityOfElectionEnum
     description: Does paragraph 6.4 (indemnity for failure to redeliver Equivalent Non-Cash Collateral) apply to the GMSLA?
     required: true
     close_mappings:
-    - fpml_5_10:CollateralSpecification.failureToDevliverIndemnityApplies
+      - fpml_5_10:CollateralSpecification.failureToDevliverIndemnityApplies
 
   baseCurrencyMustBeFreelyConvertible:
     range: boolean
     description: The base currency that is defined must be freely convertible.
     close_mappings:
-    - fpml_5_10:BaseCurrency.baseCurrencyMustBeFreelyConvertible
+      - fpml_5_10:BaseCurrency.baseCurrencyMustBeFreelyConvertible
 
   baseCurrencyIfOriginalNotFreelyConvertible:
     range: CurrencyCodeEnum
     description: If the base currency is not freely convertible, the fallback currency can be defined here.
     close_mappings:
-    - fpml_5_10:BaseCurrency.baseCurrencyIfOriginalNotFreelyConvertible
+      - fpml_5_10:BaseCurrency.baseCurrencyIfOriginalNotFreelyConvertible
 
   automaticEarlyTerminationApplies:
     range: ApplicabilityOfElectionEnum
@@ -144,29 +144,29 @@ slots:
     description: How is the mark to market value determined?
     required: true
     close_mappings:
-    - fpml_5_10:Aggregation.aggregationType
+      - fpml_5_10:Aggregation.aggregationType
 
   loansCanBeGrouped:
     range: boolean
     description: The mark to market can be defined separately for different groups of loans.
     required: true
     close_mappings:
-    - fpml_5_10:Aggregation.loansCanBeGrouped
+      - fpml_5_10:Aggregation.loansCanBeGrouped
 
   otherDetails:
     range: string
     description: Any specfic elections that are not captured by the above options, such as grouping information.
     close_mappings:
-    - fpml_5_10:Aggregation.otherDetails
+      - fpml_5_10:Aggregation.otherDetails
 
 classes:
   GlobalMasterSecuritiesLendingAgreement:
     description: The set of elections that define a GMSLA.
     is_a: MasterAgreementBase
     slots:
-    - collateral
-    - baseCurrency
-    - eventsOfDefault
+      - collateral
+      - baseCurrency
+      - eventsOfDefault
     slot_usage:
       collateral:
         range: CollateralSpecification
@@ -176,99 +176,99 @@ classes:
         range: BaseCurrency
         description: The definitions regarding base currency determinations relating to the GMSLA.
     in_subset:
-    - cdm_legaldocumentation_master_isla
+      - cdm_legaldocumentation_master_isla
 
   CollateralSpecification:
     description: The definitions regarding collateral relating to the GMSLA.
     close_mappings:
-    - fpml_5_10:CollateralSpecification
+      - fpml_5_10:CollateralSpecification
     rules:
-    - description: A validation rule to ensure that if the standard definition of market value is not used, then the definition
-        is provided.
-      comments:
-      - 'Rosetta negation: standardDefinitionOfMarketValueUsed <> True'
-      preconditions:
-        slot_conditions:
-          standardDefinitionOfMarketValueUsed:
-            none_of:
-            - equals_string_in:
-              - 'True'
-      postconditions:
-        slot_conditions:
-          definitionOfMarketValueNonStandard:
-            required: true
+      - description: A validation rule to ensure that if the standard definition of market value is not used, then the definition
+          is provided.
+        comments:
+          - 'Rosetta negation: standardDefinitionOfMarketValueUsed <> True'
+        preconditions:
+          slot_conditions:
+            standardDefinitionOfMarketValueUsed:
+              none_of:
+                - equals_string_in:
+                    - 'True'
+        postconditions:
+          slot_conditions:
+            definitionOfMarketValueNonStandard:
+              required: true
     comments:
-    - 'Rosetta condition: StandardMarketCondition — if standardDefinitionOfMarketValueUsed <> True then definitionOfMarketValueNonStandard
-      exists'
+      - 'Rosetta condition: StandardMarketCondition — if standardDefinitionOfMarketValueUsed <> True then definitionOfMarketValueNonStandard
+        exists'
     slots:
-    - standardDefinitionOfMarketValueUsed
-    - definitionOfMarketValueNonStandard
-    - aggregation
-    - nettingObligationsApply
-    - failureToDevliverIndemnityApplies
-    - notificationTime
+      - standardDefinitionOfMarketValueUsed
+      - definitionOfMarketValueNonStandard
+      - aggregation
+      - nettingObligationsApply
+      - failureToDevliverIndemnityApplies
+      - notificationTime
     slot_usage:
       notificationTime:
         range: BusinessCenterTime
         description: What is the notification time of the GMSLA?
     in_subset:
-    - cdm_legaldocumentation_master_isla
+      - cdm_legaldocumentation_master_isla
 
   BaseCurrency:
     description: The definitions regarding base currency determinations relating to the GMSLA.
     close_mappings:
-    - fpml_5_10:BaseCurrency
+      - fpml_5_10:BaseCurrency
     slots:
-    - baseCurrency
-    - baseCurrencyMustBeFreelyConvertible
-    - baseCurrencyIfOriginalNotFreelyConvertible
+      - baseCurrency
+      - baseCurrencyMustBeFreelyConvertible
+      - baseCurrencyIfOriginalNotFreelyConvertible
     slot_usage:
       baseCurrency:
         range: CurrencyCodeEnum
         description: The base currency as defined in the GMSLA.
     in_subset:
-    - cdm_legaldocumentation_master_isla
+      - cdm_legaldocumentation_master_isla
 
   EventsOfDefaultElection:
     description: The specific party elections for events of default.
     comments:
-    - 'Rosetta condition: AutomaticEarlyTerminationMustBeApplicable — if automaticEarlyTerminationInModifiedForm or automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple
-      then automaticEarlyTerminationApplies = Applicable'
+      - 'Rosetta condition: AutomaticEarlyTerminationMustBeApplicable — if automaticEarlyTerminationInModifiedForm or automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple
+        then automaticEarlyTerminationApplies = Applicable'
     slots:
-    - party
-    - automaticEarlyTerminationApplies
-    - existingLoans
-    - automation
-    - automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple
-    - automaticEarlyTerminationRequiredDueToSystemOfLaw
-    - automaticEarlyTerminationInModifiedForm
-    - automaticEarlyTerminationOther
+      - party
+      - automaticEarlyTerminationApplies
+      - existingLoans
+      - automation
+      - automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple
+      - automaticEarlyTerminationRequiredDueToSystemOfLaw
+      - automaticEarlyTerminationInModifiedForm
+      - automaticEarlyTerminationOther
     slot_usage:
       party:
         range: CounterpartyRoleEnum
         description: The specified party.
         required: true
     in_subset:
-    - cdm_legaldocumentation_master_isla
+      - cdm_legaldocumentation_master_isla
 
   EventsOfDefault:
     description: The definitions regarding any different events of default relating to the GMSLA.
     slots:
-    - partyElection
+      - partyElection
     slot_usage:
       partyElection:
         range: EventsOfDefaultElection
         description: The specified events of default elections for the respective parties signing the GMSLA.
     in_subset:
-    - cdm_legaldocumentation_master_isla
+      - cdm_legaldocumentation_master_isla
 
   Aggregation:
     description: The definitions for whether aggregation applies to the GMSLA, and if so how it applies.
     close_mappings:
-    - fpml_5_10:Aggregation
+      - fpml_5_10:Aggregation
     slots:
-    - aggregationType
-    - loansCanBeGrouped
-    - otherDetails
+      - aggregationType
+      - loansCanBeGrouped
+      - otherDetails
     in_subset:
-    - cdm_legaldocumentation_master_isla
+      - cdm_legaldocumentation_master_isla

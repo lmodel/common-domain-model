@@ -3,10 +3,10 @@ name: cdm_base_datetime
 description: 'Basic date and time concepts: relative date, date range, offset, business centre etc.'
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -16,72 +16,72 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_math
-- ./cdm_base_staticdata_codelist
+  - linkml:types
+  - ./cdm_base_math
+  - ./cdm_base_staticdata_codelist
 
 comments:
-- 'Rosetta func: TimeZoneFromBusinessCenterTime — Function to resolve a time passed as BusinessCenterTime into a TimeZone
-  time. | inputs(time: BusinessCenterTime (1..1)) | output(result: TimeZone (1..1))'
-- 'Rosetta func: ResolveAdjustableDate | inputs(adjustableOrRelativeDate: AdjustableOrRelativeDate (1..1)) | output(adjustedDate:
-  date (0..1))'
-- 'Rosetta func: ResolveAdjustableDates | inputs(adjustableRelativeOrPeriodicDates: AdjustableRelativeOrPeriodicDates (1..1))
-  | output(adjustedDates: date (0..*))'
-- 'Rosetta func: ToDateTime — Creates a ZonedDateTime from the provided Date, and defaults the time to 00:00:00 and timezone
-  to UTC. | inputs(date: date (0..1)) | output(zonedDateTime: zonedDateTime (0..1))'
-- 'Rosetta func: ToTime — Implemented by Java function. | inputs(hours: int (1..1), minutes: int (1..1), seconds: int (1..1))
-  | output(time: time (1..1))'
-- 'Rosetta func: ConvertToAdjustableOrRelativeDate — Utility function to convert from AdjustableOrAdjustedOrRelativeDate to
-  AdjustableOrRelativeDate | inputs(adjustableOrAdjustedOrRelativeDate: AdjustableOrAdjustedOrRelativeDate (0..1)) | output(adjustableOrRelativeDate:
-  AdjustableOrRelativeDate (0..1))'
-- 'Rosetta func: ConvertToAdjustableOrAdjustedOrRelativeDate — Utility function to convert from AdjustableOrAdjustedOrRelativeDate
-  to AdjustableOrAdjustedOrRelativeDate | inputs(adjustableOrRelativeDate: AdjustableOrRelativeDate (0..1)) | output(adjustableOrAdjustedOrRelativeDate:
-  AdjustableOrAdjustedOrRelativeDate (0..1))'
-- 'Rosetta func: Now — Current date time. | output(now: zonedDateTime (1..1))'
-- 'Rosetta func: Today — Current date. | output(today: date (1..1))'
-- 'Rosetta func: GetAllBusinessCenters — Returns a merged list of BusinessCenter codes for the supplied BusinessCenters. |
-  inputs(businessCenters: BusinessCenters (1..1)) | output(businessCenterCodes: BusinessCenter (0..*))'
-- 'Rosetta func: BusinessCenterHolidaysMultiple — Returns a merged list of holidays for the supplied business centers. | inputs(businessCenters:
-  BusinessCenter (0..*)) | output(holidayDates: date (0..*))'
-- 'Rosetta func: BusinessCenterHolidays | inputs(businessCenter: BusinessCenter (1..1)) | output(holidayDates: date (0..*))'
-- 'Rosetta func: DayOfWeek — Returns the day of week corresponding to the supplied date. | inputs(date: date (1..1)) | output(dayOfWeek:
-  DayOfWeekEnum (1..1))'
-- 'Rosetta func: AddDays — Adds the specified number of calendar days to the supplied date.  A negative number will generate
-  a date before the supplied date. | inputs(inputDate: date (1..1), numDays: int (1..1)) | output(resultDate: date (1..1))'
-- 'Rosetta func: DateDifference — Subtracts the two supplied dates to return the number of calendar days between them.  A
-  negative number implies first is after second. | inputs(firstDate: date (1..1), secondDate: date (1..1)) | output(difference:
-  int (1..1))'
-- 'Rosetta func: LeapYearDateDifference — Subtracts the two supplied dates to return the number of leap year calendar days
-  between them. A negative number implies firstDate is after secondDate. | inputs(firstDate: date (1..1), secondDate: date
-  (1..1)) | output(difference: int (1..1))'
-- 'Rosetta func: DateDifferenceYears — Computes the difference in years between two dates. A negative number implies firstDate
-  is after secondDate. | inputs(firstDate: date (1..1), secondDate: date (1..1)) | output(difference: number (1..1))'
-- 'Rosetta func: AppendDateToList — Add a date to a list of dates. | inputs(origDates: date (0..*), newDate: date (1..1))
-  | output(newList: date (0..*))'
-- 'Rosetta func: PopOffDateList — Remove last element from a list of dates. | inputs(dates: date (0..*)) | output(newList:
-  date (0..*))'
-- 'Rosetta func: IsWeekend — returns whether the supplied date is a weekend. This assumes a 5 day week with Saturday and Sunday
-  as holidays. A more sophisticated implementation might use the business centers to determine which days are weekends, but
-  most jurisdictions where derivatives are traded follow this convention. | inputs(date: date (1..1), businessCenters: BusinessCenter
-  (0..*)) | output(isWeekend: boolean (1..1))'
-- 'Rosetta func: IsHoliday — Returns whether a day is a holiday for the specified business centers | inputs(checkDate: date
-  (1..1), businessCenters: BusinessCenter (0..*)) | output(isHoliday: boolean (1..1))'
-- 'Rosetta func: IsBusinessDay — returns an indicator of whether the supplied date is a good business date given the supplied
-  business centers. True => good date, i.e. not a weekend or holiday. False means that it is either a weekend or a holiday
-  | inputs(date: date (1..1), businessCenters: BusinessCenter (0..*)) | output(isGoodBusinessDay: boolean (1..1))'
-- 'Rosetta func: AddBusinessDays — Returns a good business date that has been offset by the given number of business days
-  given the supplied business centers. A negative value implies an earlier date (before the supplied originalDate), and a
-  positive value a later date (after the supplied date). | inputs(originalDate: date (1..1), offsetBusinessDays: int (1..1),
-  businessCenters: BusinessCenter (0..*)) | output(shiftedDate: date (1..1))'
-- 'Rosetta func: GenerateDateList — Creates a list of good business days starting from the startDate and going to the end
-  date, inclusive, omitting any days that are weekends or holidays according to the supplied business centers. | inputs(startDate:
-  date (1..1), endDate: date (1..1), businessCenters: BusinessCenter (0..*)) | output(dateList: date (0..*))'
-- 'Rosetta func: AdjustableOrAdjustedOrRelativeDateResolution — Prioritization of unadjustedDate over adjustedDate. | inputs(adjustableDate:
-  AdjustableOrAdjustedOrRelativeDate (1..1)) | output(date: date (0..1))'
-- 'Rosetta func: AdjustableDateResolution — Prioritization of unadjustedDate over adjustedDate. | inputs(adjustableDate: AdjustableDate
-  (1..1)) | output(date: date (0..1))'
-- 'Rosetta func: AdjustableDatesResolution — Prioritization of unadjustedDate over adjustedDate. | inputs(adjustableDates:
-  AdjustableDates (1..1)) | output(date: date (0..*))'
+  - 'Rosetta func: TimeZoneFromBusinessCenterTime — Function to resolve a time passed as BusinessCenterTime into a TimeZone
+    time. | inputs(time: BusinessCenterTime (1..1)) | output(result: TimeZone (1..1))'
+  - 'Rosetta func: ResolveAdjustableDate | inputs(adjustableOrRelativeDate: AdjustableOrRelativeDate (1..1)) | output(adjustedDate:
+    date (0..1))'
+  - 'Rosetta func: ResolveAdjustableDates | inputs(adjustableRelativeOrPeriodicDates: AdjustableRelativeOrPeriodicDates (1..1))
+    | output(adjustedDates: date (0..*))'
+  - 'Rosetta func: ToDateTime — Creates a ZonedDateTime from the provided Date, and defaults the time to 00:00:00 and timezone
+    to UTC. | inputs(date: date (0..1)) | output(zonedDateTime: zonedDateTime (0..1))'
+  - 'Rosetta func: ToTime — Implemented by Java function. | inputs(hours: int (1..1), minutes: int (1..1), seconds: int (1..1))
+    | output(time: time (1..1))'
+  - 'Rosetta func: ConvertToAdjustableOrRelativeDate — Utility function to convert from AdjustableOrAdjustedOrRelativeDate
+    to AdjustableOrRelativeDate | inputs(adjustableOrAdjustedOrRelativeDate: AdjustableOrAdjustedOrRelativeDate (0..1)) |
+    output(adjustableOrRelativeDate: AdjustableOrRelativeDate (0..1))'
+  - 'Rosetta func: ConvertToAdjustableOrAdjustedOrRelativeDate — Utility function to convert from AdjustableOrAdjustedOrRelativeDate
+    to AdjustableOrAdjustedOrRelativeDate | inputs(adjustableOrRelativeDate: AdjustableOrRelativeDate (0..1)) | output(adjustableOrAdjustedOrRelativeDate:
+    AdjustableOrAdjustedOrRelativeDate (0..1))'
+  - 'Rosetta func: Now — Current date time. | output(now: zonedDateTime (1..1))'
+  - 'Rosetta func: Today — Current date. | output(today: date (1..1))'
+  - 'Rosetta func: GetAllBusinessCenters — Returns a merged list of BusinessCenter codes for the supplied BusinessCenters.
+    | inputs(businessCenters: BusinessCenters (1..1)) | output(businessCenterCodes: BusinessCenter (0..*))'
+  - 'Rosetta func: BusinessCenterHolidaysMultiple — Returns a merged list of holidays for the supplied business centers. |
+    inputs(businessCenters: BusinessCenter (0..*)) | output(holidayDates: date (0..*))'
+  - 'Rosetta func: BusinessCenterHolidays | inputs(businessCenter: BusinessCenter (1..1)) | output(holidayDates: date (0..*))'
+  - 'Rosetta func: DayOfWeek — Returns the day of week corresponding to the supplied date. | inputs(date: date (1..1)) | output(dayOfWeek:
+    DayOfWeekEnum (1..1))'
+  - 'Rosetta func: AddDays — Adds the specified number of calendar days to the supplied date.  A negative number will generate
+    a date before the supplied date. | inputs(inputDate: date (1..1), numDays: int (1..1)) | output(resultDate: date (1..1))'
+  - 'Rosetta func: DateDifference — Subtracts the two supplied dates to return the number of calendar days between them.  A
+    negative number implies first is after second. | inputs(firstDate: date (1..1), secondDate: date (1..1)) | output(difference:
+    int (1..1))'
+  - 'Rosetta func: LeapYearDateDifference — Subtracts the two supplied dates to return the number of leap year calendar days
+    between them. A negative number implies firstDate is after secondDate. | inputs(firstDate: date (1..1), secondDate: date
+    (1..1)) | output(difference: int (1..1))'
+  - 'Rosetta func: DateDifferenceYears — Computes the difference in years between two dates. A negative number implies firstDate
+    is after secondDate. | inputs(firstDate: date (1..1), secondDate: date (1..1)) | output(difference: number (1..1))'
+  - 'Rosetta func: AppendDateToList — Add a date to a list of dates. | inputs(origDates: date (0..*), newDate: date (1..1))
+    | output(newList: date (0..*))'
+  - 'Rosetta func: PopOffDateList — Remove last element from a list of dates. | inputs(dates: date (0..*)) | output(newList:
+    date (0..*))'
+  - 'Rosetta func: IsWeekend — returns whether the supplied date is a weekend. This assumes a 5 day week with Saturday and
+    Sunday as holidays. A more sophisticated implementation might use the business centers to determine which days are weekends,
+    but most jurisdictions where derivatives are traded follow this convention. | inputs(date: date (1..1), businessCenters:
+    BusinessCenter (0..*)) | output(isWeekend: boolean (1..1))'
+  - 'Rosetta func: IsHoliday — Returns whether a day is a holiday for the specified business centers | inputs(checkDate: date
+    (1..1), businessCenters: BusinessCenter (0..*)) | output(isHoliday: boolean (1..1))'
+  - 'Rosetta func: IsBusinessDay — returns an indicator of whether the supplied date is a good business date given the supplied
+    business centers. True => good date, i.e. not a weekend or holiday. False means that it is either a weekend or a holiday
+    | inputs(date: date (1..1), businessCenters: BusinessCenter (0..*)) | output(isGoodBusinessDay: boolean (1..1))'
+  - 'Rosetta func: AddBusinessDays — Returns a good business date that has been offset by the given number of business days
+    given the supplied business centers. A negative value implies an earlier date (before the supplied originalDate), and
+    a positive value a later date (after the supplied date). | inputs(originalDate: date (1..1), offsetBusinessDays: int (1..1),
+    businessCenters: BusinessCenter (0..*)) | output(shiftedDate: date (1..1))'
+  - 'Rosetta func: GenerateDateList — Creates a list of good business days starting from the startDate and going to the end
+    date, inclusive, omitting any days that are weekends or holidays according to the supplied business centers. | inputs(startDate:
+    date (1..1), endDate: date (1..1), businessCenters: BusinessCenter (0..*)) | output(dateList: date (0..*))'
+  - 'Rosetta func: AdjustableOrAdjustedOrRelativeDateResolution — Prioritization of unadjustedDate over adjustedDate. | inputs(adjustableDate:
+    AdjustableOrAdjustedOrRelativeDate (1..1)) | output(date: date (0..1))'
+  - 'Rosetta func: AdjustableDateResolution — Prioritization of unadjustedDate over adjustedDate. | inputs(adjustableDate:
+    AdjustableDate (1..1)) | output(date: date (0..1))'
+  - 'Rosetta func: AdjustableDatesResolution — Prioritization of unadjustedDate over adjustedDate. | inputs(adjustableDates:
+    AdjustableDates (1..1)) | output(date: date (0..*))'
 annotations:
   rosetta_functions: '[{"name":"TimeZoneFromBusinessCenterTime","description":"Function to resolve a time passed as BusinessCenterTime
     into a TimeZone time.","inputs":[{"name":"time","type":"BusinessCenterTime","cardinality":"1..1"}],"output":{"name":"result","type":"TimeZone","cardinality":"1..1"},"code_implementation":true},{"name":"ResolveAdjustableDate","inputs":[{"name":"adjustableOrRelativeDate","type":"AdjustableOrRelativeDate","cardinality":"1..1"}],"output":{"name":"adjustedDate","type":"date","cardinality":"0..1"},"code_implementation":true},{"name":"ResolveAdjustableDates","inputs":[{"name":"adjustableRelativeOrPeriodicDates","type":"AdjustableRelativeOrPeriodicDates","cardinality":"1..1"}],"output":{"name":"adjustedDates","type":"date","cardinality":"0..*"},"code_implementation":true},{"name":"ToDateTime","description":"Creates
@@ -126,7 +126,7 @@ enums:
     description: The enumerated values to specify the business centers.
     deprecated: Deprecated in CDM — use codelist type aliases instead
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/business-center
+      - http://www.fpml.org/coding-scheme/business-center
     permissible_values:
       AEAB:
         description: Abu Dhabi, Business Day (as defined in 2021 ISDA Definitions Section 2.1.10 (ii))
@@ -342,7 +342,7 @@ enums:
       EUR_ICESWAP:
         description: Publication dates for ICE Swap rates based on EUR-EURIBOR rates
         aliases:
-        - EUR-ICESWAP
+          - EUR-ICESWAP
       EUTA:
         description: TARGET Settlement Day
         meaning: http://www.fpml.org/coding-scheme/business-center-9-3#EUTA
@@ -361,7 +361,7 @@ enums:
       GBP_ICESWAP:
         description: Publication dates for GBP ICE Swap rates
         aliases:
-        - GBP-ICESWAP
+          - GBP-ICESWAP
       GETB:
         description: Tbilisi, Georgia
         meaning: http://www.fpml.org/coding-scheme/business-center-9-3#GETB
@@ -413,11 +413,11 @@ enums:
       ILS_SHIR:
         description: Publication dates of the ILS-SHIR index.
         aliases:
-        - ILS-SHIR
+          - ILS-SHIR
       ILS_TELBOR:
         description: Publication dates of the ILS-TELBOR index.
         aliases:
-        - ILS-TELBOR
+          - ILS-TELBOR
       ILTA:
         description: Tel Aviv, Israel
         meaning: http://www.fpml.org/coding-scheme/business-center-9-3#ILTA
@@ -695,11 +695,11 @@ enums:
       USD_ICESWAP:
         description: Publication dates for ICE Swap rates based on USD-LIBOR rates
         aliases:
-        - USD-ICESWAP
+          - USD-ICESWAP
       USD_MUNI:
         description: Publication dates for the USD-Municipal Swap Index
         aliases:
-        - USD-MUNI
+          - USD-MUNI
       USDN:
         description: Denver, United States
         meaning: http://www.fpml.org/coding-scheme/business-center-9-3#USDN
@@ -776,7 +776,7 @@ enums:
 
   CommodityBusinessCalendarEnum:
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/commodity-business-calendar
+      - http://www.fpml.org/coding-scheme/commodity-business-calendar
     permissible_values:
       ADSM:
         description: Abu Dhabi Securities Exchange https://www.adx.ae/
@@ -784,7 +784,7 @@ enums:
       AGRUS_FMB:
         description: Argus Media Fertilizer Reports. http://www.argusmedia.com/Fertilizer
         aliases:
-        - AGRUS-FMB
+          - AGRUS-FMB
       APPI:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
@@ -793,31 +793,31 @@ enums:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - ARGUS-CRUDE
+          - ARGUS-CRUDE
       ARGUS_EUROPEAN_GAS:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - ARGUS-EUROPEAN-GAS
+          - ARGUS-EUROPEAN-GAS
       ARGUS_EUROPEAN_PRODUCTS:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - ARGUS-EUROPEAN-PRODUCTS
+          - ARGUS-EUROPEAN-PRODUCTS
       ARGUS_INTERNATIONAL_LPG:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - ARGUS-INTERNATIONAL-LPG
+          - ARGUS-INTERNATIONAL-LPG
       ARGUS_MCCLOSKEYS_COAL_REPORT:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - ARGUS-MCCLOSKEYS-COAL-REPORT
+          - ARGUS-MCCLOSKEYS-COAL-REPORT
       ARGUS_US_PRODUCTS:
         description: The Argus US Products report. http://www.argusmedia.com/Petroleum/Petroleum-Products/Argus-US-Products
         aliases:
-        - ARGUS-US-PRODUCTS
+          - ARGUS-US-PRODUCTS
       ASX:
         description: Australian Securities Exchange http://www.asx.com.au/
         meaning: http://www.fpml.org/coding-scheme/commodity-business-calendar-3-6#ASX
@@ -831,11 +831,11 @@ enums:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - BALTIC-EXCHANGE
+          - BALTIC-EXCHANGE
       BANK_NEGARA_MALAYSIA_POLICY_COMMITTEE:
         description: The business calendar of the Bank Negara Malaysia Policy Committee.
         aliases:
-        - BANK-NEGARA-MALAYSIA-POLICY-COMMITTEE
+          - BANK-NEGARA-MALAYSIA-POLICY-COMMITTEE
       BELPEX:
         description: The business calendar for the Belpex power exchange (www.belpex.be).
         meaning: http://www.fpml.org/coding-scheme/commodity-business-calendar-3-6#BELPEX
@@ -846,53 +846,53 @@ enums:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - BM&F
+          - BM&F
       BURSA_MALAYSIA_SETTLEMENT:
         description: The settlement business calendar for Bursa Malaysia.
         aliases:
-        - BURSA-MALAYSIA-SETTLEMENT
+          - BURSA-MALAYSIA-SETTLEMENT
       BURSA_MALAYSIA_TRADING:
         description: The trading business calendar for Bursa Malaysia.
         aliases:
-        - BURSA-MALAYSIA-TRADING
+          - BURSA-MALAYSIA-TRADING
       CANADIAN_GAS_PRICE_REPORTER:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - CANADIAN-GAS-PRICE-REPORTER
+          - CANADIAN-GAS-PRICE-REPORTER
       CBOT_SOFT:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - CBOT-SOFT
+          - CBOT-SOFT
       CMAI_AROMATICS_MARKET_REPORT:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - CMAI-AROMATICS-MARKET-REPORT
+          - CMAI-AROMATICS-MARKET-REPORT
       CMAI_GLOBAL_PLASTICS_AND_POLYMERS_MARKET_REPORT:
         description: CMAI Global Plastics and Polymers Market Report. http://www.ihs.com/products/chemical/index.aspx?pu=1&rd=cmai
         aliases:
-        - CMAI-GLOBAL-PLASTICS-AND-POLYMERS-MARKET-REPORT
+          - CMAI-GLOBAL-PLASTICS-AND-POLYMERS-MARKET-REPORT
       CMAI_METHANOL_MARKET_REPORT:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - CMAI-METHANOL-MARKET-REPORT
+          - CMAI-METHANOL-MARKET-REPORT
       CMAI_MONOMERS_MARKET_REPORT:
         description: CMAI Monomers Market Report. http://www.ihs.com/products/chemical/index.aspx?pu=1&rd=cmai
         aliases:
-        - CMAI-MONOMERS-MARKET-REPORT
+          - CMAI-MONOMERS-MARKET-REPORT
       CME_DAIRY:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - CME-DAIRY
+          - CME-DAIRY
       CME_NON_DAIRY_SOFT:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - CME-NON-DAIRY-SOFT
+          - CME-NON-DAIRY-SOFT
       COMEX:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
@@ -905,28 +905,28 @@ enums:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - CRU-LONG
+          - CRU-LONG
       DEPARTMENT_OF_ENERGY:
         description: The business calendar for statistical publications by the by the United States Department of Energy (DOE).
         aliases:
-        - DEPARTMENT-OF-ENERGY
+          - DEPARTMENT-OF-ENERGY
       DEWITT_BENZENE_DERIVATIVES:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - DEWITT-BENZENE-DERIVATIVES
+          - DEWITT-BENZENE-DERIVATIVES
       DME:
         description: Dubai Mercantile Exchange. http://www.dubaimerc.com/
         meaning: http://www.fpml.org/coding-scheme/commodity-business-calendar-3-6#DME
       DOW_JONES:
         description: Dow Jones US Calendar. http://www.dowjones.com/
         aliases:
-        - DOW-JONES
+          - DOW-JONES
       DOW_JONES_ENERGY_SERVICE:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - DOW-JONES-ENERGY-SERVICE
+          - DOW-JONES-ENERGY-SERVICE
       DowJonesPower:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
@@ -934,40 +934,40 @@ enums:
       EEX_COAL:
         description: European Energy Exchange-Coal
         aliases:
-        - EEX-COAL
+          - EEX-COAL
       EEX_EMISSIONS:
         description: European Energy Exchange-Emissions Rights
         aliases:
-        - EEX-EMISSIONS
+          - EEX-EMISSIONS
       EEX_GAS:
         description: European Energy Exchange-Gas
         aliases:
-        - EEX-GAS
+          - EEX-GAS
       EEX_POWER:
         description: European Energy Exchange-Power
         aliases:
-        - EEX-POWER
+          - EEX-POWER
       EURONEX_MATIF:
         description: TBD.
         aliases:
-        - EURONEX-MATIF
+          - EURONEX-MATIF
       FERTECON:
         description: FERTECON Limited Information Services. http://fertecon.com/current_information_services.asp
         meaning: http://www.fpml.org/coding-scheme/commodity-business-calendar-3-6#FERTECON
       FERTILIZER_WEEK:
         description: Fertilizer Week. http://www.crugroup.com/market-analysis/products/fertilizerweek
         aliases:
-        - FERTILIZER-WEEK
+          - FERTILIZER-WEEK
       GAS_DAILY:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - GAS-DAILY
+          - GAS-DAILY
       GAS_DAILY_PRICE_GUIDE:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - GAS-DAILY-PRICE-GUIDE
+          - GAS-DAILY-PRICE-GUIDE
       GLOBALCOAL:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
@@ -976,62 +976,62 @@ enums:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - HEREN-REPORT
+          - HEREN-REPORT
       ICE_10X_DAILY:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - ICE/10X-DAILY
+          - ICE/10X-DAILY
       ICE_10X_MONTHLY:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - ICE/10X-MONTHLY
+          - ICE/10X-MONTHLY
       ICE_CANADA:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - ICE-CANADA
+          - ICE-CANADA
       ICE_ECX:
         description: European Climate Exchange.
         aliases:
-        - ICE-ECX
+          - ICE-ECX
       ICE_GAS:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - ICE-GAS
+          - ICE-GAS
       ICE_OIL:
         description: The business calendar oil and refined product contracts on ICE Futures Europe.
         aliases:
-        - ICE-OIL
+          - ICE-OIL
       ICE_US_AGRICULTURAL:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - ICE-US-AGRICULTURAL
+          - ICE-US-AGRICULTURAL
       ICIS_PRICING_BENZENE__EUROPE_:
         description: The business calendar for publication of ICIS Benzene (Europe) data.
         aliases:
-        - ICIS-PRICING-BENZENE-(EUROPE)
+          - ICIS-PRICING-BENZENE-(EUROPE)
       ICIS_PRICING_ETHYLENE__EUROPE_:
         description: The business calendar for publication of ICIS Ethylene (Europe) data.
         aliases:
-        - ICIS-PRICING-ETHYLENE-(EUROPE)
+          - ICIS-PRICING-ETHYLENE-(EUROPE)
       ICIS_PRICING_POLYPROPYLENE__EUROPE_:
         description: The business calendar for publication of ICIS Polyproylene (Europe) data.
         aliases:
-        - ICIS-PRICING-POLYPROPYLENE-(EUROPE)
+          - ICIS-PRICING-POLYPROPYLENE-(EUROPE)
       INSIDE_FERC:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - INSIDE-FERC
+          - INSIDE-FERC
       JAPAN_MOF_TSRR:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - JAPAN-MOF-TSRR
+          - JAPAN-MOF-TSRR
       KCBOT:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
@@ -1039,16 +1039,16 @@ enums:
       KUALA_LUMPUR_BANK:
         description: The banking business calendar in Kuala Lumpur.
         aliases:
-        - KUALA-LUMPUR-BANK
+          - KUALA-LUMPUR-BANK
       LABUAN_BANK:
         description: The business calendar for the Labuan Bank (Malaysia).
         aliases:
-        - LABUAN-BANK
+          - LABUAN-BANK
       LIFFE_LONDON_SOFT:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - LIFFE-LONDON-SOFT
+          - LIFFE-LONDON-SOFT
       LME:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
@@ -1057,17 +1057,17 @@ enums:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - LONDON-BULLION-MARKET
+          - LONDON-BULLION-MARKET
       LONDON_BULLION_MARKET_GOLD_A_M_ONLY:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - LONDON-BULLION-MARKET-GOLD-A.M-ONLY
+          - LONDON-BULLION-MARKET-GOLD-A.M-ONLY
       LONDON_PLATINUM_PALLADIUM_MARKET:
         description: The London Platinum and Palladium Market in London on which members quote prices for the buying and selling
           of Platinum and Palladium.
         aliases:
-        - LONDON-PLATINUM-PALLADIUM-MARKET
+          - LONDON-PLATINUM-PALLADIUM-MARKET
       MGEX:
         description: Minneapolis Grain Exchange http://www.mgex.com/
         meaning: http://www.fpml.org/coding-scheme/commodity-business-calendar-3-6#MGEX
@@ -1077,12 +1077,12 @@ enums:
       NASDAQ_OMX:
         description: NASDAQ-OMX (Formerly known as Nordpool). http://www.nasdaqomx.com/commodities
         aliases:
-        - NASDAQ-OMX
+          - NASDAQ-OMX
       NATURAL_GAS_WEEK:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - NATURAL-GAS-WEEK
+          - NATURAL-GAS-WEEK
       NERC:
         description: Per 2005 ISDA Commodity Definitions, Article XIV.
         meaning: http://www.fpml.org/coding-scheme/commodity-business-calendar-3-6#NERC
@@ -1097,52 +1097,52 @@ enums:
       NUCLEAR_MARKET_REVIEW:
         description: The Nuclear Market Review report as published by Trade tech. http://www.uranium.info/nuclear_market_review.php
         aliases:
-        - NUCLEAR-MARKET-REVIEW
+          - NUCLEAR-MARKET-REVIEW
       NYMEX_ELECTRICITY:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - NYMEX-ELECTRICITY
+          - NYMEX-ELECTRICITY
       NYMEX_GAS:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - NYMEX-GAS
+          - NYMEX-GAS
       NYMEX_NATURAL_GAS:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - NYMEX-NATURAL-GAS
+          - NYMEX-NATURAL-GAS
       NYMEX_OIL:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - NYMEX-OIL
+          - NYMEX-OIL
       OFFICIAL_BOARD_MARKETS:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - OFFICIAL-BOARD-MARKETS
+          - OFFICIAL-BOARD-MARKETS
       OPIS_LP_GAS:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - OPIS-LP-GAS
+          - OPIS-LP-GAS
       OPIS_PROPANE:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - OPIS-PROPANE
+          - OPIS-PROPANE
       PAPER_PACKAGING_MONITOR:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PAPER-PACKAGING-MONITOR
+          - PAPER-PACKAGING-MONITOR
       PAPER_TRADER:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PAPER-TRADER
+          - PAPER-TRADER
       PERTAMINA:
         description: Pertamina-Indonesia. http://www.pertamina.com/
         meaning: http://www.fpml.org/coding-scheme/commodity-business-calendar-3-6#PERTAMINA
@@ -1153,94 +1153,94 @@ enums:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PIX-PULP-BENCHMARK-INDICES
+          - PIX-PULP-BENCHMARK-INDICES
       PLATTS_APAG_MARKETSCAN:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PLATTS-APAG-MARKETSCAN
+          - PLATTS-APAG-MARKETSCAN
       PLATTS_BUNKERWIRE:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PLATTS-BUNKERWIRE
+          - PLATTS-BUNKERWIRE
       PLATTS_CLEAN_TANKERWIRE:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PLATTS-CLEAN-TANKERWIRE
+          - PLATTS-CLEAN-TANKERWIRE
       PLATTS_CRUDE_OIL_MARKETWIRE:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PLATTS-CRUDE-OIL-MARKETWIRE
+          - PLATTS-CRUDE-OIL-MARKETWIRE
       PLATTS_DIRTY_TANKERWIRE:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PLATTS-DIRTY-TANKERWIRE
+          - PLATTS-DIRTY-TANKERWIRE
       PLATTS_EUROPEAN_GAS:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PLATTS-EUROPEAN-GAS
+          - PLATTS-EUROPEAN-GAS
       PLATTS_EUROPEAN_MARKETSCAN:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PLATTS-EUROPEAN-MARKETSCAN
+          - PLATTS-EUROPEAN-MARKETSCAN
       PLATTS_METALS_ALERT:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PLATTS-METALS-ALERT
+          - PLATTS-METALS-ALERT
       PLATTS_OILGRAM:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PLATTS-OILGRAM
+          - PLATTS-OILGRAM
       PLATTS_TSI_IRON_ORE:
         description: The Steel Index Iron Ore Service. http://www.thesteelindex.com/en/iron-ore
         aliases:
-        - PLATTS-TSI-IRON-ORE
+          - PLATTS-TSI-IRON-ORE
       PLATTS_TSI_SCRAP:
         description: The Steel Index Scrap Reference Prices. http://www.thesteelindex.com/en/scrapprices
         aliases:
-        - PLATTS-TSI-SCRAP
+          - PLATTS-TSI-SCRAP
       PLATTS_TSI_STEEL:
         description: The Steel Index. http://www.thesteelindex.com/en/price-specifications
         aliases:
-        - PLATTS-TSI-STEEL
+          - PLATTS-TSI-STEEL
       PLATTS_US_MARKETSCAN:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PLATTS-US-MARKETSCAN
+          - PLATTS-US-MARKETSCAN
       PULP_AND_PAPER_INTERNATIONAL:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PULP-AND-PAPER-INTERNATIONAL
+          - PULP-AND-PAPER-INTERNATIONAL
       PULP_AND_PAPER_WEEK:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - PULP-AND-PAPER-WEEK
+          - PULP-AND-PAPER-WEEK
       RIM_PRODUCTS_INTELLIGENCE_DAILY:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - RIM-PRODUCTS-INTELLIGENCE-DAILY
+          - RIM-PRODUCTS-INTELLIGENCE-DAILY
       SAFEX_SOFT:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - SAFEX-SOFT
+          - SAFEX-SOFT
       SFE_SOFT:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - SFE-SOFT
+          - SFE-SOFT
       SGX:
         description: Singapore Exchange. www.sgx.com
         meaning: http://www.fpml.org/coding-scheme/commodity-business-calendar-3-6#SGX
@@ -1251,12 +1251,12 @@ enums:
       SP_GSCI:
         description: Standard and Poor's GSCI. http://us.spindices.com/index-family/commodities/sp-gsci
         aliases:
-        - SP-GSCI
+          - SP-GSCI
       STATISTICHES_BUNDESAMT:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - STATISTICHES-BUNDESAMT
+          - STATISTICHES-BUNDESAMT
       TGE:
         description: Tokyo Grain Exchange. www.tge.or.jp
         meaning: http://www.fpml.org/coding-scheme/commodity-business-calendar-3-6#TGE
@@ -1264,26 +1264,26 @@ enums:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - TOCOM-OIL
+          - TOCOM-OIL
       TOCOM_PRECIOUS:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - TOCOM-PRECIOUS
+          - TOCOM-PRECIOUS
       TOCOM_SOFT:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - TOCOM-SOFT
+          - TOCOM-SOFT
       UX_WEEKLY:
         description: The Ux Consulting Company. http://www.uxc.com/products/uxw_overview.aspx
         aliases:
-        - UX-WEEKLY
+          - UX-WEEKLY
       WORLD_PULP_MONTHLY:
         description: Per 2005 ISDA Commodity Definitions, Section 7.2 Certain Definitions Relating To Commodity Reference
           Prices.
         aliases:
-        - WORLD-PULP-MONTHLY
+          - WORLD-PULP-MONTHLY
 
   BusinessDayConventionEnum:
     description: The enumerated values to specify the convention for adjusting any relevant date if it would otherwise fall
@@ -1447,123 +1447,123 @@ enums:
       _1:
         description: Rolls on the 1st day of the month.
         aliases:
-        - '1'
+          - '1'
       _2:
         description: Rolls on the 2nd day of the month.
         aliases:
-        - '2'
+          - '2'
       _3:
         description: Rolls on the 3rd day of the month.
         aliases:
-        - '3'
+          - '3'
       _4:
         description: Rolls on the 4th day of the month.
         aliases:
-        - '4'
+          - '4'
       _5:
         description: Rolls on the 5th day of the month.
         aliases:
-        - '5'
+          - '5'
       _6:
         description: Rolls on the 6th day of the month.
         aliases:
-        - '6'
+          - '6'
       _7:
         description: Rolls on the 7th day of the month.
         aliases:
-        - '7'
+          - '7'
       _8:
         description: Rolls on the 8th day of the month.
         aliases:
-        - '8'
+          - '8'
       _9:
         description: Rolls on the 9th day of the month.
         aliases:
-        - '9'
+          - '9'
       _10:
         description: Rolls on the 10th day of the month.
         aliases:
-        - '10'
+          - '10'
       _11:
         description: Rolls on the 11th day of the month.
         aliases:
-        - '11'
+          - '11'
       _12:
         description: Rolls on the 12th day of the month.
         aliases:
-        - '12'
+          - '12'
       _13:
         description: Rolls on the 13th day of the month.
         aliases:
-        - '13'
+          - '13'
       _14:
         description: Rolls on the 14th day of the month.
         aliases:
-        - '14'
+          - '14'
       _15:
         description: Rolls on the 15th day of the month.
         aliases:
-        - '15'
+          - '15'
       _16:
         description: Rolls on the 16th day of the month.
         aliases:
-        - '16'
+          - '16'
       _17:
         description: Rolls on the 17th day of the month.
         aliases:
-        - '17'
+          - '17'
       _18:
         description: Rolls on the 18th day of the month.
         aliases:
-        - '18'
+          - '18'
       _19:
         description: Rolls on the 19th day of the month.
         aliases:
-        - '19'
+          - '19'
       _20:
         description: Rolls on the 20th day of the month.
         aliases:
-        - '20'
+          - '20'
       _21:
         description: Rolls on the 21st day of the month.
         aliases:
-        - '21'
+          - '21'
       _22:
         description: Rolls on the 22nd day of the month.
         aliases:
-        - '22'
+          - '22'
       _23:
         description: Rolls on the 23rd day of the month.
         aliases:
-        - '23'
+          - '23'
       _24:
         description: Rolls on the 24th day of the month.
         aliases:
-        - '24'
+          - '24'
       _25:
         description: Rolls on the 25th day of the month.
         aliases:
-        - '25'
+          - '25'
       _26:
         description: Rolls on the 26th day of the month.
         aliases:
-        - '26'
+          - '26'
       _27:
         description: Rolls on the 27th day of the month.
         aliases:
-        - '27'
+          - '27'
       _28:
         description: Rolls on the 28th day of the month.
         aliases:
-        - '28'
+          - '28'
       _29:
         description: Rolls on the 29th day of the month.
         aliases:
-        - '29'
+          - '29'
       _30:
         description: Rolls on the 30th day of the month.
         aliases:
-        - '30'
+          - '30'
       MON:
         description: Rolling weekly on a Monday.
       TUE:
@@ -1604,14 +1604,14 @@ slots:
       as part of the CDM in order to support the FRA representation, which effective and termination dates are specified in
       FpML as adjusted dates.
     close_mappings:
-    - fpml_5_10:AdjustableDate.unadjustedDate
+      - fpml_5_10:AdjustableDate.unadjustedDate
 
   dateAdjustments:
     range: BusinessDayAdjustments
     description: The business day convention and financial business centers used for adjusting the date if it would otherwise
       fall on a day that is not a business date in the specified business centers.
     close_mappings:
-    - fpml_5_10:AdjustableDate.dateAdjustments
+      - fpml_5_10:AdjustableDate.dateAdjustments
 
   dateAdjustmentsReference:
     range: BusinessDayAdjustments
@@ -1619,40 +1619,40 @@ slots:
     annotations:
       metadata_reference: true
     close_mappings:
-    - fpml_5_10:AdjustableDate.dateAdjustmentsReference
+      - fpml_5_10:AdjustableDate.dateAdjustmentsReference
 
   adjustedDate:
     range: date
     description: The date once the adjustment has been performed. (Note that this date may change if the business center holidays
       change).
     close_mappings:
-    - fpml_5_10:AdjustableDate.adjustedDate
+      - fpml_5_10:AdjustableDate.adjustedDate
 
   relativeDate:
     range: RelativeDateOffset
     description: A date specified as some offset to another date (the anchor date).
     close_mappings:
-    - fpml_5_10:AdjustableOrAdjustedOrRelativeDate.relativeDate
+      - fpml_5_10:AdjustableOrAdjustedOrRelativeDate.relativeDate
 
   adjustableDate:
     range: AdjustableDate
     description: A date that shall be subject to adjustment if it would otherwise fall on a day that is not a business day
       in the specified business centers, together with the convention for adjusting the date.
     close_mappings:
-    - fpml_5_10:AdjustableOrRelativeDate.adjustableDate
+      - fpml_5_10:AdjustableOrRelativeDate.adjustableDate
 
   adjustableDates:
     range: AdjustableDates
     description: A series of dates that shall be subject to adjustment if they would otherwise fall on a day that is not a
       business day in the specified business centers, together with the convention for adjusting the date.
     close_mappings:
-    - fpml_5_10:AdjustableOrRelativeDates.adjustableDates
+      - fpml_5_10:AdjustableOrRelativeDates.adjustableDates
 
   relativeDates:
     range: RelativeDates
     description: A series of dates specified as some offset to another series of dates (the anchor dates).
     close_mappings:
-    - fpml_5_10:AdjustableOrRelativeDates.relativeDates
+      - fpml_5_10:AdjustableOrRelativeDates.relativeDates
 
   relativeDateAdjustments:
     range: BusinessDayAdjustments
@@ -1668,7 +1668,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:BusinessCenters.businessCenter
+      - fpml_5_10:BusinessCenters.businessCenter
 
   commodityBusinessCalendar:
     range: CommodityBusinessCalendarEnum
@@ -1676,7 +1676,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:BusinessCenters.commodityBusinessCalendar
+      - fpml_5_10:BusinessCenters.commodityBusinessCalendar
 
   businessCentersReference:
     range: BusinessCenters
@@ -1684,7 +1684,7 @@ slots:
     annotations:
       metadata_reference: true
     close_mappings:
-    - fpml_5_10:BusinessCenters.businessCentersReference
+      - fpml_5_10:BusinessCenters.businessCentersReference
 
   hourMinuteTime:
     range: time
@@ -1692,7 +1692,7 @@ slots:
       as 11:00:00.
     required: true
     close_mappings:
-    - fpml_5_10:BusinessCenterTime.hourMinuteTime
+      - fpml_5_10:BusinessCenterTime.hourMinuteTime
 
   businessDayConvention:
     range: BusinessDayConventionEnum
@@ -1700,14 +1700,14 @@ slots:
       by an ISDA convention (e.g. Following, Precedent).
     required: true
     close_mappings:
-    - fpml_5_10:BusinessDateRange.businessDayConvention
+      - fpml_5_10:BusinessDateRange.businessDayConvention
 
   businessCenters:
     range: BusinessCenters
     description: The business center(s), specified either explicitly or by reference to those specified somewhere else in
       the instance document.
     close_mappings:
-    - fpml_5_10:BusinessDateRange.businessCenters
+      - fpml_5_10:BusinessDateRange.businessCenters
 
   startDate:
     range: date
@@ -1842,13 +1842,13 @@ slots:
       roll date convention.
     required: true
     close_mappings:
-    - fpml_5_10:AveragingSchedule.averagingPeriodFrequency
+      - fpml_5_10:AveragingSchedule.averagingPeriodFrequency
 
   periodicDates:
     range: PeriodicDates
     description: A calculation period schedule.
     close_mappings:
-    - fpml_5_10:AdjustableRelativeOrPeriodicDates.periodicDates
+      - fpml_5_10:AdjustableRelativeOrPeriodicDates.periodicDates
 
   periodFrequency:
     range: CalculationPeriodFrequency
@@ -1868,7 +1868,7 @@ slots:
       month. It is used in conjunction with a frequency and the regular period start date of a calculation period.
     required: true
     close_mappings:
-    - fpml_5_10:CalculationPeriodFrequency.rollConvention
+      - fpml_5_10:CalculationPeriodFrequency.rollConvention
 
   balanceOfFirstPeriod:
     range: boolean
@@ -1878,45 +1878,45 @@ slots:
       whole period, e.g. Jan 15 to Feb 14 if the calculation periods are one month long and Effective Date is Jan 15. Mostly
       used in Commmodity Swaps.
     close_mappings:
-    - fpml_5_10:CalculationPeriodFrequency.balanceOfFirstPeriod
+      - fpml_5_10:CalculationPeriodFrequency.balanceOfFirstPeriod
 
   monthOfYear:
     range: decimal
     description: Specifies the month of the year if used.
     close_mappings:
-    - fpml_5_10:CalculationFrequency.monthOfYear
+      - fpml_5_10:CalculationFrequency.monthOfYear
 
   dayOfMonth:
     range: decimal
     description: Specifies the day of the month if used.
     close_mappings:
-    - fpml_5_10:CalculationFrequency.dayOfMonth
+      - fpml_5_10:CalculationFrequency.dayOfMonth
 
   dayOfWeek:
     range: DayOfWeekEnum
     description: Specifies the day of the week if used.
     close_mappings:
-    - fpml_5_10:CalculationFrequency.dayOfWeek
+      - fpml_5_10:CalculationFrequency.dayOfWeek
 
   weekOfMonth:
     range: decimal
     description: Specifies the week of the month if used.
     close_mappings:
-    - fpml_5_10:CalculationFrequency.weekOfMonth
+      - fpml_5_10:CalculationFrequency.weekOfMonth
 
   offsetDays:
     range: decimal
     description: Specifies how many days from the trigger event should the payment occur.
     required: true
     close_mappings:
-    - fpml_5_10:CalculationFrequency.offsetDays
+      - fpml_5_10:CalculationFrequency.offsetDays
 
   dateLocation:
     range: BusinessCenterTime
     description: Specifies where is the time measured.
     required: true
     close_mappings:
-    - fpml_5_10:CalculationFrequency.dateLocation
+      - fpml_5_10:CalculationFrequency.dateLocation
 
 classes:
   AdjustableDate:
@@ -1926,28 +1926,28 @@ classes:
       metadata_key: true
       rosetta_functions: '[{"name":"AdjustableDateResolution","description":"Prioritization of unadjustedDate over adjustedDate.","inputs":[{"name":"adjustableDate","type":"AdjustableDate","cardinality":"1..1"}],"output":{"name":"date","type":"date","cardinality":"0..1"}}]'
     close_mappings:
-    - fpml_5_10:AdjustableDate
+      - fpml_5_10:AdjustableDate
     rules:
-    - description: Choice rule to represent an FpML choice construct.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            dateAdjustments:
-              required: true
-        - slot_conditions:
-            dateAdjustmentsReference:
-              required: true
-      preconditions: {}
+      - description: Choice rule to represent an FpML choice construct.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                dateAdjustments:
+                  required: true
+            - slot_conditions:
+                dateAdjustmentsReference:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AdjustableDateChoice — optional choice dateAdjustments, dateAdjustmentsReference'
-    - 'Rosetta func: AdjustableDateResolution — Prioritization of unadjustedDate over adjustedDate.'
+      - 'Rosetta condition: AdjustableDateChoice — optional choice dateAdjustments, dateAdjustmentsReference'
+      - 'Rosetta func: AdjustableDateResolution — Prioritization of unadjustedDate over adjustedDate.'
     slots:
-    - unadjustedDate
-    - dateAdjustments
-    - dateAdjustmentsReference
-    - adjustedDate
+      - unadjustedDate
+      - dateAdjustments
+      - dateAdjustmentsReference
+      - adjustedDate
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   AdjustableDates:
     description: A class for defining a series of dates that shall be subject to adjustment if they would otherwise fall on
@@ -1956,27 +1956,27 @@ classes:
       metadata_key: true
       rosetta_functions: '[{"name":"AdjustableDatesResolution","description":"Prioritization of unadjustedDate over adjustedDate.","inputs":[{"name":"adjustableDates","type":"AdjustableDates","cardinality":"1..1"}],"output":{"name":"date","type":"date","cardinality":"0..*"}}]'
     close_mappings:
-    - fpml_5_10:AdjustableDates
+      - fpml_5_10:AdjustableDates
     rules:
-    - description: FpML specifies a choice between adjustedDate and [unadjustedDate (required), dateAdjutsments (required),
-        adjustedDate (optional)].
-      preconditions:
-        slot_conditions:
-          adjustedDate:
-            required: false
-      postconditions:
-        slot_conditions:
-          unadjustedDate:
-            required: true
-          dateAdjustments:
-            required: true
+      - description: FpML specifies a choice between adjustedDate and [unadjustedDate (required), dateAdjutsments (required),
+          adjustedDate (optional)].
+        preconditions:
+          slot_conditions:
+            adjustedDate:
+              required: false
+        postconditions:
+          slot_conditions:
+            unadjustedDate:
+              required: true
+            dateAdjustments:
+              required: true
     comments:
-    - 'Rosetta condition: AdjustedDate — if adjustedDate is absent then unadjustedDate exists and dateAdjustments exists'
-    - 'Rosetta func: AdjustableDatesResolution — Prioritization of unadjustedDate over adjustedDate.'
+      - 'Rosetta condition: AdjustedDate — if adjustedDate is absent then unadjustedDate exists and dateAdjustments exists'
+      - 'Rosetta func: AdjustableDatesResolution — Prioritization of unadjustedDate over adjustedDate.'
     slots:
-    - unadjustedDate
-    - dateAdjustments
-    - adjustedDate
+      - unadjustedDate
+      - dateAdjustments
+      - adjustedDate
     slot_usage:
       unadjustedDate:
         description: A date subject to adjustment.
@@ -1986,7 +1986,7 @@ classes:
           holidays change).
         multivalued: true
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   AdjustableOrAdjustedDate:
     description: A class for defining a date that shall be subject to adjustment if it would otherwise fall on a day that
@@ -1994,83 +1994,83 @@ classes:
     annotations:
       metadata_key: true
     close_mappings:
-    - fpml_5_10:AdjustableOrAdjustedDate
+      - fpml_5_10:AdjustableOrAdjustedDate
     rules:
-    - description: FpML specifies a choice between adjustedDate and [unadjustedDate (required), dateAdjutsments (required),
-        adjustedDate (optional)].
-      preconditions:
-        slot_conditions:
-          adjustedDate:
-            required: false
-      postconditions:
-        slot_conditions:
-          unadjustedDate:
-            required: true
-          dateAdjustments:
-            required: true
+      - description: FpML specifies a choice between adjustedDate and [unadjustedDate (required), dateAdjutsments (required),
+          adjustedDate (optional)].
+        preconditions:
+          slot_conditions:
+            adjustedDate:
+              required: false
+        postconditions:
+          slot_conditions:
+            unadjustedDate:
+              required: true
+            dateAdjustments:
+              required: true
     comments:
-    - 'Rosetta condition: AdjustedDate — if adjustedDate is absent then unadjustedDate exists and dateAdjustments exists'
+      - 'Rosetta condition: AdjustedDate — if adjustedDate is absent then unadjustedDate exists and dateAdjustments exists'
     slots:
-    - unadjustedDate
-    - dateAdjustments
-    - adjustedDate
+      - unadjustedDate
+      - dateAdjustments
+      - adjustedDate
     slot_usage:
       unadjustedDate:
         description: A date subject to adjustment.
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   AdjustableOrAdjustedOrRelativeDate:
     description: This Rosetta class specifies the date as either an unadjusted, adjusted or relative date. It supplements
       the features of the AdjustableOrAdjustedDate to support the credit default swap option premium, which uses the relative
       date construct.
     close_mappings:
-    - fpml_5_10:AdjustableOrAdjustedOrRelativeDate
+      - fpml_5_10:AdjustableOrAdjustedOrRelativeDate
     rules:
-    - description: This data rule extends the data rule AdjustableOrAdjustedDate_adjustedDate by specifying logic applicable
-        to the relative date.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            adjustedDate:
-              required: true
-        - slot_conditions:
-            relativeDate:
-              required: true
-        - slot_conditions:
-            unadjustedDate:
-              required: true
-        - slot_conditions:
-            unadjustedDate:
-              required: true
-            dateAdjustments:
-              required: true
-            adjustedDate:
-              required: false
-      preconditions: {}
+      - description: This data rule extends the data rule AdjustableOrAdjustedDate_adjustedDate by specifying logic applicable
+          to the relative date.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                adjustedDate:
+                  required: true
+            - slot_conditions:
+                relativeDate:
+                  required: true
+            - slot_conditions:
+                unadjustedDate:
+                  required: true
+            - slot_conditions:
+                unadjustedDate:
+                  required: true
+                dateAdjustments:
+                  required: true
+                adjustedDate:
+                  required: false
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AdjustedDate — adjustedDate exists or relativeDate exists or unadjustedDate exists or (unadjustedDate
-      exists and dateAdjustments exists and adjustedDate is absent)'
-    - 'Rosetta func: ConvertToAdjustableOrRelativeDate — Utility function to convert from AdjustableOrAdjustedOrRelativeDate
-      to AdjustableOrRelativeDate'
-    - 'Rosetta func: ConvertToAdjustableOrAdjustedOrRelativeDate — Utility function to convert from AdjustableOrAdjustedOrRelativeDate
-      to AdjustableOrAdjustedOrRelativeDate'
-    - 'Rosetta func: AdjustableOrAdjustedOrRelativeDateResolution — Prioritization of unadjustedDate over adjustedDate.'
+      - 'Rosetta condition: AdjustedDate — adjustedDate exists or relativeDate exists or unadjustedDate exists or (unadjustedDate
+        exists and dateAdjustments exists and adjustedDate is absent)'
+      - 'Rosetta func: ConvertToAdjustableOrRelativeDate — Utility function to convert from AdjustableOrAdjustedOrRelativeDate
+        to AdjustableOrRelativeDate'
+      - 'Rosetta func: ConvertToAdjustableOrAdjustedOrRelativeDate — Utility function to convert from AdjustableOrAdjustedOrRelativeDate
+        to AdjustableOrAdjustedOrRelativeDate'
+      - 'Rosetta func: AdjustableOrAdjustedOrRelativeDateResolution — Prioritization of unadjustedDate over adjustedDate.'
     annotations:
       rosetta_functions: '[{"name":"ConvertToAdjustableOrRelativeDate","description":"Utility function to convert from AdjustableOrAdjustedOrRelativeDate
         to AdjustableOrRelativeDate","inputs":[{"name":"adjustableOrAdjustedOrRelativeDate","type":"AdjustableOrAdjustedOrRelativeDate","cardinality":"0..1"}],"output":{"name":"adjustableOrRelativeDate","type":"AdjustableOrRelativeDate","cardinality":"0..1"}},{"name":"ConvertToAdjustableOrAdjustedOrRelativeDate","description":"Utility
         function to convert from AdjustableOrAdjustedOrRelativeDate to AdjustableOrAdjustedOrRelativeDate","inputs":[{"name":"adjustableOrRelativeDate","type":"AdjustableOrRelativeDate","cardinality":"0..1"}],"output":{"name":"adjustableOrAdjustedOrRelativeDate","type":"AdjustableOrAdjustedOrRelativeDate","cardinality":"0..1"}},{"name":"AdjustableOrAdjustedOrRelativeDateResolution","description":"Prioritization
         of unadjustedDate over adjustedDate.","inputs":[{"name":"adjustableDate","type":"AdjustableOrAdjustedOrRelativeDate","cardinality":"1..1"}],"output":{"name":"date","type":"date","cardinality":"0..1"}}]'
     slots:
-    - unadjustedDate
-    - dateAdjustments
-    - adjustedDate
-    - relativeDate
+      - unadjustedDate
+      - dateAdjustments
+      - adjustedDate
+      - relativeDate
     slot_usage:
       unadjustedDate:
         description: A date subject to adjustment.
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   AdjustableOrRelativeDate:
     description: A class giving the choice between defining a date as an explicit date together with applicable adjustments
@@ -2081,33 +2081,33 @@ classes:
         function to convert from AdjustableOrAdjustedOrRelativeDate to AdjustableOrRelativeDate","inputs":[{"name":"adjustableOrAdjustedOrRelativeDate","type":"AdjustableOrAdjustedOrRelativeDate","cardinality":"0..1"}],"output":{"name":"adjustableOrRelativeDate","type":"AdjustableOrRelativeDate","cardinality":"0..1"}},{"name":"ConvertToAdjustableOrAdjustedOrRelativeDate","description":"Utility
         function to convert from AdjustableOrAdjustedOrRelativeDate to AdjustableOrAdjustedOrRelativeDate","inputs":[{"name":"adjustableOrRelativeDate","type":"AdjustableOrRelativeDate","cardinality":"0..1"}],"output":{"name":"adjustableOrAdjustedOrRelativeDate","type":"AdjustableOrAdjustedOrRelativeDate","cardinality":"0..1"}}]'
     close_mappings:
-    - fpml_5_10:AdjustableOrRelativeDate
+      - fpml_5_10:AdjustableOrRelativeDate
     rules:
-    - description: Choice rule to represent an FpML choice construct.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            adjustableDate:
-              required: true
-        - slot_conditions:
-            relativeDate:
-              required: true
-      preconditions: {}
+      - description: Choice rule to represent an FpML choice construct.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                adjustableDate:
+                  required: true
+            - slot_conditions:
+                relativeDate:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AdjustableOrRelativeDateChoice — required choice adjustableDate, relativeDate'
-    - 'Rosetta func: ResolveAdjustableDate'
-    - 'Rosetta func: ConvertToAdjustableOrRelativeDate — Utility function to convert from AdjustableOrAdjustedOrRelativeDate
-      to AdjustableOrRelativeDate'
-    - 'Rosetta func: ConvertToAdjustableOrAdjustedOrRelativeDate — Utility function to convert from AdjustableOrAdjustedOrRelativeDate
-      to AdjustableOrAdjustedOrRelativeDate'
+      - 'Rosetta condition: AdjustableOrRelativeDateChoice — required choice adjustableDate, relativeDate'
+      - 'Rosetta func: ResolveAdjustableDate'
+      - 'Rosetta func: ConvertToAdjustableOrRelativeDate — Utility function to convert from AdjustableOrAdjustedOrRelativeDate
+        to AdjustableOrRelativeDate'
+      - 'Rosetta func: ConvertToAdjustableOrAdjustedOrRelativeDate — Utility function to convert from AdjustableOrAdjustedOrRelativeDate
+        to AdjustableOrAdjustedOrRelativeDate'
     slots:
-    - adjustableDate
-    - relativeDate
+      - adjustableDate
+      - relativeDate
     slot_usage:
       relativeDate:
         range: AdjustedRelativeDateOffset
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   AdjustableOrRelativeDates:
     description: A class giving the choice between defining a series of dates as an explicit list of dates together with applicable
@@ -2115,34 +2115,34 @@ classes:
     annotations:
       metadata_key: true
     close_mappings:
-    - fpml_5_10:AdjustableOrRelativeDates
+      - fpml_5_10:AdjustableOrRelativeDates
     rules:
-    - description: Choice rule to represent an FpML choice construct.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            adjustableDates:
-              required: true
-        - slot_conditions:
-            relativeDates:
-              required: true
-      preconditions: {}
+      - description: Choice rule to represent an FpML choice construct.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                adjustableDates:
+                  required: true
+            - slot_conditions:
+                relativeDates:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AdjustableOrRelativeDatesChoice — required choice adjustableDates, relativeDates'
+      - 'Rosetta condition: AdjustableOrRelativeDatesChoice — required choice adjustableDates, relativeDates'
     slots:
-    - adjustableDates
-    - relativeDates
+      - adjustableDates
+      - relativeDates
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   AdjustedRelativeDateOffset:
     description: A type defining a date (referred to as the derived date) as a relative offset from another date (referred
       to as the anchor date) plus optional date adjustments.
     is_a: RelativeDateOffset
     slots:
-    - relativeDateAdjustments
+      - relativeDateAdjustments
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   BusinessCenters:
     description: A class for specifying the business day calendar location used in determining whether a day is a business
@@ -2154,44 +2154,44 @@ classes:
       rosetta_functions: '[{"name":"GetAllBusinessCenters","description":"Returns a merged list of BusinessCenter codes for
         the supplied BusinessCenters.","inputs":[{"name":"businessCenters","type":"BusinessCenters","cardinality":"1..1"}],"output":{"name":"businessCenterCodes","type":"BusinessCenter","cardinality":"0..*"}}]'
     close_mappings:
-    - fpml_5_10:BusinessCenters
+      - fpml_5_10:BusinessCenters
     rules:
-    - description: Choice rule to represent an FpML choice construct.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            businessCenter:
-              required: true
-        - slot_conditions:
-            businessCentersReference:
-              required: true
-        - slot_conditions:
-            commodityBusinessCalendar:
-              required: true
-      preconditions: {}
+      - description: Choice rule to represent an FpML choice construct.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                businessCenter:
+                  required: true
+            - slot_conditions:
+                businessCentersReference:
+                  required: true
+            - slot_conditions:
+                commodityBusinessCalendar:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: BusinessCentersChoice — required choice businessCenter, businessCentersReference, commodityBusinessCalendar'
-    - 'Rosetta func: GetAllBusinessCenters — Returns a merged list of BusinessCenter codes for the supplied BusinessCenters.'
+      - 'Rosetta condition: BusinessCentersChoice — required choice businessCenter, businessCentersReference, commodityBusinessCalendar'
+      - 'Rosetta func: GetAllBusinessCenters — Returns a merged list of BusinessCenter codes for the supplied BusinessCenters.'
     slots:
-    - businessCenter
-    - commodityBusinessCalendar
-    - businessCentersReference
+      - businessCenter
+      - commodityBusinessCalendar
+      - businessCentersReference
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   BusinessCenterTime:
     description: A class for defining a time with respect to a business day calendar location. For example, 11:00:00 GBLO.
     close_mappings:
-    - fpml_5_10:BusinessCenterTime
+      - fpml_5_10:BusinessCenterTime
     comments:
-    - 'Rosetta func: TimeZoneFromBusinessCenterTime — Function to resolve a time passed as BusinessCenterTime into a TimeZone
-      time.'
+      - 'Rosetta func: TimeZoneFromBusinessCenterTime — Function to resolve a time passed as BusinessCenterTime into a TimeZone
+        time.'
     annotations:
       rosetta_functions: '[{"name":"TimeZoneFromBusinessCenterTime","description":"Function to resolve a time passed as BusinessCenterTime
         into a TimeZone time.","inputs":[{"name":"time","type":"BusinessCenterTime","cardinality":"1..1"}],"output":{"name":"result","type":"TimeZone","cardinality":"1..1"},"code_implementation":true}]'
     slots:
-    - hourMinuteTime
-    - businessCenter
+      - hourMinuteTime
+      - businessCenter
     slot_usage:
       businessCenter:
         description: A code identifying a business day calendar location. A business day calendar location is drawn from the
@@ -2199,7 +2199,7 @@ classes:
         required: true
         multivalued: false
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   BusinessDateRange:
     description: A class defining a range of contiguous business days by defining an unadjusted first date, an unadjusted
@@ -2208,12 +2208,12 @@ classes:
       good business days in the specified centers to be counted in the range.
     is_a: DateRange
     close_mappings:
-    - fpml_5_10:BusinessDateRange
+      - fpml_5_10:BusinessDateRange
     slots:
-    - businessDayConvention
-    - businessCenters
+      - businessDayConvention
+      - businessCenters
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   BusinessDayAdjustments:
     description: A class defining the business day convention and financial business centers used for adjusting any relevant
@@ -2221,45 +2221,45 @@ classes:
     annotations:
       metadata_key: true
     close_mappings:
-    - fpml_5_10:BusinessDayAdjustments
+      - fpml_5_10:BusinessDayAdjustments
     slots:
-    - businessDayConvention
-    - businessCenters
+      - businessDayConvention
+      - businessCenters
     slot_usage:
       businessDayConvention:
         description: The convention for adjusting a date if it would otherwise fall on a day that is not a business day.
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   DateRange:
     description: A class defining a contiguous series of calendar dates. The date range is defined as all the dates between
       and including the start and the end date. The start date must fall on or before the end date.
     rules:
-    - description: The start date must fall on or before the end date (a date range of only one date is allowed).
-      comments:
-      - 'Rosetta comparison: startDate <= endDate'
-      preconditions: {}
+      - description: The start date must fall on or before the end date (a date range of only one date is allowed).
+        comments:
+          - 'Rosetta comparison: startDate <= endDate'
+        preconditions: {}
     comments:
-    - 'Rosetta condition: DatesOrdered — startDate <= endDate'
+      - 'Rosetta condition: DatesOrdered — startDate <= endDate'
     slots:
-    - startDate
-    - endDate
+      - startDate
+      - endDate
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   DateList:
     description: List of dates.
     slots:
-    - date
+      - date
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   DateTimeList:
     description: List of dateTimes.
     slots:
-    - dateTime
+      - dateTime
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   Frequency:
     description: A class for defining a date frequency, e.g. one day, three months, through the combination of an integer
@@ -2267,63 +2267,63 @@ classes:
     annotations:
       metadata_key: true
     rules:
-    - description: FpML specifies that if period value is T (Term) then periodMultiplier must contain the value 1.
-      preconditions:
-        slot_conditions:
-          period:
-            equals_string: PeriodExtendedEnum.T
-      postconditions:
-        slot_conditions:
-          periodMultiplier:
-            equals_string: '1'
-    - description: FpML specifies periodMultiplier as a positive integer.
-      postconditions:
-        slot_conditions:
-          periodMultiplier:
-            minimum_value: 0
-            comments:
-            - 'Rosetta: strictly greater than'
-      preconditions: {}
+      - description: FpML specifies that if period value is T (Term) then periodMultiplier must contain the value 1.
+        preconditions:
+          slot_conditions:
+            period:
+              equals_string: PeriodExtendedEnum.T
+        postconditions:
+          slot_conditions:
+            periodMultiplier:
+              equals_string: '1'
+      - description: FpML specifies periodMultiplier as a positive integer.
+        postconditions:
+          slot_conditions:
+            periodMultiplier:
+              minimum_value: 0
+              comments:
+                - 'Rosetta: strictly greater than'
+        preconditions: {}
     comments:
-    - 'Rosetta condition: TermPeriod — if period = PeriodExtendedEnum -> T then periodMultiplier = 1'
-    - 'Rosetta condition: PositivePeriodMultiplier — periodMultiplier > 0'
+      - 'Rosetta condition: TermPeriod — if period = PeriodExtendedEnum -> T then periodMultiplier = 1'
+      - 'Rosetta condition: PositivePeriodMultiplier — periodMultiplier > 0'
     slots:
-    - periodMultiplier
-    - period
+      - periodMultiplier
+      - period
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   Offset:
     description: A class defining an offset used in calculating a new date relative to a reference date, e.g. calendar days,
       business days, commodity Business days, etc.
     is_a: Period
     comments:
-    - 'Rosetta condition: DayType — if period <> PeriodEnum -> D or periodMultiplier = 0 then dayType is absent'
+      - 'Rosetta condition: DayType — if period <> PeriodEnum -> D or periodMultiplier = 0 then dayType is absent'
     slots:
-    - dayType
+      - dayType
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   CustomisableOffset:
     description: A class to specify an offset either as a normalized [multiplier, period, dayType] or as a custom provision
       of type string.
     slots:
-    - offset
-    - customProvision
+      - offset
+      - customProvision
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   Period:
     description: A class to define recurring periods or time offsets.
     annotations:
       metadata_key: true
     close_mappings:
-    - gist:TimeInterval
+      - gist:TimeInterval
     comments:
-    - 'Rosetta condition: DayPeriod — if periodMultiplier = 0 then period = PeriodEnum -> D'
+      - 'Rosetta condition: DayPeriod — if periodMultiplier = 0 then period = PeriodEnum -> D'
     slots:
-    - periodMultiplier
-    - period
+      - periodMultiplier
+      - period
     slot_usage:
       periodMultiplier:
         description: A time period multiplier, e.g. 1, 2 or 3 etc. A negative value can be used when specifying an offset
@@ -2333,30 +2333,30 @@ classes:
         description: A time period, e.g. a day, week, month or year of the stream. If the periodMultiplier value is 0 (zero)
           then period must contain the value D (day).
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   RelativeDates:
     description: A class describing a set of dates defined as relative to another set of dates.
     is_a: RelativeDateOffset
     rules:
-    - description: FpML specifies that, if present, the period skip should have a value greater than 1.
-      preconditions:
-        slot_conditions:
-          periodSkip:
-            required: true
-      postconditions:
-        slot_conditions:
-          periodSkip:
-            minimum_value: 1
-            comments:
-            - 'Rosetta: strictly greater than'
+      - description: FpML specifies that, if present, the period skip should have a value greater than 1.
+        preconditions:
+          slot_conditions:
+            periodSkip:
+              required: true
+        postconditions:
+          slot_conditions:
+            periodSkip:
+              minimum_value: 1
+              comments:
+                - 'Rosetta: strictly greater than'
     comments:
-    - 'Rosetta condition: PeriodSkipGreaterThanOne — if periodSkip exists then periodSkip > 1'
+      - 'Rosetta condition: PeriodSkipGreaterThanOne — if periodSkip exists then periodSkip > 1'
     slots:
-    - periodSkip
-    - scheduleBounds
+      - periodSkip
+      - scheduleBounds
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   RelativeDateOffset:
     description: A class defining a date (referred to as the derived date) as a relative offset from another date (referred
@@ -2373,17 +2373,17 @@ classes:
       date would fall on a good business day in the specified business centers).
     is_a: Offset
     slots:
-    - businessDayConvention
-    - businessCenters
-    - businessCentersReference
-    - dateRelativeTo
-    - adjustedDate
+      - businessDayConvention
+      - businessCenters
+      - businessCentersReference
+      - dateRelativeTo
+      - adjustedDate
     slot_usage:
       businessCentersReference:
         description: A pointer style reference to a set of financial business centers defined elsewhere in the document. This
           set of business centers is used to determine whether a particular day is a business day or not.
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   TimeZone:
     description: The time alongside with the timezone location information. This class makes use of the FpML TimezoneLocation
@@ -2393,98 +2393,98 @@ classes:
       rosetta_functions: '[{"name":"TimeZoneFromBusinessCenterTime","description":"Function to resolve a time passed as BusinessCenterTime
         into a TimeZone time.","inputs":[{"name":"time","type":"BusinessCenterTime","cardinality":"1..1"}],"output":{"name":"result","type":"TimeZone","cardinality":"1..1"},"code_implementation":true}]'
     comments:
-    - 'Rosetta func: TimeZoneFromBusinessCenterTime — Function to resolve a time passed as BusinessCenterTime into a TimeZone
-      time.'
+      - 'Rosetta func: TimeZoneFromBusinessCenterTime — Function to resolve a time passed as BusinessCenterTime into a TimeZone
+        time.'
     slots:
-    - time
-    - location
+      - time
+      - location
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   DirectOrRelativeTime:
     description: Represents a time definition that can be either an absolute (direct) time or a time calculated relative to
       another referenced time. Either one directTime or one relativeTime should be provided
     slots:
-    - directTime
-    - relativeTime
+      - directTime
+      - relativeTime
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   RelativeTime:
     description: Defines a time value calculated relative to a reference time. The final value is derived by applying any
       offset and rounding rules inherited from RelativeTimeOffset to the reference time.
     is_a: RelativeTimeOffset
     slots:
-    - timeRelativeTo
+      - timeRelativeTo
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   RelativeTimeOffset:
     description: Describes how a time is offset from a reference point, including the unit, magnitude, and rounding behavior.
     slots:
-    - offsetTimeUnit
-    - offsetMultiplier
-    - rounding
+      - offsetTimeUnit
+      - offsetMultiplier
+      - rounding
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   TimeRounding:
     description: Specifies how a calculated time should be rounded, including both the direction of rounding and the unit
       to which the time is rounded. Rounding is applied after all offsets have been calculated.
     slots:
-    - roundingDirection
-    - roundToUnit
+      - roundingDirection
+      - roundToUnit
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   PeriodRange:
     description: Indicates The period range defined as either a lower and upper period bound, or both.
     rules:
-    - description: AtLeastOneOf
-      postconditions:
-        any_of:
-        - slot_conditions:
-            lowerBound:
-              required: true
-        - slot_conditions:
-            upperBound:
-              required: true
-      preconditions: {}
+      - description: AtLeastOneOf
+        postconditions:
+          any_of:
+            - slot_conditions:
+                lowerBound:
+                  required: true
+            - slot_conditions:
+                upperBound:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AtLeastOneOf — lowerBound exists or upperBound exists'
+      - 'Rosetta condition: AtLeastOneOf — lowerBound exists or upperBound exists'
     slots:
-    - lowerBound
-    - upperBound
+      - lowerBound
+      - upperBound
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   PeriodBound:
     description: Indicator to specify if the period bound is defined as a period and whether the bound is inclusive.
     slots:
-    - period
-    - inclusive
+      - period
+      - inclusive
     slot_usage:
       period:
         range: Period
         description: Specifies the period is to be used as the bound, e.g. 5Y.
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   AveragingSchedule:
     description: Class to representing a method for generating a series of dates.
     close_mappings:
-    - fpml_5_10:AveragingSchedule
+      - fpml_5_10:AveragingSchedule
     slots:
-    - startDate
-    - endDate
-    - averagingPeriodFrequency
+      - startDate
+      - endDate
+      - averagingPeriodFrequency
     slot_usage:
       startDate:
         description: Date on which this period begins.
       endDate:
         description: Date on which this period ends.
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   AdjustableRelativeOrPeriodicDates:
     description: A class giving the choice between defining a series of dates as an explicit list of dates together with applicable
@@ -2493,39 +2493,39 @@ classes:
       metadata_key: true
       rosetta_functions: '[{"name":"ResolveAdjustableDates","inputs":[{"name":"adjustableRelativeOrPeriodicDates","type":"AdjustableRelativeOrPeriodicDates","cardinality":"1..1"}],"output":{"name":"adjustedDates","type":"date","cardinality":"0..*"},"code_implementation":true}]'
     close_mappings:
-    - fpml_5_10:AdjustableRelativeOrPeriodicDates
+      - fpml_5_10:AdjustableRelativeOrPeriodicDates
     rules:
-    - description: Choice rule to represent an FpML choice construct.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            adjustableDates:
-              required: true
-        - slot_conditions:
-            relativeDates:
-              required: true
-        - slot_conditions:
-            periodicDates:
-              required: true
-      preconditions: {}
+      - description: Choice rule to represent an FpML choice construct.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                adjustableDates:
+                  required: true
+            - slot_conditions:
+                relativeDates:
+                  required: true
+            - slot_conditions:
+                periodicDates:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AdjustableRelativeOrPeriodicDatesChoice — required choice adjustableDates, relativeDates, periodicDates'
-    - 'Rosetta func: ResolveAdjustableDates'
+      - 'Rosetta condition: AdjustableRelativeOrPeriodicDatesChoice — required choice adjustableDates, relativeDates, periodicDates'
+      - 'Rosetta func: ResolveAdjustableDates'
     slots:
-    - adjustableDates
-    - relativeDates
-    - periodicDates
+      - adjustableDates
+      - relativeDates
+      - periodicDates
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   PeriodicDates:
     description: A class for specifying a calculation period schedule.
     slots:
-    - startDate
-    - endDate
-    - periodFrequency
-    - periodDatesAdjustments
-    - dayType
+      - startDate
+      - endDate
+      - periodFrequency
+      - periodDatesAdjustments
+      - dayType
     slot_usage:
       startDate:
         range: AdjustableOrRelativeDate
@@ -2544,81 +2544,82 @@ classes:
         description: Denotes the enumerated values to specify the day type classification used in counting the number of days
           between two dates.
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   CalculationPeriodFrequency:
     description: A class to specify the frequency at which calculation period end dates occur within the regular part of the
       calculation period schedule and their roll date convention.
     is_a: Frequency
     close_mappings:
-    - fpml_5_10:CalculationPeriodFrequency
+      - fpml_5_10:CalculationPeriodFrequency
     comments:
-    - 'Rosetta condition: FpML_ird_57 — if period = PeriodExtendedEnum -> M or period = PeriodExtendedEnum -> Y then rollConvention
-      <> RollConventionEnum -> NONE and rollConvention <> RollConventionEnum -> SFE and rollConvention <> RollConventionEnum
-      -> MON and rollConvention <> RollConventionEnum -> TUE and rollConvention <> RollConventionEnum -> WED and rollConvention
-      <> RollConventionEnum -> THU and rollConvention <> RollConventionEnum -> FRI and rollConvention <> RollConventionEnum
-      -> SAT and rollConvention <> RollConventionEnum -> SUN'
-    - 'Rosetta condition: FpML_ird_58 — if period = PeriodExtendedEnum -> W then rollConvention = RollConventionEnum -> NONE
-      or rollConvention = RollConventionEnum -> SFE or rollConvention = RollConventionEnum -> MON or rollConvention = RollConventionEnum
-      -> TUE or rollConvention = RollConventionEnum -> WED or rollConvention = RollConventionEnum -> THU or rollConvention
-      = RollConventionEnum -> FRI or rollConvention = RollConventionEnum -> SAT or rollConvention = RollConventionEnum ->
-      SUN'
-    - 'Rosetta condition: FpML_ird_60 — if period = PeriodExtendedEnum -> T then rollConvention = RollConventionEnum -> NONE'
+      - 'Rosetta condition: FpML_ird_57 — if period = PeriodExtendedEnum -> M or period = PeriodExtendedEnum -> Y then rollConvention
+        <> RollConventionEnum -> NONE and rollConvention <> RollConventionEnum -> SFE and rollConvention <> RollConventionEnum
+        -> MON and rollConvention <> RollConventionEnum -> TUE and rollConvention <> RollConventionEnum -> WED and rollConvention
+        <> RollConventionEnum -> THU and rollConvention <> RollConventionEnum -> FRI and rollConvention <> RollConventionEnum
+        -> SAT and rollConvention <> RollConventionEnum -> SUN'
+      - 'Rosetta condition: FpML_ird_58 — if period = PeriodExtendedEnum -> W then rollConvention = RollConventionEnum ->
+        NONE or rollConvention = RollConventionEnum -> SFE or rollConvention = RollConventionEnum -> MON or rollConvention
+        = RollConventionEnum -> TUE or rollConvention = RollConventionEnum -> WED or rollConvention = RollConventionEnum ->
+        THU or rollConvention = RollConventionEnum -> FRI or rollConvention = RollConventionEnum -> SAT or rollConvention
+        = RollConventionEnum -> SUN'
+      - 'Rosetta condition: FpML_ird_60 — if period = PeriodExtendedEnum -> T then rollConvention = RollConventionEnum ->
+        NONE'
     slots:
-    - rollConvention
-    - balanceOfFirstPeriod
+      - rollConvention
+      - balanceOfFirstPeriod
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime
 
   CalculationFrequency:
     description: Represents the parameters for describing how often something (such as collateral interest) is to be calculated.
     close_mappings:
-    - fpml_5_10:CalculationFrequency
+      - fpml_5_10:CalculationFrequency
     rules:
-    - description: Moy
-      preconditions:
-        slot_conditions:
-          monthOfYear:
-            required: true
-      postconditions:
-        slot_conditions:
-          monthOfYear:
-            maximum_value: 12
-    - description: Dom
-      preconditions:
-        slot_conditions:
-          dayOfMonth:
-            required: true
-      postconditions:
-        slot_conditions:
-          dayOfMonth:
-            maximum_value: 31
-    - description: Wom
-      preconditions:
-        slot_conditions:
-          weekOfMonth:
-            required: true
-      postconditions:
-        slot_conditions:
-          weekOfMonth:
-            maximum_value: 5
+      - description: Moy
+        preconditions:
+          slot_conditions:
+            monthOfYear:
+              required: true
+        postconditions:
+          slot_conditions:
+            monthOfYear:
+              maximum_value: 12
+      - description: Dom
+        preconditions:
+          slot_conditions:
+            dayOfMonth:
+              required: true
+        postconditions:
+          slot_conditions:
+            dayOfMonth:
+              maximum_value: 31
+      - description: Wom
+        preconditions:
+          slot_conditions:
+            weekOfMonth:
+              required: true
+        postconditions:
+          slot_conditions:
+            weekOfMonth:
+              maximum_value: 5
     comments:
-    - 'Rosetta condition: Moy — if monthOfYear exists then monthOfYear <= 12'
-    - 'Rosetta condition: Dom — if dayOfMonth exists then dayOfMonth <= 31'
-    - 'Rosetta condition: Wom — if weekOfMonth exists then weekOfMonth <= 5'
-    - 'Rosetta condition: MoyTerm — if monthOfYear exists then (period -> period = PeriodEnum -> Y)'
-    - 'Rosetta condition: DomTerm — if dayOfMonth exists then (period -> period = PeriodEnum -> M)'
-    - 'Rosetta condition: DowTerm — if dayOfWeek exists then (period -> period = PeriodEnum -> W)'
-    - 'Rosetta condition: WomTerm — if weekOfMonth exists then (period -> period = PeriodEnum -> M)'
+      - 'Rosetta condition: Moy — if monthOfYear exists then monthOfYear <= 12'
+      - 'Rosetta condition: Dom — if dayOfMonth exists then dayOfMonth <= 31'
+      - 'Rosetta condition: Wom — if weekOfMonth exists then weekOfMonth <= 5'
+      - 'Rosetta condition: MoyTerm — if monthOfYear exists then (period -> period = PeriodEnum -> Y)'
+      - 'Rosetta condition: DomTerm — if dayOfMonth exists then (period -> period = PeriodEnum -> M)'
+      - 'Rosetta condition: DowTerm — if dayOfWeek exists then (period -> period = PeriodEnum -> W)'
+      - 'Rosetta condition: WomTerm — if weekOfMonth exists then (period -> period = PeriodEnum -> M)'
     slots:
-    - period
-    - monthOfYear
-    - dayOfMonth
-    - dayOfWeek
-    - weekOfMonth
-    - offsetDays
-    - dateLocation
-    - businessCenter
+      - period
+      - monthOfYear
+      - dayOfMonth
+      - dayOfWeek
+      - weekOfMonth
+      - offsetDays
+      - dateLocation
+      - businessCenter
     slot_usage:
       period:
         range: Period
@@ -2626,4 +2627,4 @@ classes:
       businessCenter:
         description: Specifies the business center for adjustment of calculation period.
     in_subset:
-    - cdm_base_datetime
+      - cdm_base_datetime

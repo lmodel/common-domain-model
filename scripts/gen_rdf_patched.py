@@ -120,7 +120,9 @@ def cli(yamlfile, **kwargs):
 
     See scripts/gen_rdf_patched.py for full explanation.
     """
-    print(PatchedRDFGenerator(yamlfile, **kwargs).serialize(**kwargs))
+    result = PatchedRDFGenerator(yamlfile, **kwargs).serialize(**kwargs)
+    if not kwargs.get("output"):
+        print(result)
 
 
 if __name__ == "__main__":

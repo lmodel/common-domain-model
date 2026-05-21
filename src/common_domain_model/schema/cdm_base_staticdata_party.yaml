@@ -3,10 +3,10 @@ name: cdm_base_staticdata_party
 description: 'Basic party concepts: legal entity, natural person, contact details, buyer / payer and all related enums.'
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -20,24 +20,24 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_staticdata_identifier
-- ./cdm_base_staticdata_asset_common
-- ./cdm_base_math
+  - linkml:types
+  - ./cdm_base_staticdata_identifier
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_base_math
 
 comments:
-- 'Rosetta func: ExtractCounterpartyByRole — Extracts from a list of Counterparty data types, the Counterparty that corresponds
-  to the role i.e. Party1 or Party2. | inputs(counterparties: Counterparty (1..*), roleEnumToExtract: CounterpartyRoleEnum
-  (1..1)) | output(counterparty: Counterparty (0..1))'
-- 'Rosetta func: ExtractAncillaryPartyByRole — Extracts from a list of AncillaryParty data types, the AncillaryParty that
-  corresponds to the AncillaryRoleEnum. | inputs(ancillaryParties: AncillaryParty (1..*), roleEnumToExtract: AncillaryRoleEnum
-  (1..1)) | output(ancillaryParty: AncillaryParty (0..1))'
-- 'Rosetta func: ReplaceParty — Removes the old party, and adds the new party. | inputs(parties: Party (0..*), oldParty: Party
-  (1..1), newParty: Party (1..1)) | output(updatedParties: Party (0..*))'
-- 'Rosetta func: FilterPartyRole — Filters the list of partyRoles based on the provided partyRoleEnum. | inputs(partyRoles:
-  PartyRole (0..*), partyRoleEnum: PartyRoleEnum (1..1)) | output(filteredPartyRoles: PartyRole (0..*))'
-- 'Rosetta func: FilterRelatedPartyByRole — Filters the list of RelatedParty based on the provided partyRoleEnum. | inputs(relatedParties:
-  RelatedParty (0..*), partyRoleEnum: PartyRoleEnum (1..1)) | output(filteredRelatedParties: RelatedParty (0..*))'
+  - 'Rosetta func: ExtractCounterpartyByRole — Extracts from a list of Counterparty data types, the Counterparty that corresponds
+    to the role i.e. Party1 or Party2. | inputs(counterparties: Counterparty (1..*), roleEnumToExtract: CounterpartyRoleEnum
+    (1..1)) | output(counterparty: Counterparty (0..1))'
+  - 'Rosetta func: ExtractAncillaryPartyByRole — Extracts from a list of AncillaryParty data types, the AncillaryParty that
+    corresponds to the AncillaryRoleEnum. | inputs(ancillaryParties: AncillaryParty (1..*), roleEnumToExtract: AncillaryRoleEnum
+    (1..1)) | output(ancillaryParty: AncillaryParty (0..1))'
+  - 'Rosetta func: ReplaceParty — Removes the old party, and adds the new party. | inputs(parties: Party (0..*), oldParty:
+    Party (1..1), newParty: Party (1..1)) | output(updatedParties: Party (0..*))'
+  - 'Rosetta func: FilterPartyRole — Filters the list of partyRoles based on the provided partyRoleEnum. | inputs(partyRoles:
+    PartyRole (0..*), partyRoleEnum: PartyRoleEnum (1..1)) | output(filteredPartyRoles: PartyRole (0..*))'
+  - 'Rosetta func: FilterRelatedPartyByRole — Filters the list of RelatedParty based on the provided partyRoleEnum. | inputs(relatedParties:
+    RelatedParty (0..*), partyRoleEnum: PartyRoleEnum (1..1)) | output(filteredRelatedParties: RelatedParty (0..*))'
 annotations:
   rosetta_functions: '[{"name":"ExtractCounterpartyByRole","description":"Extracts from a list of Counterparty data types,
     the Counterparty that corresponds to the role i.e. Party1 or Party2.","inputs":[{"name":"counterparties","type":"Counterparty","cardinality":"1..*"},{"name":"roleEnumToExtract","type":"CounterpartyRoleEnum","cardinality":"1..1"}],"output":{"name":"counterparty","type":"Counterparty","cardinality":"0..1"}},{"name":"ExtractAncillaryPartyByRole","description":"Extracts
@@ -57,13 +57,13 @@ enums:
       Party1: {}
       Party2: {}
     related_mappings:
-    - oscal:Role
+      - oscal:Role
 
   EntityTypeEnum:
     description: The enumerated values to specify the reference entity types corresponding to a list of types defined in the
       ISDA First to Default documentation.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/entity-type
+      - http://www.fpml.org/coding-scheme/entity-type
     permissible_values:
       Asian:
         description: Entity Type of Asian.
@@ -107,7 +107,7 @@ enums:
   AccountTypeEnum:
     description: The enumeration values to qualify the type of account.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/account-type
+      - http://www.fpml.org/coding-scheme/account-type
     permissible_values:
       AggregateClient:
         description: Aggregate client account, as defined under ESMA MiFIR.
@@ -139,8 +139,8 @@ enums:
       Trader:
         description: The person who executed the trade.
     related_mappings:
-    - iso29100:PIIPrincipal
-    - oscal:Role
+      - iso29100:PIIPrincipal
+      - oscal:Role
 
   PersonIdentifierTypeEnum:
     description: The enumeration values associated with person identifier sources.
@@ -171,7 +171,7 @@ enums:
   EntityIdentifierTypeEnum:
     description: The enumeration values associated with legal entity identifier sources.
     inherits:
-    - PartyIdentifierTypeEnum
+      - PartyIdentifierTypeEnum
     permissible_values:
       REDID:
         description: The Reference Entity Database identifier.
@@ -195,7 +195,7 @@ enums:
     description: The enumerated values for the party role. The enumerated values go beyond the FpML partyRoleScheme as they
       also include elements that are part of the FpML Trade, such as the Barrier Determination Agent and the Hedging Party.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/party-role
+      - http://www.fpml.org/coding-scheme/party-role
     permissible_values:
       Accountant:
         description: Organization responsible for preparing the accounting for the trade.
@@ -401,7 +401,7 @@ enums:
       ThirdPartyCustodian:
         description: A third-party providing custody, settlement, segregation and reporting services.
     related_mappings:
-    - oscal:Role
+      - oscal:Role
 
   AncillaryRoleEnum:
     description: Defines the enumerated values to specify the ancillary roles to the transaction. The product is agnostic
@@ -436,7 +436,7 @@ enums:
       CalculationAgentFallback:
         description: Specifies the party responsible for deciding the fallback rate.
     related_mappings:
-    - oscal:Role
+      - oscal:Role
 
   TelephoneTypeEnum:
     description: The enumerated values to specify the type of telephone number, e.g. work vs. mobile.
@@ -470,7 +470,7 @@ slots:
     range: CounterpartyRoleEnum
     description: Optionally specifies the counterparty that the ancillary party is acting on behalf of.
     close_mappings:
-    - fpml_5_10:AncillaryParty.onBehalfOf
+      - fpml_5_10:AncillaryParty.onBehalfOf
 
   buyer:
     range: CounterpartyRoleEnum
@@ -484,7 +484,7 @@ slots:
       related Confirmation. | ISDA 2014 Credit Definition article 1.4: `Buyer` means the Fixed Rate Payer.'
     required: true
     close_mappings:
-    - fpml_5_10:BuyerSeller.buyer
+      - fpml_5_10:BuyerSeller.buyer
 
   seller:
     range: CounterpartyRoleEnum
@@ -499,7 +499,7 @@ slots:
       article 1.4: `Seller` means the Floating Rate Payer.'
     required: true
     close_mappings:
-    - fpml_5_10:BuyerSeller.seller
+      - fpml_5_10:BuyerSeller.seller
 
   payer:
     range: CounterpartyRoleEnum
@@ -507,8 +507,8 @@ slots:
       of the two principal parties to the transaction.
     required: true
     related_mappings:
-    - icma:GMRA#Seller
-    - icma:ERCCBestPractice#Seller
+      - icma:GMRA#Seller
+      - icma:ERCCBestPractice#Seller
 
   receiver:
     range: CounterpartyRoleEnum
@@ -516,8 +516,8 @@ slots:
       two counterparties to the transaction.
     required: true
     related_mappings:
-    - icma:GMRA#Buyer
-    - icma:ERCCBestPractice#Buyer
+      - icma:GMRA#Buyer
+      - icma:ERCCBestPractice#Buyer
 
   payerPartyReference:
     range: Party
@@ -576,7 +576,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:Account.accountNumber
+      - fpml_5_10:Account.accountNumber
 
   accountName:
     range: string
@@ -584,7 +584,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:Account.accountName
+      - fpml_5_10:Account.accountName
 
   accountType:
     range: AccountTypeEnum
@@ -592,7 +592,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:Account.accountType
+      - fpml_5_10:Account.accountType
 
   accountBeneficiary:
     range: Party
@@ -600,7 +600,7 @@ slots:
     annotations:
       metadata_reference: true
     close_mappings:
-    - fpml_5_10:Account.accountBeneficiary
+      - fpml_5_10:Account.accountBeneficiary
 
   servicingParty:
     range: Party
@@ -608,7 +608,7 @@ slots:
     annotations:
       metadata_reference: true
     close_mappings:
-    - fpml_5_10:Account.servicingParty
+      - fpml_5_10:Account.servicingParty
 
   street:
     range: string
@@ -616,20 +616,20 @@ slots:
     required: true
     multivalued: true
     close_mappings:
-    - fpml_5_10:Address.street
+      - fpml_5_10:Address.street
 
   city:
     range: string
     description: The city component of the postal address.
     close_mappings:
-    - fpml_5_10:Address.city
+      - fpml_5_10:Address.city
 
   state:
     range: string
     description: A country subdivision used in postal addresses in some countries. For example, US states, Canadian provinces,
       Swiss cantons, ...
     close_mappings:
-    - fpml_5_10:Address.state
+      - fpml_5_10:Address.state
 
   country:
     range: string
@@ -637,21 +637,21 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:Address.country
+      - fpml_5_10:Address.country
 
   postalCode:
     range: string
     description: The code, required for computerized mail sorting systems, that is allocated to a physical address by a national
       postal authority.
     close_mappings:
-    - fpml_5_10:Address.postalCode
+      - fpml_5_10:Address.postalCode
 
   contactInformation:
     range: ContactInformation
     description: The contact information for such business unit, when different from the contact information associated with
       the party.
     close_mappings:
-    - fpml_5_10:BusinessUnit.contactInformation
+      - fpml_5_10:BusinessUnit.contactInformation
 
   telephone:
     range: TelephoneNumber
@@ -775,12 +775,12 @@ slots:
     description: Identifies a party via its ancillary role on a transaction (e.g. CCP or DCO through which the trade should
       be cleared.)
     close_mappings:
-    - fpml_5_10:AncillaryEntity.ancillaryParty
+      - fpml_5_10:AncillaryEntity.ancillaryParty
 
   legalEntity:
     range: LegalEntity
     close_mappings:
-    - fpml_5_10:AncillaryEntity.legalEntity
+      - fpml_5_10:AncillaryEntity.legalEntity
 
 classes:
   Counterparty:
@@ -790,21 +790,21 @@ classes:
       the product (e.g. to specify which counterparty is the payer, receiver etc) and this Counterparty type, which is positioned
       outside of the product definition, allows the CounterpartyEnum to be associated with an actual party reference.
     close_mappings:
-    - gist:Assignment
-    - oscal:ResponsibleParty
+      - gist:Assignment
+      - oscal:ResponsibleParty
     related_mappings:
-    - iso29100:ThirdParty
+      - iso29100:ThirdParty
     comments:
-    - 'Rosetta func: ExtractCounterpartyByRole — Extracts from a list of Counterparty data types, the Counterparty that corresponds
-      to the role i.e. Party1 or Party2.'
+      - 'Rosetta func: ExtractCounterpartyByRole — Extracts from a list of Counterparty data types, the Counterparty that
+        corresponds to the role i.e. Party1 or Party2.'
     annotations:
       rosetta_functions: '[{"name":"ExtractCounterpartyByRole","description":"Extracts from a list of Counterparty data types,
         the Counterparty that corresponds to the role i.e. Party1 or Party2.","inputs":[{"name":"counterparties","type":"Counterparty","cardinality":"1..*"},{"name":"roleEnumToExtract","type":"CounterpartyRoleEnum","cardinality":"1..1"}],"output":{"name":"counterparty","type":"Counterparty","cardinality":"0..1"}}]'
     slots:
-    - role
-    - partyReference
+      - role
+      - partyReference
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   AncillaryParty:
     description: Defines an ancillary role enumerated value with an associated party reference. The product is agnostic to
@@ -813,17 +813,17 @@ classes:
       type, which is positioned outside of the product definition, allows the AncillaryRoleEnum to be associated with an actual
       party reference.
     close_mappings:
-    - fpml_5_10:AncillaryParty
+      - fpml_5_10:AncillaryParty
     comments:
-    - 'Rosetta func: ExtractAncillaryPartyByRole — Extracts from a list of AncillaryParty data types, the AncillaryParty that
-      corresponds to the AncillaryRoleEnum.'
+      - 'Rosetta func: ExtractAncillaryPartyByRole — Extracts from a list of AncillaryParty data types, the AncillaryParty
+        that corresponds to the AncillaryRoleEnum.'
     annotations:
       rosetta_functions: '[{"name":"ExtractAncillaryPartyByRole","description":"Extracts from a list of AncillaryParty data
         types, the AncillaryParty that corresponds to the AncillaryRoleEnum.","inputs":[{"name":"ancillaryParties","type":"AncillaryParty","cardinality":"1..*"},{"name":"roleEnumToExtract","type":"AncillaryRoleEnum","cardinality":"1..1"}],"output":{"name":"ancillaryParty","type":"AncillaryParty","cardinality":"0..1"}}]'
     slots:
-    - role
-    - partyReference
-    - onBehalfOf
+      - role
+      - partyReference
+      - onBehalfOf
     slot_usage:
       role:
         range: AncillaryRoleEnum
@@ -833,67 +833,67 @@ classes:
         description: Specifies the party, or parties, associated to the ancillary role.
         multivalued: true
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   BuyerSeller:
     description: This class corresponds to the FpML BuyerSeller.model construct.
     close_mappings:
-    - fpml_5_10:BuyerSeller
+      - fpml_5_10:BuyerSeller
     slots:
-    - buyer
-    - seller
+      - buyer
+      - seller
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   PayerReceiver:
     description: Specifies the parties responsible for making and receiving payments defined by this structure.
     slots:
-    - payer
-    - receiver
+      - payer
+      - receiver
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   PartyReferencePayerReceiver:
     description: Specifies the parties responsible for making and receiving payments defined by this structure.
     slots:
-    - payerPartyReference
-    - payerAccountReference
-    - receiverPartyReference
-    - receiverAccountReference
+      - payerPartyReference
+      - payerAccountReference
+      - receiverPartyReference
+      - receiverAccountReference
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   ReferenceBank:
     description: A class to describe an institution (party) identified by means of a coding scheme and an optional name.
     slots:
-    - referenceBankId
-    - referenceBankName
+      - referenceBankId
+      - referenceBankName
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   ReferenceBanks:
     description: A class defining the list of reference institutions polled for relevant rates or prices when determining
       the cash settlement amount for a product where cash settlement is applicable.
     slots:
-    - referenceBank
+      - referenceBank
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   RelatedParty:
     close_mappings:
-    - gist:Assignment
-    - oscal:ResponsibleParty
+      - gist:Assignment
+      - oscal:ResponsibleParty
     related_mappings:
-    - iso29100:ThirdParty
+      - iso29100:ThirdParty
     comments:
-    - 'Rosetta func: FilterRelatedPartyByRole — Filters the list of RelatedParty based on the provided partyRoleEnum.'
+      - 'Rosetta func: FilterRelatedPartyByRole — Filters the list of RelatedParty based on the provided partyRoleEnum.'
     annotations:
       rosetta_functions: '[{"name":"FilterRelatedPartyByRole","description":"Filters the list of RelatedParty based on the
         provided partyRoleEnum.","inputs":[{"name":"relatedParties","type":"RelatedParty","cardinality":"0..*"},{"name":"partyRoleEnum","type":"PartyRoleEnum","cardinality":"1..1"}],"output":{"name":"filteredRelatedParties","type":"RelatedParty","cardinality":"0..*"}}]'
     slots:
-    - partyReference
-    - accountReference
-    - role
+      - partyReference
+      - accountReference
+      - role
     slot_usage:
       partyReference:
         description: Reference to a party.
@@ -902,7 +902,7 @@ classes:
         description: The category of the relationship. The related party performs the role specified in this field for the
           base party. For example, if the role is ,Guarantor, the related party acts as a guarantor for the base party.
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   Account:
     description: A class to specify an account as an account number alongside, optionally. an account name, an account type,
@@ -910,54 +910,54 @@ classes:
     annotations:
       metadata_key: true
     close_mappings:
-    - fpml_5_10:Account
-    - gist:Account
+      - fpml_5_10:Account
+      - gist:Account
     slots:
-    - partyReference
-    - accountNumber
-    - accountName
-    - accountType
-    - accountBeneficiary
-    - servicingParty
+      - partyReference
+      - accountNumber
+      - accountName
+      - accountType
+      - accountBeneficiary
+      - servicingParty
     slot_usage:
       partyReference:
         description: A reference to the party to which the account refers to.
         required: false
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   Address:
     description: A class to specify a post or street address.
     close_mappings:
-    - fpml_5_10:Address
-    - gist:Address
-    - oscal:Address
+      - fpml_5_10:Address
+      - gist:Address
+      - oscal:Address
     related_mappings:
-    - gist:PhysicalAddress
-    - iso29100:PersonallyIdentifiableInformation
+      - gist:PhysicalAddress
+      - iso29100:PersonallyIdentifiableInformation
     slots:
-    - street
-    - city
-    - state
-    - country
-    - postalCode
+      - street
+      - city
+      - state
+      - country
+      - postalCode
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   BusinessUnit:
     description: A class to specify an organizational unit.
     annotations:
       metadata_key: true
     close_mappings:
-    - fpml_5_10:BusinessUnit
-    - gist:Organization
-    - spdx:Organization
+      - fpml_5_10:BusinessUnit
+      - gist:Organization
+      - spdx:Organization
     related_mappings:
-    - oscal:Location
+      - oscal:Location
     slots:
-    - name
-    - identifier
-    - contactInformation
+      - name
+      - identifier
+      - contactInformation
     slot_usage:
       name:
         description: A name used to describe the organizational unit
@@ -969,107 +969,107 @@ classes:
         required: false
         multivalued: false
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   ContactInformation:
     description: 'A class to specify contact information associated with a party: telephone, postal/street address, email
       and web page.'
     close_mappings:
-    - gist:ElectronicAddress
-    - oscal:Location
+      - gist:ElectronicAddress
+      - oscal:Location
     related_mappings:
-    - iso29100:PersonallyIdentifiableInformation
+      - iso29100:PersonallyIdentifiableInformation
     slots:
-    - telephone
-    - address
-    - email
-    - webPage
+      - telephone
+      - address
+      - email
+      - webPage
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   LegalEntity:
     description: A class to specify a legal entity, with a required name and an optional entity identifier (such as the LEI).
     annotations:
       metadata_key: true
     close_mappings:
-    - gist:Organization
-    - oscal:Party
-    - spdx:Organization
+      - gist:Organization
+      - oscal:Party
+      - spdx:Organization
     narrow_mappings:
-    - gist:GovernmentOrganization
+      - gist:GovernmentOrganization
     related_mappings:
-    - iso29100:PIIController
-    - iso29100:PIIProcessor
+      - iso29100:PIIController
+      - iso29100:PIIProcessor
     slots:
-    - name
-    - entityIdentifier
+      - name
+      - entityIdentifier
     slot_usage:
       name:
         description: The legal entity name.
         required: true
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   NaturalPerson:
     description: A class to represent the attributes that are specific to a natural person.
     annotations:
       metadata_key: true
     close_mappings:
-    - gist:Person
-    - iso29100:PIIPrincipal
-    - oscal:Party
-    - spdx:Person
+      - gist:Person
+      - iso29100:PIIPrincipal
+      - oscal:Party
+      - spdx:Person
     rules:
-    - description: NameOrIdChoice
-      postconditions:
-        any_of:
-        - slot_conditions:
-            firstName:
-              required: true
-            surname:
-              required: true
-        - slot_conditions:
-            personId:
-              required: true
-      preconditions: {}
-    - description: Choice rule to represent an FpML choice construct.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            middleName:
-              required: true
-        - slot_conditions:
-            initial:
-              required: true
-      preconditions: {}
+      - description: NameOrIdChoice
+        postconditions:
+          any_of:
+            - slot_conditions:
+                firstName:
+                  required: true
+                surname:
+                  required: true
+            - slot_conditions:
+                personId:
+                  required: true
+        preconditions: {}
+      - description: Choice rule to represent an FpML choice construct.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                middleName:
+                  required: true
+            - slot_conditions:
+                initial:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: NameOrIdChoice — (firstName exists and surname exists) or personId exists'
-    - 'Rosetta condition: NaturalPersonChoice — optional choice middleName, initial'
+      - 'Rosetta condition: NameOrIdChoice — (firstName exists and surname exists) or personId exists'
+      - 'Rosetta condition: NaturalPersonChoice — optional choice middleName, initial'
     slots:
-    - personId
-    - honorific
-    - firstName
-    - middleName
-    - initial
-    - surname
-    - suffix
-    - dateOfBirth
-    - contactInformation
+      - personId
+      - honorific
+      - firstName
+      - middleName
+      - initial
+      - surname
+      - suffix
+      - dateOfBirth
+      - contactInformation
     slot_usage:
       contactInformation:
         description: The contact information for such person, when different from the contact information associated with
           the party.
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   NaturalPersonRole:
     description: A class to specify the role(s) that natural person(s) may have in relation to the contract.
     close_mappings:
-    - gist:Assignment
-    - oscal:ResponsibleParty
+      - gist:Assignment
+      - oscal:ResponsibleParty
     slots:
-    - personReference
-    - role
+      - personReference
+      - role
     slot_usage:
       role:
         range: NaturalPersonRoleEnum
@@ -1077,7 +1077,7 @@ classes:
         required: false
         multivalued: true
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   Party:
     description: 'A class to specify a party, without a qualification as to whether this party is a legal entity or a natural
@@ -1087,23 +1087,23 @@ classes:
       metadata_key: true
       rosetta_functions: '[{"name":"ReplaceParty","description":"Removes the old party, and adds the new party.","inputs":[{"name":"parties","type":"Party","cardinality":"0..*"},{"name":"oldParty","type":"Party","cardinality":"1..1"},{"name":"newParty","type":"Party","cardinality":"1..1"}],"output":{"name":"updatedParties","type":"Party","cardinality":"0..*"}}]'
     close_mappings:
-    - gist:Organization
-    - oscal:Party
-    - spdx:Agent
+      - gist:Organization
+      - oscal:Party
+      - spdx:Agent
     related_mappings:
-    - gist:Person
+      - gist:Person
     broad_mappings:
-    - iso29100:PrivacyStakeholder
+      - iso29100:PrivacyStakeholder
     comments:
-    - 'Rosetta func: ReplaceParty — Removes the old party, and adds the new party.'
+      - 'Rosetta func: ReplaceParty — Removes the old party, and adds the new party.'
     slots:
-    - partyId
-    - name
-    - businessUnit
-    - person
-    - personRole
-    - account
-    - contactInformation
+      - partyId
+      - name
+      - businessUnit
+      - person
+      - personRole
+      - account
+      - contactInformation
     slot_usage:
       name:
         description: The party name.
@@ -1111,7 +1111,7 @@ classes:
         description: The postal/street address, telephone number, email address and/or web page. If the contact information
           is specific to the associated business unit(s) or person (s), it should be associated with those.
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   PartyIdentifier:
     description: Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash
@@ -1120,12 +1120,12 @@ classes:
     annotations:
       metadata_key: true
     close_mappings:
-    - gist:ID
-    - oscal:PartyExternalId
-    - spdx:ExternalIdentifier
+      - gist:ID
+      - oscal:PartyExternalId
+      - spdx:ExternalIdentifier
     slots:
-    - identifier
-    - identifierType
+      - identifier
+      - identifierType
     slot_usage:
       identifier:
         range: string
@@ -1137,7 +1137,7 @@ classes:
         description: Defines the source of the identifier.
         required: false
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   EntityIdentifier:
     description: Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash
@@ -1146,12 +1146,12 @@ classes:
     annotations:
       metadata_key: true
     close_mappings:
-    - gist:ID
-    - oscal:PartyExternalId
-    - spdx:ExternalIdentifier
+      - gist:ID
+      - oscal:PartyExternalId
+      - spdx:ExternalIdentifier
     slots:
-    - identifier
-    - identifierType
+      - identifier
+      - identifierType
     slot_usage:
       identifier:
         range: string
@@ -1162,7 +1162,7 @@ classes:
         description: Defines the source of the identifier.
         required: false
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   PersonIdentifier:
     description: Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash
@@ -1171,15 +1171,15 @@ classes:
     annotations:
       metadata_key: true
     close_mappings:
-    - gist:ID
-    - oscal:PartyExternalId
-    - spdx:ExternalIdentifier
+      - gist:ID
+      - oscal:PartyExternalId
+      - spdx:ExternalIdentifier
     related_mappings:
-    - iso29100:PersonallyIdentifiableInformation
+      - iso29100:PersonallyIdentifiableInformation
     slots:
-    - identifier
-    - identifierType
-    - country
+      - identifier
+      - identifierType
+      - country
     slot_usage:
       identifier:
         range: string
@@ -1193,19 +1193,19 @@ classes:
       country:
         description: The ISO 3166 standard code for the country issuing the identifier.
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   PartyRole:
     description: A class to specify the role(s) that party(ies) may have in relation to the execution, contract or other legal
       agreement.
     comments:
-    - 'Rosetta func: FilterPartyRole — Filters the list of partyRoles based on the provided partyRoleEnum.'
+      - 'Rosetta func: FilterPartyRole — Filters the list of partyRoles based on the provided partyRoleEnum.'
     annotations:
       rosetta_functions: '[{"name":"FilterPartyRole","description":"Filters the list of partyRoles based on the provided partyRoleEnum.","inputs":[{"name":"partyRoles","type":"PartyRole","cardinality":"0..*"},{"name":"partyRoleEnum","type":"PartyRoleEnum","cardinality":"1..1"}],"output":{"name":"filteredPartyRoles","type":"PartyRole","cardinality":"0..*"}}]'
     slots:
-    - partyReference
-    - role
-    - ownershipPartyReference
+      - partyReference
+      - role
+      - ownershipPartyReference
     slot_usage:
       partyReference:
         description: A reference to the party to which the role refers to.
@@ -1213,28 +1213,28 @@ classes:
         range: PartyRoleEnum
         description: The party role.
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   TelephoneNumber:
     description: A class to specify a telephone number as a type of phone number (e.g. work, personal, ...) alongside with
       the actual number.
     slots:
-    - telephoneNumberType
-    - number
+      - telephoneNumberType
+      - number
     slot_usage:
       number:
         range: string
         description: The actual telephone number.
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party
 
   AncillaryEntity:
     description: Holds an identifier for an ancillary entity, either identified directly via its ancillary role or directly
       as a legal entity.
     close_mappings:
-    - fpml_5_10:AncillaryEntity
+      - fpml_5_10:AncillaryEntity
     slots:
-    - ancillaryParty
-    - legalEntity
+      - ancillaryParty
+      - legalEntity
     in_subset:
-    - cdm_base_staticdata_party
+      - cdm_base_staticdata_party

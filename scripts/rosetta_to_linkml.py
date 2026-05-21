@@ -2038,7 +2038,12 @@ def namespace_to_import(ns: str) -> str:
 class LinkMLGenerator:
     """Generate LinkML YAML schema from parsed Rosetta modules with enrichment."""
 
-    CDM_PREFIX = "https://w3id.org/lmodel/common_domain_model/"
+    # NOTE: CDM_PREFIX MUST match the schema id (kebab-case) so that
+    # CURIE expansions (e.g. common_domain_model:Account) resolve to the
+    # same w3id path the redirect table serves. The prefix *alias* stays
+    # snake_case because LinkML prefix names must be valid NCNames
+    # (hyphens are not allowed in NCNames).
+    CDM_PREFIX = "https://w3id.org/lmodel/common-domain-model/"
     CDM_ID = "https://w3id.org/lmodel/common-domain-model"
     FPML_PREFIX = "http://www.fpml.org/coding-scheme/"
     FPML_5_10_PREFIX = "https://www.fpml.org/spec/fpml-5-10#"
@@ -2801,14 +2806,14 @@ class LinkMLGenerator:
 CONSTRUCT_SSSOM_HEADER = """\
 #curie_map:
 #  cdm.rosetta: https://cdm.finos.org/rosetta/
-#  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+#  common_domain_model: https://w3id.org/lmodel/common-domain-model/
 #  linkml: https://w3id.org/linkml/
 #  semapv: https://w3id.org/semapv/vocab/
 """
 
 EXTERNAL_SSSOM_HEADER = """\
 #curie_map:
-#  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+#  common_domain_model: https://w3id.org/lmodel/common-domain-model/
 #  fpml: http://www.fpml.org/coding-scheme/
 #  isda: https://www.isda.org/specifications/
 #  icma: https://www.icmagroup.org/market-practice-and-regulatory-policy/
@@ -3504,18 +3509,42 @@ def generate_functions_sidecar(
     }
 
 
+class _IndentedDumper(yaml.Dumper):
+    """YAML dumper that always indents block sequences under their parent
+    mapping key.
+
+    PyYAML's default behavior emits *indentless* sequences::
+
+        imports:
+        - linkml:types
+        - ./cdm_base
+
+    which yamllint / linkml-lint flag as ``wrong indentation: expected at
+    least N`` because the ``-`` is at the same column as ``imports:``.
+    Overriding ``increase_indent`` with ``indentless=False`` produces the
+    indented form expected by LinkML tooling::
+
+        imports:
+          - linkml:types
+          - ./cdm_base
+    """
+
+    def increase_indent(self, flow=False, indentless=False):  # type: ignore[override]
+        return super().increase_indent(flow=flow, indentless=False)
+
+
 def write_yaml(data: dict, path: Path) -> None:
     """Write a dict as YAML with sensible formatting and blank-line separation."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    dumper = yaml.Dumper
-    dumper.add_representer(str, _str_representer)
+    _IndentedDumper.add_representer(str, _str_representer)
     raw = yaml.dump(
         data,
-        Dumper=dumper,
+        Dumper=_IndentedDumper,
         default_flow_style=False,
         sort_keys=False,
         allow_unicode=True,
         width=120,
+        indent=2,
     )
     formatted = _insert_blank_lines(raw)
     with open(path, "w", encoding="utf-8") as f:

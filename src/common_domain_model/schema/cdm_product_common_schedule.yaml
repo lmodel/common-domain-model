@@ -4,10 +4,10 @@ description: 'Common product schedule concepts: calculation period, reset, fixin
   roll convention.'
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -16,35 +16,35 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_datetime
-- ./cdm_base_math
-- ./cdm_observable_asset
-- ./cdm_observable_common
-- ./cdm_observable_event
-- ./cdm_product_asset
-- ./cdm_base_staticdata_codelist
-- ./cdm_event_common
-- ./cdm_base_staticdata_identifier
-- ./cdm_observable_asset_calculatedrate
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_math
+  - ./cdm_observable_asset
+  - ./cdm_observable_common
+  - ./cdm_observable_event
+  - ./cdm_product_asset
+  - ./cdm_base_staticdata_codelist
+  - ./cdm_event_common
+  - ./cdm_base_staticdata_identifier
+  - ./cdm_observable_asset_calculatedrate
 
 comments:
-- 'Rosetta func: PaymentDate | inputs(economicTerms: EconomicTerms (1..1)) | output(result: date (0..1))'
-- 'Rosetta func: PeriodsInYear | inputs(frequency: CalculationPeriodFrequency (1..1)) | output(numberOfPeriods: int (1..1))'
-- 'Rosetta func: CalculationPeriod — 2006 ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of a Swap
-  Transaction and a party, each period from, and including, one Period End Date of that party to, but excluding, the next
-  following applicable Period End Date during the Term of the Swap Transaction, except that (a) the initial Calculation Period
-  for the party will commence on, and include, the Effective Date and (b) the final Calculation Period for the party will
-  end on, but exclude, the Termination Date. | inputs(calculationPeriodDates: CalculationPeriodDates (1..1), date: date (1..1))
-  | output(result: CalculationPeriodData (1..1))'
-- 'Rosetta func: CalculationPeriods — 2006 ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of a Swap
-  Transaction and a party, each period from, and including, one Period End Date of that party to, but excluding, the next
-  following applicable Period End Date during the Term of the Swap Transaction, except that (a) the initial Calculation Period
-  for the party will commence on, and include, the Effective Date and (b) the final Calculation Period for the party will
-  end on, but exclude, the Termination Date. | inputs(calculationPeriodDates: CalculationPeriodDates (1..1)) | output(result:
-  CalculationPeriodData (0..*))'
-- 'Rosetta func: CalculationPeriodRange | inputs(dateAdjustments: BusinessDayAdjustments (0..1)) | output(result: CalculationPeriodData
-  (1..1))'
+  - 'Rosetta func: PaymentDate | inputs(economicTerms: EconomicTerms (1..1)) | output(result: date (0..1))'
+  - 'Rosetta func: PeriodsInYear | inputs(frequency: CalculationPeriodFrequency (1..1)) | output(numberOfPeriods: int (1..1))'
+  - 'Rosetta func: CalculationPeriod — 2006 ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of a Swap
+    Transaction and a party, each period from, and including, one Period End Date of that party to, but excluding, the next
+    following applicable Period End Date during the Term of the Swap Transaction, except that (a) the initial Calculation
+    Period for the party will commence on, and include, the Effective Date and (b) the final Calculation Period for the party
+    will end on, but exclude, the Termination Date. | inputs(calculationPeriodDates: CalculationPeriodDates (1..1), date:
+    date (1..1)) | output(result: CalculationPeriodData (1..1))'
+  - 'Rosetta func: CalculationPeriods — 2006 ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of a Swap
+    Transaction and a party, each period from, and including, one Period End Date of that party to, but excluding, the next
+    following applicable Period End Date during the Term of the Swap Transaction, except that (a) the initial Calculation
+    Period for the party will commence on, and include, the Effective Date and (b) the final Calculation Period for the party
+    will end on, but exclude, the Termination Date. | inputs(calculationPeriodDates: CalculationPeriodDates (1..1)) | output(result:
+    CalculationPeriodData (0..*))'
+  - 'Rosetta func: CalculationPeriodRange | inputs(dateAdjustments: BusinessDayAdjustments (0..1)) | output(result: CalculationPeriodData
+    (1..1))'
 annotations:
   rosetta_functions: '[{"name":"PaymentDate","inputs":[{"name":"economicTerms","type":"EconomicTerms","cardinality":"1..1"}],"output":{"name":"result","type":"date","cardinality":"0..1"}},{"name":"PeriodsInYear","inputs":[{"name":"frequency","type":"CalculationPeriodFrequency","cardinality":"1..1"}],"output":{"name":"numberOfPeriods","type":"int","cardinality":"1..1"},"code_implementation":true},{"name":"CalculationPeriod","description":"2006
     ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of a Swap Transaction and a party, each period
@@ -106,7 +106,7 @@ enums:
   WeeklyRollConventionEnum:
     description: The enumerated values to specify the weekly roll day.
     inherits:
-    - DayOfWeekEnum
+      - DayOfWeekEnum
     permissible_values:
       TBILL:
         description: 13-week and 26-week U.S. Treasury Bill Auction Dates. Each Monday except for U.S. (New York) holidays
@@ -117,25 +117,25 @@ slots:
     range: integer
     required: true
     close_mappings:
-    - fpml_5_10:CalculationPeriodData.daysInPeriod
+      - fpml_5_10:CalculationPeriodData.daysInPeriod
 
   daysInLeapYearPeriod:
     range: integer
     required: true
     close_mappings:
-    - fpml_5_10:CalculationPeriodData.daysInLeapYearPeriod
+      - fpml_5_10:CalculationPeriodData.daysInLeapYearPeriod
 
   isFirstPeriod:
     range: boolean
     required: true
     close_mappings:
-    - fpml_5_10:CalculationPeriodData.isFirstPeriod
+      - fpml_5_10:CalculationPeriodData.isFirstPeriod
 
   isLastPeriod:
     range: boolean
     required: true
     close_mappings:
-    - fpml_5_10:CalculationPeriodData.isLastPeriod
+      - fpml_5_10:CalculationPeriodData.isLastPeriod
 
   calculationPeriodDatesReference:
     range: CalculationPeriodDates
@@ -162,72 +162,72 @@ slots:
     range: date
     description: The calculation period start date, adjusted according to any relevant business day convention.
     close_mappings:
-    - fpml_5_10:CalculationPeriodBase.adjustedStartDate
+      - fpml_5_10:CalculationPeriodBase.adjustedStartDate
 
   adjustedEndDate:
     range: date
     description: The calculation period end date, adjusted according to any relevant business day convention.
     close_mappings:
-    - fpml_5_10:CalculationPeriodBase.adjustedEndDate
+      - fpml_5_10:CalculationPeriodBase.adjustedEndDate
 
   unadjustedStartDate:
     range: date
     description: The calculation start date, unadjusted.
     close_mappings:
-    - fpml_5_10:CalculationPeriod.unadjustedStartDate
+      - fpml_5_10:CalculationPeriod.unadjustedStartDate
 
   unadjustedEndDate:
     range: date
     description: The calculation end date, unadjusted.
     close_mappings:
-    - fpml_5_10:CalculationPeriod.unadjustedEndDate
+      - fpml_5_10:CalculationPeriod.unadjustedEndDate
 
   notionalAmount:
     range: decimal
     description: The amount that a cashflow will accrue interest on.
     close_mappings:
-    - fpml_5_10:CalculationPeriod.notionalAmount
+      - fpml_5_10:CalculationPeriod.notionalAmount
 
   fxLinkedNotionalAmount:
     range: FxLinkedNotionalAmount
     description: The amount that a cashflow will accrue interest on. This is the calculated amount of the FX linked - i.e.
       the other currency notional amount multiplied by the appropriate FX spot rate.
     close_mappings:
-    - fpml_5_10:CalculationPeriod.fxLinkedNotionalAmount
+      - fpml_5_10:CalculationPeriod.fxLinkedNotionalAmount
 
   floatingRateDefinition:
     range: FloatingRateDefinition
     description: The floating rate reset information for the calculation period.
     close_mappings:
-    - fpml_5_10:CalculationPeriod.floatingRateDefinition
+      - fpml_5_10:CalculationPeriod.floatingRateDefinition
 
   dayCountYearFraction:
     range: decimal
     description: The year fraction value of the calculation period, result of applying the ISDA rules for day count fraction
       defined in the ISDA Annex.
     close_mappings:
-    - fpml_5_10:CalculationPeriod.dayCountYearFraction
+      - fpml_5_10:CalculationPeriod.dayCountYearFraction
 
   forecastAmount:
     range: Money
     description: The amount representing the forecast of the accrued value of the calculation period. An intermediate value
       used to generate the forecastPaymentAmount in the PaymentCalculationPeriod.
     close_mappings:
-    - fpml_5_10:CalculationPeriod.forecastAmount
+      - fpml_5_10:CalculationPeriod.forecastAmount
 
   terminationDate:
     range: AdjustableOrRelativeDate
     description: The last day of the terms of the trade. This date may be subject to adjustments in accordance with the business
       day convention. It can also be specified in relation to another scheduled date (e.g. the last payment date).
     close_mappings:
-    - fpml_5_10:CalculationPeriodDates.terminationDate
+      - fpml_5_10:CalculationPeriodDates.terminationDate
 
   calculationPeriodDatesAdjustments:
     range: BusinessDayAdjustments
     description: The specification of the business day convention and financial business centers used for adjusting any calculation
       period date if it would otherwise fall on a day that is not a business day in the specified business center.
     close_mappings:
-    - fpml_5_10:CalculationPeriodDates.calculationPeriodDatesAdjustments
+      - fpml_5_10:CalculationPeriodDates.calculationPeriodDatesAdjustments
 
   firstPeriodStartDate:
     range: AdjustableOrRelativeDate
@@ -235,7 +235,7 @@ slots:
       be specified if it is not equal to the effective date. It is always specified in the case of equity swaps and credit
       default swaps with periodic payments. This date may be subject to adjustment in accordance with a business day convention.
     close_mappings:
-    - fpml_5_10:CalculationPeriodDates.firstPeriodStartDate
+      - fpml_5_10:CalculationPeriodDates.firstPeriodStartDate
 
   firstRegularPeriodStartDate:
     range: date
@@ -243,7 +243,7 @@ slots:
       is an initial stub calculation period. This day may be subject to adjustment in accordance with any adjustments specified
       in calculationPeriodDatesAdjustments.
     close_mappings:
-    - fpml_5_10:CalculationPeriodDates.firstRegularPeriodStartDate
+      - fpml_5_10:CalculationPeriodDates.firstRegularPeriodStartDate
 
   firstCompoundingPeriodEndDate:
     range: date
@@ -251,7 +251,7 @@ slots:
       when the compoundingMethod element is present and not equal to a value of None. This date may be subject to adjustment
       in accordance with any adjustments specified in calculationPeriodDatesAdjustments.
     close_mappings:
-    - fpml_5_10:CalculationPeriodDates.firstCompoundingPeriodEndDate
+      - fpml_5_10:CalculationPeriodDates.firstCompoundingPeriodEndDate
 
   lastRegularPeriodEndDate:
     range: date
@@ -259,7 +259,7 @@ slots:
       a final stub calculation period. This day may be subject to adjustment in accordance with any adjustments specified
       in calculationPeriodDatesAdjustments.
     close_mappings:
-    - fpml_5_10:CalculationPeriodDates.lastRegularPeriodEndDate
+      - fpml_5_10:CalculationPeriodDates.lastRegularPeriodEndDate
 
   stubPeriodType:
     range: StubPeriodTypeEnum
@@ -268,14 +268,14 @@ slots:
       stub at the same time.
     multivalued: true
     close_mappings:
-    - fpml_5_10:CalculationPeriodDates.stubPeriodType
+      - fpml_5_10:CalculationPeriodDates.stubPeriodType
 
   calculationPeriodFrequency:
     range: CalculationPeriodFrequency
     description: The frequency at which calculation period end dates occur with the regular part of the calculation period
       schedule and their roll date convention.
     close_mappings:
-    - fpml_5_10:CalculationPeriodDates.calculationPeriodFrequency
+      - fpml_5_10:CalculationPeriodDates.calculationPeriodFrequency
 
   valuationDatesReference:
     range: PerformanceValuationDates
@@ -474,13 +474,13 @@ slots:
     range: DateTimeList
     description: An unweighted list of averaging observation date and times.
     close_mappings:
-    - fpml_5_10:AveragingPeriod.averagingDateTimes
+      - fpml_5_10:AveragingPeriod.averagingDateTimes
 
   averagingObservations:
     range: AveragingObservationList
     description: A weighted list of averaging observation date and times.
     close_mappings:
-    - fpml_5_10:AveragingPeriod.averagingObservations
+      - fpml_5_10:AveragingPeriod.averagingObservations
 
   marketDisruption:
     range: MarketDisruptionEnum
@@ -488,7 +488,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:AveragingPeriod.marketDisruption
+      - fpml_5_10:AveragingPeriod.marketDisruption
 
   observationNumber:
     range: integer
@@ -580,19 +580,19 @@ slots:
 classes:
   CalculationPeriodData:
     close_mappings:
-    - fpml_5_10:CalculationPeriodData
+      - fpml_5_10:CalculationPeriodData
     comments:
-    - 'Rosetta func: CalculationPeriod — 2006 ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of a
-      Swap Transaction and a party, each period from, and including, one Period End Date of that party to, but excluding,
-      the next following applicable Period End Date during the Term of the Swap Transaction, except that (a) the initial Calculation
-      Period for the party will commence on, and include, the Effective Date and (b) the final Calculation Period for the
-      party will end on, but exclude, the Termination Date.'
-    - 'Rosetta func: CalculationPeriods — 2006 ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of a
-      Swap Transaction and a party, each period from, and including, one Period End Date of that party to, but excluding,
-      the next following applicable Period End Date during the Term of the Swap Transaction, except that (a) the initial Calculation
-      Period for the party will commence on, and include, the Effective Date and (b) the final Calculation Period for the
-      party will end on, but exclude, the Termination Date.'
-    - 'Rosetta func: CalculationPeriodRange'
+      - 'Rosetta func: CalculationPeriod — 2006 ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of
+        a Swap Transaction and a party, each period from, and including, one Period End Date of that party to, but excluding,
+        the next following applicable Period End Date during the Term of the Swap Transaction, except that (a) the initial
+        Calculation Period for the party will commence on, and include, the Effective Date and (b) the final Calculation Period
+        for the party will end on, but exclude, the Termination Date.'
+      - 'Rosetta func: CalculationPeriods — 2006 ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of
+        a Swap Transaction and a party, each period from, and including, one Period End Date of that party to, but excluding,
+        the next following applicable Period End Date during the Term of the Swap Transaction, except that (a) the initial
+        Calculation Period for the party will commence on, and include, the Effective Date and (b) the final Calculation Period
+        for the party will end on, but exclude, the Termination Date.'
+      - 'Rosetta func: CalculationPeriodRange'
     annotations:
       rosetta_functions: '[{"name":"CalculationPeriod","description":"2006 ISDA Definition Section 4.13. ''Calculation Period''
         means, in respect of a Swap Transaction and a party, each period from, and including, one Period End Date of that
@@ -605,14 +605,14 @@ classes:
         on, and include, the Effective Date and (b) the final Calculation Period for the party will end on, but exclude, the
         Termination Date.","inputs":[{"name":"calculationPeriodDates","type":"CalculationPeriodDates","cardinality":"1..1"}],"output":{"name":"result","type":"CalculationPeriodData","cardinality":"0..*"},"code_implementation":true},{"name":"CalculationPeriodRange","inputs":[{"name":"dateAdjustments","type":"BusinessDayAdjustments","cardinality":"0..1"}],"output":{"name":"result","type":"CalculationPeriodData","cardinality":"1..1"},"code_implementation":true}]'
     slots:
-    - startDate
-    - endDate
-    - daysInPeriod
-    - daysInLeapYearPeriod
-    - isFirstPeriod
-    - isLastPeriod
+      - startDate
+      - endDate
+      - daysInPeriod
+      - daysInLeapYearPeriod
+      - isFirstPeriod
+      - isLastPeriod
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   StubPeriod:
     description: ' A class defining how the initial or final stub calculation period amounts is calculated. For example, the
@@ -623,11 +623,11 @@ classes:
       and this is the same as that specified in the calculation period amount component then the initial stub or final stub
       component, as the case may be, must not be included.'
     slots:
-    - calculationPeriodDatesReference
-    - initialStub
-    - finalStub
+      - calculationPeriodDatesReference
+      - initialStub
+      - finalStub
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   CalculationPeriodBase:
     description: The calculation period adjusted start and end dates, which are the baseline arguments needed to compute an
@@ -635,78 +635,78 @@ classes:
     annotations:
       metadata_key: true
     close_mappings:
-    - fpml_5_10:CalculationPeriodBase
+      - fpml_5_10:CalculationPeriodBase
     slots:
-    - adjustedStartDate
-    - adjustedEndDate
+      - adjustedStartDate
+      - adjustedEndDate
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   CalculationPeriod:
     description: 'A data defining:  the parameters used in the calculation of a fixed or floating rate calculation period
       amount. This data forms:  part of cashflows representation of a swap stream.'
     is_a: CalculationPeriodBase
     close_mappings:
-    - fpml_5_10:CalculationPeriod
+      - fpml_5_10:CalculationPeriod
     rules:
-    - description: condition to represent an FpML choice construct.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            notionalAmount:
-              required: true
-        - slot_conditions:
-            fxLinkedNotionalAmount:
-              required: true
-      preconditions: {}
-    - description: condition to represent an FpML choice construct.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            floatingRateDefinition:
-              required: true
-        - slot_conditions:
-            fixedRate:
-              required: true
-      preconditions: {}
-    - description: 'FpML validation rule ird-30 - Context: CalculationPeriod (complex type). unadjustedStartDate exists or
-        adjustedStartDate exists.'
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            adjustedStartDate:
-              required: true
-        - slot_conditions:
-            unadjustedStartDate:
-              required: true
-      preconditions: {}
-    - description: 'FpML validation rule ird-31 - Context: CalculationPeriod (complex type). unadjustedEndDate exists or adjustedEndDate
-        exists.'
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            adjustedEndDate:
-              required: true
-        - slot_conditions:
-            unadjustedEndDate:
-              required: true
-      preconditions: {}
+      - description: condition to represent an FpML choice construct.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                notionalAmount:
+                  required: true
+            - slot_conditions:
+                fxLinkedNotionalAmount:
+                  required: true
+        preconditions: {}
+      - description: condition to represent an FpML choice construct.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                floatingRateDefinition:
+                  required: true
+            - slot_conditions:
+                fixedRate:
+                  required: true
+        preconditions: {}
+      - description: 'FpML validation rule ird-30 - Context: CalculationPeriod (complex type). unadjustedStartDate exists
+          or adjustedStartDate exists.'
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                adjustedStartDate:
+                  required: true
+            - slot_conditions:
+                unadjustedStartDate:
+                  required: true
+        preconditions: {}
+      - description: 'FpML validation rule ird-31 - Context: CalculationPeriod (complex type). unadjustedEndDate exists or
+          adjustedEndDate exists.'
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                adjustedEndDate:
+                  required: true
+            - slot_conditions:
+                unadjustedEndDate:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: NotionalChoice — required choice notionalAmount, fxLinkedNotionalAmount'
-    - 'Rosetta condition: RateChoice — required choice floatingRateDefinition, fixedRate'
-    - 'Rosetta condition: StartDateChoice — required choice adjustedStartDate, unadjustedStartDate'
-    - 'Rosetta condition: EndDateChoice — required choice adjustedEndDate, unadjustedEndDate'
+      - 'Rosetta condition: NotionalChoice — required choice notionalAmount, fxLinkedNotionalAmount'
+      - 'Rosetta condition: RateChoice — required choice floatingRateDefinition, fixedRate'
+      - 'Rosetta condition: StartDateChoice — required choice adjustedStartDate, unadjustedStartDate'
+      - 'Rosetta condition: EndDateChoice — required choice adjustedEndDate, unadjustedEndDate'
     slots:
-    - unadjustedStartDate
-    - unadjustedEndDate
-    - calculationPeriodNumberOfDays
-    - notionalAmount
-    - fxLinkedNotionalAmount
-    - floatingRateDefinition
-    - fixedRate
-    - dayCountYearFraction
-    - forecastAmount
-    - forecastRate
+      - unadjustedStartDate
+      - unadjustedEndDate
+      - calculationPeriodNumberOfDays
+      - notionalAmount
+      - fxLinkedNotionalAmount
+      - floatingRateDefinition
+      - fixedRate
+      - dayCountYearFraction
+      - forecastAmount
+      - forecastRate
     slot_usage:
       calculationPeriodNumberOfDays:
         description: The number of days from the adjusted effective / start date to the adjusted termination / end date calculated
@@ -721,7 +721,7 @@ classes:
           This is a calculated rate determined based on averaging the rates in the rateObservation elements, and incorporates
           all of the rate treatment and averaging rules. A value of 1% should be represented as 0.01.
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   CalculationPeriodDates:
     description: 'A data for:  defining the parameters used to generate the calculation period dates schedule, including the
@@ -743,95 +743,95 @@ classes:
         on, and include, the Effective Date and (b) the final Calculation Period for the party will end on, but exclude, the
         Termination Date.","inputs":[{"name":"calculationPeriodDates","type":"CalculationPeriodDates","cardinality":"1..1"}],"output":{"name":"result","type":"CalculationPeriodData","cardinality":"0..*"},"code_implementation":true}]'
     close_mappings:
-    - fpml_5_10:CalculationPeriodDates
+      - fpml_5_10:CalculationPeriodDates
     rules:
-    - description: FpML validation rule ird-18 - If firstRegularPeriodStartDate exists, and if lastRegularPeriodEndDate exists,
-        then lastRegularPeriodEndDate must be after firstRegularPeriodStartDate. This data rule applies within a given interest
-        rate payout component.
-      preconditions:
-        slot_conditions:
-          firstRegularPeriodStartDate:
-            required: true
-          lastRegularPeriodEndDate:
-            required: true
-      comments:
-      - 'Rosetta comparison: lastRegularPeriodEndDate > firstRegularPeriodStartDate'
+      - description: FpML validation rule ird-18 - If firstRegularPeriodStartDate exists, and if lastRegularPeriodEndDate
+          exists, then lastRegularPeriodEndDate must be after firstRegularPeriodStartDate. This data rule applies within a
+          given interest rate payout component.
+        preconditions:
+          slot_conditions:
+            firstRegularPeriodStartDate:
+              required: true
+            lastRegularPeriodEndDate:
+              required: true
+        comments:
+          - 'Rosetta comparison: lastRegularPeriodEndDate > firstRegularPeriodStartDate'
     comments:
-    - 'Rosetta condition: FpML_ird_16 — if firstRegularPeriodStartDate exists then terminationDate -> adjustableDate -> unadjustedDate
-      > firstRegularPeriodStartDate'
-    - 'Rosetta condition: FpML_ird_17 — if lastRegularPeriodEndDate exists then terminationDate -> adjustableDate -> unadjustedDate
-      > lastRegularPeriodEndDate'
-    - 'Rosetta condition: FpML_ird_18 — if firstRegularPeriodStartDate exists and lastRegularPeriodEndDate exists then lastRegularPeriodEndDate
-      > firstRegularPeriodStartDate'
-    - 'Rosetta condition: FpML_ird_20 — if lastRegularPeriodEndDate exists then lastRegularPeriodEndDate > effectiveDate ->
-      adjustableDate -> unadjustedDate'
-    - 'Rosetta condition: FpML_ird_21 — if firstPeriodStartDate exists and effectiveDate exists then firstPeriodStartDate
-      -> adjustableDate -> unadjustedDate < effectiveDate -> adjustableDate -> unadjustedDate'
-    - 'Rosetta condition: FpML_ird_22 — if firstPeriodStartDate exists and firstRegularPeriodStartDate exists then firstPeriodStartDate
-      -> adjustableDate -> unadjustedDate < firstRegularPeriodStartDate'
-    - 'Rosetta func: CalculationPeriod — 2006 ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of a
-      Swap Transaction and a party, each period from, and including, one Period End Date of that party to, but excluding,
-      the next following applicable Period End Date during the Term of the Swap Transaction, except that (a) the initial Calculation
-      Period for the party will commence on, and include, the Effective Date and (b) the final Calculation Period for the
-      party will end on, but exclude, the Termination Date.'
-    - 'Rosetta func: CalculationPeriods — 2006 ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of a
-      Swap Transaction and a party, each period from, and including, one Period End Date of that party to, but excluding,
-      the next following applicable Period End Date during the Term of the Swap Transaction, except that (a) the initial Calculation
-      Period for the party will commence on, and include, the Effective Date and (b) the final Calculation Period for the
-      party will end on, but exclude, the Termination Date.'
+      - 'Rosetta condition: FpML_ird_16 — if firstRegularPeriodStartDate exists then terminationDate -> adjustableDate ->
+        unadjustedDate > firstRegularPeriodStartDate'
+      - 'Rosetta condition: FpML_ird_17 — if lastRegularPeriodEndDate exists then terminationDate -> adjustableDate -> unadjustedDate
+        > lastRegularPeriodEndDate'
+      - 'Rosetta condition: FpML_ird_18 — if firstRegularPeriodStartDate exists and lastRegularPeriodEndDate exists then lastRegularPeriodEndDate
+        > firstRegularPeriodStartDate'
+      - 'Rosetta condition: FpML_ird_20 — if lastRegularPeriodEndDate exists then lastRegularPeriodEndDate > effectiveDate
+        -> adjustableDate -> unadjustedDate'
+      - 'Rosetta condition: FpML_ird_21 — if firstPeriodStartDate exists and effectiveDate exists then firstPeriodStartDate
+        -> adjustableDate -> unadjustedDate < effectiveDate -> adjustableDate -> unadjustedDate'
+      - 'Rosetta condition: FpML_ird_22 — if firstPeriodStartDate exists and firstRegularPeriodStartDate exists then firstPeriodStartDate
+        -> adjustableDate -> unadjustedDate < firstRegularPeriodStartDate'
+      - 'Rosetta func: CalculationPeriod — 2006 ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of
+        a Swap Transaction and a party, each period from, and including, one Period End Date of that party to, but excluding,
+        the next following applicable Period End Date during the Term of the Swap Transaction, except that (a) the initial
+        Calculation Period for the party will commence on, and include, the Effective Date and (b) the final Calculation Period
+        for the party will end on, but exclude, the Termination Date.'
+      - 'Rosetta func: CalculationPeriods — 2006 ISDA Definition Section 4.13. ''Calculation Period'' means, in respect of
+        a Swap Transaction and a party, each period from, and including, one Period End Date of that party to, but excluding,
+        the next following applicable Period End Date during the Term of the Swap Transaction, except that (a) the initial
+        Calculation Period for the party will commence on, and include, the Effective Date and (b) the final Calculation Period
+        for the party will end on, but exclude, the Termination Date.'
     slots:
-    - effectiveDate
-    - terminationDate
-    - calculationPeriodDatesAdjustments
-    - firstPeriodStartDate
-    - firstRegularPeriodStartDate
-    - firstCompoundingPeriodEndDate
-    - lastRegularPeriodEndDate
-    - stubPeriodType
-    - calculationPeriodFrequency
+      - effectiveDate
+      - terminationDate
+      - calculationPeriodDatesAdjustments
+      - firstPeriodStartDate
+      - firstRegularPeriodStartDate
+      - firstCompoundingPeriodEndDate
+      - lastRegularPeriodEndDate
+      - stubPeriodType
+      - calculationPeriodFrequency
     slot_usage:
       effectiveDate:
         range: AdjustableOrRelativeDate
         description: The first day of the terms of the trade. This day may be subject to adjustment in accordance with a business
           day convention.
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   DateRelativeToCalculationPeriodDates:
     description: 'A data to:  provide the ability to point to multiple payment nodes in the document through the unbounded
       paymentDatesReference.'
     slots:
-    - calculationPeriodDatesReference
+      - calculationPeriodDatesReference
     slot_usage:
       calculationPeriodDatesReference:
         description: A set of href pointers to calculation period dates defined somewhere else in the document.
         multivalued: true
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   DateRelativeToValuationDates:
     description: 'A data to:  provide the ability to point to multiple payment nodes in the document through the unbounded
       paymentDatesReference.'
     slots:
-    - valuationDatesReference
+      - valuationDatesReference
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   DateRelativeToPaymentDates:
     description: 'A data to:  provide the ability to point to multiple payment nodes in the document through the unbounded
       paymentDatesReference.'
     slots:
-    - paymentDatesReference
+      - paymentDatesReference
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   FxLinkedNotionalAmount:
     description: 'A data to:  describe the cashflow representation for FX linked notionals.'
     slots:
-    - resetDate
-    - adjustedFxSpotFixingDate
-    - observedFxSpotRate
-    - notionalAmount
+      - resetDate
+      - adjustedFxSpotFixingDate
+      - observedFxSpotRate
+      - notionalAmount
     slot_usage:
       resetDate:
         description: The reset date.
@@ -839,24 +839,24 @@ classes:
       notionalAmount:
         description: The calculation period notional amount.
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   FxLinkedNotionalSchedule:
     description: 'A data to:  describe a notional schedule where each notional that applies to a calculation period is calculated
       with reference to a notional amount or notional amount schedule in a different currency by means of a spot currency
       exchange rate which is normally observed at the beginning of each period.'
     slots:
-    - varyingNotionalCurrency
-    - varyingNotionalFixingDates
-    - fxSpotRateSource
-    - fixingTime
-    - varyingNotionalInterimExchangePaymentDates
+      - varyingNotionalCurrency
+      - varyingNotionalFixingDates
+      - fxSpotRateSource
+      - fixingTime
+      - varyingNotionalInterimExchangePaymentDates
     slot_usage:
       fixingTime:
         description: The time at which the spot currency exchange rate will be observed. It is specified as a time in a business
           day calendar location, e.g. 11:00am London time.
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   PaymentCalculationPeriod:
     description: 'A data defining:  the adjusted payment date and associated calculation period parameters required to calculate
@@ -864,39 +864,39 @@ classes:
     annotations:
       metadata_key: true
     rules:
-    - description: condition to represent an FpML choice construct.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            calculationPeriod:
-              required: true
-        - slot_conditions:
-            fixedPaymentAmount:
-              required: true
-      preconditions: {}
-    - description: FpML validation rule ird-34 - Either unadjustedPaymentDate or adjustedPaymentDate must exist.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            unadjustedPaymentDate:
-              required: true
-        - slot_conditions:
-            adjustedPaymentDate:
-              required: true
-      preconditions: {}
+      - description: condition to represent an FpML choice construct.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                calculationPeriod:
+                  required: true
+            - slot_conditions:
+                fixedPaymentAmount:
+                  required: true
+        preconditions: {}
+      - description: FpML validation rule ird-34 - Either unadjustedPaymentDate or adjustedPaymentDate must exist.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                unadjustedPaymentDate:
+                  required: true
+            - slot_conditions:
+                adjustedPaymentDate:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: CalculationPeriodNumberOfDays — if calculationPeriod -> calculationPeriodNumberOfDays exists then
-      calculationPeriod -> calculationPeriodNumberOfDays all >= 0'
-    - 'Rosetta condition: PaymentCalculationPeriodChoice — required choice calculationPeriod, fixedPaymentAmount'
-    - 'Rosetta condition: FpML_ird_34 — unadjustedPaymentDate exists or adjustedPaymentDate exists'
+      - 'Rosetta condition: CalculationPeriodNumberOfDays — if calculationPeriod -> calculationPeriodNumberOfDays exists then
+        calculationPeriod -> calculationPeriodNumberOfDays all >= 0'
+      - 'Rosetta condition: PaymentCalculationPeriodChoice — required choice calculationPeriod, fixedPaymentAmount'
+      - 'Rosetta condition: FpML_ird_34 — unadjustedPaymentDate exists or adjustedPaymentDate exists'
     slots:
-    - unadjustedPaymentDate
-    - adjustedPaymentDate
-    - calculationPeriod
-    - fixedPaymentAmount
-    - discountFactor
-    - forecastPaymentAmount
-    - presentValueAmount
+      - unadjustedPaymentDate
+      - adjustedPaymentDate
+      - calculationPeriod
+      - fixedPaymentAmount
+      - discountFactor
+      - forecastPaymentAmount
+      - presentValueAmount
     slot_usage:
       calculationPeriod:
         range: CalculationPeriod
@@ -905,39 +905,39 @@ classes:
           an unordered list of calculation periods is still regarded as a conformant document.
         multivalued: true
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   RateSchedule:
     description: A class defining a schedule of rates or amounts in terms of an initial value and then a series of step date
       and value pairs. On each step date the rate or amount changes to the new step value. The series of step date and value
       pairs are optional. If not specified, this implies that the initial value remains unchanged over time.
     slots:
-    - price
+      - price
     slot_usage:
       price:
         range: PriceSchedule
         description: The initial rate. An initial rate of 5% would be represented as 0.05.
         required: true
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   ObservationDates:
     description: Describes date details for a set of observation dates in parametric or non-parametric form.
     slots:
-    - observationSchedule
-    - periodicSchedule
-    - parametricDates
+      - observationSchedule
+      - periodicSchedule
+      - parametricDates
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   ObservationSchedule:
     description: Specifies a single date on which market observations take place and specifies optional associated weighting.
     comments:
-    - 'Rosetta condition: AdjustedDate — if observationDate -> adjustedDate is absent then observationDate -> unadjustedDate
-      exists and dateAdjustments exists'
+      - 'Rosetta condition: AdjustedDate — if observationDate -> adjustedDate is absent then observationDate -> unadjustedDate
+        exists and dateAdjustments exists'
     slots:
-    - observationDate
-    - dateAdjustments
+      - observationDate
+      - dateAdjustments
     slot_usage:
       observationDate:
         range: ObservationDate
@@ -945,61 +945,61 @@ classes:
         required: false
         multivalued: true
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   ObservationDate:
     description: Specifies a single date on which market observations take place and specifies optional associated weighting.
     annotations:
       metadata_key: true
     rules:
-    - description: Either an unadjusted date or an adjusted date needs to be specified.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            unadjustedDate:
-              required: true
-        - slot_conditions:
-            adjustedDate:
-              required: true
-      preconditions: {}
+      - description: Either an unadjusted date or an adjusted date needs to be specified.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                unadjustedDate:
+                  required: true
+            - slot_conditions:
+                adjustedDate:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: ObservationDate — required choice unadjustedDate, adjustedDate'
+      - 'Rosetta condition: ObservationDate — required choice unadjustedDate, adjustedDate'
     slots:
-    - unadjustedDate
-    - adjustedDate
-    - weight
-    - observationReference
+      - unadjustedDate
+      - adjustedDate
+      - weight
+      - observationReference
     slot_usage:
       unadjustedDate:
         description: A date subject to adjustment.
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   ObservationTerms:
     description: 'Class containing terms that are associated with observing a price/benchmark/index across either single or
       multiple observations. '
     rules:
-    - description: Checks that an observation time is specified either explicitly (through the observation time) or implicitly
-        (through a observation time type different to Specific Time). If Specific Time is defined as observation time type
-        (i.e. no implicit time value), the condition checks that an explicit observation time is provided.
-      preconditions:
-        slot_conditions:
-          observationTimeType:
-            equals_string: SpecificTime
-      postconditions:
-        slot_conditions:
-          observationTime:
-            required: true
+      - description: Checks that an observation time is specified either explicitly (through the observation time) or implicitly
+          (through a observation time type different to Specific Time). If Specific Time is defined as observation time type
+          (i.e. no implicit time value), the condition checks that an explicit observation time is provided.
+        preconditions:
+          slot_conditions:
+            observationTimeType:
+              equals_string: SpecificTime
+        postconditions:
+          slot_conditions:
+            observationTime:
+              required: true
     comments:
-    - 'Rosetta condition: ObservationTime — if observationTimeType = TimeTypeEnum -> SpecificTime then observationTime exists'
+      - 'Rosetta condition: ObservationTime — if observationTimeType = TimeTypeEnum -> SpecificTime then observationTime exists'
     slots:
-    - observationTime
-    - observationTimeType
-    - informationSource
-    - precision
-    - calculationPeriodDates
-    - observationDates
-    - numberOfObservationDates
+      - observationTime
+      - observationTimeType
+      - informationSource
+      - precision
+      - calculationPeriodDates
+      - observationDates
+      - numberOfObservationDates
     slot_usage:
       observationTime:
         range: BusinessCenterTime
@@ -1026,40 +1026,40 @@ classes:
         required: true
         multivalued: false
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   ParametricDates:
     description: Defines rules for the dates on which the price will be determined.
     rules:
-    - description: ParametricDatesChoice
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            dayDistribution:
-              required: true
-        - slot_conditions:
+      - description: ParametricDatesChoice
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                dayDistribution:
+                  required: true
+            - slot_conditions:
+                dayOfWeek:
+                  required: true
+        preconditions: {}
+      - description: DayOfWeekMethod
+        preconditions:
+          slot_conditions:
             dayOfWeek:
               required: true
-      preconditions: {}
-    - description: DayOfWeekMethod
-      preconditions:
-        slot_conditions:
-          dayOfWeek:
-            required: true
-      postconditions:
-        slot_conditions:
-          dayFrequency:
-            required: true
+        postconditions:
+          slot_conditions:
+            dayFrequency:
+              required: true
     comments:
-    - 'Rosetta condition: ParametricDatesChoice — required choice dayDistribution, dayOfWeek'
-    - 'Rosetta condition: DayOfWeekMethod — if dayOfWeek exists then dayFrequency exists'
+      - 'Rosetta condition: ParametricDatesChoice — required choice dayDistribution, dayOfWeek'
+      - 'Rosetta condition: DayOfWeekMethod — if dayOfWeek exists then dayFrequency exists'
     slots:
-    - dayType
-    - dayDistribution
-    - dayOfWeek
-    - dayFrequency
-    - lag
-    - businessCenters
+      - dayType
+      - dayDistribution
+      - dayOfWeek
+      - dayFrequency
+      - lag
+      - businessCenters
     slot_usage:
       dayType:
         description: Denotes the enumerated values to specify the day type classification used in counting the number of days
@@ -1072,16 +1072,16 @@ classes:
         description: The enumerated values to specify the business centers.
         required: true
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   Lag:
     description: The pricing period per calculation period if the pricing days do not wholly fall within the respective calculation
       period.
     slots:
-    - lagDuration
-    - firstObservationDateOffset
+      - lagDuration
+      - firstObservationDateOffset
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   ResetDates:
     description: 'A data defining:  the parameters used to generate the reset dates schedule and associated fixing dates.
@@ -1090,26 +1090,26 @@ classes:
     annotations:
       metadata_key: true
     comments:
-    - 'Rosetta condition: RateCutOffDaysOffset — if rateCutOffDaysOffset exists then rateCutOffDaysOffset -> periodMultiplier
-      < 0'
-    - 'Rosetta condition: WeeklyPeriod — if resetFrequency -> period = PeriodExtendedEnum -> W then resetFrequency -> weeklyRollConvention
-      exists'
-    - 'Rosetta condition: NonWeeklyPeriod — if resetFrequency -> period <> PeriodExtendedEnum -> W then resetFrequency ->
-      weeklyRollConvention is absent'
+      - 'Rosetta condition: RateCutOffDaysOffset — if rateCutOffDaysOffset exists then rateCutOffDaysOffset -> periodMultiplier
+        < 0'
+      - 'Rosetta condition: WeeklyPeriod — if resetFrequency -> period = PeriodExtendedEnum -> W then resetFrequency -> weeklyRollConvention
+        exists'
+      - 'Rosetta condition: NonWeeklyPeriod — if resetFrequency -> period <> PeriodExtendedEnum -> W then resetFrequency ->
+        weeklyRollConvention is absent'
     slots:
-    - calculationPeriodDatesReference
-    - resetRelativeTo
-    - initialFixingDate
-    - fixingDates
-    - finalFixingDate
-    - rateCutOffDaysOffset
-    - resetFrequency
-    - resetDatesAdjustments
+      - calculationPeriodDatesReference
+      - resetRelativeTo
+      - initialFixingDate
+      - fixingDates
+      - finalFixingDate
+      - rateCutOffDaysOffset
+      - resetFrequency
+      - resetDatesAdjustments
     slot_usage:
       calculationPeriodDatesReference:
         required: false
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   StubCalculationPeriodAmount:
     description: 'A data defining:  how the initial or final stub calculation period amounts is calculated. For example, the
@@ -1120,85 +1120,85 @@ classes:
       and this is the same as that specified in the calculation period amount component then the initial stub or final stub
       component, as the case may be, must not be included.'
     slots:
-    - calculationPeriodDatesReference
-    - initialStub
-    - finalStub
+      - calculationPeriodDatesReference
+      - initialStub
+      - finalStub
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   AveragingObservationList:
     description: An unordered list of weighted averaging observations.
     slots:
-    - averagingObservation
+      - averagingObservation
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   AveragingPeriod:
     description: Period over which an average value is taken.
     close_mappings:
-    - fpml_5_10:AveragingPeriod
+      - fpml_5_10:AveragingPeriod
     rules:
-    - description: ' Choice rule to represent an FpML choice construct between unweighted and weighted averaging date and
-        times.'
-      postconditions:
-        any_of:
-        - slot_conditions:
-            averagingDateTimes:
-              required: true
-        - slot_conditions:
-            averagingObservations:
-              required: true
-      preconditions: {}
+      - description: ' Choice rule to represent an FpML choice construct between unweighted and weighted averaging date and
+          times.'
+        postconditions:
+          any_of:
+            - slot_conditions:
+                averagingDateTimes:
+                  required: true
+            - slot_conditions:
+                averagingObservations:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AveragingPeriodChoice — optional choice averagingDateTimes, averagingObservations'
+      - 'Rosetta condition: AveragingPeriodChoice — optional choice averagingDateTimes, averagingObservations'
     slots:
-    - schedule
-    - averagingDateTimes
-    - averagingObservations
-    - marketDisruption
+      - schedule
+      - averagingDateTimes
+      - averagingObservations
+      - marketDisruption
     slot_usage:
       schedule:
         description: A schedule for generating averaging observation dates.
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   WeightedAveragingObservation:
     description: A single weighted averaging observation.
     rules:
-    - description: ' Choice rule to represent an FpML choice construct between date times for literal date values, and observation
-        numbers for schedule generated observations.'
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            dateTime:
-              required: true
-        - slot_conditions:
+      - description: ' Choice rule to represent an FpML choice construct between date times for literal date values, and observation
+          numbers for schedule generated observations.'
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                dateTime:
+                  required: true
+            - slot_conditions:
+                observationNumber:
+                  required: true
+        preconditions: {}
+      - description: ' FpML specifies observationNumber as a positive integer.'
+        preconditions:
+          slot_conditions:
             observationNumber:
               required: true
-      preconditions: {}
-    - description: ' FpML specifies observationNumber as a positive integer.'
-      preconditions:
-        slot_conditions:
-          observationNumber:
-            required: true
-      postconditions:
-        slot_conditions:
-          observationNumber:
-            minimum_value: 0
-    - description: ' FpML specifies observationNumber as a non-negative decimal.'
-      postconditions:
-        slot_conditions:
-          weight:
-            minimum_value: 0.0
-      preconditions: {}
+        postconditions:
+          slot_conditions:
+            observationNumber:
+              minimum_value: 0
+      - description: ' FpML specifies observationNumber as a non-negative decimal.'
+        postconditions:
+          slot_conditions:
+            weight:
+              minimum_value: 0.0
+        preconditions: {}
     comments:
-    - 'Rosetta condition: WeightedAveragingObservationChoice — required choice dateTime, observationNumber'
-    - 'Rosetta condition: PositiveObservationNumber — if observationNumber exists then observationNumber >= 0'
-    - 'Rosetta condition: PositiveWeight — weight >= 0.0'
+      - 'Rosetta condition: WeightedAveragingObservationChoice — required choice dateTime, observationNumber'
+      - 'Rosetta condition: PositiveObservationNumber — if observationNumber exists then observationNumber >= 0'
+      - 'Rosetta condition: PositiveWeight — weight >= 0.0'
     slots:
-    - dateTime
-    - observationNumber
-    - weight
+      - dateTime
+      - observationNumber
+      - weight
     slot_usage:
       dateTime:
         description: Observation date time, which should be used when literal observation dates are required. The CDM specifies
@@ -1209,13 +1209,13 @@ classes:
         description: Observation weight, which is used as a multiplier for the observation value.
         required: true
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   AmountSchedule:
     description: A class to specify a currency amount or a currency amount schedule.
     is_a: Schedule
     slots:
-    - currency
+      - currency
     slot_usage:
       currency:
         description: The currency in which the amount schedule is denominated. The currency is specified outside of the actual
@@ -1225,19 +1225,19 @@ classes:
         required: true
         multivalued: true
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   InitialFixingDate:
     description: A CDM class which purpose is to specify the initial fixing date either alongside the FpML interest rate specification
       as an offset of another date, or alongside the credit derivative specification as an unadjusted date.
     slots:
-    - relativeDateOffset
-    - initialFixingDate
+      - relativeDateOffset
+      - initialFixingDate
     slot_usage:
       initialFixingDate:
         range: date
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   PaymentDates:
     description: Specifies the parameters to generate the payment date schedule, either through a parametric representation
@@ -1245,40 +1245,40 @@ classes:
     annotations:
       metadata_key: true
     rules:
-    - description: FpML validation rule ird-35 & cd-31- If firstPaymentDate exists, and if lastRegularPaymentDate exists,
-        then firstPaymentDate must be before lastRegularPaymentDate.
-      preconditions:
-        slot_conditions:
-          firstPaymentDate:
-            required: true
-          lastRegularPaymentDate:
-            required: true
-      comments:
-      - 'Rosetta comparison: firstPaymentDate < lastRegularPaymentDate'
+      - description: FpML validation rule ird-35 & cd-31- If firstPaymentDate exists, and if lastRegularPaymentDate exists,
+          then firstPaymentDate must be before lastRegularPaymentDate.
+        preconditions:
+          slot_conditions:
+            firstPaymentDate:
+              required: true
+            lastRegularPaymentDate:
+              required: true
+        comments:
+          - 'Rosetta comparison: firstPaymentDate < lastRegularPaymentDate'
     comments:
-    - 'Rosetta condition: FpML_ird_35_cd_31 — if firstPaymentDate exists and lastRegularPaymentDate exists then firstPaymentDate
-      < lastRegularPaymentDate'
-    - 'Rosetta condition: NonZeroPeriodMultiplier — if paymentDaysOffset exists then paymentDaysOffset -> periodMultiplier
-      <> 0'
+      - 'Rosetta condition: FpML_ird_35_cd_31 — if firstPaymentDate exists and lastRegularPaymentDate exists then firstPaymentDate
+        < lastRegularPaymentDate'
+      - 'Rosetta condition: NonZeroPeriodMultiplier — if paymentDaysOffset exists then paymentDaysOffset -> periodMultiplier
+        <> 0'
     slots:
-    - paymentFrequency
-    - firstPaymentDate
-    - lastRegularPaymentDate
-    - paymentDateSchedule
-    - payRelativeTo
-    - paymentDaysOffset
-    - paymentDatesAdjustments
+      - paymentFrequency
+      - firstPaymentDate
+      - lastRegularPaymentDate
+      - paymentDateSchedule
+      - payRelativeTo
+      - paymentDaysOffset
+      - paymentDatesAdjustments
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   PaymentDateSchedule:
     description: The payment dates when specified as relative to a set of dates specified somewhere else in the instance document/transaction,
       e.g. the valuation dates as typically the case for equity swaps, or when specified as a calculation period schedule.
     slots:
-    - interimPaymentDates
-    - finalPaymentDate
+      - interimPaymentDates
+      - finalPaymentDate
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   ResetFrequency:
     description: A class defining the reset frequency. In the case of a weekly reset, also specifies the day of the week that
@@ -1288,20 +1288,20 @@ classes:
       the period is defined by the swap/swapStream/calculationPerioDates/effectiveDate and the swap/swapStream/calculationPerioDates/terminationDate.
     is_a: Frequency
     comments:
-    - 'Rosetta condition: FpML_ird_49 — if weeklyRollConvention exists then period = PeriodExtendedEnum -> W'
+      - 'Rosetta condition: FpML_ird_49 — if weeklyRollConvention exists then period = PeriodExtendedEnum -> W'
     slots:
-    - weeklyRollConvention
+      - weeklyRollConvention
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule
 
   FinalCalculationPeriodDateAdjustment:
     description: 'A data to:  define business date convention adjustment to final payment period per leg.'
     slots:
-    - relevantUnderlyingDateReference
-    - swapStreamReference
-    - businessDayConvention
+      - relevantUnderlyingDateReference
+      - swapStreamReference
+      - businessDayConvention
     slot_usage:
       businessDayConvention:
         description: Override business date convention. This takes precedence over leg level information.
     in_subset:
-    - cdm_product_common_schedule
+      - cdm_product_common_schedule

@@ -3,10 +3,10 @@ name: cdm_base_staticdata_asset_common
 description: 'Basic static asset concepts that apply across asset classes: taxonomy etc.'
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -17,18 +17,18 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_math
-- ./cdm_base_staticdata_party
-- ./cdm_observable_asset
+  - linkml:types
+  - ./cdm_base_math
+  - ./cdm_base_staticdata_party
+  - ./cdm_observable_asset
 
 comments:
-- 'Rosetta func: AssetIdentifierByType — Returns all the Asset Identifiers of a certain Identifier Type. | inputs(identifiers:
-  AssetIdentifier (0..*), idType: AssetIdTypeEnum (1..1)) | output(filteredIdentifier: AssetIdentifier (0..*))'
-- 'Rosetta func: GetCashCurrency — Returns the enumerated Currency Code of a Cash asset. | inputs(cash: Cash (1..1)) | output(currencyEnum:
-  CurrencyCodeEnum (1..1))'
-- 'Rosetta func: SetCashCurrency — Sets (or updates) the string identifier of a Cash asset using an enumerated Currency Code.
-  | inputs(cash: Cash (0..1), currency: CurrencyCodeEnum (1..1)) | output(cashOutput: Cash (1..1))'
+  - 'Rosetta func: AssetIdentifierByType — Returns all the Asset Identifiers of a certain Identifier Type. | inputs(identifiers:
+    AssetIdentifier (0..*), idType: AssetIdTypeEnum (1..1)) | output(filteredIdentifier: AssetIdentifier (0..*))'
+  - 'Rosetta func: GetCashCurrency — Returns the enumerated Currency Code of a Cash asset. | inputs(cash: Cash (1..1)) | output(currencyEnum:
+    CurrencyCodeEnum (1..1))'
+  - 'Rosetta func: SetCashCurrency — Sets (or updates) the string identifier of a Cash asset using an enumerated Currency
+    Code. | inputs(cash: Cash (0..1), currency: CurrencyCodeEnum (1..1)) | output(cashOutput: Cash (1..1))'
 annotations:
   rosetta_functions: '[{"name":"AssetIdentifierByType","description":"Returns all the Asset Identifiers of a certain Identifier
     Type.","inputs":[{"name":"identifiers","type":"AssetIdentifier","cardinality":"0..*"},{"name":"idType","type":"AssetIdTypeEnum","cardinality":"1..1"}],"output":{"name":"filteredIdentifier","type":"AssetIdentifier","cardinality":"0..*"}},{"name":"GetCashCurrency","description":"Returns
@@ -43,7 +43,7 @@ enums:
   AssetClassEnum:
     description: The enumerated values to specify the FpML asset class categorization.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/asset-class
+      - http://www.fpml.org/coding-scheme/asset-class
     permissible_values:
       Commodity:
         description: Commodity.
@@ -66,7 +66,7 @@ enums:
   AssetIdTypeEnum:
     description: Extends product identifiers with additional identifier sources for Assets.
     inherits:
-    - ProductIdTypeEnum
+      - ProductIdTypeEnum
     permissible_values:
       CurrencyCode:
         description: Used to identify the currency of a Cash Asset.
@@ -172,7 +172,7 @@ enums:
       (ISO).  The set of codes in this enumerated list is sourced from ISO Standard 4217 (https://www.currency-iso.org/en/home/tables/table-a1.html),
       as of 29-Aug-18.
     exact_mappings:
-    - https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml
+      - https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml
     permissible_values:
       AED:
         description: UAE Dirham
@@ -535,7 +535,7 @@ enums:
     description: Union of the enumerated values defined by the International Standards Organization (ISO) and the FpML nonISOCurrencyScheme
       which consists of offshore and historical currencies (https://www.fpml.org/coding-scheme/non-iso-currency), as of 28-Oct-2016.
     inherits:
-    - ISOCurrencyCodeEnum
+      - ISOCurrencyCodeEnum
     permissible_values:
       CNH:
         description: Offshore Chinese Yuan traded in Hong Kong.
@@ -1688,7 +1688,7 @@ slots:
     required: true
     multivalued: true
     close_mappings:
-    - fpml_5_10:AssetBase.identifier
+      - fpml_5_10:AssetBase.identifier
 
   taxonomy:
     range: Taxonomy
@@ -1697,19 +1697,19 @@ slots:
     multivalued: true
     inlined_as_list: true
     close_mappings:
-    - fpml_5_10:AssetBase.taxonomy
+      - fpml_5_10:AssetBase.taxonomy
 
   isExchangeListed:
     range: boolean
     description: Defines whether the Asset is listed on a public exchange.
     close_mappings:
-    - fpml_5_10:AssetBase.isExchangeListed
+      - fpml_5_10:AssetBase.isExchangeListed
 
   exchange:
     range: LegalEntity
     description: If the Asset is listed, defines the public exchange of the listing.
     close_mappings:
-    - fpml_5_10:AssetBase.exchange
+      - fpml_5_10:AssetBase.exchange
 
   relatedExchange:
     range: LegalEntity
@@ -1717,21 +1717,21 @@ slots:
     multivalued: true
     inlined_as_list: true
     close_mappings:
-    - fpml_5_10:AssetBase.relatedExchange
+      - fpml_5_10:AssetBase.relatedExchange
 
   assetType:
     range: AssetTypeEnum
     description: Specifies the type of asset.
     required: true
     close_mappings:
-    - fpml_5_10:AssetBase.assetType
+      - fpml_5_10:AssetBase.assetType
 
   identifierType:
     range: AssetIdTypeEnum
     description: Defines the symbology source of the Asset Identifier, eg CUSIP, ISIN, etc.
     required: true
     close_mappings:
-    - fpml_5_10:AssetIdentifier.identifierType
+      - fpml_5_10:AssetIdentifier.identifierType
 
   source:
     range: ProductIdTypeEnum
@@ -1772,7 +1772,7 @@ slots:
     range: CommodityProductDefinition
     description: Specifies the commodity underlier in the event that no ISDA Commodity Reference Benchmark exists.
     close_mappings:
-    - fpml_5_10:Commodity.commodityProductDefinition
+      - fpml_5_10:Commodity.commodityProductDefinition
 
   priceQuoteType:
     range: QuotationSideEnum
@@ -1780,40 +1780,40 @@ slots:
       'Ask', 'Settlement' (for a futures contract) and 'WeightedAverage' (for some published prices and indices).
     required: true
     close_mappings:
-    - fpml_5_10:Commodity.priceQuoteType
+      - fpml_5_10:Commodity.priceQuoteType
 
   deliveryDateReference:
     range: DeliveryDateParameters
     description: Specifies the parameters for identifying the relevant contract date when the commodity reference price is
       a futures contract.
     close_mappings:
-    - fpml_5_10:Commodity.deliveryDateReference
+      - fpml_5_10:Commodity.deliveryDateReference
 
   description:
     range: string
     description: Provides additional information about the commodity underlier.
     close_mappings:
-    - fpml_5_10:Commodity.description
+      - fpml_5_10:Commodity.description
 
   referenceFramework:
     range: CommodityReferenceFramework
     description: Specifies the type of commodity.
     required: true
     close_mappings:
-    - fpml_5_10:CommodityProductDefinition.referenceFramework
+      - fpml_5_10:CommodityProductDefinition.referenceFramework
 
   priceSource:
     range: PriceSource
     description: Specifies a publication that provides the commodity price, including, where applicable the details of where
       in the publication the price is published.  Applicable when the commodity reference price is not a futures contract
     close_mappings:
-    - fpml_5_10:CommodityProductDefinition.priceSource
+      - fpml_5_10:CommodityProductDefinition.priceSource
 
   commodityInfoPublisher:
     range: CommodityInformationPublisherEnum
     description: Specifies the publication where the commodity prices can be found.
     close_mappings:
-    - fpml_5_10:CommodityProductDefinition.commodityInfoPublisher
+      - fpml_5_10:CommodityProductDefinition.commodityInfoPublisher
 
   exchangeId:
     range: string
@@ -1823,7 +1823,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:CommodityProductDefinition.exchangeId
+      - fpml_5_10:CommodityProductDefinition.exchangeId
 
   commodityName:
     range: string
@@ -1832,7 +1832,7 @@ slots:
       be limited to 256 characters or less.
     required: true
     close_mappings:
-    - fpml_5_10:CommodityReferenceFramework.commodityName
+      - fpml_5_10:CommodityReferenceFramework.commodityName
 
   deliveryTerm:
     range: string
@@ -1886,14 +1886,14 @@ slots:
     description: Specifies the taxonomy value.
     required: true
     close_mappings:
-    - fpml_5_10:CollateralTaxonomy.taxonomyValue
+      - fpml_5_10:CollateralTaxonomy.taxonomyValue
 
   taxonomySource:
     range: TaxonomySourceEnum
     description: Specifies the taxonomy source.
     required: true
     close_mappings:
-    - fpml_5_10:CollateralTaxonomy.taxonomySource
+      - fpml_5_10:CollateralTaxonomy.taxonomySource
 
   eu_EMIR_EligibleCollateral:
     range: EU_EMIR_EligibleCollateralEnum
@@ -1903,7 +1903,7 @@ slots:
       to each type of entity pairing (counterparty) and which apply to posting of IM and VM'
     multivalued: true
     close_mappings:
-    - fpml_5_10:CollateralTaxonomyValue.eu_EMIR_EligibleCollateral
+      - fpml_5_10:CollateralTaxonomyValue.eu_EMIR_EligibleCollateral
 
   uk_EMIR_EligibleCollateral:
     range: UK_EMIR_EligibleCollateralEnum
@@ -1913,7 +1913,7 @@ slots:
       classes apply to each type of entity pairing (counterparty) and which apply to posting of IM and VM.'
     multivalued: true
     close_mappings:
-    - fpml_5_10:CollateralTaxonomyValue.uk_EMIR_EligibleCollateral
+      - fpml_5_10:CollateralTaxonomyValue.uk_EMIR_EligibleCollateral
 
   us_CFTC_PR_EligibleCollateral:
     range: US_CFTC_PR_EligibleCollateralEnum
@@ -1922,7 +1922,7 @@ slots:
       Regulators’ margin rules, the precise definitions or application of those rules could differ between the two rules.'
     multivalued: true
     close_mappings:
-    - fpml_5_10:CollateralTaxonomyValue.us_CFTC_PR_EligibleCollateral
+      - fpml_5_10:CollateralTaxonomyValue.us_CFTC_PR_EligibleCollateral
 
   nonEnumeratedTaxonomyValue:
     range: string
@@ -1931,7 +1931,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:CollateralTaxonomyValue.nonEnumeratedTaxonomyValue
+      - fpml_5_10:CollateralTaxonomyValue.nonEnumeratedTaxonomyValue
 
   securityType:
     range: SecurityTypeEnum
@@ -2022,13 +2022,13 @@ slots:
     description: Specifies the origin of entity issuing the collateral.
     required: true
     close_mappings:
-    - fpml_5_10:CollateralIssuerType.issuerType
+      - fpml_5_10:CollateralIssuerType.issuerType
 
   supraNationalType:
     range: SupraNationalIssuerTypeEnum
     description: Specifies debt issued by international organisations and multilateral banks.
     close_mappings:
-    - fpml_5_10:CollateralIssuerType.supraNationalType
+      - fpml_5_10:CollateralIssuerType.supraNationalType
 
   quasiGovernmentType:
     range: QuasiGovernmentIssuerType
@@ -2037,13 +2037,13 @@ slots:
       the US Agencies and GSEs and the EU concept of public sector entities. Excluding any entities which are also Regional
       Government.
     close_mappings:
-    - fpml_5_10:CollateralIssuerType.quasiGovernmentType
+      - fpml_5_10:CollateralIssuerType.quasiGovernmentType
 
   regionalGovernmentType:
     range: RegionalGovernmentIssuerType
     description: Specifies Regional government, local authority or municipal.
     close_mappings:
-    - fpml_5_10:CollateralIssuerType.regionalGovernmentType
+      - fpml_5_10:CollateralIssuerType.regionalGovernmentType
 
   specialPurposeVehicleType:
     range: SpecialPurposeVehicleIssuerType
@@ -2051,7 +2051,7 @@ slots:
       financing of specific assets on a potentially limited recourse basis dependent of how it is designed. E.g. asset backed
       securities, including securitisations.
     close_mappings:
-    - fpml_5_10:CollateralIssuerType.specialPurposeVehicleType
+      - fpml_5_10:CollateralIssuerType.specialPurposeVehicleType
 
   sovereignEntity:
     range: boolean
@@ -2082,7 +2082,7 @@ slots:
     description: Specifies the eligible asset type when not enumerated.
     multivalued: true
     close_mappings:
-    - fpml_5_10:AssetType.otherAssetType
+      - fpml_5_10:AssetType.otherAssetType
 
   pricePublisher:
     range: string
@@ -2109,64 +2109,64 @@ classes:
   AssetBase:
     description: The base data type to specify common attributes for all Assets.
     close_mappings:
-    - fpml_5_10:AssetBase
+      - fpml_5_10:AssetBase
     rules:
-    - description: If Exchange is specified, it must be an exchange-listed Instrument.
-      preconditions:
-        slot_conditions:
-          exchange:
-            required: true
-      postconditions:
-        slot_conditions:
-          isExchangeListed:
-            equals_string: 'True'
-    - description: Related Exchange should only be specified if an Exchange is also specified.
-      preconditions:
-        slot_conditions:
-          exchange:
-            required: false
-      postconditions:
-        slot_conditions:
-          relatedExchange:
-            required: false
+      - description: If Exchange is specified, it must be an exchange-listed Instrument.
+        preconditions:
+          slot_conditions:
+            exchange:
+              required: true
+        postconditions:
+          slot_conditions:
+            isExchangeListed:
+              equals_string: 'True'
+      - description: Related Exchange should only be specified if an Exchange is also specified.
+        preconditions:
+          slot_conditions:
+            exchange:
+              required: false
+        postconditions:
+          slot_conditions:
+            relatedExchange:
+              required: false
     comments:
-    - 'Rosetta condition: ExchangeListed — if exchange exists then isExchangeListed'
-    - 'Rosetta condition: RelatedExchange — if exchange is absent then relatedExchange is absent'
+      - 'Rosetta condition: ExchangeListed — if exchange exists then isExchangeListed'
+      - 'Rosetta condition: RelatedExchange — if exchange is absent then relatedExchange is absent'
     slots:
-    - identifier
-    - taxonomy
-    - isExchangeListed
-    - exchange
-    - relatedExchange
-    - assetType
+      - identifier
+      - taxonomy
+      - isExchangeListed
+      - exchange
+      - relatedExchange
+      - assetType
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   AssetIdentifier:
     description: The unique identifier for an Asset, specified using an Asset Identifier Type enumerator.
     close_mappings:
-    - fpml_5_10:AssetIdentifier
+      - fpml_5_10:AssetIdentifier
     comments:
-    - 'Rosetta func: AssetIdentifierByType — Returns all the Asset Identifiers of a certain Identifier Type.'
+      - 'Rosetta func: AssetIdentifierByType — Returns all the Asset Identifiers of a certain Identifier Type.'
     annotations:
       rosetta_functions: '[{"name":"AssetIdentifierByType","description":"Returns all the Asset Identifiers of a certain Identifier
         Type.","inputs":[{"name":"identifiers","type":"AssetIdentifier","cardinality":"0..*"},{"name":"idType","type":"AssetIdTypeEnum","cardinality":"1..1"}],"output":{"name":"filteredIdentifier","type":"AssetIdentifier","cardinality":"0..*"}}]'
     slots:
-    - identifier
-    - identifierType
+      - identifier
+      - identifierType
     slot_usage:
       identifier:
         range: string
         description: The identifier value.
         multivalued: false
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   InstrumentBase:
     description: Defines the common attributes for all Instrument data types.
     is_a: AssetBase
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   ProductIdentifier:
     description: Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash
@@ -2175,8 +2175,8 @@ classes:
     annotations:
       metadata_key: true
     slots:
-    - identifier
-    - source
+      - identifier
+      - source
     slot_usage:
       identifier:
         range: string
@@ -2184,43 +2184,43 @@ classes:
           source specified in the source attribute.
         multivalued: false
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   TaxonomyValue:
     description: Defines a taxonomy value as either a simple string or a more granular expression with class names and values
       for each class.
     rules:
-    - description: ValueExists
-      postconditions:
-        any_of:
-        - slot_conditions:
-            name:
-              required: true
-        - slot_conditions:
-            classification:
-              required: true
-      preconditions: {}
+      - description: ValueExists
+        postconditions:
+          any_of:
+            - slot_conditions:
+                name:
+                  required: true
+            - slot_conditions:
+                classification:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: ValueExists — name exists or classification exists'
+      - 'Rosetta condition: ValueExists — name exists or classification exists'
     slots:
-    - name
-    - classification
+      - name
+      - classification
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   Taxonomy:
     description: Defines the taxonomy of an object by combining a taxonomy source (i.e. the rules to classify the object)
       and a value (i.e. the output of those rules on the object).
     comments:
-    - 'Rosetta condition: OrdinalExists — if value -> classification count > 1 then value -> classification -> ordinal count
-      = value -> classification count'
-    - 'Rosetta condition: DifferentOrdinals — if value -> classification -> ordinal exists then value -> classification ->
-      ordinal count = value -> classification -> ordinal distinct count'
-    - 'Rosetta condition: SequentialOrdinals — if value -> classification count > 1 then value -> classification -> ordinal
-      count = value -> classification -> ordinal max'
+      - 'Rosetta condition: OrdinalExists — if value -> classification count > 1 then value -> classification -> ordinal count
+        = value -> classification count'
+      - 'Rosetta condition: DifferentOrdinals — if value -> classification -> ordinal exists then value -> classification
+        -> ordinal count = value -> classification -> ordinal distinct count'
+      - 'Rosetta condition: SequentialOrdinals — if value -> classification count > 1 then value -> classification -> ordinal
+        count = value -> classification -> ordinal max'
     slots:
-    - source
-    - value
+      - source
+      - value
     slot_usage:
       source:
         range: TaxonomySourceEnum
@@ -2232,59 +2232,59 @@ classes:
         description: The value according to that taxonomy. Optional as it may not be possible to classify the object in that
           taxonomy.
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   ProductTaxonomy:
     description: Specifies the product taxonomy, which is composed of a taxonomy value and a taxonomy source.
     is_a: Taxonomy
     rules:
-    - description: Requires a taxonomy type to be chosen, either from a taxonomy source or using asset classes.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
+      - description: Requires a taxonomy type to be chosen, either from a taxonomy source or using asset classes.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                source:
+                  required: true
+            - slot_conditions:
+                primaryAssetClass:
+                  required: true
+            - slot_conditions:
+                secondaryAssetClass:
+                  required: true
+        preconditions: {}
+      - description: A taxonomy source can only be associated with a taxonomy value or productQualifier
+        preconditions:
+          slot_conditions:
             source:
               required: true
-        - slot_conditions:
-            primaryAssetClass:
-              required: true
-        - slot_conditions:
-            secondaryAssetClass:
-              required: true
-      preconditions: {}
-    - description: A taxonomy source can only be associated with a taxonomy value or productQualifier
-      preconditions:
-        slot_conditions:
-          source:
-            required: true
-      postconditions:
-        any_of:
-        - slot_conditions:
-            value:
-              required: true
-        - slot_conditions:
-            productQualifier:
-              required: true
-    - description: A taxonomy value and product qualifier are mutually exclusive. Choice is optional as it only applies when
-        source exists.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            value:
-              required: true
-        - slot_conditions:
-            productQualifier:
-              required: true
-      preconditions: {}
+        postconditions:
+          any_of:
+            - slot_conditions:
+                value:
+                  required: true
+            - slot_conditions:
+                productQualifier:
+                  required: true
+      - description: A taxonomy value and product qualifier are mutually exclusive. Choice is optional as it only applies
+          when source exists.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                value:
+                  required: true
+            - slot_conditions:
+                productQualifier:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: TaxonomyType — required choice source, primaryAssetClass, secondaryAssetClass'
-    - 'Rosetta condition: TaxonomySource — if source exists then (value exists or productQualifier exists)'
-    - 'Rosetta condition: TaxonomyValue — optional choice value, productQualifier'
+      - 'Rosetta condition: TaxonomyType — required choice source, primaryAssetClass, secondaryAssetClass'
+      - 'Rosetta condition: TaxonomySource — if source exists then (value exists or productQualifier exists)'
+      - 'Rosetta condition: TaxonomyValue — optional choice value, productQualifier'
     slots:
-    - primaryAssetClass
-    - secondaryAssetClass
-    - productQualifier
+      - primaryAssetClass
+      - secondaryAssetClass
+      - productQualifier
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   Cash:
     description: An Asset that consists solely of a monetary holding in a currency. The currency of the Cash asset is held
@@ -2293,559 +2293,561 @@ classes:
       to retrieve the currency of a Cash object.
     is_a: AssetBase
     close_mappings:
-    - gist:Magnitude
+      - gist:Magnitude
     rules:
-    - description: Taxonomy is not applicable for a Cash asset.
-      postconditions:
-        slot_conditions:
-          taxonomy:
-            required: false
-      preconditions: {}
-    - description: Cash cannot be a listed Asset.
-      postconditions:
-        slot_conditions:
-          exchange:
-            required: false
-          isExchangeListed:
-            required: false
-      preconditions: {}
-    - description: AssetType must be cash.
-      postconditions:
-        slot_conditions:
-          assetType:
-            equals_string: Cash
-      preconditions: {}
+      - description: Taxonomy is not applicable for a Cash asset.
+        postconditions:
+          slot_conditions:
+            taxonomy:
+              required: false
+        preconditions: {}
+      - description: Cash cannot be a listed Asset.
+        postconditions:
+          slot_conditions:
+            exchange:
+              required: false
+            isExchangeListed:
+              required: false
+        preconditions: {}
+      - description: AssetType must be cash.
+        postconditions:
+          slot_conditions:
+            assetType:
+              equals_string: Cash
+        preconditions: {}
     comments:
-    - 'Rosetta condition: CurrencyExists — AssetIdentifierByType(identifier, AssetIdTypeEnum -> CurrencyCode) count = 1 and
-      AssetIdentifierByType(identifier, AssetIdTypeEnum -> CurrencyCode) -> identifier first to-enum CurrencyCodeEnum exists'
-    - 'Rosetta condition: NoTaxonomy — taxonomy is absent'
-    - 'Rosetta condition: NoExchange — exchange is absent and isExchangeListed is absent'
-    - 'Rosetta condition: AssetType — assetType = Cash'
-    - 'Rosetta func: GetCashCurrency — Returns the enumerated Currency Code of a Cash asset.'
-    - 'Rosetta func: SetCashCurrency — Sets (or updates) the string identifier of a Cash asset using an enumerated Currency
-      Code.'
+      - 'Rosetta condition: CurrencyExists — AssetIdentifierByType(identifier, AssetIdTypeEnum -> CurrencyCode) count = 1
+        and AssetIdentifierByType(identifier, AssetIdTypeEnum -> CurrencyCode) -> identifier first to-enum CurrencyCodeEnum
+        exists'
+      - 'Rosetta condition: NoTaxonomy — taxonomy is absent'
+      - 'Rosetta condition: NoExchange — exchange is absent and isExchangeListed is absent'
+      - 'Rosetta condition: AssetType — assetType = Cash'
+      - 'Rosetta func: GetCashCurrency — Returns the enumerated Currency Code of a Cash asset.'
+      - 'Rosetta func: SetCashCurrency — Sets (or updates) the string identifier of a Cash asset using an enumerated Currency
+        Code.'
     annotations:
       rosetta_functions: '[{"name":"GetCashCurrency","description":"Returns the enumerated Currency Code of a Cash asset.","inputs":[{"name":"cash","type":"Cash","cardinality":"1..1"}],"output":{"name":"currencyEnum","type":"CurrencyCodeEnum","cardinality":"1..1"}},{"name":"SetCashCurrency","description":"Sets
         (or updates) the string identifier of a Cash asset using an enumerated Currency Code.","inputs":[{"name":"cash","type":"Cash","cardinality":"0..1"},{"name":"currency","type":"CurrencyCodeEnum","cardinality":"1..1"}],"output":{"name":"cashOutput","type":"Cash","cardinality":"1..1"}}]'
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   Commodity:
     description: Identifies a specific commodity by referencing a product identifier or by a product definition.
     is_a: AssetBase
     close_mappings:
-    - fpml_5_10:Commodity
+      - fpml_5_10:Commodity
     rules:
-    - description: AssetType must be commodity.
-      postconditions:
-        slot_conditions:
-          assetType:
-            equals_string: Commodity
-      preconditions: {}
+      - description: AssetType must be commodity.
+        postconditions:
+          slot_conditions:
+            assetType:
+              equals_string: Commodity
+        preconditions: {}
     comments:
-    - 'Rosetta condition: ValueSource — if taxonomy exists then (taxonomy -> source exists and taxonomy -> value exists)'
-    - 'Rosetta condition: AssetType — assetType = Commodity'
+      - 'Rosetta condition: ValueSource — if taxonomy exists then (taxonomy -> source exists and taxonomy -> value exists)'
+      - 'Rosetta condition: AssetType — assetType = Commodity'
     slots:
-    - commodityProductDefinition
-    - priceQuoteType
-    - deliveryDateReference
-    - description
+      - commodityProductDefinition
+      - priceQuoteType
+      - deliveryDateReference
+      - description
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   CommodityProductDefinition:
     description: Specifies the commodity underlier in the event that no ISDA Commodity Reference Price exists.
     close_mappings:
-    - fpml_5_10:CommodityProductDefinition
+      - fpml_5_10:CommodityProductDefinition
     rules:
-    - description: Requires the definition of either delivery date parameters or non-exchange price source.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            exchangeId:
-              required: true
-        - slot_conditions:
-            priceSource:
-              required: true
-      preconditions: {}
+      - description: Requires the definition of either delivery date parameters or non-exchange price source.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                exchangeId:
+                  required: true
+            - slot_conditions:
+                priceSource:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: CommodityProductDefinitionChoice — optional choice exchangeId, priceSource'
+      - 'Rosetta condition: CommodityProductDefinitionChoice — optional choice exchangeId, priceSource'
     slots:
-    - referenceFramework
-    - priceSource
-    - commodityInfoPublisher
-    - exchangeId
+      - referenceFramework
+      - priceSource
+      - commodityInfoPublisher
+      - exchangeId
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   DeliveryDateParameters:
     description: Specifies a specific date or the parameters for identifying the relevant contract date when the commodity
       reference price is a futures contract.
     rules:
-    - description: Requires definition of a delivery date or delieryNearby parameters.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            deliveryNearby:
-              required: true
-        - slot_conditions:
-            deliveryDate:
-              required: true
-      preconditions: {}
+      - description: Requires definition of a delivery date or delieryNearby parameters.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                deliveryNearby:
+                  required: true
+            - slot_conditions:
+                deliveryDate:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: DeliveryDateParametersChoice — optional choice deliveryNearby, deliveryDate'
+      - 'Rosetta condition: DeliveryDateParametersChoice — optional choice deliveryNearby, deliveryDate'
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   CommodityReferenceFramework:
     description: Specifies the type of commodity.
     close_mappings:
-    - fpml_5_10:CommodityReferenceFramework
+      - fpml_5_10:CommodityReferenceFramework
     rules:
-    - description: Requires that either the capacity unit or weather unit is populated.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            capacityUnit:
-              required: true
-        - slot_conditions:
-            weatherUnit:
-              required: true
-      preconditions: {}
+      - description: Requires that either the capacity unit or weather unit is populated.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                capacityUnit:
+                  required: true
+            - slot_conditions:
+                weatherUnit:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: CommodityReferenceFrameworkChoice — optional choice capacityUnit, weatherUnit'
+      - 'Rosetta condition: CommodityReferenceFrameworkChoice — optional choice capacityUnit, weatherUnit'
     slots:
-    - commodityName
-    - capacityUnit
-    - weatherUnit
-    - currency
+      - commodityName
+      - capacityUnit
+      - weatherUnit
+      - currency
     slot_usage:
       currency:
         description: Defines the currency in which the commodity is priced.
         required: true
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   DigitalAsset:
     description: An Asset that exists only in digital form, eg Bitcoin or Ethereum, that is not backed by other Assets; excludes
       the digital representation of other Assets, eg coins or Tokenised assets.
     is_a: AssetBase
     rules:
-    - description: Asset type must be Other.
-      postconditions:
-        slot_conditions:
-          assetType:
-            equals_string: Other
-      preconditions: {}
+      - description: Asset type must be Other.
+        postconditions:
+          slot_conditions:
+            assetType:
+              equals_string: Other
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AssetType — assetType = Other'
+      - 'Rosetta condition: AssetType — assetType = Other'
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   ListedDerivative:
     description: A securitized derivative on another asset.
     is_a: InstrumentBase
     rules:
-    - description: Options must have a strike price.
-      preconditions:
-        slot_conditions:
-          optionType:
-            required: true
-      postconditions:
-        slot_conditions:
-          strike:
-            required: true
-    - description: Asset type must be ListedDerivative.
-      postconditions:
-        slot_conditions:
-          assetType:
-            equals_string: ListedDerivative
-      preconditions: {}
+      - description: Options must have a strike price.
+        preconditions:
+          slot_conditions:
+            optionType:
+              required: true
+        postconditions:
+          slot_conditions:
+            strike:
+              required: true
+      - description: Asset type must be ListedDerivative.
+        postconditions:
+          slot_conditions:
+            assetType:
+              equals_string: ListedDerivative
+        preconditions: {}
     comments:
-    - 'Rosetta condition: Options — if optionType exists then strike exists else strike is absent'
-    - 'Rosetta condition: AssetType — assetType = ListedDerivative'
+      - 'Rosetta condition: Options — if optionType exists then strike exists else strike is absent'
+      - 'Rosetta condition: AssetType — assetType = ListedDerivative'
     slots:
-    - deliveryTerm
-    - optionType
-    - strike
+      - deliveryTerm
+      - optionType
+      - strike
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   Loan:
     description: Identifies a loan by referencing an asset identifier and through an optional set of attributes.
     is_a: InstrumentBase
     rules:
-    - description: Asset type must be Loan.
-      postconditions:
-        slot_conditions:
-          assetType:
-            equals_string: Loan
-      preconditions: {}
+      - description: Asset type must be Loan.
+        postconditions:
+          slot_conditions:
+            assetType:
+              equals_string: Loan
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AssetType — assetType = Loan'
+      - 'Rosetta condition: AssetType — assetType = Loan'
     slots:
-    - borrower
-    - lien
-    - facilityType
-    - creditAgreementDate
-    - tranche
+      - borrower
+      - lien
+      - facilityType
+      - creditAgreementDate
+      - tranche
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   CollateralTaxonomy:
     description: Specifies the collateral taxonomy, which is composed of a taxonomy value and a taxonomy source.
     close_mappings:
-    - fpml_5_10:CollateralTaxonomy
+      - fpml_5_10:CollateralTaxonomy
     comments:
-    - 'Rosetta condition: Eu_EligibleCollateralTaxonomy — if taxonomySource = TaxonomySourceEnum -> EU_EMIR_EligibleCollateralAssetClass
-      then taxonomyValue -> eu_EMIR_EligibleCollateral exists'
-    - 'Rosetta condition: UkEligibleCollateralTaxonomy — if taxonomySource = TaxonomySourceEnum -> UK_EMIR_EligibleCollateralAssetClass
-      then taxonomyValue -> uk_EMIR_EligibleCollateral exists'
-    - 'Rosetta condition: UsEligibleCollateralTaxonomy — if taxonomySource = TaxonomySourceEnum -> US_CFTC_PR_EligibleCollateralAssetClass
-      then taxonomyValue -> us_CFTC_PR_EligibleCollateral exists'
-    - 'Rosetta condition: TaxonomyValue — if taxonomyValue -> nonEnumeratedTaxonomyValue exists then taxonomySource <> TaxonomySourceEnum
-      -> EU_EMIR_EligibleCollateralAssetClass and taxonomySource <> TaxonomySourceEnum -> UK_EMIR_EligibleCollateralAssetClass
-      and taxonomySource <> TaxonomySourceEnum -> US_CFTC_PR_EligibleCollateralAssetClass'
+      - 'Rosetta condition: Eu_EligibleCollateralTaxonomy — if taxonomySource = TaxonomySourceEnum -> EU_EMIR_EligibleCollateralAssetClass
+        then taxonomyValue -> eu_EMIR_EligibleCollateral exists'
+      - 'Rosetta condition: UkEligibleCollateralTaxonomy — if taxonomySource = TaxonomySourceEnum -> UK_EMIR_EligibleCollateralAssetClass
+        then taxonomyValue -> uk_EMIR_EligibleCollateral exists'
+      - 'Rosetta condition: UsEligibleCollateralTaxonomy — if taxonomySource = TaxonomySourceEnum -> US_CFTC_PR_EligibleCollateralAssetClass
+        then taxonomyValue -> us_CFTC_PR_EligibleCollateral exists'
+      - 'Rosetta condition: TaxonomyValue — if taxonomyValue -> nonEnumeratedTaxonomyValue exists then taxonomySource <> TaxonomySourceEnum
+        -> EU_EMIR_EligibleCollateralAssetClass and taxonomySource <> TaxonomySourceEnum -> UK_EMIR_EligibleCollateralAssetClass
+        and taxonomySource <> TaxonomySourceEnum -> US_CFTC_PR_EligibleCollateralAssetClass'
     slots:
-    - taxonomyValue
-    - taxonomySource
+      - taxonomyValue
+      - taxonomySource
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   CollateralTaxonomyValue:
     description: Specifies the collateral taxonomy value, either as a specified enumeration or as a string.
     close_mappings:
-    - fpml_5_10:CollateralTaxonomyValue
+      - fpml_5_10:CollateralTaxonomyValue
     slots:
-    - eu_EMIR_EligibleCollateral
-    - uk_EMIR_EligibleCollateral
-    - us_CFTC_PR_EligibleCollateral
-    - nonEnumeratedTaxonomyValue
+      - eu_EMIR_EligibleCollateral
+      - uk_EMIR_EligibleCollateral
+      - us_CFTC_PR_EligibleCollateral
+      - nonEnumeratedTaxonomyValue
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   Security:
     description: Identifies a security by referencing an identifier and by specifying the sector.
     is_a: InstrumentBase
     notes:
-    - ICMA GMRA namingConvention "Purchased Security"
+      - ICMA GMRA namingConvention "Purchased Security"
     see_also:
-    - icma:GMRA
+      - icma:GMRA
     rules:
-    - description: DebtSubType
-      comments:
-      - 'Rosetta negation: securityType <> Debt'
-      preconditions:
-        slot_conditions:
-          securityType:
-            none_of:
-            - equals_string_in:
-              - Debt
-      postconditions:
-        slot_conditions:
-          debtType:
-            required: false
-    - description: EquitySubType
-      comments:
-      - 'Rosetta negation: securityType <> Equity'
-      preconditions:
-        slot_conditions:
-          securityType:
-            none_of:
-            - equals_string_in:
-              - Equity
-      postconditions:
-        slot_conditions:
-          equityType:
-            required: false
-    - description: FundSubType
-      comments:
-      - 'Rosetta negation: securityType <> Fund'
-      preconditions:
-        slot_conditions:
-          securityType:
-            none_of:
-            - equals_string_in:
-              - Fund
-      postconditions:
-        slot_conditions:
-          fundType:
-            required: false
-    - description: Asset type must be Security.
-      postconditions:
-        slot_conditions:
-          assetType:
-            equals_string: Security
-      preconditions: {}
+      - description: DebtSubType
+        comments:
+          - 'Rosetta negation: securityType <> Debt'
+        preconditions:
+          slot_conditions:
+            securityType:
+              none_of:
+                - equals_string_in:
+                    - Debt
+        postconditions:
+          slot_conditions:
+            debtType:
+              required: false
+      - description: EquitySubType
+        comments:
+          - 'Rosetta negation: securityType <> Equity'
+        preconditions:
+          slot_conditions:
+            securityType:
+              none_of:
+                - equals_string_in:
+                    - Equity
+        postconditions:
+          slot_conditions:
+            equityType:
+              required: false
+      - description: FundSubType
+        comments:
+          - 'Rosetta negation: securityType <> Fund'
+        preconditions:
+          slot_conditions:
+            securityType:
+              none_of:
+                - equals_string_in:
+                    - Fund
+        postconditions:
+          slot_conditions:
+            fundType:
+              required: false
+      - description: Asset type must be Security.
+        postconditions:
+          slot_conditions:
+            assetType:
+              equals_string: Security
+        preconditions: {}
     comments:
-    - 'Rosetta condition: DebtSubType — if securityType <> Debt then debtType is absent'
-    - 'Rosetta condition: EquitySubType — if securityType <> Equity then equityType is absent'
-    - 'Rosetta condition: FundSubType — if securityType <> Fund then fundType is absent'
-    - 'Rosetta condition: AssetType — assetType = Security'
+      - 'Rosetta condition: DebtSubType — if securityType <> Debt then debtType is absent'
+      - 'Rosetta condition: EquitySubType — if securityType <> Equity then equityType is absent'
+      - 'Rosetta condition: FundSubType — if securityType <> Fund then fundType is absent'
+      - 'Rosetta condition: AssetType — assetType = Security'
     slots:
-    - securityType
-    - debtType
-    - equityType
-    - fundType
+      - securityType
+      - debtType
+      - equityType
+      - fundType
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   EquityType:
     rules:
-    - description: DepositaryReceiptSubType
-      comments:
-      - 'Rosetta negation: equityType <> EquityTypeEnum -> DepositaryReceipt'
-      preconditions:
-        slot_conditions:
-          equityType:
-            none_of:
-            - equals_string_in:
-              - DepositaryReceipt
-      postconditions:
-        slot_conditions:
-          depositaryReceipt:
-            required: false
+      - description: DepositaryReceiptSubType
+        comments:
+          - 'Rosetta negation: equityType <> EquityTypeEnum -> DepositaryReceipt'
+        preconditions:
+          slot_conditions:
+            equityType:
+              none_of:
+                - equals_string_in:
+                    - DepositaryReceipt
+        postconditions:
+          slot_conditions:
+            depositaryReceipt:
+              required: false
     comments:
-    - 'Rosetta condition: DepositaryReceiptSubType — if equityType <> EquityTypeEnum -> DepositaryReceipt then depositaryReceipt
-      is absent'
+      - 'Rosetta condition: DepositaryReceiptSubType — if equityType <> EquityTypeEnum -> DepositaryReceipt then depositaryReceipt
+        is absent'
     slots:
-    - equityType
-    - depositaryReceipt
+      - equityType
+      - depositaryReceipt
     slot_usage:
       equityType:
         range: EquityTypeEnum
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   DebtType:
     description: Specifies the type of debt security.
     slots:
-    - debtEconomics
+      - debtEconomics
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   DebtEconomics:
     description: Specifies selected economics of a debt security.
     slots:
-    - seniority
-    - interest
-    - principal
-    - secured
-    - redemption
+      - seniority
+      - interest
+      - principal
+      - secured
+      - redemption
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   DebtRedemption:
     description: Specifies the redemption features and whether the redemption right is exercised at the discretion of the
       issuer or the holder.
     rules:
-    - description: A type of redemption must be specified if the redeeming party is specified.
-      preconditions:
-        slot_conditions:
-          party:
-            required: true
-      postconditions:
-        any_of:
-        - slot_conditions:
-            redemptionType:
+      - description: A type of redemption must be specified if the redeeming party is specified.
+        preconditions:
+          slot_conditions:
+            party:
               required: true
-        - slot_conditions:
-            putCall:
-              required: true
+        postconditions:
+          any_of:
+            - slot_conditions:
+                redemptionType:
+                  required: true
+            - slot_conditions:
+                putCall:
+                  required: true
     comments:
-    - 'Rosetta condition: ConvertibleExchangablePartyElectionExists — if party exists then redemptionType exists or putCall
-      exists'
+      - 'Rosetta condition: ConvertibleExchangablePartyElectionExists — if party exists then redemptionType exists or putCall
+        exists'
     slots:
-    - redemptionType
-    - putCall
-    - party
+      - redemptionType
+      - putCall
+      - party
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   SecuredDebt:
     rules:
-    - description: Condition to restrict selection of the assetBacked attribute if AssetBacked is not set as the securedType
-        value.
-      comments:
-      - 'Rosetta negation: securedType <> SecuredTypeEnum -> AssetBacked'
-      preconditions:
-        slot_conditions:
-          securedType:
-            none_of:
-            - equals_string_in:
-              - AssetBacked
-      postconditions:
-        slot_conditions:
-          assetBacked:
-            required: false
-    - description: Condition to restrict selection of the collateralizedObligations attribute if CollateralizedObligation
-        is not set as the securedType value.
-      comments:
-      - 'Rosetta negation: securedType <> CollateralizedObligation'
-      preconditions:
-        slot_conditions:
-          securedType:
-            none_of:
-            - equals_string_in:
-              - CollateralizedObligation
-      postconditions:
-        slot_conditions:
-          collateralizedObligation:
-            required: false
-    - description: Condition to restrict selection of the coveredBonds attribute if CoveredBonds is not set as the securedType
-        value.
-      comments:
-      - 'Rosetta negation: securedType <> CoveredBonds'
-      preconditions:
-        slot_conditions:
-          securedType:
-            none_of:
-            - equals_string_in:
-              - CoveredBonds
-      postconditions:
-        slot_conditions:
-          coveredBond:
-            required: false
+      - description: Condition to restrict selection of the assetBacked attribute if AssetBacked is not set as the securedType
+          value.
+        comments:
+          - 'Rosetta negation: securedType <> SecuredTypeEnum -> AssetBacked'
+        preconditions:
+          slot_conditions:
+            securedType:
+              none_of:
+                - equals_string_in:
+                    - AssetBacked
+        postconditions:
+          slot_conditions:
+            assetBacked:
+              required: false
+      - description: Condition to restrict selection of the collateralizedObligations attribute if CollateralizedObligation
+          is not set as the securedType value.
+        comments:
+          - 'Rosetta negation: securedType <> CollateralizedObligation'
+        preconditions:
+          slot_conditions:
+            securedType:
+              none_of:
+                - equals_string_in:
+                    - CollateralizedObligation
+        postconditions:
+          slot_conditions:
+            collateralizedObligation:
+              required: false
+      - description: Condition to restrict selection of the coveredBonds attribute if CoveredBonds is not set as the securedType
+          value.
+        comments:
+          - 'Rosetta negation: securedType <> CoveredBonds'
+        preconditions:
+          slot_conditions:
+            securedType:
+              none_of:
+                - equals_string_in:
+                    - CoveredBonds
+        postconditions:
+          slot_conditions:
+            coveredBond:
+              required: false
     comments:
-    - 'Rosetta condition: AssetBackedExists — if securedType <> SecuredTypeEnum -> AssetBacked then assetBacked is absent'
-    - 'Rosetta condition: PropertyExists — if assetBacked <> Mortgage or assetBacked <> Property or collateralizedObligation
-      <> CMO then propertyType is absent'
-    - 'Rosetta condition: CollateralizedObligationExists — if securedType <> CollateralizedObligation then collateralizedObligation
-      is absent'
-    - 'Rosetta condition: CoveredBondsExists — if securedType <> CoveredBonds then coveredBond is absent'
+      - 'Rosetta condition: AssetBackedExists — if securedType <> SecuredTypeEnum -> AssetBacked then assetBacked is absent'
+      - 'Rosetta condition: PropertyExists — if assetBacked <> Mortgage or assetBacked <> Property or collateralizedObligation
+        <> CMO then propertyType is absent'
+      - 'Rosetta condition: CollateralizedObligationExists — if securedType <> CollateralizedObligation then collateralizedObligation
+        is absent'
+      - 'Rosetta condition: CoveredBondsExists — if securedType <> CoveredBonds then coveredBond is absent'
     slots:
-    - securedType
-    - assetBacked
-    - collateralizedObligation
-    - coveredBond
-    - propertyType
+      - securedType
+      - assetBacked
+      - collateralizedObligation
+      - coveredBond
+      - propertyType
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   CollateralGuarantorType:
     description: Specifies the origin of entity guaranteeing the collateral.
     slots:
-    - guarantorType
+      - guarantorType
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   CollateralIssuerType:
     description: Represents a class to allow specification of the type of entity issuing the collateral.
     close_mappings:
-    - fpml_5_10:CollateralIssuerType
+      - fpml_5_10:CollateralIssuerType
     rules:
-    - description: SupraNationalSubType
-      comments:
-      - 'Rosetta negation: issuerType <> SupraNational'
-      preconditions:
-        slot_conditions:
-          issuerType:
-            none_of:
-            - equals_string_in:
-              - SupraNational
-      postconditions:
-        slot_conditions:
-          supraNationalType:
-            required: false
-    - description: QuasiGovernmentSubType
-      comments:
-      - 'Rosetta negation: issuerType <> QuasiGovernment'
-      preconditions:
-        slot_conditions:
-          issuerType:
-            none_of:
-            - equals_string_in:
-              - QuasiGovernment
-      postconditions:
-        slot_conditions:
-          quasiGovernmentType:
-            required: false
-    - description: RegionalGovernmentSubType
-      comments:
-      - 'Rosetta negation: issuerType <> RegionalGovernment'
-      preconditions:
-        slot_conditions:
-          issuerType:
-            none_of:
-            - equals_string_in:
-              - RegionalGovernment
-      postconditions:
-        slot_conditions:
-          regionalGovernmentType:
-            required: false
-    - description: SpecialPurposeVehicleSubType
-      comments:
-      - 'Rosetta negation: issuerType <> SpecialPurposeVehicle'
-      preconditions:
-        slot_conditions:
-          issuerType:
-            none_of:
-            - equals_string_in:
-              - SpecialPurposeVehicle
-      postconditions:
-        slot_conditions:
-          specialPurposeVehicleType:
-            required: false
+      - description: SupraNationalSubType
+        comments:
+          - 'Rosetta negation: issuerType <> SupraNational'
+        preconditions:
+          slot_conditions:
+            issuerType:
+              none_of:
+                - equals_string_in:
+                    - SupraNational
+        postconditions:
+          slot_conditions:
+            supraNationalType:
+              required: false
+      - description: QuasiGovernmentSubType
+        comments:
+          - 'Rosetta negation: issuerType <> QuasiGovernment'
+        preconditions:
+          slot_conditions:
+            issuerType:
+              none_of:
+                - equals_string_in:
+                    - QuasiGovernment
+        postconditions:
+          slot_conditions:
+            quasiGovernmentType:
+              required: false
+      - description: RegionalGovernmentSubType
+        comments:
+          - 'Rosetta negation: issuerType <> RegionalGovernment'
+        preconditions:
+          slot_conditions:
+            issuerType:
+              none_of:
+                - equals_string_in:
+                    - RegionalGovernment
+        postconditions:
+          slot_conditions:
+            regionalGovernmentType:
+              required: false
+      - description: SpecialPurposeVehicleSubType
+        comments:
+          - 'Rosetta negation: issuerType <> SpecialPurposeVehicle'
+        preconditions:
+          slot_conditions:
+            issuerType:
+              none_of:
+                - equals_string_in:
+                    - SpecialPurposeVehicle
+        postconditions:
+          slot_conditions:
+            specialPurposeVehicleType:
+              required: false
     comments:
-    - 'Rosetta condition: SupraNationalSubType — if issuerType <> SupraNational then supraNationalType is absent'
-    - 'Rosetta condition: QuasiGovernmentSubType — if issuerType <> QuasiGovernment then quasiGovernmentType is absent'
-    - 'Rosetta condition: RegionalGovernmentSubType — if issuerType <> RegionalGovernment then regionalGovernmentType is absent'
-    - 'Rosetta condition: SpecialPurposeVehicleSubType — if issuerType <> SpecialPurposeVehicle then specialPurposeVehicleType
-      is absent'
+      - 'Rosetta condition: SupraNationalSubType — if issuerType <> SupraNational then supraNationalType is absent'
+      - 'Rosetta condition: QuasiGovernmentSubType — if issuerType <> QuasiGovernment then quasiGovernmentType is absent'
+      - 'Rosetta condition: RegionalGovernmentSubType — if issuerType <> RegionalGovernment then regionalGovernmentType is
+        absent'
+      - 'Rosetta condition: SpecialPurposeVehicleSubType — if issuerType <> SpecialPurposeVehicle then specialPurposeVehicleType
+        is absent'
     slots:
-    - issuerType
-    - supraNationalType
-    - quasiGovernmentType
-    - regionalGovernmentType
-    - specialPurposeVehicleType
+      - issuerType
+      - supraNationalType
+      - quasiGovernmentType
+      - regionalGovernmentType
+      - specialPurposeVehicleType
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   QuasiGovernmentIssuerType:
     description: Represents a class to allow specification of different types of Quasi Government collateral.
     rules:
-    - description: NonSovereignEntityRecourse
-      preconditions:
-        slot_conditions:
-          sovereignRecourse:
-            required: true
-      postconditions:
-        slot_conditions:
-          sovereignEntity:
-            equals_string: 'False'
+      - description: NonSovereignEntityRecourse
+        preconditions:
+          slot_conditions:
+            sovereignRecourse:
+              required: true
+        postconditions:
+          slot_conditions:
+            sovereignEntity:
+              equals_string: 'False'
     comments:
-    - 'Rosetta condition: NonSovereignEntityRecourse — if sovereignRecourse exists then sovereignEntity = False'
+      - 'Rosetta condition: NonSovereignEntityRecourse — if sovereignRecourse exists then sovereignEntity = False'
     slots:
-    - sovereignEntity
-    - sovereignRecourse
+      - sovereignEntity
+      - sovereignRecourse
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   RegionalGovernmentIssuerType:
     description: Represents a class to allow specification of different type of Regional government collateral.
     slots:
-    - sovereignRecourse
+      - sovereignRecourse
     slot_usage:
       sovereignRecourse:
         description: Applies to regional governments, local authorities or municipals.  True if entity has recourse to sovereign
           (e.g. debt guaranteed by government).  False if entity does not have recourse to sovereign.
         required: true
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   SpecialPurposeVehicleIssuerType:
     description: Represents a class to allow specification of different types of special purpose vehicle (SPV) collateral.
     slots:
-    - creditRisk
+      - creditRisk
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   TaxonomyClassification:
     slots:
-    - className
-    - value
-    - description
-    - ordinal
+      - className
+      - value
+      - description
+      - ordinal
     slot_usage:
       value:
         range: string
@@ -2854,87 +2856,87 @@ classes:
       description:
         description: A description of the class.
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   AssetType:
     description: Represents a class to allow specification of the asset product type.
     close_mappings:
-    - fpml_5_10:AssetType
+      - fpml_5_10:AssetType
     rules:
-    - description: SecuritySubType
-      comments:
-      - 'Rosetta negation: assetType <> Security'
-      preconditions:
-        slot_conditions:
-          assetType:
-            none_of:
-            - equals_string_in:
-              - Security
-      postconditions:
-        slot_conditions:
-          securityType:
-            required: false
-    - description: BondSubType
-      comments:
-      - 'Rosetta negation: securityType <> Debt'
-      preconditions:
-        slot_conditions:
-          securityType:
-            none_of:
-            - equals_string_in:
-              - Debt
-      postconditions:
-        slot_conditions:
-          debtType:
-            required: false
-    - description: EquitySubType
-      comments:
-      - 'Rosetta negation: securityType <> Equity'
-      preconditions:
-        slot_conditions:
-          securityType:
-            none_of:
-            - equals_string_in:
-              - Equity
-      postconditions:
-        slot_conditions:
-          equityType:
-            required: false
-    - description: FundSubType
-      comments:
-      - 'Rosetta negation: securityType <> Fund'
-      preconditions:
-        slot_conditions:
-          securityType:
-            none_of:
-            - equals_string_in:
-              - Fund
-      postconditions:
-        slot_conditions:
-          fundType:
-            required: false
-    - description: OtherAssetSubType
-      preconditions:
-        slot_conditions:
-          assetType:
-            equals_string: Other
-      postconditions:
-        slot_conditions:
-          otherAssetType:
-            required: true
+      - description: SecuritySubType
+        comments:
+          - 'Rosetta negation: assetType <> Security'
+        preconditions:
+          slot_conditions:
+            assetType:
+              none_of:
+                - equals_string_in:
+                    - Security
+        postconditions:
+          slot_conditions:
+            securityType:
+              required: false
+      - description: BondSubType
+        comments:
+          - 'Rosetta negation: securityType <> Debt'
+        preconditions:
+          slot_conditions:
+            securityType:
+              none_of:
+                - equals_string_in:
+                    - Debt
+        postconditions:
+          slot_conditions:
+            debtType:
+              required: false
+      - description: EquitySubType
+        comments:
+          - 'Rosetta negation: securityType <> Equity'
+        preconditions:
+          slot_conditions:
+            securityType:
+              none_of:
+                - equals_string_in:
+                    - Equity
+        postconditions:
+          slot_conditions:
+            equityType:
+              required: false
+      - description: FundSubType
+        comments:
+          - 'Rosetta negation: securityType <> Fund'
+        preconditions:
+          slot_conditions:
+            securityType:
+              none_of:
+                - equals_string_in:
+                    - Fund
+        postconditions:
+          slot_conditions:
+            fundType:
+              required: false
+      - description: OtherAssetSubType
+        preconditions:
+          slot_conditions:
+            assetType:
+              equals_string: Other
+        postconditions:
+          slot_conditions:
+            otherAssetType:
+              required: true
     comments:
-    - 'Rosetta condition: SecuritySubType — if assetType <> Security then securityType is absent'
-    - 'Rosetta condition: BondSubType — if securityType <> Debt then debtType is absent'
-    - 'Rosetta condition: EquitySubType — if securityType <> Equity then equityType is absent'
-    - 'Rosetta condition: FundSubType — if securityType <> Fund then fundType is absent'
-    - 'Rosetta condition: OtherAssetSubType — if assetType = Other then otherAssetType exists'
+      - 'Rosetta condition: SecuritySubType — if assetType <> Security then securityType is absent'
+      - 'Rosetta condition: BondSubType — if securityType <> Debt then debtType is absent'
+      - 'Rosetta condition: EquitySubType — if securityType <> Equity then equityType is absent'
+      - 'Rosetta condition: FundSubType — if securityType <> Fund then fundType is absent'
+      - 'Rosetta condition: OtherAssetSubType — if assetType = Other then otherAssetType exists'
     slots:
-    - assetType
-    - securityType
-    - debtType
-    - equityType
-    - fundType
-    - otherAssetType
+      - assetType
+      - securityType
+      - debtType
+      - equityType
+      - fundType
+      - otherAssetType
     slot_usage:
       assetType:
         description: Represents a filter based on the type of collateral asset.
@@ -2948,53 +2950,53 @@ classes:
       fundType:
         description: Represents a filter based on the type of fund.
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   PriceSource:
     description: Specifies a publication that provides the commodity price, including, where applicable, the details of where
       in the publication the price is published.
     rules:
-    - description: Requires that if a priceSourceHeading is specified, then a priceSourceLocation must be speficified
-      preconditions:
-        slot_conditions:
-          priceSourceHeading:
-            required: true
-      postconditions:
-        slot_conditions:
-          priceSourceLocation:
-            required: true
+      - description: Requires that if a priceSourceHeading is specified, then a priceSourceLocation must be speficified
+        preconditions:
+          slot_conditions:
+            priceSourceHeading:
+              required: true
+        postconditions:
+          slot_conditions:
+            priceSourceLocation:
+              required: true
     comments:
-    - 'Rosetta condition: PriceSourceHeading — if priceSourceHeading exists then priceSourceLocation exists'
+      - 'Rosetta condition: PriceSourceHeading — if priceSourceHeading exists then priceSourceLocation exists'
     slots:
-    - pricePublisher
-    - priceSourceLocation
-    - priceSourceHeading
-    - priceSourceTime
+      - pricePublisher
+      - priceSourceLocation
+      - priceSourceHeading
+      - priceSourceTime
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   Asset:
     abstract: true
     description: An Asset is defined as something that can be owned and transferred in the financial markets. As a choice
       data type, one and only one of the attributes must be used.
     comments:
-    - Generated from Rosetta 'choice' construct — represents a union/one-of type.
+      - Generated from Rosetta 'choice' construct — represents a union/one-of type.
     union_of:
-    - Cash
-    - Commodity
-    - DigitalAsset
-    - Instrument
+      - Cash
+      - Commodity
+      - DigitalAsset
+      - Instrument
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common
 
   Instrument:
     abstract: true
     description: A type of Asset that is issued by one party to one or more others.
     comments:
-    - Generated from Rosetta 'choice' construct — represents a union/one-of type.
+      - Generated from Rosetta 'choice' construct — represents a union/one-of type.
     union_of:
-    - ListedDerivative
-    - Loan
-    - Security
+      - ListedDerivative
+      - Loan
+      - Security
     in_subset:
-    - cdm_base_staticdata_asset_common
+      - cdm_base_staticdata_asset_common

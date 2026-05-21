@@ -3,10 +3,10 @@ name: cdm_base_staticdata_identifier
 description: Basic identifier and assigned identifier concepts that are applicable across the model.
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -18,11 +18,11 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_staticdata_party
-- ./cdm_observable_asset
-- ./cdm_base_staticdata_asset_common
-- ./cdm_base_staticdata_codelist
+  - linkml:types
+  - ./cdm_base_staticdata_party
+  - ./cdm_observable_asset
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_base_staticdata_codelist
 
 subsets:
   cdm_base_staticdata_identifier:
@@ -102,12 +102,12 @@ classes:
   AssignedIdentifier:
     description: A class to specify the identifier value and its associated version.
     close_mappings:
-    - fpml_5_10:AssignedIdentifier
-    - gist:ID
-    - spdx:ExternalIdentifier
+      - fpml_5_10:AssignedIdentifier
+      - gist:ID
+      - spdx:ExternalIdentifier
     slots:
-    - identifier
-    - version
+      - identifier
+      - version
     slot_usage:
       identifier:
         range: string
@@ -121,7 +121,7 @@ classes:
           an associated version is enforced through data rules.
         required: false
     in_subset:
-    - cdm_base_staticdata_identifier
+      - cdm_base_staticdata_identifier
 
   Identifier:
     description: A class to specify a generic identifier, applicable to CDM artefacts such as executions, contracts, lifecycle
@@ -130,28 +130,28 @@ classes:
     annotations:
       metadata_key: true
     close_mappings:
-    - gist:ID
-    - oscal:PartyExternalId
-    - spdx:ExternalIdentifier
+      - gist:ID
+      - oscal:PartyExternalId
+      - spdx:ExternalIdentifier
     rules:
-    - description: The identifier issuer is specified either explicitly or by reference to one of the parties.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            issuerReference:
-              required: true
-        - slot_conditions:
-            issuer:
-              required: true
-      preconditions: {}
+      - description: The identifier issuer is specified either explicitly or by reference to one of the parties.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                issuerReference:
+                  required: true
+            - slot_conditions:
+                issuer:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: IssuerChoice — required choice issuerReference, issuer'
+      - 'Rosetta condition: IssuerChoice — required choice issuerReference, issuer'
     slots:
-    - issuerReference
-    - issuer
-    - assignedIdentifier
+      - issuerReference
+      - issuer
+      - assignedIdentifier
     in_subset:
-    - cdm_base_staticdata_identifier
+      - cdm_base_staticdata_identifier
 
   IdentifiedList:
     description: Attaches an identifier to a collection of objects, when those objects themselves can each be represented
@@ -161,19 +161,19 @@ classes:
     annotations:
       metadata_key: true
     slots:
-    - listId
-    - componentId
-    - price
+      - listId
+      - componentId
+      - price
     in_subset:
-    - cdm_base_staticdata_identifier
+      - cdm_base_staticdata_identifier
 
   LocationIdentifier:
     description: Specifies a location identifier. An issuer and an identifier type can be associated with the actual identifier
       value as a way to properly qualify it.
     is_a: Identifier
     comments:
-    - 'Rosetta condition: IdentifierType — if locationIdentifierType exists then assignedIdentifier count = 1'
+      - 'Rosetta condition: IdentifierType — if locationIdentifierType exists then assignedIdentifier count = 1'
     slots:
-    - locationIdentifierType
+      - locationIdentifierType
     in_subset:
-    - cdm_base_staticdata_identifier
+      - cdm_base_staticdata_identifier

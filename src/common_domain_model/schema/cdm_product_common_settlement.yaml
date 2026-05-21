@@ -3,10 +3,10 @@ name: cdm_product_common_settlement
 description: 'Common product settlement concepts: cash vs physical, non-deliverable, money and cashflow, delivery vs payment.'
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -16,39 +16,39 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_datetime
-- ./cdm_base_math
-- ./cdm_base_staticdata_asset_common
-- ./cdm_base_staticdata_asset_credit
-- ./cdm_base_staticdata_party
-- ./cdm_observable_asset
-- ./cdm_product_asset
-- ./cdm_product_common_schedule
-- ./cdm_event_common
-- ./cdm_event_position
-- ./cdm_legaldocumentation_transaction
-- ./cdm_legaldocumentation_csa
-- ./cdm_base_staticdata_identifier
-- ./cdm_observable_event
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_math
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_base_staticdata_asset_credit
+  - ./cdm_base_staticdata_party
+  - ./cdm_observable_asset
+  - ./cdm_product_asset
+  - ./cdm_product_common_schedule
+  - ./cdm_event_common
+  - ./cdm_event_position
+  - ./cdm_legaldocumentation_transaction
+  - ./cdm_legaldocumentation_csa
+  - ./cdm_base_staticdata_identifier
+  - ./cdm_observable_event
 
 comments:
-- 'Rosetta func: UpdateAmountForEachMatchingQuantity — Updates any price or quantity from the list of PriceQuantity if the
-  unit of amount matches. | inputs(priceQuantityList: PriceQuantity (1..*), change: PriceQuantity (1..*), direction: QuantityChangeDirectionEnum
-  (1..1)) | output(updatedPriceQuantity: PriceQuantity (1..*))'
-- 'Rosetta func: FilterChangePriceQuantity — Filter the change PriceQuantity list to match on Observable if present. | inputs(priceQuantity:
-  PriceQuantity (0..1), change: PriceQuantity (0..*)) | output(filteredChange: PriceQuantity (0..*))'
-- 'Rosetta func: UpdatePriceAmountForEachMatchingQuantity — Updates any price from the PriceSchedule list if the unit of amount
-  matches. | inputs(price: PriceSchedule (0..1), change: PriceSchedule (0..*), direction: QuantityChangeDirectionEnum (1..1))
-  | output(updatedPrice: PriceSchedule (0..1))'
-- 'Rosetta func: UpdateQuantityAmountForEachMatchingQuantity — Updates any quantity from the NonNegativeQuantitySchedule list
-  if the unit of amount matches. | inputs(quantity: NonNegativeQuantitySchedule (0..1), change: PriceQuantity (0..*), direction:
-  QuantityChangeDirectionEnum (1..1)) | output(updatedQuantity: NonNegativeQuantitySchedule (0..1))'
-- 'Rosetta func: PriceUnitEquals — Compares two PriceSchedule to check if all attributes match, except for the amount. | inputs(p1:
-  PriceSchedule (0..1), p2: PriceSchedule (0..1)) | output(result: boolean (1..1))'
-- 'Rosetta func: SplitQuantityChange — Splits a PriceQuantity list into separate elements, each containing a single quantity
-  and its corresponding effective date, if multiple quantities exist. | inputs(changeList: PriceQuantity (1..*)) | output(splitChange:
-  PriceQuantity (1..*))'
+  - 'Rosetta func: UpdateAmountForEachMatchingQuantity — Updates any price or quantity from the list of PriceQuantity if the
+    unit of amount matches. | inputs(priceQuantityList: PriceQuantity (1..*), change: PriceQuantity (1..*), direction: QuantityChangeDirectionEnum
+    (1..1)) | output(updatedPriceQuantity: PriceQuantity (1..*))'
+  - 'Rosetta func: FilterChangePriceQuantity — Filter the change PriceQuantity list to match on Observable if present. | inputs(priceQuantity:
+    PriceQuantity (0..1), change: PriceQuantity (0..*)) | output(filteredChange: PriceQuantity (0..*))'
+  - 'Rosetta func: UpdatePriceAmountForEachMatchingQuantity — Updates any price from the PriceSchedule list if the unit of
+    amount matches. | inputs(price: PriceSchedule (0..1), change: PriceSchedule (0..*), direction: QuantityChangeDirectionEnum
+    (1..1)) | output(updatedPrice: PriceSchedule (0..1))'
+  - 'Rosetta func: UpdateQuantityAmountForEachMatchingQuantity — Updates any quantity from the NonNegativeQuantitySchedule
+    list if the unit of amount matches. | inputs(quantity: NonNegativeQuantitySchedule (0..1), change: PriceQuantity (0..*),
+    direction: QuantityChangeDirectionEnum (1..1)) | output(updatedQuantity: NonNegativeQuantitySchedule (0..1))'
+  - 'Rosetta func: PriceUnitEquals — Compares two PriceSchedule to check if all attributes match, except for the amount. |
+    inputs(p1: PriceSchedule (0..1), p2: PriceSchedule (0..1)) | output(result: boolean (1..1))'
+  - 'Rosetta func: SplitQuantityChange — Splits a PriceQuantity list into separate elements, each containing a single quantity
+    and its corresponding effective date, if multiple quantities exist. | inputs(changeList: PriceQuantity (1..*)) | output(splitChange:
+    PriceQuantity (1..*))'
 annotations:
   rosetta_functions: '[{"name":"UpdateAmountForEachMatchingQuantity","description":"Updates any price or quantity from the
     list of PriceQuantity if the unit of amount matches.","inputs":[{"name":"priceQuantityList","type":"PriceQuantity","cardinality":"1..*"},{"name":"change","type":"PriceQuantity","cardinality":"1..*"},{"name":"direction","type":"QuantityChangeDirectionEnum","cardinality":"1..1"}],"output":{"name":"updatedPriceQuantity","type":"PriceQuantity","cardinality":"1..*"}},{"name":"FilterChangePriceQuantity","description":"Filter
@@ -68,7 +68,7 @@ enums:
     description: Specifies delivery methods for securities transactions. This coding-scheme defines the possible delivery
       methods for securities.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/delivery-method
+      - http://www.fpml.org/coding-scheme/delivery-method
     permissible_values:
       DeliveryVersusPayment:
         description: Indicates that a securities delivery must be made against payment in simultaneous transmissions and stipulate
@@ -257,13 +257,13 @@ slots:
     description: FpML specifies the FpML PaymentDiscounting.model group for representing the discounting elements that can
       be associated with a payment.
     close_mappings:
-    - fpml_5_10:AssetFlowBase.paymentDiscounting
+      - fpml_5_10:AssetFlowBase.paymentDiscounting
 
   assetFlowType:
     range: ScheduledTransferEnum
     description: Type of asset flow corresponding to a scheduled event.
     close_mappings:
-    - fpml_5_10:AssetFlow.assetFlowType
+      - fpml_5_10:AssetFlow.assetFlowType
 
   fxLinkedNotionalSchedule:
     range: FxLinkedNotionalSchedule
@@ -327,7 +327,7 @@ slots:
     description: 'Used in conjunction with an exchange-based pricing source. Identifies a way in which the futures contracts
       referenced will roll between periods. '
     close_mappings:
-    - fpml_5_10:CommodityPriceReturnTerms.rollFeature
+      - fpml_5_10:CommodityPriceReturnTerms.rollFeature
 
   rollSourceCalendar:
     range: RollSourceCalendarEnum
@@ -381,7 +381,7 @@ slots:
     range: CashSettlementMethodEnum
     description: 'Specifies the type of cash settlement method: cash price, yield curve etc.'
     close_mappings:
-    - fpml_5_10:CashSettlementTerms.cashSettlementMethod
+      - fpml_5_10:CashSettlementTerms.cashSettlementMethod
 
   cashSettlementAmount:
     range: Money
@@ -389,7 +389,7 @@ slots:
       specified, would typically be calculated as 100 (or the Reference Price) minus the price of the Reference Obligation
       (all expressed as a percentage) times Floating Rate Payer Calculation Amount. ISDA 2003 Term: Cash Settlement Amount.'
     close_mappings:
-    - fpml_5_10:CashSettlementTerms.cashSettlementAmount
+      - fpml_5_10:CashSettlementTerms.cashSettlementAmount
 
   recoveryFactor:
     range: decimal
@@ -398,7 +398,7 @@ slots:
       Amount calculation is (1 minus the Recovery Factor) multiplied by the Floating Rate Payer Calculation Amount. The currency
       will be derived from the Floating Rate Payer Calculation Amount.
     close_mappings:
-    - fpml_5_10:CashSettlementTerms.recoveryFactor
+      - fpml_5_10:CashSettlementTerms.recoveryFactor
 
   fixedSettlement:
     range: boolean
@@ -413,7 +413,7 @@ slots:
       for the requirement of satisfaction of the Notice of Physical Settlement Condition to Settlement), pay the absolute
       value of the Fixed Settlement Amount to Seller on the Fixed Settlement Payment Date.'
     close_mappings:
-    - fpml_5_10:CashSettlementTerms.fixedSettlement
+      - fpml_5_10:CashSettlementTerms.fixedSettlement
 
   accruedInterest:
     range: boolean
@@ -422,7 +422,7 @@ slots:
       the buyer should deliver the obligation with an outstanding principal balance that includes or excludes accrued interest.
       ISDA 2003 Term: Include/Exclude Accrued Interest.'
     close_mappings:
-    - fpml_5_10:CashSettlementTerms.accruedInterest
+      - fpml_5_10:CashSettlementTerms.accruedInterest
 
   assignableLoan:
     range: PCDeliverableObligationCharac
@@ -686,7 +686,7 @@ slots:
     annotations:
       metadata_scheme: true
     related_mappings:
-    - icma:GMRA#Contractual_Currency
+      - icma:GMRA#Contractual_Currency
 
   settlementCentre:
     range: SettlementCentreEnum
@@ -715,9 +715,9 @@ classes:
   ComputedAmount:
     description: A class to specify the outcome of a computed amount, for testing purposes.
     slots:
-    - callFunction
-    - amount
-    - currency
+      - callFunction
+      - amount
+      - currency
     slot_usage:
       amount:
         range: decimal
@@ -727,22 +727,22 @@ classes:
           FpML. As a result, implementers have to make reference to the relevant standard, such as the ISO 4217 standard for
           currency codes.
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   AssetFlowBase:
     description: 'Defines the basic parameters of an asset transfer, e.g. a cashflow: what (the asset), how much (the quantity)
       and when (the settlement date).'
     close_mappings:
-    - fpml_5_10:AssetFlowBase
+      - fpml_5_10:AssetFlowBase
     comments:
-    - 'Rosetta condition: QuantityUnitExists — if asset -> Cash exists then quantity -> unit -> currency exists else if asset
-      -> Commodity exists then quantity -> unit -> capacityUnit exists else if asset -> Instrument exists then quantity ->
-      unit -> financialUnit exists'
+      - 'Rosetta condition: QuantityUnitExists — if asset -> Cash exists then quantity -> unit -> currency exists else if
+        asset -> Commodity exists then quantity -> unit -> capacityUnit exists else if asset -> Instrument exists then quantity
+        -> unit -> financialUnit exists'
     slots:
-    - quantity
-    - asset
-    - settlementDate
-    - paymentDiscounting
+      - quantity
+      - asset
+      - settlementDate
+      - paymentDiscounting
     slot_usage:
       quantity:
         range: NonNegativeQuantity
@@ -756,7 +756,7 @@ classes:
         range: AdjustableOrAdjustedOrRelativeDate
         description: Represents the date on which the transfer to due.
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   AssetFlow:
     description: Specifies an asset flow, i.e. the outcome of either of computation (e.g. interest accrual) or an assessment
@@ -766,16 +766,16 @@ classes:
       the lineage.
     is_a: AssetFlowBase
     close_mappings:
-    - fpml_5_10:AssetFlow
+      - fpml_5_10:AssetFlow
     slots:
-    - payerReceiver
-    - assetFlowType
+      - payerReceiver
+      - assetFlowType
     slot_usage:
       payerReceiver:
         description: Specifies who pays / receives the asset flow, through a normalised Party1 / Party2 enumerator.
         required: true
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   QuantityMultiplier:
     description: ' Class to specify a mechanism for a quantity to be set as a multiplier to another (reference) quantity,
@@ -783,10 +783,10 @@ classes:
       building blocks for those 2 cases, until such time when component can be made more generic. This captures the case of
       resetting cross-currency swaps and resetting equity swaps.'
     slots:
-    - fxLinkedNotionalSchedule
-    - multiplierValue
+      - fxLinkedNotionalSchedule
+      - multiplierValue
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   ResolvablePriceQuantity:
     description: 'Generic class to specify the quantity for different payout legs in a contractual product, when that quantity
@@ -798,35 +798,35 @@ classes:
     annotations:
       metadata_key: true
     comments:
-    - 'Rosetta condition: QuantityMultiplier — if quantityMultiplier exists then quantityReference -> reference exists'
+      - 'Rosetta condition: QuantityMultiplier — if quantityMultiplier exists then quantityReference -> reference exists'
     slots:
-    - resolvedQuantity
-    - quantitySchedule
-    - quantityReference
-    - quantityMultiplier
-    - reset
-    - futureValueNotional
-    - priceSchedule
+      - resolvedQuantity
+      - quantitySchedule
+      - quantityReference
+      - quantityMultiplier
+      - reset
+      - futureValueNotional
+      - priceSchedule
     slot_usage:
       reset:
         range: boolean
         description: Whether the quantity is resettable
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   PayoutBase:
     description: A data type that contains the common attributes (e.g. payer and receiver parties) and validation conditions
       that apply across all payout types
     comments:
-    - 'Rosetta condition: FinalPrincipalAmountExists — if principalPayment -> principalPaymentSchedule -> finalPrincipalPayment
-      exists and priceQuantity -> quantitySchedule exists and priceQuantity -> reset is absent then principalPayment -> principalPaymentSchedule
-      -> finalPrincipalPayment -> principalAmount exists or principalPayment -> principalPaymentSchedule -> finalPrincipalPayment
-      -> presentValuePrincipalAmount exists'
+      - 'Rosetta condition: FinalPrincipalAmountExists — if principalPayment -> principalPaymentSchedule -> finalPrincipalPayment
+        exists and priceQuantity -> quantitySchedule exists and priceQuantity -> reset is absent then principalPayment ->
+        principalPaymentSchedule -> finalPrincipalPayment -> principalAmount exists or principalPayment -> principalPaymentSchedule
+        -> finalPrincipalPayment -> presentValuePrincipalAmount exists'
     slots:
-    - payerReceiver
-    - priceQuantity
-    - principalPayment
-    - settlementTerms
+      - payerReceiver
+      - priceQuantity
+      - principalPayment
+      - settlementTerms
     slot_usage:
       payerReceiver:
         description: Canonical representation of the payer and receiver parties applicable to each payout leg.
@@ -842,17 +842,17 @@ classes:
           and their respective terms), the transfer type (DvP etc.) and settlement date, if any.
         required: false
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   CommodityPriceReturnTerms:
     description: Defines parameters in which the commodity price is assessed.
     close_mappings:
-    - fpml_5_10:CommodityPriceReturnTerms
+      - fpml_5_10:CommodityPriceReturnTerms
     slots:
-    - rounding
-    - spread
-    - rollFeature
-    - conversionFactor
+      - rounding
+      - spread
+      - rollFeature
+      - conversionFactor
     slot_usage:
       rounding:
         range: Rounding
@@ -862,38 +862,38 @@ classes:
         description: Defines a spread value for one or more defined dates.
         required: false
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   RollFeature:
     description: 'Used in conjunction with an exchange-based pricing source. Identifies a way in which the futures contracts
       referenced will roll between periods. '
     slots:
-    - rollSourceCalendar
-    - deliveryDateRollConvention
+      - rollSourceCalendar
+      - deliveryDateRollConvention
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   PricingDates:
     description: Specifies specific dates or parametric rules for the dates on which the price will be determined
     slots:
-    - specifiedDates
-    - parametricDates
+      - specifiedDates
+      - parametricDates
     slot_usage:
       parametricDates:
         description: Defines rules for the dates on which the price will be determined.
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   ValuationDate:
     description: A single object that represents the different methods to specify a valuation date, as used for cash settlement.
       The Single / Multiple ValuationDate is used for the determination of recovery in a credit event, the RelativeDateOffset
       is used for cash-settled option, and FxFixingDate is used for cross-currency settlement.
     slots:
-    - singleValuationDate
-    - multipleValuationDates
-    - valuationDate
-    - fxFixingDate
-    - fxFixingSchedule
+      - singleValuationDate
+      - multipleValuationDates
+      - valuationDate
+      - fxFixingDate
+      - fxFixingSchedule
     slot_usage:
       valuationDate:
         range: RelativeDateOffset
@@ -902,7 +902,7 @@ classes:
           of 'OptionCashSettlement', which is now being harmonised into a common 'CashSettlementTerms' that includes a 'ValuationDate'.
         required: false
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   CashSettlementTerms:
     description: Defines the terms required to compute and settle a cash settlement amount according to a fixing value, including
@@ -912,55 +912,56 @@ classes:
     annotations:
       metadata_key: true
     close_mappings:
-    - fpml_5_10:CashSettlementTerms
+      - fpml_5_10:CashSettlementTerms
     rules:
-    - description: Choice rule to represent an FpML choice construct.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            cashSettlementAmount:
-              required: true
-        - slot_conditions:
+      - description: Choice rule to represent an FpML choice construct.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                cashSettlementAmount:
+                  required: true
+            - slot_conditions:
+                recoveryFactor:
+                  required: true
+        preconditions: {}
+      - description: FpML specifies recoveryFactor as a RestrictedPercentage, meaning that it is a decimal which value is
+          restricted between 0 and 1.
+        preconditions:
+          slot_conditions:
             recoveryFactor:
               required: true
-      preconditions: {}
-    - description: FpML specifies recoveryFactor as a RestrictedPercentage, meaning that it is a decimal which value is restricted
-        between 0 and 1.
-      preconditions:
-        slot_conditions:
-          recoveryFactor:
-            required: true
-      postconditions:
-        slot_conditions:
-          recoveryFactor:
-            minimum_value: 0.0
-            maximum_value: 1.0
+        postconditions:
+          slot_conditions:
+            recoveryFactor:
+              minimum_value: 0.0
+              maximum_value: 1.0
     comments:
-    - 'Rosetta condition: CashSettlementTermsChoice — optional choice cashSettlementAmount, recoveryFactor'
-    - 'Rosetta condition: RecoveryFactor — if recoveryFactor exists then recoveryFactor >= 0.0 and recoveryFactor <= 1.0'
-    - 'Rosetta condition: CashCollateralMethod — if valuationMethod -> cashCollateralValuationMethod exists then cashSettlementMethod
-      = CashSettlementMethodEnum -> MidMarketIndicativeQuotations or cashSettlementMethod = CashSettlementMethodEnum -> MidMarketIndicativeQuotationsAlternate
-      or cashSettlementMethod = CashSettlementMethodEnum -> MidMarketCalculationAgentDetermination or cashSettlementMethod
-      = CashSettlementMethodEnum -> ReplacementValueFirmQuotations or cashSettlementMethod = CashSettlementMethodEnum -> ReplacementValueCalculationAgentDetermination'
-    - 'Rosetta condition: MidMarketValuationMethod — if (valuationMethod -> cashCollateralValuationMethod -> applicableCsa
-      exists or valuationMethod -> cashCollateralValuationMethod -> agreedDiscountRate exists or valuationMethod -> cashCollateralValuationMethod
-      -> cashCollateralInterestRate exists) then cashSettlementMethod = CashSettlementMethodEnum -> MidMarketIndicativeQuotations
-      or cashSettlementMethod = CashSettlementMethodEnum -> MidMarketIndicativeQuotationsAlternate or cashSettlementMethod
-      = CashSettlementMethodEnum -> MidMarketCalculationAgentDetermination'
-    - 'Rosetta condition: ReplacementValueMethod — if valuationMethod -> cashCollateralValuationMethod -> protectedParty exists
-      then cashSettlementMethod = CashSettlementMethodEnum -> ReplacementValueFirmQuotations or cashSettlementMethod = CashSettlementMethodEnum
-      -> ReplacementValueCalculationAgentDetermination'
-    - 'Rosetta condition: FirmQuotationMethod — if valuationMethod -> cashCollateralValuationMethod -> prescribedDocumentationAdjustment
-      exists then cashSettlementMethod = CashSettlementMethodEnum -> ReplacementValueFirmQuotations'
+      - 'Rosetta condition: CashSettlementTermsChoice — optional choice cashSettlementAmount, recoveryFactor'
+      - 'Rosetta condition: RecoveryFactor — if recoveryFactor exists then recoveryFactor >= 0.0 and recoveryFactor <= 1.0'
+      - 'Rosetta condition: CashCollateralMethod — if valuationMethod -> cashCollateralValuationMethod exists then cashSettlementMethod
+        = CashSettlementMethodEnum -> MidMarketIndicativeQuotations or cashSettlementMethod = CashSettlementMethodEnum ->
+        MidMarketIndicativeQuotationsAlternate or cashSettlementMethod = CashSettlementMethodEnum -> MidMarketCalculationAgentDetermination
+        or cashSettlementMethod = CashSettlementMethodEnum -> ReplacementValueFirmQuotations or cashSettlementMethod = CashSettlementMethodEnum
+        -> ReplacementValueCalculationAgentDetermination'
+      - 'Rosetta condition: MidMarketValuationMethod — if (valuationMethod -> cashCollateralValuationMethod -> applicableCsa
+        exists or valuationMethod -> cashCollateralValuationMethod -> agreedDiscountRate exists or valuationMethod -> cashCollateralValuationMethod
+        -> cashCollateralInterestRate exists) then cashSettlementMethod = CashSettlementMethodEnum -> MidMarketIndicativeQuotations
+        or cashSettlementMethod = CashSettlementMethodEnum -> MidMarketIndicativeQuotationsAlternate or cashSettlementMethod
+        = CashSettlementMethodEnum -> MidMarketCalculationAgentDetermination'
+      - 'Rosetta condition: ReplacementValueMethod — if valuationMethod -> cashCollateralValuationMethod -> protectedParty
+        exists then cashSettlementMethod = CashSettlementMethodEnum -> ReplacementValueFirmQuotations or cashSettlementMethod
+        = CashSettlementMethodEnum -> ReplacementValueCalculationAgentDetermination'
+      - 'Rosetta condition: FirmQuotationMethod — if valuationMethod -> cashCollateralValuationMethod -> prescribedDocumentationAdjustment
+        exists then cashSettlementMethod = CashSettlementMethodEnum -> ReplacementValueFirmQuotations'
     slots:
-    - cashSettlementMethod
-    - valuationMethod
-    - valuationDate
-    - valuationTime
-    - cashSettlementAmount
-    - recoveryFactor
-    - fixedSettlement
-    - accruedInterest
+      - cashSettlementMethod
+      - valuationMethod
+      - valuationDate
+      - valuationTime
+      - cashSettlementAmount
+      - recoveryFactor
+      - fixedSettlement
+      - accruedInterest
     slot_usage:
       valuationMethod:
         range: ValuationMethod
@@ -980,58 +981,58 @@ classes:
           for an amount of the reference obligation for purposes of cash settlement. ISDA 2003 Term: Valuation Time.'
         required: false
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   DeliverableObligations:
     description: A class to specify all the ISDA terms relevant to defining the deliverable obligations.
     rules:
-    - description: Choice rule to represent an FpML choice construct.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            fullFaithAndCreditObLiability:
-              required: true
-        - slot_conditions:
-            generalFundObligationLiability:
-              required: true
-        - slot_conditions:
-            revenueObligationLiability:
-              required: true
-      preconditions: {}
+      - description: Choice rule to represent an FpML choice construct.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                fullFaithAndCreditObLiability:
+                  required: true
+            - slot_conditions:
+                generalFundObligationLiability:
+                  required: true
+            - slot_conditions:
+                revenueObligationLiability:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: DeliverableObligationsChoice — optional choice fullFaithAndCreditObLiability, generalFundObligationLiability,
-      revenueObligationLiability'
-    - 'Rosetta condition: FpML_cd_34 — if category exists and category = ObligationCategoryEnum -> ReferenceObligationsOnly
-      then acceleratedOrMatured is absent and accruedInterest is absent and assignableLoan is absent and consentRequiredLoan
-      is absent and directLoanParticipation is absent and excluded is absent and fullFaithAndCreditObLiability is absent and
-      generalFundObligationLiability is absent and indirectLoanParticipation is absent and listed is absent and maximumMaturity
-      is absent and notBearer is absent and notContingent is absent and notDomesticCurrency is absent and notDomesticIssuance
-      is absent and notDomesticLaw is absent and notSovereignLender is absent and notSubordinated is absent and othReferenceEntityObligations
-      is absent and revenueObligationLiability is absent and specifiedCurrency is absent and transferable is absent'
+      - 'Rosetta condition: DeliverableObligationsChoice — optional choice fullFaithAndCreditObLiability, generalFundObligationLiability,
+        revenueObligationLiability'
+      - 'Rosetta condition: FpML_cd_34 — if category exists and category = ObligationCategoryEnum -> ReferenceObligationsOnly
+        then acceleratedOrMatured is absent and accruedInterest is absent and assignableLoan is absent and consentRequiredLoan
+        is absent and directLoanParticipation is absent and excluded is absent and fullFaithAndCreditObLiability is absent
+        and generalFundObligationLiability is absent and indirectLoanParticipation is absent and listed is absent and maximumMaturity
+        is absent and notBearer is absent and notContingent is absent and notDomesticCurrency is absent and notDomesticIssuance
+        is absent and notDomesticLaw is absent and notSovereignLender is absent and notSubordinated is absent and othReferenceEntityObligations
+        is absent and revenueObligationLiability is absent and specifiedCurrency is absent and transferable is absent'
     slots:
-    - accruedInterest
-    - category
-    - notSubordinated
-    - specifiedCurrency
-    - notSovereignLender
-    - notDomesticCurrency
-    - notDomesticLaw
-    - listed
-    - notContingent
-    - notDomesticIssuance
-    - assignableLoan
-    - consentRequiredLoan
-    - directLoanParticipation
-    - transferable
-    - maximumMaturity
-    - acceleratedOrMatured
-    - notBearer
-    - fullFaithAndCreditObLiability
-    - generalFundObligationLiability
-    - revenueObligationLiability
-    - indirectLoanParticipation
-    - excluded
-    - othReferenceEntityObligations
+      - accruedInterest
+      - category
+      - notSubordinated
+      - specifiedCurrency
+      - notSovereignLender
+      - notDomesticCurrency
+      - notDomesticLaw
+      - listed
+      - notContingent
+      - notDomesticIssuance
+      - assignableLoan
+      - consentRequiredLoan
+      - directLoanParticipation
+      - transferable
+      - maximumMaturity
+      - acceleratedOrMatured
+      - notBearer
+      - fullFaithAndCreditObLiability
+      - generalFundObligationLiability
+      - revenueObligationLiability
+      - indirectLoanParticipation
+      - excluded
+      - othReferenceEntityObligations
     slot_usage:
       category:
         required: false
@@ -1041,7 +1042,7 @@ classes:
           pay any element of principal, and to ensure that the obligation is interest bearing (on a regular schedule). ISDA
           2003 Term: Not Contingent.'
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   LoanParticipation:
     description: 'A class to specify loan with a participation agreement whereby the buyer is capable of creating, or procuring
@@ -1050,75 +1051,75 @@ classes:
       ISDA 2003 Term: Direct Loan Participation.'
     is_a: PCDeliverableObligationCharac
     slots:
-    - qualifyingParticipationSeller
+      - qualifyingParticipationSeller
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   PCDeliverableObligationCharac:
     description: A class to specify the Partial Cash Deliverable Obligation Characteristic.
     slots:
-    - applicable
-    - partialCashSettlement
+      - applicable
+      - partialCashSettlement
     slot_usage:
       applicable:
         description: Indicates whether the provision is applicable.
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   PhysicalSettlementPeriod:
     rules:
-    - description: FpML specifies businessDays as a NonNegativeInteger.
-      preconditions:
-        slot_conditions:
-          businessDays:
-            required: true
-      postconditions:
-        slot_conditions:
-          businessDays:
-            minimum_value: 0
-    - description: FpML specifies maximumBusinessDays as a NonNegativeInteger.
-      preconditions:
-        slot_conditions:
-          maximumBusinessDays:
-            required: true
-      postconditions:
-        slot_conditions:
-          maximumBusinessDays:
-            minimum_value: 0
+      - description: FpML specifies businessDays as a NonNegativeInteger.
+        preconditions:
+          slot_conditions:
+            businessDays:
+              required: true
+        postconditions:
+          slot_conditions:
+            businessDays:
+              minimum_value: 0
+      - description: FpML specifies maximumBusinessDays as a NonNegativeInteger.
+        preconditions:
+          slot_conditions:
+            maximumBusinessDays:
+              required: true
+        postconditions:
+          slot_conditions:
+            maximumBusinessDays:
+              minimum_value: 0
     comments:
-    - 'Rosetta condition: BusinessDays — if businessDays exists then businessDays >= 0'
-    - 'Rosetta condition: MaximumBusinessDays — if maximumBusinessDays exists then maximumBusinessDays >= 0'
+      - 'Rosetta condition: BusinessDays — if businessDays exists then businessDays >= 0'
+      - 'Rosetta condition: MaximumBusinessDays — if maximumBusinessDays exists then maximumBusinessDays >= 0'
     slots:
-    - businessDaysNotSpecified
-    - businessDays
-    - maximumBusinessDays
+      - businessDaysNotSpecified
+      - businessDays
+      - maximumBusinessDays
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   PhysicalSettlementTerms:
     description: Specifies Physical Settlement Terms characteristics for the settlement of a Credit Default Swap or Option.
     annotations:
       metadata_key: true
     comments:
-    - 'Rosetta condition: PredeterminedClearingOrganizationParty — if predeterminedClearingOrganizationParty exists then predeterminedClearingOrganizationParty
-      = AncillaryRoleEnum -> PredeterminedClearingOrganizationParty'
+      - 'Rosetta condition: PredeterminedClearingOrganizationParty — if predeterminedClearingOrganizationParty exists then
+        predeterminedClearingOrganizationParty = AncillaryRoleEnum -> PredeterminedClearingOrganizationParty'
     slots:
-    - clearedPhysicalSettlement
-    - predeterminedClearingOrganizationParty
-    - physicalSettlementPeriod
-    - deliverableObligations
-    - escrow
-    - sixtyBusinessDaySettlementCap
+      - clearedPhysicalSettlement
+      - predeterminedClearingOrganizationParty
+      - physicalSettlementPeriod
+      - deliverableObligations
+      - escrow
+      - sixtyBusinessDaySettlementCap
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   PercentageRule:
     description: A class defining a content model for a calculation rule defined as percentage of the notional amount.
     slots:
-    - paymentPercent
-    - notionalAmountReference
+      - paymentPercent
+      - notionalAmountReference
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   SettlementDate:
     description: A data defining the settlement date(s) for cash or physical settlement as either a set of explicit dates,
@@ -1128,44 +1129,44 @@ classes:
     annotations:
       metadata_key: true
     rules:
-    - description: FpML specifies cashSettlementBusinessDays as a nonNegativeInteger. If cashSettlementBusinessDays is not
-        specified, then another settlement date method must be specified.
-      preconditions:
-        slot_conditions:
-          cashSettlementBusinessDays:
-            required: true
-      postconditions:
-        slot_conditions:
-          cashSettlementBusinessDays:
-            minimum_value: 0
-    - description: Settlement date must be specified either throught the 'settlementDate' or 'valueDate' attribute. This is
-        a temporary work-around until such time when we can retire the 'valueDate' attribute.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            adjustableOrRelativeDate:
+      - description: FpML specifies cashSettlementBusinessDays as a nonNegativeInteger. If cashSettlementBusinessDays is not
+          specified, then another settlement date method must be specified.
+        preconditions:
+          slot_conditions:
+            cashSettlementBusinessDays:
               required: true
-        - slot_conditions:
-            valueDate:
-              required: true
-        - slot_conditions:
-            adjustableDates:
-              required: true
-        - slot_conditions:
-            businessDateRange:
-              required: true
-      preconditions: {}
+        postconditions:
+          slot_conditions:
+            cashSettlementBusinessDays:
+              minimum_value: 0
+      - description: Settlement date must be specified either throught the 'settlementDate' or 'valueDate' attribute. This
+          is a temporary work-around until such time when we can retire the 'valueDate' attribute.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                adjustableOrRelativeDate:
+                  required: true
+            - slot_conditions:
+                valueDate:
+                  required: true
+            - slot_conditions:
+                adjustableDates:
+                  required: true
+            - slot_conditions:
+                businessDateRange:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: BusinessDays — if cashSettlementBusinessDays exists then cashSettlementBusinessDays >= 0 else adjustableOrRelativeDate
-      exists or valueDate exists or adjustableDates exists or businessDateRange exists'
-    - 'Rosetta condition: DateChoice — optional choice adjustableOrRelativeDate, valueDate, adjustableDates, businessDateRange'
+      - 'Rosetta condition: BusinessDays — if cashSettlementBusinessDays exists then cashSettlementBusinessDays >= 0 else
+        adjustableOrRelativeDate exists or valueDate exists or adjustableDates exists or businessDateRange exists'
+      - 'Rosetta condition: DateChoice — optional choice adjustableOrRelativeDate, valueDate, adjustableDates, businessDateRange'
     slots:
-    - adjustableOrRelativeDate
-    - valueDate
-    - adjustableDates
-    - businessDateRange
-    - cashSettlementBusinessDays
-    - paymentDelay
+      - adjustableOrRelativeDate
+      - valueDate
+      - adjustableDates
+      - businessDateRange
+      - cashSettlementBusinessDays
+      - paymentDelay
     slot_usage:
       valueDate:
         description: The settlement date for a forward settling product. For Foreign Exchange contracts, this represents a
@@ -1179,44 +1180,44 @@ classes:
           was formerly part of 'CashSettlementPaymentDate' as included into 'OptionCashSettlement' (which is now merged into
           a unique 'CashSettlementTerms' data type.
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   FxFixingDate:
     description: Extends the Offset structure to specify an FX fixing date as an offset to dates specified somewhere else
       in the document.
     is_a: Offset
     rules:
-    - description: condition to represent an FpML choice construct.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            businessCenters:
-              required: true
-        - slot_conditions:
-            businessCentersReference:
-              required: true
-      preconditions: {}
-    - description: condition to represent an FpML choice construct.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            dateRelativeToPaymentDates:
-              required: true
-        - slot_conditions:
-            dateRelativeToCalculationPeriodDates:
-              required: true
-      preconditions: {}
+      - description: condition to represent an FpML choice construct.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                businessCenters:
+                  required: true
+            - slot_conditions:
+                businessCentersReference:
+                  required: true
+        preconditions: {}
+      - description: condition to represent an FpML choice construct.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                dateRelativeToPaymentDates:
+                  required: true
+            - slot_conditions:
+                dateRelativeToCalculationPeriodDates:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: BusinessCentersChoice — optional choice businessCenters, businessCentersReference'
-    - 'Rosetta condition: DateChoice — required choice dateRelativeToPaymentDates, dateRelativeToCalculationPeriodDates'
+      - 'Rosetta condition: BusinessCentersChoice — optional choice businessCenters, businessCentersReference'
+      - 'Rosetta condition: DateChoice — required choice dateRelativeToPaymentDates, dateRelativeToCalculationPeriodDates'
     slots:
-    - businessDayConvention
-    - businessCenters
-    - businessCentersReference
-    - dateRelativeToPaymentDates
-    - dateRelativeToCalculationPeriodDates
-    - dateRelativeToValuationDates
-    - fxFixingDate
+      - businessDayConvention
+      - businessCenters
+      - businessCentersReference
+      - dateRelativeToPaymentDates
+      - dateRelativeToCalculationPeriodDates
+      - dateRelativeToValuationDates
+      - fxFixingDate
     slot_usage:
       businessDayConvention:
         required: false
@@ -1231,7 +1232,7 @@ classes:
           on a continuous range.  This attribute was formerly part of 'fxSettlementTerms', which is now being harmonised into
           a common 'CashSettlementTerms' that includes a 'ValuationDate'.
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   SettlementTerms:
     description: Specifies the settlement terms, which can either be cash, physical, or fx-based cash-settlement. This class
@@ -1239,123 +1240,123 @@ classes:
       in case of credit event.
     is_a: SettlementBase
     comments:
-    - 'Rosetta condition: OptionSettlementChoice — if cashSettlementTerms exists and physicalSettlementTerms exists then settlementType
-      = SettlementTypeEnum -> Election or settlementType = SettlementTypeEnum -> CashOrPhysical'
-    - 'Rosetta condition: CashSettlementTerms — if cashSettlementTerms exists then settlementType <> SettlementTypeEnum ->
-      Physical'
-    - 'Rosetta condition: PhysicalSettlementTerms — if physicalSettlementTerms exists then settlementType <> SettlementTypeEnum
-      -> Cash'
+      - 'Rosetta condition: OptionSettlementChoice — if cashSettlementTerms exists and physicalSettlementTerms exists then
+        settlementType = SettlementTypeEnum -> Election or settlementType = SettlementTypeEnum -> CashOrPhysical'
+      - 'Rosetta condition: CashSettlementTerms — if cashSettlementTerms exists then settlementType <> SettlementTypeEnum
+        -> Physical'
+      - 'Rosetta condition: PhysicalSettlementTerms — if physicalSettlementTerms exists then settlementType <> SettlementTypeEnum
+        -> Cash'
     slots:
-    - cashSettlementTerms
-    - physicalSettlementTerms
+      - cashSettlementTerms
+      - physicalSettlementTerms
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   FixedPrice:
     description: A predefined price accorded by the counterparties.
     comments:
-    - 'Rosetta condition: NonNegativePrice_amount — if price -> value exists then price -> value >= 0.0'
-    - 'Rosetta condition: NonNegativePrice_datedValue — if price -> datedValue exists then price -> datedValue -> value all
-      >= 0.0'
+      - 'Rosetta condition: NonNegativePrice_amount — if price -> value exists then price -> value >= 0.0'
+      - 'Rosetta condition: NonNegativePrice_datedValue — if price -> datedValue exists then price -> datedValue -> value
+        all >= 0.0'
     slots:
-    - price
+      - price
     slot_usage:
       price:
         range: PriceSchedule
         description: Fixed price step schedule, including an initial price specified as an absolute number.
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   PaymentDetail:
     annotations:
       metadata_key: true
     slots:
-    - paymentDate
-    - paymentRule
-    - paymentAmount
+      - paymentDate
+      - paymentRule
+      - paymentAmount
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   PaymentDiscounting:
     description: This class corresponds to the FpML PaymentDiscounting.model group for representing the discounting elements
       that can be associated with a payment.
     slots:
-    - discountFactor
-    - presentValueAmount
+      - discountFactor
+      - presentValueAmount
     slot_usage:
       discountFactor:
         description: The value representing the discount factor used to calculate the present value of the cash flow.
       presentValueAmount:
         description: The amount representing the present value of the forecast payment.
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   PaymentRule:
     description: A class defining the payment calculation rule. As of FpML 5.10, percentage rule is the only calculation rule
       that has been specified as part of the standard.
     slots:
-    - percentageRule
+      - percentageRule
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   PrincipalPayments:
     description: A class defining which principal exchanges occur for the stream.
     annotations:
       metadata_key: true
     slots:
-    - initialPayment
-    - finalPayment
-    - intermediatePayment
-    - varyingLegNotionalCurrency
-    - principalPaymentSchedule
+      - initialPayment
+      - finalPayment
+      - intermediatePayment
+      - varyingLegNotionalCurrency
+      - principalPaymentSchedule
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   PrincipalPaymentSchedule:
     description: Describe dates schedules for Principal Exchanges and related role of the parties when known.
     comments:
-    - 'Rosetta condition: InitialPrincipalAmountExists — if initialPrincipalPayment exists then initialPrincipalPayment ->
-      principalAmount exists or initialPrincipalPayment -> presentValuePrincipalAmount exists'
+      - 'Rosetta condition: InitialPrincipalAmountExists — if initialPrincipalPayment exists then initialPrincipalPayment
+        -> principalAmount exists or initialPrincipalPayment -> presentValuePrincipalAmount exists'
     slots:
-    - initialPrincipalPayment
-    - intermediatePrincipalPayment
-    - finalPrincipalPayment
+      - initialPrincipalPayment
+      - intermediatePrincipalPayment
+      - finalPrincipalPayment
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   PrincipalPayment:
     description: Any kind of principal payments when the amount is known and thus fixed.
     annotations:
       metadata_key: true
     rules:
-    - description: PrincipalAmount
-      postconditions:
-        any_of:
-        - slot_conditions:
-            principalAmount:
-              required: true
-        - slot_conditions:
+      - description: PrincipalAmount
+        postconditions:
+          any_of:
+            - slot_conditions:
+                principalAmount:
+                  required: true
+            - slot_conditions:
+                presentValuePrincipalAmount:
+                  required: true
+        preconditions: {}
+      - description: DiscountFactor
+        preconditions:
+          slot_conditions:
             presentValuePrincipalAmount:
               required: true
-      preconditions: {}
-    - description: DiscountFactor
-      preconditions:
-        slot_conditions:
-          presentValuePrincipalAmount:
-            required: true
-      postconditions:
-        slot_conditions:
-          discountFactor:
-            required: true
+        postconditions:
+          slot_conditions:
+            discountFactor:
+              required: true
     comments:
-    - 'Rosetta condition: PrincipalAmount — optional choice principalAmount, presentValuePrincipalAmount'
-    - 'Rosetta condition: DiscountFactor — if presentValuePrincipalAmount exists then discountFactor exists'
+      - 'Rosetta condition: PrincipalAmount — optional choice principalAmount, presentValuePrincipalAmount'
+      - 'Rosetta condition: DiscountFactor — if presentValuePrincipalAmount exists then discountFactor exists'
     slots:
-    - principalPaymentDate
-    - payerReceiver
-    - principalAmount
-    - discountFactor
-    - presentValuePrincipalAmount
+      - principalPaymentDate
+      - payerReceiver
+      - principalAmount
+      - discountFactor
+      - presentValuePrincipalAmount
     slot_usage:
       payerReceiver:
         description: Specifies the parties responsible for making and receiving payments defined by this structure.
@@ -1363,20 +1364,20 @@ classes:
         description: The value representing the discount factor used to calculate the present value of the principal payment
           amount.
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   SettlementBase:
     description: A base class to be extended by the SettlementTerms class.
     annotations:
       metadata_key: true
     slots:
-    - settlementType
-    - transferSettlementType
-    - settlementCurrency
-    - settlementDate
-    - settlementCentre
-    - settlementProvision
-    - standardSettlementStyle
+      - settlementType
+      - transferSettlementType
+      - settlementCurrency
+      - settlementDate
+      - settlementCentre
+      - settlementProvision
+      - standardSettlementStyle
     slot_usage:
       settlementDate:
         range: SettlementDate
@@ -1385,20 +1386,20 @@ classes:
           cash settlement payment date is the mandatory early termination date.
         required: false
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   SettlementProvision:
     description: Defines parameters that regulate a settlement, for instance whether this settlement should be netted with
       other ones or broken-down into smaller amounts.
     slots:
-    - shapingProvisions
+      - shapingProvisions
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement
 
   ShapingProvision:
     description: Defines the applicable settlement limits that may require a settlement to be 'shaped', i.e. broken-down into
       smaller amounts.
     slots:
-    - shapeSchedule
+      - shapeSchedule
     in_subset:
-    - cdm_product_common_settlement
+      - cdm_product_common_settlement

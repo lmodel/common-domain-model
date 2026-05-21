@@ -3,10 +3,10 @@ name: cdm_observable_asset
 description: 'Observable asset concepts: schedule, settlement, price and quantity notation etc.'
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -16,30 +16,30 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_datetime
-- ./cdm_base_math
-- ./cdm_base_staticdata_asset_common
-- ./cdm_base_staticdata_asset_rates
-- ./cdm_base_staticdata_codelist
-- ./cdm_base_staticdata_party
-- ./cdm_observable_common
-- ./cdm_product_asset
-- ./cdm_margin_schedule
-- ./cdm_base_staticdata_identifier
-- ./cdm_event_common
-- ./cdm_legaldocumentation_transaction
-- ./cdm_legaldocumentation_csa
-- ./cdm_legaldocumentation_transaction_additionalterms
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_math
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_base_staticdata_asset_rates
+  - ./cdm_base_staticdata_codelist
+  - ./cdm_base_staticdata_party
+  - ./cdm_observable_common
+  - ./cdm_product_asset
+  - ./cdm_margin_schedule
+  - ./cdm_base_staticdata_identifier
+  - ./cdm_event_common
+  - ./cdm_legaldocumentation_transaction
+  - ./cdm_legaldocumentation_csa
+  - ./cdm_legaldocumentation_transaction_additionalterms
 
 comments:
-- 'Rosetta func: FilterPrice — Filter list of prices based on price type. | inputs(prices: PriceSchedule (0..*), priceType:
-  PriceTypeEnum (1..1), arithmeticOperators: ArithmeticOperationEnum (0..*), priceExpression: PriceExpressionEnum (0..1))
-  | output(price: PriceSchedule (0..1))'
-- 'Rosetta func: InterestRateObservableCondition — Implementation for PriceQuantity.InterestRateObservable condition. | inputs(pq:
-  PriceQuantity (1..1)) | output(valid: boolean (0..1))'
-- 'Rosetta func: ObservableIsCommodity — Validates whether all of the constituents of an Observable are Commodities. | inputs(observable:
-  Observable (0..1)) | output(valid: boolean (1..1))'
+  - 'Rosetta func: FilterPrice — Filter list of prices based on price type. | inputs(prices: PriceSchedule (0..*), priceType:
+    PriceTypeEnum (1..1), arithmeticOperators: ArithmeticOperationEnum (0..*), priceExpression: PriceExpressionEnum (0..1))
+    | output(price: PriceSchedule (0..1))'
+  - 'Rosetta func: InterestRateObservableCondition — Implementation for PriceQuantity.InterestRateObservable condition. |
+    inputs(pq: PriceQuantity (1..1)) | output(valid: boolean (0..1))'
+  - 'Rosetta func: ObservableIsCommodity — Validates whether all of the constituents of an Observable are Commodities. | inputs(observable:
+    Observable (0..1)) | output(valid: boolean (1..1))'
 annotations:
   rosetta_functions: '[{"name":"FilterPrice","description":"Filter list of prices based on price type.","inputs":[{"name":"prices","type":"PriceSchedule","cardinality":"0..*"},{"name":"priceType","type":"PriceTypeEnum","cardinality":"1..1"},{"name":"arithmeticOperators","type":"ArithmeticOperationEnum","cardinality":"0..*"},{"name":"priceExpression","type":"PriceExpressionEnum","cardinality":"0..1"}],"output":{"name":"price","type":"PriceSchedule","cardinality":"0..1"}},{"name":"InterestRateObservableCondition","description":"Implementation
     for PriceQuantity.InterestRateObservable condition.","inputs":[{"name":"pq","type":"PriceQuantity","cardinality":"1..1"}],"output":{"name":"valid","type":"boolean","cardinality":"0..1"}},{"name":"ObservableIsCommodity","description":"Validates
@@ -53,7 +53,7 @@ enums:
   InformationProviderEnum:
     description: The enumerated values to specify the list of information providers.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/information-provider
+      - http://www.fpml.org/coding-scheme/information-provider
     permissible_values:
       AssocBanksSingapore:
         description: The Association of Banks in Singapore.
@@ -222,157 +222,157 @@ enums:
     description: The enumeration values to specify the Commodity Reference Prices specified in the Annex to the 2005 ISDA
       Commodity Definitions.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/commodity-reference-price
+      - http://www.fpml.org/coding-scheme/commodity-reference-price
     permissible_values:
       ALUMINIUM_ALLOY_LME_15_MONTH:
         description: Per 2005 ISDA Commodity Definitions, Sub-Annex A, Section 7.1 Commodity Reference Prices, as amended
           and supplemented through the date on which parties enter into the relevant transaction.
         aliases:
-        - ALUMINIUM ALLOY-LME 15 MONTH
+          - ALUMINIUM ALLOY-LME 15 MONTH
       COAL_CENTRAL_APPALACHIAN_NYMEX:
         description: A code for the NYMEX Central Appalachian Coal commodity
         aliases:
-        - COAL-CENTRAL APPALACHIAN-NYMEX
+          - COAL-CENTRAL APPALACHIAN-NYMEX
       COCOA_ICE:
         description: A code for the ICE Futures U.S. (‘ICUS’) Cocoa commodity
         aliases:
-        - COCOA-ICE
+          - COCOA-ICE
       COFFEE_ARABICA_ICE:
         description: A code for the ICUS Coffee C commodity
         aliases:
-        - COFFEE ARABICA-ICE
+          - COFFEE ARABICA-ICE
       COFFEE_ROBUSTA_ICE:
         description: A code for the ICUS Coffee C commodity
         aliases:
-        - COFFEE ROBUSTA-ICE
+          - COFFEE ROBUSTA-ICE
       COPPER_COMEX:
         description: 'A code for the COMEX (‘CMX’) Copper Grade #1 commodity'
         aliases:
-        - COPPER-COMEX
+          - COPPER-COMEX
       CORN_CBOT:
         description: A code for the Chicago Board of Trade (‘CBOT’) Corn commodity
         aliases:
-        - CORN-CBOT
+          - CORN-CBOT
       COTTON_NO__2_ICE:
         description: A code for the ICUS Cotton No. 2 commodity
         aliases:
-        - COTTON NO. 2-ICE
+          - COTTON NO. 2-ICE
       ETHANOL_CBOT:
         description: A code for the CBOT Ethanol commodity
         aliases:
-        - ETHANOL-CBOT
+          - ETHANOL-CBOT
       FEEDER_CATTLE_CME:
         description: A code for the CME Feeder Cattle commodity
         aliases:
-        - FEEDER CATTLE-CME
+          - FEEDER CATTLE-CME
       FROZEN_CONCENTRATED_ORANGE_JUICE_NO__1_ICE:
         description: A code for the ICUS Frozen Concentrated Orange Juice commodity
         aliases:
-        - FROZEN CONCENTRATED ORANGE JUICE NO. 1-ICE
+          - FROZEN CONCENTRATED ORANGE JUICE NO. 1-ICE
       GASOLINE_RBOB_NEW_YORK_ICE:
         description: A code for the NYMEX Gasoline Blendstock (RBOB) commodity
         aliases:
-        - GASOLINE-RBOB-NEW YORK-ICE
+          - GASOLINE-RBOB-NEW YORK-ICE
       GASOLINE_RBOB_NEW_YORK_NYMEX:
         description: A code for the NYMEX Gasoline Blendstock (RBOB) commodity
         aliases:
-        - GASOLINE-RBOB-NEW YORK-NYMEX
+          - GASOLINE-RBOB-NEW YORK-NYMEX
       GOLD_COMEX:
         description: A code for the CMX Gold commodity
         aliases:
-        - GOLD-COMEX
+          - GOLD-COMEX
       HEATING_OIL_NEW_YORK_NYMEX:
         description: A code for the NYMEX No. 2 Heating Oil, New York Harbor commodity
         aliases:
-        - HEATING OIL-NEW YORK-NYMEX
+          - HEATING OIL-NEW YORK-NYMEX
       LEAN_HOGS_CME:
         description: A code for the CME Lean Hogs commodity
         aliases:
-        - LEAN HOGS-CME
+          - LEAN HOGS-CME
       LIVE_CATTLE_CME:
         description: A code for the CME Live Cattle commodity
         aliases:
-        - LIVE CATTLE-CME
+          - LIVE CATTLE-CME
       LUMBER_CME:
         description: A code for the CME Random Length Lumber commodity
         aliases:
-        - LUMBER-CME
+          - LUMBER-CME
       MILK_CLASS_III_CME:
         description: A code for the CME Milk Class III commodity
         aliases:
-        - MILK-CLASS III-CME
+          - MILK-CLASS III-CME
       MILK_NONFAT_DRY_CME:
         description: A code for the CME Non Fat Dry Milk commodity
         aliases:
-        - MILK-NONFAT-DRY-CME
+          - MILK-NONFAT-DRY-CME
       NATURAL_GAS_NYMEX:
         description: A code for the NYMEX Natural Gas commodity
         aliases:
-        - NATURAL GAS-NYMEX
+          - NATURAL GAS-NYMEX
       NATURAL_GAS_PEPL__TEXOK_MAINLINE__INSIDE_FERC:
         description: A code for the NYMEX Panhandle Basis Swap commodity
         aliases:
-        - NATURAL GAS-PEPL (TEXOK MAINLINE)-INSIDE FERC
+          - NATURAL GAS-PEPL (TEXOK MAINLINE)-INSIDE FERC
       NATURAL_GAS_W__TEXAS__WAHA__INSIDE_FERC:
         description: A code for the NYMEX Waha Basis Swap commodity
         aliases:
-        - NATURAL GAS-W. TEXAS (WAHA)-INSIDE FERC
+          - NATURAL GAS-W. TEXAS (WAHA)-INSIDE FERC
       OATS_CBOT:
         description: A code for the CBOT Oats commodity
         aliases:
-        - OATS-CBOT
+          - OATS-CBOT
       OIL_WTI_NYMEX:
         description: A code for the NYMEX Crude Oil, Light Sweet commodity
         aliases:
-        - OIL-WTI-NYMEX
+          - OIL-WTI-NYMEX
       PALLADIUM_NYMEX:
         description: A code for the NYMEX Palladium commodity
         aliases:
-        - PALLADIUM-NYMEX
+          - PALLADIUM-NYMEX
       PLATINUM_NYMEX:
         description: A code for the NYMEX Platinum commodity
         aliases:
-        - PLATINUM-NYMEX
+          - PLATINUM-NYMEX
       RICE_CBOT:
         description: A code for the CBOT Rough Rice commodity
         aliases:
-        - RICE-CBOT
+          - RICE-CBOT
       SILVER_COMEX:
         description: A code for the CMX Silver commodity
         aliases:
-        - SILVER-COMEX
+          - SILVER-COMEX
       SOYBEANS_CBOT:
         description: A code for the CBOT Soybeans commodity
         aliases:
-        - SOYBEANS-CBOT
+          - SOYBEANS-CBOT
       SOYBEAN_MEAL_CBOT:
         description: A code for the CBOT Soybean Meal commodity
         aliases:
-        - SOYBEAN MEAL-CBOT
+          - SOYBEAN MEAL-CBOT
       SOYBEAN_OIL_CBOT:
         description: A code for the CBOT Soybean Oil commodity
         aliases:
-        - SOYBEAN OIL-CBOT
+          - SOYBEAN OIL-CBOT
       SUGAR___11__WORLD__ICE:
         description: A code for the ICUS Sugar No. 11 commodity
         aliases:
-        - 'SUGAR # 11 (WORLD)-ICE'
+          - 'SUGAR # 11 (WORLD)-ICE'
       SUGAR___16__US__ICE:
         description: A code for the ICUS Sugar No. 16 commodity
         aliases:
-        - 'SUGAR # 16 (US)-ICE'
+          - 'SUGAR # 16 (US)-ICE'
       WHEAT_CBOT:
         description: A code for the CBOT Wheat commodity
         aliases:
-        - WHEAT-CBOT
+          - WHEAT-CBOT
       WHEAT_HRW_KCBOT:
         description: A code for the Kansas City Board of Trade (‘KCBT’)Wheat commodity
         aliases:
-        - WHEAT HRW-KCBOT
+          - WHEAT HRW-KCBOT
       WHEAT_RED_SPRING_MGE:
         description: A code for the Wheat commodity
         aliases:
-        - WHEAT RED SPRING-MGE
+          - WHEAT RED SPRING-MGE
 
   QuoteBasisEnum:
     description: The enumerated values to specify how an exchange rate is quoted.
@@ -400,9 +400,9 @@ enums:
   CreditRatingAgencyEnum:
     description: Represents the enumerated values to specify the rating agencies.
     notes:
-    - AcadiaSoft AM_1_0 namingConvention "AgencyEnum"
+      - AcadiaSoft AM_1_0 namingConvention "AgencyEnum"
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/credit-rating-agency
+      - http://www.fpml.org/coding-scheme/credit-rating-agency
     permissible_values:
       AMBest:
         description: A. M. Best
@@ -481,7 +481,7 @@ enums:
   InterpolationMethodEnum:
     description: The enumerated values to specify the interpolation method, e.g. linear.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/interpolation-method
+      - http://www.fpml.org/coding-scheme/interpolation-method
     permissible_values:
       Linear:
         description: Linear Interpolation applicable.
@@ -497,7 +497,7 @@ enums:
     description: The enumerated values to specify the settlement rate options as specified in the Annex A to the 1998 FX and
       Currency Options Definitions.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/settlement-rate-option
+      - http://www.fpml.org/coding-scheme/settlement-rate-option
     permissible_values:
       ARS_BNAR_ARS01:
         description: The Spot Rate for a Rate Calculation Date will be the Argentine Peso/U.S. Dollar Specified Rate, expressed
@@ -506,7 +506,7 @@ enums:
           York) which appears on the Reuters Screen BNAR Page at the close of business in Buenos Aires on that Rate Calculation
           Date.
         aliases:
-        - ARS.BNAR/ARS01
+          - ARS.BNAR/ARS01
       ARS_EMTA_INDICATIVE_SURVEY_RATE_ARS04:
         description: The Spot Rate for a Rate Calculation Date will be the Argentine Peso/U.S. Dollar Specified Rate for U.S.
           Dollars, expressed as the amount of Argentine Pesos per one U.S. Dollar, for settlement on the same day, as published
@@ -517,7 +517,7 @@ enums:
           that are active participants in the Argentine Peso/U.S. Dollar markets for the purpose of determining the EMTA ARS
           Indicative Survey Rate).
         aliases:
-        - ARS.EMTA.INDICATIVE.SURVEY.RATE/ARS04
+          - ARS.EMTA.INDICATIVE.SURVEY.RATE/ARS04
       ARS_EMTA_INDUSTRY_SURVEY_RATE_ARS03:
         description: The Spot Rate for a Rate Calculation Date will be the Argentine Peso/U.S. Dollar Specified Rate for U.S.
           Dollars, expressed as the amount of Argentine Pesos per one U.S. Dollar, for settlement on the same day, as published
@@ -528,7 +528,7 @@ enums:
           in Buenos Aires that are active participants in the Argentine Peso/U.S. Dollar spot markets for the purpose of determining
           the EMTA ARS Industry Survey Rate).
         aliases:
-        - ARS.EMTA.INDUSTRY.SURVEY.RATE/ARS03
+          - ARS.EMTA.INDUSTRY.SURVEY.RATE/ARS03
       ARS_MAE_ARS05:
         description: The Spot Rate for a Rate Calculation Date will be the volume weighted average Argentine Peso/U.S. Dollar
           Rate of all trades executed in the electronic market for a Rate Calculation Day expressed as the amount of Argentine
@@ -536,21 +536,21 @@ enums:
           at approximately 3:00 pm, Buenos Aires time, and published on the FOREX-MAE Page as the 'PPN' rate ('Promedio Ponderado
           Noticiado') on www.mae.com.ar on that Rate Calculation Date.
         aliases:
-        - ARS.MAE/ARS05
+          - ARS.MAE/ARS05
       ARS_OFFICIAL_RATE_ARS02:
         description: The Spot Rate for a Rate Calculation Date will be the Argentine Peso/U.S. Dollar offered rate for U.S.
           Dollars, expressed as the amount of Argentine Pesos per one U.S. Dollar, for settlement on the same day quoted by
           Banco de la Nacion (in accordance with the Convertibility Law of March 27, 1991 and Regulatory Decree No. 529/91
           of April 1, 1991, as may be amended from time to time) for that Rate Calculation Date.
         aliases:
-        - ARS.OFFICIAL.RATE/ARS02
+          - ARS.OFFICIAL.RATE/ARS02
       BRL_BRBY_BRL01:
         description: The Spot Rate for a Rate Calculation Date will be the Brazilian Real/U.S. Dollar Specified Rate, expressed
           as the amount of Brazilian Reais per one U.S. Dollar, for settlement in two Business Days (where such days are Business
           Days in both Sao Paulo and New York) which appears on the Reuters Screen BRBY Page under the caption 'INTBK FLTING
           (LAST)' at approximately 11:00 a.m., Sao Paulo time, on that Rate Calculation Date.
         aliases:
-        - BRL.BRBY/BRL01
+          - BRL.BRBY/BRL01
       BRL_EMTA_INDICATIVE_SURVEY_RATE_BRL13:
         description: The Spot Rate for a Rate Calculation Date will be the Brazilian Real/U.S. Dollar Specified Rate for U.S.
           Dollars, expressed as the amount of Brazilian Reais per one U.S. Dollar, for settlement in two Business Days, as
@@ -561,7 +561,7 @@ enums:
           that are active participants in the Brazilian Real/U.S. Dollar markets for the purpose of determining the EMTA BRL
           Indicative Survey Rate).
         aliases:
-        - BRL.EMTA.INDICATIVE.SURVEY.RATE/BRL13
+          - BRL.EMTA.INDICATIVE.SURVEY.RATE/BRL13
       BRL_EMTA_INDUSTRY_SURVEY_RATE_BRL12:
         description: The Spot Rate for a Rate Calculation Date will be the Brazilian Real/U.S. Dollar Specified Rate for U.S.
           Dollars, expressed as the amount of Brazilian Reais per one U.S. Dollar, for settlement in two Business Days, as
@@ -572,28 +572,28 @@ enums:
           in Brazil that are active participants in the Brazilian Real/U.S. Dollar spot markets for the purpose of determining
           the EMTA BRL Industry Survey Rate).
         aliases:
-        - BRL.EMTA.INDUSTRY.SURVEY.RATE/BRL12
+          - BRL.EMTA.INDUSTRY.SURVEY.RATE/BRL12
       BRL_OFFICIAL_RATE_BRL02:
         description: The Spot Rate for a Rate Calculation Date will be the Brazilian Real/U.S. Dollar Specified Rate, expressed
           as the amount of Brazilian Reais per one U.S. Dollar, for settlement in two Business Days (where such days are Business
           Days in both Sao Paulo and New York) reported by the Banco Central do Brasil in the 'Diario Oficial da Uniao' on
           the first Business Day following that Rate Calculation Date.
         aliases:
-        - BRL.OFFICIAL.RATE/BRL02
+          - BRL.OFFICIAL.RATE/BRL02
       BRL_PCOT_COMMERCIAL_BRL03:
         description: The Spot Rate for a Rate Calculation Date will be the Brazilian Real/U.S. Dollar commercial rate, expressed
           as the amount of Brazilian Reais per one U.S. Dollar, for settlement in two Business Days (where such days are Business
           Days in both Sao Paulo and New York) reported by the Banco Central do Brasil on SISBACEN Data System under transaction
           code PCOT- 390, Option 3, at the Specified Time, if any, on that Rate Calculation Date.
         aliases:
-        - BRL.PCOT-COMMERCIAL/BRL03
+          - BRL.PCOT-COMMERCIAL/BRL03
       BRL_PCOT_FLOATING_BRL04:
         description: The Spot Rate for a Rate Calculation Date will be the Brazilian Real/U.S. Dollar floating rate, expressed
           as the amount of Brazilian Reais per one U.S. Dollar, for settlement in two Business Days (where such days are Business
           Days in both Sao Paulo and New York) reported by the Banco Central do Brasil on SISBACEN Data System under transaction
           code PCOT- 390, Option 3, at the Specified Time, if any, on that Rate Calculation Date.
         aliases:
-        - BRL.PCOT-FLOATING/BRL04
+          - BRL.PCOT-FLOATING/BRL04
       BRL_PTAX_BRL09:
         description: The Spot Rate for a Rate Calculation Date will be the Brazilian Real/U.S. Dollar offered rate for U.S.
           Dollars, expressed as the amount of Brazilian Reais per one U.S. Dollar, for settlement in two Business Days reported
@@ -601,7 +601,7 @@ enums:
           Exchange Rate Inquiry), Option 5 ('Cotacoes para Contabilidade' or 'Rates for Accounting Purposes') by approximately
           6:00 p.m., Sao Paulo time, on that Rate Calculation Date.
         aliases:
-        - BRL.PTAX/BRL09
+          - BRL.PTAX/BRL09
       BRL_PTAX_COMMERCIAL_BRL05:
         description: The Spot Rate for a Rate Calculation Date will be the Brazilian Real/U.S. Dollar commercial rate, expressed
           as the amount of Brazilian Reais per one U.S. Dollar, for settlement in two Business Days (where such days are Business
@@ -611,7 +611,7 @@ enums:
           officially denominated 'Livre' and commonly known as 'Comercial') as of 7:30 p.m., Sao Paulo time, on that Rate
           Calculation Date.
         aliases:
-        - BRL.PTAX-COMMERCIAL/BRL05
+          - BRL.PTAX-COMMERCIAL/BRL05
       BRL_PTAX_COMMERCIAL_BRFR_BRL06:
         description: The Spot Rate for a Rate Calculation Date will be the Brazilian Real/U.S. Dollar commercial rate, expressed
           as the amount of Brazilian Reais per one U.S. Dollar, for settlement in two Business Days (where such days are Business
@@ -619,7 +619,7 @@ enums:
           BRFR Page at PTAX-800 as of 11:00 a.m., Sao Paulo time, on the first Business Day following that Rate Calculation
           Date. 23
         aliases:
-        - BRL.PTAX-COMMERCIAL.BRFR/BRL06
+          - BRL.PTAX-COMMERCIAL.BRFR/BRL06
       BRL_PTAX_FLOATING_BRL07:
         description: The Spot Rate for a Rate Calculation Date will be the Brazilian Real/U.S. Dollar floating rate, expressed
           as the amount of Brazilian Reais per one U.S. Dollar, for settlement in two Business Days (where such days are Business
@@ -628,7 +628,7 @@ enums:
           for Accounting Purposes) market type 'F' (corresponding to U.S. Dollars traded in the foreign exchange market segment
           officially denominated 'Flutuante') as of 7:30 p.m., Sao Paulo time, on that Rate Calculation Date.
         aliases:
-        - BRL.PTAX-FLOATING/BRL07
+          - BRL.PTAX-FLOATING/BRL07
       BRL_PTAX_FLOATING_BRFR_BRL08:
         description: The Spot Rate for a Rate Calculation Date will be the Brazilian Real/U.S. Dollar floating rate, expressed
           as the amount of Brazilian Reais per one U.S. Dollar, for settlement in two Business Days (where such days are Business
@@ -636,7 +636,7 @@ enums:
           on the Reuters Screen BRFR Page at PTAX-800 as of 11:00 a.m., Sao Paulo time, on the first Business Day following
           that Rate Calculation Date.
         aliases:
-        - BRL.PTAX-FLOATING.BRFR/BRL08
+          - BRL.PTAX-FLOATING.BRFR/BRL08
       CLP_BCCH_CLP01:
         description: The Spot Rate for a Rate Calculation Date will be the Chilean Peso/U.S. Dollar observado rate, expressed
           as the amount of Chilean Pesos per one U.S. Dollar, for settlement on the same day (or, if such day is not a Business
@@ -644,7 +644,7 @@ enums:
           reported by the Banco Central de Chile which appears on the Reuters Screen BCCH Page under the caption 'OBSERVADO'
           at 10:00 a.m., Santiago time, on the first Business Day following that Rate Calculation Date.
         aliases:
-        - CLP.BCCH/CLP01
+          - CLP.BCCH/CLP01
       CLP_CHILD_INFORMAL_CLP02:
         description: The Spot Rate for a Rate Calculation Date will be the Chilean Peso/U.S. Dollar informal rate, expressed
           as the amount of Chilean Pesos per one U.S. Dollar, for settlement on the same day (or, if such day is not a Business
@@ -652,7 +652,7 @@ enums:
           of the informal exchange market which appears on the Reuters Screen CHILD Page at the Specified Time, if any, on
           that Rate Calculation Date.
         aliases:
-        - CLP.CHILD-INFORMAL/CLP02
+          - CLP.CHILD-INFORMAL/CLP02
       CLP_CHILD_INTERBANK_CLP03:
         description: The Spot Rate for a Rate Calculation Date will be the Chilean Peso/U.S. Dollar interbank rate, expressed
           as the amount of Chilean Pesos per one U.S. Dollar, for settlement on the same day (or, if such day is not a Business
@@ -660,7 +660,7 @@ enums:
           reported by the Banco Central de Chile for the formal exchange market which appears on the Reuters Screen CHILD
           Page at the Specified Time, if any, on that Rate Calculation Date.
         aliases:
-        - CLP.CHILD-INTERBANK/CLP03
+          - CLP.CHILD-INTERBANK/CLP03
       CLP_CHILD_OBSERVADO_CLP04:
         description: The Spot Rate for a Rate Calculation Date will be the Chilean Peso/U.S. Dollar observado rate, expressed
           as the amount of Chilean Pesos per one U.S. Dollar, for settlement on the same day (or, if such day is not a Business
@@ -668,7 +668,7 @@ enums:
           reported by the Banco Central de Chile which appears on the Reuters Screen CHILD Page on the first Business Day
           following that Rate Calculation Date.
         aliases:
-        - CLP.CHILD-OBSERVADO/CLP04
+          - CLP.CHILD-OBSERVADO/CLP04
       CLP_CHILG_INFORMAL_CLP05:
         description: The Spot Rate for a Rate Calculation Date will be the Chilean Peso/U.S. Dollar informal rate, expressed
           as the amount of Chilean Pesos per one U.S. Dollar, for settlement on the same day (or, if such day is not a Business
@@ -676,7 +676,7 @@ enums:
           of the informal exchange market which appears on the Reuters Screen CHILG Page at the Specified Time, if any, on
           that Rate Calculation Date.
         aliases:
-        - CLP.CHILG-INFORMAL/CLP05
+          - CLP.CHILG-INFORMAL/CLP05
       CLP_CHILG_INTERBANK_CLP06:
         description: The Spot Rate for a Rate Calculation Date will be the Chilean Peso/U.S. Dollar interbank rate, expressed
           as the amount of Chilean Pesos per one U.S. Dollar, for settlement on the same day (or, if such day is not a Business
@@ -684,7 +684,7 @@ enums:
           reported by the Banco Central de Chile for the formal exchange market which appears on the Reuters Screen CHILG
           Page at the Specified Time, if any, on that Rate Calculation Date.
         aliases:
-        - CLP.CHILG-INTERBANK/CLP06
+          - CLP.CHILG-INTERBANK/CLP06
       CLP_CHILG_OBSERVADO_CLP07:
         description: The Spot Rate for a Rate Calculation Date will be the Chilean Peso/U.S. Dollar observado rate, expressed
           as the amount of Chilean Pesos per one U.S. Dollar, for settlement on the same day (or, if such day is not a Business
@@ -692,14 +692,14 @@ enums:
           reported by the Banco Central de Chile which appears on the Reuters Screen CHILG Page under 'OBSERVADO' at the Specified
           Time, if any, on the first Business Day following that Rate Calculation Date.
         aliases:
-        - CLP.CHILG-OBSERVADO/CLP07
+          - CLP.CHILG-OBSERVADO/CLP07
       CLP_DOLAR_OBS_CLP10:
         description: The Spot Rate for a Rate Calculation Date will be the Chilean Peso/U.S. Dollar 'observado' rate, expressed
           as the amount of Chilean Pesos per one U.S. Dollar, for settlement in one Business Day reported by the Banco Central
           de Chile (www.bcentral.cl) as the 'Dolar Observado' (Dollar Observado) rate by not later than 10:30 a.m., Santiago
           time, on the first Business Day following that Rate Calculation Date.
         aliases:
-        - CLP.DOLAR.OBS/CLP10
+          - CLP.DOLAR.OBS/CLP10
       CLP_EMTA_INDICATIVE_SURVEY_RATE_CLP11:
         description: The Spot Rate for a Rate Calculation Date will be the Chilean Peso/U.S. Dollar Specified Rate for U.S.
           Dollars, expressed as the amount of Chilean Pesos per one U.S. Dollar, for settlement on the same day, as published
@@ -710,7 +710,7 @@ enums:
           that are active participants in the Chilean Peso/U.S. Dollar markets for the purpose of determining the EMTA CLP
           Indicative Survey Rate).
         aliases:
-        - CLP.EMTA.INDICATIVE.SURVEY.RATE/CLP11
+          - CLP.EMTA.INDICATIVE.SURVEY.RATE/CLP11
       CLP_OFFICIAL_RATE_CLP08:
         description: The Spot Rate for a Rate Calculation Date will be the Chilean Peso/U.S. Dollar Specified Rate, expressed
           as the amount of Chilean Pesos per one U.S. Dollar (or, if such day is not a Business Day in New York, for settlement
@@ -719,7 +719,7 @@ enums:
           published by the Banco Central de Chile at the Specified Time, if any, on the first Business Day following that
           Rate Calculation Date.
         aliases:
-        - CLP.OFFICIAL.RATE/CLP08
+          - CLP.OFFICIAL.RATE/CLP08
       CLP_TELERATE_38942_CLP09:
         description: The Spot Rate for a Rate Calculation Date will be the Chilean Peso/U.S. Dollar observado rate, expressed
           as the amount of Chilean Pesos per one U.S. Dollar, for settlement on the same day (or, if such day is not a Business
@@ -727,14 +727,14 @@ enums:
           reported by the Banco Central de Chile which appears on the Telerate Page 38942 opposite the caption 'Observado'
           at the Specified Time, if any, on the first Business Day following the Rate Calculation Date.
         aliases:
-        - CLP.TELERATE.38942/CLP09
+          - CLP.TELERATE.38942/CLP09
       CNY_SAEC_CNY01:
         description: The Spot Rate for a Rate Calculation Date will be the Chinese Renminbi/U.S. Dollar official fixing rate,
           expressed as the amount of Chinese Renminbi per one U.S. Dollar, for settlement in two Business Days reported by
           the People's Bank of China, Beijing, People's Republic of China, which appears on the Reuters Screen 'SAEC' Page
           opposite the symbol 'USDCNY=' at approximately 9:15 a.m., Beijing time, on that Rate Calculation Date.
         aliases:
-        - CNY.SAEC/CNY01
+          - CNY.SAEC/CNY01
       CNY_SFEMC_INDICATIVE_SURVEY_RATE_CNY02:
         description: The Spot Rate for a Rate Calculation Date will be the Chinese Renminbi/U.S. Dollar Specified Rate for
           U.S. Dollars, expressed as the amount of Chinese Renminbi per one U.S. Dollar, for settlement in two Business Days,
@@ -745,7 +745,7 @@ enums:
           of financial institutions that are active participants in the Chinese Renminbi/U.S. Dollar markets for the purpose
           of determining the SFEMC CNY Indicative Survey Rate).
         aliases:
-        - CNY.SFEMC.INDICATIVE.SURVEY.RATE/CNY02
+          - CNY.SFEMC.INDICATIVE.SURVEY.RATE/CNY02
       COP_CO_COL03_COP01:
         description: The Spot Rate for a Rate Calculation Date will be the Colombian Peso/U.S. Dollar fixing rate, expressed
           as the amount of Colombian Pesos per one U.S. Dollar, for settlement on the same day (unless such day is not a Business
@@ -754,7 +754,7 @@ enums:
           caption 'TRCM' ('Tasa de Cierre Representative del Mercado' or closing market price) at 12:00 noon, Bogota time,
           on the first Business Day following that Rate Calculation Date.
         aliases:
-        - COP.CO/COL03/COP01
+          - COP.CO/COL03/COP01
       COP_EMTA_INDICATIVE_SURVEY_RATE_COP03:
         description: The Spot Rate for a Rate Calculation Date will be the Colombian Peso/U.S. Dollar Specified Rate for U.S.
           Dollars, expressed as the amount of Colombian Pesos per one U.S. Dollar, for settlement on the same day, as published
@@ -765,7 +765,7 @@ enums:
           that are active participants in the Colombian Peso/U.S. Dollar markets for the purpose of determining the EMTA COP
           Indicative Survey Rate).
         aliases:
-        - COP.EMTA.INDICATIVE.SURVEY.RATE/COP03
+          - COP.EMTA.INDICATIVE.SURVEY.RATE/COP03
       COP_TRM_COP02:
         description: The Spot Rate for a Rate Calculation Date will be the Colombian Peso/U.S. Dollar fixing rate, expressed
           as the amount of Colombian Pesos per one U.S. Dollar, for settlement on the same day reported by the Colombian Financial
@@ -773,7 +773,7 @@ enums:
           de Cambio Representativa del Mercado' (TCRM)) by not later than 10:30 a.m., Bogota time, on the first Business Day
           following that Rate Calculation Date.
         aliases:
-        - COP.TRM/COP02
+          - COP.TRM/COP02
       CURRENCY_IMPLIED_RATE__ADR__CURA1:
         description: the Spot Rate for a Rate Calculation Date will be the Reference Currency/U.S. Dollar exchange rate, expressed
           as the amount of Reference Currency per one U.S. Dollar, determined on the basis of quotations provided by Reference
@@ -794,7 +794,7 @@ enums:
           case at the Specified Time on the Rate Calculation Date or, if no such time is specified, the time chosen by the
           Calculation Agent.
         aliases:
-        - CURRENCY-IMPLIED.RATE.(ADR)/CURA1
+          - CURRENCY-IMPLIED.RATE.(ADR)/CURA1
       CURRENCY_IMPLIED_RATE__LOCAL_ASSET__CURA2:
         description: The Spot Rate for a Rate Calculation Date will be the Reference Currency/Settlement Currency exchange
           rate, expressed as the amount of Reference Currency per one unit of Settlement Currency, determined on the basis
@@ -808,14 +808,14 @@ enums:
           determine the Spot Rate for a Rate Calculation Date will be determined in each case at the Specified Time on the
           Rate Calculation Date or, if no such time is specified, the time chosen by the Calculation Agent.
         aliases:
-        - CURRENCY-IMPLIED.RATE.(LOCAL.ASSET)/CURA2
+          - CURRENCY-IMPLIED.RATE.(LOCAL.ASSET)/CURA2
       CURRENCY_MUTUAL_AGREEMENT_CURA3:
         description: The Spot Rate for a Rate Calculation Date will be the Reference Currency/Settlement Currency Specified
           Rate, expressed as the amount of the Reference Currency per one unit of Settlement Currency, for settlement on the
           Settlement Date agreed upon by the parties on or prior to that Rate Calculation Date (or, if different, the day
           on which rates for that date would, in the ordinary course, be published or announced).
         aliases:
-        - CURRENCY-MUTUAL.AGREEMENT/CURA3
+          - CURRENCY-MUTUAL.AGREEMENT/CURA3
       CURRENCY_REFERENCE_DEALERS_CURA4:
         description: The Spot Rate for a Rate Calculation Date will be determined on the basis of quotations provided by Reference
           Dealers on that Rate Calculation Date of that day's Specified Rate, expressed as the amount of Reference Currency
@@ -833,21 +833,21 @@ enums:
           at the Specified Time on that Rate Calculation Date or, if no such time is specified, the time chosen by the Calculation
           Agent.
         aliases:
-        - CURRENCY-REFERENCE.DEALERS/CURA4
+          - CURRENCY-REFERENCE.DEALERS/CURA4
       CURRENCY_WHOLESALE_MARKET_CURA5:
         description: The Spot Rate for a Rate Calculation Date will be determined by the Calculation Agent on the basis of
           that day's Specified Rate, expressed as the amount of Reference Currency per one unit of Settlement Currency, in
           a legal and customary wholesale market in which there is no, or minimal, Governmental Authority controls or interference,
           except as a participant in such market.
         aliases:
-        - CURRENCY-WHOLESALE.MARKET/CURA5
+          - CURRENCY-WHOLESALE.MARKET/CURA5
       ECS_DNRP_ECS01:
         description: The Spot Rate for a Rate Calculation Date will be the Ecuadorian Sucre/U.S. Dollar Specified Rate, expressed
           as the amount of Ecuadorian Sucres per one U.S. Dollar, for settlement in one Business Day (where such day is a
           Business Day in Guayaquil and New York) which appears on Reuters Screen DNRP Page at 12:00 noon, Guayaquil time,
           on that Rate Calculation Date.
         aliases:
-        - ECS.DNRP/ECS01
+          - ECS.DNRP/ECS01
       IDR_ABS_IDR01:
         description: The Spot Rate for a Rate Calculation Date will be the Indonesian Rupiah/U.S. Dollar spot rate at 11:00
           a.m., Singapore time, expressed as the amount of Indonesian Rupiah per one U.S. Dollar, for settlement in two Business
@@ -855,7 +855,7 @@ enums:
           the caption 'Spot' under the column 'IDR' at approximately 11:30 a.m., Singapore time, on that Rate Calculation
           Date.
         aliases:
-        - IDR.ABS/IDR01
+          - IDR.ABS/IDR01
       IDR_JISDOR_IDR04:
         description: The Spot Rate for a Rate Calculation Date will be the Indonesian Rupiah/U.S. Dollar weighted average
           spot rate in the interbank market based on traded IDR/USD spot foreign exchange transactions during a specified
@@ -864,7 +864,7 @@ enums:
           Rate Calculation Date as the Jakarta Interbank Spot Dollar Rate USD - IDR on Bank Indonesia's website or otherwise
           made available by Bank Indonesia (or its successor as administrator).
         aliases:
-        - IDR.JISDOR/IDR04
+          - IDR.JISDOR/IDR04
       IDR_SFEMC_INDICATIVE_SURVEY_RATE_IDR02:
         description: The Spot Rate for a Rate Calculation Date will be the Indonesian Rupiah/U.S. Dollar Specified Rate for
           U.S. Dollars, expressed as the amount of Indonesian Rupiah per one U.S. Dollar, for settlement in two Business Days,
@@ -875,7 +875,7 @@ enums:
           of financial institutions that are active participants in the Indonesian Rupiah/U.S. Dollar markets for the purpose
           of determining the SFEMC IDR Indicative Survey Rate).
         aliases:
-        - IDR.SFEMC.INDICATIVE.SURVEY.RATE/IDR02
+          - IDR.SFEMC.INDICATIVE.SURVEY.RATE/IDR02
       IDR_VWAP_IDR03:
         description: The Spot Rate for a Rate Calculation Date will be the Indonesian Rupiah/U.S. Dollar implied spot rate
           expressed as the amount of Indonesian Rupiah per one U.S. Dollar, for settlement in two Business Days, reported
@@ -883,33 +883,33 @@ enums:
           appears on Thomson Reuters Screen ABSFIX01 Page at approximately 11:30 a.m., Singapore time, on that Rate Calculation
           Date.
         aliases:
-        - IDR.VWAP/IDR03
+          - IDR.VWAP/IDR03
       ILS_BOIJ_ILS01:
         description: The Spot Rate for a Rate Calculation Date will be the Israeli Shekel/U.S. Dollar Specified Rate, expressed
           as the amount of Israeli Shekels per one U.S. Dollar, for settlement in two Business Days which appears on the Reuters
           Screen BOIJ Page as of 1:00 p.m., Tel Aviv time, on that Rate Calculation Date.
         aliases:
-        - ILS.BOIJ/ILS01
+          - ILS.BOIJ/ILS01
       ILS_FXIL_ILS02:
         description: The Spot Rate for a Rate Calculation Date will be the Israeli Shekel/U.S. Dollar Specified Rate, expressed
           as the amount of Israeli Shekels per one U.S. Dollar, for settlement in two Business Days which appears on the Reuters
           Screen FXIL Page as of 1:00 p.m., Tel Aviv time, on that Rate Calculation Date.
         aliases:
-        - ILS.FXIL/ILS02
+          - ILS.FXIL/ILS02
       INR_FBIL_INR01:
         description: The Spot Rate for a Rate Calculation Date will be the Indian Rupee/U.S. Dollar reference rate, expressed
           as the amount of Indian Rupee per one U.S. Dollar, for settlement in two Business Days, reported by Financial Benchmarks
           India Pvt. Ltd. (www.fbil.org.in) at approximately 1:30 p.m., Mumbai time, or as soon thereafter as practicable,
           on that Rate Calculation Date.
         aliases:
-        - INR.FBIL/INR01
+          - INR.FBIL/INR01
       INR_RBIB_INR01:
         description: The Spot Rate for a Rate Calculation Date will be the Indian Rupee/U.S. Dollar reference rate, expressed
           as the amount of Indian Rupee per one U.S. Dollar, for settlement in two Business Days reported by the Reserve Bank
           of India which appears on the Reuters Screen RBIB Page at approximately 12:30 p.m., Mumbai time, or as soon thereafter
           as practicable, on that Rate Calculation Date.
         aliases:
-        - INR.RBIB/INR01
+          - INR.RBIB/INR01
       INR_SFEMC_INDICATIVE_SURVEY_RATE_INR02:
         description: The Spot Rate for a Rate Calculation Date will be the Indian Rupee/U.S. Dollar Specified Rate for U.S.
           Dollars, expressed as the amount of Indian Rupee per one U.S. Dollar, for settlement in two Business Days, as published
@@ -920,13 +920,13 @@ enums:
           that are active participants in the Indian Rupee/U.S. Dollar markets for the purpose of determining the SFEMC INR
           Indicative Survey Rate).
         aliases:
-        - INR.SFEMC.INDICATIVE.SURVEY.RATE/INR02
+          - INR.SFEMC.INDICATIVE.SURVEY.RATE/INR02
       KRW_KEBEY_KRW01:
         description: The Spot Rate for a Rate Calculation Date will be the Korean Won/U.S. Dollar Specified Rate, expressed
           as the amount of Korean Won per one U.S. Dollar, for settlement in two Business Days which appears on the Reuters
           Screen KEBEY Page at the Specified Time, if any, on that Rate Calculation Date.
         aliases:
-        - KRW.KEBEY/KRW01
+          - KRW.KEBEY/KRW01
       KRW_KFTC18_KRW02:
         description: The Spot Rate for a Rate Calculation Date will be the Korean Won/U.S. Dollar market average rate, expressed
           as the amount of Korean Won per one U.S. Dollar, for settlement in two Business Days reported by the Korea Financial
@@ -934,7 +934,7 @@ enums:
           caption 'USD Today' that is available at approximately 3:30 p.m., Seoul time, on the Rate Calculation Date or as
           soon thereafter as practicable.
         aliases:
-        - KRW.KFTC18/KRW02
+          - KRW.KFTC18/KRW02
       KRW_SFEMC_INDICATIVE_SURVEY_RATE_KRW04:
         description: The Spot Rate for a Rate Calculation Date will be the Korean Won/U.S. Dollar Specified Rate for U.S.
           Dollars, expressed as the amount of Korean Won per one U.S. Dollar, for settlement in two Business Days, as published
@@ -945,7 +945,7 @@ enums:
           that are active participants in the Korean Won/U.S. Dollar markets for the purpose of determining the SFEMC KRW
           Indicative Survey Rate).
         aliases:
-        - KRW.SFEMC.INDICATIVE.SURVEY.RATE/KRW04
+          - KRW.SFEMC.INDICATIVE.SURVEY.RATE/KRW04
       KRW_TELERATE_45644_KRW03:
         description: The Spot Rate for a Rate Calculation Date will be the Korean Won/U.S. Dollar market average rate, expressed
           as the amount of Korean Won per one U.S. Dollar, for settlement in two Business Days reported by the Korea Financial
@@ -953,7 +953,7 @@ enums:
           Today' that is available at approximately 3:30 p.m., Seoul time, on the Rate Calculation Date or as soon thereafter
           as practicable.
         aliases:
-        - KRW.TELERATE.45644/KRW03
+          - KRW.TELERATE.45644/KRW03
       KZT_EMTA_INDICATIVE_SURVEY_RATE_KZT02:
         description: The Spot Rate for a Rate Calculation Date will be the Kazakhstan Tenge / U.S. Dollar Specified Rate for
           U.S. Dollars, expressed as the amount of Kazakhstan Tenge per one U.S. Dollar, for settlement on the same Business
@@ -964,33 +964,33 @@ enums:
           that are active participants in the Kazakhstan Tenge/U.S. Dollar markets for the purpose of determining the EMTA
           KZT Indicative Survey Rate).
         aliases:
-        - KZT.EMTA.INDICATIVE.SURVEY.RATE/KZT02
+          - KZT.EMTA.INDICATIVE.SURVEY.RATE/KZT02
       KZT_KASE_KZT01:
         description: The Spot Rate for a Rate Calculation Date will be the Kazakhstan Tenge / U.S. Dollar weighted average
           rate, expressed as the amount of Kazakhstan Tenge per one U.S. Dollar, for settlement on the same Business Day reported
           by the Kazakhstan Stock Exchange (www.kase.kz) at approximately 11:00 am, Almaty time, on that Rate Calculation
           Date.
         aliases:
-        - KZT.KASE/KZT01
+          - KZT.KASE/KZT01
       LBP_BDLX_LBP01:
         description: The Spot Rate for a Rate Calculation Date will be the Lebanese Pound/U.S. Dollar Specified Rate, expressed
           as the amount of Lebanese Pounds per one U.S. Dollar, for settlement in two Business Days which appears on the Reuters
           Screen BDLX Page as of 12:00 noon, Beirut time, on that Rate Calculation Date.
         aliases:
-        - LBP.BDLX/LBP01
+          - LBP.BDLX/LBP01
       MAD_OFFICIAL_RATE_MAD01:
         description: The Spot Rate for a Rate Calculation Date will be the Moroccan Dirham/U.S. Dollar Specified Rate, expressed
           as the amount of Moroccan Dirham per one U.S. Dollar, for settlement in two Business Days reported by the Central
           Bank of Morocco as of 1:00 p.m., Rabat time, on that Rate Calculation Date.
         aliases:
-        - MAD.OFFICIAL.RATE/MAD01
+          - MAD.OFFICIAL.RATE/MAD01
       MXP_BNMX_MXP01:
         description: The Spot Rate for a Rate Calculation Date will be the Mexican Pesos/U.S. Dollar Specified rate, expressed
           as the amount of Mexican Pesos per one U.S. Dollar, for settlement in two Business Days reported by Banco de Mexico
           which appears on the Reuters Screen BNMX Page opposite the caption 'Fix' at the close of business in Mexico City
           on that Rate Calculation Date.
         aliases:
-        - MXP.BNMX/MXP01
+          - MXP.BNMX/MXP01
       MXP_FIXING_RATE_MXP02:
         description: The Spot Rate for a Rate Calculation Date will be the Mexican Peso/U.S. Dollar fixing rate, expressed
           as the amount of Mexican Pesos per one U.S. Dollar, for settlement in two Business Days which is published by Banco
@@ -999,14 +999,14 @@ enums:
           (Rules applicable to determine the exchange rate to pay obligations denominated in foreign currency payable in Mexico)
           on the first Business Day following that Rate Calculation Date.
         aliases:
-        - MXP.FIXING.RATE/MXP02
+          - MXP.FIXING.RATE/MXP02
       MXP_MEX01_MXP03:
         description: The Spot Rate for a Rate Calculation Date will be the Mexican Peso/U.S. Dollar fixing rate, expressed
           as the amount of Mexican Pesos per one U.S. Dollar, for settlement in two Business Days reported by Banco de Mexico
           which appears on Reuters Screen MEX01 Page under the heading 'MXNFIX=RR', at the close of business in Mexico City
           on that Rate Calculation Date.
         aliases:
-        - MXP.MEX01/MXP03
+          - MXP.MEX01/MXP03
       MXP_PUBLISHED_MXP04:
         description: The Spot Rate for a Rate Calculation Date will be the Mexican Peso/U.S. Dollar fixing rate, expressed
           as the amount of Mexican Pesos per one U.S. Dollar, for settlement in two Business Days which is published by the
@@ -1016,7 +1016,7 @@ enums:
           November 11, 1991) in the Movimiento Diario del Mercado de Valores de la Bolsa Mexicana de Valores, S.A. de C.V.
           under the heading 'Movimiento Diario del Mercado de Valores' on that Rate Calculation Date.
         aliases:
-        - MXP.PUBLISHED/MXP04
+          - MXP.PUBLISHED/MXP04
       MYR_ABS_MYR01:
         description: The Spot Rate for a Rate Calculation Date will be the Malaysian Ringgit/U.S. Dollar spot rate at 11:00
           a.m., Singapore time, expressed as the amount of Malaysian Ringgit per one U.S. Dollar, for settlement in two Business
@@ -1024,21 +1024,21 @@ enums:
           the caption 'Spot' under the column 'MYR' at approximately 11:30 a.m., Singapore time, on that Rate Calculation
           Date.
         aliases:
-        - MYR.ABS/MYR01
+          - MYR.ABS/MYR01
       MYR_KL_REF_MYR04:
         description: The Spot Rate for a Rate Calculation Date will be the Malaysian Ringgit/U.S. Dollar reference rate, expressed
           as the amount of Malaysian Ringgit per one U.S. Dollar, for settlement in two Business Days, calculated and reported
           by Bank Negara Malaysia as its Kuala Lumpur USD/MYR Reference Rate, which appears on Thomson Reuters Screen MYRFIX2
           Page at approximately 3:30 p.m., Kuala Lumpur time, on that Rate Calculation Date.
         aliases:
-        - MYR.KL.REF/MYR04
+          - MYR.KL.REF/MYR04
       MYR_PPKM_MYR03:
         description: The Spot Rate for a Rate Calculation Date will be the Malaysian Ringgit/U.S. Dollar spot rate expressed
           as the amount of Malaysian Ringgit per one U.S. Dollar, for settlement in two Business Days, reported by Persatuan
           Pasaran Kewangan Malaysia (ACI - Malaysia), which appears on Thomson Reuters Screen MYRFIX2 Page at approximately
           11:10 a.m., Kuala Lumpur time, on that Rate Calculation Date.
         aliases:
-        - MYR.PPKM/MYR03
+          - MYR.PPKM/MYR03
       MYR_SFEMC_INDICATIVE_SURVEY_RATE_MYR02:
         description: The Spot Rate for a Rate Calculation Date will be the Malaysian Ringgit/U.S. Dollar Specified Rate for
           U.S. Dollars, expressed as the amount of Malaysian Ringgit per one U.S. Dollar, for settlement in two Business Days,
@@ -1049,7 +1049,7 @@ enums:
           financial institutions that are active participants in the Malaysian Ringgit/U.S. Dollar markets for the purpose
           of determining the SFEMC MYR Indicative Survey Rate).
         aliases:
-        - MYR.SFEMC.INDICATIVE.SURVEY.RATE/MYR02
+          - MYR.SFEMC.INDICATIVE.SURVEY.RATE/MYR02
       PEN_EMTA_INDICATIVE_SURVEY_RATE_PEN04:
         description: The Spot Rate for a Rate Calculation Date will be the Peruvian Sol/U.S. Dollar Specified Rate for U.S.
           Dollars, expressed as the amount of Peruvian Soles per one U.S. Dollar, for settlement on the same day, as published
@@ -1060,28 +1060,28 @@ enums:
           that are active participants in the Peruvian Sol/U.S. Dollar markets for the purpose of determining the EMTA PEN
           Indicative Survey Rate).
         aliases:
-        - PEN.EMTA.INDICATIVE.SURVEY.RATE/PEN04
+          - PEN.EMTA.INDICATIVE.SURVEY.RATE/PEN04
       PEN_INTERBANK_AVE_PEN05:
         description: The Spot Rate for a Rate Calculation Date will be the Peruvian Sol/U.S. Dollar average exchange rate
           in the interbank market expressed as the amount of Peruvian New Soles per one U.S. Dollar for settlement on the
           same day reported by the Banco Central de Reserva del Peru (www.bcrp.gob.pe) as the 'Tipo de Cambio Interbancario
           Promedio' at approximately 2:00 p.m., Lima time, on that Rate Calculation Date.
         aliases:
-        - PEN.INTERBANK.AVE/PEN05
+          - PEN.INTERBANK.AVE/PEN05
       PEN_PDSB_PEN01:
         description: The Spot Rate for a Rate Calculation Date will be the Peruvian Sol/U.S. Dollar fixing rate (mid market
           last), expressed as the amount of Peruvian Sols per one U.S. Dollar, for settlement on that same day which appears
           on the Reuters Screen PDSB Page opposite the caption 'PEN=' as of 12:00 noon, Lima time, on that Rate Calculation
           Date.
         aliases:
-        - PEN.PDSB/PEN01
+          - PEN.PDSB/PEN01
       PEN_WT_AVE_PEN03:
         description: The Spot Rate for a Rate Calculation Date will be the midpoint of the Peruvian Sol/U.S. Dollar closing
           weighted average bid and offer ('compra y venta') exchange rates expressed as the amount of Peruvian New Soles per
           one U.S. Dollar for settlement on the same day, reported by the Superintendencia de Banca, Seguros y AFP (www.sbs.gob.pe)
           of the Republic of Peru at approximately 5:00 p.m., Lima time, on that Rate Calculation Date.
         aliases:
-        - PEN.WT.AVE/PEN03
+          - PEN.WT.AVE/PEN03
       PHP_BAPPESO_PHP06:
         description: The Spot Rate for a Rate Calculation Date will be the Philippine Peso/U.S. Dollar morning weighted average
           rate for that Rate Calculation Date, expressed as the amount of Philippine Pesos per one U.S. Dollar, for settlement
@@ -1089,7 +1089,7 @@ enums:
           Average Rate' at approximately 11:30 a.m., Manila time, or as soon thereafter as practicable, on that Rate Calculation
           Date.
         aliases:
-        - PHP.BAPPESO/PHP06
+          - PHP.BAPPESO/PHP06
       PHP_PDSPESO_PHP06:
         description: The Spot Rate for a Rate Calculation Date will be the Philippine Peso/U.S. Dollar morning weighted average
           rate for that Rate Calculation Date, expressed as the amount of Philippine Pesos per one U.S. Dollar, for settlement
@@ -1097,13 +1097,13 @@ enums:
           to the right of the caption 'AM WT AVE' at approximately 11:30 a.m., Manila time, or as soon thereafter as practicable,
           on that Rate Calculation Date.
         aliases:
-        - PHP.PDSPESO/PHP06
+          - PHP.PDSPESO/PHP06
       PHP_PHPESO_PHP01:
         description: The Spot Rate for a Rate Calculation Date will be the Philippine Peso/U.S. Dollar tom rate (mid market),
           expressed as the amount of Philippine Pesos per one U.S. Dollar, for settlement in one Business Day which appears
           on the Reuters Screen PHPESO Page at approximately 11:00 a.m., Manila time, on that Rate Calculation Date.
         aliases:
-        - PHP.PHPESO/PHP01
+          - PHP.PHPESO/PHP01
       PHP_SFEMC_INDICATIVE_SURVEY_RATE_PHP05:
         description: The Spot Rate for a Rate Calculation Date will be the Philippine Peso/U.S. Dollar Specified Rate for
           U.S. Dollars, expressed as the amount of Philippine Pesos per one U.S. Dollar, for settlement in one Business Day,
@@ -1114,25 +1114,25 @@ enums:
           of financial institutions that are active participants in the Philippine Peso/U.S. Dollar markets for the purpose
           of determining the SFEMC PHP Indicative Survey Rate).
         aliases:
-        - PHP.SFEMC.INDICATIVE.SURVEY.RATE/PHP05
+          - PHP.SFEMC.INDICATIVE.SURVEY.RATE/PHP05
       PHP_TELERATE_15439_PHP03:
         description: The Spot Rate for a Rate Calculation Date will be the Philippine Peso/U.S. Dollar tom rate (mid market),
           expressed as the amount of Philippine Pesos per one U.S. Dollar, for settlement in one Business Day which appears
           on the Telerate Page 15439 at approximately 11:00 a.m., Manila time, on that Rate Calculation Date.
         aliases:
-        - PHP.TELERATE.15439/PHP03
+          - PHP.TELERATE.15439/PHP03
       PHP_TELERATE_2920_PHP02:
         description: The Spot Rate for a Rate Calculation Date will be the Philippine Peso/U.S. Dollar Specified Rate, expressed
           as the amount of Philippine Pesos per one U.S. Dollar, for settlement in one Business Day which appears on the Telerate
           Page 2920 at the Specified Time, if any, on that Rate Calculation Date.
         aliases:
-        - PHP.TELERATE.2920/PHP02
+          - PHP.TELERATE.2920/PHP02
       PKR_SBPK_PKR01:
         description: The Spot Rate for a Rate Calculation Date will be the Pakistani Rupee/U.S. Dollar reference rate expressed
           as the amount of Pakistani Rupees per one U.S. Dollar, for settlement in two Business Days reported by the State
           Bank of Pakistan (www.sbp.org.pk) at approximately 2:30 pm, Karachi time, on that Rate Calculation Date.
         aliases:
-        - PKR.SBPK/PKR01
+          - PKR.SBPK/PKR01
       PKR_SFEMC_INDICATIVE_SURVEY_RATE_PKR02:
         description: The Spot Rate for a Rate Calculation Date will be the Pakistani Rupee/U.S. Dollar Specified Rate for
           U.S. Dollars, expressed as the amount of Pakistani Rupees per one U.S. Dollar, for settlement in two Business Days,
@@ -1143,21 +1143,21 @@ enums:
           financial institutions that are active participants in the Pakistani Rupee/U.S. Dollar markets for the purpose of
           determining the SFEMC PKR Indicative Survey Rate).
         aliases:
-        - PKR.SFEMC.INDICATIVE.SURVEY.RATE/PKR02
+          - PKR.SFEMC.INDICATIVE.SURVEY.RATE/PKR02
       PLZ_NBPQ_PLZ01:
         description: The Spot Rate for a Rate Calculation Date will be the Polish Zloty/U.S. Dollar Specified Rate, expressed
           as the amount of Polish Zloty per one U.S. Dollar, for settlement in two Business Days reported by the National
           Bank of Poland which appears on the Reuters Screen NBPQ Page at the Specified Time, if any, on that Rate Calculation
           Date.
         aliases:
-        - PLZ.NBPQ/PLZ01
+          - PLZ.NBPQ/PLZ01
       PLZ_NBPR_PLZ02:
         description: The Spot Rate for a Rate Calculation Date will be the Polish Zloty/U.S. Dollar fixing rate, expressed
           as the amount of Polish Zloty per one U.S. Dollar, for settlement in two Business Days reported by the National
           Bank of Poland which appears on the Reuters Screen NBPR Page at the Specified Time, if any, on that Rate Calculation
           Date.
         aliases:
-        - PLZ.NBPR/PLZ02
+          - PLZ.NBPR/PLZ02
       RUB_CME_EMTA_RUB03:
         description: The Spot Rate for a Rate Calculation Date will be the Russian Ruble/U.S. Dollar Specified Rate, expressed
           as the amount of Russian Rubles per one U.S. Dollar, for settlement in one Business Day, calculated by the Chicago
@@ -1168,7 +1168,7 @@ enums:
           survey of financial institutions in Russia that are active participants in the Russian Ruble/U.S. Dollar spot market
           for the purpose of determining the RUB CME-EMTA Rate).
         aliases:
-        - RUB.CME-EMTA/RUB03
+          - RUB.CME-EMTA/RUB03
       RUB_EMTA_INDICATIVE_SURVEY_RATE_RUB04:
         description: The Spot Rate for a Rate Calculation Date will be the Russian Ruble/U.S. Dollar Specified Rate for U.S.
           Dollars, expressed as the amount of Russian Rubles per one U.S. Dollar, for settlement in one Business Day, as published
@@ -1179,35 +1179,35 @@ enums:
           that are active participants in the Russian Ruble/U.S. Dollar spot market for the purpose of determining the EMTA
           RUB Indicative Survey Rate).
         aliases:
-        - RUB.EMTA.INDICATIVE.SURVEY.RATE/RUB04
+          - RUB.EMTA.INDICATIVE.SURVEY.RATE/RUB04
       RUB_MICEXFRX_RUB01:
         description: The Spot Rate for a Rate Calculation Date will be the Russian Ruble/U.S. Dollar Specified Rate, expressed
           as the amount of Russian Rubies per one U.S. Dollar, for settlement on the same day reported by the Moscow Interbank
           Currency Exchange which appears on the Reuters Screen MICEXFRX Page as of 10:30 a.m., Moscow time, on that Rate
           Calculation Date.
         aliases:
-        - RUB.MICEXFRX/RUB01
+          - RUB.MICEXFRX/RUB01
       RUB_MMVB_RUB02:
         description: The Spot Rate for a Rate Calculation Date will be the Russian Ruble/U.S. Dollar Specified Rate, expressed
           as the amount of Russian Rubies per one U.S. Dollar, for settlement on the same day reported by the Moscow Interbank
           Currency Exchange which appears on the Reuters Screen MMVB Page as of 10:30 a.m., Moscow time, on that Rate Calculation
           Date.
         aliases:
-        - RUB.MMVB/RUB02
+          - RUB.MMVB/RUB02
       SGD_VWAP_SGD3:
         description: The Spot Rate for a Rate Calculation Date will be the Singapore Dollar/U.S. Dollar spot rate expressed
           as the amount of Singapore Dollar per one U.S. Dollar for settlement in two Business Days, reported by ABS Benchmarks
           Administration Co Pte. Ltd. (or its successor as administrator or sponsor of the rate), which appears on Thomson
           Reuters Screen ABSFIX01 Page at approximately 11:30 a.m., Singapore time, on that Rate Calculation Date.
         aliases:
-        - SGD.VWAP/SGD3
+          - SGD.VWAP/SGD3
       SKK_NBSB_SKK01:
         description: The Spot Rate for a Rate Calculation Date will be the Slovak Koruna/U.S. Dollar Specified Rate, expressed
           as the amount of Slovak Koruna per one U.S. Dollar, for settlement in two Business Days reported by the National
           Bank of Slovakia which appears on the Reuters Screen NBSB Page as of 11:40 a.m., Bratislava time, on that Rate Calculation
           Date.
         aliases:
-        - SKK.NBSB/SKK01
+          - SKK.NBSB/SKK01
       THB_ABS_THB01:
         description: The Spot Rate for a Rate Calculation Date will be the Thai Baht/U.S. Dollar spot rate at 11:00 a.m.,
           Singapore time, expressed as the amount of Thai Bhaht per one U.S. Dollar, for settlement in two Business Days,
@@ -1215,14 +1215,14 @@ enums:
           of the caption 'Spot' under the column 'THB' at approximately 11:30 a.m., Singapore time, on that Rate Calculation
           Date.
         aliases:
-        - THB.ABS/THB01
+          - THB.ABS/THB01
       THB_VWAP_THB01:
         description: The Spot Rate for a Rate Calculation Date will be the Thai Baht / U.S. Dollar spot rate expressed as
           the amount of Thai Baht per one U.S. Dollar for settlement in two Business Days, reported by ABS Benchmarks Administration
           Co Pte. Ltd. (or its successor as administrator or sponsor of the rate), which appears on Thomson Reuters Screen
           ABSFIX01 Page at approximately 11:30 a.m., Singapore time, on that Rate Calculation Date.
         aliases:
-        - THB.VWAP/THB01
+          - THB.VWAP/THB01
       TWD_SFEMC_INDICATIVE_SURVEY_RATE_TWD04:
         description: The Spot Rate for a Rate Calculation Date will be the Taiwanese Dollar/U.S. Dollar Specified Rate for
           U.S. Dollars, expressed as the amount of Taiwanese Dollars per one U.S. Dollar, for settlement in two Business Days,
@@ -1233,7 +1233,7 @@ enums:
           of financial institutions that are active participants in the Taiwanese Dollar/U.S. Dollar markets for the purpose
           of determining the SFEMC TWD Indicative Survey Rate).
         aliases:
-        - TWD.SFEMC.INDICATIVE.SURVEY.RATE/TWD04
+          - TWD.SFEMC.INDICATIVE.SURVEY.RATE/TWD04
       TWD_TAIFX1_TWD03:
         description: The Spot Rate for a Rate Calculation Date will be the Taiwanese Dollar/U.S. Dollar spot rate, expressed
           as the amount of Taiwanese Dollars per one U.S. Dollar, for settlement in two Business Days, reported by the Taipei
@@ -1242,7 +1242,7 @@ enums:
           in any of the next succeeding 15 minute intervals after such time, up to and including 12:00 noon, Taipei time on
           that Rate Calculation Date.
         aliases:
-        - TWD.TAIFX1/TWD03
+          - TWD.TAIFX1/TWD03
       TWD_TELERATE_6161_TWD01:
         description: The Spot Rate for a Rate Calculation Date will be the Taiwanese Dollar/U.S. Dollar spot rate, expressed
           as the amount of Taiwanese Dollars per one U.S. Dollar, for settlement in two Business Days, reported by the Taipei
@@ -1251,13 +1251,13 @@ enums:
           the next succeeding 15 minute intervals after such time, up to and including 12:00 noon, Taipei time, on that Rate
           Calculation Date.
         aliases:
-        - TWD.TELERATE.6161/TWD01
+          - TWD.TELERATE.6161/TWD01
       TWD_TFEMA_TWD02:
         description: The Spot Rate for a Rate Calculation Date will be the Taiwanese Dollar/U.S. Dollar Specified Rate, expressed
           as the amount of Taiwanese Dollars per one U.S. Dollar, for settlement in two Business Days which appears on the
           Reuters Screen TFEMA Page as of 11:00 a.m., Taipei time, on that Rate Calculation Date.
         aliases:
-        - TWD.TFEMA/TWD02
+          - TWD.TFEMA/TWD02
       UAH_EMTA_INDICATIVE_SURVEY_RATE_UAH03:
         description: The Spot Rate for a Rate Calculation Date will be the Ukrainian Hryvnia/U.S. Dollar Specified Rate for
           U.S. Dollars, expressed as the amount of Ukrainian Hryvnia per one U.S. Dollar, for settlement on the same Business
@@ -1268,7 +1268,7 @@ enums:
           that are active participants in the Ukrainian Hryvnia / U.S. Dollar markets for the purpose of determining the EMTA
           UAH Indicative Survey Rate).
         aliases:
-        - UAH.EMTA.INDICATIVE.SURVEY.RATE/UAH03
+          - UAH.EMTA.INDICATIVE.SURVEY.RATE/UAH03
       UAH_EMTA_INDUSTRY_SURVEY_RATE_UAH02:
         description: The Spot Rate for a Rate Calculation Date will be the Ukrainian Hryvnia/U.S. Dollar Specified Rate for
           U.S. Dollars expressed as the amount of Ukrainian Hryvnia per one U.S. Dollar, for settlement on the same Business
@@ -1278,20 +1278,20 @@ enums:
           16, 2009, for a centralized industry wide survey of financial institutions in the Ukrainian Hryvnia/U.S. Dollar
           spot market for the purposes of determining the EMTA UAH Industry Survey Rate.
         aliases:
-        - UAH.EMTA.INDUSTRY.SURVEY.RATE/UAH02
+          - UAH.EMTA.INDUSTRY.SURVEY.RATE/UAH02
       UAH_GFI_UAH01:
         description: The Spot Rate for a Rate Calculation Date will be the Ukrainian Hryvnia/U.S. Dollar spot rate, expressed
           as the amount of Ukrainian Hryvnia per one U.S. Dollar, for settlement on the same Business Day reported by GFI
           Brokers on Thomson Reuters Page GFIU by 9:30 am, London time, on that Rate Calculation Date.
         aliases:
-        - UAH.GFI/UAH01
+          - UAH.GFI/UAH01
       VEF_FIX_VEF01:
         description: The Spot Rate for a Rate Calculation Date will be the midpoint of the Venezuelan Bolivar /U.S. Dollar
           Tipo de Cambio De Referencia buying and selling rates, expressed as the amount of Venezuelan Bolivar per one U.S.
           Dollar, for settlement in two Business Days reported by the Banco Central de Venezuela (www.bcv.org.ve) at approximately
           5:00 p.m., Caracas time, on that Rate Calculation Date.
         aliases:
-        - VEF.FIX/VEF01
+          - VEF.FIX/VEF01
       VND_ABS_VND01:
         description: The Spot Rate for a Rate Calculation Date will be the Vietnamese Dong/U.S. Dollar spot rate at 11:00
           a.m., Singapore time, expressed as the amount of Vietnamese Dong per one U.S. Dollar, for settlement in two Business
@@ -1299,14 +1299,14 @@ enums:
           right of the caption 'Spot' under the column 'VND' at approximately 11:30 a.m., Singapore time, on that Rate Calculation
           Date.
         aliases:
-        - VND.ABS/VND01
+          - VND.ABS/VND01
       VND_FX_VND02:
         description: The Spot Rate for a Rate Calculation Date will be the Vietnamese Dong/U.S. Dollar spot rate expressed
           as the amount of Vietnamese Dong per one U.S. Dollar, for settlement in two Business Days which appears on Reuters
           Screen VNDFIX=VN Page under the caption 'Spot' and to the right of the caption 'Average' at approximately 11:00
           am, Hanoi time, on that Rate Calculation Date.
         aliases:
-        - VND.FX/VND02
+          - VND.FX/VND02
       VND_SFEMC_INDICATIVE_SURVEY_RATE_VND03:
         description: The Spot Rate for a Rate Calculation Date will be the Vietnamese Dong/U.S. Dollar Specified Rate for
           U.S. Dollars, expressed as the amount of Vietnamese Dong per one U.S. Dollar, for settlement in two Business Days,
@@ -1317,7 +1317,7 @@ enums:
           financial institutions that are active participants in the Vietnamese Dong/U.S. Dollar markets for the purpose of
           determining the SFEMC VND Indicative Survey Rate).
         aliases:
-        - VND.SFEMC.INDICATIVE.SURVEY.RATE/VND03
+          - VND.SFEMC.INDICATIVE.SURVEY.RATE/VND03
 
   PartyDeterminationEnum:
     description: The enumerated values to specify how a calculation agent will be determined.
@@ -1394,15 +1394,15 @@ enums:
       NoCSA:
         description: There is no CSA applicable
         aliases:
-        - NoCSA
+          - NoCSA
       ExistingCSA:
         description: Thre is an existing Credit Support Annex
         aliases:
-        - ExistingCSA
+          - ExistingCSA
       ReferenceVMCSA:
         description: There is a bilateral Credit Support Annex specific to the transaction
         aliases:
-        - ReferenceVMCSA
+          - ReferenceVMCSA
 
 slots:
   provider:
@@ -1479,9 +1479,9 @@ slots:
     description: Specifies the object to be observed for a price, it could be an asset or an index. The cardinality is optional
       as some quantity / price cases have no observable (e.g. a fixed rate in a given currency).
     any_of:
-    - range: Asset
-    - range: Basket
-    - range: Index
+      - range: Asset
+      - range: Basket
+      - range: Index
 
   baseValue:
     range: decimal
@@ -1548,7 +1548,7 @@ slots:
     multivalued: true
     inlined_as_list: true
     close_mappings:
-    - fpml_5_10:BasketConstituent.initialValuationPrice
+      - fpml_5_10:BasketConstituent.initialValuationPrice
 
   interimValuationPrice:
     range: PriceSchedule
@@ -1557,7 +1557,7 @@ slots:
     multivalued: true
     inlined_as_list: true
     close_mappings:
-    - fpml_5_10:BasketConstituent.interimValuationPrice
+      - fpml_5_10:BasketConstituent.interimValuationPrice
 
   finalValuationPrice:
     range: PriceSchedule
@@ -1566,7 +1566,7 @@ slots:
     multivalued: true
     inlined_as_list: true
     close_mappings:
-    - fpml_5_10:BasketConstituent.finalValuationPrice
+      - fpml_5_10:BasketConstituent.finalValuationPrice
 
   sourceProvider:
     range: InformationProviderEnum
@@ -1861,14 +1861,14 @@ slots:
     description: Specifies the party which is the ISDA Calculation Agent for the trade. If more than one party is referenced
       then the parties are assumed to be co-calculation agents, i.e. they have joint responsibility.
     close_mappings:
-    - fpml_5_10:CalculationAgent.calculationAgentParty
+      - fpml_5_10:CalculationAgent.calculationAgentParty
 
   calculationAgentPartyEnum:
     range: PartyDeterminationEnum
     description: Specifies the ISDA calculation agent responsible for performing duties as defined in the applicable product
       definitions. For example, the Calculation Agent may be defined as being the Non-exercising Party.
     close_mappings:
-    - fpml_5_10:CalculationAgent.calculationAgentPartyEnum
+      - fpml_5_10:CalculationAgent.calculationAgentPartyEnum
 
   calculationAgentBusinessCenter:
     range: BusinessCenter
@@ -1880,7 +1880,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:CalculationAgent.calculationAgentBusinessCenter
+      - fpml_5_10:CalculationAgent.calculationAgentBusinessCenter
 
   businessDaysThereafter:
     range: integer
@@ -1956,13 +1956,13 @@ slots:
     description: This may be used to specify what type of CSA (credit support annex/agreement) is to be used for cash settlement
       purposes.
     close_mappings:
-    - fpml_5_10:CashCollateralValuationMethod.applicableCsa
+      - fpml_5_10:CashCollateralValuationMethod.applicableCsa
 
   cashCollateralCurrency:
     range: string
     description: This may be used to indicate the currency of cash collateral for cash settlement purposes.
     close_mappings:
-    - fpml_5_10:CashCollateralValuationMethod.cashCollateralCurrency
+      - fpml_5_10:CashCollateralValuationMethod.cashCollateralCurrency
 
   cashCollateralInterestRate:
     range: string
@@ -1970,7 +1970,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:CashCollateralValuationMethod.cashCollateralInterestRate
+      - fpml_5_10:CashCollateralValuationMethod.cashCollateralInterestRate
 
   agreedDiscountRate:
     range: string
@@ -1978,20 +1978,20 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:CashCollateralValuationMethod.agreedDiscountRate
+      - fpml_5_10:CashCollateralValuationMethod.agreedDiscountRate
 
   protectedParty:
     range: PartyDeterminationEnum
     description: This may be used to specify which party is protected (e.g. under Replacement Value cash settlement methods).
     multivalued: true
     close_mappings:
-    - fpml_5_10:CashCollateralValuationMethod.protectedParty
+      - fpml_5_10:CashCollateralValuationMethod.protectedParty
 
   prescribedDocumentationAdjustment:
     range: boolean
     description: This may be used to indicate that 'prescribed documentation adjustment' is applicable.
     close_mappings:
-    - fpml_5_10:CashCollateralValuationMethod.prescribedDocumentationAdjustment
+      - fpml_5_10:CashCollateralValuationMethod.prescribedDocumentationAdjustment
 
   optionsExchangeDividends:
     range: boolean
@@ -2013,18 +2013,18 @@ classes:
     description: Identifies an index by referencing an identifier.
     is_a: AssetBase
     rules:
-    - description: Asset type must be Other.
-      postconditions:
-        slot_conditions:
-          assetType:
-            equals_string: Other
-      preconditions: {}
+      - description: Asset type must be Other.
+        postconditions:
+          slot_conditions:
+            assetType:
+              equals_string: Other
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AssetType — assetType = Other'
+      - 'Rosetta condition: AssetType — assetType = Other'
     slots:
-    - name
-    - provider
-    - assetClass
+      - name
+      - provider
+      - assetClass
     slot_usage:
       name:
         description: A description of the Index.
@@ -2033,43 +2033,43 @@ classes:
         description: The Asset Class of the Index.
         required: false
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   FloatingRateIndex:
     description: Specification of an interest rate index which can change over time, e.g. the SONIA (Sterling Overnight Index
       Average) in the UK.
     is_a: IndexBase
     comments:
-    - 'Rosetta condition: InterestRateAssetClass — assetClass = AssetClassEnum -> InterestRate'
+      - 'Rosetta condition: InterestRateAssetClass — assetClass = AssetClassEnum -> InterestRate'
     slots:
-    - floatingRateIndex
-    - indexTenor
+      - floatingRateIndex
+      - indexTenor
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   ForeignExchangeRateIndex:
     description: Specification of a rate based on the exchange of a pair of cash assets in specific currencies, e.g. USD versus
       GBP.
     is_a: IndexBase
     comments:
-    - 'Rosetta condition: FXAssetClass — assetClass = AssetClassEnum -> ForeignExchange'
+      - 'Rosetta condition: FXAssetClass — assetClass = AssetClassEnum -> ForeignExchange'
     slots:
-    - quotedCurrencyPair
-    - primaryFxSpotRateSource
-    - secondaryFxSpotRateSource
+      - quotedCurrencyPair
+      - primaryFxSpotRateSource
+      - secondaryFxSpotRateSource
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   InflationIndex:
     description: Specification of an index that measures inflation in a specific market, e.g. the US Consumer Price Index.
     is_a: IndexBase
     comments:
-    - 'Rosetta condition: InterestRateAssetClass — assetClass = AssetClassEnum -> InterestRate'
+      - 'Rosetta condition: InterestRateAssetClass — assetClass = AssetClassEnum -> InterestRate'
     slots:
-    - inflationRateIndex
-    - indexTenor
+      - inflationRateIndex
+      - indexTenor
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   CreditIndex:
     description: Specification of an index based on credit risk, typically composed using corporate debt instruments in a
@@ -2078,49 +2078,49 @@ classes:
     annotations:
       metadata_key: true
     rules:
-    - description: FpML specifies the type associated to indexSeries as a positive integer.
-      preconditions:
-        slot_conditions:
-          indexSeries:
-            required: true
-      postconditions:
-        slot_conditions:
-          indexSeries:
-            minimum_value: 0
-    - description: FpML specifies the type associated to indexVersion as a positive integer.
-      preconditions:
-        slot_conditions:
-          indexAnnexVersion:
-            required: true
-      postconditions:
-        slot_conditions:
-          indexAnnexVersion:
-            minimum_value: 0
-    - description: Index factor is expressed as a decimal and should be a positive number between o and 1.
-      preconditions:
-        slot_conditions:
-          indexFactor:
-            required: true
-      postconditions:
-        slot_conditions:
-          indexFactor:
-            minimum_value: 0
-            maximum_value: 1
+      - description: FpML specifies the type associated to indexSeries as a positive integer.
+        preconditions:
+          slot_conditions:
+            indexSeries:
+              required: true
+        postconditions:
+          slot_conditions:
+            indexSeries:
+              minimum_value: 0
+      - description: FpML specifies the type associated to indexVersion as a positive integer.
+        preconditions:
+          slot_conditions:
+            indexAnnexVersion:
+              required: true
+        postconditions:
+          slot_conditions:
+            indexAnnexVersion:
+              minimum_value: 0
+      - description: Index factor is expressed as a decimal and should be a positive number between o and 1.
+        preconditions:
+          slot_conditions:
+            indexFactor:
+              required: true
+        postconditions:
+          slot_conditions:
+            indexFactor:
+              minimum_value: 0
+              maximum_value: 1
     comments:
-    - 'Rosetta condition: IndexSeries — if indexSeries exists then indexSeries >= 0'
-    - 'Rosetta condition: IndexAnnexVersion — if indexAnnexVersion exists then indexAnnexVersion >= 0'
-    - 'Rosetta condition: IndexFactor — if indexFactor exists then indexFactor >= 0 and indexFactor <= 1'
-    - 'Rosetta condition: CreditAssetClass — assetClass = AssetClassEnum -> Credit'
+      - 'Rosetta condition: IndexSeries — if indexSeries exists then indexSeries >= 0'
+      - 'Rosetta condition: IndexAnnexVersion — if indexAnnexVersion exists then indexAnnexVersion >= 0'
+      - 'Rosetta condition: IndexFactor — if indexFactor exists then indexFactor >= 0 and indexFactor <= 1'
+      - 'Rosetta condition: CreditAssetClass — assetClass = AssetClassEnum -> Credit'
     slots:
-    - indexSeries
-    - indexAnnexVersion
-    - indexAnnexDate
-    - indexAnnexSource
-    - excludedReferenceEntity
-    - tranche
-    - settledEntityMatrix
-    - indexFactor
-    - seniority
+      - indexSeries
+      - indexAnnexVersion
+      - indexAnnexDate
+      - indexAnnexSource
+      - excludedReferenceEntity
+      - tranche
+      - settledEntityMatrix
+      - indexFactor
+      - seniority
     slot_usage:
       tranche:
         range: Tranche
@@ -2129,35 +2129,35 @@ classes:
         range: CreditSeniorityEnum
         description: Seniority of debt instruments comprising the index.
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   EquityIndex:
     description: Specification of an index based on equity securities, e.g. the S&P 500.
     is_a: IndexBase
     comments:
-    - 'Rosetta condition: EquityAssetClass — assetClass = AssetClassEnum -> Equity'
+      - 'Rosetta condition: EquityAssetClass — assetClass = AssetClassEnum -> Equity'
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   OtherIndex:
     description: Specification of a user-defined index that does not meet the criteria of other Index data types.
     is_a: IndexBase
     rules:
-    - description: The asset class must be explicitly set.
-      postconditions:
-        slot_conditions:
-          assetClass:
-            required: true
-      preconditions: {}
+      - description: The asset class must be explicitly set.
+        postconditions:
+          slot_conditions:
+            assetClass:
+              required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AssetClassRequired — assetClass exists'
+      - 'Rosetta condition: AssetClassRequired — assetClass exists'
     slots:
-    - description
+      - description
     slot_usage:
       description:
         description: A description that defines the OtherIndex.
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   PriceQuantity:
     description: Defines a settlement as an exchange between two parties of a specified quantity of an asset (the quantity)
@@ -2170,18 +2170,18 @@ classes:
       rosetta_functions: '[{"name":"InterestRateObservableCondition","description":"Implementation for PriceQuantity.InterestRateObservable
         condition.","inputs":[{"name":"pq","type":"PriceQuantity","cardinality":"1..1"}],"output":{"name":"valid","type":"boolean","cardinality":"0..1"}}]'
     comments:
-    - 'Rosetta condition: NonCurrencyQuantities — (quantity count - quantity -> unit -> currency count) <= 1 or (observable
-      -> Asset -> Commodity exists and quantity -> unit -> capacityUnit exists and (quantity count - quantity -> unit -> currency
-      count) <= 2)'
-    - 'Rosetta condition: ArithmeticOperator — if observable -> Index -> InterestRateIndex exists and price exists then price
-      -> arithmeticOperator exists'
-    - 'Rosetta condition: InterestRateObservable — InterestRateObservableCondition'
-    - 'Rosetta func: InterestRateObservableCondition — Implementation for PriceQuantity.InterestRateObservable condition.'
+      - 'Rosetta condition: NonCurrencyQuantities — (quantity count - quantity -> unit -> currency count) <= 1 or (observable
+        -> Asset -> Commodity exists and quantity -> unit -> capacityUnit exists and (quantity count - quantity -> unit ->
+        currency count) <= 2)'
+      - 'Rosetta condition: ArithmeticOperator — if observable -> Index -> InterestRateIndex exists and price exists then
+        price -> arithmeticOperator exists'
+      - 'Rosetta condition: InterestRateObservable — InterestRateObservableCondition'
+      - 'Rosetta func: InterestRateObservableCondition — Implementation for PriceQuantity.InterestRateObservable condition.'
     slots:
-    - price
-    - quantity
-    - observable
-    - effectiveDate
+      - price
+      - quantity
+      - observable
+      - effectiveDate
     slot_usage:
       price:
         range: PriceSchedule
@@ -2198,7 +2198,7 @@ classes:
           cardinality, as the effective date is usually specified in the product definition, so it may only need to be specified
           as part of the PriceQuantity in an increase/decrease scenario for an existing trade.
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   PriceComposite:
     description: Defines the inputs required to calculate a price as a simple composite of 2 other values. The inputs consist
@@ -2206,16 +2206,16 @@ classes:
       is obtained by simple composition, e.g. dirty = clean + accrued (Bond), forward rate = spot rate + forward point (FX)
       etc.
     comments:
-    - 'Rosetta condition: ArithmeticOperator — if operandType = PriceOperandEnum -> ForwardPoint or operandType = PriceOperandEnum
-      -> AccruedInterest then arithmeticOperator = ArithmeticOperationEnum -> Add or arithmeticOperator = ArithmeticOperationEnum
-      -> Subtract'
+      - 'Rosetta condition: ArithmeticOperator — if operandType = PriceOperandEnum -> ForwardPoint or operandType = PriceOperandEnum
+        -> AccruedInterest then arithmeticOperator = ArithmeticOperationEnum -> Add or arithmeticOperator = ArithmeticOperationEnum
+        -> Subtract'
     slots:
-    - baseValue
-    - operand
-    - arithmeticOperator
-    - operandType
+      - baseValue
+      - operand
+      - arithmeticOperator
+      - operandType
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   PriceSchedule:
     description: 'Specifies the price of a financial instrument in a trade as a schedule of measures. A price generically
@@ -2225,117 +2225,117 @@ classes:
       etc. This data type is generically based on a schedule and can also be used to represent a price as a single value.'
     is_a: MeasureSchedule
     rules:
-    - description: The price can be specified mutually exclusively as an operator (e.g. a spread or multiplier) or a composite.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            arithmeticOperator:
+      - description: The price can be specified mutually exclusively as an operator (e.g. a spread or multiplier) or a composite.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                arithmeticOperator:
+                  required: true
+            - slot_conditions:
+                composite:
+                  required: true
+        preconditions: {}
+      - description: If we are applying a premium to the price then we must define this as a premium in priceType.
+        preconditions:
+          slot_conditions:
+            premiumType:
               required: true
-        - slot_conditions:
-            composite:
-              required: true
-      preconditions: {}
-    - description: If we are applying a premium to the price then we must define this as a premium in priceType.
-      preconditions:
-        slot_conditions:
-          premiumType:
-            required: true
-      postconditions:
-        slot_conditions:
-          priceType:
-            equals_string: Premium
+        postconditions:
+          slot_conditions:
+            priceType:
+              equals_string: Premium
     comments:
-    - 'Rosetta condition: UnitOfAmountExists — if priceType = Variance or priceType = Volatility or priceType = Correlation
-      then unit is absent and perUnitOf is absent else unit exists and perUnitOf exists'
-    - 'Rosetta condition: PositiveAssetPrice — if (priceType = ExchangeRate or priceType = AssetPrice) and arithmeticOperator
-      is absent then value > 0 or datedValue -> value all > 0'
-    - 'Rosetta condition: PositiveSpotRate — if (priceType = ExchangeRate or priceType = AssetPrice) and composite -> baseValue
-      exists then composite -> baseValue > 0'
-    - 'Rosetta condition: PositivePremium — if priceType = Premium then value > 0'
-    - 'Rosetta condition: CurrencyUnitForInterestRate — if priceType = PriceTypeEnum -> InterestRate then unit -> currency
-      exists'
-    - 'Rosetta condition: Choice — optional choice arithmeticOperator, composite'
-    - 'Rosetta condition: Premium — if premiumType exists then priceType = Premium'
-    - 'Rosetta condition: ArithmeticOperator — arithmeticOperator <> Subtract and arithmeticOperator <> Divide'
-    - 'Rosetta condition: SpreadPrice — if arithmeticOperator = Add then priceType = AssetPrice or priceType = InterestRate'
-    - 'Rosetta condition: ForwardPoint — if composite -> operandType = ForwardPoint then priceType = ExchangeRate'
-    - 'Rosetta condition: AccruedInterest — if composite -> operandType = AccruedInterest then priceType = AssetPrice'
-    - 'Rosetta condition: InterestRateFeeType — if priceSubType = Fee or priceSubType = Rebate then priceType = InterestRate'
-    - 'Rosetta func: FilterPrice — Filter list of prices based on price type.'
+      - 'Rosetta condition: UnitOfAmountExists — if priceType = Variance or priceType = Volatility or priceType = Correlation
+        then unit is absent and perUnitOf is absent else unit exists and perUnitOf exists'
+      - 'Rosetta condition: PositiveAssetPrice — if (priceType = ExchangeRate or priceType = AssetPrice) and arithmeticOperator
+        is absent then value > 0 or datedValue -> value all > 0'
+      - 'Rosetta condition: PositiveSpotRate — if (priceType = ExchangeRate or priceType = AssetPrice) and composite -> baseValue
+        exists then composite -> baseValue > 0'
+      - 'Rosetta condition: PositivePremium — if priceType = Premium then value > 0'
+      - 'Rosetta condition: CurrencyUnitForInterestRate — if priceType = PriceTypeEnum -> InterestRate then unit -> currency
+        exists'
+      - 'Rosetta condition: Choice — optional choice arithmeticOperator, composite'
+      - 'Rosetta condition: Premium — if premiumType exists then priceType = Premium'
+      - 'Rosetta condition: ArithmeticOperator — arithmeticOperator <> Subtract and arithmeticOperator <> Divide'
+      - 'Rosetta condition: SpreadPrice — if arithmeticOperator = Add then priceType = AssetPrice or priceType = InterestRate'
+      - 'Rosetta condition: ForwardPoint — if composite -> operandType = ForwardPoint then priceType = ExchangeRate'
+      - 'Rosetta condition: AccruedInterest — if composite -> operandType = AccruedInterest then priceType = AssetPrice'
+      - 'Rosetta condition: InterestRateFeeType — if priceSubType = Fee or priceSubType = Rebate then priceType = InterestRate'
+      - 'Rosetta func: FilterPrice — Filter list of prices based on price type.'
     annotations:
       rosetta_functions: '[{"name":"FilterPrice","description":"Filter list of prices based on price type.","inputs":[{"name":"prices","type":"PriceSchedule","cardinality":"0..*"},{"name":"priceType","type":"PriceTypeEnum","cardinality":"1..1"},{"name":"arithmeticOperators","type":"ArithmeticOperationEnum","cardinality":"0..*"},{"name":"priceExpression","type":"PriceExpressionEnum","cardinality":"0..1"}],"output":{"name":"price","type":"PriceSchedule","cardinality":"0..1"}}]'
     slots:
-    - perUnitOf
-    - priceType
-    - priceSubType
-    - priceExpression
-    - composite
-    - arithmeticOperator
-    - premiumType
+      - perUnitOf
+      - priceType
+      - priceSubType
+      - priceExpression
+      - composite
+      - arithmeticOperator
+      - premiumType
     slot_usage:
       arithmeticOperator:
         description: (Optionally) When the price is to be understood as an operator to apply to an observable, i.e. a spread,
           multiplier or min/max.
         required: false
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   Price:
     description: Specifies a price as a single value to be associated to a financial product. This data type extends PriceSchedule
       and requires that only the amount value exists.
     is_a: PriceSchedule
     related_mappings:
-    - gist:Magnitude
+      - gist:Magnitude
     rules:
-    - description: The amount must exist when the price represents a single value, and steps must be absent.
-      postconditions:
-        slot_conditions:
-          value:
-            required: true
-          datedValue:
-            required: false
-      preconditions: {}
+      - description: The amount must exist when the price represents a single value, and steps must be absent.
+        postconditions:
+          slot_conditions:
+            value:
+              required: true
+            datedValue:
+              required: false
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AmountOnlyExists — value exists and datedValue is absent'
+      - 'Rosetta condition: AmountOnlyExists — value exists and datedValue is absent'
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   Basket:
     description: Defines a custom basket by referencing an identifier and its constituents.
     is_a: AssetBase
     rules:
-    - description: Asset type must be Security.
-      postconditions:
-        slot_conditions:
-          assetType:
-            equals_string: Security
-      preconditions: {}
+      - description: Asset type must be Security.
+        postconditions:
+          slot_conditions:
+            assetType:
+              equals_string: Security
+        preconditions: {}
     comments:
-    - 'Rosetta condition: AssetType — assetType = Security'
+      - 'Rosetta condition: AssetType — assetType = Security'
     slots:
-    - basketConstituent
+      - basketConstituent
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   BasketConstituent:
     description: Identifies the constituents of the basket
     is_a: Observable
     close_mappings:
-    - fpml_5_10:BasketConstituent
+      - fpml_5_10:BasketConstituent
     rules:
-    - description: To prevent endless looping, baskets of baskets are not supported.
-      postconditions:
-        slot_conditions:
-          Basket:
-            required: false
-      preconditions: {}
+      - description: To prevent endless looping, baskets of baskets are not supported.
+        postconditions:
+          slot_conditions:
+            Basket:
+              required: false
+        preconditions: {}
     comments:
-    - 'Rosetta condition: BasketsOfBaskets — Basket is absent'
+      - 'Rosetta condition: BasketsOfBaskets — Basket is absent'
     slots:
-    - quantity
-    - initialValuationPrice
-    - interimValuationPrice
-    - finalValuationPrice
+      - quantity
+      - initialValuationPrice
+      - interimValuationPrice
+      - finalValuationPrice
     slot_usage:
       quantity:
         range: NonNegativeQuantitySchedule
@@ -2343,17 +2343,17 @@ classes:
           The multiple cardinality is aligned to the one of the PriceQuantity->quantity that this quantity is referencing.
         multivalued: true
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   InformationSource:
     description: A class defining the source for a piece of information (e.g. a rate fix or an FX fixing). The attribute names
       have been adjusted from FpML to address the fact that the information is not limited to rates.
     slots:
-    - sourceProvider
-    - sourcePage
-    - sourcePageHeading
+      - sourceProvider
+      - sourcePage
+      - sourcePageHeading
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   Money:
     description: Defines a monetary amount in a specified currency.
@@ -2361,109 +2361,109 @@ classes:
     annotations:
       metadata_key: true
     close_mappings:
-    - gist:Magnitude
+      - gist:Magnitude
     comments:
-    - 'Rosetta condition: CurrencyUnitExists — unit -> currency exists'
+      - 'Rosetta condition: CurrencyUnitExists — unit -> currency exists'
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   QuotedCurrencyPair:
     description: A class that describes the composition of a rate that has been quoted or is to be quoted. This includes the
       two currencies and the quotation relationship between the two currencies and is used as a building block throughout
       the FX specification.
     slots:
-    - currency1
-    - currency2
-    - quoteBasis
+      - currency1
+      - currency2
+      - quoteBasis
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   Curve:
     deprecated: Deprecated in CDM
     rules:
-    - description: Curve
-      comments:
-      - 'Rosetta one-of: exactly one slot must be present.'
-      preconditions: {}
+      - description: Curve
+        comments:
+          - 'Rosetta one-of: exactly one slot must be present.'
+        preconditions: {}
     comments:
-    - 'Rosetta condition: Curve — one-of'
+      - 'Rosetta condition: Curve — one-of'
     slots:
-    - interestRateCurve
-    - commodityCurve
+      - interestRateCurve
+      - commodityCurve
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   InterestRateCurve:
     deprecated: Deprecated in CDM
     slots:
-    - floatingRateIndex
-    - tenor
+      - floatingRateIndex
+      - tenor
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   TransactedPrice:
     description: ' A class to represent the transacted price attributes that are positioned as part of the FpML FeeLeg.'
     slots:
-    - marketFixedRate
-    - initialPoints
-    - marketPrice
-    - quotationStyle
+      - marketFixedRate
+      - initialPoints
+      - marketPrice
+      - quotationStyle
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   ReferenceSwapCurve:
     description: A complex type used to specify the option and convertible bond option strike when expressed in reference
       to a swap curve.
     slots:
-    - swapUnwindValue
-    - makeWholeAmount
+      - swapUnwindValue
+      - makeWholeAmount
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   MakeWholeAmount:
     description: A class to specify the amount to be paid by the buyer of the option if the option is exercised prior to the
       Early Call Date (typically applicable to the convertible bond options).
     is_a: SwapCurveValuation
     slots:
-    - interpolationMethod
-    - earlyCallDate
+      - interpolationMethod
+      - earlyCallDate
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   SwapCurveValuation:
     description: A class to specify a valuation swap curve, which is used as part of the strike construct for the bond and
       convertible bond options.
     slots:
-    - floatingRateIndex
-    - indexTenor
-    - spread
-    - side
+      - floatingRateIndex
+      - indexTenor
+      - spread
+      - side
     slot_usage:
       indexTenor:
         description: The ISDA Designated Maturity, i.e. the tenor of the floating rate.
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   ValuationDates:
     description: Defines how and when a performance type option or performance type swap is to be valued, including initial,
       interim and final valuation dates.
     slots:
-    - initialValuationDate
-    - interimValuationDate
-    - finalValuationDate
+      - initialValuationDate
+      - interimValuationDate
+      - finalValuationDate
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   PerformanceValuationDates:
     description: Defines how and when a performance type option or performance type swap is to be valued.
     annotations:
       metadata_key: true
     slots:
-    - determinationMethod
-    - valuationDates
-    - valuationDate
-    - valuationTime
-    - valuationTimeType
+      - determinationMethod
+      - valuationDates
+      - valuationDate
+      - valuationTime
+      - valuationTimeType
     slot_usage:
       valuationDates:
         range: AdjustableRelativeOrPeriodicDates
@@ -2480,65 +2480,65 @@ classes:
           be able to provide just the valuationTime without valuationTimeType, which infer that this is a specific time.
         required: false
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   FxRateSourceFixing:
     description: Describes a rate source to be fixed and the date the fixing occurs
     slots:
-    - settlementRateSource
-    - fixingDate
+      - settlementRateSource
+      - fixingDate
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   FxInformationSource:
     description: Information source specific to Foreign Exchange products.
     is_a: InformationSource
     slots:
-    - fixingTime
+      - fixingTime
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   FallbackReferencePrice:
     description: The method, prioritised by the order it is listed in this element, to get a replacement rate for the disrupted
       settlement rate option.
     comments:
-    - 'Rosetta condition: MaximumDaysOfPostponement — if valuationPostponement exists then valuationPostponement -> maximumDaysOfPostponement
-      > 0'
-    - 'Rosetta condition: FallbackCalculationAgent — if calculationAgentDetermination -> calculationAgentParty exists then
-      calculationAgentDetermination -> calculationAgentParty = AncillaryRoleEnum -> CalculationAgentFallback'
+      - 'Rosetta condition: MaximumDaysOfPostponement — if valuationPostponement exists then valuationPostponement -> maximumDaysOfPostponement
+        > 0'
+      - 'Rosetta condition: FallbackCalculationAgent — if calculationAgentDetermination -> calculationAgentParty exists then
+        calculationAgentDetermination -> calculationAgentParty = AncillaryRoleEnum -> CalculationAgentFallback'
     slots:
-    - valuationPostponement
-    - fallBackSettlementRateOption
-    - fallbackSurveyValuationPostponement
-    - calculationAgentDetermination
+      - valuationPostponement
+      - fallBackSettlementRateOption
+      - fallbackSurveyValuationPostponement
+      - calculationAgentDetermination
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   ValuationPostponement:
     description: Specifies how long to wait to get a quote from a settlement rate option upon a price source disruption.
     slots:
-    - maximumDaysOfPostponement
+      - maximumDaysOfPostponement
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   FxRate:
     description: 'A class describing the rate of a currency conversion: pair of currency, quotation mode and exchange rate.'
     slots:
-    - quotedCurrencyPair
-    - rate
+      - quotedCurrencyPair
+      - rate
     slot_usage:
       quotedCurrencyPair:
         description: Defines the two currencies for an FX trade and the quotation relationship between the two currencies.
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   FxSpotRateSource:
     description: A class defining the rate source and fixing time for an FX rate.
     slots:
-    - primarySource
-    - secondarySource
+      - primarySource
+      - secondarySource
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   RateObservation:
     description: A class defining parameters associated with an individual observation or fixing. This class forms part of
@@ -2546,102 +2546,102 @@ classes:
     annotations:
       metadata_key: true
     rules:
-    - description: FpML specifies observationWeight as a positive integer.
-      preconditions:
-        slot_conditions:
-          observationWeight:
-            required: true
-      postconditions:
-        slot_conditions:
-          observationWeight:
-            minimum_value: 0
+      - description: FpML specifies observationWeight as a positive integer.
+        preconditions:
+          slot_conditions:
+            observationWeight:
+              required: true
+        postconditions:
+          slot_conditions:
+            observationWeight:
+              minimum_value: 0
     comments:
-    - 'Rosetta condition: PositiveObservationWeight — if observationWeight exists then observationWeight >= 0'
+      - 'Rosetta condition: PositiveObservationWeight — if observationWeight exists then observationWeight >= 0'
     slots:
-    - resetDate
-    - adjustedFixingDate
-    - observedRate
-    - treatedRate
-    - observationWeight
-    - rateReference
-    - forecastRate
-    - treatedForecastRate
+      - resetDate
+      - adjustedFixingDate
+      - observedRate
+      - treatedRate
+      - observationWeight
+      - rateReference
+      - forecastRate
+      - treatedForecastRate
     slot_usage:
       resetDate:
         description: The reset date.
         required: false
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   CreditNotation:
     description: Represents a class to specify the credit notation as the combination of agency, notation, scale and debt
       type qualifications.
     slots:
-    - agency
-    - notation
-    - scale
-    - debt
-    - outlook
-    - creditWatch
+      - agency
+      - notation
+      - scale
+      - debt
+      - outlook
+      - creditWatch
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   CreditNotations:
     description: Represents the credit rating notation higher level construct, which provides the ability to specify multiple
       rating notations.
     slots:
-    - creditNotation
-    - creditNotations
+      - creditNotation
+      - creditNotations
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   CreditRatingDebt:
     description: Specifies the credit rating debt type(s) associated with the credit rating notation and scale. When several
       debt types are specified, they must be qualified through an 'any' or 'all'.
     slots:
-    - debtType
-    - debtTypes
+      - debtType
+      - debtTypes
     slot_usage:
       debtType:
         range: string
         description: Specifies when there is only one debt type. FpML doesn't specify values in relation to the associated
           scheme, which is hence not specified as an enumeration as part of the CDM.
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   MultipleCreditNotations:
     description: Represetns a class to specify multiple credit notations alongside a conditional 'any' or 'all' qualifier.
     rules:
-    - description: If the mismatch resolution is ReferenceAgency, ensure that the reference agency is specified.
-      preconditions:
-        slot_conditions:
-          mismatchResolution:
-            equals_string: ReferenceAgency
-      postconditions:
-        slot_conditions:
-          referenceAgency:
-            required: true
+      - description: If the mismatch resolution is ReferenceAgency, ensure that the reference agency is specified.
+        preconditions:
+          slot_conditions:
+            mismatchResolution:
+              equals_string: ReferenceAgency
+        postconditions:
+          slot_conditions:
+            referenceAgency:
+              required: true
     comments:
-    - 'Rosetta condition: ReferenceAgency — if mismatchResolution = CreditNotationMismatchResolutionEnum -> ReferenceAgency
-      then referenceAgency exists'
+      - 'Rosetta condition: ReferenceAgency — if mismatchResolution = CreditNotationMismatchResolutionEnum -> ReferenceAgency
+        then referenceAgency exists'
     slots:
-    - condition
-    - creditNotation
-    - mismatchResolution
-    - referenceAgency
+      - condition
+      - creditNotation
+      - mismatchResolution
+      - referenceAgency
     slot_usage:
       creditNotation:
         description: At least two credit notations much be specified.
         required: true
         multivalued: true
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   MultipleDebtTypes:
     description: Represents a class to specify multiple credit debt types alongside a conditional 'any' or 'all' qualifier.
     slots:
-    - condition
-    - debtType
+      - condition
+      - debtType
     slot_usage:
       condition:
         description: An enumerated attribute, to qualify whether All or Any debt type applies.
@@ -2652,64 +2652,64 @@ classes:
         required: true
         multivalued: true
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   FxSettlementRateSource:
     description: The source of the Foreign Exchange settlement rate.
     rules:
-    - description: FxSettlementRateSourceChoice
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            settlementRateOption:
-              required: true
-        - slot_conditions:
-            nonstandardSettlementRate:
-              required: true
-      preconditions: {}
+      - description: FxSettlementRateSourceChoice
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                settlementRateOption:
+                  required: true
+            - slot_conditions:
+                nonstandardSettlementRate:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: FxSettlementRateSourceChoice — required choice settlementRateOption, nonstandardSettlementRate'
+      - 'Rosetta condition: FxSettlementRateSourceChoice — required choice settlementRateOption, nonstandardSettlementRate'
     slots:
-    - settlementRateOption
-    - nonstandardSettlementRate
+      - settlementRateOption
+      - nonstandardSettlementRate
     slot_usage:
       settlementRateOption:
         range: string
         description: Indicates that an officially defined rate settlement rate option will be the used for the fixing.
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   CalculationAgent:
     description: A class defining the ISDA calculation agent responsible for performing duties as defined in the applicable
       product definitions.
     close_mappings:
-    - fpml_5_10:CalculationAgent
+      - fpml_5_10:CalculationAgent
     rules:
-    - description: Choice rule to represent an FpML choice construct.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            calculationAgentParty:
-              required: true
-        - slot_conditions:
-            calculationAgentPartyEnum:
-              required: true
-      preconditions: {}
+      - description: Choice rule to represent an FpML choice construct.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                calculationAgentParty:
+                  required: true
+            - slot_conditions:
+                calculationAgentPartyEnum:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: CalculationAgentChoice — optional choice calculationAgentParty, calculationAgentPartyEnum'
+      - 'Rosetta condition: CalculationAgentChoice — optional choice calculationAgentParty, calculationAgentPartyEnum'
     slots:
-    - calculationAgentParty
-    - calculationAgentPartyEnum
-    - calculationAgentBusinessCenter
+      - calculationAgentParty
+      - calculationAgentPartyEnum
+      - calculationAgentBusinessCenter
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   SettlementRateOption:
     description: Defines the settlement rate option to use for fixing in case of cash settlement. Currently only applicable
       to foreign exchange fixing in case of cross-currency settlement.
     slots:
-    - settlementRateOption
-    - priceSourceDisruption
+      - settlementRateOption
+      - priceSourceDisruption
     slot_usage:
       settlementRateOption:
         range: SettlementRateOptionEnum
@@ -2720,85 +2720,85 @@ classes:
         range: PriceSourceDisruption
         description: An attribute defining the parameters to get a new quote when a settlement rate option is disrupted.
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   MultipleValuationDates:
     is_a: SingleValuationDate
     rules:
-    - description: FpML specifies businessDaysThereafter as a PositiveInteger.
-      preconditions:
-        slot_conditions:
-          businessDaysThereafter:
-            required: true
-      postconditions:
-        slot_conditions:
-          businessDaysThereafter:
-            minimum_value: 0
-    - description: FpML specifies numberValuationDates as a PositiveInteger.
-      preconditions:
-        slot_conditions:
-          numberValuationDates:
-            required: true
-      postconditions:
-        slot_conditions:
-          numberValuationDates:
-            minimum_value: 0
+      - description: FpML specifies businessDaysThereafter as a PositiveInteger.
+        preconditions:
+          slot_conditions:
+            businessDaysThereafter:
+              required: true
+        postconditions:
+          slot_conditions:
+            businessDaysThereafter:
+              minimum_value: 0
+      - description: FpML specifies numberValuationDates as a PositiveInteger.
+        preconditions:
+          slot_conditions:
+            numberValuationDates:
+              required: true
+        postconditions:
+          slot_conditions:
+            numberValuationDates:
+              minimum_value: 0
     comments:
-    - 'Rosetta condition: BusinessDaysThereafter — if businessDaysThereafter exists then businessDaysThereafter >= 0'
-    - 'Rosetta condition: NumberValuationDates — if numberValuationDates exists then numberValuationDates >= 0'
+      - 'Rosetta condition: BusinessDaysThereafter — if businessDaysThereafter exists then businessDaysThereafter >= 0'
+      - 'Rosetta condition: NumberValuationDates — if numberValuationDates exists then numberValuationDates >= 0'
     slots:
-    - businessDaysThereafter
-    - numberValuationDates
+      - businessDaysThereafter
+      - numberValuationDates
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   SingleValuationDate:
     description: A class to specify the number of business days after satisfaction of all conditions to settlement.
     rules:
-    - description: FpML specifies businessDays as a NonNegativeInteger.
-      preconditions:
-        slot_conditions:
-          businessDays:
-            required: true
-      postconditions:
-        slot_conditions:
-          businessDays:
-            minimum_value: 0
+      - description: FpML specifies businessDays as a NonNegativeInteger.
+        preconditions:
+          slot_conditions:
+            businessDays:
+              required: true
+        postconditions:
+          slot_conditions:
+            businessDays:
+              minimum_value: 0
     comments:
-    - 'Rosetta condition: NonNegativeBusinessDays — if businessDays exists then businessDays >= 0'
+      - 'Rosetta condition: NonNegativeBusinessDays — if businessDays exists then businessDays >= 0'
     slots:
-    - businessDays
+      - businessDays
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   ValuationSource:
     description: A class describing the method for obtaining a settlement rate, specified through either an information source
       (page), a settlement rate option (fixing) or by using quotes from reference banks.
     rules:
-    - description: An information source must be provided.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            informationSource:
-              required: true
-        - slot_conditions:
-            settlementRateOption:
-              required: true
-        - slot_conditions:
-            referenceBanks:
-              required: true
-        - slot_conditions:
-            dealerOrCCP:
-              required: true
-      preconditions: {}
+      - description: An information source must be provided.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                informationSource:
+                  required: true
+            - slot_conditions:
+                settlementRateOption:
+                  required: true
+            - slot_conditions:
+                referenceBanks:
+                  required: true
+            - slot_conditions:
+                dealerOrCCP:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: InformationSource — required choice informationSource, settlementRateOption, referenceBanks, dealerOrCCP'
+      - 'Rosetta condition: InformationSource — required choice informationSource, settlementRateOption, referenceBanks, dealerOrCCP'
     slots:
-    - quotedCurrencyPair
-    - informationSource
-    - settlementRateOption
-    - referenceBanks
-    - dealerOrCCP
+      - quotedCurrencyPair
+      - informationSource
+      - settlementRateOption
+      - referenceBanks
+      - dealerOrCCP
     slot_usage:
       quotedCurrencyPair:
         description: Defines the two currencies for an FX trade and the quotation relationship between the two currencies.  This
@@ -2813,62 +2813,62 @@ classes:
         description: The rate option to use for the fixing. Currently only applicable to foreign exchange fixing in case of
           cross-currency settlement.
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   PriceSourceDisruption:
     description: 'A data defining:  the parameters used to get a price quote to replace the settlement rate option that is
       disrupted.'
     slots:
-    - fallbackReferencePrice
+      - fallbackReferencePrice
     slot_usage:
       fallbackReferencePrice:
         range: FallbackReferencePrice
         required: true
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   ValuationMethod:
     description: Specifies the parameters required to obtain a valuation, including the source, quotation method (bid, mid
       etc.) and any applicable quotation amount.
     comments:
-    - 'Rosetta condition: FpML_cd_37 — if (quotationAmount -> unit -> currency exists and minimumQuotationAmount -> unit ->
-      currency exists) and quotationAmount -> unit -> currency = minimumQuotationAmount -> unit -> currency then quotationAmount
-      -> value > minimumQuotationAmount -> value'
-    - 'Rosetta condition: Dealer — if quotationAmount exists or minimumQuotationAmount exists then valuationSource -> dealerOrCCP
-      -> legalEntity exists'
+      - 'Rosetta condition: FpML_cd_37 — if (quotationAmount -> unit -> currency exists and minimumQuotationAmount -> unit
+        -> currency exists) and quotationAmount -> unit -> currency = minimumQuotationAmount -> unit -> currency then quotationAmount
+        -> value > minimumQuotationAmount -> value'
+      - 'Rosetta condition: Dealer — if quotationAmount exists or minimumQuotationAmount exists then valuationSource -> dealerOrCCP
+        -> legalEntity exists'
     slots:
-    - valuationSource
-    - quotationMethod
-    - valuationMethod
-    - quotationAmount
-    - minimumQuotationAmount
-    - cashCollateralValuationMethod
+      - valuationSource
+      - quotationMethod
+      - valuationMethod
+      - quotationAmount
+      - minimumQuotationAmount
+      - cashCollateralValuationMethod
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   CashCollateralValuationMethod:
     description: This type is a generic structure that can represent the parameters of several mid-market valuation and replacement
       value methods described in the 2021 ISDA Definitions.
     close_mappings:
-    - fpml_5_10:CashCollateralValuationMethod
+      - fpml_5_10:CashCollateralValuationMethod
     slots:
-    - applicableCsa
-    - cashCollateralCurrency
-    - cashCollateralInterestRate
-    - agreedDiscountRate
-    - protectedParty
-    - prescribedDocumentationAdjustment
+      - applicableCsa
+      - cashCollateralCurrency
+      - cashCollateralInterestRate
+      - agreedDiscountRate
+      - protectedParty
+      - prescribedDocumentationAdjustment
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   DividendApplicability:
     description: The parameters which define whether dividends are applicable
     slots:
-    - optionsExchangeDividends
-    - additionalDividends
-    - allDividends
+      - optionsExchangeDividends
+      - additionalDividends
+      - allDividends
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   Index:
     abstract: true
@@ -2876,35 +2876,35 @@ classes:
       that are tracked in a standardized way.  Examples include equity market indices as well as indices on interest rates,
       inflation and credit instruments.
     comments:
-    - Generated from Rosetta 'choice' construct — represents a union/one-of type.
+      - Generated from Rosetta 'choice' construct — represents a union/one-of type.
     union_of:
-    - CreditIndex
-    - EquityIndex
-    - InterestRateIndex
-    - ForeignExchangeRateIndex
-    - OtherIndex
+      - CreditIndex
+      - EquityIndex
+      - InterestRateIndex
+      - ForeignExchangeRateIndex
+      - OtherIndex
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   InterestRateIndex:
     abstract: true
     description: An index based in interest rates or inflation rates in a certain market.
     comments:
-    - Generated from Rosetta 'choice' construct — represents a union/one-of type.
+      - Generated from Rosetta 'choice' construct — represents a union/one-of type.
     union_of:
-    - FloatingRateIndex
-    - InflationIndex
+      - FloatingRateIndex
+      - InflationIndex
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset
 
   Observable:
     abstract: true
     description: Specifies the object to be observed for a price, it could be an asset or a reference.
     comments:
-    - Generated from Rosetta 'choice' construct — represents a union/one-of type.
+      - Generated from Rosetta 'choice' construct — represents a union/one-of type.
     union_of:
-    - Asset
-    - Basket
-    - Index
+      - Asset
+      - Basket
+      - Index
     in_subset:
-    - cdm_observable_asset
+      - cdm_observable_asset

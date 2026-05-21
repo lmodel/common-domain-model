@@ -3,10 +3,10 @@ name: cdm_legaldocumentation_transaction
 description: LinkML schema for cdm.legaldocumentation.transaction
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -16,17 +16,17 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_staticdata_party
-- ./cdm_legaldocumentation_master
-- ./cdm_legaldocumentation_transaction_additionalterms
-- ./cdm_observable_asset
-- ./cdm_product_asset
-- ./cdm_product_common_schedule
-- ./cdm_product_common_settlement
-- ./cdm_legaldocumentation_csa
-- ./cdm_base_staticdata_asset_common
-- ./cdm_legaldocumentation_common
+  - linkml:types
+  - ./cdm_base_staticdata_party
+  - ./cdm_legaldocumentation_master
+  - ./cdm_legaldocumentation_transaction_additionalterms
+  - ./cdm_observable_asset
+  - ./cdm_product_asset
+  - ./cdm_product_common_schedule
+  - ./cdm_product_common_settlement
+  - ./cdm_legaldocumentation_csa
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_legaldocumentation_common
 
 subsets:
   cdm_legaldocumentation_transaction:
@@ -36,7 +36,7 @@ enums:
   BrokerConfirmationTypeEnum:
     description: The enumerated values to specify the type of Broker Confirm that the FpML trade represents.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/broker-confirmation-type
+      - http://www.fpml.org/coding-scheme/broker-confirmation-type
     permissible_values:
       ABX:
         description: Broker Confirmation Type representing ABX index trades.
@@ -78,12 +78,12 @@ enums:
       DJ_CDX_EM_:
         description: Broker Confirmation Type for CDS Index trades relating to Dow Jones CDX.EM index series.
         aliases:
-        - 'DJ.CDX.EM '
+          - 'DJ.CDX.EM '
       DJ_CDX_NA:
         description: Broker Confirmation Type for CDS Index trades relating to Dow Jones CDX.NA.IG and Dow Jones CDX.NA.HY
           index series.
         aliases:
-        - DJ.CDX.NA
+          - DJ.CDX.NA
       EmergingEuropeanAndMiddleEasternSovereign:
         description: Broker Confirmation Type of Emerging European and Middle Eastern Sovereign.
         meaning: http://www.fpml.org/coding-scheme/broker-confirmation-type-5-0#EmergingEuropeanAndMiddleEasternSovereign
@@ -241,7 +241,7 @@ enums:
       TRX_II:
         description: Broker Confirmation Type for TRX.II Transactions.
         aliases:
-        - TRX.II
+          - TRX.II
       USMunicipalFullFaithAndCredit:
         description: Broker Confirmation Type for U.S. MUNICIPAL FULL FAITH AND CREDIT.
         meaning: http://www.fpml.org/coding-scheme/broker-confirmation-type-5-0#USMunicipalFullFaithAndCredit
@@ -379,7 +379,7 @@ slots:
   indexAdjustmentEvents:
     range: IndexAdjustmentEvents
     notes:
-    - ISDA EquityDerivativesDefinitions_2002 section "Adjustment to Indices"
+      - ISDA EquityDerivativesDefinitions_2002 section "Adjustment to Indices"
 
   additionalDisruptionEvents:
     range: AdditionalDisruptionEvents
@@ -400,61 +400,61 @@ slots:
   changeInLaw:
     range: boolean
     close_mappings:
-    - fpml_5_10:AdditionalDisruptionEvents.changeInLaw
+      - fpml_5_10:AdditionalDisruptionEvents.changeInLaw
 
   insolvencyFiling:
     range: boolean
     close_mappings:
-    - fpml_5_10:AdditionalDisruptionEvents.insolvencyFiling
+      - fpml_5_10:AdditionalDisruptionEvents.insolvencyFiling
 
   hedgingDisruption:
     range: boolean
     close_mappings:
-    - fpml_5_10:AdditionalDisruptionEvents.hedgingDisruption
+      - fpml_5_10:AdditionalDisruptionEvents.hedgingDisruption
 
   increasedCostOfHedging:
     range: boolean
     close_mappings:
-    - fpml_5_10:AdditionalDisruptionEvents.increasedCostOfHedging
+      - fpml_5_10:AdditionalDisruptionEvents.increasedCostOfHedging
 
   foreignOwnershipEvent:
     range: boolean
     close_mappings:
-    - fpml_5_10:AdditionalDisruptionEvents.foreignOwnershipEvent
+      - fpml_5_10:AdditionalDisruptionEvents.foreignOwnershipEvent
 
   lossOfStockBorrow:
     range: boolean
     close_mappings:
-    - fpml_5_10:AdditionalDisruptionEvents.lossOfStockBorrow
+      - fpml_5_10:AdditionalDisruptionEvents.lossOfStockBorrow
 
   maximumStockLoanRate:
     range: decimal
     description: Specifies the maximum stock loan rate for Loss of Stock Borrow. A percentage of 5% is represented as 0.05.
     close_mappings:
-    - fpml_5_10:AdditionalDisruptionEvents.maximumStockLoanRate
+      - fpml_5_10:AdditionalDisruptionEvents.maximumStockLoanRate
 
   increasedCostOfStockBorrow:
     range: boolean
     close_mappings:
-    - fpml_5_10:AdditionalDisruptionEvents.increasedCostOfStockBorrow
+      - fpml_5_10:AdditionalDisruptionEvents.increasedCostOfStockBorrow
 
   initialStockLoanRate:
     range: decimal
     description: Specifies the initial stock loan per ISDA Def. A percentage of 5% is represented as 0.05.
     close_mappings:
-    - fpml_5_10:AdditionalDisruptionEvents.initialStockLoanRate
+      - fpml_5_10:AdditionalDisruptionEvents.initialStockLoanRate
 
   determiningParty:
     range: AncillaryRoleEnum
     description: Specifies the party which determines additional disruption events.
     close_mappings:
-    - fpml_5_10:AdditionalDisruptionEvents.determiningParty
+      - fpml_5_10:AdditionalDisruptionEvents.determiningParty
 
   terms:
     range: string
     description: Content of this bespoke clause.
     close_mappings:
-    - fpml_5_10:Clause.terms
+      - fpml_5_10:Clause.terms
 
   subcomponents:
     range: Clause
@@ -462,7 +462,7 @@ slots:
     multivalued: true
     inlined_as_list: true
     close_mappings:
-    - fpml_5_10:Clause.subcomponents
+      - fpml_5_10:Clause.subcomponents
 
   typeOfSwapElection:
     range: ReturnTypeEnum
@@ -503,69 +503,69 @@ classes:
       rights and obligation of the parties when this happens. Such terms are typically required to extend the economics terms,
       for the purpose of producing the final legal contractual form of the Transaction.
     slots:
-    - equityAdditionalTerms
-    - foreignExchangeAdditionalTerms
-    - commoditiesAdditionalTerms
-    - creditAdditionalTerms
-    - interestRateAdditionalTerms
-    - digitalAssetAdditionalTerms
+      - equityAdditionalTerms
+      - foreignExchangeAdditionalTerms
+      - commoditiesAdditionalTerms
+      - creditAdditionalTerms
+      - interestRateAdditionalTerms
+      - digitalAssetAdditionalTerms
     in_subset:
-    - cdm_legaldocumentation_transaction
+      - cdm_legaldocumentation_transaction
 
   EquityAdditionalTerms:
     description: Transaction AdditionalTerms that apply to Equity asset class.
     slots:
-    - extraordinaryEvents
-    - determinationTerms
-    - substitutionProvision
+      - extraordinaryEvents
+      - determinationTerms
+      - substitutionProvision
     in_subset:
-    - cdm_legaldocumentation_transaction
+      - cdm_legaldocumentation_transaction
 
   UnderlierSubstitutionProvision:
     description: Where parties describe any substitution terms.
     comments:
-    - 'Rosetta condition: DisputingPartyCannotHaveOriginalRole — whoMaySubstitute all <> disputingParty'
+      - 'Rosetta condition: DisputingPartyCannotHaveOriginalRole — whoMaySubstitute all <> disputingParty'
     slots:
-    - whoMaySubstitute
-    - substitutionBeSpokeTerms
-    - substitutionTriggerEvents
-    - disputingParty
+      - whoMaySubstitute
+      - substitutionBeSpokeTerms
+      - substitutionTriggerEvents
+      - disputingParty
     in_subset:
-    - cdm_legaldocumentation_transaction
+      - cdm_legaldocumentation_transaction
 
   ExtraordinaryEvents:
     description: Where the underlying is shares, defines market events affecting the issuer of those shares that may require
       the terms of the transaction to be adjusted.
     notes:
-    - ISDA SecurityEquitySwapConfirmation_2018
-    - ISDA EquityDerivativesDefinitions_2002
+      - ISDA SecurityEquitySwapConfirmation_2018
+      - ISDA EquityDerivativesDefinitions_2002
     see_also:
-    - isda:SecurityEquitySwapConfirmation_2018
-    - isda:EquityDerivativesDefinitions_2002
+      - isda:SecurityEquitySwapConfirmation_2018
+      - isda:EquityDerivativesDefinitions_2002
     rules:
-    - description: condition to represent an FpML choice construct.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            additionalDisruptionEvents:
-              required: true
-        - slot_conditions:
-            failureToDeliver:
-              required: true
-      preconditions: {}
+      - description: condition to represent an FpML choice construct.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                additionalDisruptionEvents:
+                  required: true
+            - slot_conditions:
+                failureToDeliver:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: ExtraordinaryEventsChoice — required choice additionalDisruptionEvents, failureToDeliver'
+      - 'Rosetta condition: ExtraordinaryEventsChoice — required choice additionalDisruptionEvents, failureToDeliver'
     slots:
-    - additionalBespokeTerms
-    - mergerEvents
-    - tenderOfferEvents
-    - compositionOfCombinedConsideration
-    - indexAdjustmentEvents
-    - additionalDisruptionEvents
-    - failureToDeliver
-    - representations
-    - nationalizationOrInsolvency
-    - delisting
+      - additionalBespokeTerms
+      - mergerEvents
+      - tenderOfferEvents
+      - compositionOfCombinedConsideration
+      - indexAdjustmentEvents
+      - additionalDisruptionEvents
+      - failureToDeliver
+      - representations
+      - nationalizationOrInsolvency
+      - delisting
     slot_usage:
       additionalBespokeTerms:
         range: Clause
@@ -573,59 +573,59 @@ classes:
           Events.
         multivalued: true
     in_subset:
-    - cdm_legaldocumentation_transaction
+      - cdm_legaldocumentation_transaction
 
   AdditionalDisruptionEvents:
     description: A type for defining the Additional Disruption Events.
     notes:
-    - ISDA EquityDerivativesDefinitions_2002
+      - ISDA EquityDerivativesDefinitions_2002
     see_also:
-    - isda:EquityDerivativesDefinitions_2002
+      - isda:EquityDerivativesDefinitions_2002
     close_mappings:
-    - fpml_5_10:AdditionalDisruptionEvents
+      - fpml_5_10:AdditionalDisruptionEvents
     rules:
-    - description: ' FpML specifies the maximumStockLoanRate as a RestrictedPercentage, meaning that its value is comprised
-        between 0 and 1.'
-      preconditions:
-        slot_conditions:
-          maximumStockLoanRate:
-            required: true
-      postconditions:
-        slot_conditions:
-          maximumStockLoanRate:
-            minimum_value: 0
-            maximum_value: 1
-    - description: ' FpML specifies the initialStockLoanRate as a RestrictedPercentage, meaning that its value is comprised
-        between 0 and 1.'
-      preconditions:
-        slot_conditions:
-          initialStockLoanRate:
-            required: true
-      postconditions:
-        slot_conditions:
-          initialStockLoanRate:
-            minimum_value: 0
-            maximum_value: 1
+      - description: ' FpML specifies the maximumStockLoanRate as a RestrictedPercentage, meaning that its value is comprised
+          between 0 and 1.'
+        preconditions:
+          slot_conditions:
+            maximumStockLoanRate:
+              required: true
+        postconditions:
+          slot_conditions:
+            maximumStockLoanRate:
+              minimum_value: 0
+              maximum_value: 1
+      - description: ' FpML specifies the initialStockLoanRate as a RestrictedPercentage, meaning that its value is comprised
+          between 0 and 1.'
+        preconditions:
+          slot_conditions:
+            initialStockLoanRate:
+              required: true
+        postconditions:
+          slot_conditions:
+            initialStockLoanRate:
+              minimum_value: 0
+              maximum_value: 1
     comments:
-    - 'Rosetta condition: MaximumStockLoanRate — if maximumStockLoanRate exists then maximumStockLoanRate >= 0 and maximumStockLoanRate
-      <= 1'
-    - 'Rosetta condition: InitialStockLoanRate — if initialStockLoanRate exists then initialStockLoanRate >= 0 and initialStockLoanRate
-      <= 1'
-    - 'Rosetta condition: DisruptionEventsDeterminingParty — if determiningParty exists then determiningParty = AncillaryRoleEnum
-      -> DisruptionEventsDeterminingParty'
+      - 'Rosetta condition: MaximumStockLoanRate — if maximumStockLoanRate exists then maximumStockLoanRate >= 0 and maximumStockLoanRate
+        <= 1'
+      - 'Rosetta condition: InitialStockLoanRate — if initialStockLoanRate exists then initialStockLoanRate >= 0 and initialStockLoanRate
+        <= 1'
+      - 'Rosetta condition: DisruptionEventsDeterminingParty — if determiningParty exists then determiningParty = AncillaryRoleEnum
+        -> DisruptionEventsDeterminingParty'
     slots:
-    - changeInLaw
-    - failureToDeliver
-    - insolvencyFiling
-    - hedgingDisruption
-    - increasedCostOfHedging
-    - foreignOwnershipEvent
-    - lossOfStockBorrow
-    - maximumStockLoanRate
-    - increasedCostOfStockBorrow
-    - initialStockLoanRate
-    - determiningParty
-    - additionalBespokeTerms
+      - changeInLaw
+      - failureToDeliver
+      - insolvencyFiling
+      - hedgingDisruption
+      - increasedCostOfHedging
+      - foreignOwnershipEvent
+      - lossOfStockBorrow
+      - maximumStockLoanRate
+      - increasedCostOfStockBorrow
+      - initialStockLoanRate
+      - determiningParty
+      - additionalBespokeTerms
     slot_usage:
       additionalBespokeTerms:
         range: Clause
@@ -633,17 +633,17 @@ classes:
           Events.
         multivalued: true
     in_subset:
-    - cdm_legaldocumentation_transaction
+      - cdm_legaldocumentation_transaction
 
   Clause:
     description: A type for documenting additional clause that cannot yet be represented with the model and yet needed for
       a digital representation of the agreement.
     close_mappings:
-    - fpml_5_10:Clause
+      - fpml_5_10:Clause
     slots:
-    - identifier
-    - terms
-    - subcomponents
+      - identifier
+      - terms
+      - subcomponents
     slot_usage:
       identifier:
         range: string
@@ -651,38 +651,38 @@ classes:
         required: false
         multivalued: false
     in_subset:
-    - cdm_legaldocumentation_transaction
+      - cdm_legaldocumentation_transaction
 
   MasterConfirmationBase:
     description: Legal agreement specification for General Terms and Elections that are applicable across multiple confirmations
       and are referenced by these confirmations.
     in_subset:
-    - cdm_legaldocumentation_transaction
+      - cdm_legaldocumentation_transaction
 
   BrokerConfirmation:
     description: Identifies the market sector in which the trade has been arranged.
     slots:
-    - brokerConfirmationType
+      - brokerConfirmationType
     slot_usage:
       brokerConfirmationType:
         description: The type of broker confirmation executed between the parties.
         required: true
     in_subset:
-    - cdm_legaldocumentation_transaction
+      - cdm_legaldocumentation_transaction
 
   EquitySwapMasterConfirmation2018:
     description: Specification for the General Terms and Relationship Supplement Elections as provided in the 2018 ISDA CDM
       Equity Confirmation for Security Equity Swap.
     is_a: EquityMasterConfirmation
     slots:
-    - typeOfSwapElection
-    - pricingMethodElection
-    - linearInterpolationElection
-    - settlementTerms
-    - valuationDates
-    - equityCashSettlementDates
+      - typeOfSwapElection
+      - pricingMethodElection
+      - linearInterpolationElection
+      - settlementTerms
+      - valuationDates
+      - equityCashSettlementDates
     in_subset:
-    - cdm_legaldocumentation_transaction
+      - cdm_legaldocumentation_transaction
 
   EquityMasterConfirmation:
     description: Specification for General Terms and Elections of an Equity Master Confirmation that is applicable across
@@ -690,4 +690,4 @@ classes:
       CDM Equity Confirmation for Security Equity Swap.
     is_a: MasterConfirmationBase
     in_subset:
-    - cdm_legaldocumentation_transaction
+      - cdm_legaldocumentation_transaction

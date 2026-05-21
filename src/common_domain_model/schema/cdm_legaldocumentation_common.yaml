@@ -3,10 +3,10 @@ name: cdm_legaldocumentation_common
 description: Common legal agreement concepts.
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -16,17 +16,17 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_staticdata_identifier
-- ./cdm_base_staticdata_party
-- ./cdm_legaldocumentation_csa
-- ./cdm_legaldocumentation_master
-- ./cdm_legaldocumentation_transaction
-- ./cdm_product_collateral
-- ./cdm_base_staticdata_codelist
-- ./cdm_base_staticdata_asset_common
-- ./cdm_base_datetime
-- ./cdm_event_common
+  - linkml:types
+  - ./cdm_base_staticdata_identifier
+  - ./cdm_base_staticdata_party
+  - ./cdm_legaldocumentation_csa
+  - ./cdm_legaldocumentation_master
+  - ./cdm_legaldocumentation_transaction
+  - ./cdm_product_collateral
+  - ./cdm_base_staticdata_codelist
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_base_datetime
+  - ./cdm_event_common
 
 subsets:
   cdm_legaldocumentation_common:
@@ -201,7 +201,7 @@ enums:
       TRX_II:
         description: Standard Terms Supplement for TRX.II Transactions.
         aliases:
-        - TRX.II
+          - TRX.II
       iTraxxAsiaExJapan:
         description: Standard Terms Supplement for iTraxx Asia Excluding Japan.
       iTraxxAsiaExJapanSwaption:
@@ -246,7 +246,7 @@ enums:
   GoverningLawEnum:
     description: The enumerated values to specify the law governing the contract or legal document.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/governing-law
+      - http://www.fpml.org/coding-scheme/governing-law
     permissible_values:
       AsSpecifiedInMasterAgreement:
         description: The Governing Law is determined by reference to the relevant master agreement.
@@ -321,7 +321,7 @@ enums:
     description: The enumerated values to specify a scheme of transaction types specified in the Equity Derivatives Settlement
       Matrix.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/equity-matrix-transaction-type
+      - http://www.fpml.org/coding-scheme/equity-matrix-transaction-type
     permissible_values:
       AsiaCorporate:
         description: Matrix Transaction Type of ASIA CORPORATE.
@@ -484,7 +484,7 @@ enums:
   MatrixTypeEnum:
     description: The enumerated values to specify the identification the form of applicable matrix.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/matrix-type
+      - http://www.fpml.org/coding-scheme/matrix-type
     permissible_values:
       CreditDerivativesPhysicalSettlementMatrix:
         description: The ISDA-published Credit Derivatives Physical Settlement Matrix.
@@ -499,7 +499,7 @@ enums:
   ResourceTypeEnum:
     description: The enumerated values to specify the type of a resource (e.g. document).
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/resource-type
+      - http://www.fpml.org/coding-scheme/resource-type
     permissible_values:
       Confirmation:
         description: Document describing the legal terms of a transaction.
@@ -516,7 +516,7 @@ enums:
   LegalAgreementTypeEnum:
     description: The enumerated values to specify the legal agreement type.
     notes:
-    - AcadiaSoft AM_1_0 namingConvention "DocumentNameEnum"
+      - AcadiaSoft AM_1_0 namingConvention "DocumentNameEnum"
     permissible_values:
       BrokerConfirmation:
         description: A Broker Confirmation.
@@ -536,7 +536,7 @@ enums:
   LegalAgreementPublisherEnum:
     description: The enumerated values to specify the legal agreement publisher.
     notes:
-    - AcadiaSoft AM_1_0 namingConvention "PublisherEnum"
+      - AcadiaSoft AM_1_0 namingConvention "PublisherEnum"
     permissible_values:
       AFB:
         description: Association Française des Banques.
@@ -741,13 +741,13 @@ slots:
     description: Specification of the standard set of terms that define a legal agreement.
     required: true
     close_mappings:
-    - fpml_5_10:AgreementTerms.agreement
+      - fpml_5_10:AgreementTerms.agreement
 
   clauseLibrary:
     range: boolean
     description: Specification of whether the agreement terms have been negotiated using the clause library methodology.
     close_mappings:
-    - fpml_5_10:AgreementTerms.clauseLibrary
+      - fpml_5_10:AgreementTerms.clauseLibrary
 
   agreementTerms:
     range: AgreementTerms
@@ -804,13 +804,13 @@ slots:
     description: The legal agreement name, e.g. Credit Support Annex for Variation Margin.
     required: true
     related_mappings:
-    - icma:AM_1_0#documentName
+      - icma:AM_1_0#documentName
 
   publisher:
     range: LegalAgreementPublisherEnum
     description: The legal agreement publisher, e.g. ISDA.
     related_mappings:
-    - icma:AM_1_0#publisher
+      - icma:AM_1_0#publisher
 
   vintage:
     range: integer
@@ -818,14 +818,14 @@ slots:
       This is typically (but not necessarily) done by referencing the year, e.g. 2013 in the case of the ISDA 2013 Standard
       Credit Support Annex.
     related_mappings:
-    - icma:AM_1_0#csaVersion
+      - icma:AM_1_0#csaVersion
 
   agreementType:
     range: LegalAgreementTypeEnum
     description: Specification of the legal agreement type.
     required: true
     close_mappings:
-    - fpml_5_10:AgreementName.agreementType
+      - fpml_5_10:AgreementName.agreementType
 
   creditSupportAgreementType:
     range: CreditSupportAgreementTypeEnum
@@ -833,13 +833,13 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:AgreementName.creditSupportAgreementType
+      - fpml_5_10:AgreementName.creditSupportAgreementType
 
   creditSupportAgreementMarginType:
     range: CollateralMarginTypeEnum
     description: specifies the type of margin for which a legal agreement is named.
     close_mappings:
-    - fpml_5_10:AgreementName.creditSupportAgreementMarginType
+      - fpml_5_10:AgreementName.creditSupportAgreementMarginType
 
   contractualDefinitionsType:
     range: ContractualDefinitionsEnum
@@ -848,7 +848,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:AgreementName.contractualDefinitionsType
+      - fpml_5_10:AgreementName.contractualDefinitionsType
 
   contractualTermsSupplement:
     range: ContractualTermsSupplement
@@ -856,7 +856,7 @@ slots:
     multivalued: true
     inlined_as_list: true
     close_mappings:
-    - fpml_5_10:AgreementName.contractualTermsSupplement
+      - fpml_5_10:AgreementName.contractualTermsSupplement
 
   contractualMatrix:
     range: ContractualMatrix
@@ -867,7 +867,7 @@ slots:
     multivalued: true
     inlined_as_list: true
     close_mappings:
-    - fpml_5_10:AgreementName.contractualMatrix
+      - fpml_5_10:AgreementName.contractualMatrix
 
   masterAgreementType:
     range: MasterAgreementTypeEnum
@@ -875,7 +875,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:AgreementName.masterAgreementType
+      - fpml_5_10:AgreementName.masterAgreementType
 
   masterConfirmationType:
     range: MasterConfirmationTypeEnum
@@ -883,7 +883,7 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:AgreementName.masterConfirmationType
+      - fpml_5_10:AgreementName.masterConfirmationType
 
   masterConfirmationAnnexType:
     range: MasterConfirmationAnnexTypeEnum
@@ -891,18 +891,18 @@ slots:
     annotations:
       metadata_scheme: true
     close_mappings:
-    - fpml_5_10:AgreementName.masterConfirmationAnnexType
+      - fpml_5_10:AgreementName.masterConfirmationAnnexType
 
   otherAgreement:
     range: string
     description: Definition of an agreement that is not enumerated in the CDM.
     close_mappings:
-    - fpml_5_10:AgreementName.otherAgreement
+      - fpml_5_10:AgreementName.otherAgreement
 
   brokerConfirmationType:
     range: BrokerConfirmationTypeEnum
     close_mappings:
-    - fpml_5_10:AgreementName.brokerConfirmationType
+      - fpml_5_10:AgreementName.brokerConfirmationType
 
   agreementSet:
     range: UmbrellaAgreementSet
@@ -965,71 +965,71 @@ slots:
     range: CreditSupportAgreementElections
     description: Elections to specify a Credit Support Annex or Credit Support Deed for Intial or Variation Margin.
     any_of:
-    - range: CreditSupportAgreementInitialMarginElections
-    - range: CreditSupportAgreementVariationMarginElections
-    - range: CreditSupportAgreementLegacyElections
+      - range: CreditSupportAgreementInitialMarginElections
+      - range: CreditSupportAgreementVariationMarginElections
+      - range: CreditSupportAgreementLegacyElections
     close_mappings:
-    - fpml_5_10:Agreement.creditSupportAgreementElections
+      - fpml_5_10:Agreement.creditSupportAgreementElections
 
   collateralTransferAgreementElections:
     range: CollateralTransferAgreementElections
     description: Elections to specify a Collateral Transfer Agreement.
     close_mappings:
-    - fpml_5_10:Agreement.collateralTransferAgreementElections
+      - fpml_5_10:Agreement.collateralTransferAgreementElections
 
   securityAgreementElections:
     range: SecurityAgreementElections
     description: Elections to specify a Security agreement.
     close_mappings:
-    - fpml_5_10:Agreement.securityAgreementElections
+      - fpml_5_10:Agreement.securityAgreementElections
 
   masterAgreementSchedule:
     range: MasterAgreementSchedule
     description: Elections to specify a Master Agreement Schedule.
     close_mappings:
-    - fpml_5_10:Agreement.masterAgreementSchedule
+      - fpml_5_10:Agreement.masterAgreementSchedule
 
   transactionAdditionalTerms:
     range: TransactionAdditionalTerms
     description: Any additional terms which mainly intend to specify the extraordinary events that may affect a trade and
       the related contractual rights and obligation of the parties when this happens
     close_mappings:
-    - fpml_5_10:Agreement.transactionAdditionalTerms
+      - fpml_5_10:Agreement.transactionAdditionalTerms
 
   masterAgreementElections:
     range: MasterAgreementElections
     description: A legal representation of the different possible master agreements
     close_mappings:
-    - fpml_5_10:Agreement.masterAgreementElections
+      - fpml_5_10:Agreement.masterAgreementElections
 
 classes:
   ContractualMatrix:
     slots:
-    - matrixType
-    - matrixTerm
+      - matrixType
+      - matrixTerm
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   ContractualTermsSupplement:
     description: A contractual supplement (such as those published by ISDA) and its publication date that will apply to the
       trade.
     slots:
-    - contractualTermsSupplementType
-    - publicationDate
+      - contractualTermsSupplementType
+      - publicationDate
     slot_usage:
       publicationDate:
         range: date
         description: Specifies the publication date of the applicable version of the contractual supplement.
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   OtherAgreement:
     description: A class for defining an agreement executed between parties.
     slots:
-    - identifier
-    - otherAgreementType
-    - version
-    - date
+      - identifier
+      - otherAgreementType
+      - version
+      - date
     slot_usage:
       identifier:
         range: string
@@ -1044,7 +1044,7 @@ classes:
         required: false
         multivalued: false
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   Resource:
     description: Describes the resource that contains the media representation of a business event (i.e used for stating the
@@ -1053,57 +1053,57 @@ classes:
       the ability to associated a document in hexadecimalBinary or base64Binary until such time that actual use cases will
       come up.
     rules:
-    - description: Choice rule to represent an FpML choice construct. Note that FpML also provides the ability to have hexadecimalBinary
-        or base64Binary, which have not been implemented in Rosetta until we see actual use cases.
-      postconditions:
-        any_of:
-        - slot_conditions:
-            string:
-              required: true
-        - slot_conditions:
-            url:
-              required: true
-      preconditions: {}
+      - description: Choice rule to represent an FpML choice construct. Note that FpML also provides the ability to have hexadecimalBinary
+          or base64Binary, which have not been implemented in Rosetta until we see actual use cases.
+        postconditions:
+          any_of:
+            - slot_conditions:
+                string:
+                  required: true
+            - slot_conditions:
+                url:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: ResourceChoice — optional choice string, url'
+      - 'Rosetta condition: ResourceChoice — optional choice string, url'
     slots:
-    - resourceId
-    - resourceType
-    - language
-    - sizeInBytes
-    - length
-    - mimeType
-    - name
-    - comments
-    - string
-    - url
+      - resourceId
+      - resourceType
+      - language
+      - sizeInBytes
+      - length
+      - mimeType
+      - name
+      - comments
+      - string
+      - url
     slot_usage:
       name:
         description: The name of the resource.  It is specified as a NormalizedString in FpML.
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   ResourceLength:
     description: A class to indicate the length of the resource.
     slots:
-    - lengthUnit
-    - lengthValue
+      - lengthUnit
+      - lengthValue
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   AgreementTerms:
     description: Specification of the content of a legal agreement.
     close_mappings:
-    - fpml_5_10:AgreementTerms
+      - fpml_5_10:AgreementTerms
     slots:
-    - agreement
-    - clauseLibrary
-    - counterparty
+      - agreement
+      - clauseLibrary
+      - counterparty
     slot_usage:
       counterparty:
         description: Specification of the roles of the counterparties to the agreement.
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   LegalAgreement:
     description: The specification of a legal agreement between two parties, being negotiated or having been executed. This
@@ -1113,48 +1113,49 @@ classes:
     annotations:
       metadata_key: true
     rules:
-    - description: Either the Agreement Terms (i.e. a bilateral or one way agreement) or an Umbrella Agreement (i.e. an agreement
-        where multiple parties and variations of terms are described within a single document but represent multiple agreements
-        for operational purposes) should be included, but not both.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            agreementTerms:
-              required: true
-        - slot_conditions:
-            umbrellaAgreement:
-              required: true
-      preconditions: {}
+      - description: Either the Agreement Terms (i.e. a bilateral or one way agreement) or an Umbrella Agreement (i.e. an
+          agreement where multiple parties and variations of terms are described within a single document but represent multiple
+          agreements for operational purposes) should be included, but not both.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                agreementTerms:
+                  required: true
+            - slot_conditions:
+                umbrellaAgreement:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: ConsistentlyExecutedAgreements — if relatedAgreements exists and agreementDate exists then relatedAgreements
-      -> agreementDate exists'
-    - 'Rosetta condition: AgreementVerification — if agreementTerms -> agreement -> securityAgreementElections exists then
-      legalAgreementIdentification -> agreementName -> agreementType = LegalAgreementTypeEnum -> SecurityAgreement else if
-      agreementTerms -> agreement -> creditSupportAgreementElections exists then legalAgreementIdentification -> agreementName
-      -> creditSupportAgreementType = CreditSupportAgreementTypeEnum -> CreditSupportAnnex or legalAgreementIdentification
-      -> agreementName -> creditSupportAgreementType = CreditSupportAgreementTypeEnum -> CreditSupportDeed else if agreementTerms
-      -> agreement -> collateralTransferAgreementElections exists then legalAgreementIdentification -> agreementName -> creditSupportAgreementType
-      = CreditSupportAgreementTypeEnum -> CollateralTransferAgreement else if agreementTerms -> agreement -> masterAgreementSchedule
-      exists then legalAgreementIdentification -> agreementName -> agreementType = LegalAgreementTypeEnum -> MasterAgreement'
-    - 'Rosetta condition: AgreementType — required choice agreementTerms, umbrellaAgreement'
+      - 'Rosetta condition: ConsistentlyExecutedAgreements — if relatedAgreements exists and agreementDate exists then relatedAgreements
+        -> agreementDate exists'
+      - 'Rosetta condition: AgreementVerification — if agreementTerms -> agreement -> securityAgreementElections exists then
+        legalAgreementIdentification -> agreementName -> agreementType = LegalAgreementTypeEnum -> SecurityAgreement else
+        if agreementTerms -> agreement -> creditSupportAgreementElections exists then legalAgreementIdentification -> agreementName
+        -> creditSupportAgreementType = CreditSupportAgreementTypeEnum -> CreditSupportAnnex or legalAgreementIdentification
+        -> agreementName -> creditSupportAgreementType = CreditSupportAgreementTypeEnum -> CreditSupportDeed else if agreementTerms
+        -> agreement -> collateralTransferAgreementElections exists then legalAgreementIdentification -> agreementName ->
+        creditSupportAgreementType = CreditSupportAgreementTypeEnum -> CollateralTransferAgreement else if agreementTerms
+        -> agreement -> masterAgreementSchedule exists then legalAgreementIdentification -> agreementName -> agreementType
+        = LegalAgreementTypeEnum -> MasterAgreement'
+      - 'Rosetta condition: AgreementType — required choice agreementTerms, umbrellaAgreement'
     slots:
-    - agreementTerms
-    - relatedAgreements
-    - umbrellaAgreement
+      - agreementTerms
+      - relatedAgreements
+      - umbrellaAgreement
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   LegalAgreementBase:
     description: Specifies the legal agreement baseline information, being negotiated or having been executed. It excludes
       specialized elections
     slots:
-    - agreementDate
-    - effectiveDate
-    - identifier
-    - legalAgreementIdentification
-    - contractualParty
-    - otherParty
-    - attachment
+      - agreementDate
+      - effectiveDate
+      - identifier
+      - legalAgreementIdentification
+      - contractualParty
+      - otherParty
+      - attachment
     slot_usage:
       effectiveDate:
         description: The date on which, or as of which, the agreement is effective, if different from the agreement date.
@@ -1166,131 +1167,131 @@ classes:
         description: The legal agreement identifier. Several identifiers can be specified.
         required: false
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   LegalAgreementIdentification:
     description: 'Specifies the type of legal agreement, identified via a set of composable attributes: agreementName, publisher,
       governing law and version, e.g. ISDA 2013 Standard Credit Support Annex English Law.'
     comments:
-    - 'Rosetta condition: CSAMarginType — if agreementName -> creditSupportAgreementMarginType exists then agreementName ->
-      creditSupportAgreementType exists and vintage >= 2016'
+      - 'Rosetta condition: CSAMarginType — if agreementName -> creditSupportAgreementMarginType exists then agreementName
+        -> creditSupportAgreementType exists and vintage >= 2016'
     slots:
-    - governingLaw
-    - agreementName
-    - publisher
-    - vintage
+      - governingLaw
+      - agreementName
+      - publisher
+      - vintage
     slot_usage:
       governingLaw:
         description: The law governing the legal agreement, e.g. English Law, New York Law or Japanese Law.
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   AgreementName:
     description: Specifies the agreement name through an agreement type and optional detailed sub agreement type.
     close_mappings:
-    - fpml_5_10:AgreementName
+      - fpml_5_10:AgreementName
     rules:
-    - description: A condition to ensure that the credit supoort agreement type is specified when required.
-      preconditions:
-        slot_conditions:
-          agreementType:
-            equals_string: CreditSupportAgreement
-      postconditions:
-        slot_conditions:
-          creditSupportAgreementType:
-            required: true
-    - description: If a master confirmation annex type is specified a master confirmation type must exist.
-      preconditions:
-        slot_conditions:
-          masterConfirmationAnnexType:
-            required: true
-      postconditions:
-        slot_conditions:
-          masterConfirmationType:
-            required: true
-    - description: A condition to ensure that CSA margin type is only specified if a credit support agreemnt type is specified.
-      preconditions:
-        slot_conditions:
-          creditSupportAgreementMarginType:
-            required: true
-      postconditions:
-        slot_conditions:
-          creditSupportAgreementType:
-            required: true
+      - description: A condition to ensure that the credit supoort agreement type is specified when required.
+        preconditions:
+          slot_conditions:
+            agreementType:
+              equals_string: CreditSupportAgreement
+        postconditions:
+          slot_conditions:
+            creditSupportAgreementType:
+              required: true
+      - description: If a master confirmation annex type is specified a master confirmation type must exist.
+        preconditions:
+          slot_conditions:
+            masterConfirmationAnnexType:
+              required: true
+        postconditions:
+          slot_conditions:
+            masterConfirmationType:
+              required: true
+      - description: A condition to ensure that CSA margin type is only specified if a credit support agreemnt type is specified.
+        preconditions:
+          slot_conditions:
+            creditSupportAgreementMarginType:
+              required: true
+        postconditions:
+          slot_conditions:
+            creditSupportAgreementType:
+              required: true
     comments:
-    - 'Rosetta condition: AgreementType — if agreementType <> LegalAgreementTypeEnum -> Other then otherAgreement is absent
-      else if agreementType <> LegalAgreementTypeEnum -> MasterAgreement then masterAgreementType is absent else if agreementType
-      <> LegalAgreementTypeEnum -> MasterConfirmation then masterConfirmationType is absent and masterConfirmationAnnexType
-      is absent else if agreementType <> LegalAgreementTypeEnum -> Confirmation then contractualDefinitionsType is absent
-      and contractualTermsSupplement is absent and contractualMatrix is absent'
-    - 'Rosetta condition: CreditSupportAgreement — if agreementType = LegalAgreementTypeEnum -> CreditSupportAgreement then
-      creditSupportAgreementType exists'
-    - 'Rosetta condition: MasterConfirmation — if masterConfirmationAnnexType exists then masterConfirmationType exists'
-    - 'Rosetta condition: CSAMarginType — if creditSupportAgreementMarginType exists then creditSupportAgreementType exists'
+      - 'Rosetta condition: AgreementType — if agreementType <> LegalAgreementTypeEnum -> Other then otherAgreement is absent
+        else if agreementType <> LegalAgreementTypeEnum -> MasterAgreement then masterAgreementType is absent else if agreementType
+        <> LegalAgreementTypeEnum -> MasterConfirmation then masterConfirmationType is absent and masterConfirmationAnnexType
+        is absent else if agreementType <> LegalAgreementTypeEnum -> Confirmation then contractualDefinitionsType is absent
+        and contractualTermsSupplement is absent and contractualMatrix is absent'
+      - 'Rosetta condition: CreditSupportAgreement — if agreementType = LegalAgreementTypeEnum -> CreditSupportAgreement then
+        creditSupportAgreementType exists'
+      - 'Rosetta condition: MasterConfirmation — if masterConfirmationAnnexType exists then masterConfirmationType exists'
+      - 'Rosetta condition: CSAMarginType — if creditSupportAgreementMarginType exists then creditSupportAgreementType exists'
     slots:
-    - agreementType
-    - creditSupportAgreementType
-    - creditSupportAgreementMarginType
-    - contractualDefinitionsType
-    - contractualTermsSupplement
-    - contractualMatrix
-    - masterAgreementType
-    - masterConfirmationType
-    - masterConfirmationAnnexType
-    - otherAgreement
-    - brokerConfirmationType
+      - agreementType
+      - creditSupportAgreementType
+      - creditSupportAgreementMarginType
+      - contractualDefinitionsType
+      - contractualTermsSupplement
+      - contractualMatrix
+      - masterAgreementType
+      - masterConfirmationType
+      - masterConfirmationAnnexType
+      - otherAgreement
+      - brokerConfirmationType
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   UmbrellaAgreement:
     description: Specifies the set of agreements, the parties of which are set within UmbrellaAgreementSet, beyond the two
       contracting parties to that agreement.
     slots:
-    - agreementSet
+      - agreementSet
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   UmbrellaAgreementParty:
     description: Specifies the entities that are part of the umbrella agreement.
     rules:
-    - description: Specifies that certain defined roles require that a parent party is identified.
-      preconditions:
-        slot_conditions:
-          partyRole:
-            equals_string: Sleeve
-      postconditions:
-        slot_conditions:
-          parentParty:
-            required: true
-    - description: Only a Party or a non-Legal entity can be set.
-      postconditions:
-        exactly_one_of:
-        - slot_conditions:
-            party:
+      - description: Specifies that certain defined roles require that a parent party is identified.
+        preconditions:
+          slot_conditions:
+            partyRole:
+              equals_string: Sleeve
+        postconditions:
+          slot_conditions:
+            parentParty:
               required: true
-        - slot_conditions:
+      - description: Only a Party or a non-Legal entity can be set.
+        postconditions:
+          exactly_one_of:
+            - slot_conditions:
+                party:
+                  required: true
+            - slot_conditions:
+                nonLegalEntity:
+                  required: true
+        preconditions: {}
+      - description: Non-Legal entity must have a Parent Party.
+        preconditions:
+          slot_conditions:
             nonLegalEntity:
               required: true
-      preconditions: {}
-    - description: Non-Legal entity must have a Parent Party.
-      preconditions:
-        slot_conditions:
-          nonLegalEntity:
-            required: true
-      postconditions:
-        slot_conditions:
-          parentParty:
-            required: true
+        postconditions:
+          slot_conditions:
+            parentParty:
+              required: true
     comments:
-    - 'Rosetta condition: ParentParty — if partyRole = UmbrellaPartyRoleEnum -> Sleeve then parentParty exists'
-    - 'Rosetta condition: UmbrellaParty — required choice party, nonLegalEntity'
-    - 'Rosetta condition: NonLegalEntityParent — if nonLegalEntity exists then parentParty exists'
+      - 'Rosetta condition: ParentParty — if partyRole = UmbrellaPartyRoleEnum -> Sleeve then parentParty exists'
+      - 'Rosetta condition: UmbrellaParty — required choice party, nonLegalEntity'
+      - 'Rosetta condition: NonLegalEntityParent — if nonLegalEntity exists then parentParty exists'
     slots:
-    - party
-    - actingAs
-    - partyRole
-    - nonLegalEntity
-    - parentParty
+      - party
+      - actingAs
+      - partyRole
+      - nonLegalEntity
+      - parentParty
     slot_usage:
       party:
         range: Party
@@ -1300,14 +1301,14 @@ classes:
         description: Represents the legal role that each defined entity to the agreement performs within the structure of
           that agreement.
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   NonLegalEntity:
     description: Specifies a non-legal entity that exists in the agreement with a defined relationship to a Legal entity to
       the agreement
     slots:
-    - identifier
-    - identifierType
+      - identifier
+      - identifierType
     slot_usage:
       identifier:
         range: string
@@ -1319,18 +1320,18 @@ classes:
         description: Specifies the Identifier type for a non-Legal entity to the agreement, for example the use of an alert
           code to uniquely identify a non-Legal entity.
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   UmbrellaAgreementSet:
     description: Represents the groups of agreement term elections that exist within the agreement and to which entities that
       particular group of elections apply. Where all entities under the umbrella have the same set of elections only one agreement
       set will exist. At least one agreement set must be defined for an Umbrella agreement
     comments:
-    - 'Rosetta condition: ExcludeGMSLA — agreement -> masterAgreementElections -> islaGmsla is absent'
+      - 'Rosetta condition: ExcludeGMSLA — agreement -> masterAgreementElections -> islaGmsla is absent'
     slots:
-    - agreement
-    - party
-    - additionalLanguage
+      - agreement
+      - party
+      - additionalLanguage
     slot_usage:
       party:
         range: UmbrellaAgreementParty
@@ -1340,51 +1341,51 @@ classes:
         required: true
         multivalued: true
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   ContactInformationElection:
     description: Specifies the party reference and the associated contact information.
     slots:
-    - partyReference
-    - primaryContactInformation
+      - partyReference
+      - primaryContactInformation
     slot_usage:
       partyReference:
         range: CounterpartyRoleEnum
         description: The party to which the election and details apply.
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   NoticeInformationElection:
     description: Specifies the party reference and the associated notice and contact information.
     is_a: ContactInformationElection
     slots:
-    - additionalContactInformation
+      - additionalContactInformation
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   NoticeContactInformation:
     description: Specifies notice information including address and, optionally, an associated person. This type also supports
       the ISDA CSA representation as a single string, through the address attribute in Contact Information.
     is_a: ContactInformation
     slots:
-    - naturalPerson
-    - additionalInformation
+      - naturalPerson
+      - additionalInformation
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   TransferInformationElection:
     description: Specifies the party reference and the associated transfer & contact information.
     is_a: ContactInformationElection
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   TransferContactInformation:
     description: Specifies transfer information including address and, optionally, an associated account. This type also supports
       the ISDA CSA representation as a single string, through the address attribute in Contact Information.
     is_a: ContactInformation
     slots:
-    - account
-    - additionalInformation
+      - account
+      - additionalInformation
     slot_usage:
       account:
         description: Specifies the account infomation for transfers to a party.
@@ -1392,54 +1393,54 @@ classes:
       additionalInformation:
         description: Additional transfer information.
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   OtherAgreementTerms:
     description: 'A class to specify a related legal agreement. For example, ISDA 2016 Credit Support Annex for Initial Margin,
       paragraph 13, General Principles, (s): Other CSA and Japanese Law CSA (VM). | ISDA 2016 Credit Support Annex for Variation
       Margin, paragraph 13, (o): Other CSA.'
     rules:
-    - description: A data rule to enforce that the related legal agreement should not be referenced if it is deemed as not
-        specified as part of the boolean attribute.
-      preconditions:
-        slot_conditions:
-          isSpecified:
-            equals_string: 'False'
-      postconditions:
-        slot_conditions:
-          legalDocument:
-            required: false
-    - description: A data rule to enforce that the related legal agreement should be referenced if it is deemed as specified
-        as part of the boolean attribute.
-      preconditions:
-        slot_conditions:
-          isSpecified:
-            equals_string: 'True'
-      postconditions:
-        slot_conditions:
-          legalDocument:
-            required: true
+      - description: A data rule to enforce that the related legal agreement should not be referenced if it is deemed as not
+          specified as part of the boolean attribute.
+        preconditions:
+          slot_conditions:
+            isSpecified:
+              equals_string: 'False'
+        postconditions:
+          slot_conditions:
+            legalDocument:
+              required: false
+      - description: A data rule to enforce that the related legal agreement should be referenced if it is deemed as specified
+          as part of the boolean attribute.
+        preconditions:
+          slot_conditions:
+            isSpecified:
+              equals_string: 'True'
+        postconditions:
+          slot_conditions:
+            legalDocument:
+              required: true
     comments:
-    - 'Rosetta condition: LegalDocumentNotSpecified — if isSpecified = False then legalDocument is absent'
-    - 'Rosetta condition: LegalDocumentSpecified — if isSpecified = True then legalDocument exists'
+      - 'Rosetta condition: LegalDocumentNotSpecified — if isSpecified = False then legalDocument is absent'
+      - 'Rosetta condition: LegalDocumentSpecified — if isSpecified = True then legalDocument exists'
     slots:
-    - isSpecified
-    - legalDocument
+      - isSpecified
+      - legalDocument
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common
 
   Agreement:
     description: Specification of the standard set of terms that define a legal agreement.
     close_mappings:
-    - fpml_5_10:Agreement
+      - fpml_5_10:Agreement
     exact_mappings:
-    - gist:Agreement
+      - gist:Agreement
     slots:
-    - creditSupportAgreementElections
-    - collateralTransferAgreementElections
-    - securityAgreementElections
-    - masterAgreementSchedule
-    - transactionAdditionalTerms
-    - masterAgreementElections
+      - creditSupportAgreementElections
+      - collateralTransferAgreementElections
+      - securityAgreementElections
+      - masterAgreementSchedule
+      - transactionAdditionalTerms
+      - masterAgreementElections
     in_subset:
-    - cdm_legaldocumentation_common
+      - cdm_legaldocumentation_common

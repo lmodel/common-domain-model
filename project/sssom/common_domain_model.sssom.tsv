@@ -2,9 +2,9 @@
 #mapping_set_id: https://w3id.org/lmodel/common-domain-model
 #mapping_tool: https://w3id.org/linkml/
 #creator_id: linkml_user
-#mapping_date: 2026-05-20
+#mapping_date: 2026-05-21
 #curie_map: 
-# common_domain_model: https://w3id.org/lmodel/common_domain_model/
+# common_domain_model: https://w3id.org/lmodel/common-domain-model/
 # linkml: https://w3id.org/linkml/
 # schema: http://schema.org/
 # fpml: http://www.fpml.org/coding-scheme/

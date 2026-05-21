@@ -3,10 +3,10 @@ name: cdm_legaldocumentation_master
 description: Master agreement concepts.
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -14,14 +14,14 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_staticdata_party
-- ./cdm_event_position
-- ./cdm_base_staticdata_asset_common
-- ./cdm_event_common
-- ./cdm_legaldocumentation_common
-- ./cdm_legaldocumentation_csa
-- ./cdm_base_math
+  - linkml:types
+  - ./cdm_base_staticdata_party
+  - ./cdm_event_position
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_event_common
+  - ./cdm_legaldocumentation_common
+  - ./cdm_legaldocumentation_csa
+  - ./cdm_base_math
 
 subsets:
   cdm_legaldocumentation_master:
@@ -31,7 +31,7 @@ enums:
   MasterAgreementTypeEnum:
     description: The enumerated values to specify the type of the master agreement governing the transaction.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/master-agreement-type
+      - http://www.fpml.org/coding-scheme/master-agreement-type
     permissible_values:
       AFB:
         description: AFB Master Agreement for Foreign Exchange and Derivatives Transactions
@@ -82,15 +82,15 @@ enums:
       IETA_ERPA:
         description: International Emissions Trading Association Emissions Reduction Purchase Agreement
         aliases:
-        - IETA-ERPA
+          - IETA-ERPA
       IETA_ETMA:
         description: International Emissions Trading Association Emissions Trading Master Agreement
         aliases:
-        - IETA-ETMA
+          - IETA-ETMA
       IETA_IETMA:
         description: International Emissions Trading Association International Emissions Trading Master Agreement
         aliases:
-        - IETA-IETMA
+          - IETA-IETMA
       IFEMA:
         description: International Foreign Exchange Master Agreement
         meaning: http://www.fpml.org/coding-scheme/master-agreement-type-3-2#IFEMA
@@ -102,11 +102,11 @@ enums:
       ISDAFIA_CDEA:
         description: ISDA-FIA Cleared Derivatives Execution Agreement
         aliases:
-        - ISDAFIA-CDEA
+          - ISDAFIA-CDEA
       ISDAIIFM_TMA:
         description: ISDA/IIFM Tahawwut (Hedging) Master Agreement (TMA)
         aliases:
-        - ISDAIIFM-TMA
+          - ISDAIIFM-TMA
       JSCC:
         description: Master agreement of Japan Securities Clearing Corporation
         meaning: http://www.fpml.org/coding-scheme/master-agreement-type-3-2#JSCC
@@ -148,7 +148,7 @@ enums:
     description: The enumerated values to specify the type of annex to be used with master confirmation agreement governing
       the transaction.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/master-confirmation-annex-type
+      - http://www.fpml.org/coding-scheme/master-confirmation-annex-type
     permissible_values:
       ISDA2004IndexVarianceSwapAmericasInterdealer:
         description: The Index Variance Swap 2004 Annex to the ISDA 2004 Americas Interdealer Master Equity Derivatives Confirmation
@@ -248,191 +248,191 @@ enums:
     description: The enumerated values to specify the type of master confirmation agreement governing the transaction. While
       FpML positions the date a prefix, the CDM positions it as the suffix to handle grammar type constraints.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/master-confirmation-type
+      - http://www.fpml.org/coding-scheme/master-confirmation-type
     permissible_values:
       _2003CreditIndex:
         description: Used for CDS Index trades. Relevant Master Confirmation determined by the contents of the creditDefaultSwap
           element. Best practice is to use the most specific code that applies.
         aliases:
-        - 2003CreditIndex
+          - 2003CreditIndex
       _2004EquityEuropeanInterdealer:
         description: A privately negotiated European Interdealer Master Confirmation Agreement applies.
         aliases:
-        - 2004EquityEuropeanInterdealer
+          - 2004EquityEuropeanInterdealer
       _2005VarianceSwapEuropeanInterdealer:
         description: A privately negotiated European Interdealer Master Confirmation Agreement applies.
         aliases:
-        - 2005VarianceSwapEuropeanInterdealer
+          - 2005VarianceSwapEuropeanInterdealer
       _2006DividendSwapEuropean:
         description: A European Interdealer Master Confirmation Agreement not defined by ISDA, and modified by the parties
           to the transaction applies.
         aliases:
-        - 2006DividendSwapEuropean
+          - 2006DividendSwapEuropean
       _2006DividendSwapEuropeanInterdealer:
         description: A European Interdealer Master Confirmation Agreement not defined by ISDA applies.
         aliases:
-        - 2006DividendSwapEuropeanInterdealer
+          - 2006DividendSwapEuropeanInterdealer
       _2014CreditAsia:
         description: Dummy MCA value mirroring the matrix term value AsiaCorporate.
         aliases:
-        - 2014CreditAsia
+          - 2014CreditAsia
       _2014CreditAsiaFinancial:
         description: Dummy MCA value mirroring the matrix term value AsiaFinancialCorporate.
         aliases:
-        - 2014CreditAsiaFinancial
+          - 2014CreditAsiaFinancial
       _2014CreditAustraliaNewZealand:
         description: Dummy MCA value mirroring the matrix term value AustraliaCorporate/NewZealandCorporate.
         aliases:
-        - 2014CreditAustraliaNewZealand
+          - 2014CreditAustraliaNewZealand
       _2014CreditAustraliaNewZealandFinancial:
         description: Dummy MCA value mirroring the matrix term value AustraliaFinancialCorporate/NewZealandFinancialCorporate.
         aliases:
-        - 2014CreditAustraliaNewZealandFinancial
+          - 2014CreditAustraliaNewZealandFinancial
       _2014CreditEuropean:
         description: Dummy MCA value mirroring the matrix term value EuropeanCorporate.
         aliases:
-        - 2014CreditEuropean
+          - 2014CreditEuropean
       _2014CreditEuropeanCoCoFinancial:
         description: Dummy MCA value mirroring the matrix term value EuropeanCoCoFinancialCorporate.
         aliases:
-        - 2014CreditEuropeanCoCoFinancial
+          - 2014CreditEuropeanCoCoFinancial
       _2014CreditEuropeanFinancial:
         description: Dummy MCA value mirroring the matrix term value EuropeanFinancialCorporate.
         aliases:
-        - 2014CreditEuropeanFinancial
+          - 2014CreditEuropeanFinancial
       _2014CreditJapan:
         description: Dummy MCA value mirroring the matrix term value JapanCorporate.
         aliases:
-        - 2014CreditJapan
+          - 2014CreditJapan
       _2014CreditJapanFinancial:
         description: Dummy MCA value mirroring the matrix term value JapanFinancialCorporate.
         aliases:
-        - 2014CreditJapanFinancial
+          - 2014CreditJapanFinancial
       _2014CreditNorthAmerican:
         description: Dummy MCA value mirroring the matrix term value NorthAmericanCorporate.
         aliases:
-        - 2014CreditNorthAmerican
+          - 2014CreditNorthAmerican
       _2014CreditNorthAmericanFinancial:
         description: Dummy MCA value mirroring the matrix term value NorthAmericanFinancialCorporate.
         aliases:
-        - 2014CreditNorthAmericanFinancial
+          - 2014CreditNorthAmericanFinancial
       _2014CreditSingapore:
         description: Dummy MCA value mirroring the matrix term values SingaporeCorporate.
         aliases:
-        - 2014CreditSingapore
+          - 2014CreditSingapore
       _2014CreditSingaporeFinancial:
         description: Dummy MCA value mirroring the matrix term values SingaporeFinancialCorporate.
         aliases:
-        - 2014CreditSingaporeFinancial
+          - 2014CreditSingaporeFinancial
       _2014CreditSovereignAsia:
         description: Dummy MCA value mirroring the matrix term value AsiaSovereign.
         aliases:
-        - 2014CreditSovereignAsia
+          - 2014CreditSovereignAsia
       _2014CreditSovereignEmergingEuropeanAndMiddleEastern:
         description: Dummy MCA value mirroring the matrix term value EmergingEuropeanAndMiddleEasternSovereign.
         aliases:
-        - 2014CreditSovereignEmergingEuropeanAndMiddleEastern
+          - 2014CreditSovereignEmergingEuropeanAndMiddleEastern
       _2014CreditSovereignJapan:
         description: Dummy MCA value mirroring the matrix term value JapanSovereign.
         aliases:
-        - 2014CreditSovereignJapan
+          - 2014CreditSovereignJapan
       _2014CreditSovereignLatinAmerican:
         description: Dummy MCA value mirroring the matrix term value LatinAmericaSovereign.
         aliases:
-        - 2014CreditSovereignLatinAmerican
+          - 2014CreditSovereignLatinAmerican
       _2014CreditSovereignWesternEuropean:
         description: Dummy MCA value mirroring the matrix term value WesternEuropeanSovereign.
         aliases:
-        - 2014CreditSovereignWesternEuropean
+          - 2014CreditSovereignWesternEuropean
       _2014StandardCreditAsia:
         description: Dummy MCA value mirroring the matrix term values StandardAsiaCorporate.
         aliases:
-        - 2014StandardCreditAsia
+          - 2014StandardCreditAsia
       _2014StandardCreditAsiaFinancial:
         description: Dummy MCA value mirroring the matrix term values StandardAsiaFinancialCorporate.
         aliases:
-        - 2014StandardCreditAsiaFinancial
+          - 2014StandardCreditAsiaFinancial
       _2014StandardCreditAustraliaNewZealand:
         description: Dummy MCA value mirroring the matrix term values StandardAustraliaCorporate and StandardNewZealandCorporate.
         aliases:
-        - 2014StandardCreditAustraliaNewZealand
+          - 2014StandardCreditAustraliaNewZealand
       _2014StandardCreditAustraliaNewZealandFinancial:
         description: Dummy MCA value mirroring the matrix term values StandardAustraliaFinancialCorporate and StandardNewZealandFinancialCorporate.
         aliases:
-        - 2014StandardCreditAustraliaNewZealandFinancial
+          - 2014StandardCreditAustraliaNewZealandFinancial
       _2014StandardCreditEuropean:
         description: Dummy MCA value mirroring the matrix term value StandardEuropeanCorporate.
         aliases:
-        - 2014StandardCreditEuropean
+          - 2014StandardCreditEuropean
       _2014StandardCreditEuropeanCoCoFinancial:
         description: Dummy MCA value mirroring the matrix term value StandardEuropeanCoCoFinancialCorporate.
         aliases:
-        - 2014StandardCreditEuropeanCoCoFinancial
+          - 2014StandardCreditEuropeanCoCoFinancial
       _2014StandardCreditEuropeanFinancial:
         description: Dummy MCA value mirroring the matrix term value StandardEuropeanFinancialCorporate.
         aliases:
-        - 2014StandardCreditEuropeanFinancial
+          - 2014StandardCreditEuropeanFinancial
       _2014StandardCreditJapan:
         description: Dummy MCA value mirroring the matrix term values StandardJapanCorporate.
         aliases:
-        - 2014StandardCreditJapan
+          - 2014StandardCreditJapan
       _2014StandardCreditJapanFinancial:
         description: Dummy MCA value mirroring the matrix term value StandardJapanFinancialCorporate.
         aliases:
-        - 2014StandardCreditJapanFinancial
+          - 2014StandardCreditJapanFinancial
       _2014StandardCreditNorthAmerican:
         description: Dummy MCA value mirroring the matrix term value StandardNorthAmericanCorporate.
         aliases:
-        - 2014StandardCreditNorthAmerican
+          - 2014StandardCreditNorthAmerican
       _2014StandardCreditNorthAmericanFinancial:
         description: Dummy MCA value mirroring the matrix term value standardNorthAmericanFinancialCorporate.
         aliases:
-        - 2014StandardCreditNorthAmericanFinancial
+          - 2014StandardCreditNorthAmericanFinancial
       _2014StandardCreditSingapore:
         description: Dummy MCA value mirroring the matrix term values StandardSingaporeCorporate.
         aliases:
-        - 2014StandardCreditSingapore
+          - 2014StandardCreditSingapore
       _2014StandardCreditSingaporeFinancial:
         description: Dummy MCA value mirroring the matrix term value StandardSingaporeFinancialCorporate.
         aliases:
-        - 2014StandardCreditSingaporeFinancial
+          - 2014StandardCreditSingaporeFinancial
       _2014StandardCreditSovereignAsia:
         description: Dummy MCA value mirroring the matrix term value StandardAsiaSovereign.
         aliases:
-        - 2014StandardCreditSovereignAsia
+          - 2014StandardCreditSovereignAsia
       _2014StandardCreditSovereignEmergingEuropeanAndMiddleEastern:
         description: Dummy MCA value mirroring the matrix term value StandardEmergingEuropeanAndMiddleEasternSovereign.
         aliases:
-        - 2014StandardCreditSovereignEmergingEuropeanAndMiddleEastern
+          - 2014StandardCreditSovereignEmergingEuropeanAndMiddleEastern
       _2014StandardCreditSovereignJapan:
         description: Dummy MCA value mirroring the matrix term values StandardJapanSovereign.
         aliases:
-        - 2014StandardCreditSovereignJapan
+          - 2014StandardCreditSovereignJapan
       _2014StandardCreditSovereignLatinAmerican:
         description: Dummy MCA value mirroring the matrix term value StandardLatinAmericaSovereign.
         aliases:
-        - 2014StandardCreditSovereignLatinAmerican
+          - 2014StandardCreditSovereignLatinAmerican
       _2014StandardCreditSovereignWesternEuropean:
         description: Dummy MCA value mirroring the matrix term value StandardWesternEuropeanSovereign.
         aliases:
-        - 2014StandardCreditSovereignWesternEuropean
+          - 2014StandardCreditSovereignWesternEuropean
       DJ_CDX_EM:
         description: Used for CDS Index trades executed under the Dow Jones CDX Emerging Markets Master Confirmation.
         aliases:
-        - DJ.CDX.EM
+          - DJ.CDX.EM
       DJ_CDX_EM_DIV:
         description: Used for CDS Index trades executed under the Dow Jones CDX Emerging Markets Diversified Master Confirmation.
         aliases:
-        - DJ.CDX.EM.DIV
+          - DJ.CDX.EM.DIV
       DJ_CDX_NA:
         description: Used for CDS Index trades executed under the Dow Jones CDX Master Confirmation that covers CDX.NA.IG,
           CDX.NA.HY, and CDX.NA.XO.
         aliases:
-        - DJ.CDX.NA
+          - DJ.CDX.NA
       DJ_iTraxx_Europe:
         description: Used for CDS Index trades executed under the Dow Jones iTraxx Europe Master Confirmation Agreement.
         aliases:
-        - DJ.iTraxx.Europe
+          - DJ.iTraxx.Europe
       EquityAmericas:
         description: A general reference to the types of Americas Master Confirmation Agreements. Use the more specific values
           to reference a specific type of Americas Master Confirmation Agreement.
@@ -1124,18 +1124,18 @@ classes:
   MasterAgreementSchedule:
     description: The set of elections which specify a Master Agreement.
     slots:
-    - clause
+      - clause
     in_subset:
-    - cdm_legaldocumentation_master
+      - cdm_legaldocumentation_master
 
   MasterAgreementClause:
     description: Defines clauses that make up a Master Agreement.
     slots:
-    - identifer
-    - name
-    - counterparty
-    - otherParty
-    - variant
+      - identifer
+      - name
+      - counterparty
+      - otherParty
+      - variant
     slot_usage:
       identifer:
         range: MasterAgreementClauseIdentifierEnum
@@ -1152,16 +1152,16 @@ classes:
         description: Optional party. This can be required for umbrella agreements where a clause may need to be assigned to
           a specific party who may or may not be on the agreement.
     in_subset:
-    - cdm_legaldocumentation_master
+      - cdm_legaldocumentation_master
 
   MasterAgreementClauseVariant:
     description: Sets the details for a specific variant associated to a clause in a Master Agreement.
     slots:
-    - identifier
-    - name
-    - counterparty
-    - otherParty
-    - variableSet
+      - identifier
+      - name
+      - counterparty
+      - otherParty
+      - variableSet
     slot_usage:
       identifier:
         range: MasterAgreementVariantIdentifierEnum
@@ -1184,50 +1184,50 @@ classes:
           This array can be used to define the name and value of these variables. Please refer to the agreement documentation
           for more details of the variables that are available for any clause.
     in_subset:
-    - cdm_legaldocumentation_master
+      - cdm_legaldocumentation_master
 
   MasterAgreementVariableSet:
     description: Defines a type where additional variables associated to clauses and their variants can be described.
     rules:
-    - description: If we have a variableSet then we must not have any name/value pairs at this level.
-      preconditions:
-        slot_conditions:
-          variableSet:
-            required: true
-      postconditions:
-        slot_conditions:
-          name:
-            required: false
-          value:
-            required: false
-    - description: If we have a name then we must also have a value.
-      preconditions:
-        slot_conditions:
-          name:
-            required: true
-      postconditions:
-        slot_conditions:
-          value:
-            required: true
-    - description: If we have a value then we must also have a name.
-      preconditions:
-        slot_conditions:
-          value:
-            required: true
-      postconditions:
-        slot_conditions:
-          name:
-            required: true
+      - description: If we have a variableSet then we must not have any name/value pairs at this level.
+        preconditions:
+          slot_conditions:
+            variableSet:
+              required: true
+        postconditions:
+          slot_conditions:
+            name:
+              required: false
+            value:
+              required: false
+      - description: If we have a name then we must also have a value.
+        preconditions:
+          slot_conditions:
+            name:
+              required: true
+        postconditions:
+          slot_conditions:
+            value:
+              required: true
+      - description: If we have a value then we must also have a name.
+        preconditions:
+          slot_conditions:
+            value:
+              required: true
+        postconditions:
+          slot_conditions:
+            name:
+              required: true
     comments:
-    - 'Rosetta condition: VariableSetExists — if variableSet exists then name is absent and value is absent'
-    - 'Rosetta condition: VariableSetNesting — if variableSet -> variableSet exists then variableSet -> variableSet -> variableSet
-      is absent'
-    - 'Rosetta condition: NameMustExist — if name exists then value exists'
-    - 'Rosetta condition: ValueMustExist — if value exists then name exists'
+      - 'Rosetta condition: VariableSetExists — if variableSet exists then name is absent and value is absent'
+      - 'Rosetta condition: VariableSetNesting — if variableSet -> variableSet exists then variableSet -> variableSet -> variableSet
+        is absent'
+      - 'Rosetta condition: NameMustExist — if name exists then value exists'
+      - 'Rosetta condition: ValueMustExist — if value exists then name exists'
     slots:
-    - variableSet
-    - name
-    - value
+      - variableSet
+      - name
+      - value
     slot_usage:
       variableSet:
         range: MasterAgreementVariableSet
@@ -1241,15 +1241,15 @@ classes:
         range: string
         description: The value for this variable.
     in_subset:
-    - cdm_legaldocumentation_master
+      - cdm_legaldocumentation_master
 
   MasterAgreementBase:
     description: A set of elections that can be shared across master agreement types - this should be built upon for specific
       contracts.
     in_subset:
-    - cdm_legaldocumentation_master
+      - cdm_legaldocumentation_master
 
   MasterAgreementElections:
     description: A representation of a master agreement extended from a base agreement of shared elections.
     in_subset:
-    - cdm_legaldocumentation_master
+      - cdm_legaldocumentation_master

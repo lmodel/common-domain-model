@@ -3,10 +3,10 @@ name: cdm_product_common
 description: LinkML schema for cdm.product.common
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -14,11 +14,11 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
+  - linkml:types
 
 comments:
-- 'Rosetta func: InterestRatePayoutCurrency | inputs(interestRatePayouts: InterestRatePayout (0..*)) | output(currency: string
-  (0..*))'
+  - 'Rosetta func: InterestRatePayoutCurrency | inputs(interestRatePayouts: InterestRatePayout (0..*)) | output(currency:
+    string (0..*))'
 annotations:
   rosetta_functions: '[{"name":"InterestRatePayoutCurrency","inputs":[{"name":"interestRatePayouts","type":"InterestRatePayout","cardinality":"0..*"}],"output":{"name":"currency","type":"string","cardinality":"0..*"}}]'
 

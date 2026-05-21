@@ -3,10 +3,10 @@ name: cdm_observable_common
 description: LinkML schema for cdm.observable.common
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -14,15 +14,15 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
+  - linkml:types
 
 comments:
-- 'Rosetta func: ResolveTimeZoneFromTimeType — Defines inputs and outputs needed to derive the time and time-zone for a product
-  identifier | inputs(assetIdentifier: AssetIdentifier (1..1), timeType: TimeTypeEnum (1..1), determinationMethod: DeterminationMethodEnum
-  (1..1)) | output(time: TimeZone (1..1))'
-- 'Rosetta func: CashPriceQuantityNoOfUnitsTriangulation — Data rule to check the relationship between cash price, notional
-  and number of units. | inputs(quantity: NonNegativeQuantitySchedule (0..*), price: PriceSchedule (0..*)) | output(success:
-  boolean (1..1))'
+  - 'Rosetta func: ResolveTimeZoneFromTimeType — Defines inputs and outputs needed to derive the time and time-zone for a
+    product identifier | inputs(assetIdentifier: AssetIdentifier (1..1), timeType: TimeTypeEnum (1..1), determinationMethod:
+    DeterminationMethodEnum (1..1)) | output(time: TimeZone (1..1))'
+  - 'Rosetta func: CashPriceQuantityNoOfUnitsTriangulation — Data rule to check the relationship between cash price, notional
+    and number of units. | inputs(quantity: NonNegativeQuantitySchedule (0..*), price: PriceSchedule (0..*)) | output(success:
+    boolean (1..1))'
 annotations:
   rosetta_functions: '[{"name":"ResolveTimeZoneFromTimeType","description":"Defines inputs and outputs needed to derive the
     time and time-zone for a product identifier","inputs":[{"name":"assetIdentifier","type":"AssetIdentifier","cardinality":"1..1"},{"name":"timeType","type":"TimeTypeEnum","cardinality":"1..1"},{"name":"determinationMethod","type":"DeterminationMethodEnum","cardinality":"1..1"}],"output":{"name":"time","type":"TimeZone","cardinality":"1..1"},"code_implementation":true},{"name":"CashPriceQuantityNoOfUnitsTriangulation","description":"Data
@@ -56,7 +56,7 @@ enums:
   DeterminationMethodEnum:
     description: The enumerated values to specify the method according to which an amount or a date is determined.
     exact_mappings:
-    - http://www.fpml.org/coding-scheme/determination-method
+      - http://www.fpml.org/coding-scheme/determination-method
     permissible_values:
       AgreedInitialPrice:
         description: Agreed separately between the parties.

@@ -10178,8 +10178,8 @@ CREATE TABLE "WorkflowStep_party" (
 	FOREIGN KEY("WorkflowStep_id") REFERENCES "WorkflowStep" (id),
 	FOREIGN KEY(party_id) REFERENCES "Party" (id)
 );
-CREATE INDEX "ix_WorkflowStep_party_party_id" ON "WorkflowStep_party" (party_id);
 CREATE INDEX "ix_WorkflowStep_party_WorkflowStep_id" ON "WorkflowStep_party" ("WorkflowStep_id");
+CREATE INDEX "ix_WorkflowStep_party_party_id" ON "WorkflowStep_party" (party_id);
 
 CREATE TABLE "WorkflowStep_account" (
 	"WorkflowStep_id" INTEGER,
@@ -10188,8 +10188,8 @@ CREATE TABLE "WorkflowStep_account" (
 	FOREIGN KEY("WorkflowStep_id") REFERENCES "WorkflowStep" (id),
 	FOREIGN KEY(account_id) REFERENCES "Account" (id)
 );
-CREATE INDEX "ix_WorkflowStep_account_WorkflowStep_id" ON "WorkflowStep_account" ("WorkflowStep_id");
 CREATE INDEX "ix_WorkflowStep_account_account_id" ON "WorkflowStep_account" (account_id);
+CREATE INDEX "ix_WorkflowStep_account_WorkflowStep_id" ON "WorkflowStep_account" ("WorkflowStep_id");
 
 CREATE TABLE "MessageInformation_sentTo" (
 	"MessageInformation_id" INTEGER,

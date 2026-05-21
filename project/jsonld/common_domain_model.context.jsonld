@@ -1,7 +1,7 @@
 {
    "@context": {
       "xsd": "http://www.w3.org/2001/XMLSchema#",
-      "common_domain_model": "https://w3id.org/lmodel/common_domain_model/",
+      "common_domain_model": "https://w3id.org/lmodel/common-domain-model/",
       "fpml": "http://www.fpml.org/coding-scheme/",
       "fpml_5_10": "https://www.fpml.org/spec/fpml-5-10#",
       "gist": "https://w3id.org/lmodel/gist/",
@@ -13,7 +13,7 @@
       "schema": "http://schema.org/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "spdx": "https://spdx.org/rdf/3.0.1/terms/",
-      "@vocab": "https://w3id.org/lmodel/common_domain_model/",
+      "@vocab": "https://w3id.org/lmodel/common-domain-model/",
       "acceleratedOrMatured": {
          "@type": "xsd:boolean",
          "@id": "acceleratedOrMatured"

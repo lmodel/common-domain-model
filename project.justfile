@@ -20,7 +20,7 @@ _gen-yaml:
 # ============== CDM-specific recipes ==============
 
 # Generate enriched LinkML schema from Rosetta DSL source files, then apply ecosystem SSSOM overlays
-[group('model development')]
+[group('model development - schema')]
 gen-linkml: _gen-linkml overlay-sssom
 
 [private]
@@ -35,7 +35,7 @@ _gen-linkml:
     --ecosystem-mappings-dir src/common_domain_model/mappings
 
 # Overlay ecosystem SSSOM mappings (gist/oscal/iso29100/spdx) onto existing schemas
-[group('model development')]
+[group('model development - schema')]
 overlay-sssom:
   uv run python scripts/apply_sssom_overlay.py \
     --schema-dir src/common_domain_model/schema \
@@ -58,7 +58,7 @@ test_cdm_examples_samples:
     examples/samples
 
 # Run the Rosetta-to-LinkML idempotency and structure tests
-[group('model development')]
+[group('model development - schema')]
 test-linkml:
   uv run python -m pytest tests/test_linkml_schema.py -v
 

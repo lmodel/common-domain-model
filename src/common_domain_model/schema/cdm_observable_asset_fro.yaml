@@ -3,10 +3,10 @@ name: cdm_observable_asset_fro
 description: Support for floating rate option definitions.
 license: Apache-2.0
 see_also:
-- https://cdm.finos.org/
+  - https://cdm.finos.org/
 
 prefixes:
-  common_domain_model: https://w3id.org/lmodel/common_domain_model/
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   fpml: http://www.fpml.org/coding-scheme/
@@ -15,29 +15,29 @@ default_prefix: common_domain_model
 default_range: string
 
 imports:
-- linkml:types
-- ./cdm_base_datetime
-- ./cdm_base_datetime_daycount
-- ./cdm_base_staticdata_asset_common
-- ./cdm_base_staticdata_asset_rates
-- ./cdm_base_staticdata_codelist
-- ./cdm_base_staticdata_identifier
-- ./cdm_legaldocumentation_common
-- ./cdm_observable_asset
-- ./cdm_base_math
-- ./cdm_base_staticdata_asset_credit
-- ./cdm_event_common
-- ./cdm_observable_asset_calculatedrate
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_datetime_daycount
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_base_staticdata_asset_rates
+  - ./cdm_base_staticdata_codelist
+  - ./cdm_base_staticdata_identifier
+  - ./cdm_legaldocumentation_common
+  - ./cdm_observable_asset
+  - ./cdm_base_math
+  - ./cdm_base_staticdata_asset_credit
+  - ./cdm_event_common
+  - ./cdm_observable_asset_calculatedrate
 
 comments:
-- 'Rosetta func: FloatingRateIndexMetadata — Retrieve all available metadata for the floating rate index. | inputs(floatingRateIndexName:
-  FloatingRateIndexEnum (1..1)) | output(floatingRateIndexDescription: FloatingRateIndexDefinition (0..1))'
-- 'Rosetta func: ValidateFloatingRateIndexName — Return whether the supplied floating rate index name is valid for the supplied
-  contractual definitions. | inputs(floatingRateIndexName: FloatingRateIndexEnum (1..1), contractualDefs: ContractualDefinitionsEnum
-  (0..1)) | output(isValid: boolean (1..1))'
-- 'Rosetta func: FilterInvalidFloatingRateIndexTradeDate — Returns the invalid floating rate index or indices of a trade based
-  on their metadata and the trade date. | inputs(tradeState: TradeState (1..1)) | output(invalidFloatingRateIndex: FloatingRateIndexEnum
-  (0..*))'
+  - 'Rosetta func: FloatingRateIndexMetadata — Retrieve all available metadata for the floating rate index. | inputs(floatingRateIndexName:
+    FloatingRateIndexEnum (1..1)) | output(floatingRateIndexDescription: FloatingRateIndexDefinition (0..1))'
+  - 'Rosetta func: ValidateFloatingRateIndexName — Return whether the supplied floating rate index name is valid for the supplied
+    contractual definitions. | inputs(floatingRateIndexName: FloatingRateIndexEnum (1..1), contractualDefs: ContractualDefinitionsEnum
+    (0..1)) | output(isValid: boolean (1..1))'
+  - 'Rosetta func: FilterInvalidFloatingRateIndexTradeDate — Returns the invalid floating rate index or indices of a trade
+    based on their metadata and the trade date. | inputs(tradeState: TradeState (1..1)) | output(invalidFloatingRateIndex:
+    FloatingRateIndexEnum (0..*))'
 annotations:
   rosetta_functions: '[{"name":"FloatingRateIndexMetadata","description":"Retrieve all available metadata for the floating
     rate index.","inputs":[{"name":"floatingRateIndexName","type":"FloatingRateIndexEnum","cardinality":"1..1"}],"output":{"name":"floatingRateIndexDescription","type":"FloatingRateIndexDefinition","cardinality":"0..1"},"code_implementation":true},{"name":"ValidateFloatingRateIndexName","description":"Return
@@ -55,15 +55,15 @@ enums:
       ScreenRate:
         description: The rate is observed directly from a screen.
         aliases:
-        - Screen Rate
+          - Screen Rate
       Calculated:
         description: The rate is calculated by the calculation agents from multiple observations.
         aliases:
-        - Calculated Rate
+          - Calculated Rate
       ReferenceBanks:
         description: The rate is obtained by polling several other banks.
         aliases:
-        - Reference Banks Rate
+          - Reference Banks Rate
 
   FloatingRateIndexStyleEnum:
     description: Second level ISDA FRO category.
@@ -71,39 +71,39 @@ enums:
       AverageFRO:
         description: An ISDA-defined calculated rate done using arithmetic averaging.
         aliases:
-        - Average FRO
+          - Average FRO
       CompoundedIndex:
         description: A published index calculated using compounding.
         aliases:
-        - Compounded Index
+          - Compounded Index
       Index:
         description: A published index using a methodology defined by the publisher, e.g. S&P 500.
         aliases:
-        - Index
+          - Index
       Other:
         description: Other
         aliases:
-        - Other
+          - Other
       Overnight:
         description: Overnight Rate
         aliases:
-        - Overnight Rate
+          - Overnight Rate
       PublishedAverage:
         description: ' A published rate computed using an averaging methodology.'
         aliases:
-        - Published Average Rate
+          - Published Average Rate
       SpecifiedFormula:
         description: Specified Formula
         aliases:
-        - Specified Formula
+          - Specified Formula
       SwapRate:
         description: A rate representing the market rate for swaps of a given maturity.
         aliases:
-        - Swap Rate
+          - Swap Rate
       TermRate:
         description: A rate specified over a given term, such as a libor-type rate.
         aliases:
-        - Term Rate
+          - Term Rate
 
   FloatingRateIndexCalculationMethodEnum:
     description: 3rd level ISDA FRO category.
@@ -111,19 +111,19 @@ enums:
       OISCompound:
         description: A calculation methodology using the ISDA-defined OIS compounding formula.
         aliases:
-        - OIS Compounding
+          - OIS Compounding
       Average:
         description: A calculation methodology using the arithmetic mean.
         aliases:
-        - Overnight Averaging
+          - Overnight Averaging
       Compounded:
         description: Compounded Index
         aliases:
-        - Compounded Index
+          - Compounded Index
       AllInCompounded:
         description: All-In Compounded Index
         aliases:
-        - All-In Compounded Index
+          - All-In Compounded Index
 
 slots:
   fro:
@@ -267,41 +267,41 @@ slots:
     description: Legal text that underlies the Fixing Offset. ISDA Fixing Offset Definition. (e.g. One day that is either
       a Sydney Business Day or a Melbourne Business Day following the Reset Date)
     close_mappings:
-    - fpml_5_10:BusinessDayOffset.fixingOffsetDefinition
+      - fpml_5_10:BusinessDayOffset.fixingOffsetDefinition
 
   fixingOffsetReason:
     range: string
     description: Fixing Offset Reason
     close_mappings:
-    - fpml_5_10:BusinessDayOffset.fixingOffsetReason
+      - fpml_5_10:BusinessDayOffset.fixingOffsetReason
 
 classes:
   FloatingRateIndexDefinition:
     comments:
-    - 'Rosetta func: FloatingRateIndexMetadata — Retrieve all available metadata for the floating rate index.'
+      - 'Rosetta func: FloatingRateIndexMetadata — Retrieve all available metadata for the floating rate index.'
     annotations:
       rosetta_functions: '[{"name":"FloatingRateIndexMetadata","description":"Retrieve all available metadata for the floating
         rate index.","inputs":[{"name":"floatingRateIndexName","type":"FloatingRateIndexEnum","cardinality":"1..1"}],"output":{"name":"floatingRateIndexDescription","type":"FloatingRateIndexDefinition","cardinality":"0..1"},"code_implementation":true}]'
     slots:
-    - fro
-    - calculationDefaults
-    - supportedDefinition
-    - definitionalSource
-    - designatedMaturityApplicable
-    - mappings
-    - externalMappings
-    - inLoan
-    - history
-    - deprecationReason
-    - fpmlDescription
+      - fro
+      - calculationDefaults
+      - supportedDefinition
+      - definitionalSource
+      - designatedMaturityApplicable
+      - mappings
+      - externalMappings
+      - inLoan
+      - history
+      - deprecationReason
+      - fpmlDescription
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   FloatingRateIndexIdentification:
     slots:
-    - floatingRateIndex
-    - currency
-    - froType
+      - floatingRateIndex
+      - currency
+      - froType
     slot_usage:
       floatingRateIndex:
         description: The reference index that is used to specify the floating interest rate. The FpML standard maintains the
@@ -311,18 +311,18 @@ classes:
         range: ISOCurrencyCodeEnum
         description: FRO currency - 3 character ISO currrency code
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   FloatingRateIndexCalculationDefaults:
     description: This holds the rate calculation defaults applicable for a floating rate index.
     slots:
-    - category
-    - indexStyle
-    - method
-    - fixing
-    - dayCountFraction
-    - applicableBusinessDays
-    - publicationCalendar
+      - category
+      - indexStyle
+      - method
+      - fixing
+      - dayCountFraction
+      - applicableBusinessDays
+      - publicationCalendar
     slot_usage:
       category:
         range: FloatingRateIndexCategoryEnum
@@ -337,26 +337,26 @@ classes:
       applicableBusinessDays:
         description: The default applicable business days.
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   ContractualDefinition:
     rules:
-    - description: Choice between document uuid or document type and version
-      postconditions:
-        any_of:
-        - slot_conditions:
-            identifier:
-              required: true
-        - slot_conditions:
-            contractualDefinitionIdentifier:
-              required: true
-      preconditions: {}
+      - description: Choice between document uuid or document type and version
+        postconditions:
+          any_of:
+            - slot_conditions:
+                identifier:
+                  required: true
+            - slot_conditions:
+                contractualDefinitionIdentifier:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: Choice — optional choice identifier, contractualDefinitionIdentifier'
+      - 'Rosetta condition: Choice — optional choice identifier, contractualDefinitionIdentifier'
     slots:
-    - identifier
-    - contractualDefinitionIdentifier
-    - publicationDate
+      - identifier
+      - contractualDefinitionIdentifier
+      - publicationDate
     slot_usage:
       identifier:
         range: Identifier
@@ -368,34 +368,34 @@ classes:
         range: date
         description: '2021-06-11'
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   ContractualDefinitionIdentifier:
     slots:
-    - contractualDefinitionType
-    - contractualDefinitionVersion
+      - contractualDefinitionType
+      - contractualDefinitionVersion
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   FloatingRateIndexMap:
     description: A map for a single FRO to or from an equivalent or similar FRO in a different contractual definitions version.
     rules:
-    - description: Choice between document uuid or document type and version
-      postconditions:
-        any_of:
-        - slot_conditions:
-            identifier:
-              required: true
-        - slot_conditions:
-            contractualDefinitionIdentifier:
-              required: true
-      preconditions: {}
+      - description: Choice between document uuid or document type and version
+        postconditions:
+          any_of:
+            - slot_conditions:
+                identifier:
+                  required: true
+            - slot_conditions:
+                contractualDefinitionIdentifier:
+                  required: true
+        preconditions: {}
     comments:
-    - 'Rosetta condition: Choice — optional choice identifier, contractualDefinitionIdentifier'
+      - 'Rosetta condition: Choice — optional choice identifier, contractualDefinitionIdentifier'
     slots:
-    - index_
-    - contractualDefinitionIdentifier
-    - identifier
+      - index_
+      - contractualDefinitionIdentifier
+      - identifier
     slot_usage:
       contractualDefinitionIdentifier:
         description: Contractual Definition to which the map applies. Includes Document Type and Document Version
@@ -406,39 +406,39 @@ classes:
         required: false
         multivalued: false
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   FloatingRateIndexMappings:
     description: This type defines mappings between FROs in different definitional versions.
     slots:
-    - mapsTo
-    - mapsFrom
+      - mapsTo
+      - mapsFrom
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   FloatingRateIndexExternalMap:
     description: A map for a single FRO to or from an equivalent or similar codes in a different standard such as ISO.
     slots:
-    - externalId
-    - externalStandard
+      - externalId
+      - externalStandard
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   FloatingRateIndexExternalMappings:
     description: Represents the mappings of FRO codes to other.
     slots:
-    - isoCode
+      - isoCode
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   FroHistory:
     description: FRO History
     slots:
-    - startDate
-    - firstDefinedIn
-    - updateDate
-    - lastUpdatedIn
-    - endDate
+      - startDate
+      - firstDefinedIn
+      - updateDate
+      - lastUpdatedIn
+      - endDate
     slot_usage:
       startDate:
         description: The date the Floating Rate Option was added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g.
@@ -449,53 +449,53 @@ classes:
           (e.g. 2014/01/01)
         required: false
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   FloatingRateIndexFixingDetails:
     description: This type holds parameters defining the fixingt time and offset for a floating rate index.
     slots:
-    - fixingTime
-    - fixingOffset
+      - fixingTime
+      - fixingOffset
     slot_usage:
       fixingTime:
         range: FloatingRateIndexFixingTime
         description: Parameters defining the normal fixing time (can vary by index tenor / designated maturity).
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   FloatingRateIndexFixingTime:
     description: This type holds parameters defining the normal fixing time for a floating rate index.
     is_a: BusinessCenterTime
     slots:
-    - designatedMaturity
-    - fixingTimeDefinition
-    - fixingReason
+      - designatedMaturity
+      - fixingTimeDefinition
+      - fixingReason
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   FloatingRateIndexFixingOffset:
     description: This type holds parameters defining the normal fixing offset for a floating rate index.
     is_a: BusinessDayOffset
     slots:
-    - designatedMaturity
+      - designatedMaturity
     slot_usage:
       designatedMaturity:
         description: Allows a reason to be specified for using the alternative fixing offset.
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro
 
   BusinessDayOffset:
     description: This allows an offset to be specified as, for instance, N business days, with a business centers specified
       as included.
     is_a: Period
     close_mappings:
-    - fpml_5_10:BusinessDayOffset
+      - fpml_5_10:BusinessDayOffset
     slots:
-    - businessCenters
-    - fixingOffsetDefinition
-    - fixingOffsetReason
+      - businessCenters
+      - fixingOffsetDefinition
+      - fixingOffsetReason
     slot_usage:
       businessCenters:
         description: The business centers for the offset.
     in_subset:
-    - cdm_observable_asset_fro
+      - cdm_observable_asset_fro

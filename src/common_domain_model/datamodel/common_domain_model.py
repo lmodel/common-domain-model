@@ -1,5 +1,5 @@
 # Auto generated from common_domain_model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-20T15:59:20
+# Generation date: 2026-05-21T21:06:46
 # Schema: common_domain_model
 #
 # id: https://w3id.org/lmodel/common-domain-model
@@ -63,7 +63,7 @@ metamodel_version = "1.11.0"
 version = None
 
 # Namespaces
-COMMON_DOMAIN_MODEL = CurieNamespace('common_domain_model', 'https://w3id.org/lmodel/common_domain_model/')
+COMMON_DOMAIN_MODEL = CurieNamespace('common_domain_model', 'https://w3id.org/lmodel/common-domain-model/')
 FPML = CurieNamespace('fpml', 'http://www.fpml.org/coding-scheme/')
 FPML_5_10 = CurieNamespace('fpml_5_10', 'https://www.fpml.org/spec/fpml-5-10#')
 GIST = CurieNamespace('gist', 'https://w3id.org/lmodel/gist/')
