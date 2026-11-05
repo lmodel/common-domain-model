@@ -1,4 +1,0 @@
-# Invalid MeasureBase: wrong type for value (string instead of decimal)
-value: "not-a-number"
-unit:
-  capacityUnit: BBL

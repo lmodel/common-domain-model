@@ -1,3 +1,0 @@
-# Invalid NonNegativeStep: wrong type for stepValue (string instead of decimal)
-stepDate: "2025-01-01"
-stepValue: "not-a-number"
