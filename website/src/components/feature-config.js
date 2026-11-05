@@ -3,7 +3,7 @@ import React from 'react';
 export const features = [
     {
         title: <></>,
-        imageUrl: '/img/finos/common-domain-model.png',
+        imageUrl: '/img/finos/Finos-CDM.png',
         description: (
             <></>
         ),

@@ -4,15 +4,14 @@ import cdm.ingest.fpml.confirmation.message.functions.Ingest_FpmlConfirmationToT
 import cdm.ingest.fpml.confirmation.message.functions.Ingest_FpmlConfirmationToWorkflowStep;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.inject.Injector;
-import com.regnosys.testing.TestingExpectationUtil;
-import org.finos.cdm.functions.FunctionCreator;
 import com.regnosys.rosetta.common.transform.TransformType;
-import com.regnosys.runefpml.RuneFpmlModelConfig;
+import com.regnosys.testing.TestingExpectationUtil;
 import com.regnosys.testing.pipeline.PipelineConfigWriter;
 import com.regnosys.testing.pipeline.PipelineTestPackFilter;
 import com.regnosys.testing.pipeline.PipelineTreeConfig;
 import jakarta.inject.Inject;
 import org.finos.cdm.CdmRuntimeModuleTesting;
+import org.finos.cdm.functions.FunctionCreator;
 import org.finos.cdm.functions.FunctionInputCreator;
 import org.finos.cdm.functions.SecLendingFunctionInputCreationTest;
 import org.slf4j.Logger;
@@ -83,8 +82,6 @@ public class CdmTestPackCreator {
         return new PipelineTreeConfig()
                 .starting(TransformType.TRANSLATE, Ingest_FpmlConfirmationToTradeState.class)
                 .starting(TransformType.TRANSLATE, Ingest_FpmlConfirmationToWorkflowStep.class)
-                .withInputSerialisationFormatMap(RuneFpmlModelConfig.TYPE_TO_FORMAT_MAP)
-                .withXmlConfigMap(RuneFpmlModelConfig.TYPE_TO_XML_CONFIG_MAP)
                 .withTestPackFilter(filter)
                 .strictUniqueIds()
                 .withSortJsonPropertiesAlphabetically(false);

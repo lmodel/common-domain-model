@@ -76,14 +76,11 @@ func MapTransferStateList:
     add transfer:
         fpmlProduct switch
             fpml.CreditDefaultSwap then
-                if feeLeg -> feeLegSequence -> initialPayment exists
-                then MapInitialPaymentToTransferState(
-                            feeLeg -> feeLegSequence -> initialPayment,
-                            Upfront
-                        )
-                else if feeLeg -> feeLegSequence -> singlePayment exists
+                if feeLeg -> initialPayment exists
+                then MapInitialPaymentToTransferState(feeLeg -> initialPayment, Upfront)
+                else if feeLeg -> singlePayment exists
                 then MapSinglePaymentListToTransferStateList(
-                            feeLeg -> feeLegSequence -> singlePayment,
+                            feeLeg -> singlePayment,
                             Upfront
                         ),
             default empty
@@ -162,8 +159,9 @@ func MapPaymentToTransferState:
                         UnscheduledTransfer {
                             quantity: MapTransferQuantity(fpmlPayment -> paymentAmount),
                             asset: MapTransferCashAsset(fpmlPayment -> paymentAmount),
-                            payerReceiver: MapPaymentToPartyReferencePayerReceiver(
-                                        fpmlPayment -> payerReceiverModel
+                            partyReferencePayerReceiver: MapPaymentToPartyReferencePayerReceiver(
+                                        fpmlPayment -> payerPartyReference,
+                                        fpmlPayment -> receiverPartyReference
                                     ),
                             settlementDate: MapAdjustableOrAdjustedDateToAdjustableOrAdjustedOrRelativeDate(
                                         fpmlPayment -> paymentDate
@@ -209,8 +207,9 @@ func MapNonNegativePaymentToTransferState:
                             asset: MapTransferCashAsset(
                                         fpmlNonNegativePayment -> paymentAmount
                                     ),
-                            payerReceiver: MapPaymentToPartyReferencePayerReceiver(
-                                        fpmlNonNegativePayment -> payerReceiverModel
+                            partyReferencePayerReceiver: MapPaymentToPartyReferencePayerReceiver(
+                                        fpmlNonNegativePayment -> payerPartyReference,
+                                        fpmlNonNegativePayment -> receiverPartyReference
                                     ),
                             settlementDate: MapAdjustableOrAdjustedOrRelativeDate(
                                         fpmlNonNegativePayment -> paymentDate -> adjustableDate -> unadjustedDate -> value -> date,
@@ -245,8 +244,9 @@ func MapSimplePaymentToTransferState:
                                         fpmlSimplePayment -> paymentAmount
                                     ),
                             asset: MapTransferCashAsset(fpmlSimplePayment -> paymentAmount),
-                            payerReceiver: MapPaymentToPartyReferencePayerReceiver(
-                                        fpmlSimplePayment -> payerReceiverModel
+                            partyReferencePayerReceiver: MapPaymentToPartyReferencePayerReceiver(
+                                        fpmlSimplePayment -> payerPartyReference,
+                                        fpmlSimplePayment -> receiverPartyReference
                                     ),
                             settlementDate: MapAdjustableOrAdjustedOrRelativeDate(
                                         fpmlSimplePayment -> paymentDate -> adjustableDate -> unadjustedDate -> value -> date,
@@ -294,8 +294,9 @@ func MapReturnSwapAdditionalPaymentToTransferState:
                             asset: MapTransferCashAsset(
                                         fpmlReturnSwapAdditionalPayment -> additionalPaymentAmount -> paymentAmount
                                     ),
-                            payerReceiver: MapPaymentToPartyReferencePayerReceiver(
-                                        fpmlReturnSwapAdditionalPayment -> payerReceiverModel
+                            partyReferencePayerReceiver: MapPaymentToPartyReferencePayerReceiver(
+                                        fpmlReturnSwapAdditionalPayment -> payerPartyReference,
+                                        fpmlReturnSwapAdditionalPayment -> receiverPartyReference
                                     ),
                             settlementDate: MapAdjustableOrAdjustedOrRelativeDate(
                                         empty,
@@ -332,8 +333,9 @@ func MapInitialPaymentToTransferState:
                             asset: MapMoneyToTransferCashAsset(
                                         fpmlInitialPayment -> paymentAmount
                                     ),
-                            payerReceiver: MapPaymentToPartyReferencePayerReceiver(
-                                        fpmlInitialPayment -> payerReceiverModel
+                            partyReferencePayerReceiver: MapPaymentToPartyReferencePayerReceiver(
+                                        fpmlInitialPayment -> payerPartyReference,
+                                        fpmlInitialPayment -> receiverPartyReference
                                     ),
                             settlementDate:
                                 AdjustableOrAdjustedOrRelativeDate {
@@ -380,7 +382,6 @@ func MapSinglePaymentToTransferState:
                             asset: MapMoneyToTransferCashAsset(
                                         fpmlSinglePayment -> fixedAmount
                                     ),
-                            payerReceiver: empty,
                             settlementDate:
                                 AdjustableOrAdjustedOrRelativeDate {
                                     unadjustedDate: fpmlSinglePayment -> adjustablePaymentDate -> date,
@@ -457,8 +458,9 @@ func MapEquityPremiumToTransferState:
                                         fpmlEquityPremium -> paymentAmount
                                     ),
                             asset: MapTransferCashAsset(fpmlEquityPremium -> paymentAmount),
-                            payerReceiver: MapPaymentToPartyReferencePayerReceiver(
-                                        fpmlEquityPremium -> payerReceiverModel
+                            partyReferencePayerReceiver: MapPaymentToPartyReferencePayerReceiver(
+                                        fpmlEquityPremium -> payerPartyReference,
+                                        fpmlEquityPremium -> receiverPartyReference
                                     ),
                             settlementDate: MapAdjustableOrAdjustedOrRelativeDate(
                                         MapZoneDateTimeToDate(
@@ -501,18 +503,18 @@ func MapTransferCashAsset:
 
 func MapMoneyToTransferCashAsset:
     inputs:
-        fpmMoney fpml.Money (0..1)
+        fpmlMoney fpml.Money (0..1)
     output:
         asset Asset (0..1)
 
     set asset:
-        if fpmMoney exists
+        if fpmlMoney exists
         then Asset {
                 Cash:
                     Cash {
                         identifier:
                             AssetIdentifier {
-                                identifier: fpmMoney -> currency -> value,
+                                identifier: fpmlMoney -> currency -> value,
                                 identifierType: CurrencyCode
                             },
                         assetType: Cash,
@@ -523,14 +525,15 @@ func MapMoneyToTransferCashAsset:
 
 func MapPaymentToPartyReferencePayerReceiver:
     inputs:
-        fpmlPayerReceiverModel fpml.PayerReceiverModel (1..1)
+        fpmlPayerPartyReference fpml.PartyReference (0..1)
+        fpmlReceiverPartyReference fpml.PartyReference (0..1)
     output:
         partyReferencePayerReceiver PartyReferencePayerReceiver (0..1)
 
     set partyReferencePayerReceiver -> payerPartyReference -> reference:
-        fpmlPayerReceiverModel -> payerModel -> payerPartyReference -> href
+        fpmlPayerPartyReference -> href
     set partyReferencePayerReceiver -> receiverPartyReference -> reference:
-        fpmlPayerReceiverModel -> receiverModel -> receiverPartyReference -> href
+        fpmlReceiverPartyReference -> href
 
 func MapTransferQuantity:
     inputs:
@@ -577,7 +580,8 @@ func MapPrincipalPayments:
         fpmlPrincipalExchanges fpml.PrincipalExchanges (0..1)
         fpmlPrincipalExchangeList fpml.PrincipalExchange (0..*)
         fpmlCurrency fpml.Currency (0..1)
-        fpmlPayerReceiverModel fpml.PayerReceiverModel (0..1)
+        fpmlPayerPartyReference fpml.PartyReference (0..1)
+        fpmlReceiverPartyReference fpml.PartyReference (0..1)
         cdmCounterpartyList Counterparty (0..2)
     output:
         principalPayments PrincipalPayments (0..1)
@@ -591,7 +595,8 @@ func MapPrincipalPayments:
                         fpmlPrincipalExchanges,
                         fpmlPrincipalExchangeList,
                         fpmlCurrency,
-                        fpmlPayerReceiverModel,
+                        fpmlPayerPartyReference,
+                        fpmlReceiverPartyReference,
                         cdmCounterpartyList
                     ),
             ...
@@ -604,7 +609,8 @@ func MapPrincipalPaymentSchedule:
         fpmlPrincipalExchanges fpml.PrincipalExchanges (0..1)
         fpmlPrincipalExchangeList fpml.PrincipalExchange (0..*)
         fpmlCurrency fpml.Currency (0..1)
-        fpmlPayerReceiverModel fpml.PayerReceiverModel (0..1)
+        fpmlPayerPartyReference fpml.PartyReference (0..1)
+        fpmlReceiverPartyReference fpml.PartyReference (0..1)
         cdmCounterpartyList Counterparty (0..2)
     output:
         principalPaymentSchedule PrincipalPaymentSchedule (0..1)
@@ -625,14 +631,16 @@ func MapPrincipalPaymentSchedule:
                     then MapPrincipalPayment(
                             initialPrincipalExchange,
                             fpmlCurrency,
-                            fpmlPayerReceiverModel,
+                            fpmlPayerPartyReference,
+                            fpmlReceiverPartyReference,
                             cdmCounterpartyList
                         ),
             finalPrincipalPayment: if finalPrincipalExchange exists
                     then MapPrincipalPayment(
                             finalPrincipalExchange,
                             fpmlCurrency,
-                            fpmlPayerReceiverModel,
+                            fpmlPayerPartyReference,
+                            fpmlReceiverPartyReference,
                             cdmCounterpartyList
                         ),
             ...
@@ -642,7 +650,8 @@ func MapPrincipalPayment:
     inputs:
         fpmlPrincipalExchange fpml.PrincipalExchange (0..1)
         fpmlCurrency fpml.Currency (0..1)
-        fpmlPayerReceiverModel fpml.PayerReceiverModel (0..1)
+        fpmlPayerPartyReference fpml.PartyReference (0..1)
+        fpmlReceiverPartyReference fpml.PartyReference (0..1)
         cdmCounterpartyList Counterparty (0..2)
     output:
         principalPayment PrincipalPayment (0..1)
@@ -654,7 +663,8 @@ func MapPrincipalPayment:
             principalPaymentDate: MapPrincipalPaymentDate(fpmlPrincipalExchange),
             payerReceiver: MapPrincipalPayerReceiver(
                         fpmlPrincipalExchange,
-                        fpmlPayerReceiverModel,
+                        fpmlPayerPartyReference,
+                        fpmlReceiverPartyReference,
                         cdmCounterpartyList
                     ),
             principalAmount:
@@ -673,21 +683,16 @@ func MapPrincipalPayment:
 func MapPrincipalPayerReceiver:
     inputs:
         fpmlPrincipalExchange fpml.PrincipalExchange (0..1)
-        fpmlPayerReceiverModel fpml.PayerReceiverModel (0..1)
+        fpmlPayerPartyReference fpml.PartyReference (0..1)
+        fpmlReceiverPartyReference fpml.PartyReference (0..1)
         cdmCounterpartyList Counterparty (0..2)
     output:
         payerReceiver PayerReceiver (0..1)
 
     alias payer:
-        MapCounterpartyRoleEnum(
-                fpmlPayerReceiverModel -> payerModel -> payerPartyReference -> href,
-                cdmCounterpartyList
-            )
+        MapCounterpartyRoleEnum(fpmlPayerPartyReference -> href, cdmCounterpartyList)
     alias receiver:
-        MapCounterpartyRoleEnum(
-                fpmlPayerReceiverModel -> receiverModel -> receiverPartyReference -> href,
-                cdmCounterpartyList
-            )
+        MapCounterpartyRoleEnum(fpmlReceiverPartyReference -> href, cdmCounterpartyList)
 
     set payerReceiver:
         if fpmlPrincipalExchange -> principalExchangeAmount >= 0

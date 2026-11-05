@@ -155,8 +155,7 @@ The two data definition components should be referred to as follows:
     7.  In most cases, where a reference to FpML is considered useful,
         it should be placed at the end of a description in the logical
         model, or in a note at the end of a section in the user
-        documentation. In the case of the logical model, note that
-        synonyms for FpML are provided, therefore it should not be
+        documentation. In the case of the logical model, it should not be
         necessary to reference FpML in every case.
 
 Example of a non-compliant description:
@@ -390,7 +389,7 @@ can therefore serve as a release publication channel.
     space, to be identified as part of the code block and formatted
     appropriately. Indentation can be produced inside the snippet itself
     using further double space. Meta-data such as data type descriptions
-    or synonyms that appear in the CDM should be excluded from the code
+    that appear in the CDM should be excluded from the code
     snippet, unless the purpose of the snippet is to illustrate those.
 
 Example of how a code snippet should be edited in the documentation:
@@ -461,7 +460,7 @@ prior to any release.
     languages, law, science, lists, and tables. An earlier version
     coined the phrase Oxford Comma in July 1905.
 2.  [Eats, Shoots & Leaves: The Zero Tolerance Approach to
-    Punctuation](https://www.lynnetruss.com/books/eats-shoots-leaves/):
+    Punctuation](https://www.penguinrandomhouse.com/books/294386/eats-shoots-and-leaves-by-lynne-truss/):
     A light-hearted book with a serious purpose regarding common
     problems and correctness for using punctuation in the English
     language.
