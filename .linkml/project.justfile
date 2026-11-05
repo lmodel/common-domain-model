@@ -8,15 +8,6 @@
 quick_test: test_cdm_examples_samples
   uv run python -m pytest
 
-# Add the merged model to docs/schema.
-# Workaround: linkml-runtime 1.11.0 omits SafeDumper.add_multi_representer(JsonObj, …)
-# causing RepresenterError; scripts/gen_yaml_patched.py backports the missing line.
-# Remove once linkml-runtime > 1.11.0 is available on PyPI.  See ISSUE.md §Issue-1.
-_gen-yaml:
-  -mkdir -p {{distrib_schema_path}}
-  uv run python scripts/gen_yaml_patched.py {{source_schema_path}} > {{distrib_schema_path}}/{{schema_name}}.yaml
-
-
 # ============== CDM-specific recipes ==============
 
 # Generate enriched LinkML schema from Rosetta DSL source files, then apply ecosystem SSSOM overlays

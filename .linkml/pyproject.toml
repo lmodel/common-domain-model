@@ -3,15 +3,17 @@ requires = ["hatchling", "uv-dynamic-versioning"]
 build-backend = "hatchling.build"
 
 [project]
-name = "common_domain_model"
-description = "FINOS Common Domain Model - LinkML Schema"
+# Named like lmodel/slsa's slsa-linkml, so the PyPI name says what it holds;
+# the import package stays common_domain_model. PyPI publishing is off.
+name = "common-domain-model-linkml"
+description = "FINOS Common Domain Model (LinkML)"
 authors = [
   {name = "Noel McLoughlin", email = "noel.mcloughlin@gmail.com"},
 ]
 license = "Apache-2.0"
-license-files = ["LICENSE"]
+license-files = ["LICENSE", "NOTICE"]
 readme = "README.md"
-requires-python = ">=3.10,<4.0"
+requires-python = ">=3.10"
 dynamic = ["version"]
 
 dependencies = [
@@ -20,13 +22,12 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "linkml>=1.9.3",
-    "mkdocs-material>=8.2.8",
-    "mkdocs-mermaid2-plugin>=1.1.1",
-    "mkdocs-pymdownx-material-extras>=2.5.6",
-    "jupyter>=1.0.0",
-    "mknotebooks>= 0.8.0",
+    "jsonschema>=4.26.0",
+    "linkml>=1.12.1",
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/common_domain_model"]
 
 # See https://hatch.pypa.io/latest/config/build/#file-selection for how to
 # explicitly include files other than default into the build distributions.
