@@ -15,8 +15,9 @@ A LinkML schema of the Common Domain Model (CDM) that FINOS publishes, in a fork
 | `.linkml/docs/` | The website's own pages. |
 | `.linkml/tests/` | Python tests and example data. |
 | `.lokf/knowledge/` | This repository's knowledge bundle. |
+| `knowledge-website/` | The knowledge website. |
 
-Everything else is FINOS's.
+Everything else is FINOS's, but for the workflows and files [NOTICE](NOTICE) lists.
 
 ## Development setup
 
