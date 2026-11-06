@@ -5,7 +5,7 @@
 # to its pin. No hook may rewrite a file this repository does not write by hand: what
 # the LinkML generators, the converter and `lokf adapt` write, which the next run would
 # rewrite back; the neighbours' released copies, which tests hold to their checksums;
-# npm's lockfile for the release tools; and the KTL sidecar's scripts, which the
+# npm's lockfiles for the release tools and the site; and the KTL sidecar's scripts, which the
 # weekly sync replaces.
 files: >-
   (?x)^(
@@ -24,7 +24,8 @@ exclude: >-
     \.linkml/tests/neighbours/|
     \.lokf/(scripts|m365)/|
     \.lokf/(lokf|common-domain-model)\.yaml$|
-    \.github/release/package-lock\.json$
+    \.github/release/package-lock\.json$|
+    knowledge-website/package-lock\.json$
   )
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
