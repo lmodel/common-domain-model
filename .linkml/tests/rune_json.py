@@ -32,7 +32,11 @@ import yaml
 
 KEY_FIELDS = ("@key", "@key:external", "@key:scoped")
 ABSENT = object()
-REF_FIELDS = {"@ref": "@key", "@ref:external": "@key:external", "@ref:scoped": "@key:scoped"}
+REF_FIELDS = {
+    "@ref": "@key",
+    "@ref:external": "@key:external",
+    "@ref:scoped": "@key:scoped",
+}
 
 
 @dataclass
@@ -61,7 +65,9 @@ class Schema:
             doc = yaml.safe_load(path.read_text(encoding="utf-8"))
             namespace = doc["name"].replace("_", ".")
             for name, c in (doc.get("classes") or {}).items():
-                qualified = (c.get("annotations") or {}).get("rosetta_name") or f"{namespace}.{name}"
+                qualified = (c.get("annotations") or {}).get(
+                    "rosetta_name"
+                ) or f"{namespace}.{name}"
                 self.by_rosetta_name[qualified] = name
                 self.classes[name] = ClassInfo(
                     name,
@@ -97,8 +103,6 @@ class Schema:
         return None
 
 
-
-
 class Normaliser:
     def __init__(self, schema: Schema):
         self.schema = schema
@@ -125,7 +129,9 @@ class Normaliser:
         root = self.schema.by_rosetta_name[doc["@type"]]
         self.index = self.keyed(doc)
         self.findings = Findings()
-        body = {k: v for k, v in doc.items() if k not in ("@model", "@type", "@version")}
+        body = {
+            k: v for k, v in doc.items() if k not in ("@model", "@type", "@version")
+        }
         return root, self.object(body, root, "", 0), self.findings
 
     def fits(self, target: dict, cls: str | None) -> bool:
@@ -135,7 +141,9 @@ class Normaliser:
         attrs = self.schema.attributes(cls)
         return all(k.startswith("@") or k in attrs for k in target)
 
-    def resolve(self, node: dict, path: str, depth: int, cls: str | None = None) -> dict:
+    def resolve(
+        self, node: dict, path: str, depth: int, cls: str | None = None
+    ) -> dict:
         refs = [k for k in node if k in REF_FIELDS]
         if not refs or any(not k.startswith("@") for k in node):
             return node
@@ -166,11 +174,15 @@ class Normaliser:
                 if info.choice:
                     route = self.schema.choice_path(cls, actual)
                     if route is not None:
-                        inner = self.object(rest, actual, path + "/" + "/".join(route), depth + 1)
+                        inner = self.object(
+                            rest, actual, path + "/" + "/".join(route), depth + 1
+                        )
                         for opt in reversed(route):
                             inner = {opt: inner}
                         return inner
-                self.findings.subtypes.append(f"{path}: {actual} where {cls} is expected")
+                self.findings.subtypes.append(
+                    f"{path}: {actual} where {cls} is expected"
+                )
             node = rest
         attrs = self.schema.attributes(cls)
         out = {}
@@ -179,7 +191,10 @@ class Normaliser:
                 continue
             rng = (attrs.get(k) or {}).get("range")
             if isinstance(v, list):
-                items = [self.value(x, rng, f"{path}/{k}/{i}", depth) for i, x in enumerate(v)]
+                items = [
+                    self.value(x, rng, f"{path}/{k}/{i}", depth)
+                    for i, x in enumerate(v)
+                ]
                 items = [x for x in items if x is not ABSENT]
                 if items:
                     out[k] = items

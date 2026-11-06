@@ -50,7 +50,9 @@ def test_valid_example_loads(path):
 
 @pytest.mark.parametrize("path", VALID, ids=lambda p: p.name)
 def test_valid_example_validates(path):
-    errors = list(validator(path.stem.split("-")[0]).iter_errors(yaml.safe_load(path.read_text())))
+    errors = list(
+        validator(path.stem.split("-")[0]).iter_errors(yaml.safe_load(path.read_text()))
+    )
     assert not errors, [e.message for e in errors]
 
 
@@ -59,7 +61,9 @@ def test_counter_example_fails_where_it_says(path):
     """The first line names the JSON pointer of the failure, as `# Fails at: /key`."""
     text = path.read_text()
     first = text.splitlines()[0]
-    assert first.startswith("# Fails at: "), f"{path.name}: the first line names where it fails"
+    assert first.startswith("# Fails at: "), (
+        f"{path.name}: the first line names where it fails"
+    )
     expected = first.removeprefix("# Fails at: ").strip()
     errors = list(validator(path.stem.split("-")[0]).iter_errors(yaml.safe_load(text)))
     assert errors, f"{path.name} validates"

@@ -173,7 +173,9 @@ def check_tag() -> tuple[list[str], bool]:
     """Report the pinned tag naming another commit than the pin."""
     answer = json.loads(_get(f"{API}/git/ref/tags/{PINNED_TAG}"))
     sha = answer["object"]["sha"]
-    report = [f"- Pinned release: {PINNED_EDITION}, tag `{PINNED_TAG}` at `{PINNED_COMMIT[:12]}`."]
+    report = [
+        f"- Pinned release: {PINNED_EDITION}, tag `{PINNED_TAG}` at `{PINNED_COMMIT[:12]}`."
+    ]
     if sha != PINNED_COMMIT:
         report.append(
             f"- **The tag now names {_code(sha[:12])}.** Find out why before trusting it."
@@ -185,7 +187,9 @@ def check_tag() -> tuple[list[str], bool]:
 def check_releases() -> tuple[list[str], bool]:
     """Report a newer release from master, and what it changes that the schema reads."""
     answer = json.loads(_get(f"{API}/releases?per_page=30"))
-    ours = [r for r in answer if r.get("target_commitish") == BRANCH and not r.get("draft")]
+    ours = [
+        r for r in answer if r.get("target_commitish") == BRANCH and not r.get("draft")
+    ]
     if not ours:
         return [f"- FINOS's last 30 releases hold none from {BRANCH}."], False
     newest = max(ours, key=lambda r: r["published_at"])
@@ -215,7 +219,7 @@ def check_releases() -> tuple[list[str], bool]:
             + ". Read them before merging."
         )
     report.append(
-        f"- Merge the tag into a branch, run `just gen-linkml` and the tests, and move "
+        "- Merge the tag into a branch, run `just gen-linkml` and the tests, and move "
         "the pins in `upstream/pin.yaml` and `tests/upstream_tree.tsv`."
     )
     return report, True

@@ -33,8 +33,21 @@ DEPARTURES = Path(__file__).parent / "sample_departures.yaml"
 
 # What a document must have, as against what it is: these keywords hold
 # required attributes, cardinality, choices and conditions.
-COMPLETENESS = {"required", "oneOf", "anyOf", "allOf", "not", "if", "then", "else",
-                "const", "minimum", "maximum", "minItems", "maxItems"}
+COMPLETENESS = {
+    "required",
+    "oneOf",
+    "anyOf",
+    "allOf",
+    "not",
+    "if",
+    "then",
+    "else",
+    "const",
+    "minimum",
+    "maximum",
+    "minItems",
+    "maxItems",
+}
 
 
 @cache
@@ -59,7 +72,11 @@ def leaves(error):
     """The errors that say what is wrong, inside any branch that failed."""
     if not error.context:
         return [error]
-    inner = [c for c in error.context if not (c.validator == "type" and c.validator_value == "null")]
+    inner = [
+        c
+        for c in error.context
+        if not (c.validator == "type" and c.validator_value == "null")
+    ]
     return [leaf for c in inner for leaf in leaves(c)] or [error]
 
 
@@ -68,7 +85,9 @@ def shape_errors() -> dict[str, list[str]]:
     validators = {}
     found = {}
     for path in documents():
-        root, body, _ = normaliser.normalise(json.loads(path.read_text(encoding="utf-8")))
+        root, body, _ = normaliser.normalise(
+            json.loads(path.read_text(encoding="utf-8"))
+        )
         if root not in validators:
             s = dict(schema())
             s["$ref"] = f"#/$defs/{root}"
@@ -81,7 +100,10 @@ def shape_errors() -> dict[str, list[str]]:
         ]
         if errors:
             found[str(path.relative_to(RESOURCES))] = sorted(
-                {"/" + "/".join(map(str, e.absolute_path)) + ": " + e.validator for e in errors}
+                {
+                    "/" + "/".join(map(str, e.absolute_path)) + ": " + e.validator
+                    for e in errors
+                }
             )
     return found
 

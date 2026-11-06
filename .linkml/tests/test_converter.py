@@ -65,7 +65,11 @@ def test_the_header_names_the_pinned_edition():
 def test_a_shared_name_is_qualified_by_its_namespace():
     """LinkML merges imports into one namespace, so a name two namespaces declare is qualified."""
     els = elements()
-    for name in ("CsaAdditionalTerminationEvent", "IsdaAdditionalTerminationEvent", "AssetFloatingRateIndex"):
+    for name in (
+        "CsaAdditionalTerminationEvent",
+        "IsdaAdditionalTerminationEvent",
+        "AssetFloatingRateIndex",
+    ):
         assert name in els["classes"], name
         assert els["classes"][name]["aliases"]
     assert "CodelistFloatingRateIndex" in els["enums"]
@@ -102,7 +106,8 @@ def test_every_choice_holds_exactly_one_option():
         exprs = [e for e in cls["all_of"] if "exactly_one_of" in e]
         options = {a.name for a in d.attrs}
         assert any(
-            {next(iter(b["slot_conditions"])) for b in e["exactly_one_of"]} == options for e in exprs
+            {next(iter(b["slot_conditions"])) for b in e["exactly_one_of"]} == options
+            for e in exprs
         ), d.lname
 
 
@@ -113,11 +118,16 @@ def test_every_condition_is_stated_or_named():
         if d.kind not in ("type", "choice"):
             continue
         cls = els["classes"][d.lname]
-        stated = " ".join(e["description"] for e in cls.get("all_of", []) + cls.get("rules", []))
+        stated = " ".join(
+            e["description"] for e in cls.get("all_of", []) + cls.get("rules", [])
+        )
         unstated = " ".join(cls.get("comments", []))
         for c in d.conditions:
             if c.name:
-                assert c.name in stated or f"condition {c.name} " in unstated, (d.lname, c.name)
+                assert c.name in stated or f"condition {c.name} " in unstated, (
+                    d.lname,
+                    c.name,
+                )
 
 
 # The translation of each condition shape, read from Rosetta written here.
@@ -188,7 +198,9 @@ def test_required_choice_is_exactly_one(sample):
 
 def test_optional_choice_allows_neither(sample):
     where, expr = translate(sample, "Thing", "AtMostOne")
-    assert expr["exactly_one_of"][-1] == {"all_of": [conv.absent("a"), conv.absent("b")]}
+    assert expr["exactly_one_of"][-1] == {
+        "all_of": [conv.absent("a"), conv.absent("b")]
+    }
 
 
 def test_a_strict_integer_bound_becomes_inclusive(sample):
@@ -201,13 +213,17 @@ def test_a_strict_integer_bound_becomes_inclusive(sample):
 def test_if_then_else_is_a_rule_on_the_display_name(sample):
     where, rule = translate(sample, "Thing", "GreenNeedsA")
     assert where == "rule"
-    assert rule["preconditions"] == {"slot_conditions": {"colour": {"equals_string": "green"}}}
+    assert rule["preconditions"] == {
+        "slot_conditions": {"colour": {"equals_string": "green"}}
+    }
     assert rule["elseconditions"] == conv.absent("a")
 
 
 def test_a_bare_enum_value_is_read_against_the_attribute(sample):
     _, rule = translate(sample, "Thing", "Bare")
-    assert rule["preconditions"] == {"slot_conditions": {"colour": {"equals_string": "Red"}}}
+    assert rule["preconditions"] == {
+        "slot_conditions": {"colour": {"equals_string": "Red"}}
+    }
 
 
 def test_a_path_into_another_type_is_not_stated(sample):

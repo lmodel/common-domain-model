@@ -26,7 +26,11 @@ def blob_sha(path: Path) -> str:
 
 
 def test_every_finos_file_matches_the_pin():
-    differing = [p for p, sha in manifest().items() if not (TREE / p).is_file() or blob_sha(TREE / p) != sha]
+    differing = [
+        p
+        for p, sha in manifest().items()
+        if not (TREE / p).is_file() or blob_sha(TREE / p) != sha
+    ]
     assert not differing, differing[:20]
 
 
@@ -34,7 +38,9 @@ def test_the_manifest_is_the_pinned_commit():
     """Read from git when the clone holds the commit; a shallow clone skips this."""
     pin = yaml.safe_load(PIN.read_text())
     probe = subprocess.run(
-        ["git", "-C", str(TREE), "cat-file", "-e", pin["commit"]], capture_output=True, check=False
+        ["git", "-C", str(TREE), "cat-file", "-e", pin["commit"]],
+        capture_output=True,
+        check=False,
     )
     if probe.returncode != 0:
         return
@@ -55,9 +61,13 @@ def test_the_manifest_is_the_pinned_commit():
 def test_this_project_adds_files_and_changes_none_of_finos():
     """Every tracked file outside .linkml/ is FINOS's, or one this project adds where
     FINOS has none. NOTICE names the added ones."""
-    tracked = subprocess.run(
-        ["git", "-C", str(TREE), "ls-files", "-z"], capture_output=True, check=True
-    ).stdout.decode("utf-8").split("\0")
+    tracked = (
+        subprocess.run(
+            ["git", "-C", str(TREE), "ls-files", "-z"], capture_output=True, check=True
+        )
+        .stdout.decode("utf-8")
+        .split("\0")
+    )
     finos = manifest()
     added = sorted(
         p for p in tracked if p and p not in finos and not p.startswith(".linkml/")
@@ -75,4 +85,6 @@ def test_this_project_adds_files_and_changes_none_of_finos():
         "llms.txt",
         ".releaserc.json",
     )
-    assert all(p.startswith(allowed) for p in added), [p for p in added if not p.startswith(allowed)]
+    assert all(p.startswith(allowed) for p in added), [
+        p for p in added if not p.startswith(allowed)
+    ]

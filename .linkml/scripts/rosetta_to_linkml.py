@@ -39,7 +39,9 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 TREE = ROOT.parent
 ROSETTA_DIR = TREE / "rosetta-source" / "src" / "main" / "rosetta"
-CODELIST_DIR = TREE / "rosetta-source" / "src" / "main" / "resources" / "codelist" / "json"
+CODELIST_DIR = (
+    TREE / "rosetta-source" / "src" / "main" / "resources" / "codelist" / "json"
+)
 SCHEMA_DIR = ROOT / "src" / "common_domain_model" / "schema"
 PINS = ROOT / "upstream" / "pin.yaml"
 
@@ -101,8 +103,19 @@ TOKEN_RE = re.compile(
     re.VERBOSE,
 )
 
-HYPHENATED = {"one-of", "only-element", "to-string", "to-number", "to-int", "to-enum",
-              "to-date", "to-time", "to-zoned-date-time", "to-date-time", "post-condition"}
+HYPHENATED = {
+    "one-of",
+    "only-element",
+    "to-string",
+    "to-number",
+    "to-int",
+    "to-enum",
+    "to-date",
+    "to-time",
+    "to-zoned-date-time",
+    "to-date-time",
+    "post-condition",
+}
 
 
 @dataclass
@@ -159,7 +172,7 @@ def tokenize(text: str) -> list[Tok]:
             continue
         m = TOKEN_RE.match(text, pos)
         if not m:
-            raise SyntaxError(f"cannot read {text[pos:pos + 30]!r}")
+            raise SyntaxError(f"cannot read {text[pos : pos + 30]!r}")
         kind = m.lastgroup
         tok = m.group(0)
         if kind == "id" and "-" in tok and tok not in HYPHENATED:
@@ -263,10 +276,33 @@ class TypeDecl:
 class Parser:
     """Read the declarations of one Rosetta file."""
 
-    TOP = {"namespace", "version", "import", "type", "choice", "enum", "typeAlias", "func",
-           "annotation", "metaType", "body", "corpus", "segment", "reporting", "rule",
-           "library", "isEvent", "isProduct", "synonym", "report", "eligibility",
-           "recordType", "basicType", "external", "qualifiedType"}
+    TOP = {
+        "namespace",
+        "version",
+        "import",
+        "type",
+        "choice",
+        "enum",
+        "typeAlias",
+        "func",
+        "annotation",
+        "metaType",
+        "body",
+        "corpus",
+        "segment",
+        "reporting",
+        "rule",
+        "library",
+        "isEvent",
+        "isProduct",
+        "synonym",
+        "report",
+        "eligibility",
+        "recordType",
+        "basicType",
+        "external",
+        "qualifiedType",
+    }
 
     def __init__(self, path: Path):
         self.path = path
@@ -296,7 +332,9 @@ class Parser:
                     i += 1
                 self.namespace = "".join(ns)
             elif head == "import":
-                self.imports.append("".join(t.text for t in b[1:] if t.text != "as").split(" ")[0])
+                self.imports.append(
+                    "".join(t.text for t in b[1:] if t.text != "as").split(" ")[0]
+                )
             elif head == "type":
                 self.decls.append(self.parse_type(b))
             elif head == "choice":
@@ -312,8 +350,12 @@ class Parser:
     # -- shared pieces ----------------------------------------------------
 
     def parse_header(self, b: list[Tok], kind: str) -> tuple[TypeDecl, int]:
-        d = TypeDecl(kind=kind, name=b[1].text.lstrip("^"), namespace=self.namespace,
-                     file=self.path.name)
+        d = TypeDecl(
+            kind=kind,
+            name=b[1].text.lstrip("^"),
+            namespace=self.namespace,
+            file=self.path.name,
+        )
         i = 2
         if i < len(b) and b[i].text == "(":  # typeAlias parameters
             j = i
@@ -326,7 +368,11 @@ class Parser:
                     if depth == 0:
                         break
                 j += 1
-            d.alias_params = [t.text for k, t in enumerate(b[i + 1 : j]) if t.kind == "id" and k % 3 == 0]
+            d.alias_params = [
+                t.text
+                for k, t in enumerate(b[i + 1 : j])
+                if t.kind == "id" and k % 3 == 0
+            ]
             i = j + 1
         if i < len(b) and b[i].text == "extends":
             d.extends, i = self.qualified(b, i + 1)
@@ -364,15 +410,19 @@ class Parser:
         if head == "metadata" and len(inner) > 1:
             annots.metadata.append(inner[1].text)
         elif head == "docReference":
-            ref = DocRef(body=inner[1].text if len(inner) > 1 else "",
-                         corpus=inner[2].text if len(inner) > 2 else "")
+            ref = DocRef(
+                body=inner[1].text if len(inner) > 1 else "",
+                corpus=inner[2].text if len(inner) > 2 else "",
+            )
             k = 3
             while k < len(inner):
                 t = inner[k]
                 if t.kind == "id" and t.text == "provision":
                     ref.has_provision = True
                     k += 2
-                elif t.kind == "id" and k + 1 < len(inner) and inner[k + 1].kind == "str":
+                elif (
+                    t.kind == "id" and k + 1 < len(inner) and inner[k + 1].kind == "str"
+                ):
                     ref.segments.append((t.text, str_text(inner[k + 1])))
                     k += 2
                 else:
@@ -427,7 +477,9 @@ class Parser:
                 d.attrs.append(a)
                 target = a.annots
             else:
-                raise SyntaxError(f"{self.path.name}:{t.line}: unexpected {t.text!r} in type {d.name}")
+                raise SyntaxError(
+                    f"{self.path.name}:{t.line}: unexpected {t.text!r} in type {d.name}"
+                )
         return d
 
     def attribute(self, b: list[Tok], i: int) -> tuple[int, Attr]:
@@ -477,7 +529,9 @@ class Parser:
                 d.attrs.append(a)
                 target = a.annots
             else:
-                raise SyntaxError(f"{self.path.name}:{t.line}: unexpected {t.text!r} in choice {d.name}")
+                raise SyntaxError(
+                    f"{self.path.name}:{t.line}: unexpected {t.text!r} in choice {d.name}"
+                )
         return d
 
     def parse_enum(self, b: list[Tok]) -> TypeDecl:
@@ -488,7 +542,12 @@ class Parser:
             if t.text == "[":
                 i = self.annotation(b, i, target)
             elif t.kind == "id":
-                v = {"name": t.text.lstrip("^"), "display": None, "doc": "", "annots": Annots()}
+                v = {
+                    "name": t.text.lstrip("^"),
+                    "display": None,
+                    "doc": "",
+                    "annots": Annots(),
+                }
                 i += 1
                 if i < len(b) and b[i].text == "displayName":
                     v["display"] = str_text(b[i + 1])
@@ -499,7 +558,9 @@ class Parser:
                 d.values.append(v)
                 target = v["annots"]
             else:
-                raise SyntaxError(f"{self.path.name}:{t.line}: unexpected {t.text!r} in enum {d.name}")
+                raise SyntaxError(
+                    f"{self.path.name}:{t.line}: unexpected {t.text!r} in enum {d.name}"
+                )
         return d
 
     def parse_alias(self, b: list[Tok]) -> TypeDecl:
@@ -516,7 +577,9 @@ class Parser:
                         sign = "-"
                         i += 1
                     val = b[i]
-                    d.alias_args[key] = str_text(val) if val.kind == "str" else sign + val.text
+                    d.alias_args[key] = (
+                        str_text(val) if val.kind == "str" else sign + val.text
+                    )
                     i += 1
                 else:
                     i += 1
@@ -564,7 +627,7 @@ class ExprParser:
     def parse(self) -> Expr:
         e = self.expr()
         if self.i != len(self.t):
-            raise Unstated(f"unread {' '.join(t.text for t in self.t[self.i:])}")
+            raise Unstated(f"unread {' '.join(t.text for t in self.t[self.i :])}")
         return e
 
     def expr(self) -> Expr:
@@ -626,10 +689,32 @@ class ExprParser:
                 self.take()
                 self.take()
                 e = Expr("absent", e)
-            elif p in ("only", "count", "single", "multiple", "distinct", "sum", "flatten",
-                       "first", "last", "only-element", "to-string", "to-number", "to-int",
-                       "to-enum", "extract", "filter", "reduce", "sort", "max", "min",
-                       "then", "default", "contains", "disjoint"):
+            elif p in (
+                "only",
+                "count",
+                "single",
+                "multiple",
+                "distinct",
+                "sum",
+                "flatten",
+                "first",
+                "last",
+                "only-element",
+                "to-string",
+                "to-number",
+                "to-int",
+                "to-enum",
+                "extract",
+                "filter",
+                "reduce",
+                "sort",
+                "max",
+                "min",
+                "then",
+                "default",
+                "contains",
+                "disjoint",
+            ):
                 if p in ("then", "contains", "disjoint"):
                     return e
                 raise Unstated(f"operator {p}")
@@ -733,7 +818,9 @@ class Translator:
             raise Unstated("not an enumerated value")
         enum_name, value = e.args[0]
         try:
-            enum = self.model.decls.get(self.model.resolver.resolve(self.owner, enum_name))
+            enum = self.model.decls.get(
+                self.model.resolver.resolve(self.owner, enum_name)
+            )
         except SystemExit:
             raise Unstated(f"{enum_name} is not an enumeration")
         if enum is None or enum.kind != "enum" or attr.type != enum_name:
@@ -761,14 +848,30 @@ class Translator:
             rng = a.type
             if op == "=":
                 if right.op == "path":
-                    return {"slot_conditions": {a.name: {"equals_string": self.enum_value(right, a)}}}
+                    return {
+                        "slot_conditions": {
+                            a.name: {"equals_string": self.enum_value(right, a)}
+                        }
+                    }
                 if right.op == "num" and rng in ("int", "number"):
                     n = right.args[0]
-                    return {"slot_conditions": {a.name: {"equals_number": int(n) if rng == "int" else float(n)}}}
+                    return {
+                        "slot_conditions": {
+                            a.name: {
+                                "equals_number": int(n) if rng == "int" else float(n)
+                            }
+                        }
+                    }
                 if right.op == "str" and rng == "string":
-                    return {"slot_conditions": {a.name: {"equals_string": right.args[0]}}}
+                    return {
+                        "slot_conditions": {a.name: {"equals_string": right.args[0]}}
+                    }
                 raise Unstated("equality with this kind of value")
-            if op in ("<", "<=", ">", ">=") and right.op == "num" and rng in ("int", "number"):
+            if (
+                op in ("<", "<=", ">", ">=")
+                and right.op == "num"
+                and rng in ("int", "number")
+            ):
                 n = right.args[0]
                 if rng == "int":
                     v = int(n)
@@ -788,7 +891,10 @@ class Translator:
         if e.op == "and":
             return merge_and(self.atom(e.args[0]), self.atom(e.args[1]))
         if e.op == "or":
-            return {"any_of": flatten("any_of", self.atom(e.args[0])) + flatten("any_of", self.atom(e.args[1]))}
+            return {
+                "any_of": flatten("any_of", self.atom(e.args[0]))
+                + flatten("any_of", self.atom(e.args[1]))
+            }
         raise Unstated(f"expression {e.op}")
 
     def translate(self, c: Condition) -> tuple[str, dict]:
@@ -869,11 +975,15 @@ def load_codelist(domain: str) -> dict | None:
     checks, so the choice never arises here.
     """
     files = sorted(CODELIST_DIR.glob(f"{domain}-*.json"))
-    files = [f for f in files if re.fullmatch(re.escape(domain) + r"-\d+-\d+\.json", f.name)]
+    files = [
+        f for f in files if re.fullmatch(re.escape(domain) + r"-\d+-\d+\.json", f.name)
+    ]
     if not files:
         return None
     if len(files) > 1:
-        raise SystemExit(f"more than one code list for {domain}: {[f.name for f in files]}")
+        raise SystemExit(
+            f"more than one code list for {domain}: {[f.name for f in files]}"
+        )
     return json.loads(files[0].read_text(encoding="utf-8"))
 
 
@@ -971,7 +1081,9 @@ def class_def(model: Model, d: TypeDecl, report: Report) -> dict:
             except (Unstated, IndexError) as exc:
                 if not inherited:
                     report.unstated.append((d.name, label, str(exc)))
-                    comments.append(f"Rosetta condition {label} is not stated in LinkML: {c.source()}")
+                    comments.append(
+                        f"Rosetta condition {label} is not stated in LinkML: {c.source()}"
+                    )
                 continue
             desc = f"{label}: {c.doc}" if c.doc else label
             if inherited:
@@ -1062,7 +1174,9 @@ def alias_def(model: Model, d: TypeDecl, report: Report) -> tuple[str, dict]:
         out["enum_uri"] = ident["canonicalUri"]
         out["see_also"] = [ident["canonicalVersionUri"]]
         out["permissible_values"] = {
-            c["value"]: {"meaning": f"{ident['canonicalVersionUri']}#{quote(c['value'], safe='')}"}
+            c["value"]: {
+                "meaning": f"{ident['canonicalVersionUri']}#{quote(c['value'], safe='')}"
+            }
             for c in cl["codes"]
         }
         out["annotations"] = {
@@ -1086,11 +1200,17 @@ def alias_def(model: Model, d: TypeDecl, report: Report) -> tuple[str, dict]:
         else:
             out.setdefault("annotations", {})[f"rosetta_{k}"] = str(v)
     if d.alias_params:
-        out.setdefault("annotations", {})["rosetta_parameters"] = ", ".join(d.alias_params)
+        out.setdefault("annotations", {})["rosetta_parameters"] = ", ".join(
+            d.alias_params
+        )
     comments = []
     for c in d.conditions:
-        comments.append(f"Rosetta condition {c.name or '(unnamed)'} is not stated in LinkML: {c.source()}")
-        report.unstated.append((d.name, c.name or "(unnamed)", "a condition on a type alias"))
+        comments.append(
+            f"Rosetta condition {c.name or '(unnamed)'} is not stated in LinkML: {c.source()}"
+        )
+        report.unstated.append(
+            (d.name, c.name or "(unnamed)", "a condition on a type alias")
+        )
     if comments:
         out["comments"] = comments
     return "type", out
@@ -1160,7 +1280,9 @@ class Resolver:
             return self.by_name[name][0].lname
         if not found and name in BASIC_TYPES:
             return name
-        raise SystemExit(f"{scope.namespace}.{scope.name}: cannot resolve {name} ({len(found)} candidates)")
+        raise SystemExit(
+            f"{scope.namespace}.{scope.name}: cannot resolve {name} ({len(found)} candidates)"
+        )
 
 
 def read_model() -> tuple[Model, dict[str, str]]:
@@ -1169,9 +1291,15 @@ def read_model() -> tuple[Model, dict[str, str]]:
     for path in sorted(ROSETTA_DIR.glob("*.rosetta")):
         p = Parser(path)
         found.extend(p.parse())
-        ns_doc = re.search(r'^namespace\s+[\w.]+\s*:\s*<"((?:.|\n)*?)">', path.read_text(encoding="utf-8"), re.M)
+        ns_doc = re.search(
+            r'^namespace\s+[\w.]+\s*:\s*<"((?:.|\n)*?)">',
+            path.read_text(encoding="utf-8"),
+            re.M,
+        )
         if ns_doc and p.namespace:
-            namespace_docs.setdefault(p.namespace, re.sub(r"\s+", " ", ns_doc.group(1)).strip())
+            namespace_docs.setdefault(
+                p.namespace, re.sub(r"\s+", " ", ns_doc.group(1)).strip()
+            )
     resolver = Resolver(found)
     for d in found:
         if d.extends:
@@ -1194,7 +1322,9 @@ def dump(doc: dict) -> str:
         def increase_indent(self, flow=False, indentless=False):
             return super().increase_indent(flow, False)
 
-    return "---\n" + yaml.dump(doc, Dumper=Dumper, sort_keys=False, allow_unicode=True, width=100)
+    return "---\n" + yaml.dump(
+        doc, Dumper=Dumper, sort_keys=False, allow_unicode=True, width=100
+    )
 
 
 def header(name: str, title: str, description: str, pin: dict) -> dict:
@@ -1219,7 +1349,9 @@ def build() -> tuple[dict[str, str], Report]:
     model, ns_docs = read_model()
     pin = pins()
     report = Report()
-    by_module: dict[str, dict] = defaultdict(lambda: {"classes": {}, "enums": {}, "types": {}})
+    by_module: dict[str, dict] = defaultdict(
+        lambda: {"classes": {}, "enums": {}, "types": {}}
+    )
     owner_module: dict[str, str] = {}
     for d in model.decls.values():
         owner_module[d.lname] = module_name(d.namespace)
@@ -1227,8 +1359,14 @@ def build() -> tuple[dict[str, str], Report]:
         mod = by_module[module_name(d.namespace)]
         if d.kind in ("type", "choice"):
             if d.kind == "choice":
-                d.conditions.insert(0, Condition("OneOf", "A choice type holds exactly one of its options.",
-                                                 [Tok("id", "one-of", 0, 0, True)]))
+                d.conditions.insert(
+                    0,
+                    Condition(
+                        "OneOf",
+                        "A choice type holds exactly one of its options.",
+                        [Tok("id", "one-of", 0, 0, True)],
+                    ),
+                )
             mod["classes"][d.lname] = renamed(d, class_def(model, d, report))
         elif d.kind == "enum":
             mod["enums"][d.lname] = renamed(d, enum_def(model, d))
@@ -1270,7 +1408,9 @@ def build() -> tuple[dict[str, str], Report]:
     keys["default_range"] = "string"
     keys["imports"] = ["linkml:types"]
     keys["slots"] = {
-        name: {"description": f"The CDM's {name} attribute; each class's slot_usage gives its meaning."}
+        name: {
+            "description": f"The CDM's {name} attribute; each class's slot_usage gives its meaning."
+        }
         for name in LOKF_KEYS
     }
     outputs[f"{KEYS_MODULE}.yaml"] = dump(keys)
@@ -1282,8 +1422,15 @@ def build() -> tuple[dict[str, str], Report]:
         "namespace, with the conditions LinkML can state.",
         pin,
     )
-    umbrella["keywords"] = ["CDM", "Common Domain Model", "derivatives", "FINOS", "financial products",
-                            "trade lifecycle", "Rosetta"]
+    umbrella["keywords"] = [
+        "CDM",
+        "Common Domain Model",
+        "derivatives",
+        "FINOS",
+        "financial products",
+        "trade lifecycle",
+        "Rosetta",
+    ]
     umbrella["see_also"] = [
         "https://lmodel.github.io/common-domain-model",
         "https://cdm.finos.org/",
@@ -1302,7 +1449,9 @@ def build() -> tuple[dict[str, str], Report]:
     umbrella["prefixes"] = dict(PREFIXES)
     umbrella["default_prefix"] = PREFIX
     umbrella["default_range"] = "string"
-    umbrella["imports"] = ["linkml:types"] + [f"./{m}" for m in sorted(set(by_module) | {KEYS_MODULE})]
+    umbrella["imports"] = ["linkml:types"] + [
+        f"./{m}" for m in sorted(set(by_module) | {KEYS_MODULE})
+    ]
     outputs[f"{SCHEMA_NAME}.yaml"] = dump(umbrella)
     undescribed = sorted(
         name
@@ -1351,15 +1500,27 @@ def lint_config(undescribed: list[str]) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    ap.add_argument("--check", action="store_true", help="exit 1 when a module differs from what Rosetta gives")
-    ap.add_argument("--report", action="store_true", help="print the conditions that were and were not stated")
+    ap.add_argument(
+        "--check",
+        action="store_true",
+        help="exit 1 when a module differs from what Rosetta gives",
+    )
+    ap.add_argument(
+        "--report",
+        action="store_true",
+        help="print the conditions that were and were not stated",
+    )
     args = ap.parse_args()
     modules, lint, report = build()
-    outputs = {f"src/common_domain_model/schema/{name}": text for name, text in modules.items()}
+    outputs = {
+        f"src/common_domain_model/schema/{name}": text for name, text in modules.items()
+    }
     outputs[".linkmllint.yaml"] = lint
     if args.report:
-        print(f"conditions stated: {report.stated}, restated on subtypes: {report.inherited}, "
-              f"not stated: {len(report.unstated)}")
+        print(
+            f"conditions stated: {report.stated}, restated on subtypes: {report.inherited}, "
+            f"not stated: {len(report.unstated)}"
+        )
         reasons = defaultdict(int)
         for _, _, why in report.unstated:
             reasons[re.sub(r"\b[A-Z]\w+|\b\w+ is not an attribute.*", "X", why)] += 1
@@ -1385,7 +1546,9 @@ def main() -> int:
         return 0
     for name in extra:
         (ROOT / name).unlink()
-    print(f"wrote {len(modules)} modules to {SCHEMA_DIR.relative_to(ROOT)} and .linkmllint.yaml")
+    print(
+        f"wrote {len(modules)} modules to {SCHEMA_DIR.relative_to(ROOT)} and .linkmllint.yaml"
+    )
     return 0
 
 

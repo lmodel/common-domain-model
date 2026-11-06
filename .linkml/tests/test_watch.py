@@ -37,8 +37,16 @@ def _stub(watch, monkeypatch, tree=None, release=None, tag_sha=None):
             "object": {"sha": tag_sha or watch.PINNED_COMMIT, "type": "commit"}
         },
         f"{watch.API}/releases?per_page=30": [
-            {"tag_name": release, "target_commitish": "master", "published_at": "2026-11-01T00:00:00Z"},
-            {"tag_name": "7.99.0", "target_commitish": "7.x.x", "published_at": "2026-11-02T00:00:00Z"},
+            {
+                "tag_name": release,
+                "target_commitish": "master",
+                "published_at": "2026-11-01T00:00:00Z",
+            },
+            {
+                "tag_name": "7.99.0",
+                "target_commitish": "7.x.x",
+                "published_at": "2026-11-02T00:00:00Z",
+            },
         ],
         f"{watch.API}/git/trees/{release}?recursive=1": {
             "tree": [{"path": p, "sha": s, "type": "blob"} for p, s in tree.items()]
@@ -74,9 +82,17 @@ def test_a_release_from_another_branch_is_not_ours(watch, monkeypatch, capsys):
     [
         (lambda t: t.update({ENUMS: "a" * 40}), "changes 1 file"),
         (lambda t: t.pop(ENUMS), "drops 1 file"),
-        (lambda t: t.update({"rosetta-source/src/main/rosetta/new-type.rosetta": "a" * 40}), "adds 1 file"),
+        (
+            lambda t: t.update(
+                {"rosetta-source/src/main/rosetta/new-type.rosetta": "a" * 40}
+            ),
+            "adds 1 file",
+        ),
         (lambda t: t.update({"LICENSE.md": "a" * 40}), "changes the licence"),
-        (lambda t: t.update({"website/README.md": "a" * 40}), "releases `8.0.0-dev.14`"),
+        (
+            lambda t: t.update({"website/README.md": "a" * 40}),
+            "releases `8.0.0-dev.14`",
+        ),
     ],
 )
 def test_a_new_release(watch, monkeypatch, capsys, change, says):

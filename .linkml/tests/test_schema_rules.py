@@ -106,7 +106,10 @@ def _names(path):
     elements = {kind: frozenset(doc.get(kind) or {}) for kind in ELEMENT_KINDS}
     slots = {}
     owners = [doc.get("slots") or {}]
-    owners += [(cls or {}).get("attributes") or {} for cls in (doc.get("classes") or {}).values()]
+    owners += [
+        (cls or {}).get("attributes") or {}
+        for cls in (doc.get("classes") or {}).values()
+    ]
     for owner in owners:
         for name, slot in owner.items():
             uri = (slot or {}).get("slot_uri") or f"{default}:{name}"
@@ -118,7 +121,9 @@ def test_neighbours_are_the_released_assets():
     """Each neighbour copy is byte for byte the asset its release published."""
     assert {p.name for p in NEIGHBOUR_DIR.iterdir()} == set(NEIGHBOURS)
     for name, sha256 in NEIGHBOURS.items():
-        assert hashlib.sha256((NEIGHBOUR_DIR / name).read_bytes()).hexdigest() == sha256, name
+        assert (
+            hashlib.sha256((NEIGHBOUR_DIR / name).read_bytes()).hexdigest() == sha256
+        ), name
 
 
 def test_the_keys_lokf_shares_are_slots():
@@ -150,7 +155,9 @@ def test_names_shared_with_neighbours_are_the_listed_ones():
     found = {}
     for name in NEIGHBOURS:
         their_elements, their_slots = _names(NEIGHBOUR_DIR / name)
-        shared_elements = sorted(set().union(*(elements[k] & their_elements[k] for k in ELEMENT_KINDS)))
+        shared_elements = sorted(
+            set().union(*(elements[k] & their_elements[k] for k in ELEMENT_KINDS))
+        )
         shared_keys = sorted(slots.keys() & their_slots.keys())
         if shared_elements or shared_keys:
             found[name] = {"elements": shared_elements, "keys": shared_keys}
@@ -161,10 +168,11 @@ def test_copy_roots_the_concept_classes():
     """The copy re-roots exactly the listed classes on Concept and imports nothing
     but the LinkML types and LOKF."""
     doc = yaml.safe_load(COPY.read_text())
-    rooted = {name for name, cls in doc["classes"].items() if cls.get("is_a") == "Concept"}
+    rooted = {
+        name for name, cls in doc["classes"].items() if cls.get("is_a") == "Concept"
+    }
     assert rooted == ROOTS
     assert doc["imports"] == ["linkml:types", "lokf"]
-
 
 
 def test_the_readme_lists_the_known_types():
