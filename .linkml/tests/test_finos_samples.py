@@ -80,14 +80,22 @@ def leaves(error):
     return [leaf for c in inner for leaf in leaves(c)] or [error]
 
 
-def shape_errors() -> dict[str, list[str]]:
+@cache
+def shape_errors() -> tuple[dict[str, list[str]], dict[str, int]]:
+    """The documents the schema refuses, and what the normaliser could not undo:
+    a value of a subtype where its parent is declared, which the JSON Schema
+    accepts since it is generated with include_range_class_descendants, and a
+    reference to an object the document does not hold."""
     normaliser = Normaliser(Schema(ROOT / "src" / "common_domain_model" / "schema"))
     validators = {}
     found = {}
+    findings = {"subtype_cases": 0, "unresolved_references": 0}
     for path in documents():
-        root, body, _ = normaliser.normalise(
+        root, body, left = normaliser.normalise(
             json.loads(path.read_text(encoding="utf-8"))
         )
+        findings["subtype_cases"] += len(left.subtypes)
+        findings["unresolved_references"] += len(left.unresolved)
         if root not in validators:
             s = dict(schema())
             s["$ref"] = f"#/$defs/{root}"
@@ -105,18 +113,30 @@ def shape_errors() -> dict[str, list[str]]:
                     for e in errors
                 }
             )
-    return found
+    return found, findings
+
+
+@cache
+def listed() -> dict:
+    return yaml.safe_load(DEPARTURES.read_text(encoding="utf-8"))
 
 
 def test_finos_documents_have_the_shape_the_schema_states():
-    listed = yaml.safe_load(DEPARTURES.read_text(encoding="utf-8"))
-    expected = listed["documents"]
-    assert set(expected.values()) <= set(listed["reasons"])
-    found = shape_errors()
+    expected = listed()["documents"]
+    assert set(expected.values()) <= set(listed()["reasons"])
+    found, _ = shape_errors()
     assert sorted(found) == sorted(expected), {
         "refused, not listed": sorted(set(found) - set(expected)),
         "listed, now read": sorted(set(expected) - set(found)),
     }
+
+
+def test_what_the_normaliser_could_not_undo_is_counted():
+    """The subtype values and the unresolved references in FINOS's documents, so a
+    FINOS release that changes either shows here."""
+    _, findings = shape_errors()
+    assert findings == listed()["findings"]
+    assert findings["subtype_cases"] > 0
 
 
 def test_the_documents_are_there():

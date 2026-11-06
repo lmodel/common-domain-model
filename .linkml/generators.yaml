@@ -37,6 +37,10 @@ generator_args:
     mergeimports: true
   jsonschema:
     mergeimports: true
+    # A Rosetta attribute declared with a type may hold any of its subtypes, so a
+    # slot accepts its range's descendants too. On the CDM this costs 0.1 MB of
+    # 2.3 and a second over FINOS's 884 documents.
+    include_range_class_descendants: true
   jsonldcontext:
     mergeimports: true
   # gen-pydantic is not yet supported by gen-project.

@@ -5,6 +5,15 @@
 # Both reasons are references the FpML ingest carries over from an FpML href to an
 # object of another type than the attribute declares, so the reference cannot be the
 # object the CDM says it is. issues/99 reports them to FINOS.
+#
+# findings counts what tests/rune_json.py meets and cannot undo across the documents:
+# a value whose @type is a subtype of the declared type (260 NonNegativeDatedValue for
+# DatedValue, 4 TradeIdentifier for Identifier), which the JSON Schema accepts because
+# it is generated with include_range_class_descendants, and a reference whose target
+# the document does not hold, which stays an empty object.
+findings:
+  subtype_cases: 264
+  unresolved_references: 2688
 reasons:
   dividend-date-names-trade-date: >-
     DividendPeriod's startDate.dividendDate is an AdjustableOrRelativeDate with

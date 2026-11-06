@@ -42,10 +42,10 @@ About half of the CDM's conditions are stated. `just linkml-report` counts them,
 - a strict bound on a decimal, such as `> 0`, since LinkML's bounds are inclusive;
 - a function call, `switch` or `to-enum`.
 
-Four more things Rosetta states have no LinkML counterpart:
+Four more things Rosetta states have a partial LinkML counterpart, or none:
 
 - **Metadata.** A `[metadata reference]` attribute may hold a reference to a keyed object instead of the object, and a `[metadata scheme]` value may carry the scheme it comes from. The schema states the value alone, and the annotation records the metadata.
-- **Subtypes in place of their parent.** An attribute declared with a type may hold any of its subtypes, as in Java. The generated JSON Schema reads the declared type only.
+- **Subtypes in place of their parent.** An attribute declared with a type may hold any of its subtypes, as in Java. The JSON Schema is generated with `include_range_class_descendants`, so a value of a subtype validates where its parent is declared; the other generators read the declared type. FINOS's documents hold 264 such values, which `tests/sample_departures.yaml` counts.
 - **Logic.** Functions, qualification functions and reporting rules compute or classify data, and are not data, so they are left out.
 - **One meaning per name.** A Rosetta attribute belongs to its type, so `identifier` may be a string in one type and an object in another. LinkML gives each attribute name one IRI, and the JSON-LD context one term, so the RDF of a document reads every `identifier` alike.
 
