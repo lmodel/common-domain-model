@@ -60,7 +60,19 @@ jobs:
         with:
           # -ignore: actionlint 1.7.12 predates the copilot-requests scope
           # knowledge-librarian.yaml requests; drop it once a release knows it.
-          args: -color -ignore copilot-requests
+          # The files are this project's: FINOS's workflows stay as FINOS writes
+          # them. Add a workflow here when this project adds one.
+          args: >-
+            -color -ignore copilot-requests
+            .github/workflows/main.yaml
+            .github/workflows/lint-and-docs.yaml
+            .github/workflows/upstream-watch.yaml
+            .github/workflows/semantic-release.yml
+            .github/workflows/knowledge-librarian.yaml
+            .github/workflows/knowledge-registrar.yaml
+            .github/workflows/knowledge-release.yaml
+            .github/workflows/knowledge-sync.yaml
+            .github/workflows/knowledge-website.yaml
 
   word-budgets:
     name: Hold the governance files to their word budgets
