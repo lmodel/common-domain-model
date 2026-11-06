@@ -15,14 +15,14 @@ sources:
     resource: .linkml/scripts/rosetta_to_linkml.py
 generated:
   by: process:ktl-librarian
-  at: "2026-11-06T08:54:53Z"
-  revision: bdbcffe4754db3ce411ddc9f0d492297e6a3defd
+  at: "2026-11-06T12:02:20Z"
+  revision: f1f1672b50355c9009b90c5bd37e83547aebf8de
 status: draft
 ---
 
 # What each Rosetta construct becomes
 
-`docs/about.md` holds the table, one row per Rosetta construct.[^about.md] A Rosetta condition binds every subtype, and a LinkML class expression does not reach a subclass in the generated JSON Schema, so the converter states each one again on every subtype.
+`docs/about.md` holds the table, one row per Rosetta construct.[^about.md] A Rosetta condition binds every subtype. The JSON Schema generator applies an ancestor's rules to a subclass itself, but reads a class expression from the class alone, so the converter states each ancestor's class expressions again on every subtype and leaves its rules to the generator.[^about.md]
 
 A name two Rosetta namespaces declare takes the last part of its namespace as a prefix, as in `CsaAdditionalTerminationEvent`.[^rosetta_to_linkml.py]
 

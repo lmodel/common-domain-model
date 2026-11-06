@@ -14,7 +14,7 @@ sources:
     resource: .linkml/NOTICE
 generated:
   by: process:ktl-librarian
-  at: "2026-11-06T08:54:53Z"
+  at: "2026-11-06T12:02:20Z"
   revision: a5d4433af82402eeda5b6d2b885a05ab5f15d231
 status: draft
 ---
@@ -23,7 +23,7 @@ status: draft
 
 A CDM type alias such as `BusinessCenter` checks a code against the FpML code list its `domain` names. The schema writes each such alias as an enumeration of the list's codes, with `enum_uri` naming the list, so a validator checks the code as Rosetta does.[^about.md]
 
-The schema carries the codes and leaves out FpML's descriptions of them.[^notice]
+The code lists are FpML coding schemes, part of the FpML Specifications, which ISDA licenses under the FpML Public License; NOTICE carries that licence's notice. The schema carries each scheme's codes and its canonical URI, and leaves out FpML's descriptions of the codes. FpML publishes no IRI for a code, so a value is the code alone.[^notice]
 
 [^about.md]: .linkml/docs/about.md
 [^notice]: .linkml/NOTICE
