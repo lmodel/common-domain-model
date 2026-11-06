@@ -2,9 +2,9 @@
 type: Dataset
 id: https://w3id.org/lmodel/common-domain-model/knowledge/datasets/adapt-copy
 title: The adapt copy
-description: "`.lokf/common-domain-model.yaml`, the copy of the schema that `just lokf-adapt` writes for a knowledge bundle to import beside LOKF's schema, with `LegalEntity` and `Party` re-rooted on Concept and thirteen keys renamed with a `cdm_` prefix."
+description: "`.lokf/schema/common-domain-model.yaml`, the copy of the schema that `just lokf-adapt` writes for a knowledge bundle to import beside LOKF's schema, with `LegalEntity` and `Party` re-rooted on Concept and thirteen keys renamed with a `cdm_` prefix."
 genre: reference
-resource: .lokf/common-domain-model.yaml
+resource: .lokf/schema/common-domain-model.yaml
 derivedFrom:
   - https://w3id.org/lmodel/common-domain-model/knowledge/datasets/common-domain-model-linkml-schema
 sources:
@@ -19,8 +19,8 @@ sources:
     title: Knowledge Trust Ladder (KTL)
 generated:
   by: process:ktl-librarian
-  at: "2026-11-06T08:54:53Z"
-  revision: 57dc9f073be3725deb9d1cb697fbe95d674fc262
+  at: "2026-11-06T16:03:15Z"
+  revision: 77146c9f6cd0f79b75af68062e2b73402819be24
 status: draft
 ---
 
