@@ -125,7 +125,7 @@ jobs:
             .linkml/**/*.md
             .lokf/**/*.md
             .github/SECURITY.md
-            .github/PULL_REQUEST_TEMPLATE/*.md
+            .github/PULL_REQUEST_TEMPLATE/knowledge-sync.md
             knowledge-website/*.md
           config: .linkml/.markdownlint-cli2.jsonc
       # The remap checks this repository's own links on `master` (the bundle and
