@@ -19735,17 +19735,20 @@ class CalculationFrequency(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
          'rules': [{'description': 'Moy',
                     'postconditions': {'slot_conditions': {'monthOfYear': {'maximum_value': 12,
-                                                                           'name': 'monthOfYear'}}},
+                                                                           'name': 'monthOfYear',
+                                                                           'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'monthOfYear': {'name': 'monthOfYear',
                                                                           'value_presence': 'PRESENT'}}}},
                    {'description': 'Dom',
                     'postconditions': {'slot_conditions': {'dayOfMonth': {'maximum_value': 31,
-                                                                          'name': 'dayOfMonth'}}},
+                                                                          'name': 'dayOfMonth',
+                                                                          'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'dayOfMonth': {'name': 'dayOfMonth',
                                                                          'value_presence': 'PRESENT'}}}},
                    {'description': 'Wom',
                     'postconditions': {'slot_conditions': {'weekOfMonth': {'maximum_value': 5,
-                                                                           'name': 'weekOfMonth'}}},
+                                                                           'name': 'weekOfMonth',
+                                                                           'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'weekOfMonth': {'name': 'weekOfMonth',
                                                                           'value_presence': 'PRESENT'}}}}]})
 
@@ -19924,25 +19927,42 @@ class CalculationPeriodFrequency(Frequency):
                                     'specifies periodMultiplier as a positive integer.',
                      'slot_conditions': {'periodMultiplier': {'minimum_value': 1,
                                                               'name': 'periodMultiplier'}}}],
-         'comments': ['Rosetta condition FpML_ird_57 is not stated in LinkML: if '
-                      'period = PeriodExtendedEnum -> M or period = PeriodExtendedEnum '
-                      '-> Y then rollConvention <> RollConventionEnum -> NONE and '
-                      'rollConvention <> RollConventionEnum -> SFE and rollConvention '
-                      '<> RollConventionEnum -> MON and rollConvention <> '
-                      'RollConventionEnum -> TUE and rollConvention <> '
-                      'RollConventionEnum -> WED and rollConvention <> '
-                      'RollConventionEnum -> THU and rollConvention <> '
-                      'RollConventionEnum -> FRI and rollConvention <> '
-                      'RollConventionEnum -> SAT and rollConvention <> '
-                      'RollConventionEnum -> SUN'],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
-         'rules': [{'description': 'From Frequency. TermPeriod: FpML specifies that if '
-                                   'period value is T (Term) then periodMultiplier '
-                                   'must contain the value 1.',
-                    'postconditions': {'slot_conditions': {'periodMultiplier': {'equals_number': 1,
-                                                                                'name': 'periodMultiplier'}}},
-                    'preconditions': {'slot_conditions': {'period': {'equals_string': 'T',
-                                                                     'name': 'period'}}}},
+         'rules': [{'description': 'FpML_ird_57: FpML validation rule ird-57 - '
+                                   'Context: CalculationPeriodFrequency. [period eq '
+                                   "('M', 'Y')] not(rollConvention = ('NONE', 'SFE', "
+                                   "'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT','SUN')).",
+                    'postconditions': {'all_of': [{'none_of': [{'slot_conditions': {'rollConvention': {'equals_string': 'NONE',
+                                                                                                       'name': 'rollConvention',
+                                                                                                       'value_presence': 'PRESENT'}}}]},
+                                                  {'none_of': [{'slot_conditions': {'rollConvention': {'equals_string': 'SFE',
+                                                                                                       'name': 'rollConvention',
+                                                                                                       'value_presence': 'PRESENT'}}}]},
+                                                  {'none_of': [{'slot_conditions': {'rollConvention': {'equals_string': 'MON',
+                                                                                                       'name': 'rollConvention',
+                                                                                                       'value_presence': 'PRESENT'}}}]},
+                                                  {'none_of': [{'slot_conditions': {'rollConvention': {'equals_string': 'TUE',
+                                                                                                       'name': 'rollConvention',
+                                                                                                       'value_presence': 'PRESENT'}}}]},
+                                                  {'none_of': [{'slot_conditions': {'rollConvention': {'equals_string': 'WED',
+                                                                                                       'name': 'rollConvention',
+                                                                                                       'value_presence': 'PRESENT'}}}]},
+                                                  {'none_of': [{'slot_conditions': {'rollConvention': {'equals_string': 'THU',
+                                                                                                       'name': 'rollConvention',
+                                                                                                       'value_presence': 'PRESENT'}}}]},
+                                                  {'none_of': [{'slot_conditions': {'rollConvention': {'equals_string': 'FRI',
+                                                                                                       'name': 'rollConvention',
+                                                                                                       'value_presence': 'PRESENT'}}}]},
+                                                  {'none_of': [{'slot_conditions': {'rollConvention': {'equals_string': 'SAT',
+                                                                                                       'name': 'rollConvention',
+                                                                                                       'value_presence': 'PRESENT'}}}]},
+                                                  {'none_of': [{'slot_conditions': {'rollConvention': {'equals_string': 'SUN',
+                                                                                                       'name': 'rollConvention',
+                                                                                                       'value_presence': 'PRESENT'}}}]}]},
+                    'preconditions': {'any_of': [{'slot_conditions': {'period': {'equals_string': 'M',
+                                                                                 'name': 'period'}}},
+                                                 {'slot_conditions': {'period': {'equals_string': 'Y',
+                                                                                 'name': 'period'}}}]}},
                    {'description': 'FpML_ird_58: FpML validation rule ird-58 - '
                                    'Context: CalculationPeriodFrequency. When the '
                                    "period is 'W', the rollConvention must be a week "
@@ -20014,16 +20034,18 @@ class Offset(Period):
     """
     A class defining an offset used in calculating a new date relative to a reference date, e.g. calendar days, business days, commodity Business days, etc.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition DayType is not stated in LinkML: if period <> '
-                      'PeriodEnum -> D or periodMultiplier = 0 then dayType is absent'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
-         'rules': [{'description': 'From Period. DayPeriod: FpML specifies that if the '
-                                   'periodMultiplier value is 0 (zero) then period '
-                                   'must contain the value D (day).',
-                    'postconditions': {'slot_conditions': {'period': {'equals_string': 'D',
-                                                                      'name': 'period'}}},
-                    'preconditions': {'slot_conditions': {'periodMultiplier': {'equals_number': 0,
-                                                                               'name': 'periodMultiplier'}}}}]})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
+         'rules': [{'description': 'DayType: FpML specifies that the dayType must only '
+                                   'be included when the offset is specified as a '
+                                   'number of days, while should not be included if '
+                                   'the offset is zero days.',
+                    'postconditions': {'slot_conditions': {'dayType': {'name': 'dayType',
+                                                                       'value_presence': 'ABSENT'}}},
+                    'preconditions': {'any_of': [{'none_of': [{'slot_conditions': {'period': {'equals_string': 'D',
+                                                                                              'name': 'period',
+                                                                                              'value_presence': 'PRESENT'}}}]},
+                                                 {'slot_conditions': {'periodMultiplier': {'equals_number': 0,
+                                                                                           'name': 'periodMultiplier'}}}]}}]})
 
     dayType: Optional[DayTypeEnum] = Field(default=None, description="""In the case of an offset specified as a number of days, this element defines whether consideration is given as to whether a day is a good business day or not. If a day type of business days is specified then non-business days are ignored when calculating the offset. The financial business centers to use for determination of business days are implied by the context in which this element is used. This element must only be included when the offset is specified as a number of days. If the offset is zero days then the dayType element should not be included.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Offset', 'PeriodicDates', 'ParametricDates']} })
     periodMultiplier: int = Field(default=..., description="""A time period multiplier, e.g. 1, 2 or 3 etc. A negative value can be used when specifying an offset relative to another date, e.g. -2 days.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Frequency', 'Period', 'Velocity']} })
@@ -20121,14 +20143,7 @@ class RelativeDateOffset(Offset):
     """
     A class defining a date (referred to as the derived date) as a relative offset from another date (referred to as the anchor date). If the anchor date is itself an adjustable date then the offset is assumed to be calculated from the adjusted anchor date. A number of different scenarios can be supported, namely; 1) the derived date may simply be a number of calendar periods (days, weeks, months or years) preceding or following the anchor date; 2) the unadjusted derived date may be a number of calendar periods (days, weeks, months or years) preceding or following the anchor date with the resulting unadjusted derived date subject to adjustment in accordance with a specified business day convention, i.e. the derived date must fall on a good business day; 3) the derived date may be a number of business days preceding or following the anchor date. Note that the businessDayConvention specifies any required adjustment to the unadjusted derived date. A negative or positive value in the periodMultiplier indicates whether the unadjusted derived precedes or follows the anchor date. The businessDayConvention should contain a value NONE if the day type element contains a value of Business (since specifying a negative or positive business days offset would already guarantee that the derived date would fall on a good business day in the specified business centers).
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
-         'rules': [{'description': 'From Period. DayPeriod: FpML specifies that if the '
-                                   'periodMultiplier value is 0 (zero) then period '
-                                   'must contain the value D (day).',
-                    'postconditions': {'slot_conditions': {'period': {'equals_string': 'D',
-                                                                      'name': 'period'}}},
-                    'preconditions': {'slot_conditions': {'periodMultiplier': {'equals_number': 0,
-                                                                               'name': 'periodMultiplier'}}}}]})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime'})
 
     businessDayConvention: BusinessDayConventionEnum = Field(default=..., description="""The convention for adjusting a date if it would otherwise fall on a day that is not a business day, as specified by an ISDA convention (e.g. Following, Precedent).""", json_schema_extra = { "linkml_meta": {'domain_of': ['BusinessDateRange',
                        'BusinessDayAdjustments',
@@ -20168,14 +20183,7 @@ class AdjustedRelativeDateOffset(RelativeDateOffset):
     """
     A type defining a date (referred to as the derived date) as a relative offset from another date (referred to as the anchor date) plus optional date adjustments.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
-         'rules': [{'description': 'From Period. DayPeriod: FpML specifies that if the '
-                                   'periodMultiplier value is 0 (zero) then period '
-                                   'must contain the value D (day).',
-                    'postconditions': {'slot_conditions': {'period': {'equals_string': 'D',
-                                                                      'name': 'period'}}},
-                    'preconditions': {'slot_conditions': {'periodMultiplier': {'equals_number': 0,
-                                                                               'name': 'periodMultiplier'}}}}]})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime'})
 
     relativeDateAdjustments: Optional[BusinessDayAdjustments] = Field(default=None, description="""The business day convention and financial business centers used for adjusting the relative date if it would otherwise fall on a day that is not a business date in the specified business centers.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AdjustedRelativeDateOffset']} })
     businessDayConvention: BusinessDayConventionEnum = Field(default=..., description="""The convention for adjusting a date if it would otherwise fall on a day that is not a business day, as specified by an ISDA convention (e.g. Following, Precedent).""", json_schema_extra = { "linkml_meta": {'domain_of': ['BusinessDateRange',
@@ -20217,18 +20225,12 @@ class RelativeDates(RelativeDateOffset):
     A class describing a set of dates defined as relative to another set of dates.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
-         'rules': [{'description': 'From Period. DayPeriod: FpML specifies that if the '
-                                   'periodMultiplier value is 0 (zero) then period '
-                                   'must contain the value D (day).',
-                    'postconditions': {'slot_conditions': {'period': {'equals_string': 'D',
-                                                                      'name': 'period'}}},
-                    'preconditions': {'slot_conditions': {'periodMultiplier': {'equals_number': 0,
-                                                                               'name': 'periodMultiplier'}}}},
-                   {'description': 'PeriodSkipGreaterThanOne: FpML specifies that, if '
+         'rules': [{'description': 'PeriodSkipGreaterThanOne: FpML specifies that, if '
                                    'present, the period skip should have a value '
                                    'greater than 1.',
                     'postconditions': {'slot_conditions': {'periodSkip': {'minimum_value': 2,
-                                                                          'name': 'periodSkip'}}},
+                                                                          'name': 'periodSkip',
+                                                                          'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'periodSkip': {'name': 'periodSkip',
                                                                          'value_presence': 'PRESENT'}}}}]})
 
@@ -20731,13 +20733,6 @@ class NonNegativeQuantitySchedule(QuantitySchedule):
                                     'specified, in which case the single amount number '
                                     'is the initial value.'}],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
-         'rules': [{'description': 'From QuantitySchedule. TotalQuantity: A total '
-                                   'quantity must only be specified when the frequency '
-                                   'exists.',
-                    'postconditions': {'slot_conditions': {'frequency': {'name': 'frequency',
-                                                                         'value_presence': 'PRESENT'}}},
-                    'preconditions': {'slot_conditions': {'total': {'name': 'total',
-                                                                    'value_presence': 'PRESENT'}}}}],
          'slot_usage': {'datedValue': {'description': 'For a non-negative quantity '
                                                       'schedule, all amount attribute '
                                                       'must be positive.',
@@ -20790,13 +20785,6 @@ class Quantity(QuantitySchedule):
          'comments': ['Rosetta condition DatedValueIsAbsent is not stated in LinkML: '
                       'datedValue is absent and total -> datedValue is absent'],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
-         'rules': [{'description': 'From QuantitySchedule. TotalQuantity: A total '
-                                   'quantity must only be specified when the frequency '
-                                   'exists.',
-                    'postconditions': {'slot_conditions': {'frequency': {'name': 'frequency',
-                                                                         'value_presence': 'PRESENT'}}},
-                    'preconditions': {'slot_conditions': {'total': {'name': 'total',
-                                                                    'value_presence': 'PRESENT'}}}}],
          'slot_usage': {'datedValue': {'description': 'The schedule must be absent.',
                                        'name': 'datedValue',
                                        'range': 'DatedValue'},
@@ -20841,13 +20829,6 @@ class NonNegativeQuantity(Quantity):
                                     'specified, in which case the single amount number '
                                     'is the initial value.'}],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
-         'rules': [{'description': 'From QuantitySchedule. TotalQuantity: A total '
-                                   'quantity must only be specified when the frequency '
-                                   'exists.',
-                    'postconditions': {'slot_conditions': {'frequency': {'name': 'frequency',
-                                                                         'value_presence': 'PRESENT'}}},
-                    'preconditions': {'slot_conditions': {'total': {'name': 'total',
-                                                                    'value_presence': 'PRESENT'}}}}],
          'slot_usage': {'value': {'description': 'For a non-negative quantity, the '
                                                  'value attribute must be positive.',
                                   'name': 'value',
@@ -21127,16 +21108,32 @@ class AssetType(ConfiguredBaseModel):
     """
     Represents a class to allow specification of the asset product type.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition SecuritySubType is not stated in LinkML: if '
-                      'assetType <> Security then securityType is absent',
-                      'Rosetta condition BondSubType is not stated in LinkML: if '
-                      'securityType <> Debt then debtType is absent',
-                      'Rosetta condition EquitySubType is not stated in LinkML: if '
-                      'securityType <> Equity then equityType is absent',
-                      'Rosetta condition FundSubType is not stated in LinkML: if '
-                      'securityType <> Fund then fundType is absent'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
-         'rules': [{'description': 'OtherAssetSubType',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
+         'rules': [{'description': 'SecuritySubType',
+                    'postconditions': {'slot_conditions': {'securityType': {'name': 'securityType',
+                                                                            'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'assetType': {'equals_string': 'Security',
+                                                                                     'name': 'assetType',
+                                                                                     'value_presence': 'PRESENT'}}}]}},
+                   {'description': 'BondSubType',
+                    'postconditions': {'slot_conditions': {'debtType': {'name': 'debtType',
+                                                                        'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'securityType': {'equals_string': 'Debt',
+                                                                                        'name': 'securityType',
+                                                                                        'value_presence': 'PRESENT'}}}]}},
+                   {'description': 'EquitySubType',
+                    'postconditions': {'slot_conditions': {'equityType': {'name': 'equityType',
+                                                                          'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'securityType': {'equals_string': 'Equity',
+                                                                                        'name': 'securityType',
+                                                                                        'value_presence': 'PRESENT'}}}]}},
+                   {'description': 'FundSubType',
+                    'postconditions': {'slot_conditions': {'fundType': {'name': 'fundType',
+                                                                        'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'securityType': {'equals_string': 'Fund',
+                                                                                        'name': 'securityType',
+                                                                                        'value_presence': 'PRESENT'}}}]}},
+                   {'description': 'OtherAssetSubType',
                     'postconditions': {'slot_conditions': {'otherAssetType': {'name': 'otherAssetType',
                                                                               'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'assetType': {'equals_string': 'Other',
@@ -21274,18 +21271,31 @@ class CollateralIssuerType(ConfiguredBaseModel):
     """
     Represents a class to allow specification of the type of entity issuing the collateral.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition SupraNationalSubType is not stated in LinkML: '
-                      'if issuerType <> SupraNational then supraNationalType is absent',
-                      'Rosetta condition QuasiGovernmentSubType is not stated in '
-                      'LinkML: if issuerType <> QuasiGovernment then '
-                      'quasiGovernmentType is absent',
-                      'Rosetta condition RegionalGovernmentSubType is not stated in '
-                      'LinkML: if issuerType <> RegionalGovernment then '
-                      'regionalGovernmentType is absent',
-                      'Rosetta condition SpecialPurposeVehicleSubType is not stated in '
-                      'LinkML: if issuerType <> SpecialPurposeVehicle then '
-                      'specialPurposeVehicleType is absent'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
+         'rules': [{'description': 'SupraNationalSubType',
+                    'postconditions': {'slot_conditions': {'supraNationalType': {'name': 'supraNationalType',
+                                                                                 'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'issuerType': {'equals_string': 'SupraNational',
+                                                                                      'name': 'issuerType',
+                                                                                      'value_presence': 'PRESENT'}}}]}},
+                   {'description': 'QuasiGovernmentSubType',
+                    'postconditions': {'slot_conditions': {'quasiGovernmentType': {'name': 'quasiGovernmentType',
+                                                                                   'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'issuerType': {'equals_string': 'QuasiGovernment',
+                                                                                      'name': 'issuerType',
+                                                                                      'value_presence': 'PRESENT'}}}]}},
+                   {'description': 'RegionalGovernmentSubType',
+                    'postconditions': {'slot_conditions': {'regionalGovernmentType': {'name': 'regionalGovernmentType',
+                                                                                      'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'issuerType': {'equals_string': 'RegionalGovernment',
+                                                                                      'name': 'issuerType',
+                                                                                      'value_presence': 'PRESENT'}}}]}},
+                   {'description': 'SpecialPurposeVehicleSubType',
+                    'postconditions': {'slot_conditions': {'specialPurposeVehicleType': {'name': 'specialPurposeVehicleType',
+                                                                                         'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'issuerType': {'equals_string': 'SpecialPurposeVehicle',
+                                                                                      'name': 'issuerType',
+                                                                                      'value_presence': 'PRESENT'}}}]}}]})
 
     issuerType: CollateralEntityTypeEnum = Field(default=..., description="""Specifies the origin of entity issuing the collateral.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CollateralIssuerType', 'EligibilityQuery']} })
     supraNationalType: Optional[SupraNationalIssuerTypeEnum] = Field(default=None, description="""Specifies debt issued by international organisations and multilateral banks.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CollateralIssuerType']} })
@@ -21743,10 +21753,13 @@ class DigitalAsset(AssetBase):
 
 
 class EquityType(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition DepositaryReceiptSubType is not stated in '
-                      'LinkML: if equityType <> EquityTypeEnum -> DepositaryReceipt '
-                      'then depositaryReceipt is absent'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
+         'rules': [{'description': 'DepositaryReceiptSubType',
+                    'postconditions': {'slot_conditions': {'depositaryReceipt': {'name': 'depositaryReceipt',
+                                                                                 'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'equityType': {'equals_string': 'DepositaryReceipt',
+                                                                                      'name': 'equityType',
+                                                                                      'value_presence': 'PRESENT'}}}]}}]})
 
     equityType: Optional[EquityTypeEnum] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['AssetType', 'EquityType', 'Security']} })
     depositaryReceipt: Optional[DepositaryReceiptTypeEnum] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['EquityType']} })
@@ -22171,18 +22184,48 @@ class RegionalGovernmentIssuerType(ConfiguredBaseModel):
 
 
 class SecuredDebt(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition AssetBackedExists is not stated in LinkML: if '
-                      'securedType <> SecuredTypeEnum -> AssetBacked then assetBacked '
-                      'is absent',
-                      'Rosetta condition PropertyExists is not stated in LinkML: if '
-                      'assetBacked <> Mortgage or assetBacked <> Property or '
-                      'collateralizedObligation <> CMO then propertyType is absent',
-                      'Rosetta condition CollateralizedObligationExists is not stated '
-                      'in LinkML: if securedType <> CollateralizedObligation then '
-                      'collateralizedObligation is absent',
-                      'Rosetta condition CoveredBondsExists is not stated in LinkML: '
-                      'if securedType <> CoveredBonds then coveredBond is absent'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
+         'rules': [{'description': 'AssetBackedExists: Condition to restrict selection '
+                                   'of the assetBacked attribute if AssetBacked is not '
+                                   'set as the securedType value.',
+                    'postconditions': {'slot_conditions': {'assetBacked': {'name': 'assetBacked',
+                                                                           'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'securedType': {'equals_string': 'AssetBacked',
+                                                                                       'name': 'securedType',
+                                                                                       'value_presence': 'PRESENT'}}}]}},
+                   {'description': 'PropertyExists: Condition to restrict selection of '
+                                   'the property attribute if the security is not '
+                                   'linked to a property asset: mortgage, property, '
+                                   'CMO.',
+                    'postconditions': {'slot_conditions': {'propertyType': {'name': 'propertyType',
+                                                                            'value_presence': 'ABSENT'}}},
+                    'preconditions': {'any_of': [{'none_of': [{'slot_conditions': {'assetBacked': {'equals_string': 'Mortgage',
+                                                                                                   'name': 'assetBacked',
+                                                                                                   'value_presence': 'PRESENT'}}}]},
+                                                 {'none_of': [{'slot_conditions': {'assetBacked': {'equals_string': 'Property',
+                                                                                                   'name': 'assetBacked',
+                                                                                                   'value_presence': 'PRESENT'}}}]},
+                                                 {'none_of': [{'slot_conditions': {'collateralizedObligation': {'equals_string': 'CMO',
+                                                                                                                'name': 'collateralizedObligation',
+                                                                                                                'value_presence': 'PRESENT'}}}]}]}},
+                   {'description': 'CollateralizedObligationExists: Condition to '
+                                   'restrict selection of the '
+                                   'collateralizedObligations attribute if '
+                                   'CollateralizedObligation is not set as the '
+                                   'securedType value.',
+                    'postconditions': {'slot_conditions': {'collateralizedObligation': {'name': 'collateralizedObligation',
+                                                                                        'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'securedType': {'equals_string': 'CollateralizedObligation',
+                                                                                       'name': 'securedType',
+                                                                                       'value_presence': 'PRESENT'}}}]}},
+                   {'description': 'CoveredBondsExists: Condition to restrict '
+                                   'selection of the coveredBonds attribute if '
+                                   'CoveredBonds is not set as the securedType value.',
+                    'postconditions': {'slot_conditions': {'coveredBond': {'name': 'coveredBond',
+                                                                           'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'securedType': {'equals_string': 'CoveredBonds',
+                                                                                       'name': 'securedType',
+                                                                                       'value_presence': 'PRESENT'}}}]}}]})
 
     securedType: Optional[SecuredTypeEnum] = Field(default=None, description="""Specifies the type of secured debt product.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SecuredDebt']} })
     assetBacked: Optional[AssetBackedEnum] = Field(default=None, description="""Specifies the type of Asset Backed Security.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SecuredDebt']} })
@@ -22201,13 +22244,25 @@ class Security(InstrumentBase):
          'annotations': {'doc_reference': {'tag': 'doc_reference',
                                            'value': 'ICMA GMRA namingConvention '
                                                     'Purchased Security'}},
-         'comments': ['Rosetta condition DebtSubType is not stated in LinkML: if '
-                      'securityType <> Debt then debtType is absent',
-                      'Rosetta condition EquitySubType is not stated in LinkML: if '
-                      'securityType <> Equity then equityType is absent',
-                      'Rosetta condition FundSubType is not stated in LinkML: if '
-                      'securityType <> Fund then fundType is absent'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
+         'rules': [{'description': 'DebtSubType',
+                    'postconditions': {'slot_conditions': {'debtType': {'name': 'debtType',
+                                                                        'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'securityType': {'equals_string': 'Debt',
+                                                                                        'name': 'securityType',
+                                                                                        'value_presence': 'PRESENT'}}}]}},
+                   {'description': 'EquitySubType',
+                    'postconditions': {'slot_conditions': {'equityType': {'name': 'equityType',
+                                                                          'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'securityType': {'equals_string': 'Equity',
+                                                                                        'name': 'securityType',
+                                                                                        'value_presence': 'PRESENT'}}}]}},
+                   {'description': 'FundSubType',
+                    'postconditions': {'slot_conditions': {'fundType': {'name': 'fundType',
+                                                                        'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'securityType': {'equals_string': 'Fund',
+                                                                                        'name': 'securityType',
+                                                                                        'value_presence': 'PRESENT'}}}]}}]})
 
     securityType: SecurityTypeEnum = Field(default=..., description="""Identifies the type of security using an enumerated list.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetType', 'Security']} })
     debtType: Optional[DebtType] = Field(default=None, description="""Identifies the type of debt and selected debt economics.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetType', 'Security', 'CreditRatingDebt']} })
@@ -24308,16 +24363,7 @@ class MarginCallExposure(MarginCallBase):
                       '(overallExposure -> aggregateValue -> unit -> currency = '
                       'scheduleGridIMExposure -> aggregateValue -> unit -> currency)'],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
-         'rules': [{'description': 'From MarginCallBase. RegIMRoleIMOnly: Specifies a '
-                                   'condition to ensure that RegIMRole (Pledgor or '
-                                   'Secured Party)is only applicable if the Reg margin '
-                                   'type is defined as RegIM (Regulatory Initial '
-                                   'Margin).',
-                    'postconditions': {'slot_conditions': {'regMarginType': {'equals_string': 'RegIM',
-                                                                             'name': 'regMarginType'}}},
-                    'preconditions': {'slot_conditions': {'regIMRole': {'name': 'regIMRole',
-                                                                        'value_presence': 'PRESENT'}}}},
-                   {'description': 'ExposureSimmAndScheduleIMOnly: Specifies a '
+         'rules': [{'description': 'ExposureSimmAndScheduleIMOnly: Specifies a '
                                    'condition to ensure that if margin exposure is '
                                    'defined as Simm IM and Schedule/Grid IM Exposure '
                                    'this is only applicable if the Reg margin type is '
@@ -24430,16 +24476,7 @@ class MarginCallIssuance(MarginCallBase):
     """
     Represents common attributes required for a Margin Call Issuance under a legal agreement such as a credit support document or equivalent.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
-         'rules': [{'description': 'From MarginCallBase. RegIMRoleIMOnly: Specifies a '
-                                   'condition to ensure that RegIMRole (Pledgor or '
-                                   'Secured Party)is only applicable if the Reg margin '
-                                   'type is defined as RegIM (Regulatory Initial '
-                                   'Margin).',
-                    'postconditions': {'slot_conditions': {'regMarginType': {'equals_string': 'RegIM',
-                                                                             'name': 'regMarginType'}}},
-                    'preconditions': {'slot_conditions': {'regIMRole': {'name': 'regIMRole',
-                                                                        'value_presence': 'PRESENT'}}}}]})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common'})
 
     callAmountInBaseCurrency: Money = Field(default=..., description="""Specifies the amount of margin being called for which accounts for margin calculation inclusive of exposure, independent amount,threshold,collateral balance, MTA, rounding increments (in base currency detailed in supporting collateral agreement).""", json_schema_extra = { "linkml_meta": {'domain_of': ['MarginCallIssuance']} })
     recallNonCashCollateralDescription: Optional[list[EligibleCollateralCriteria]] = Field(default=None, description="""Specifies the details to describe or identify non-cash collateral eligible assets for recall purposes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MarginCallIssuance']} })
@@ -24524,16 +24561,7 @@ class MarginCallResponse(MarginCallBase):
     """
     Represents common attributes required for a Margin Call Response under a legal agreement such as a credit support document or equivalent.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
-         'rules': [{'description': 'From MarginCallBase. RegIMRoleIMOnly: Specifies a '
-                                   'condition to ensure that RegIMRole (Pledgor or '
-                                   'Secured Party)is only applicable if the Reg margin '
-                                   'type is defined as RegIM (Regulatory Initial '
-                                   'Margin).',
-                    'postconditions': {'slot_conditions': {'regMarginType': {'equals_string': 'RegIM',
-                                                                             'name': 'regMarginType'}}},
-                    'preconditions': {'slot_conditions': {'regIMRole': {'name': 'regIMRole',
-                                                                        'value_presence': 'PRESENT'}}}}]})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common'})
 
     marginCallResponseAction: list[MarginCallResponseAction] = Field(default=..., description="""Specifies the margin call action details, including collateral to be moved and direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MarginCallResponse']} })
     marginResponseType: MarginCallResponseTypeEnum = Field(default=..., description="""Indicates the response type, such as, is the margin call response a 'full' 'part' agreement or 'dispute'.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MarginCallResponse']} })
@@ -24863,7 +24891,8 @@ class State(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'closedState': {'name': 'closedState',
                                                                            'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'positionState': {'equals_string': 'Closed',
-                                                                            'name': 'positionState'}}}}]})
+                                                                            'name': 'positionState',
+                                                                            'value_presence': 'PRESENT'}}}}]})
 
     closedState: Optional[ClosedState] = Field(default=None, description="""Represents the qualification of what led to the trade's closure alongside the dates on which this closure took effect.""", json_schema_extra = { "linkml_meta": {'domain_of': ['State']} })
     positionState: Optional[PositionStatusEnum] = Field(default=None, description="""Identifies the state of the position, to distinguish if just executed, formed, already settled, closed, etc.""", json_schema_extra = { "linkml_meta": {'domain_of': ['State']} })
@@ -25141,7 +25170,8 @@ class ContingentTransfer(PayoutTransferBase):
                     'postconditions': {'slot_conditions': {'corporateActionTransferType': {'name': 'corporateActionTransferType',
                                                                                            'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'transferType': {'equals_string': 'CorporateAction',
-                                                                           'name': 'transferType'}}}}]})
+                                                                           'name': 'transferType',
+                                                                           'value_presence': 'PRESENT'}}}}]})
 
     transferType: Optional[ContingentTransferEnum] = Field(default=None, description="""Specifies the type of Contingent Transfer.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContingentTransfer',
                        'ScheduledTransfer',
@@ -25546,7 +25576,8 @@ class BasketConstituent(ConfiguredBaseModel):
 
     observable: Observable = Field(default=..., description="""Specifies the object to be observed for a price, it could be an asset or a reference, within the context of a Basket""", json_schema_extra = { "linkml_meta": {'domain_of': ['BasketConstituent', 'PriceQuantity', 'ObservationIdentifier']} })
     quantity: Optional[list[NonNegativeQuantitySchedule]] = Field(default=None, description="""Specifies a quantity schedule to be associated to an individual underlier that is a basket constituent. The multiple cardinality is aligned to the one of the PriceQuantity->quantity that this quantity is referencing.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->quantity'}},
          'domain_of': ['CalculateTransferInstruction',
                        'ReturnInstruction',
                        'TransferBase',
@@ -25556,17 +25587,20 @@ class BasketConstituent(ConfiguredBaseModel):
                        'FutureValueAmount',
                        'PortfolioReturnTerms']} })
     initialValuationPrice: Optional[list[PriceSchedule]] = Field(default=None, description="""Specifies an initial price schedule to be associated to an individual underlier that is a basket constituent. The multiple cardinality is aligned to the one of the PriceQuantity->price that this price is referencing.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['BasketConstituent',
                        'PerformancePayout',
                        'PortfolioReturnTerms']} })
     interimValuationPrice: Optional[list[PriceSchedule]] = Field(default=None, description="""Specifies an interim price schedule to be associated to an individual underlier that is a basket constituent. The multiple cardinality is aligned to the one of the PriceQuantity->price that this price is referencing.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['BasketConstituent',
                        'PerformancePayout',
                        'PortfolioReturnTerms']} })
     finalValuationPrice: Optional[list[PriceSchedule]] = Field(default=None, description="""Specifies a final price schedule to be associated to an individual underlier that is a basket constituent. The multiple cardinality is aligned to the one of the PriceQuantity->price that this price is referencing.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['BasketConstituent',
                        'PerformancePayout',
                        'PortfolioReturnTerms']} })
@@ -25908,7 +25942,8 @@ class AssetFloatingRateIndex(IndexBase):
                     {'description': 'InterestRateAssetClass: The asset class must be '
                                     'Interest Rate.',
                      'slot_conditions': {'assetClass': {'equals_string': 'InterestRate',
-                                                        'name': 'assetClass'}}}],
+                                                        'name': 'assetClass',
+                                                        'value_presence': 'PRESENT'}}}],
          'annotations': {'rosetta_name': {'tag': 'rosetta_name',
                                           'value': 'cdm.observable.asset.FloatingRateIndex'}},
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset'})
@@ -26044,28 +26079,34 @@ class CreditIndex(IndexBase):
                                                        'name': 'assetType'}}},
                     {'description': 'CreditAssetClass: The asset class must be Credit.',
                      'slot_conditions': {'assetClass': {'equals_string': 'Credit',
-                                                        'name': 'assetClass'}}}],
+                                                        'name': 'assetClass',
+                                                        'value_presence': 'PRESENT'}}}],
          'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'key'}},
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
          'rules': [{'description': 'IndexSeries: FpML specifies the type associated to '
                                    'indexSeries as a positive integer.',
                     'postconditions': {'slot_conditions': {'indexSeries': {'minimum_value': 0,
-                                                                           'name': 'indexSeries'}}},
+                                                                           'name': 'indexSeries',
+                                                                           'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'indexSeries': {'name': 'indexSeries',
                                                                           'value_presence': 'PRESENT'}}}},
                    {'description': 'IndexAnnexVersion: FpML specifies the type '
                                    'associated to indexVersion as a positive integer.',
                     'postconditions': {'slot_conditions': {'indexAnnexVersion': {'minimum_value': 0,
-                                                                                 'name': 'indexAnnexVersion'}}},
+                                                                                 'name': 'indexAnnexVersion',
+                                                                                 'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'indexAnnexVersion': {'name': 'indexAnnexVersion',
                                                                                 'value_presence': 'PRESENT'}}}},
                    {'description': 'IndexFactor: Index factor is expressed as a '
                                    'decimal and should be a positive number between o '
                                    'and 1.',
-                    'postconditions': {'slot_conditions': {'indexFactor': {'maximum_value': 1,
-                                                                           'minimum_value': 0,
-                                                                           'name': 'indexFactor'}}},
+                    'postconditions': {'all_of': [{'slot_conditions': {'indexFactor': {'minimum_value': 0,
+                                                                                       'name': 'indexFactor',
+                                                                                       'value_presence': 'PRESENT'}}},
+                                                  {'slot_conditions': {'indexFactor': {'maximum_value': 1,
+                                                                                       'name': 'indexFactor',
+                                                                                       'value_presence': 'PRESENT'}}}]},
                     'preconditions': {'slot_conditions': {'indexFactor': {'name': 'indexFactor',
                                                                           'value_presence': 'PRESENT'}}}}]})
 
@@ -26198,7 +26239,8 @@ class EquityIndex(IndexBase):
                                                        'name': 'assetType'}}},
                     {'description': 'EquityAssetClass: The asset class must be Equity.',
                      'slot_conditions': {'assetClass': {'equals_string': 'Equity',
-                                                        'name': 'assetClass'}}}],
+                                                        'name': 'assetClass',
+                                                        'value_presence': 'PRESENT'}}}],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset'})
 
     name: Optional[str] = Field(default=None, description="""A description of the Index.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
@@ -26320,7 +26362,8 @@ class ForeignExchangeRateIndex(IndexBase):
                     {'description': 'FXAssetClass: The asset class must be Foreign '
                                     'Exchange.',
                      'slot_conditions': {'assetClass': {'equals_string': 'ForeignExchange',
-                                                        'name': 'assetClass'}}}],
+                                                        'name': 'assetClass',
+                                                        'value_presence': 'PRESENT'}}}],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset'})
 
     quotedCurrencyPair: QuotedCurrencyPair = Field(default=..., description="""Describes the composition of a rate that has been quoted or is to be quoted.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
@@ -26447,7 +26490,8 @@ class InflationIndex(IndexBase):
                     {'description': 'InterestRateAssetClass: The asset class must be '
                                     'Interest Rate.',
                      'slot_conditions': {'assetClass': {'equals_string': 'InterestRate',
-                                                        'name': 'assetClass'}}}],
+                                                        'name': 'assetClass',
+                                                        'value_presence': 'PRESENT'}}}],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset'})
 
     inflationRateIndex: InflationRateIndexEnum = Field(default=..., description="""The reference index that is used to specify the inflation interest rate.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
@@ -26634,14 +26678,7 @@ class Money(Quantity):
                                               'value': 'key'}},
          'comments': ['Rosetta condition CurrencyUnitExists is not stated in LinkML: '
                       'unit -> currency exists'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
-         'rules': [{'description': 'From QuantitySchedule. TotalQuantity: A total '
-                                   'quantity must only be specified when the frequency '
-                                   'exists.',
-                    'postconditions': {'slot_conditions': {'frequency': {'name': 'frequency',
-                                                                         'value_presence': 'PRESENT'}}},
-                    'preconditions': {'slot_conditions': {'total': {'name': 'total',
-                                                                    'value_presence': 'PRESENT'}}}}]})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset'})
 
     multiplier: Optional[NonNegativeMeasure] = Field(default=None, description="""Defines an optional measure that the quantity should be multiplied by to derive a total quantity. Requires that the multiplier must be positive. This number is associated to an optional unit. For example in the case of the Coal (API2) CIF ARA (ARGUS-McCloskey) Futures Contract on the CME, where the unit would be contracts, the multiplier value would 1,000 and the mulitiplier unit would be 1,000 MT (Metric Tons).""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitySchedule', 'FloatingRateProcessingParameters']} })
     frequency: Optional[Frequency] = Field(default=None, description="""Defines the frequency to be used when defining a quantity. For example a quantity may be specified as a number of barrels of oil per day, which needs multiplying by the number of days in the relevant period to get the total quantity as a number of barrels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantitySchedule', 'CSAValuationDate']} })
@@ -26881,9 +26918,11 @@ class PriceComposite(ConfiguredBaseModel):
                                                   {'slot_conditions': {'arithmeticOperator': {'equals_string': 'Subtract',
                                                                                               'name': 'arithmeticOperator'}}}]},
                     'preconditions': {'any_of': [{'slot_conditions': {'operandType': {'equals_string': 'ForwardPoint',
-                                                                                      'name': 'operandType'}}},
+                                                                                      'name': 'operandType',
+                                                                                      'value_presence': 'PRESENT'}}},
                                                  {'slot_conditions': {'operandType': {'equals_string': 'AccruedInterest',
-                                                                                      'name': 'operandType'}}}]}}]})
+                                                                                      'name': 'operandType',
+                                                                                      'value_presence': 'PRESENT'}}}]}}]})
 
     baseValue: Decimal = Field(default=..., description="""The 1st value in the arithmetic operation, which may be non-commutative in some cases: Subtract, Divide). This 1st operand is called 'baseValue' as it refers to the price anchor in the arithmetic operation: e.g. the clean price (Bond) or the spot rate (FX).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PriceComposite']} })
     operand: Decimal = Field(default=..., description="""The 2nd value in the arithmetic operation, which may be non-commutative in some cases: Subtract, Divide). The 2nd operand is called 'operand' to distinguish it from the 1st one which is the price anchor.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PriceComposite']} })
@@ -26980,8 +27019,6 @@ class PriceSchedule(MeasureBase):
                       'Rosetta condition CurrencyUnitForInterestRate is not stated in '
                       'LinkML: if priceType = PriceTypeEnum -> InterestRate then unit '
                       '-> currency exists',
-                      'Rosetta condition ArithmeticOperator is not stated in LinkML: '
-                      'arithmeticOperator <> Subtract and arithmeticOperator <> Divide',
                       'Rosetta condition ForwardPoint is not stated in LinkML: if '
                       'composite -> operandType = ForwardPoint then priceType = '
                       'ExchangeRate',
@@ -26997,6 +27034,16 @@ class PriceSchedule(MeasureBase):
                       'LinkML: if derivedQuantity exists and unit is absent then '
                       'derivedQuantity -> unit -> currency exists'],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
+         'none_of': [{'description': 'ArithmeticOperator: Operator must not be '
+                                     'subtract or divide.',
+                      'slot_conditions': {'arithmeticOperator': {'equals_string': 'Subtract',
+                                                                 'name': 'arithmeticOperator',
+                                                                 'value_presence': 'PRESENT'}}},
+                     {'description': 'ArithmeticOperator: Operator must not be '
+                                     'subtract or divide.',
+                      'slot_conditions': {'arithmeticOperator': {'equals_string': 'Divide',
+                                                                 'name': 'arithmeticOperator',
+                                                                 'value_presence': 'PRESENT'}}}],
          'rules': [{'description': 'UnitOfAmountExists: Requires that a unit of amount '
                                    'must be specified for price unless price type is '
                                    'Variance, Volatility or Correlation.',
@@ -27029,16 +27076,19 @@ class PriceSchedule(MeasureBase):
                                                   {'slot_conditions': {'priceType': {'equals_string': 'InterestRate',
                                                                                      'name': 'priceType'}}}]},
                     'preconditions': {'slot_conditions': {'arithmeticOperator': {'equals_string': 'Add',
-                                                                                 'name': 'arithmeticOperator'}}}},
+                                                                                 'name': 'arithmeticOperator',
+                                                                                 'value_presence': 'PRESENT'}}}},
                    {'description': 'InterestRateFeeType: If a lending fee or rebate '
                                    'fee is specified then the price type must be '
                                    'InterestRate.',
                     'postconditions': {'slot_conditions': {'priceType': {'equals_string': 'InterestRate',
                                                                          'name': 'priceType'}}},
                     'preconditions': {'any_of': [{'slot_conditions': {'priceSubType': {'equals_string': 'Fee',
-                                                                                       'name': 'priceSubType'}}},
+                                                                                       'name': 'priceSubType',
+                                                                                       'value_presence': 'PRESENT'}}},
                                                  {'slot_conditions': {'priceSubType': {'equals_string': 'Rebate',
-                                                                                       'name': 'priceSubType'}}}]}}]})
+                                                                                       'name': 'priceSubType',
+                                                                                       'value_presence': 'PRESENT'}}}]}}]})
 
     perUnitOf: Optional[UnitType] = Field(default=None, description="""Provides an attribute to define the unit of the thing being priced. For example, {amount, unitOfAmount, PerUnitOfAmount} = [10, EUR, Shares] = (10.00 EUR/SHARE) * (300,000 SHARES) = EUR 3,000,000.00 (Shares cancel out in the calculation).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PriceSchedule']} })
     priceType: PriceTypeEnum = Field(default=..., description="""Specifies the price type as an enumeration: interest rate, exchange rate, asset price etc. This attribute is mandatory so that prices can always be clasiffied according to their type. The price type implies some constraints on the price's units.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PriceSchedule']} })
@@ -27096,49 +27146,16 @@ class Price(PriceSchedule):
                                          'value': {'name': 'value',
                                                    'value_presence': 'PRESENT'}}}],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
-         'rules': [{'description': 'From PriceSchedule. UnitOfAmountExists: Requires '
-                                   'that a unit of amount must be specified for price '
-                                   'unless price type is Variance, Volatility or '
-                                   'Correlation.',
-                    'elseconditions': {'slot_conditions': {'perUnitOf': {'name': 'perUnitOf',
-                                                                         'value_presence': 'PRESENT'},
-                                                           'unit': {'name': 'unit',
-                                                                    'value_presence': 'PRESENT'}}},
-                    'postconditions': {'slot_conditions': {'perUnitOf': {'name': 'perUnitOf',
-                                                                         'value_presence': 'ABSENT'},
-                                                           'unit': {'name': 'unit',
-                                                                    'value_presence': 'ABSENT'}}},
-                    'preconditions': {'any_of': [{'slot_conditions': {'priceType': {'equals_string': 'Variance',
-                                                                                    'name': 'priceType'}}},
-                                                 {'slot_conditions': {'priceType': {'equals_string': 'Volatility',
-                                                                                    'name': 'priceType'}}},
-                                                 {'slot_conditions': {'priceType': {'equals_string': 'Correlation',
-                                                                                    'name': 'priceType'}}}]}},
-                   {'description': 'From PriceSchedule. Premium: If we are applying a '
-                                   'premium to the price then we must define this as a '
-                                   'premium in priceType.',
-                    'postconditions': {'slot_conditions': {'priceType': {'equals_string': 'Premium',
-                                                                         'name': 'priceType'}}},
-                    'preconditions': {'slot_conditions': {'premiumType': {'name': 'premiumType',
-                                                                          'value_presence': 'PRESENT'}}}},
-                   {'description': 'From PriceSchedule. SpreadPrice: A spread type can '
-                                   'only be specified when the price type is an asset '
-                                   'price or an interest rate.',
-                    'postconditions': {'any_of': [{'slot_conditions': {'priceType': {'equals_string': 'AssetPrice',
-                                                                                     'name': 'priceType'}}},
-                                                  {'slot_conditions': {'priceType': {'equals_string': 'InterestRate',
-                                                                                     'name': 'priceType'}}}]},
-                    'preconditions': {'slot_conditions': {'arithmeticOperator': {'equals_string': 'Add',
-                                                                                 'name': 'arithmeticOperator'}}}},
-                   {'description': 'From PriceSchedule. InterestRateFeeType: If a '
-                                   'lending fee or rebate fee is specified then the '
-                                   'price type must be InterestRate.',
-                    'postconditions': {'slot_conditions': {'priceType': {'equals_string': 'InterestRate',
-                                                                         'name': 'priceType'}}},
-                    'preconditions': {'any_of': [{'slot_conditions': {'priceSubType': {'equals_string': 'Fee',
-                                                                                       'name': 'priceSubType'}}},
-                                                 {'slot_conditions': {'priceSubType': {'equals_string': 'Rebate',
-                                                                                       'name': 'priceSubType'}}}]}}]})
+         'none_of': [{'description': 'From PriceSchedule. ArithmeticOperator: Operator '
+                                     'must not be subtract or divide.',
+                      'slot_conditions': {'arithmeticOperator': {'equals_string': 'Subtract',
+                                                                 'name': 'arithmeticOperator',
+                                                                 'value_presence': 'PRESENT'}}},
+                     {'description': 'From PriceSchedule. ArithmeticOperator: Operator '
+                                     'must not be subtract or divide.',
+                      'slot_conditions': {'arithmeticOperator': {'equals_string': 'Divide',
+                                                                 'name': 'arithmeticOperator',
+                                                                 'value_presence': 'PRESENT'}}}]})
 
     perUnitOf: Optional[UnitType] = Field(default=None, description="""Provides an attribute to define the unit of the thing being priced. For example, {amount, unitOfAmount, PerUnitOfAmount} = [10, EUR, Shares] = (10.00 EUR/SHARE) * (300,000 SHARES) = EUR 3,000,000.00 (Shares cancel out in the calculation).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PriceSchedule']} })
     priceType: PriceTypeEnum = Field(default=..., description="""Specifies the price type as an enumeration: interest rate, exchange rate, asset price etc. This attribute is mandatory so that prices can always be clasiffied according to their type. The price type implies some constraints on the price's units.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PriceSchedule']} })
@@ -27202,7 +27219,8 @@ class RateObservation(ConfiguredBaseModel):
          'rules': [{'description': 'PositiveObservationWeight: FpML specifies '
                                    'observationWeight as a positive integer.',
                     'postconditions': {'slot_conditions': {'observationWeight': {'minimum_value': 0,
-                                                                                 'name': 'observationWeight'}}},
+                                                                                 'name': 'observationWeight',
+                                                                                 'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'observationWeight': {'name': 'observationWeight',
                                                                                 'value_presence': 'PRESENT'}}}}]})
 
@@ -27240,7 +27258,8 @@ class SingleValuationDate(ConfiguredBaseModel):
          'rules': [{'description': 'NonNegativeBusinessDays: FpML specifies '
                                    'businessDays as a NonNegativeInteger.',
                     'postconditions': {'slot_conditions': {'businessDays': {'minimum_value': 0,
-                                                                            'name': 'businessDays'}}},
+                                                                            'name': 'businessDays',
+                                                                            'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'businessDays': {'name': 'businessDays',
                                                                            'value_presence': 'PRESENT'}}}}]})
 
@@ -27249,23 +27268,18 @@ class SingleValuationDate(ConfiguredBaseModel):
 
 class MultipleValuationDates(SingleValuationDate):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
-         'rules': [{'description': 'From SingleValuationDate. NonNegativeBusinessDays: '
-                                   'FpML specifies businessDays as a '
-                                   'NonNegativeInteger.',
-                    'postconditions': {'slot_conditions': {'businessDays': {'minimum_value': 0,
-                                                                            'name': 'businessDays'}}},
-                    'preconditions': {'slot_conditions': {'businessDays': {'name': 'businessDays',
-                                                                           'value_presence': 'PRESENT'}}}},
-                   {'description': 'BusinessDaysThereafter: FpML specifies '
+         'rules': [{'description': 'BusinessDaysThereafter: FpML specifies '
                                    'businessDaysThereafter as a PositiveInteger.',
                     'postconditions': {'slot_conditions': {'businessDaysThereafter': {'minimum_value': 0,
-                                                                                      'name': 'businessDaysThereafter'}}},
+                                                                                      'name': 'businessDaysThereafter',
+                                                                                      'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'businessDaysThereafter': {'name': 'businessDaysThereafter',
                                                                                      'value_presence': 'PRESENT'}}}},
                    {'description': 'NumberValuationDates: FpML specifies '
                                    'numberValuationDates as a PositiveInteger.',
                     'postconditions': {'slot_conditions': {'numberValuationDates': {'minimum_value': 0,
-                                                                                    'name': 'numberValuationDates'}}},
+                                                                                    'name': 'numberValuationDates',
+                                                                                    'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'numberValuationDates': {'name': 'numberValuationDates',
                                                                                    'value_presence': 'PRESENT'}}}}]})
 
@@ -27398,7 +27412,8 @@ class ValuationSource(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset'})
 
     quotedCurrencyPair: Optional[QuotedCurrencyPair] = Field(default=None, description="""Defines the two currencies for an FX trade and the quotation relationship between the two currencies. This attribute was formerly part of 'fxSettlementTerms', which is now being harmonised into a common 'CashSettlementTerms' that includes a 'ValuationDate'.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=Observable->Index->ForeignExchangeRateIndex->quotedCurrencyPair'}},
          'domain_of': ['ForeignExchangeRateIndex', 'FxRate', 'ValuationSource']} })
     informationSource: Optional[FxSpotRateSource] = Field(default=None, description="""The information source where a published or displayed market rate will be obtained, e.g. Telerate Page 3750.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CorporateAction',
                        'ValuationSource',
@@ -27544,14 +27559,7 @@ class BusinessDayOffset(Period):
     """
     This allows an offset to be specified as, for instance, N business days, with a business centers specified as included.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
-         'rules': [{'description': 'From Period. DayPeriod: FpML specifies that if the '
-                                   'periodMultiplier value is 0 (zero) then period '
-                                   'must contain the value D (day).',
-                    'postconditions': {'slot_conditions': {'period': {'equals_string': 'D',
-                                                                      'name': 'period'}}},
-                    'preconditions': {'slot_conditions': {'periodMultiplier': {'equals_number': 0,
-                                                                               'name': 'periodMultiplier'}}}}]})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro'})
 
     businessCenters: Optional[BusinessCenters] = Field(default=None, description="""The business centers for the offset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BusinessDateRange',
                        'BusinessDayAdjustments',
@@ -27703,14 +27711,7 @@ class FloatingRateIndexFixingOffset(BusinessDayOffset):
     """
     This type holds parameters defining the normal fixing offset for a floating rate index.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
-         'rules': [{'description': 'From Period. DayPeriod: FpML specifies that if the '
-                                   'periodMultiplier value is 0 (zero) then period '
-                                   'must contain the value D (day).',
-                    'postconditions': {'slot_conditions': {'period': {'equals_string': 'D',
-                                                                      'name': 'period'}}},
-                    'preconditions': {'slot_conditions': {'periodMultiplier': {'equals_number': 0,
-                                                                               'name': 'periodMultiplier'}}}}]})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro'})
 
     designatedMaturity: Optional[str] = Field(default=None, description="""Allows a reason to be specified for using the alternative fixing offset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateIndexFixingOffset', 'FloatingRateIndexFixingTime']} })
     businessCenters: Optional[BusinessCenters] = Field(default=None, description="""The business centers for the offset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BusinessDateRange',
@@ -28305,7 +28306,8 @@ class ObservationTerms(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'observationTime': {'name': 'observationTime',
                                                                                'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'observationTimeType': {'equals_string': 'SpecificTime',
-                                                                                  'name': 'observationTimeType'}}}}]})
+                                                                                  'name': 'observationTimeType',
+                                                                                  'value_presence': 'PRESENT'}}}}]})
 
     observationTime: Optional[BusinessCenterTime] = Field(default=None, description="""Defines time in respect to a business calendar location that the price/benchmark/index is observed""", json_schema_extra = { "linkml_meta": {'domain_of': ['ObservationTerms', 'ObservationIdentifier']} })
     observationTimeType: Optional[TimeTypeEnum] = Field(default=None, description="""The enumerated values to specify points in the day when option exercise and valuation can occur.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ObservationTerms']} })
@@ -28431,7 +28433,8 @@ class RateSchedule(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule'})
 
     price: PriceSchedule = Field(default=..., description="""The initial rate. An initial rate of 5% would be represented as 0.05.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['IdentifiedList', 'PriceQuantity', 'RateSchedule', 'FixedPrice']} })
 
 
@@ -28476,14 +28479,7 @@ class ResetFrequency(Frequency):
                      'slot_conditions': {'periodMultiplier': {'minimum_value': 1,
                                                               'name': 'periodMultiplier'}}}],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
-         'rules': [{'description': 'From Frequency. TermPeriod: FpML specifies that if '
-                                   'period value is T (Term) then periodMultiplier '
-                                   'must contain the value 1.',
-                    'postconditions': {'slot_conditions': {'periodMultiplier': {'equals_number': 1,
-                                                                                'name': 'periodMultiplier'}}},
-                    'preconditions': {'slot_conditions': {'period': {'equals_string': 'T',
-                                                                     'name': 'period'}}}},
-                   {'description': 'FpML_ird_49: FpML validation rule ird-49 - '
+         'rules': [{'description': 'FpML_ird_49: FpML validation rule ird-49 - '
                                    'WeeklyRollConvention should exist if and only if '
                                    "the period is 'W'.",
                     'postconditions': {'slot_conditions': {'period': {'equals_string': 'W',
@@ -28554,7 +28550,8 @@ class WeightedAveragingObservation(ConfiguredBaseModel):
          'rules': [{'description': 'PositiveObservationNumber: FpML specifies '
                                    'observationNumber as a positive integer.',
                     'postconditions': {'slot_conditions': {'observationNumber': {'minimum_value': 0,
-                                                                                 'name': 'observationNumber'}}},
+                                                                                 'name': 'observationNumber',
+                                                                                 'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'observationNumber': {'name': 'observationNumber',
                                                                                 'value_presence': 'PRESENT'}}}}]})
 
@@ -29502,7 +29499,8 @@ class UmbrellaAgreementParty(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'parentParty': {'name': 'parentParty',
                                                                            'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'partyRole': {'equals_string': 'Sleeve',
-                                                                        'name': 'partyRole'}}}},
+                                                                        'name': 'partyRole',
+                                                                        'value_presence': 'PRESENT'}}}},
                    {'description': 'NonLegalEntityParent: Non-Legal entity must have a '
                                    'Parent Party.',
                     'postconditions': {'slot_conditions': {'parentParty': {'name': 'parentParty',
@@ -30145,9 +30143,11 @@ class CollateralPosition(PositionBase):
                                    "indicate 'Settled Amount' or 'In Transit' amount "
                                    'from the available enumerations.',
                     'postconditions': {'any_of': [{'slot_conditions': {'collateralPositionStatus': {'equals_string': 'SettledAmount',
-                                                                                                    'name': 'collateralPositionStatus'}}},
+                                                                                                    'name': 'collateralPositionStatus',
+                                                                                                    'value_presence': 'PRESENT'}}},
                                                   {'slot_conditions': {'collateralPositionStatus': {'equals_string': 'InTransitAmount',
-                                                                                                    'name': 'collateralPositionStatus'}}}]},
+                                                                                                    'name': 'collateralPositionStatus',
+                                                                                                    'value_presence': 'PRESENT'}}}]},
                     'preconditions': {'slot_conditions': {'collateralPositionStatus': {'name': 'collateralPositionStatus',
                                                                                        'value_presence': 'PRESENT'}}}}]})
 
@@ -30363,7 +30363,8 @@ class EventInstruction(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
          'rules': [{'description': 'CorporateAction',
                     'postconditions': {'slot_conditions': {'intent': {'equals_string': 'CorporateActionAdjustment',
-                                                                      'name': 'intent'}}},
+                                                                      'name': 'intent',
+                                                                      'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'corporateActionIntent': {'name': 'corporateActionIntent',
                                                                                     'value_presence': 'PRESENT'}}}}]})
 
@@ -30406,12 +30407,7 @@ class BusinessEvent(EventInstruction):
                                               'value': 'key'},
                          'rosetta_root_type': {'tag': 'rosetta_root_type',
                                                'value': 'true'}},
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
-         'rules': [{'description': 'From EventInstruction. CorporateAction',
-                    'postconditions': {'slot_conditions': {'intent': {'equals_string': 'CorporateActionAdjustment',
-                                                                      'name': 'intent'}}},
-                    'preconditions': {'slot_conditions': {'corporateActionIntent': {'name': 'corporateActionIntent',
-                                                                                    'value_presence': 'PRESENT'}}}}]})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common'})
 
     eventQualifier: Optional[str] = Field(default=None, description="""The CDM event qualifier, which corresponds to the outcome of the isEvent qualification logic which qualifies the lifecycle event as a function of its features (e.g. PartialTermination, ClearingSubmission, Novation, ...).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AgreementEvent', 'BusinessEvent']} })
     after: Optional[list[TradeState]] = Field(default=None, description="""Specifies the after trade state(s) created.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AgreementEvent',
@@ -31353,9 +31349,6 @@ class AdditionalType(ConfiguredBaseModel):
                                            'value': 'ISDA CSA_IM_2016 paragraph 13 '
                                                     'General Principles clause '
                                                     '(b)(B)'}},
-         'comments': ['Rosetta condition StandardValue is not stated in LinkML: if '
-                      'standardValue <> AdditionalTypeEnum -> Other then customValue '
-                      'is absent'],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
          'rules': [{'description': 'CustomValue: The specification of a custom value '
                                    'by the parties to the legal agreement takes place '
@@ -31364,7 +31357,18 @@ class AdditionalType(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'customValue': {'name': 'customValue',
                                                                            'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'standardValue': {'equals_string': 'Other',
-                                                                            'name': 'standardValue'}}}}]})
+                                                                            'name': 'standardValue'}}}},
+                   {'description': 'StandardValue: The specification of a standard '
+                                   'value by the parties to the legal agreement is '
+                                   'done through the qualification of a value distinct '
+                                   'than `Other` as part of the AdditionalTypeEnum, '
+                                   'and implies that the customerValue is not being '
+                                   'qualified.',
+                    'postconditions': {'slot_conditions': {'customValue': {'name': 'customValue',
+                                                                           'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'standardValue': {'equals_string': 'Other',
+                                                                                         'name': 'standardValue',
+                                                                                         'value_presence': 'PRESENT'}}}]}}]})
 
     standardValue: AdditionalTypeEnum = Field(default=..., description="""The qualification of the Additional Type of transaction that can require the collection or delivery of initial margin when specified as a standard value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AdditionalType']} })
     customValue: Optional[str] = Field(default=None, description="""The qualification of the Additional Type of transaction that can require the collection or delivery of initial margin when specified as a custom value by the parties to the legal agreement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AdditionalType']} })
@@ -31882,7 +31886,8 @@ class CSAValuationDate(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'calendarDay': {'name': 'calendarDay',
                                                                            'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'date': {'equals_string': 'CalendarDay',
-                                                                   'name': 'date'}}}},
+                                                                   'name': 'date',
+                                                                   'value_presence': 'PRESENT'}}}},
                    {'description': 'AdditionalLanguage: If no methodology is defined, '
                                    'additional language must be specified.',
                     'postconditions': {'slot_conditions': {'additionalLanguage': {'name': 'additionalLanguage',
@@ -32567,9 +32572,11 @@ class CollateralValueMethod(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'additionalLanguage': {'name': 'additionalLanguage',
                                                                                   'value_presence': 'PRESENT'}}},
                     'preconditions': {'any_of': [{'slot_conditions': {'cashCollateral': {'equals_string': 'Other',
-                                                                                         'name': 'cashCollateral'}}},
+                                                                                         'name': 'cashCollateral',
+                                                                                         'value_presence': 'PRESENT'}}},
                                                  {'slot_conditions': {'securitiesCollateral': {'equals_string': 'Other',
-                                                                                               'name': 'securitiesCollateral'}}}]}}]})
+                                                                                               'name': 'securitiesCollateral',
+                                                                                               'value_presence': 'PRESENT'}}}]}}]})
 
     cashCollateral: Optional[ValueCashEnum] = Field(default=None, description="""Details of how cash collateral is valued.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CollateralValueMethod']} })
     securitiesCollateral: Optional[ValueSecuritiesEnum] = Field(default=None, description="""Details of how securities collateral is valued.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CollateralValueMethod']} })
@@ -32631,7 +32638,8 @@ class ConditionsPrecedent(ConfiguredBaseModel):
                                    'specified then the Conditions Precedent Election '
                                    'should be absent.',
                     'postconditions': {'slot_conditions': {'conditionsPrecedentElection': {'equals_string': 'Other',
-                                                                                           'name': 'conditionsPrecedentElection'}}},
+                                                                                           'name': 'conditionsPrecedentElection',
+                                                                                           'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'customProvision': {'name': 'customProvision',
                                                                               'value_presence': 'PRESENT'}}}}]})
 
@@ -33755,7 +33763,8 @@ class CustodianElection(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'legacyNamedEntity': {'name': 'legacyNamedEntity',
                                                                                  'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'legacyVMCustodian': {'equals_string': 'NamedEntity',
-                                                                                'name': 'legacyVMCustodian'}}}},
+                                                                                'name': 'legacyVMCustodian',
+                                                                                'value_presence': 'PRESENT'}}}},
                    {'description': 'AdditionalLanguage: If no Custodian determination '
                                    'methodology is defined, additional language must '
                                    'be specified.',
@@ -34511,7 +34520,8 @@ class ExecutionLocation(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'dutyPayerLanguage': {'name': 'dutyPayerLanguage',
                                                                                  'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'dutyPayer': {'equals_string': 'Specify',
-                                                                        'name': 'dutyPayer'}}}},
+                                                                        'name': 'dutyPayer',
+                                                                        'value_presence': 'PRESENT'}}}},
                    {'description': 'DutyPaymentLanguage: A data rule to enforce that '
                                    'Duty Payment Language should be absent when a Duty '
                                    'Payment date is provided.',
@@ -35366,37 +35376,7 @@ class LegacyIndependentAmountRatingsBased(IndependentAmountRatings):
     Specifies that the Independent Amount is determined using a credit rating.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
-         'rules': [{'description': 'From IndependentAmountRatings. RestrictCompare: '
-                                   'Restricts allowable values pertaining to how '
-                                   'multiple credit ratings are compared when '
-                                   'determining the applicable Independent Amount.',
-                    'postconditions': {'any_of': [{'slot_conditions': {'compare': {'equals_string': 'Compare',
-                                                                                   'name': 'compare'}}},
-                                                  {'slot_conditions': {'compare': {'equals_string': 'Lowest',
-                                                                                   'name': 'compare'}}},
-                                                  {'slot_conditions': {'compare': {'equals_string': 'Highest',
-                                                                                   'name': 'compare'}}}]},
-                    'preconditions': {'slot_conditions': {'compare': {'name': 'compare',
-                                                                      'value_presence': 'PRESENT'}}}},
-                   {'description': 'From IndependentAmountRatings. NamedAffiliate: '
-                                   'Ensures Named Affiliate is provided where the '
-                                   'Rated Party is Named Affiliate.',
-                    'elseconditions': {'slot_conditions': {'namedAffiliate': {'name': 'namedAffiliate',
-                                                                              'value_presence': 'ABSENT'}}},
-                    'postconditions': {'slot_conditions': {'namedAffiliate': {'name': 'namedAffiliate',
-                                                                              'value_presence': 'PRESENT'}}},
-                    'preconditions': {'slot_conditions': {'ratedParty': {'equals_string': 'NamedAffiliate',
-                                                                         'name': 'ratedParty'}}}},
-                   {'description': 'From IndependentAmountRatings. NamedEntity: '
-                                   'Ensures Named Entity is provided where the Rated '
-                                   'Party is Named Entity.',
-                    'elseconditions': {'slot_conditions': {'namedEntity': {'name': 'namedEntity',
-                                                                           'value_presence': 'ABSENT'}}},
-                    'postconditions': {'slot_conditions': {'namedEntity': {'name': 'namedEntity',
-                                                                           'value_presence': 'PRESENT'}}},
-                    'preconditions': {'slot_conditions': {'ratedParty': {'equals_string': 'NamedEntity',
-                                                                         'name': 'ratedParty'}}}},
-                   {'description': 'RestrictCompare: Restricts allowable values '
+         'rules': [{'description': 'RestrictCompare: Restricts allowable values '
                                    'pertaining to how multiple credit ratings are '
                                    'compared when determining the applicable '
                                    'Independent Amount.',
@@ -35457,37 +35437,7 @@ class LegacyIndependentAmountRatingsXExposure(IndependentAmountRatings):
     Specifies that the Independent Amount is determined using both credit rating and exposure metrics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
-         'rules': [{'description': 'From IndependentAmountRatings. RestrictCompare: '
-                                   'Restricts allowable values pertaining to how '
-                                   'multiple credit ratings are compared when '
-                                   'determining the applicable Independent Amount.',
-                    'postconditions': {'any_of': [{'slot_conditions': {'compare': {'equals_string': 'Compare',
-                                                                                   'name': 'compare'}}},
-                                                  {'slot_conditions': {'compare': {'equals_string': 'Lowest',
-                                                                                   'name': 'compare'}}},
-                                                  {'slot_conditions': {'compare': {'equals_string': 'Highest',
-                                                                                   'name': 'compare'}}}]},
-                    'preconditions': {'slot_conditions': {'compare': {'name': 'compare',
-                                                                      'value_presence': 'PRESENT'}}}},
-                   {'description': 'From IndependentAmountRatings. NamedAffiliate: '
-                                   'Ensures Named Affiliate is provided where the '
-                                   'Rated Party is Named Affiliate.',
-                    'elseconditions': {'slot_conditions': {'namedAffiliate': {'name': 'namedAffiliate',
-                                                                              'value_presence': 'ABSENT'}}},
-                    'postconditions': {'slot_conditions': {'namedAffiliate': {'name': 'namedAffiliate',
-                                                                              'value_presence': 'PRESENT'}}},
-                    'preconditions': {'slot_conditions': {'ratedParty': {'equals_string': 'NamedAffiliate',
-                                                                         'name': 'ratedParty'}}}},
-                   {'description': 'From IndependentAmountRatings. NamedEntity: '
-                                   'Ensures Named Entity is provided where the Rated '
-                                   'Party is Named Entity.',
-                    'elseconditions': {'slot_conditions': {'namedEntity': {'name': 'namedEntity',
-                                                                           'value_presence': 'ABSENT'}}},
-                    'postconditions': {'slot_conditions': {'namedEntity': {'name': 'namedEntity',
-                                                                           'value_presence': 'PRESENT'}}},
-                    'preconditions': {'slot_conditions': {'ratedParty': {'equals_string': 'NamedEntity',
-                                                                         'name': 'ratedParty'}}}},
-                   {'description': 'CompareIA: Ensures the appropriate variable set is '
+         'rules': [{'description': 'CompareIA: Ensures the appropriate variable set is '
                                    'populated based on how the Ratings are compared.',
                     'postconditions': {'slot_conditions': {'compareVariableSet': {'name': 'compareVariableSet',
                                                                                   'value_presence': 'PRESENT'},
@@ -35551,7 +35501,8 @@ class LegacyResolutionAlternative(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'amount': {'name': 'amount',
                                                                       'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'resolutionAlternative': {'equals_string': 'SplitDifference',
-                                                                                    'name': 'resolutionAlternative'}}}}]})
+                                                                                    'name': 'resolutionAlternative',
+                                                                                    'value_presence': 'PRESENT'}}}}]})
 
     resolutionAlternative: Optional[LegacyResolutionAlternativeEnum] = Field(default=None, description="""Details of the alternative dispute resolution procedure (if any).""", json_schema_extra = { "linkml_meta": {'domain_of': ['LegacyResolutionAlternative']} })
     amount: Optional[Money] = Field(default=None, description="""The maximum amount to which the difference between the calculations by the valuation agent and disputing party can be split, where Split the Difference is elected.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation',
@@ -36047,7 +35998,8 @@ class PledgeeRepresentativeRider(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'representativeEventTerms': {'name': 'representativeEventTerms',
                                                                                         'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'representativeEvent': {'equals_string': 'Other',
-                                                                                  'name': 'representativeEvent'}}}}]})
+                                                                                  'name': 'representativeEvent',
+                                                                                  'value_presence': 'PRESENT'}}}}]})
 
     isApplicable: bool = Field(default=..., description="""Identification of whether the representative CTA provisions are applicable (True) or not applicable (False).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AdditionalRepresentationElection',
                        'AdditionalRightsEvent',
@@ -36532,14 +36484,14 @@ class RatingAgencyValue(CreditNotation):
                                                                                 'value_presence': 'ABSENT'},
                                                                  'ratingType': {'name': 'ratingType',
                                                                                 'value_presence': 'ABSENT'}}}]},
+                                {'slot_conditions': {'scale': {'name': 'scale',
+                                                               'value_presence': 'ABSENT'}}},
+                                {'slot_conditions': {'debt': {'name': 'debt',
+                                                              'value_presence': 'ABSENT'}}},
+                                {'slot_conditions': {'outlook': {'name': 'outlook',
+                                                                 'value_presence': 'ABSENT'}}},
                                 {'slot_conditions': {'creditWatch': {'name': 'creditWatch',
-                                                                     'value_presence': 'ABSENT'},
-                                                     'debt': {'name': 'debt',
-                                                              'value_presence': 'ABSENT'},
-                                                     'outlook': {'name': 'outlook',
-                                                                 'value_presence': 'ABSENT'},
-                                                     'scale': {'name': 'scale',
-                                                               'value_presence': 'ABSENT'}}}],
+                                                                     'value_presence': 'ABSENT'}}}],
                      'description': 'AgencyValueType: A condition to ensure that '
                                     'either all or no rating based information is '
                                     'provided.'}],
@@ -36803,9 +36755,11 @@ class ResolutionValue(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'additionalLanguage': {'name': 'additionalLanguage',
                                                                                   'value_presence': 'PRESENT'}}},
                     'preconditions': {'any_of': [{'slot_conditions': {'cash': {'equals_string': 'Other',
-                                                                               'name': 'cash'}}},
+                                                                               'name': 'cash',
+                                                                               'value_presence': 'PRESENT'}}},
                                                  {'slot_conditions': {'securities': {'equals_string': 'Other',
-                                                                                     'name': 'securities'}}}]}}]})
+                                                                                     'name': 'securities',
+                                                                                     'value_presence': 'PRESENT'}}}]}}]})
 
     cash: Optional[ValueCashEnum] = Field(default=None, description="""Details of how cash collateral is valued when resolving disputes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ResolutionValue']} })
     securities: Optional[ValueSecuritiesEnum] = Field(default=None, description="""Details of how securities collateral is valued when resolving disputes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ResolutionValue']} })
@@ -38184,13 +38138,15 @@ class MinimumTransferAmountRatingsBased(ThresholdMinimumTransferAmountBase):
                     'postconditions': {'slot_conditions': {'namedEntity': {'name': 'namedEntity',
                                                                            'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'ratedParty': {'equals_string': 'NamedEntity',
-                                                                         'name': 'ratedParty'}}}},
+                                                                         'name': 'ratedParty',
+                                                                         'value_presence': 'PRESENT'}}}},
                    {'description': 'NamedAffiliate: If rated party is NamedAffilite '
                                    'then the affiliate must be specified.',
                     'postconditions': {'slot_conditions': {'namedAffiliate': {'name': 'namedAffiliate',
                                                                               'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'ratedParty': {'equals_string': 'NamedAffiliate',
-                                                                         'name': 'ratedParty'}}}}]})
+                                                                         'name': 'ratedParty',
+                                                                         'value_presence': 'PRESENT'}}}}]})
 
     currency: ISOCurrencyCodeEnum = Field(default=..., description="""The minimum transfer amount currency code.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UnitType',
                        'CommodityReferenceFramework',
@@ -38269,13 +38225,15 @@ class ThresholdRatingsBased(ThresholdMinimumTransferAmountBase):
                     'postconditions': {'slot_conditions': {'namedEntity': {'name': 'namedEntity',
                                                                            'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'ratedParty': {'equals_string': 'NamedEntity',
-                                                                         'name': 'ratedParty'}}}},
+                                                                         'name': 'ratedParty',
+                                                                         'value_presence': 'PRESENT'}}}},
                    {'description': 'NamedAffiliate: If rated party is NamedAffilite '
                                    'then the affiliate must be specified.',
                     'postconditions': {'slot_conditions': {'namedAffiliate': {'name': 'namedAffiliate',
                                                                               'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'ratedParty': {'equals_string': 'NamedAffiliate',
-                                                                         'name': 'ratedParty'}}}}]})
+                                                                         'name': 'ratedParty',
+                                                                         'value_presence': 'PRESENT'}}}}]})
 
     currency: ISOCurrencyCodeEnum = Field(default=..., description="""The threshold currency code.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UnitType',
                        'CommodityReferenceFramework',
@@ -38335,9 +38293,11 @@ class TransferSettlementTiming(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'additionalLanguage': {'name': 'additionalLanguage',
                                                                                   'value_presence': 'PRESENT'}}},
                     'preconditions': {'any_of': [{'slot_conditions': {'cashCollateralTransferSettlementTime': {'equals_string': 'Other',
-                                                                                                               'name': 'cashCollateralTransferSettlementTime'}}},
+                                                                                                               'name': 'cashCollateralTransferSettlementTime',
+                                                                                                               'value_presence': 'PRESENT'}}},
                                                  {'slot_conditions': {'securititesCollateralTransferSettlementTime': {'equals_string': 'Other',
-                                                                                                                      'name': 'securititesCollateralTransferSettlementTime'}}}]}}]})
+                                                                                                                      'name': 'securititesCollateralTransferSettlementTime',
+                                                                                                                      'value_presence': 'PRESENT'}}}]}}]})
 
     cashCollateralTransferSettlementTime: Optional[CashCTSTimeEnum] = Field(default=None, description="""Details the day on which collateral is required to be transferred relative to the Notification Time.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TransferSettlementTiming']} })
     securititesCollateralTransferSettlementTime: Optional[SecuritiesCTSTimeEnum] = Field(default=None, description="""Details the day on which collateral is required to be transferred relative to the Notification Time.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TransferSettlementTiming']} })
@@ -39012,11 +38972,16 @@ class GoverningLaw(ConfiguredBaseModel):
     """
     A represenation of the governing law of the ISDA master agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition GoverningLawDefinedNotOther is not stated in '
-                      'LinkML: if governingLaw <> OTHER then governingLawIfOther is '
-                      'absent'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
-         'rules': [{'description': 'GoverningLawOtherThenProvided: A validation rule '
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
+         'rules': [{'description': 'GoverningLawDefinedNotOther: A validation rule to '
+                                   'ensure that if a value from the Governing Law Enum '
+                                   'is selected, governingLawIfOther is omitted.',
+                    'postconditions': {'slot_conditions': {'governingLawIfOther': {'name': 'governingLawIfOther',
+                                                                                   'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'governingLaw': {'equals_string': 'OTHER',
+                                                                                        'name': 'governingLaw',
+                                                                                        'value_presence': 'PRESENT'}}}]}},
+                   {'description': 'GoverningLawOtherThenProvided: A validation rule '
                                    'to ensure that if the value from the Governing Law '
                                    "Enum is 'OTHER', governingLawIfOther exists.",
                     'postconditions': {'slot_conditions': {'governingLawIfOther': {'name': 'governingLawIfOther',
@@ -39093,10 +39058,7 @@ class IsdaCalculationAgentElection(ConfiguredBaseModel):
     An election to determine who the Calculation Agent is for various events in an ISDA Master Agreement.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition IsdaCalculationAgentElectionDefined is not '
-                      'stated in LinkML: if isApplicable then agent exists',
-                      'Rosetta condition IsdaCalculationAgentElectionDefinedNotOther '
-                      'is not stated in LinkML: if agent <> Other then agentIfOther is '
-                      'absent'],
+                      'stated in LinkML: if isApplicable then agent exists'],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
          'rules': [{'description': 'IsdaCalculationAgentElectionOtherThenProvided: A '
                                    'validation rule to determine if agent is defined '
@@ -39104,7 +39066,16 @@ class IsdaCalculationAgentElection(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'agentIfOther': {'name': 'agentIfOther',
                                                                             'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'agent': {'equals_string': 'Other',
-                                                                    'name': 'agent'}}}}]})
+                                                                    'name': 'agent',
+                                                                    'value_presence': 'PRESENT'}}}},
+                   {'description': 'IsdaCalculationAgentElectionDefinedNotOther: A '
+                                   'validation rule to determine if agent is defined '
+                                   "and not 'Other', then the agentIfOther is omitted.",
+                    'postconditions': {'slot_conditions': {'agentIfOther': {'name': 'agentIfOther',
+                                                                            'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'agent': {'equals_string': 'Other',
+                                                                                 'name': 'agent',
+                                                                                 'value_presence': 'PRESENT'}}}]}}]})
 
     isApplicable: bool = Field(default=..., description="""Whether a Calculation Agent election is applicable for the event.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AdditionalRepresentationElection',
                        'AdditionalRightsEvent',
@@ -39348,15 +39319,6 @@ class SubstituteCalculationAgentElection(ConfiguredBaseModel):
                       'and substituteCalculationAgentAppointedBy is absent and '
                       'substituteCalculationAgentAppointedByIfOther is absent and '
                       'costOfSubstituteCalculationAgentIsBoreBy is absent and '
-                      'costOfSubstituteCalculationAgentBoreByIfOther is absent',
-                      'Rosetta condition '
-                      'SubstituteCalculationAgentElectionDefinedNotOther is not stated '
-                      'in LinkML: if substituteCalculationAgentAppointedBy <> Other '
-                      'then substituteCalculationAgentAppointedByIfOther is absent',
-                      'Rosetta condition '
-                      'SubstituteCalculationAgentIsBoreByElectionDefinedNotOther is '
-                      'not stated in LinkML: if '
-                      'costOfSubstituteCalculationAgentIsBoreBy <> Other then '
                       'costOfSubstituteCalculationAgentBoreByIfOther is absent'],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda',
          'rules': [{'description': 'SubstituteCalculationAgentElectionOtherThenProvided: '
@@ -39367,7 +39329,18 @@ class SubstituteCalculationAgentElection(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'substituteCalculationAgentAppointedByIfOther': {'name': 'substituteCalculationAgentAppointedByIfOther',
                                                                                                             'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'substituteCalculationAgentAppointedBy': {'equals_string': 'Other',
-                                                                                                    'name': 'substituteCalculationAgentAppointedBy'}}}},
+                                                                                                    'name': 'substituteCalculationAgentAppointedBy',
+                                                                                                    'value_presence': 'PRESENT'}}}},
+                   {'description': 'SubstituteCalculationAgentElectionDefinedNotOther: '
+                                   'A validation rule to determine if appointed by is '
+                                   "defined and not 'Other', then the "
+                                   'substituteCalculationAgentAppointedByIfOther is '
+                                   'omitted.',
+                    'postconditions': {'slot_conditions': {'substituteCalculationAgentAppointedByIfOther': {'name': 'substituteCalculationAgentAppointedByIfOther',
+                                                                                                            'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'substituteCalculationAgentAppointedBy': {'equals_string': 'Other',
+                                                                                                                 'name': 'substituteCalculationAgentAppointedBy',
+                                                                                                                 'value_presence': 'PRESENT'}}}]}},
                    {'description': 'SubstituteCalculationAgentIsBoreByElectionOtherThenProvided: '
                                    'A validation rule to determine if the cost bore by '
                                    "is defined as 'Other' then the "
@@ -39376,7 +39349,18 @@ class SubstituteCalculationAgentElection(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'costOfSubstituteCalculationAgentBoreByIfOther': {'name': 'costOfSubstituteCalculationAgentBoreByIfOther',
                                                                                                              'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'costOfSubstituteCalculationAgentIsBoreBy': {'equals_string': 'Other',
-                                                                                                       'name': 'costOfSubstituteCalculationAgentIsBoreBy'}}}}]})
+                                                                                                       'name': 'costOfSubstituteCalculationAgentIsBoreBy',
+                                                                                                       'value_presence': 'PRESENT'}}}},
+                   {'description': 'SubstituteCalculationAgentIsBoreByElectionDefinedNotOther: '
+                                   'A validation rule to determine if the cost bore by '
+                                   "is defined and not 'Other', then the "
+                                   'costOfSubstituteCalculationAgentBoreByIfOther is '
+                                   'omitted.',
+                    'postconditions': {'slot_conditions': {'costOfSubstituteCalculationAgentBoreByIfOther': {'name': 'costOfSubstituteCalculationAgentBoreByIfOther',
+                                                                                                             'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'costOfSubstituteCalculationAgentIsBoreBy': {'equals_string': 'Other',
+                                                                                                                    'name': 'costOfSubstituteCalculationAgentIsBoreBy',
+                                                                                                                    'value_presence': 'PRESENT'}}}]}}]})
 
     methodologyForSubstitutionExists: bool = Field(default=..., description="""A boolean to represent if the metholodgy exists for appointing a substitute Calculation Agent (True), or not (False).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SubstituteCalculationAgentElection']} })
     substituteCalculationAgentIsIndependent: Optional[bool] = Field(default=None, description="""A boolean to represent that if a substitute Calculation Agent can be appointed, whether they should be independent (True) or not (False).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SubstituteCalculationAgentElection']} })
@@ -39622,23 +39606,30 @@ class AdditionalDisruptionEvents(ConfiguredBaseModel):
                                    'maximumStockLoanRate as a RestrictedPercentage, '
                                    'meaning that its value is comprised between 0 and '
                                    '1.',
-                    'postconditions': {'slot_conditions': {'maximumStockLoanRate': {'maximum_value': 1,
-                                                                                    'minimum_value': 0,
-                                                                                    'name': 'maximumStockLoanRate'}}},
+                    'postconditions': {'all_of': [{'slot_conditions': {'maximumStockLoanRate': {'minimum_value': 0,
+                                                                                                'name': 'maximumStockLoanRate',
+                                                                                                'value_presence': 'PRESENT'}}},
+                                                  {'slot_conditions': {'maximumStockLoanRate': {'maximum_value': 1,
+                                                                                                'name': 'maximumStockLoanRate',
+                                                                                                'value_presence': 'PRESENT'}}}]},
                     'preconditions': {'slot_conditions': {'maximumStockLoanRate': {'name': 'maximumStockLoanRate',
                                                                                    'value_presence': 'PRESENT'}}}},
                    {'description': 'InitialStockLoanRate: FpML specifies the '
                                    'initialStockLoanRate as a RestrictedPercentage, '
                                    'meaning that its value is comprised between 0 and '
                                    '1.',
-                    'postconditions': {'slot_conditions': {'initialStockLoanRate': {'maximum_value': 1,
-                                                                                    'minimum_value': 0,
-                                                                                    'name': 'initialStockLoanRate'}}},
+                    'postconditions': {'all_of': [{'slot_conditions': {'initialStockLoanRate': {'minimum_value': 0,
+                                                                                                'name': 'initialStockLoanRate',
+                                                                                                'value_presence': 'PRESENT'}}},
+                                                  {'slot_conditions': {'initialStockLoanRate': {'maximum_value': 1,
+                                                                                                'name': 'initialStockLoanRate',
+                                                                                                'value_presence': 'PRESENT'}}}]},
                     'preconditions': {'slot_conditions': {'initialStockLoanRate': {'name': 'initialStockLoanRate',
                                                                                    'value_presence': 'PRESENT'}}}},
                    {'description': 'DisruptionEventsDeterminingParty',
                     'postconditions': {'slot_conditions': {'determiningParty': {'equals_string': 'DisruptionEventsDeterminingParty',
-                                                                                'name': 'determiningParty'}}},
+                                                                                'name': 'determiningParty',
+                                                                                'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'determiningParty': {'name': 'determiningParty',
                                                                                'value_presence': 'PRESENT'}}}}]})
 
@@ -40082,7 +40073,8 @@ class GeneralInconvertibility(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'maximumDaysOfDisruption': {'name': 'maximumDaysOfDisruption',
                                                                                        'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'localSubstituteProvisionType': {'equals_string': 'LocalCurrencySubstitute',
-                                                                                           'name': 'localSubstituteProvisionType'}}}}]})
+                                                                                           'name': 'localSubstituteProvisionType',
+                                                                                           'value_presence': 'PRESENT'}}}}]})
 
     generalInconvertibilityIsApplicable: bool = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['GeneralInconvertibility']} })
     localSubstituteProvisionType: Optional[FxSubstitutionProvisionTypeEnum] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'doc_reference': {'tag': 'doc_reference',
@@ -40138,7 +40130,8 @@ class GeneralNonTransferability(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'maximumDaysOfDisruption': {'name': 'maximumDaysOfDisruption',
                                                                                        'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'localSubstituteProvisionType': {'equals_string': 'LocalCurrencySubstitute',
-                                                                                           'name': 'localSubstituteProvisionType'}}}}]})
+                                                                                           'name': 'localSubstituteProvisionType',
+                                                                                           'value_presence': 'PRESENT'}}}}]})
 
     generalNonTransferabilityIsApplicable: bool = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['GeneralNonTransferability']} })
     localSubstituteProvisionType: Optional[FxSubstitutionProvisionTypeEnum] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'doc_reference': {'tag': 'doc_reference',
@@ -40416,7 +40409,8 @@ class SpecificInconvertibility(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'maximumDaysOfDisruption': {'name': 'maximumDaysOfDisruption',
                                                                                        'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'localSubstituteProvisionType': {'equals_string': 'LocalCurrencySubstitute',
-                                                                                           'name': 'localSubstituteProvisionType'}}}}]})
+                                                                                           'name': 'localSubstituteProvisionType',
+                                                                                           'value_presence': 'PRESENT'}}}}]})
 
     specificInconvertibilityIsApplicable: bool = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['SpecificInconvertibility']} })
     minimumAmount: Optional[Quantity] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['Illiquidity', 'SpecificInconvertibility']} })
@@ -40474,7 +40468,8 @@ class SpecificNonTransferability(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'maximumDaysOfDisruption': {'name': 'maximumDaysOfDisruption',
                                                                                        'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'localSubstituteProvisionType': {'equals_string': 'LocalCurrencySubstitute',
-                                                                                           'name': 'localSubstituteProvisionType'}}}}]})
+                                                                                           'name': 'localSubstituteProvisionType',
+                                                                                           'value_presence': 'PRESENT'}}}}]})
 
     specificNonTransferabilityIsApplicable: bool = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['SpecificNonTransferability']} })
     relevantClass: Optional[list[str]] = Field(default=None, json_schema_extra = { "linkml_meta": {'domain_of': ['SpecificInconvertibility', 'SpecificNonTransferability']} })
@@ -40647,7 +40642,8 @@ class FeaturePayment(ConfiguredBaseModel):
          'rules': [{'description': 'Amount: The amount attribute is specified in FpML '
                                    'as non-negative decimal.',
                     'postconditions': {'slot_conditions': {'amount': {'minimum_value': 0,
-                                                                      'name': 'amount'}}},
+                                                                      'name': 'amount',
+                                                                      'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'amount': {'name': 'amount',
                                                                      'value_presence': 'PRESENT'}}}}]})
 
@@ -40755,7 +40751,8 @@ class PubliclyAvailableInformation(ConfiguredBaseModel):
          'rules': [{'description': 'PositiveSpecifiedNumber: FpML specifies '
                                    'specifiedNumber as a positiveInteger.',
                     'postconditions': {'slot_conditions': {'specifiedNumber': {'minimum_value': 0,
-                                                                               'name': 'specifiedNumber'}}},
+                                                                               'name': 'specifiedNumber',
+                                                                               'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'specifiedNumber': {'name': 'specifiedNumber',
                                                                               'value_presence': 'PRESENT'}}}}]})
 
@@ -41133,7 +41130,8 @@ class DividendPayoutRatio(ConfiguredBaseModel):
                                    'ratio should be comprised between 0 and 100%, '
                                    'meaning 0 and 1.',
                     'postconditions': {'slot_conditions': {'cashRatio': {'minimum_value': 0,
-                                                                         'name': 'cashRatio'},
+                                                                         'name': 'cashRatio',
+                                                                         'value_presence': 'PRESENT'},
                                                            'totalRatio': {'maximum_value': 1,
                                                                           'name': 'totalRatio'}}},
                     'preconditions': {'slot_conditions': {'cashRatio': {'name': 'cashRatio',
@@ -41142,7 +41140,8 @@ class DividendPayoutRatio(ConfiguredBaseModel):
                                    'payout ratio should be comprised between 0 and '
                                    '100%, meaning 0 and 1.',
                     'postconditions': {'slot_conditions': {'nonCashRatio': {'minimum_value': 0,
-                                                                            'name': 'nonCashRatio'},
+                                                                            'name': 'nonCashRatio',
+                                                                            'value_presence': 'PRESENT'},
                                                            'totalRatio': {'maximum_value': 1,
                                                                           'name': 'totalRatio'}}},
                     'preconditions': {'slot_conditions': {'nonCashRatio': {'name': 'nonCashRatio',
@@ -41152,7 +41151,8 @@ class DividendPayoutRatio(ConfiguredBaseModel):
     cashRatio: Optional[Decimal] = Field(default=None, description="""Specifies the cash actual dividend payout ratio associated with the equity underlier. A ratio of 90% should be expressed at 0.90.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DividendPayoutRatio']} })
     nonCashRatio: Optional[Decimal] = Field(default=None, description="""Specifies the non cash actual dividend payout ratio associated with the equity underlier. A ratio of 90% should be expressed at 0.90.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DividendPayoutRatio']} })
     basketConstituent: Optional[BasketConstituent] = Field(default=None, description="""In the case of a basket underlier, specifies to which component of the basket this particular set of dividend payout ratios correspond.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->observable->Basket->basketConstituent'}},
          'domain_of': ['Basket', 'DividendPayoutRatio', 'DividendPeriod']} })
 
 
@@ -41191,7 +41191,8 @@ class DividendPeriod(ConfiguredBaseModel):
                        'DividendPeriod',
                        'EconomicTerms']} })
     basketConstituent: Optional[BasketConstituent] = Field(default=None, description="""For basket underliers, reference to the basket component which is paying dividends in the specified period.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->observable->Basket->basketConstituent'}},
          'domain_of': ['Basket', 'DividendPayoutRatio', 'DividendPeriod']} })
     dividendPaymentDate: DividendPaymentDate = Field(default=..., description="""Specifies when the dividend will be paid to the receiver of the equity return. Has the meaning as defined in the ISDA 2002 Equity Derivatives Definitions. Is not applicable in the case of a dividend reinvestment election.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DividendPeriod']} })
     dividendValuationDate: Optional[AdjustableOrRelativeDate] = Field(default=None, description="""Specifies the dividend valuation dates of the swap.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DividendPeriod']} })
@@ -41207,7 +41208,8 @@ class DividendReturnTerms(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
          'rules': [{'description': 'ExtraordinaryDividendsParty',
                     'postconditions': {'slot_conditions': {'extraordinaryDividendsParty': {'equals_string': 'ExtraordinaryDividendsParty',
-                                                                                           'name': 'extraordinaryDividendsParty'}}},
+                                                                                           'name': 'extraordinaryDividendsParty',
+                                                                                           'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'extraordinaryDividendsParty': {'name': 'extraordinaryDividendsParty',
                                                                                           'value_presence': 'PRESENT'}}}}]})
 
@@ -41314,7 +41316,8 @@ class FloatingRateBase(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset'})
 
     rateOption: Optional[InterestRateIndex] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=Observable->Index->InterestRateIndex'}},
          'domain_of': ['FloatingRateBase']} })
     spreadSchedule: Optional[SpreadSchedule] = Field(default=None, description="""The ISDA Spread or a Spread schedule expressed as explicit spreads and dates. In the case of a schedule, the step dates may be subject to adjustment in accordance with any adjustments specified in calculationPeriodDatesAdjustments. The spread is a per annum rate, expressed as a decimal. For purposes of determining a calculation period amount, if positive the spread will be added to the floating rate and if negative the spread will be subtracted from the floating rate. A positive 10 basis point (0.1%) spread would be represented as 0.001.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateBase', 'StubFloatingRate']} })
     capRateSchedule: Optional[StrikeSchedule] = Field(default=None, description="""The cap rate or cap rate schedule, if any, which applies to the floating rate. The cap rate (strike) is only required where the floating rate on a swap stream is capped at a certain level. A cap rate schedule is expressed as explicit cap rates and dates and the step dates may be subject to adjustment in accordance with any adjustments specified in calculationPeriodDatesAdjustments. The cap rate is assumed to be exclusive of any spread and is a per annum rate, expressed as a decimal. A cap rate of 5% would be represented as 0.05.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateBase', 'StubFloatingRate']} })
@@ -41329,7 +41332,8 @@ class FloatingRate(FloatingRateBase):
     calculationParameters: Optional[FloatingRateCalculationParameters] = Field(default=None, description="""Support for modular calculated rates, such such as lockout compound calculations.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FallbackRateParameters', 'FloatingRate']} })
     fallbackRate: Optional[FallbackRateParameters] = Field(default=None, description="""Definition of any fallback rate that may be applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRate']} })
     rateOption: Optional[InterestRateIndex] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=Observable->Index->InterestRateIndex'}},
          'domain_of': ['FloatingRateBase']} })
     spreadSchedule: Optional[SpreadSchedule] = Field(default=None, description="""The ISDA Spread or a Spread schedule expressed as explicit spreads and dates. In the case of a schedule, the step dates may be subject to adjustment in accordance with any adjustments specified in calculationPeriodDatesAdjustments. The spread is a per annum rate, expressed as a decimal. For purposes of determining a calculation period amount, if positive the spread will be added to the floating rate and if negative the spread will be subtracted from the floating rate. A positive 10 basis point (0.1%) spread would be represented as 0.001.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateBase', 'StubFloatingRate']} })
     capRateSchedule: Optional[StrikeSchedule] = Field(default=None, description="""The cap rate or cap rate schedule, if any, which applies to the floating rate. The cap rate (strike) is only required where the floating rate on a swap stream is capped at a certain level. A cap rate schedule is expressed as explicit cap rates and dates and the step dates may be subject to adjustment in accordance with any adjustments specified in calculationPeriodDatesAdjustments. The cap rate is assumed to be exclusive of any spread and is a per annum rate, expressed as a decimal. A cap rate of 5% would be represented as 0.05.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateBase', 'StubFloatingRate']} })
@@ -41340,10 +41344,15 @@ class FloatingRateDefinition(ConfiguredBaseModel):
     """
     A data defining: parameters associated with a floating rate reset. This data forms: part of the cashflows representation of a stream.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition FloatingRateMultiplier is not stated in '
-                      'LinkML: if floatingRateMultiplier exists then '
-                      'floatingRateMultiplier <> 1'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
+         'rules': [{'description': 'FloatingRateMultiplier: FpML specifies that the '
+                                   'floatingRateMultiplier should only be included if '
+                                   'different from 1.',
+                    'postconditions': {'none_of': [{'slot_conditions': {'floatingRateMultiplier': {'equals_number': 1,
+                                                                                                   'name': 'floatingRateMultiplier',
+                                                                                                   'value_presence': 'PRESENT'}}}]},
+                    'preconditions': {'slot_conditions': {'floatingRateMultiplier': {'name': 'floatingRateMultiplier',
+                                                                                     'value_presence': 'PRESENT'}}}}]})
 
     calculatedRate: Optional[Decimal] = Field(default=None, description="""The final calculated rate for a calculation period after any required averaging of rates A calculated rate of 5% would be represented as 0.05.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalculatedRateDetails', 'FloatingRateDefinition']} })
     rateObservation: Optional[list[RateObservation]] = Field(default=None, description="""The details of a particular rate observation, including the fixing date and observed rate. A list of rate observation elements may be ordered in the document by ascending adjusted fixing date. An FpML document containing an unordered list of rate observations is still regarded as a conformant document.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateDefinition']} })
@@ -41373,7 +41382,8 @@ class FloatingRateSpecification(FloatingRate):
     calculationParameters: Optional[FloatingRateCalculationParameters] = Field(default=None, description="""Support for modular calculated rates, such such as lockout compound calculations.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FallbackRateParameters', 'FloatingRate']} })
     fallbackRate: Optional[FallbackRateParameters] = Field(default=None, description="""Definition of any fallback rate that may be applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRate']} })
     rateOption: Optional[InterestRateIndex] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=Observable->Index->InterestRateIndex'}},
          'domain_of': ['FloatingRateBase']} })
     spreadSchedule: Optional[SpreadSchedule] = Field(default=None, description="""The ISDA Spread or a Spread schedule expressed as explicit spreads and dates. In the case of a schedule, the step dates may be subject to adjustment in accordance with any adjustments specified in calculationPeriodDatesAdjustments. The spread is a per annum rate, expressed as a decimal. For purposes of determining a calculation period amount, if positive the spread will be added to the floating rate and if negative the spread will be subtracted from the floating rate. A positive 10 basis point (0.1%) spread would be represented as 0.001.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateBase', 'StubFloatingRate']} })
     capRateSchedule: Optional[StrikeSchedule] = Field(default=None, description="""The cap rate or cap rate schedule, if any, which applies to the floating rate. The cap rate (strike) is only required where the floating rate on a swap stream is capped at a certain level. A cap rate schedule is expressed as explicit cap rates and dates and the step dates may be subject to adjustment in accordance with any adjustments specified in calculationPeriodDatesAdjustments. The cap rate is assumed to be exclusive of any spread and is a per annum rate, expressed as a decimal. A cap rate of 5% would be represented as 0.05.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateBase', 'StubFloatingRate']} })
@@ -41392,7 +41402,8 @@ class FutureValueAmount(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset'})
 
     quantity: Optional[NonNegativeQuantitySchedule] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->quantity'}},
          'domain_of': ['CalculateTransferInstruction',
                        'ReturnInstruction',
                        'TransferBase',
@@ -41503,7 +41514,8 @@ class InflationRateSpecification(FloatingRateSpecification):
     calculationParameters: Optional[FloatingRateCalculationParameters] = Field(default=None, description="""Support for modular calculated rates, such such as lockout compound calculations.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FallbackRateParameters', 'FloatingRate']} })
     fallbackRate: Optional[FallbackRateParameters] = Field(default=None, description="""Definition of any fallback rate that may be applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRate']} })
     rateOption: Optional[InterestRateIndex] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=Observable->Index->InterestRateIndex'}},
          'domain_of': ['FloatingRateBase']} })
     spreadSchedule: Optional[SpreadSchedule] = Field(default=None, description="""The ISDA Spread or a Spread schedule expressed as explicit spreads and dates. In the case of a schedule, the step dates may be subject to adjustment in accordance with any adjustments specified in calculationPeriodDatesAdjustments. The spread is a per annum rate, expressed as a decimal. For purposes of determining a calculation period amount, if positive the spread will be added to the floating rate and if negative the spread will be subtracted from the floating rate. A positive 10 basis point (0.1%) spread would be represented as 0.001.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateBase', 'StubFloatingRate']} })
     capRateSchedule: Optional[StrikeSchedule] = Field(default=None, description="""The cap rate or cap rate schedule, if any, which applies to the floating rate. The cap rate (strike) is only required where the floating rate on a swap stream is capped at a certain level. A cap rate schedule is expressed as explicit cap rates and dates and the step dates may be subject to adjustment in accordance with any adjustments specified in calculationPeriodDatesAdjustments. The cap rate is assumed to be exclusive of any spread and is a per annum rate, expressed as a decimal. A cap rate of 5% would be represented as 0.05.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateBase', 'StubFloatingRate']} })
@@ -41725,7 +41737,8 @@ class CorrelationReturnTerms(ReturnTermsBase):
          'rules': [{'description': 'PositiveNumberOfDataSeries: The number of data '
                                    'series must be positive',
                     'postconditions': {'slot_conditions': {'numberOfDataSeries': {'minimum_value': 1,
-                                                                                  'name': 'numberOfDataSeries'}}},
+                                                                                  'name': 'numberOfDataSeries',
+                                                                                  'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'numberOfDataSeries': {'name': 'numberOfDataSeries',
                                                                                  'value_presence': 'PRESENT'}}}}]})
 
@@ -41769,7 +41782,8 @@ class SpreadSchedule(RateSchedule):
                                               'value': 'scheme'}},
          'domain_of': ['SpreadSchedule']} })
     price: PriceSchedule = Field(default=..., description="""The initial rate. An initial rate of 5% would be represented as 0.05.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['IdentifiedList', 'PriceQuantity', 'RateSchedule', 'FixedPrice']} })
 
 
@@ -41850,7 +41864,8 @@ class ValuationTerms(ConfiguredBaseModel):
          'rules': [{'description': 'PositiveNumberOfValuationDates: The number of '
                                    'valuation dates must be positive.',
                     'postconditions': {'slot_conditions': {'numberOfValuationDates': {'minimum_value': 1,
-                                                                                      'name': 'numberOfValuationDates'}}},
+                                                                                      'name': 'numberOfValuationDates',
+                                                                                      'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'numberOfValuationDates': {'name': 'numberOfValuationDates',
                                                                                      'value_presence': 'PRESENT'}}}}]})
 
@@ -41911,7 +41926,8 @@ class VarianceReturnTerms(ReturnTermsBase):
     volatilityCapFloor: Optional[VolatilityCapFloor] = Field(default=None, description="""Contains containing volatility-based barriers""", json_schema_extra = { "linkml_meta": {'domain_of': ['VarianceReturnTerms', 'VolatilityReturnTerms']} })
     vegaNotionalAmount: Optional[NonNegativeQuantitySchedule] = Field(default=None, description="""Vega Notional represents the approximate gain/loss at maturity for a 1% difference between RVol (realised vol) and KVol (strike vol). It does not necessarily represent the Vega Risk of the trade.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VarianceReturnTerms']} })
     exchangeTradedContractNearest: Optional[Observable] = Field(default=None, description="""Specification of the exchange traded contract nearest.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->observable'}},
          'domain_of': ['VarianceReturnTerms', 'VolatilityReturnTerms']} })
     valuationTerms: ValuationTerms = Field(default=..., description="""Contains all non-date valuation information.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ReturnTermsBase']} })
     annualizationFactor: Optional[int] = Field(default=None, description="""This specifies the numerator of an annualization factor. Frequently this number is equal to the number of observations of prices in a year e.g. 252.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ReturnTermsBase']} })
@@ -42070,7 +42086,8 @@ class AgencyRatingCriteria(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'referenceAgency': {'name': 'referenceAgency',
                                                                                'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'mismatchResolution': {'equals_string': 'ReferenceAgency',
-                                                                                 'name': 'mismatchResolution'}}}}]})
+                                                                                 'name': 'mismatchResolution',
+                                                                                 'value_presence': 'PRESENT'}}}}]})
 
     creditNotation: CreditNotation = Field(default=..., description="""Indicates the agency rating criteria specified for the asset or issuer.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CreditNotations', 'AgencyRatingCriteria']} })
     mismatchResolution: Optional[CreditNotationMismatchResolutionEnum] = Field(default=None, description="""Indicator for options to be used if several agency ratings (>1) are specified and its necessary to identify specific charateristics. i.e (lowest or highest).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AgencyRatingCriteria']} })
@@ -42196,7 +42213,8 @@ class CollateralAgreementFloatingRate(FloatingRateBase):
     negativeInterest: bool = Field(default=..., description="""Specifies how negative rates should be applied. If rates go negative, should the payment be reversed (true) or zeroed out (false)?""", json_schema_extra = { "linkml_meta": {'domain_of': ['CollateralAgreementFloatingRate']} })
     compressibleSpread: bool = Field(default=..., description="""Specifies how spreads should be applied in a low/negative rate environment. If true, spread is applied only if rate is positive.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CollateralAgreementFloatingRate']} })
     rateOption: Optional[InterestRateIndex] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=Observable->Index->InterestRateIndex'}},
          'domain_of': ['FloatingRateBase']} })
     spreadSchedule: Optional[SpreadSchedule] = Field(default=None, description="""The ISDA Spread or a Spread schedule expressed as explicit spreads and dates. In the case of a schedule, the step dates may be subject to adjustment in accordance with any adjustments specified in calculationPeriodDatesAdjustments. The spread is a per annum rate, expressed as a decimal. For purposes of determining a calculation period amount, if positive the spread will be added to the floating rate and if negative the spread will be subtracted from the floating rate. A positive 10 basis point (0.1%) spread would be represented as 0.001.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateBase', 'StubFloatingRate']} })
     capRateSchedule: Optional[StrikeSchedule] = Field(default=None, description="""The cap rate or cap rate schedule, if any, which applies to the floating rate. The cap rate (strike) is only required where the floating rate on a swap stream is capped at a certain level. A cap rate schedule is expressed as explicit cap rates and dates and the step dates may be subject to adjustment in accordance with any adjustments specified in calculationPeriodDatesAdjustments. The cap rate is assumed to be exclusive of any spread and is a per annum rate, expressed as a decimal. A cap rate of 5% would be represented as 0.05.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FloatingRateBase', 'StubFloatingRate']} })
@@ -42303,15 +42321,19 @@ class CollateralInterestCalculationParameters(ConfiguredBaseModel):
                                 {'slot_conditions': {'dayCountFraction': {'equals_string': 'ACT/365.FIXED',
                                                                           'name': 'dayCountFraction'}}}],
                      'description': 'DCF'}],
-         'comments': ['Rosetta condition CompoundingBC2 is not stated in LinkML: if '
-                      'compoundingType <> CompoundingTypeEnum -> Business then '
-                      'compoundingBusinessCenter is absent'],
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'rules': [{'description': 'CompoundingBC1',
                     'postconditions': {'slot_conditions': {'compoundingBusinessCenter': {'name': 'compoundingBusinessCenter',
                                                                                          'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'compoundingType': {'equals_string': 'Business',
-                                                                              'name': 'compoundingType'}}}}]})
+                                                                              'name': 'compoundingType',
+                                                                              'value_presence': 'PRESENT'}}}},
+                   {'description': 'CompoundingBC2',
+                    'postconditions': {'slot_conditions': {'compoundingBusinessCenter': {'name': 'compoundingBusinessCenter',
+                                                                                         'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'compoundingType': {'equals_string': 'Business',
+                                                                                           'name': 'compoundingType',
+                                                                                           'value_presence': 'PRESENT'}}}]}}]})
 
     fixedRate: Optional[Decimal] = Field(default=None, description="""Specifies the applicable fixed rate if used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CalculationPeriod',
                        'FixedAmountCalculationDetails',
@@ -42344,15 +42366,19 @@ class CollateralInterestHandlingParameters(ConfiguredBaseModel):
     """
     Represents parameters that describe how calculated interest amounts are handled, i.e. are they transferred/distributed, or is the collateral balance adjusted, is netting done, and any other special handling.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition Alternative2 is not stated in LinkML: if '
-                      'alternativeToInterestAmount <> AlternativeToInterestAmountEnum '
-                      '-> Other then alternativeProvision is absent'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_collateral',
          'rules': [{'description': 'Alternative',
                     'postconditions': {'slot_conditions': {'alternativeProvision': {'name': 'alternativeProvision',
                                                                                     'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'alternativeToInterestAmount': {'equals_string': 'Other',
-                                                                                          'name': 'alternativeToInterestAmount'}}}}]})
+                                                                                          'name': 'alternativeToInterestAmount',
+                                                                                          'value_presence': 'PRESENT'}}}},
+                   {'description': 'Alternative2',
+                    'postconditions': {'slot_conditions': {'alternativeProvision': {'name': 'alternativeProvision',
+                                                                                    'value_presence': 'ABSENT'}}},
+                    'preconditions': {'none_of': [{'slot_conditions': {'alternativeToInterestAmount': {'equals_string': 'Other',
+                                                                                                       'name': 'alternativeToInterestAmount',
+                                                                                                       'value_presence': 'PRESENT'}}}]}}]})
 
     interestPaymentHandling: CollateralInterestHandlingEnum = Field(default=..., description="""Specifies how the collateral interest is to be handled.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CollateralInterestHandlingParameters']} })
     paymentBusinessCenter: Optional[list[BusinessCenter]] = Field(default=None, description="""Specifies applicable business centers for payments.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CollateralInterestHandlingParameters']} })
@@ -42472,7 +42498,8 @@ class CollateralValuationTreatment(ConfiguredBaseModel):
                                    'a Margin Percentage is specified it should be '
                                    'greater than 1.',
                     'postconditions': {'slot_conditions': {'marginPercentage': {'minimum_value': 1,
-                                                                                'name': 'marginPercentage'}}},
+                                                                                'name': 'marginPercentage',
+                                                                                'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'marginPercentage': {'name': 'marginPercentage',
                                                                                'value_presence': 'PRESENT'}}}}]})
 
@@ -42933,9 +42960,12 @@ class CashSettlementTerms(ConfiguredBaseModel):
          'rules': [{'description': 'RecoveryFactor: FpML specifies recoveryFactor as a '
                                    'RestrictedPercentage, meaning that it is a decimal '
                                    'which value is restricted between 0 and 1.',
-                    'postconditions': {'slot_conditions': {'recoveryFactor': {'maximum_value': 1,
-                                                                              'minimum_value': 0,
-                                                                              'name': 'recoveryFactor'}}},
+                    'postconditions': {'all_of': [{'slot_conditions': {'recoveryFactor': {'minimum_value': 0,
+                                                                                          'name': 'recoveryFactor',
+                                                                                          'value_presence': 'PRESENT'}}},
+                                                  {'slot_conditions': {'recoveryFactor': {'maximum_value': 1,
+                                                                                          'name': 'recoveryFactor',
+                                                                                          'value_presence': 'PRESENT'}}}]},
                     'preconditions': {'slot_conditions': {'recoveryFactor': {'name': 'recoveryFactor',
                                                                              'value_presence': 'PRESENT'}}}}]})
 
@@ -43086,9 +43116,11 @@ class DeliverableObligations(ConfiguredBaseModel):
                                                                                  'value_presence': 'ABSENT'},
                                                            'transferable': {'name': 'transferable',
                                                                             'value_presence': 'ABSENT'}}},
-                    'preconditions': {'slot_conditions': {'category': {'equals_string': 'ReferenceObligationsOnly',
-                                                                       'name': 'category',
-                                                                       'value_presence': 'PRESENT'}}}}]})
+                    'preconditions': {'all_of': [{'slot_conditions': {'category': {'name': 'category',
+                                                                                   'value_presence': 'PRESENT'}}},
+                                                 {'slot_conditions': {'category': {'equals_string': 'ReferenceObligationsOnly',
+                                                                                   'name': 'category',
+                                                                                   'value_presence': 'PRESENT'}}}]}}]})
 
     accruedInterest: Optional[bool] = Field(default=None, description="""Indicates whether accrued interest is included (true) or not (false). For cash settlement this specifies whether quotations should be obtained inclusive or not of accrued interest. For physical settlement this specifies whether the buyer should deliver the obligation with an outstanding principal balance that includes or excludes accrued interest. ISDA 2003 Term: Include/Exclude Accrued Interest.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CashSettlementTerms', 'DeliverableObligations']} })
     category: Optional[ObligationCategoryEnum] = Field(default=None, description="""Used in both obligations and deliverable obligations to represent a class or type of securities which apply. ISDA 2003 Term: Obligation Category/Deliverable Obligation Category.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Obligations',
@@ -43129,7 +43161,8 @@ class FixedPrice(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement'})
 
     price: Optional[PriceSchedule] = Field(default=None, description="""Fixed price step schedule, including an initial price specified as an absolute number.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['IdentifiedList', 'PriceQuantity', 'RateSchedule', 'FixedPrice']} })
 
 
@@ -43153,14 +43186,7 @@ class FxFixingDate(Offset):
                                                                                             'value_presence': 'PRESENT'}}},
                                         {'slot_conditions': {'dateRelativeToCalculationPeriodDates': {'name': 'dateRelativeToCalculationPeriodDates',
                                                                                                       'value_presence': 'PRESENT'}}}]}],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
-         'rules': [{'description': 'From Period. DayPeriod: FpML specifies that if the '
-                                   'periodMultiplier value is 0 (zero) then period '
-                                   'must contain the value D (day).',
-                    'postconditions': {'slot_conditions': {'period': {'equals_string': 'D',
-                                                                      'name': 'period'}}},
-                    'preconditions': {'slot_conditions': {'periodMultiplier': {'equals_number': 0,
-                                                                               'name': 'periodMultiplier'}}}}]})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement'})
 
     businessDayConvention: Optional[BusinessDayConventionEnum] = Field(default=None, description="""The convention for adjusting a date if it would otherwise fall on a day that is not a business day, as specified by an ISDA convention (e.g. Following, Precedent).""", json_schema_extra = { "linkml_meta": {'domain_of': ['BusinessDateRange',
                        'BusinessDayAdjustments',
@@ -43518,9 +43544,6 @@ class InterestRatePayout(PayoutBase):
                       'periodMultiplier <> calculationPeriodDates -> '
                       'calculationPeriodFrequency -> periodMultiplier) then '
                       'compoundingMethod exists',
-                      'Rosetta condition FpML_ird_9 is not stated in LinkML: if '
-                      'compoundingMethod exists and compoundingMethod <> '
-                      'CompoundingMethodEnum -> None then resetDates exists',
                       'Rosetta condition FpML_ird_29 is not stated in LinkML: if '
                       'compoundingMethod exists and compoundingMethod <> '
                       'CompoundingMethodEnum -> None then rateSpecification as '
@@ -43531,7 +43554,17 @@ class InterestRatePayout(PayoutBase):
                       'compoundingMethod = CompoundingMethodEnum -> None then '
                       'calculationPeriodDates -> firstCompoundingPeriodEndDate is '
                       'absent'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
+         'rules': [{'description': 'FpML_ird_9: FpML validation rule ird-9 - If '
+                                   'calculationPeriodAmount/calculation/compoundingMethod '
+                                   'exists, then resetDates must exist.',
+                    'postconditions': {'slot_conditions': {'resetDates': {'name': 'resetDates',
+                                                                          'value_presence': 'PRESENT'}}},
+                    'preconditions': {'all_of': [{'slot_conditions': {'compoundingMethod': {'name': 'compoundingMethod',
+                                                                                            'value_presence': 'PRESENT'}}},
+                                                 {'none_of': [{'slot_conditions': {'compoundingMethod': {'equals_string': 'None',
+                                                                                                         'name': 'compoundingMethod',
+                                                                                                         'value_presence': 'PRESENT'}}}]}]}}]})
 
     rateSpecification: Optional[RateSpecification] = Field(default=None, description="""The specification of the rate value(s) applicable to the contract using either a floating rate calculation, a single fixed rate, a fixed rate schedule, or an inflation rate calculation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InterestRatePayout']} })
     dayCountFraction: Optional[DayCountFractionEnum] = Field(default=None, description="""The day count fraction. The cardinality has been relaxed when compared with the FpML interest rate swap for the purpose of accommodating standardized credit default swaps which DCF is not explicitly stated as part of the economic terms. The data rule InterestRatePayout_dayCountFraction requires that the DCF be stated for interest rate products.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
@@ -43603,13 +43636,15 @@ class PhysicalSettlementPeriod(ConfiguredBaseModel):
          'rules': [{'description': 'BusinessDays: FpML specifies businessDays as a '
                                    'NonNegativeInteger.',
                     'postconditions': {'slot_conditions': {'businessDays': {'minimum_value': 0,
-                                                                            'name': 'businessDays'}}},
+                                                                            'name': 'businessDays',
+                                                                            'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'businessDays': {'name': 'businessDays',
                                                                            'value_presence': 'PRESENT'}}}},
                    {'description': 'MaximumBusinessDays: FpML specifies '
                                    'maximumBusinessDays as a NonNegativeInteger.',
                     'postconditions': {'slot_conditions': {'maximumBusinessDays': {'minimum_value': 0,
-                                                                                   'name': 'maximumBusinessDays'}}},
+                                                                                   'name': 'maximumBusinessDays',
+                                                                                   'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'maximumBusinessDays': {'name': 'maximumBusinessDays',
                                                                                   'value_presence': 'PRESENT'}}}}]})
 
@@ -43627,7 +43662,8 @@ class PhysicalSettlementTerms(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'rules': [{'description': 'PredeterminedClearingOrganizationParty',
                     'postconditions': {'slot_conditions': {'predeterminedClearingOrganizationParty': {'equals_string': 'PredeterminedClearingOrganizationParty',
-                                                                                                      'name': 'predeterminedClearingOrganizationParty'}}},
+                                                                                                      'name': 'predeterminedClearingOrganizationParty',
+                                                                                                      'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'predeterminedClearingOrganizationParty': {'name': 'predeterminedClearingOrganizationParty',
                                                                                                      'value_presence': 'PRESENT'}}}}]})
 
@@ -43750,7 +43786,8 @@ class ResolvablePriceQuantity(ConfiguredBaseModel):
 
     resolvedQuantity: Optional[Quantity] = Field(default=None, description="""A product's quantity as a single, non-negative amount. When specified as part of a product definition, this quantity attribute would not be set. Instead it is specified on the quantity notation along with an asset identifier matching this payout's asset identifier. This allows the quantity to be resolved for a payout leg, which can then be specified here for convenience during data processing. There needs to be at least one resolvable quantity across payout legs of a product to define an anchor that other payout quantities can refer to. This attribute is ignored when mapping existing FpML messages.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ResolvablePriceQuantity']} })
     quantitySchedule: Optional[NonNegativeQuantitySchedule] = Field(default=None, description="""A payout's quantity specified as a schedule, which may also contain a single value if that quantity is constant. There can only be a single quantity schedule applicable to a payout: e.g. the notional for an interest rate leg. The quantity must be specified outside of the payout in a PriceQuantity object and only referenced inside the payout using an address.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->quantity'}},
          'domain_of': ['ResolvablePriceQuantity']} })
     quantityReference: Optional[ResolvablePriceQuantity] = Field(default=None, description="""Reference quantity when resolvable quantity is defined as relative to another (resolvable) quantity. A resolvable quantity needs to contain either an absolute quantity or a reference to another (resolvable) quantity. This requirement is captured by a choice rule on the class.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'reference'}},
@@ -43761,7 +43798,8 @@ class ResolvablePriceQuantity(ConfiguredBaseModel):
                        'ResolvablePriceQuantity']} })
     futureValueNotional: Optional[FutureValueAmount] = Field(default=None, description="""The future value notional is specific to BRL CDI swaps, and is specified alongside the notional amount. The value is calculated as follows: Future Value Notional = Notional Amount * (1 + Fixed Rate) ^ (Fixed Rate Day Count Fraction). The currency should always match that expressed in the notional schedule. The value date should match the adjusted termination date.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ResolvablePriceQuantity']} })
     priceSchedule: Optional[list[PriceSchedule]] = Field(default=None, description="""A payout's price specified as a schedule, which may also contain a single value if that price is constant. There may be multiple prices specified for a single payout: e.g. a floating interest rate leg may specify a spread, a cap and/or floor and a multiplier. The price must be specified outside of the payout in a PriceQuantity object and only referenced inside the payout using an address.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['ResolvablePriceQuantity']} })
 
 
@@ -43784,12 +43822,14 @@ class SettlementBase(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
          'rules': [{'description': 'SecuritySettlementCentre',
                     'postconditions': {'slot_conditions': {'securitySettlementCentre': {'equals_string': 'SecuritySettlementCentre',
-                                                                                        'name': 'securitySettlementCentre'}}},
+                                                                                        'name': 'securitySettlementCentre',
+                                                                                        'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'securitySettlementCentre': {'name': 'securitySettlementCentre',
                                                                                        'value_presence': 'PRESENT'}}}},
                    {'description': 'CashSettlementCentre',
                     'postconditions': {'slot_conditions': {'cashSettlementCentre': {'equals_string': 'CashSettlementCentre',
-                                                                                    'name': 'cashSettlementCentre'}}},
+                                                                                    'name': 'cashSettlementCentre',
+                                                                                    'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'cashSettlementCentre': {'name': 'cashSettlementCentre',
                                                                                    'value_presence': 'PRESENT'}}}}]})
 
@@ -43856,7 +43896,8 @@ class SettlementDate(ConfiguredBaseModel):
                                                   {'slot_conditions': {'businessDateRange': {'name': 'businessDateRange',
                                                                                              'value_presence': 'PRESENT'}}}]},
                     'postconditions': {'slot_conditions': {'cashSettlementBusinessDays': {'minimum_value': 0,
-                                                                                          'name': 'cashSettlementBusinessDays'}}},
+                                                                                          'name': 'cashSettlementBusinessDays',
+                                                                                          'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'cashSettlementBusinessDays': {'name': 'cashSettlementBusinessDays',
                                                                                          'value_presence': 'PRESENT'}}}}]})
 
@@ -43883,24 +43924,8 @@ class SettlementTerms(SettlementBase):
     """
     Specifies the settlement terms, which can either be cash, physical, or fx-based cash-settlement. This class can be used for the settlement of options and forwards, cash transactions (e.g. securities or foreign exchange), or in case of credit event.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition CashSettlementTerms is not stated in LinkML: '
-                      'if cashSettlementTerms exists then settlementType <> '
-                      'SettlementTypeEnum -> Physical',
-                      'Rosetta condition PhysicalSettlementTerms is not stated in '
-                      'LinkML: if physicalSettlementTerms exists then settlementType '
-                      '<> SettlementTypeEnum -> Cash'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
-         'rules': [{'description': 'From SettlementBase. SecuritySettlementCentre',
-                    'postconditions': {'slot_conditions': {'securitySettlementCentre': {'equals_string': 'SecuritySettlementCentre',
-                                                                                        'name': 'securitySettlementCentre'}}},
-                    'preconditions': {'slot_conditions': {'securitySettlementCentre': {'name': 'securitySettlementCentre',
-                                                                                       'value_presence': 'PRESENT'}}}},
-                   {'description': 'From SettlementBase. CashSettlementCentre',
-                    'postconditions': {'slot_conditions': {'cashSettlementCentre': {'equals_string': 'CashSettlementCentre',
-                                                                                    'name': 'cashSettlementCentre'}}},
-                    'preconditions': {'slot_conditions': {'cashSettlementCentre': {'name': 'cashSettlementCentre',
-                                                                                   'value_presence': 'PRESENT'}}}},
-                   {'description': 'OptionSettlementChoice: The option settlement '
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement',
+         'rules': [{'description': 'OptionSettlementChoice: The option settlement '
                                    'cannot combine both physical and cash terms '
                                    'specification.',
                     'postconditions': {'any_of': [{'slot_conditions': {'settlementType': {'equals_string': 'Election',
@@ -43910,6 +43935,23 @@ class SettlementTerms(SettlementBase):
                     'preconditions': {'slot_conditions': {'cashSettlementTerms': {'name': 'cashSettlementTerms',
                                                                                   'value_presence': 'PRESENT'},
                                                           'physicalSettlementTerms': {'name': 'physicalSettlementTerms',
+                                                                                      'value_presence': 'PRESENT'}}}},
+                   {'description': 'CashSettlementTerms: If the cash settlement terms '
+                                   'are specified, then the settlementType can either '
+                                   'be Cash, Election or CashOrPhysical',
+                    'postconditions': {'none_of': [{'slot_conditions': {'settlementType': {'equals_string': 'Physical',
+                                                                                           'name': 'settlementType',
+                                                                                           'value_presence': 'PRESENT'}}}]},
+                    'preconditions': {'slot_conditions': {'cashSettlementTerms': {'name': 'cashSettlementTerms',
+                                                                                  'value_presence': 'PRESENT'}}}},
+                   {'description': 'PhysicalSettlementTerms: If the physical '
+                                   'settlement terms are specified, then the '
+                                   'settlementType can either be Physical, Election or '
+                                   'CashOrPhysical',
+                    'postconditions': {'none_of': [{'slot_conditions': {'settlementType': {'equals_string': 'Cash',
+                                                                                           'name': 'settlementType',
+                                                                                           'value_presence': 'PRESENT'}}}]},
+                    'preconditions': {'slot_conditions': {'physicalSettlementTerms': {'name': 'physicalSettlementTerms',
                                                                                       'value_presence': 'PRESENT'}}}}]})
 
     cashSettlementTerms: Optional[list[CashSettlementTerms]] = Field(default=None, description="""Specifies the parameters associated with the cash settlement procedure.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SettlementTerms']} })
@@ -44246,9 +44288,12 @@ class ConstituentWeight(ConfiguredBaseModel):
          'rules': [{'description': 'BasketPercentage: FpML specifies basketPercentage '
                                    'as a RestrictedPercentage type, meaning that the '
                                    'value needs to be comprised between 0 and 1.',
-                    'postconditions': {'slot_conditions': {'basketPercentage': {'maximum_value': 1,
-                                                                                'minimum_value': 0,
-                                                                                'name': 'basketPercentage'}}},
+                    'postconditions': {'all_of': [{'slot_conditions': {'basketPercentage': {'minimum_value': 0,
+                                                                                            'name': 'basketPercentage',
+                                                                                            'value_presence': 'PRESENT'}}},
+                                                  {'slot_conditions': {'basketPercentage': {'maximum_value': 1,
+                                                                                            'name': 'basketPercentage',
+                                                                                            'value_presence': 'PRESENT'}}}]},
                     'preconditions': {'slot_conditions': {'basketPercentage': {'name': 'basketPercentage',
                                                                                'value_presence': 'PRESENT'}}}}]})
 
@@ -44624,7 +44669,8 @@ class ExerciseTerms(ConfiguredBaseModel):
                                                            'multipleExercise': {'name': 'multipleExercise',
                                                                                 'value_presence': 'ABSENT'}}},
                     'preconditions': {'slot_conditions': {'style': {'equals_string': 'European',
-                                                                    'name': 'style'}}}},
+                                                                    'name': 'style',
+                                                                    'value_presence': 'PRESENT'}}}},
                    {'description': 'BermudaExercise: Condition to check that only '
                                    'fields expected for a bermuda option are present.',
                     'postconditions': {'slot_conditions': {'earliestExerciseTime': {'name': 'earliestExerciseTime',
@@ -44636,7 +44682,8 @@ class ExerciseTerms(ConfiguredBaseModel):
                                                            'partialExercise': {'name': 'partialExercise',
                                                                                'value_presence': 'ABSENT'}}},
                     'preconditions': {'slot_conditions': {'style': {'equals_string': 'Bermuda',
-                                                                    'name': 'style'}}}}]})
+                                                                    'name': 'style',
+                                                                    'value_presence': 'PRESENT'}}}}]})
 
     style: Optional[OptionExerciseStyleEnum] = Field(default=None, description="""Whether the option has a single exercise (european), multiple exercise dates (bermuda), or a continuous range of exercise (american).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExerciseTerms']} })
     commencementDate: Optional[AdjustableOrRelativeDate] = Field(default=None, description="""The first day of the exercise period for an American style option.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExerciseTerms']} })
@@ -45109,14 +45156,16 @@ class MultipleExercise(PartialExercise):
                                    'construct specifies the maximumNumberOfOptions as '
                                    'a positive integer.',
                     'postconditions': {'slot_conditions': {'maximumNotionalAmount': {'minimum_value': 0,
-                                                                                     'name': 'maximumNotionalAmount'}}},
+                                                                                     'name': 'maximumNotionalAmount',
+                                                                                     'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'maximumNumberOfOptions': {'name': 'maximumNumberOfOptions',
                                                                                      'value_presence': 'PRESENT'}}}},
                    {'description': 'MinimumNumberOfOptions: FpML MultipleExercise '
                                    'construct specifies the minimumNumberOfOptions as '
                                    'a positive integer.',
                     'postconditions': {'slot_conditions': {'minimumNumberOfOptions': {'minimum_value': 0,
-                                                                                      'name': 'minimumNumberOfOptions'}}},
+                                                                                      'name': 'minimumNumberOfOptions',
+                                                                                      'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'minimumNumberOfOptions': {'name': 'minimumNumberOfOptions',
                                                                                      'value_presence': 'PRESENT'}}}}]})
 
@@ -45267,17 +45316,20 @@ class PerformancePayout(PayoutBase):
     returnTerms: Optional[ReturnTerms] = Field(default=None, description="""Specifies the type of return of a performance payout.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformancePayout']} })
     portfolioReturnTerms: Optional[list[PortfolioReturnTerms]] = Field(default=None, description="""Specifies an individual type of return of a Performance Payout, when such individual return is part of an aggregation of multiple similar returns, at Performance Payout level""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformancePayout']} })
     initialValuationPrice: Optional[list[PriceSchedule]] = Field(default=None, description="""Specifies the net initial valuation price(s) of the underlier at Performance Payout level. This price can be expressed either as an actual amount/currency, as a determination method, or by reference to another value specified in the swap document.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['BasketConstituent',
                        'PerformancePayout',
                        'PortfolioReturnTerms']} })
     interimValuationPrice: Optional[list[PriceSchedule]] = Field(default=None, description="""Specifies the net initial valuation price(s) of the underlier at Performance Payout level. This price can be expressed either as an actual amount/currency, as a determination method, or by reference to another value specified in the swap document.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['BasketConstituent',
                        'PerformancePayout',
                        'PortfolioReturnTerms']} })
     finalValuationPrice: Optional[list[PriceSchedule]] = Field(default=None, description="""Specifies the net final valuation price(s) of the underlier at Performance Payout level. This price can be expressed either as an actual amount/currency, as a determination method, or by reference to another value specified in the swap document.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['BasketConstituent',
                        'PerformancePayout',
                        'PortfolioReturnTerms']} })
@@ -45384,7 +45436,8 @@ class PortfolioReturnTerms(ReturnTerms):
                        'PassThroughItem',
                        'PortfolioReturnTerms']} })
     underlier: Observable = Field(default=..., description="""Defines the product that is the subject of a tradable product definition, an underlying product definition, a physical exercise, a position, or other purposes.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->observable'}},
          'domain_of': ['CorporateAction',
                        'CommodityPayout',
                        'AssetPayout',
@@ -45393,7 +45446,8 @@ class PortfolioReturnTerms(ReturnTerms):
                        'PortfolioReturnTerms',
                        'SettlementPayout']} })
     quantity: Optional[NonNegativeQuantitySchedule] = Field(default=None, description="""Specifies a quantity schedule for the underlier, which applies to each individual return leg.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->quantity'}},
          'domain_of': ['CalculateTransferInstruction',
                        'ReturnInstruction',
                        'TransferBase',
@@ -45403,17 +45457,20 @@ class PortfolioReturnTerms(ReturnTerms):
                        'FutureValueAmount',
                        'PortfolioReturnTerms']} })
     initialValuationPrice: Optional[list[PriceSchedule]] = Field(default=None, description="""Specifies the initial valuation price(s) of the underlier. This price can be expressed either as an actual amount/currency, as a determination method, or by reference to another value specified in the swap document.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['BasketConstituent',
                        'PerformancePayout',
                        'PortfolioReturnTerms']} })
     interimValuationPrice: Optional[list[PriceSchedule]] = Field(default=None, description="""Specifies the initial valuation price(s) of the underlier. This price can be expressed either as an actual amount/currency, as a determination method, or by reference to another value specified in the swap document.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['BasketConstituent',
                        'PerformancePayout',
                        'PortfolioReturnTerms']} })
     finalValuationPrice: Optional[list[PriceSchedule]] = Field(default=None, description="""2018 ISDA CDM Equity Confirmation for Security Equity Swap: Final Price | Specifies the final valuation price of the underlier. This price can be expressed either as an actual amount/currency, as a determination method, or by reference to another value specified in the swap document.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['BasketConstituent',
                        'PerformancePayout',
                        'PortfolioReturnTerms']} })
@@ -45562,7 +45619,8 @@ class StrikeSchedule(RateSchedule):
     buyer: Optional[PayerReceiverEnum] = Field(default=None, description="""The buyer of the option.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BuyerSeller', 'Strike', 'StrikeSchedule']} })
     seller: Optional[PayerReceiverEnum] = Field(default=None, description="""The party that has sold.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BuyerSeller', 'Strike', 'StrikeSchedule']} })
     price: PriceSchedule = Field(default=..., description="""The initial rate. An initial rate of 5% would be represented as 0.05.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->price'}},
          'domain_of': ['IdentifiedList', 'PriceQuantity', 'RateSchedule', 'FixedPrice']} })
 
 
@@ -46248,7 +46306,8 @@ class Underlier(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_template'})
 
     Observable: Optional[Observable] = Field(default=None, description="""Specifies the object to be observed for a price, it could be an asset or a reference.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'address'}},
+                                              'value': 'address '
+                                                       '"pointsTo"=PriceQuantity->observable'}},
          'domain_of': ['Underlier']} })
     Product: Optional[Product] = Field(default=None, description="""Enables either a TransferableProduct or a NonTransferableProduct to be used in an underlier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Underlier']} })
 

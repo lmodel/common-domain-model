@@ -34225,621 +34225,211 @@ class InflationRateIndexEnum(EnumDefinitionImpl):
 
 class BusinessCenter(EnumDefinitionImpl):
 
-    AEAB = PermissibleValue(
-        text="AEAB",
-        meaning=None)
-    AEAD = PermissibleValue(
-        text="AEAD",
-        meaning=None)
-    AEDU = PermissibleValue(
-        text="AEDU",
-        meaning=None)
-    AMYE = PermissibleValue(
-        text="AMYE",
-        meaning=None)
-    AOLU = PermissibleValue(
-        text="AOLU",
-        meaning=None)
-    ARBA = PermissibleValue(
-        text="ARBA",
-        meaning=None)
-    ATVI = PermissibleValue(
-        text="ATVI",
-        meaning=None)
-    AUAD = PermissibleValue(
-        text="AUAD",
-        meaning=None)
-    AUBR = PermissibleValue(
-        text="AUBR",
-        meaning=None)
-    AUCA = PermissibleValue(
-        text="AUCA",
-        meaning=None)
-    AUDA = PermissibleValue(
-        text="AUDA",
-        meaning=None)
-    AUME = PermissibleValue(
-        text="AUME",
-        meaning=None)
-    AUPE = PermissibleValue(
-        text="AUPE",
-        meaning=None)
-    AUSY = PermissibleValue(
-        text="AUSY",
-        meaning=None)
-    AZBA = PermissibleValue(
-        text="AZBA",
-        meaning=None)
-    BBBR = PermissibleValue(
-        text="BBBR",
-        meaning=None)
-    BDDH = PermissibleValue(
-        text="BDDH",
-        meaning=None)
-    BEBR = PermissibleValue(
-        text="BEBR",
-        meaning=None)
-    BGSO = PermissibleValue(
-        text="BGSO",
-        meaning=None)
-    BHMA = PermissibleValue(
-        text="BHMA",
-        meaning=None)
-    BMHA = PermissibleValue(
-        text="BMHA",
-        meaning=None)
-    BNBS = PermissibleValue(
-        text="BNBS",
-        meaning=None)
-    BOLP = PermissibleValue(
-        text="BOLP",
-        meaning=None)
-    BRBD = PermissibleValue(
-        text="BRBD",
-        meaning=None)
-    BRBR = PermissibleValue(
-        text="BRBR",
-        meaning=None)
-    BRRJ = PermissibleValue(
-        text="BRRJ",
-        meaning=None)
-    BRSP = PermissibleValue(
-        text="BRSP",
-        meaning=None)
-    BSNA = PermissibleValue(
-        text="BSNA",
-        meaning=None)
-    BWGA = PermissibleValue(
-        text="BWGA",
-        meaning=None)
-    BYMI = PermissibleValue(
-        text="BYMI",
-        meaning=None)
-    CACL = PermissibleValue(
-        text="CACL",
-        meaning=None)
-    CAFR = PermissibleValue(
-        text="CAFR",
-        meaning=None)
-    CAMO = PermissibleValue(
-        text="CAMO",
-        meaning=None)
-    CAOT = PermissibleValue(
-        text="CAOT",
-        meaning=None)
-    CATO = PermissibleValue(
-        text="CATO",
-        meaning=None)
-    CAVA = PermissibleValue(
-        text="CAVA",
-        meaning=None)
-    CAWI = PermissibleValue(
-        text="CAWI",
-        meaning=None)
-    CHBA = PermissibleValue(
-        text="CHBA",
-        meaning=None)
-    CHGE = PermissibleValue(
-        text="CHGE",
-        meaning=None)
-    CHZU = PermissibleValue(
-        text="CHZU",
-        meaning=None)
-    CIAB = PermissibleValue(
-        text="CIAB",
-        meaning=None)
-    CLSA = PermissibleValue(
-        text="CLSA",
-        meaning=None)
-    CMYA = PermissibleValue(
-        text="CMYA",
-        meaning=None)
-    CNBE = PermissibleValue(
-        text="CNBE",
-        meaning=None)
-    CNSH = PermissibleValue(
-        text="CNSH",
-        meaning=None)
-    COBO = PermissibleValue(
-        text="COBO",
-        meaning=None)
-    CRSJ = PermissibleValue(
-        text="CRSJ",
-        meaning=None)
-    CWWI = PermissibleValue(
-        text="CWWI",
-        meaning=None)
-    CYNI = PermissibleValue(
-        text="CYNI",
-        meaning=None)
-    CZPR = PermissibleValue(
-        text="CZPR",
-        meaning=None)
-    DECO = PermissibleValue(
-        text="DECO",
-        meaning=None)
-    DEDU = PermissibleValue(
-        text="DEDU",
-        meaning=None)
-    DEFR = PermissibleValue(
-        text="DEFR",
-        meaning=None)
-    DEHA = PermissibleValue(
-        text="DEHA",
-        meaning=None)
-    DEHH = PermissibleValue(
-        text="DEHH",
-        meaning=None)
-    DELE = PermissibleValue(
-        text="DELE",
-        meaning=None)
-    DEMA = PermissibleValue(
-        text="DEMA",
-        meaning=None)
-    DEMU = PermissibleValue(
-        text="DEMU",
-        meaning=None)
-    DEST = PermissibleValue(
-        text="DEST",
-        meaning=None)
-    DKCO = PermissibleValue(
-        text="DKCO",
-        meaning=None)
-    DOSD = PermissibleValue(
-        text="DOSD",
-        meaning=None)
-    DZAL = PermissibleValue(
-        text="DZAL",
-        meaning=None)
-    ECGU = PermissibleValue(
-        text="ECGU",
-        meaning=None)
-    EETA = PermissibleValue(
-        text="EETA",
-        meaning=None)
-    EGCA = PermissibleValue(
-        text="EGCA",
-        meaning=None)
-    ESAS = PermissibleValue(
-        text="ESAS",
-        meaning=None)
-    ESBA = PermissibleValue(
-        text="ESBA",
-        meaning=None)
-    ESMA = PermissibleValue(
-        text="ESMA",
-        meaning=None)
-    ESSS = PermissibleValue(
-        text="ESSS",
-        meaning=None)
-    ETAA = PermissibleValue(
-        text="ETAA",
-        meaning=None)
-    EUTA = PermissibleValue(
-        text="EUTA",
-        meaning=None)
-    FIHE = PermissibleValue(
-        text="FIHE",
-        meaning=None)
-    FRPA = PermissibleValue(
-        text="FRPA",
-        meaning=None)
-    GBED = PermissibleValue(
-        text="GBED",
-        meaning=None)
-    GBLO = PermissibleValue(
-        text="GBLO",
-        meaning=None)
-    GETB = PermissibleValue(
-        text="GETB",
-        meaning=None)
-    GGSP = PermissibleValue(
-        text="GGSP",
-        meaning=None)
-    GHAC = PermissibleValue(
-        text="GHAC",
-        meaning=None)
-    GIGI = PermissibleValue(
-        text="GIGI",
-        meaning=None)
-    GMBA = PermissibleValue(
-        text="GMBA",
-        meaning=None)
-    GNCO = PermissibleValue(
-        text="GNCO",
-        meaning=None)
-    GRAT = PermissibleValue(
-        text="GRAT",
-        meaning=None)
-    GTGC = PermissibleValue(
-        text="GTGC",
-        meaning=None)
-    GUGC = PermissibleValue(
-        text="GUGC",
-        meaning=None)
-    HKHK = PermissibleValue(
-        text="HKHK",
-        meaning=None)
-    HNTE = PermissibleValue(
-        text="HNTE",
-        meaning=None)
-    HRZA = PermissibleValue(
-        text="HRZA",
-        meaning=None)
-    HUBU = PermissibleValue(
-        text="HUBU",
-        meaning=None)
-    IDJA = PermissibleValue(
-        text="IDJA",
-        meaning=None)
-    IEDU = PermissibleValue(
-        text="IEDU",
-        meaning=None)
-    ILJE = PermissibleValue(
-        text="ILJE",
-        meaning=None)
-    ILTA = PermissibleValue(
-        text="ILTA",
-        meaning=None)
-    INAH = PermissibleValue(
-        text="INAH",
-        meaning=None)
-    INBA = PermissibleValue(
-        text="INBA",
-        meaning=None)
-    INCH = PermissibleValue(
-        text="INCH",
-        meaning=None)
-    INHY = PermissibleValue(
-        text="INHY",
-        meaning=None)
-    INKO = PermissibleValue(
-        text="INKO",
-        meaning=None)
-    INMU = PermissibleValue(
-        text="INMU",
-        meaning=None)
-    INND = PermissibleValue(
-        text="INND",
-        meaning=None)
-    IQBA = PermissibleValue(
-        text="IQBA",
-        meaning=None)
-    IRTE = PermissibleValue(
-        text="IRTE",
-        meaning=None)
-    ISRE = PermissibleValue(
-        text="ISRE",
-        meaning=None)
-    ITMI = PermissibleValue(
-        text="ITMI",
-        meaning=None)
-    ITRO = PermissibleValue(
-        text="ITRO",
-        meaning=None)
-    ITTU = PermissibleValue(
-        text="ITTU",
-        meaning=None)
-    JESH = PermissibleValue(
-        text="JESH",
-        meaning=None)
-    JMKI = PermissibleValue(
-        text="JMKI",
-        meaning=None)
-    JOAM = PermissibleValue(
-        text="JOAM",
-        meaning=None)
-    JPTO = PermissibleValue(
-        text="JPTO",
-        meaning=None)
-    KENA = PermissibleValue(
-        text="KENA",
-        meaning=None)
-    KHPP = PermissibleValue(
-        text="KHPP",
-        meaning=None)
-    KRSE = PermissibleValue(
-        text="KRSE",
-        meaning=None)
-    KWKC = PermissibleValue(
-        text="KWKC",
-        meaning=None)
-    KYGE = PermissibleValue(
-        text="KYGE",
-        meaning=None)
-    KZAL = PermissibleValue(
-        text="KZAL",
-        meaning=None)
-    LAVI = PermissibleValue(
-        text="LAVI",
-        meaning=None)
-    LBBE = PermissibleValue(
-        text="LBBE",
-        meaning=None)
-    LKCO = PermissibleValue(
-        text="LKCO",
-        meaning=None)
-    LULU = PermissibleValue(
-        text="LULU",
-        meaning=None)
-    LVRI = PermissibleValue(
-        text="LVRI",
-        meaning=None)
-    MACA = PermissibleValue(
-        text="MACA",
-        meaning=None)
-    MARA = PermissibleValue(
-        text="MARA",
-        meaning=None)
-    MCMO = PermissibleValue(
-        text="MCMO",
-        meaning=None)
-    MNUB = PermissibleValue(
-        text="MNUB",
-        meaning=None)
-    MOMA = PermissibleValue(
-        text="MOMA",
-        meaning=None)
-    MTVA = PermissibleValue(
-        text="MTVA",
-        meaning=None)
-    MUPL = PermissibleValue(
-        text="MUPL",
-        meaning=None)
-    MVMA = PermissibleValue(
-        text="MVMA",
-        meaning=None)
-    MWLI = PermissibleValue(
-        text="MWLI",
-        meaning=None)
-    MXMC = PermissibleValue(
-        text="MXMC",
-        meaning=None)
-    MYKL = PermissibleValue(
-        text="MYKL",
-        meaning=None)
-    MYLA = PermissibleValue(
-        text="MYLA",
-        meaning=None)
-    MZMA = PermissibleValue(
-        text="MZMA",
-        meaning=None)
-    NAWI = PermissibleValue(
-        text="NAWI",
-        meaning=None)
-    NGAB = PermissibleValue(
-        text="NGAB",
-        meaning=None)
-    NGLA = PermissibleValue(
-        text="NGLA",
-        meaning=None)
-    NLAM = PermissibleValue(
-        text="NLAM",
-        meaning=None)
-    NLRO = PermissibleValue(
-        text="NLRO",
-        meaning=None)
-    NOOS = PermissibleValue(
-        text="NOOS",
-        meaning=None)
-    NPKA = PermissibleValue(
-        text="NPKA",
-        meaning=None)
-    NYFD = PermissibleValue(
-        text="NYFD",
-        meaning=None)
-    NYSE = PermissibleValue(
-        text="NYSE",
-        meaning=None)
-    NZAU = PermissibleValue(
-        text="NZAU",
-        meaning=None)
-    NZWE = PermissibleValue(
-        text="NZWE",
-        meaning=None)
-    OMMU = PermissibleValue(
-        text="OMMU",
-        meaning=None)
-    PAPC = PermissibleValue(
-        text="PAPC",
-        meaning=None)
-    PELI = PermissibleValue(
-        text="PELI",
-        meaning=None)
-    PHMA = PermissibleValue(
-        text="PHMA",
-        meaning=None)
-    PHMK = PermissibleValue(
-        text="PHMK",
-        meaning=None)
-    PKKA = PermissibleValue(
-        text="PKKA",
-        meaning=None)
-    PLWA = PermissibleValue(
-        text="PLWA",
-        meaning=None)
-    PRSJ = PermissibleValue(
-        text="PRSJ",
-        meaning=None)
-    PTLI = PermissibleValue(
-        text="PTLI",
-        meaning=None)
-    QADO = PermissibleValue(
-        text="QADO",
-        meaning=None)
-    ROBU = PermissibleValue(
-        text="ROBU",
-        meaning=None)
-    RSBE = PermissibleValue(
-        text="RSBE",
-        meaning=None)
-    RUMO = PermissibleValue(
-        text="RUMO",
-        meaning=None)
-    SAAB = PermissibleValue(
-        text="SAAB",
-        meaning=None)
-    SAJE = PermissibleValue(
-        text="SAJE",
-        meaning=None)
-    SARI = PermissibleValue(
-        text="SARI",
-        meaning=None)
-    SEST = PermissibleValue(
-        text="SEST",
-        meaning=None)
-    SGSI = PermissibleValue(
-        text="SGSI",
-        meaning=None)
-    SILJ = PermissibleValue(
-        text="SILJ",
-        meaning=None)
-    SKBR = PermissibleValue(
-        text="SKBR",
-        meaning=None)
-    SLFR = PermissibleValue(
-        text="SLFR",
-        meaning=None)
-    SNDA = PermissibleValue(
-        text="SNDA",
-        meaning=None)
-    SVSS = PermissibleValue(
-        text="SVSS",
-        meaning=None)
-    THBA = PermissibleValue(
-        text="THBA",
-        meaning=None)
-    TNTU = PermissibleValue(
-        text="TNTU",
-        meaning=None)
-    TRAN = PermissibleValue(
-        text="TRAN",
-        meaning=None)
-    TRIS = PermissibleValue(
-        text="TRIS",
-        meaning=None)
-    TTPS = PermissibleValue(
-        text="TTPS",
-        meaning=None)
-    TWTA = PermissibleValue(
-        text="TWTA",
-        meaning=None)
-    TZDA = PermissibleValue(
-        text="TZDA",
-        meaning=None)
-    TZDO = PermissibleValue(
-        text="TZDO",
-        meaning=None)
-    UAKI = PermissibleValue(
-        text="UAKI",
-        meaning=None)
-    UGKA = PermissibleValue(
-        text="UGKA",
-        meaning=None)
-    USBO = PermissibleValue(
-        text="USBO",
-        meaning=None)
-    USCH = PermissibleValue(
-        text="USCH",
-        meaning=None)
-    USCR = PermissibleValue(
-        text="USCR",
-        meaning=None)
-    USDC = PermissibleValue(
-        text="USDC",
-        meaning=None)
-    USDN = PermissibleValue(
-        text="USDN",
-        meaning=None)
-    USDT = PermissibleValue(
-        text="USDT",
-        meaning=None)
-    USGS = PermissibleValue(
-        text="USGS",
-        meaning=None)
-    USHL = PermissibleValue(
-        text="USHL",
-        meaning=None)
-    USHO = PermissibleValue(
-        text="USHO",
-        meaning=None)
-    USLA = PermissibleValue(
-        text="USLA",
-        meaning=None)
-    USMB = PermissibleValue(
-        text="USMB",
-        meaning=None)
-    USMN = PermissibleValue(
-        text="USMN",
-        meaning=None)
-    USNY = PermissibleValue(
-        text="USNY",
-        meaning=None)
-    USPO = PermissibleValue(
-        text="USPO",
-        meaning=None)
-    USSA = PermissibleValue(
-        text="USSA",
-        meaning=None)
-    USSE = PermissibleValue(
-        text="USSE",
-        meaning=None)
-    USSF = PermissibleValue(
-        text="USSF",
-        meaning=None)
-    USWT = PermissibleValue(
-        text="USWT",
-        meaning=None)
-    UYMO = PermissibleValue(
-        text="UYMO",
-        meaning=None)
-    UZTA = PermissibleValue(
-        text="UZTA",
-        meaning=None)
-    VECA = PermissibleValue(
-        text="VECA",
-        meaning=None)
-    VGRT = PermissibleValue(
-        text="VGRT",
-        meaning=None)
-    VNHA = PermissibleValue(
-        text="VNHA",
-        meaning=None)
-    VNHC = PermissibleValue(
-        text="VNHC",
-        meaning=None)
-    YEAD = PermissibleValue(
-        text="YEAD",
-        meaning=None)
-    ZAJO = PermissibleValue(
-        text="ZAJO",
-        meaning=None)
-    ZMLU = PermissibleValue(
-        text="ZMLU",
-        meaning=None)
-    ZWHA = PermissibleValue(
-        text="ZWHA",
-        meaning=None)
+    AEAB = PermissibleValue(text="AEAB")
+    AEAD = PermissibleValue(text="AEAD")
+    AEDU = PermissibleValue(text="AEDU")
+    AMYE = PermissibleValue(text="AMYE")
+    AOLU = PermissibleValue(text="AOLU")
+    ARBA = PermissibleValue(text="ARBA")
+    ATVI = PermissibleValue(text="ATVI")
+    AUAD = PermissibleValue(text="AUAD")
+    AUBR = PermissibleValue(text="AUBR")
+    AUCA = PermissibleValue(text="AUCA")
+    AUDA = PermissibleValue(text="AUDA")
+    AUME = PermissibleValue(text="AUME")
+    AUPE = PermissibleValue(text="AUPE")
+    AUSY = PermissibleValue(text="AUSY")
+    AZBA = PermissibleValue(text="AZBA")
+    BBBR = PermissibleValue(text="BBBR")
+    BDDH = PermissibleValue(text="BDDH")
+    BEBR = PermissibleValue(text="BEBR")
+    BGSO = PermissibleValue(text="BGSO")
+    BHMA = PermissibleValue(text="BHMA")
+    BMHA = PermissibleValue(text="BMHA")
+    BNBS = PermissibleValue(text="BNBS")
+    BOLP = PermissibleValue(text="BOLP")
+    BRBD = PermissibleValue(text="BRBD")
+    BRBR = PermissibleValue(text="BRBR")
+    BRRJ = PermissibleValue(text="BRRJ")
+    BRSP = PermissibleValue(text="BRSP")
+    BSNA = PermissibleValue(text="BSNA")
+    BWGA = PermissibleValue(text="BWGA")
+    BYMI = PermissibleValue(text="BYMI")
+    CACL = PermissibleValue(text="CACL")
+    CAFR = PermissibleValue(text="CAFR")
+    CAMO = PermissibleValue(text="CAMO")
+    CAOT = PermissibleValue(text="CAOT")
+    CATO = PermissibleValue(text="CATO")
+    CAVA = PermissibleValue(text="CAVA")
+    CAWI = PermissibleValue(text="CAWI")
+    CHBA = PermissibleValue(text="CHBA")
+    CHGE = PermissibleValue(text="CHGE")
+    CHZU = PermissibleValue(text="CHZU")
+    CIAB = PermissibleValue(text="CIAB")
+    CLSA = PermissibleValue(text="CLSA")
+    CMYA = PermissibleValue(text="CMYA")
+    CNBE = PermissibleValue(text="CNBE")
+    CNSH = PermissibleValue(text="CNSH")
+    COBO = PermissibleValue(text="COBO")
+    CRSJ = PermissibleValue(text="CRSJ")
+    CWWI = PermissibleValue(text="CWWI")
+    CYNI = PermissibleValue(text="CYNI")
+    CZPR = PermissibleValue(text="CZPR")
+    DECO = PermissibleValue(text="DECO")
+    DEDU = PermissibleValue(text="DEDU")
+    DEFR = PermissibleValue(text="DEFR")
+    DEHA = PermissibleValue(text="DEHA")
+    DEHH = PermissibleValue(text="DEHH")
+    DELE = PermissibleValue(text="DELE")
+    DEMA = PermissibleValue(text="DEMA")
+    DEMU = PermissibleValue(text="DEMU")
+    DEST = PermissibleValue(text="DEST")
+    DKCO = PermissibleValue(text="DKCO")
+    DOSD = PermissibleValue(text="DOSD")
+    DZAL = PermissibleValue(text="DZAL")
+    ECGU = PermissibleValue(text="ECGU")
+    EETA = PermissibleValue(text="EETA")
+    EGCA = PermissibleValue(text="EGCA")
+    ESAS = PermissibleValue(text="ESAS")
+    ESBA = PermissibleValue(text="ESBA")
+    ESMA = PermissibleValue(text="ESMA")
+    ESSS = PermissibleValue(text="ESSS")
+    ETAA = PermissibleValue(text="ETAA")
+    EUTA = PermissibleValue(text="EUTA")
+    FIHE = PermissibleValue(text="FIHE")
+    FRPA = PermissibleValue(text="FRPA")
+    GBED = PermissibleValue(text="GBED")
+    GBLO = PermissibleValue(text="GBLO")
+    GETB = PermissibleValue(text="GETB")
+    GGSP = PermissibleValue(text="GGSP")
+    GHAC = PermissibleValue(text="GHAC")
+    GIGI = PermissibleValue(text="GIGI")
+    GMBA = PermissibleValue(text="GMBA")
+    GNCO = PermissibleValue(text="GNCO")
+    GRAT = PermissibleValue(text="GRAT")
+    GTGC = PermissibleValue(text="GTGC")
+    GUGC = PermissibleValue(text="GUGC")
+    HKHK = PermissibleValue(text="HKHK")
+    HNTE = PermissibleValue(text="HNTE")
+    HRZA = PermissibleValue(text="HRZA")
+    HUBU = PermissibleValue(text="HUBU")
+    IDJA = PermissibleValue(text="IDJA")
+    IEDU = PermissibleValue(text="IEDU")
+    ILJE = PermissibleValue(text="ILJE")
+    ILTA = PermissibleValue(text="ILTA")
+    INAH = PermissibleValue(text="INAH")
+    INBA = PermissibleValue(text="INBA")
+    INCH = PermissibleValue(text="INCH")
+    INHY = PermissibleValue(text="INHY")
+    INKO = PermissibleValue(text="INKO")
+    INMU = PermissibleValue(text="INMU")
+    INND = PermissibleValue(text="INND")
+    IQBA = PermissibleValue(text="IQBA")
+    IRTE = PermissibleValue(text="IRTE")
+    ISRE = PermissibleValue(text="ISRE")
+    ITMI = PermissibleValue(text="ITMI")
+    ITRO = PermissibleValue(text="ITRO")
+    ITTU = PermissibleValue(text="ITTU")
+    JESH = PermissibleValue(text="JESH")
+    JMKI = PermissibleValue(text="JMKI")
+    JOAM = PermissibleValue(text="JOAM")
+    JPTO = PermissibleValue(text="JPTO")
+    KENA = PermissibleValue(text="KENA")
+    KHPP = PermissibleValue(text="KHPP")
+    KRSE = PermissibleValue(text="KRSE")
+    KWKC = PermissibleValue(text="KWKC")
+    KYGE = PermissibleValue(text="KYGE")
+    KZAL = PermissibleValue(text="KZAL")
+    LAVI = PermissibleValue(text="LAVI")
+    LBBE = PermissibleValue(text="LBBE")
+    LKCO = PermissibleValue(text="LKCO")
+    LULU = PermissibleValue(text="LULU")
+    LVRI = PermissibleValue(text="LVRI")
+    MACA = PermissibleValue(text="MACA")
+    MARA = PermissibleValue(text="MARA")
+    MCMO = PermissibleValue(text="MCMO")
+    MNUB = PermissibleValue(text="MNUB")
+    MOMA = PermissibleValue(text="MOMA")
+    MTVA = PermissibleValue(text="MTVA")
+    MUPL = PermissibleValue(text="MUPL")
+    MVMA = PermissibleValue(text="MVMA")
+    MWLI = PermissibleValue(text="MWLI")
+    MXMC = PermissibleValue(text="MXMC")
+    MYKL = PermissibleValue(text="MYKL")
+    MYLA = PermissibleValue(text="MYLA")
+    MZMA = PermissibleValue(text="MZMA")
+    NAWI = PermissibleValue(text="NAWI")
+    NGAB = PermissibleValue(text="NGAB")
+    NGLA = PermissibleValue(text="NGLA")
+    NLAM = PermissibleValue(text="NLAM")
+    NLRO = PermissibleValue(text="NLRO")
+    NOOS = PermissibleValue(text="NOOS")
+    NPKA = PermissibleValue(text="NPKA")
+    NYFD = PermissibleValue(text="NYFD")
+    NYSE = PermissibleValue(text="NYSE")
+    NZAU = PermissibleValue(text="NZAU")
+    NZWE = PermissibleValue(text="NZWE")
+    OMMU = PermissibleValue(text="OMMU")
+    PAPC = PermissibleValue(text="PAPC")
+    PELI = PermissibleValue(text="PELI")
+    PHMA = PermissibleValue(text="PHMA")
+    PHMK = PermissibleValue(text="PHMK")
+    PKKA = PermissibleValue(text="PKKA")
+    PLWA = PermissibleValue(text="PLWA")
+    PRSJ = PermissibleValue(text="PRSJ")
+    PTLI = PermissibleValue(text="PTLI")
+    QADO = PermissibleValue(text="QADO")
+    ROBU = PermissibleValue(text="ROBU")
+    RSBE = PermissibleValue(text="RSBE")
+    RUMO = PermissibleValue(text="RUMO")
+    SAAB = PermissibleValue(text="SAAB")
+    SAJE = PermissibleValue(text="SAJE")
+    SARI = PermissibleValue(text="SARI")
+    SEST = PermissibleValue(text="SEST")
+    SGSI = PermissibleValue(text="SGSI")
+    SILJ = PermissibleValue(text="SILJ")
+    SKBR = PermissibleValue(text="SKBR")
+    SLFR = PermissibleValue(text="SLFR")
+    SNDA = PermissibleValue(text="SNDA")
+    SVSS = PermissibleValue(text="SVSS")
+    THBA = PermissibleValue(text="THBA")
+    TNTU = PermissibleValue(text="TNTU")
+    TRAN = PermissibleValue(text="TRAN")
+    TRIS = PermissibleValue(text="TRIS")
+    TTPS = PermissibleValue(text="TTPS")
+    TWTA = PermissibleValue(text="TWTA")
+    TZDA = PermissibleValue(text="TZDA")
+    TZDO = PermissibleValue(text="TZDO")
+    UAKI = PermissibleValue(text="UAKI")
+    UGKA = PermissibleValue(text="UGKA")
+    USBO = PermissibleValue(text="USBO")
+    USCH = PermissibleValue(text="USCH")
+    USCR = PermissibleValue(text="USCR")
+    USDC = PermissibleValue(text="USDC")
+    USDN = PermissibleValue(text="USDN")
+    USDT = PermissibleValue(text="USDT")
+    USGS = PermissibleValue(text="USGS")
+    USHL = PermissibleValue(text="USHL")
+    USHO = PermissibleValue(text="USHO")
+    USLA = PermissibleValue(text="USLA")
+    USMB = PermissibleValue(text="USMB")
+    USMN = PermissibleValue(text="USMN")
+    USNY = PermissibleValue(text="USNY")
+    USPO = PermissibleValue(text="USPO")
+    USSA = PermissibleValue(text="USSA")
+    USSE = PermissibleValue(text="USSE")
+    USSF = PermissibleValue(text="USSF")
+    USWT = PermissibleValue(text="USWT")
+    UYMO = PermissibleValue(text="UYMO")
+    UZTA = PermissibleValue(text="UZTA")
+    VECA = PermissibleValue(text="VECA")
+    VGRT = PermissibleValue(text="VGRT")
+    VNHA = PermissibleValue(text="VNHA")
+    VNHC = PermissibleValue(text="VNHC")
+    YEAD = PermissibleValue(text="YEAD")
+    ZAJO = PermissibleValue(text="ZAJO")
+    ZMLU = PermissibleValue(text="ZMLU")
+    ZWHA = PermissibleValue(text="ZWHA")
 
     _defn = EnumDefinition(
         name="BusinessCenter",
@@ -34848,25 +34438,15 @@ class BusinessCenter(EnumDefinitionImpl):
     @classmethod
     def _addvals(cls):
         setattr(cls, "EUR-ICESWAP",
-            PermissibleValue(
-                text="EUR-ICESWAP",
-                meaning=None))
+            PermissibleValue(text="EUR-ICESWAP"))
         setattr(cls, "GBP-ICESWAP",
-            PermissibleValue(
-                text="GBP-ICESWAP",
-                meaning=None))
+            PermissibleValue(text="GBP-ICESWAP"))
         setattr(cls, "ILS-TELBOR",
-            PermissibleValue(
-                text="ILS-TELBOR",
-                meaning=None))
+            PermissibleValue(text="ILS-TELBOR"))
         setattr(cls, "USD-ICESWAP",
-            PermissibleValue(
-                text="USD-ICESWAP",
-                meaning=None))
+            PermissibleValue(text="USD-ICESWAP"))
         setattr(cls, "USD-MUNI",
-            PermissibleValue(
-                text="USD-MUNI",
-                meaning=None))
+            PermissibleValue(text="USD-MUNI"))
 
 class CodelistFloatingRateIndex(EnumDefinitionImpl):
 
@@ -34877,2621 +34457,1313 @@ class CodelistFloatingRateIndex(EnumDefinitionImpl):
     @classmethod
     def _addvals(cls):
         setattr(cls, "AED-EBOR-Reuters",
-            PermissibleValue(
-                text="AED-EBOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="AED-EBOR-Reuters"))
         setattr(cls, "AED-EIBOR",
-            PermissibleValue(
-                text="AED-EIBOR",
-                meaning=None))
+            PermissibleValue(text="AED-EIBOR"))
         setattr(cls, "AUD-AONIA",
-            PermissibleValue(
-                text="AUD-AONIA",
-                meaning=None))
+            PermissibleValue(text="AUD-AONIA"))
         setattr(cls, "AUD-AONIA-OIS Compound",
-            PermissibleValue(
-                text="AUD-AONIA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="AUD-AONIA-OIS Compound"))
         setattr(cls, "AUD-AONIA-OIS-COMPOUND",
-            PermissibleValue(
-                text="AUD-AONIA-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="AUD-AONIA-OIS-COMPOUND"))
         setattr(cls, "AUD-AONIA-OIS-COMPOUND-SwapMarker",
-            PermissibleValue(
-                text="AUD-AONIA-OIS-COMPOUND-SwapMarker",
-                meaning=None))
+            PermissibleValue(text="AUD-AONIA-OIS-COMPOUND-SwapMarker"))
         setattr(cls, "AUD-BBR-AUBBSW",
-            PermissibleValue(
-                text="AUD-BBR-AUBBSW",
-                meaning=None))
+            PermissibleValue(text="AUD-BBR-AUBBSW"))
         setattr(cls, "AUD-BBR-BBSW",
-            PermissibleValue(
-                text="AUD-BBR-BBSW",
-                meaning=None))
+            PermissibleValue(text="AUD-BBR-BBSW"))
         setattr(cls, "AUD-BBR-BBSW-Bloomberg",
-            PermissibleValue(
-                text="AUD-BBR-BBSW-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="AUD-BBR-BBSW-Bloomberg"))
         setattr(cls, "AUD-BBR-BBSY (BID)",
-            PermissibleValue(
-                text="AUD-BBR-BBSY (BID)",
-                meaning=None))
+            PermissibleValue(text="AUD-BBR-BBSY (BID)"))
         setattr(cls, "AUD-BBR-ISDC",
-            PermissibleValue(
-                text="AUD-BBR-ISDC",
-                meaning=None))
+            PermissibleValue(text="AUD-BBR-ISDC"))
         setattr(cls, "AUD-BBSW",
-            PermissibleValue(
-                text="AUD-BBSW",
-                meaning=None))
+            PermissibleValue(text="AUD-BBSW"))
         setattr(cls, "AUD-BBSW Quarterly Swap Rate ICAP",
-            PermissibleValue(
-                text="AUD-BBSW Quarterly Swap Rate ICAP",
-                meaning=None))
+            PermissibleValue(text="AUD-BBSW Quarterly Swap Rate ICAP"))
         setattr(cls, "AUD-BBSW Semi Annual Swap Rate ICAP",
-            PermissibleValue(
-                text="AUD-BBSW Semi Annual Swap Rate ICAP",
-                meaning=None))
+            PermissibleValue(text="AUD-BBSW Semi Annual Swap Rate ICAP"))
         setattr(cls, "AUD-BBSY Bid",
-            PermissibleValue(
-                text="AUD-BBSY Bid",
-                meaning=None))
+            PermissibleValue(text="AUD-BBSY Bid"))
         setattr(cls, "AUD-LIBOR-BBA",
-            PermissibleValue(
-                text="AUD-LIBOR-BBA",
-                meaning=None))
+            PermissibleValue(text="AUD-LIBOR-BBA"))
         setattr(cls, "AUD-LIBOR-BBA-Bloomberg",
-            PermissibleValue(
-                text="AUD-LIBOR-BBA-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="AUD-LIBOR-BBA-Bloomberg"))
         setattr(cls, "AUD-LIBOR-Reference Banks",
-            PermissibleValue(
-                text="AUD-LIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="AUD-LIBOR-Reference Banks"))
         setattr(cls, "AUD-Quarterly Swap Rate-ICAP",
-            PermissibleValue(
-                text="AUD-Quarterly Swap Rate-ICAP",
-                meaning=None))
+            PermissibleValue(text="AUD-Quarterly Swap Rate-ICAP"))
         setattr(cls, "AUD-Quarterly Swap Rate-ICAP-Reference Banks",
-            PermissibleValue(
-                text="AUD-Quarterly Swap Rate-ICAP-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="AUD-Quarterly Swap Rate-ICAP-Reference Banks"))
         setattr(cls, "AUD-Semi-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="AUD-Semi-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="AUD-Semi-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "AUD-Semi-Annual Swap Rate-BGCANTOR-Reference Banks",
-            PermissibleValue(
-                text="AUD-Semi-Annual Swap Rate-BGCANTOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="AUD-Semi-Annual Swap Rate-BGCANTOR-Reference Banks"))
         setattr(cls, "AUD-Semi-Annual Swap Rate-ICAP-Reference Banks",
-            PermissibleValue(
-                text="AUD-Semi-Annual Swap Rate-ICAP-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="AUD-Semi-Annual Swap Rate-ICAP-Reference Banks"))
         setattr(cls, "AUD-Semi-annual Swap Rate-ICAP",
-            PermissibleValue(
-                text="AUD-Semi-annual Swap Rate-ICAP",
-                meaning=None))
+            PermissibleValue(text="AUD-Semi-annual Swap Rate-ICAP"))
         setattr(cls, "AUD-Swap Rate-Reuters",
-            PermissibleValue(
-                text="AUD-Swap Rate-Reuters",
-                meaning=None))
+            PermissibleValue(text="AUD-Swap Rate-Reuters"))
         setattr(cls, "BRL-CDI",
-            PermissibleValue(
-                text="BRL-CDI",
-                meaning=None))
+            PermissibleValue(text="BRL-CDI"))
         setattr(cls, "CAD-BA-CDOR",
-            PermissibleValue(
-                text="CAD-BA-CDOR",
-                meaning=None))
+            PermissibleValue(text="CAD-BA-CDOR"))
         setattr(cls, "CAD-BA-CDOR-Bloomberg",
-            PermissibleValue(
-                text="CAD-BA-CDOR-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="CAD-BA-CDOR-Bloomberg"))
         setattr(cls, "CAD-BA-ISDD",
-            PermissibleValue(
-                text="CAD-BA-ISDD",
-                meaning=None))
+            PermissibleValue(text="CAD-BA-ISDD"))
         setattr(cls, "CAD-BA-Reference Banks",
-            PermissibleValue(
-                text="CAD-BA-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="CAD-BA-Reference Banks"))
         setattr(cls, "CAD-BA-Reuters",
-            PermissibleValue(
-                text="CAD-BA-Reuters",
-                meaning=None))
+            PermissibleValue(text="CAD-BA-Reuters"))
         setattr(cls, "CAD-BA-Telerate",
-            PermissibleValue(
-                text="CAD-BA-Telerate",
-                meaning=None))
+            PermissibleValue(text="CAD-BA-Telerate"))
         setattr(cls, "CAD-CDOR",
-            PermissibleValue(
-                text="CAD-CDOR",
-                meaning=None))
+            PermissibleValue(text="CAD-CDOR"))
         setattr(cls, "CAD-CORRA",
-            PermissibleValue(
-                text="CAD-CORRA",
-                meaning=None))
+            PermissibleValue(text="CAD-CORRA"))
         setattr(cls, "CAD-CORRA CanDeal TMX Term",
-            PermissibleValue(
-                text="CAD-CORRA CanDeal TMX Term",
-                meaning=None))
+            PermissibleValue(text="CAD-CORRA CanDeal TMX Term"))
         setattr(cls, "CAD-CORRA Compounded Index",
-            PermissibleValue(
-                text="CAD-CORRA Compounded Index",
-                meaning=None))
+            PermissibleValue(text="CAD-CORRA Compounded Index"))
         setattr(cls, "CAD-CORRA-OIS Compound",
-            PermissibleValue(
-                text="CAD-CORRA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="CAD-CORRA-OIS Compound"))
         setattr(cls, "CAD-CORRA-OIS-COMPOUND",
-            PermissibleValue(
-                text="CAD-CORRA-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="CAD-CORRA-OIS-COMPOUND"))
         setattr(cls, "CAD-ISDA-Swap Rate",
-            PermissibleValue(
-                text="CAD-ISDA-Swap Rate",
-                meaning=None))
+            PermissibleValue(text="CAD-ISDA-Swap Rate"))
         setattr(cls, "CAD-LIBOR-BBA",
-            PermissibleValue(
-                text="CAD-LIBOR-BBA",
-                meaning=None))
+            PermissibleValue(text="CAD-LIBOR-BBA"))
         setattr(cls, "CAD-LIBOR-BBA-Bloomberg",
-            PermissibleValue(
-                text="CAD-LIBOR-BBA-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="CAD-LIBOR-BBA-Bloomberg"))
         setattr(cls, "CAD-LIBOR-BBA-SwapMarker",
-            PermissibleValue(
-                text="CAD-LIBOR-BBA-SwapMarker",
-                meaning=None))
+            PermissibleValue(text="CAD-LIBOR-BBA-SwapMarker"))
         setattr(cls, "CAD-LIBOR-Reference Banks",
-            PermissibleValue(
-                text="CAD-LIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="CAD-LIBOR-Reference Banks"))
         setattr(cls, "CAD-REPO-CORRA",
-            PermissibleValue(
-                text="CAD-REPO-CORRA",
-                meaning=None))
+            PermissibleValue(text="CAD-REPO-CORRA"))
         setattr(cls, "CAD-TBILL-ISDD",
-            PermissibleValue(
-                text="CAD-TBILL-ISDD",
-                meaning=None))
+            PermissibleValue(text="CAD-TBILL-ISDD"))
         setattr(cls, "CAD-TBILL-Reference Banks",
-            PermissibleValue(
-                text="CAD-TBILL-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="CAD-TBILL-Reference Banks"))
         setattr(cls, "CAD-TBILL-Reuters",
-            PermissibleValue(
-                text="CAD-TBILL-Reuters",
-                meaning=None))
+            PermissibleValue(text="CAD-TBILL-Reuters"))
         setattr(cls, "CAD-TBILL-Telerate",
-            PermissibleValue(
-                text="CAD-TBILL-Telerate",
-                meaning=None))
+            PermissibleValue(text="CAD-TBILL-Telerate"))
         setattr(cls, "CHF USD-Basis Swaps-11:00-ICAP",
-            PermissibleValue(
-                text="CHF USD-Basis Swaps-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="CHF USD-Basis Swaps-11:00-ICAP"))
         setattr(cls, "CHF-3M LIBOR SWAP-CME vs LCH-ICAP",
-            PermissibleValue(
-                text="CHF-3M LIBOR SWAP-CME vs LCH-ICAP",
-                meaning=None))
+            PermissibleValue(text="CHF-3M LIBOR SWAP-CME vs LCH-ICAP"))
         setattr(cls, "CHF-3M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
-            PermissibleValue(
-                text="CHF-3M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="CHF-3M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg"))
         setattr(cls, "CHF-3M LIBOR SWAP-EUREX vs LCH-ICAP",
-            PermissibleValue(
-                text="CHF-3M LIBOR SWAP-EUREX vs LCH-ICAP",
-                meaning=None))
+            PermissibleValue(text="CHF-3M LIBOR SWAP-EUREX vs LCH-ICAP"))
         setattr(cls, "CHF-3M LIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg",
-            PermissibleValue(
-                text="CHF-3M LIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="CHF-3M LIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg"))
         setattr(cls, "CHF-6M LIBOR SWAP-CME vs LCH-ICAP",
-            PermissibleValue(
-                text="CHF-6M LIBOR SWAP-CME vs LCH-ICAP",
-                meaning=None))
+            PermissibleValue(text="CHF-6M LIBOR SWAP-CME vs LCH-ICAP"))
         setattr(cls, "CHF-6M LIBOR SWAP-EUREX vs LCH-ICAP",
-            PermissibleValue(
-                text="CHF-6M LIBOR SWAP-EUREX vs LCH-ICAP",
-                meaning=None))
+            PermissibleValue(text="CHF-6M LIBOR SWAP-EUREX vs LCH-ICAP"))
         setattr(cls, "CHF-6M LIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg",
-            PermissibleValue(
-                text="CHF-6M LIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="CHF-6M LIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg"))
         setattr(cls, "CHF-6M LIBORSWAP-CME vs LCH-ICAP-Bloomberg",
-            PermissibleValue(
-                text="CHF-6M LIBORSWAP-CME vs LCH-ICAP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="CHF-6M LIBORSWAP-CME vs LCH-ICAP-Bloomberg"))
         setattr(cls, "CHF-Annual Swap Rate",
-            PermissibleValue(
-                text="CHF-Annual Swap Rate",
-                meaning=None))
+            PermissibleValue(text="CHF-Annual Swap Rate"))
         setattr(cls, "CHF-Annual Swap Rate-11:00-ICAP",
-            PermissibleValue(
-                text="CHF-Annual Swap Rate-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="CHF-Annual Swap Rate-11:00-ICAP"))
         setattr(cls, "CHF-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="CHF-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="CHF-Annual Swap Rate-Reference Banks"))
         setattr(cls, "CHF-Basis Swap-3m vs 6m-LIBOR-11:00-ICAP",
-            PermissibleValue(
-                text="CHF-Basis Swap-3m vs 6m-LIBOR-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="CHF-Basis Swap-3m vs 6m-LIBOR-11:00-ICAP"))
         setattr(cls, "CHF-ISDAFIX-Swap Rate",
-            PermissibleValue(
-                text="CHF-ISDAFIX-Swap Rate",
-                meaning=None))
+            PermissibleValue(text="CHF-ISDAFIX-Swap Rate"))
         setattr(cls, "CHF-LIBOR",
-            PermissibleValue(
-                text="CHF-LIBOR",
-                meaning=None))
+            PermissibleValue(text="CHF-LIBOR"))
         setattr(cls, "CHF-LIBOR-BBA",
-            PermissibleValue(
-                text="CHF-LIBOR-BBA",
-                meaning=None))
+            PermissibleValue(text="CHF-LIBOR-BBA"))
         setattr(cls, "CHF-LIBOR-BBA-Bloomberg",
-            PermissibleValue(
-                text="CHF-LIBOR-BBA-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="CHF-LIBOR-BBA-Bloomberg"))
         setattr(cls, "CHF-LIBOR-ISDA",
-            PermissibleValue(
-                text="CHF-LIBOR-ISDA",
-                meaning=None))
+            PermissibleValue(text="CHF-LIBOR-ISDA"))
         setattr(cls, "CHF-LIBOR-Reference Banks",
-            PermissibleValue(
-                text="CHF-LIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="CHF-LIBOR-Reference Banks"))
         setattr(cls, "CHF-OIS-11:00-ICAP",
-            PermissibleValue(
-                text="CHF-OIS-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="CHF-OIS-11:00-ICAP"))
         setattr(cls, "CHF-SARON",
-            PermissibleValue(
-                text="CHF-SARON",
-                meaning=None))
+            PermissibleValue(text="CHF-SARON"))
         setattr(cls, "CHF-SARON Average 12M",
-            PermissibleValue(
-                text="CHF-SARON Average 12M",
-                meaning=None))
+            PermissibleValue(text="CHF-SARON Average 12M"))
         setattr(cls, "CHF-SARON Average 1M",
-            PermissibleValue(
-                text="CHF-SARON Average 1M",
-                meaning=None))
+            PermissibleValue(text="CHF-SARON Average 1M"))
         setattr(cls, "CHF-SARON Average 1W",
-            PermissibleValue(
-                text="CHF-SARON Average 1W",
-                meaning=None))
+            PermissibleValue(text="CHF-SARON Average 1W"))
         setattr(cls, "CHF-SARON Average 2M",
-            PermissibleValue(
-                text="CHF-SARON Average 2M",
-                meaning=None))
+            PermissibleValue(text="CHF-SARON Average 2M"))
         setattr(cls, "CHF-SARON Average 3M",
-            PermissibleValue(
-                text="CHF-SARON Average 3M",
-                meaning=None))
+            PermissibleValue(text="CHF-SARON Average 3M"))
         setattr(cls, "CHF-SARON Average 6M",
-            PermissibleValue(
-                text="CHF-SARON Average 6M",
-                meaning=None))
+            PermissibleValue(text="CHF-SARON Average 6M"))
         setattr(cls, "CHF-SARON Average 9M",
-            PermissibleValue(
-                text="CHF-SARON Average 9M",
-                meaning=None))
+            PermissibleValue(text="CHF-SARON Average 9M"))
         setattr(cls, "CHF-SARON Compounded Index",
-            PermissibleValue(
-                text="CHF-SARON Compounded Index",
-                meaning=None))
+            PermissibleValue(text="CHF-SARON Compounded Index"))
         setattr(cls, "CHF-SARON-OIS Compound",
-            PermissibleValue(
-                text="CHF-SARON-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="CHF-SARON-OIS Compound"))
         setattr(cls, "CHF-SARON-OIS-COMPOUND",
-            PermissibleValue(
-                text="CHF-SARON-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="CHF-SARON-OIS-COMPOUND"))
         setattr(cls, "CHF-TOIS-OIS-COMPOUND",
-            PermissibleValue(
-                text="CHF-TOIS-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="CHF-TOIS-OIS-COMPOUND"))
         setattr(cls, "CL-CLICP-Bloomberg",
-            PermissibleValue(
-                text="CL-CLICP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="CL-CLICP-Bloomberg"))
         setattr(cls, "CLP-ICP",
-            PermissibleValue(
-                text="CLP-ICP",
-                meaning=None))
+            PermissibleValue(text="CLP-ICP"))
         setattr(cls, "CLP-TNA",
-            PermissibleValue(
-                text="CLP-TNA",
-                meaning=None))
+            PermissibleValue(text="CLP-TNA"))
         setattr(cls, "CNH-HIBOR",
-            PermissibleValue(
-                text="CNH-HIBOR",
-                meaning=None))
+            PermissibleValue(text="CNH-HIBOR"))
         setattr(cls, "CNH-HIBOR-Reference Banks",
-            PermissibleValue(
-                text="CNH-HIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="CNH-HIBOR-Reference Banks"))
         setattr(cls, "CNH-HIBOR-TMA",
-            PermissibleValue(
-                text="CNH-HIBOR-TMA",
-                meaning=None))
+            PermissibleValue(text="CNH-HIBOR-TMA"))
         setattr(cls, "CNY 7-Repo Compounding Date",
-            PermissibleValue(
-                text="CNY 7-Repo Compounding Date",
-                meaning=None))
+            PermissibleValue(text="CNY 7-Repo Compounding Date"))
         setattr(cls, "CNY-CNREPOFIX=CFXS-Reuters",
-            PermissibleValue(
-                text="CNY-CNREPOFIX=CFXS-Reuters",
-                meaning=None))
+            PermissibleValue(text="CNY-CNREPOFIX=CFXS-Reuters"))
         setattr(cls, "CNY-Deposit Rate",
-            PermissibleValue(
-                text="CNY-Deposit Rate",
-                meaning=None))
+            PermissibleValue(text="CNY-Deposit Rate"))
         setattr(cls, "CNY-Fixing Repo Rate",
-            PermissibleValue(
-                text="CNY-Fixing Repo Rate",
-                meaning=None))
+            PermissibleValue(text="CNY-Fixing Repo Rate"))
         setattr(cls, "CNY-LPR",
-            PermissibleValue(
-                text="CNY-LPR",
-                meaning=None))
+            PermissibleValue(text="CNY-LPR"))
         setattr(cls, "CNY-PBOCB-Reuters",
-            PermissibleValue(
-                text="CNY-PBOCB-Reuters",
-                meaning=None))
+            PermissibleValue(text="CNY-PBOCB-Reuters"))
         setattr(cls, "CNY-Quarterly 7 day Repo Non Deliverable Swap Rate-TRADITION",
-            PermissibleValue(
-                text="CNY-Quarterly 7 day Repo Non Deliverable Swap Rate-TRADITION",
-                meaning=None))
+            PermissibleValue(text="CNY-Quarterly 7 day Repo Non Deliverable Swap Rate-TRADITION"))
         setattr(cls, "CNY-Quarterly 7 day Repo Non Deliverable Swap Rate-TRADITION-Reference Banks",
-            PermissibleValue(
-                text="CNY-Quarterly 7 day Repo Non Deliverable Swap Rate-TRADITION-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="CNY-Quarterly 7 day Repo Non Deliverable Swap Rate-TRADITION-Reference Banks"))
         setattr(cls, "CNY-Quarterly 7D Repo NDS Rate Tradition",
-            PermissibleValue(
-                text="CNY-Quarterly 7D Repo NDS Rate Tradition",
-                meaning=None))
+            PermissibleValue(text="CNY-Quarterly 7D Repo NDS Rate Tradition"))
         setattr(cls, "CNY-SHIBOR",
-            PermissibleValue(
-                text="CNY-SHIBOR",
-                meaning=None))
+            PermissibleValue(text="CNY-SHIBOR"))
         setattr(cls, "CNY-SHIBOR-OIS Compound",
-            PermissibleValue(
-                text="CNY-SHIBOR-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="CNY-SHIBOR-OIS Compound"))
         setattr(cls, "CNY-SHIBOR-Reuters",
-            PermissibleValue(
-                text="CNY-SHIBOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="CNY-SHIBOR-Reuters"))
         setattr(cls, "CNY-Semi-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="CNY-Semi-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="CNY-Semi-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "CNY-Semi-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="CNY-Semi-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="CNY-Semi-Annual Swap Rate-Reference Banks"))
         setattr(cls, "CNY-Shibor-OIS-Compounding",
-            PermissibleValue(
-                text="CNY-Shibor-OIS-Compounding",
-                meaning=None))
+            PermissibleValue(text="CNY-Shibor-OIS-Compounding"))
         setattr(cls, "COP-IBR-OIS Compound",
-            PermissibleValue(
-                text="COP-IBR-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="COP-IBR-OIS Compound"))
         setattr(cls, "COP-IBR-OIS-COMPOUND",
-            PermissibleValue(
-                text="COP-IBR-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="COP-IBR-OIS-COMPOUND"))
         setattr(cls, "CZK-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="CZK-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="CZK-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "CZK-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="CZK-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="CZK-Annual Swap Rate-Reference Banks"))
         setattr(cls, "CZK-CZEONIA",
-            PermissibleValue(
-                text="CZK-CZEONIA",
-                meaning=None))
+            PermissibleValue(text="CZK-CZEONIA"))
         setattr(cls, "CZK-CZEONIA-OIS Compound",
-            PermissibleValue(
-                text="CZK-CZEONIA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="CZK-CZEONIA-OIS Compound"))
         setattr(cls, "CZK-PRIBOR",
-            PermissibleValue(
-                text="CZK-PRIBOR",
-                meaning=None))
+            PermissibleValue(text="CZK-PRIBOR"))
         setattr(cls, "CZK-PRIBOR-PRBO",
-            PermissibleValue(
-                text="CZK-PRIBOR-PRBO",
-                meaning=None))
+            PermissibleValue(text="CZK-PRIBOR-PRBO"))
         setattr(cls, "CZK-PRIBOR-Reference Banks",
-            PermissibleValue(
-                text="CZK-PRIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="CZK-PRIBOR-Reference Banks"))
         setattr(cls, "DKK-CIBOR",
-            PermissibleValue(
-                text="DKK-CIBOR",
-                meaning=None))
+            PermissibleValue(text="DKK-CIBOR"))
         setattr(cls, "DKK-CIBOR-DKNA13",
-            PermissibleValue(
-                text="DKK-CIBOR-DKNA13",
-                meaning=None))
+            PermissibleValue(text="DKK-CIBOR-DKNA13"))
         setattr(cls, "DKK-CIBOR-DKNA13-Bloomberg",
-            PermissibleValue(
-                text="DKK-CIBOR-DKNA13-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="DKK-CIBOR-DKNA13-Bloomberg"))
         setattr(cls, "DKK-CIBOR-Reference Banks",
-            PermissibleValue(
-                text="DKK-CIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="DKK-CIBOR-Reference Banks"))
         setattr(cls, "DKK-CIBOR2",
-            PermissibleValue(
-                text="DKK-CIBOR2",
-                meaning=None))
+            PermissibleValue(text="DKK-CIBOR2"))
         setattr(cls, "DKK-CIBOR2-Bloomberg",
-            PermissibleValue(
-                text="DKK-CIBOR2-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="DKK-CIBOR2-Bloomberg"))
         setattr(cls, "DKK-CIBOR2-DKNA13",
-            PermissibleValue(
-                text="DKK-CIBOR2-DKNA13",
-                meaning=None))
+            PermissibleValue(text="DKK-CIBOR2-DKNA13"))
         setattr(cls, "DKK-CITA",
-            PermissibleValue(
-                text="DKK-CITA",
-                meaning=None))
+            PermissibleValue(text="DKK-CITA"))
         setattr(cls, "DKK-CITA-DKNA14-COMPOUND",
-            PermissibleValue(
-                text="DKK-CITA-DKNA14-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="DKK-CITA-DKNA14-COMPOUND"))
         setattr(cls, "DKK-DESTR",
-            PermissibleValue(
-                text="DKK-DESTR",
-                meaning=None))
+            PermissibleValue(text="DKK-DESTR"))
         setattr(cls, "DKK-DESTR Compounded Index",
-            PermissibleValue(
-                text="DKK-DESTR Compounded Index",
-                meaning=None))
+            PermissibleValue(text="DKK-DESTR Compounded Index"))
         setattr(cls, "DKK-DESTR-OIS Compound",
-            PermissibleValue(
-                text="DKK-DESTR-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="DKK-DESTR-OIS Compound"))
         setattr(cls, "DKK-DKKOIS-OIS-COMPOUND",
-            PermissibleValue(
-                text="DKK-DKKOIS-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="DKK-DKKOIS-OIS-COMPOUND"))
         setattr(cls, "DKK-Tom Next-OIS Compound",
-            PermissibleValue(
-                text="DKK-Tom Next-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="DKK-Tom Next-OIS Compound"))
         setattr(cls, "EUR Basis Swap-EONIA vs 3m EUR+IBOR Swap Rates-A/360-10:00-ICAP",
-            PermissibleValue(
-                text="EUR Basis Swap-EONIA vs 3m EUR+IBOR Swap Rates-A/360-10:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR Basis Swap-EONIA vs 3m EUR+IBOR Swap Rates-A/360-10:00-ICAP"))
         setattr(cls, "EUR EURIBOR-Annual Bond Swap vs 1m-11:00-ICAP",
-            PermissibleValue(
-                text="EUR EURIBOR-Annual Bond Swap vs 1m-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR EURIBOR-Annual Bond Swap vs 1m-11:00-ICAP"))
         setattr(cls, "EUR EURIBOR-Basis Swap-1m vs 3m-Euribor-11:00-ICAP",
-            PermissibleValue(
-                text="EUR EURIBOR-Basis Swap-1m vs 3m-Euribor-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR EURIBOR-Basis Swap-1m vs 3m-Euribor-11:00-ICAP"))
         setattr(cls, "EUR EURIBOR-Basis Swap-3m vs 6m-11:00-ICAP",
-            PermissibleValue(
-                text="EUR EURIBOR-Basis Swap-3m vs 6m-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR EURIBOR-Basis Swap-3m vs 6m-11:00-ICAP"))
         setattr(cls, "EUR USD-Basis Swaps-11:00-ICAP",
-            PermissibleValue(
-                text="EUR USD-Basis Swaps-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR USD-Basis Swaps-11:00-ICAP"))
         setattr(cls, "EUR-3M EURIBOR SWAP-CME vs LCH-ICAP",
-            PermissibleValue(
-                text="EUR-3M EURIBOR SWAP-CME vs LCH-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR-3M EURIBOR SWAP-CME vs LCH-ICAP"))
         setattr(cls, "EUR-3M EURIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
-            PermissibleValue(
-                text="EUR-3M EURIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="EUR-3M EURIBOR SWAP-CME vs LCH-ICAP-Bloomberg"))
         setattr(cls, "EUR-3M EURIBOR SWAP-EUREX vs LCH-ICAP",
-            PermissibleValue(
-                text="EUR-3M EURIBOR SWAP-EUREX vs LCH-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR-3M EURIBOR SWAP-EUREX vs LCH-ICAP"))
         setattr(cls, "EUR-3M EURIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg",
-            PermissibleValue(
-                text="EUR-3M EURIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="EUR-3M EURIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg"))
         setattr(cls, "EUR-6M EURIBOR SWAP-CME vs LCH-ICAP",
-            PermissibleValue(
-                text="EUR-6M EURIBOR SWAP-CME vs LCH-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR-6M EURIBOR SWAP-CME vs LCH-ICAP"))
         setattr(cls, "EUR-6M EURIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
-            PermissibleValue(
-                text="EUR-6M EURIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="EUR-6M EURIBOR SWAP-CME vs LCH-ICAP-Bloomberg"))
         setattr(cls, "EUR-6M EURIBOR SWAP-EUREX vs LCH-ICAP",
-            PermissibleValue(
-                text="EUR-6M EURIBOR SWAP-EUREX vs LCH-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR-6M EURIBOR SWAP-EUREX vs LCH-ICAP"))
         setattr(cls, "EUR-6M EURIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg",
-            PermissibleValue(
-                text="EUR-6M EURIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="EUR-6M EURIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg"))
         setattr(cls, "EUR-Annual Swap Rate-10:00",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-10:00",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-10:00"))
         setattr(cls, "EUR-Annual Swap Rate-10:00-BGCANTOR",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-10:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-10:00-BGCANTOR"))
         setattr(cls, "EUR-Annual Swap Rate-10:00-Bloomberg",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-10:00-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-10:00-Bloomberg"))
         setattr(cls, "EUR-Annual Swap Rate-10:00-ICAP",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-10:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-10:00-ICAP"))
         setattr(cls, "EUR-Annual Swap Rate-10:00-SwapMarker",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-10:00-SwapMarker",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-10:00-SwapMarker"))
         setattr(cls, "EUR-Annual Swap Rate-10:00-TRADITION",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-10:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-10:00-TRADITION"))
         setattr(cls, "EUR-Annual Swap Rate-11:00",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-11:00",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-11:00"))
         setattr(cls, "EUR-Annual Swap Rate-11:00-Bloomberg",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-11:00-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-11:00-Bloomberg"))
         setattr(cls, "EUR-Annual Swap Rate-11:00-ICAP",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-11:00-ICAP"))
         setattr(cls, "EUR-Annual Swap Rate-11:00-SwapMarker",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-11:00-SwapMarker",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-11:00-SwapMarker"))
         setattr(cls, "EUR-Annual Swap Rate-3 Month",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-3 Month",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-3 Month"))
         setattr(cls, "EUR-Annual Swap Rate-3 Month-SwapMarker",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-3 Month-SwapMarker",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-3 Month-SwapMarker"))
         setattr(cls, "EUR-Annual Swap Rate-4:15-TRADITION",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-4:15-TRADITION",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-4:15-TRADITION"))
         setattr(cls, "EUR-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="EUR-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="EUR-Annual Swap Rate-Reference Banks"))
         setattr(cls, "EUR-CNO TEC10",
-            PermissibleValue(
-                text="EUR-CNO TEC10",
-                meaning=None))
+            PermissibleValue(text="EUR-CNO TEC10"))
         setattr(cls, "EUR-EONIA",
-            PermissibleValue(
-                text="EUR-EONIA",
-                meaning=None))
+            PermissibleValue(text="EUR-EONIA"))
         setattr(cls, "EUR-EONIA-AVERAGE",
-            PermissibleValue(
-                text="EUR-EONIA-AVERAGE",
-                meaning=None))
+            PermissibleValue(text="EUR-EONIA-AVERAGE"))
         setattr(cls, "EUR-EONIA-Average",
-            PermissibleValue(
-                text="EUR-EONIA-Average",
-                meaning=None))
+            PermissibleValue(text="EUR-EONIA-Average"))
         setattr(cls, "EUR-EONIA-OIS Compound",
-            PermissibleValue(
-                text="EUR-EONIA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="EUR-EONIA-OIS Compound"))
         setattr(cls, "EUR-EONIA-OIS-10:00-BGCANTOR",
-            PermissibleValue(
-                text="EUR-EONIA-OIS-10:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="EUR-EONIA-OIS-10:00-BGCANTOR"))
         setattr(cls, "EUR-EONIA-OIS-10:00-ICAP",
-            PermissibleValue(
-                text="EUR-EONIA-OIS-10:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR-EONIA-OIS-10:00-ICAP"))
         setattr(cls, "EUR-EONIA-OIS-10:00-TRADITION",
-            PermissibleValue(
-                text="EUR-EONIA-OIS-10:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="EUR-EONIA-OIS-10:00-TRADITION"))
         setattr(cls, "EUR-EONIA-OIS-11:00-ICAP",
-            PermissibleValue(
-                text="EUR-EONIA-OIS-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="EUR-EONIA-OIS-11:00-ICAP"))
         setattr(cls, "EUR-EONIA-OIS-4:15-TRADITION",
-            PermissibleValue(
-                text="EUR-EONIA-OIS-4:15-TRADITION",
-                meaning=None))
+            PermissibleValue(text="EUR-EONIA-OIS-4:15-TRADITION"))
         setattr(cls, "EUR-EONIA-OIS-COMPOUND",
-            PermissibleValue(
-                text="EUR-EONIA-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="EUR-EONIA-OIS-COMPOUND"))
         setattr(cls, "EUR-EONIA-OIS-COMPOUND-Bloomberg",
-            PermissibleValue(
-                text="EUR-EONIA-OIS-COMPOUND-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="EUR-EONIA-OIS-COMPOUND-Bloomberg"))
         setattr(cls, "EUR-EONIA-Swap-Index",
-            PermissibleValue(
-                text="EUR-EONIA-Swap-Index",
-                meaning=None))
+            PermissibleValue(text="EUR-EONIA-Swap-Index"))
         setattr(cls, "EUR-EURIBOR",
-            PermissibleValue(
-                text="EUR-EURIBOR",
-                meaning=None))
+            PermissibleValue(text="EUR-EURIBOR"))
         setattr(cls, "EUR-EURIBOR ICE Swap Rate-11:00",
-            PermissibleValue(
-                text="EUR-EURIBOR ICE Swap Rate-11:00",
-                meaning=None))
+            PermissibleValue(text="EUR-EURIBOR ICE Swap Rate-11:00"))
         setattr(cls, "EUR-EURIBOR ICE Swap Rate-12:00",
-            PermissibleValue(
-                text="EUR-EURIBOR ICE Swap Rate-12:00",
-                meaning=None))
+            PermissibleValue(text="EUR-EURIBOR ICE Swap Rate-12:00"))
         setattr(cls, "EUR-EURIBOR-Act/365",
-            PermissibleValue(
-                text="EUR-EURIBOR-Act/365",
-                meaning=None))
+            PermissibleValue(text="EUR-EURIBOR-Act/365"))
         setattr(cls, "EUR-EURIBOR-Act/365-Bloomberg",
-            PermissibleValue(
-                text="EUR-EURIBOR-Act/365-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="EUR-EURIBOR-Act/365-Bloomberg"))
         setattr(cls, "EUR-EURIBOR-Reference Banks",
-            PermissibleValue(
-                text="EUR-EURIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="EUR-EURIBOR-Reference Banks"))
         setattr(cls, "EUR-EURIBOR-Reuters",
-            PermissibleValue(
-                text="EUR-EURIBOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="EUR-EURIBOR-Reuters"))
         setattr(cls, "EUR-EURIBOR-Telerate",
-            PermissibleValue(
-                text="EUR-EURIBOR-Telerate",
-                meaning=None))
+            PermissibleValue(text="EUR-EURIBOR-Telerate"))
         setattr(cls, "EUR-EURONIA-OIS Compound",
-            PermissibleValue(
-                text="EUR-EURONIA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="EUR-EURONIA-OIS Compound"))
         setattr(cls, "EUR-EURONIA-OIS-COMPOUND",
-            PermissibleValue(
-                text="EUR-EURONIA-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="EUR-EURONIA-OIS-COMPOUND"))
         setattr(cls, "EUR-EuroSTR",
-            PermissibleValue(
-                text="EUR-EuroSTR",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR"))
         setattr(cls, "EUR-EuroSTR Average 12M",
-            PermissibleValue(
-                text="EUR-EuroSTR Average 12M",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR Average 12M"))
         setattr(cls, "EUR-EuroSTR Average 1M",
-            PermissibleValue(
-                text="EUR-EuroSTR Average 1M",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR Average 1M"))
         setattr(cls, "EUR-EuroSTR Average 1W",
-            PermissibleValue(
-                text="EUR-EuroSTR Average 1W",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR Average 1W"))
         setattr(cls, "EUR-EuroSTR Average 3M",
-            PermissibleValue(
-                text="EUR-EuroSTR Average 3M",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR Average 3M"))
         setattr(cls, "EUR-EuroSTR Average 6M",
-            PermissibleValue(
-                text="EUR-EuroSTR Average 6M",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR Average 6M"))
         setattr(cls, "EUR-EuroSTR Compounded Index",
-            PermissibleValue(
-                text="EUR-EuroSTR Compounded Index",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR Compounded Index"))
         setattr(cls, "EUR-EuroSTR FTSE Term",
-            PermissibleValue(
-                text="EUR-EuroSTR FTSE Term",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR FTSE Term"))
         setattr(cls, "EUR-EuroSTR ICE Compounded Index",
-            PermissibleValue(
-                text="EUR-EuroSTR ICE Compounded Index",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR ICE Compounded Index"))
         setattr(cls, "EUR-EuroSTR ICE Compounded Index 0 Floor",
-            PermissibleValue(
-                text="EUR-EuroSTR ICE Compounded Index 0 Floor",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR ICE Compounded Index 0 Floor"))
         setattr(cls, "EUR-EuroSTR ICE Compounded Index 0 Floor 2D Lag",
-            PermissibleValue(
-                text="EUR-EuroSTR ICE Compounded Index 0 Floor 2D Lag",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR ICE Compounded Index 0 Floor 2D Lag"))
         setattr(cls, "EUR-EuroSTR ICE Compounded Index 0 Floor 5D Lag",
-            PermissibleValue(
-                text="EUR-EuroSTR ICE Compounded Index 0 Floor 5D Lag",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR ICE Compounded Index 0 Floor 5D Lag"))
         setattr(cls, "EUR-EuroSTR ICE Compounded Index 2D Lag",
-            PermissibleValue(
-                text="EUR-EuroSTR ICE Compounded Index 2D Lag",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR ICE Compounded Index 2D Lag"))
         setattr(cls, "EUR-EuroSTR ICE Compounded Index 5D Lag",
-            PermissibleValue(
-                text="EUR-EuroSTR ICE Compounded Index 5D Lag",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR ICE Compounded Index 5D Lag"))
         setattr(cls, "EUR-EuroSTR ICE Swap Rate",
-            PermissibleValue(
-                text="EUR-EuroSTR ICE Swap Rate",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR ICE Swap Rate"))
         setattr(cls, "EUR-EuroSTR Term",
-            PermissibleValue(
-                text="EUR-EuroSTR Term",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR Term"))
         setattr(cls, "EUR-EuroSTR-COMPOUND",
-            PermissibleValue(
-                text="EUR-EuroSTR-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR-COMPOUND"))
         setattr(cls, "EUR-EuroSTR-OIS Compound",
-            PermissibleValue(
-                text="EUR-EuroSTR-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="EUR-EuroSTR-OIS Compound"))
         setattr(cls, "EUR-ISDA-EURIBOR Swap Rate-11:00",
-            PermissibleValue(
-                text="EUR-ISDA-EURIBOR Swap Rate-11:00",
-                meaning=None))
+            PermissibleValue(text="EUR-ISDA-EURIBOR Swap Rate-11:00"))
         setattr(cls, "EUR-ISDA-EURIBOR Swap Rate-12:00",
-            PermissibleValue(
-                text="EUR-ISDA-EURIBOR Swap Rate-12:00",
-                meaning=None))
+            PermissibleValue(text="EUR-ISDA-EURIBOR Swap Rate-12:00"))
         setattr(cls, "EUR-ISDA-LIBOR Swap Rate-10:00",
-            PermissibleValue(
-                text="EUR-ISDA-LIBOR Swap Rate-10:00",
-                meaning=None))
+            PermissibleValue(text="EUR-ISDA-LIBOR Swap Rate-10:00"))
         setattr(cls, "EUR-ISDA-LIBOR Swap Rate-11:00",
-            PermissibleValue(
-                text="EUR-ISDA-LIBOR Swap Rate-11:00",
-                meaning=None))
+            PermissibleValue(text="EUR-ISDA-LIBOR Swap Rate-11:00"))
         setattr(cls, "EUR-LIBOR",
-            PermissibleValue(
-                text="EUR-LIBOR",
-                meaning=None))
+            PermissibleValue(text="EUR-LIBOR"))
         setattr(cls, "EUR-LIBOR-BBA",
-            PermissibleValue(
-                text="EUR-LIBOR-BBA",
-                meaning=None))
+            PermissibleValue(text="EUR-LIBOR-BBA"))
         setattr(cls, "EUR-LIBOR-BBA-Bloomberg",
-            PermissibleValue(
-                text="EUR-LIBOR-BBA-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="EUR-LIBOR-BBA-Bloomberg"))
         setattr(cls, "EUR-LIBOR-Reference Banks",
-            PermissibleValue(
-                text="EUR-LIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="EUR-LIBOR-Reference Banks"))
         setattr(cls, "EUR-TAM-CDC",
-            PermissibleValue(
-                text="EUR-TAM-CDC",
-                meaning=None))
+            PermissibleValue(text="EUR-TAM-CDC"))
         setattr(cls, "EUR-TEC10-CNO",
-            PermissibleValue(
-                text="EUR-TEC10-CNO",
-                meaning=None))
+            PermissibleValue(text="EUR-TEC10-CNO"))
         setattr(cls, "EUR-TEC10-CNO-SwapMarker",
-            PermissibleValue(
-                text="EUR-TEC10-CNO-SwapMarker",
-                meaning=None))
+            PermissibleValue(text="EUR-TEC10-CNO-SwapMarker"))
         setattr(cls, "EUR-TEC10-Reference Banks",
-            PermissibleValue(
-                text="EUR-TEC10-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="EUR-TEC10-Reference Banks"))
         setattr(cls, "EUR-TEC5-CNO",
-            PermissibleValue(
-                text="EUR-TEC5-CNO",
-                meaning=None))
+            PermissibleValue(text="EUR-TEC5-CNO"))
         setattr(cls, "EUR-TEC5-CNO-SwapMarker",
-            PermissibleValue(
-                text="EUR-TEC5-CNO-SwapMarker",
-                meaning=None))
+            PermissibleValue(text="EUR-TEC5-CNO-SwapMarker"))
         setattr(cls, "EUR-TEC5-Reference Banks",
-            PermissibleValue(
-                text="EUR-TEC5-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="EUR-TEC5-Reference Banks"))
         setattr(cls, "EUR-TMM-CDC-COMPOUND",
-            PermissibleValue(
-                text="EUR-TMM-CDC-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="EUR-TMM-CDC-COMPOUND"))
         setattr(cls, "GBP USD-Basis Swaps-11:00-ICAP",
-            PermissibleValue(
-                text="GBP USD-Basis Swaps-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="GBP USD-Basis Swaps-11:00-ICAP"))
         setattr(cls, "GBP-6M LIBOR SWAP-CME vs LCH-ICAP",
-            PermissibleValue(
-                text="GBP-6M LIBOR SWAP-CME vs LCH-ICAP",
-                meaning=None))
+            PermissibleValue(text="GBP-6M LIBOR SWAP-CME vs LCH-ICAP"))
         setattr(cls, "GBP-6M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
-            PermissibleValue(
-                text="GBP-6M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="GBP-6M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg"))
         setattr(cls, "GBP-6M LIBOR SWAP-EUREX vs LCH-ICAP",
-            PermissibleValue(
-                text="GBP-6M LIBOR SWAP-EUREX vs LCH-ICAP",
-                meaning=None))
+            PermissibleValue(text="GBP-6M LIBOR SWAP-EUREX vs LCH-ICAP"))
         setattr(cls, "GBP-6M LIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg",
-            PermissibleValue(
-                text="GBP-6M LIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="GBP-6M LIBOR SWAP-EUREX vs LCH-ICAP-Bloomberg"))
         setattr(cls, "GBP-ISDA-Swap Rate",
-            PermissibleValue(
-                text="GBP-ISDA-Swap Rate",
-                meaning=None))
+            PermissibleValue(text="GBP-ISDA-Swap Rate"))
         setattr(cls, "GBP-LIBOR",
-            PermissibleValue(
-                text="GBP-LIBOR",
-                meaning=None))
+            PermissibleValue(text="GBP-LIBOR"))
         setattr(cls, "GBP-LIBOR ICE Swap Rate",
-            PermissibleValue(
-                text="GBP-LIBOR ICE Swap Rate",
-                meaning=None))
+            PermissibleValue(text="GBP-LIBOR ICE Swap Rate"))
         setattr(cls, "GBP-LIBOR-BBA",
-            PermissibleValue(
-                text="GBP-LIBOR-BBA",
-                meaning=None))
+            PermissibleValue(text="GBP-LIBOR-BBA"))
         setattr(cls, "GBP-LIBOR-BBA-Bloomberg",
-            PermissibleValue(
-                text="GBP-LIBOR-BBA-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="GBP-LIBOR-BBA-Bloomberg"))
         setattr(cls, "GBP-LIBOR-ISDA",
-            PermissibleValue(
-                text="GBP-LIBOR-ISDA",
-                meaning=None))
+            PermissibleValue(text="GBP-LIBOR-ISDA"))
         setattr(cls, "GBP-LIBOR-Reference Banks",
-            PermissibleValue(
-                text="GBP-LIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="GBP-LIBOR-Reference Banks"))
         setattr(cls, "GBP-RONIA",
-            PermissibleValue(
-                text="GBP-RONIA",
-                meaning=None))
+            PermissibleValue(text="GBP-RONIA"))
         setattr(cls, "GBP-RONIA-OIS Compound",
-            PermissibleValue(
-                text="GBP-RONIA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="GBP-RONIA-OIS Compound"))
         setattr(cls, "GBP-SONIA",
-            PermissibleValue(
-                text="GBP-SONIA",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA"))
         setattr(cls, "GBP-SONIA Compounded Index",
-            PermissibleValue(
-                text="GBP-SONIA Compounded Index",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA Compounded Index"))
         setattr(cls, "GBP-SONIA FTSE Term",
-            PermissibleValue(
-                text="GBP-SONIA FTSE Term",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA FTSE Term"))
         setattr(cls, "GBP-SONIA ICE Compounded Index",
-            PermissibleValue(
-                text="GBP-SONIA ICE Compounded Index",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA ICE Compounded Index"))
         setattr(cls, "GBP-SONIA ICE Compounded Index 0 Floor",
-            PermissibleValue(
-                text="GBP-SONIA ICE Compounded Index 0 Floor",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA ICE Compounded Index 0 Floor"))
         setattr(cls, "GBP-SONIA ICE Compounded Index 0 Floor 2D Lag",
-            PermissibleValue(
-                text="GBP-SONIA ICE Compounded Index 0 Floor 2D Lag",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA ICE Compounded Index 0 Floor 2D Lag"))
         setattr(cls, "GBP-SONIA ICE Compounded Index 0 Floor 5D Lag",
-            PermissibleValue(
-                text="GBP-SONIA ICE Compounded Index 0 Floor 5D Lag",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA ICE Compounded Index 0 Floor 5D Lag"))
         setattr(cls, "GBP-SONIA ICE Compounded Index 2D Lag",
-            PermissibleValue(
-                text="GBP-SONIA ICE Compounded Index 2D Lag",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA ICE Compounded Index 2D Lag"))
         setattr(cls, "GBP-SONIA ICE Compounded Index 5D Lag",
-            PermissibleValue(
-                text="GBP-SONIA ICE Compounded Index 5D Lag",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA ICE Compounded Index 5D Lag"))
         setattr(cls, "GBP-SONIA ICE Swap Rate",
-            PermissibleValue(
-                text="GBP-SONIA ICE Swap Rate",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA ICE Swap Rate"))
         setattr(cls, "GBP-SONIA ICE Term",
-            PermissibleValue(
-                text="GBP-SONIA ICE Term",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA ICE Term"))
         setattr(cls, "GBP-SONIA Swap Rate",
-            PermissibleValue(
-                text="GBP-SONIA Swap Rate",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA Swap Rate"))
         setattr(cls, "GBP-SONIA-COMPOUND",
-            PermissibleValue(
-                text="GBP-SONIA-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA-COMPOUND"))
         setattr(cls, "GBP-SONIA-OIS Compound",
-            PermissibleValue(
-                text="GBP-SONIA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA-OIS Compound"))
         setattr(cls, "GBP-SONIA-OIS-11:00-ICAP",
-            PermissibleValue(
-                text="GBP-SONIA-OIS-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA-OIS-11:00-ICAP"))
         setattr(cls, "GBP-SONIA-OIS-11:00-TRADITION",
-            PermissibleValue(
-                text="GBP-SONIA-OIS-11:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA-OIS-11:00-TRADITION"))
         setattr(cls, "GBP-SONIA-OIS-4:15-TRADITION",
-            PermissibleValue(
-                text="GBP-SONIA-OIS-4:15-TRADITION",
-                meaning=None))
+            PermissibleValue(text="GBP-SONIA-OIS-4:15-TRADITION"))
         setattr(cls, "GBP-Semi Annual Swap Rate-11:00-TRADITION",
-            PermissibleValue(
-                text="GBP-Semi Annual Swap Rate-11:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="GBP-Semi Annual Swap Rate-11:00-TRADITION"))
         setattr(cls, "GBP-Semi Annual Swap Rate-4:15-TRADITION",
-            PermissibleValue(
-                text="GBP-Semi Annual Swap Rate-4:15-TRADITION",
-                meaning=None))
+            PermissibleValue(text="GBP-Semi Annual Swap Rate-4:15-TRADITION"))
         setattr(cls, "GBP-Semi-Annual Swap Rate",
-            PermissibleValue(
-                text="GBP-Semi-Annual Swap Rate",
-                meaning=None))
+            PermissibleValue(text="GBP-Semi-Annual Swap Rate"))
         setattr(cls, "GBP-Semi-Annual Swap Rate-11:00-ICAP",
-            PermissibleValue(
-                text="GBP-Semi-Annual Swap Rate-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="GBP-Semi-Annual Swap Rate-11:00-ICAP"))
         setattr(cls, "GBP-Semi-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="GBP-Semi-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="GBP-Semi-Annual Swap Rate-Reference Banks"))
         setattr(cls, "GBP-Semi-Annual Swap Rate-SwapMarker26",
-            PermissibleValue(
-                text="GBP-Semi-Annual Swap Rate-SwapMarker26",
-                meaning=None))
+            PermissibleValue(text="GBP-Semi-Annual Swap Rate-SwapMarker26"))
         setattr(cls, "GBP-UK Base Rate",
-            PermissibleValue(
-                text="GBP-UK Base Rate",
-                meaning=None))
+            PermissibleValue(text="GBP-UK Base Rate"))
         setattr(cls, "GBP-WMBA-RONIA-COMPOUND",
-            PermissibleValue(
-                text="GBP-WMBA-RONIA-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="GBP-WMBA-RONIA-COMPOUND"))
         setattr(cls, "GBP-WMBA-SONIA-COMPOUND",
-            PermissibleValue(
-                text="GBP-WMBA-SONIA-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="GBP-WMBA-SONIA-COMPOUND"))
         setattr(cls, "GRD-ATHIBOR-ATHIBOR",
-            PermissibleValue(
-                text="GRD-ATHIBOR-ATHIBOR",
-                meaning=None))
+            PermissibleValue(text="GRD-ATHIBOR-ATHIBOR"))
         setattr(cls, "GRD-ATHIBOR-Reference Banks",
-            PermissibleValue(
-                text="GRD-ATHIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="GRD-ATHIBOR-Reference Banks"))
         setattr(cls, "GRD-ATHIBOR-Telerate",
-            PermissibleValue(
-                text="GRD-ATHIBOR-Telerate",
-                meaning=None))
+            PermissibleValue(text="GRD-ATHIBOR-Telerate"))
         setattr(cls, "GRD-ATHIMID-Reference Banks",
-            PermissibleValue(
-                text="GRD-ATHIMID-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="GRD-ATHIMID-Reference Banks"))
         setattr(cls, "GRD-ATHIMID-Reuters",
-            PermissibleValue(
-                text="GRD-ATHIMID-Reuters",
-                meaning=None))
+            PermissibleValue(text="GRD-ATHIMID-Reuters"))
         setattr(cls, "HKD-HIBOR",
-            PermissibleValue(
-                text="HKD-HIBOR",
-                meaning=None))
+            PermissibleValue(text="HKD-HIBOR"))
         setattr(cls, "HKD-HIBOR-HIBOR-Bloomberg",
-            PermissibleValue(
-                text="HKD-HIBOR-HIBOR-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="HKD-HIBOR-HIBOR-Bloomberg"))
         setattr(cls, "HKD-HIBOR-HIBOR=",
-            PermissibleValue(
-                text="HKD-HIBOR-HIBOR=",
-                meaning=None))
+            PermissibleValue(text="HKD-HIBOR-HIBOR="))
         setattr(cls, "HKD-HIBOR-HKAB",
-            PermissibleValue(
-                text="HKD-HIBOR-HKAB",
-                meaning=None))
+            PermissibleValue(text="HKD-HIBOR-HKAB"))
         setattr(cls, "HKD-HIBOR-HKAB-Bloomberg",
-            PermissibleValue(
-                text="HKD-HIBOR-HKAB-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="HKD-HIBOR-HKAB-Bloomberg"))
         setattr(cls, "HKD-HIBOR-ISDC",
-            PermissibleValue(
-                text="HKD-HIBOR-ISDC",
-                meaning=None))
+            PermissibleValue(text="HKD-HIBOR-ISDC"))
         setattr(cls, "HKD-HIBOR-Reference Banks",
-            PermissibleValue(
-                text="HKD-HIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="HKD-HIBOR-Reference Banks"))
         setattr(cls, "HKD-HONIA",
-            PermissibleValue(
-                text="HKD-HONIA",
-                meaning=None))
+            PermissibleValue(text="HKD-HONIA"))
         setattr(cls, "HKD-HONIA-OIS Compound",
-            PermissibleValue(
-                text="HKD-HONIA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="HKD-HONIA-OIS Compound"))
         setattr(cls, "HKD-HONIX-OIS-COMPOUND",
-            PermissibleValue(
-                text="HKD-HONIX-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="HKD-HONIX-OIS-COMPOUND"))
         setattr(cls, "HKD-ISDA-Swap Rate-11:00",
-            PermissibleValue(
-                text="HKD-ISDA-Swap Rate-11:00",
-                meaning=None))
+            PermissibleValue(text="HKD-ISDA-Swap Rate-11:00"))
         setattr(cls, "HKD-ISDA-Swap Rate-4:00",
-            PermissibleValue(
-                text="HKD-ISDA-Swap Rate-4:00",
-                meaning=None))
+            PermissibleValue(text="HKD-ISDA-Swap Rate-4:00"))
         setattr(cls, "HKD-Quarterly-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="HKD-Quarterly-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="HKD-Quarterly-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "HKD-Quarterly-Annual Swap Rate-11:00-TRADITION",
-            PermissibleValue(
-                text="HKD-Quarterly-Annual Swap Rate-11:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="HKD-Quarterly-Annual Swap Rate-11:00-TRADITION"))
         setattr(cls, "HKD-Quarterly-Annual Swap Rate-4:00-BGCANTOR",
-            PermissibleValue(
-                text="HKD-Quarterly-Annual Swap Rate-4:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="HKD-Quarterly-Annual Swap Rate-4:00-BGCANTOR"))
         setattr(cls, "HKD-Quarterly-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="HKD-Quarterly-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="HKD-Quarterly-Annual Swap Rate-Reference Banks"))
         setattr(cls, "HKD-Quarterly-Quarterly Swap Rate-11:00-ICAP",
-            PermissibleValue(
-                text="HKD-Quarterly-Quarterly Swap Rate-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="HKD-Quarterly-Quarterly Swap Rate-11:00-ICAP"))
         setattr(cls, "HKD-Quarterly-Quarterly Swap Rate-4:00-ICAP",
-            PermissibleValue(
-                text="HKD-Quarterly-Quarterly Swap Rate-4:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="HKD-Quarterly-Quarterly Swap Rate-4:00-ICAP"))
         setattr(cls, "HKD-Quarterly-Quarterly Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="HKD-Quarterly-Quarterly Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="HKD-Quarterly-Quarterly Swap Rate-Reference Banks"))
         setattr(cls, "HUF-BUBOR",
-            PermissibleValue(
-                text="HUF-BUBOR",
-                meaning=None))
+            PermissibleValue(text="HUF-BUBOR"))
         setattr(cls, "HUF-BUBOR-Reference Banks",
-            PermissibleValue(
-                text="HUF-BUBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="HUF-BUBOR-Reference Banks"))
         setattr(cls, "HUF-BUBOR-Reuters",
-            PermissibleValue(
-                text="HUF-BUBOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="HUF-BUBOR-Reuters"))
         setattr(cls, "HUF-HUFONIA",
-            PermissibleValue(
-                text="HUF-HUFONIA",
-                meaning=None))
+            PermissibleValue(text="HUF-HUFONIA"))
         setattr(cls, "HUF-HUFONIA-OIS Compound",
-            PermissibleValue(
-                text="HUF-HUFONIA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="HUF-HUFONIA-OIS Compound"))
         setattr(cls, "IDR-IDMA-Bloomberg",
-            PermissibleValue(
-                text="IDR-IDMA-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="IDR-IDMA-Bloomberg"))
         setattr(cls, "IDR-IDRFIX",
-            PermissibleValue(
-                text="IDR-IDRFIX",
-                meaning=None))
+            PermissibleValue(text="IDR-IDRFIX"))
         setattr(cls, "IDR-INDONIA",
-            PermissibleValue(
-                text="IDR-INDONIA",
-                meaning=None))
+            PermissibleValue(text="IDR-INDONIA"))
         setattr(cls, "IDR-INDONIA-OIS Compound",
-            PermissibleValue(
-                text="IDR-INDONIA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="IDR-INDONIA-OIS Compound"))
         setattr(cls, "IDR-JIBOR",
-            PermissibleValue(
-                text="IDR-JIBOR",
-                meaning=None))
+            PermissibleValue(text="IDR-JIBOR"))
         setattr(cls, "IDR-JIBOR-Reuters",
-            PermissibleValue(
-                text="IDR-JIBOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="IDR-JIBOR-Reuters"))
         setattr(cls, "IDR-SBI-Reuters",
-            PermissibleValue(
-                text="IDR-SBI-Reuters",
-                meaning=None))
+            PermissibleValue(text="IDR-SBI-Reuters"))
         setattr(cls, "IDR-SOR-Reference Banks",
-            PermissibleValue(
-                text="IDR-SOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="IDR-SOR-Reference Banks"))
         setattr(cls, "IDR-SOR-Reuters",
-            PermissibleValue(
-                text="IDR-SOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="IDR-SOR-Reuters"))
         setattr(cls, "IDR-SOR-Telerate",
-            PermissibleValue(
-                text="IDR-SOR-Telerate",
-                meaning=None))
+            PermissibleValue(text="IDR-SOR-Telerate"))
         setattr(cls, "IDR-Semi Annual Swap Rate-Non-deliverable-16:00-Tullett Prebon",
-            PermissibleValue(
-                text="IDR-Semi Annual Swap Rate-Non-deliverable-16:00-Tullett Prebon",
-                meaning=None))
+            PermissibleValue(text="IDR-Semi Annual Swap Rate-Non-deliverable-16:00-Tullett Prebon"))
         setattr(cls, "IDR-Semi-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="IDR-Semi-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="IDR-Semi-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "IDR-Semi-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="IDR-Semi-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="IDR-Semi-Annual Swap Rate-Reference Banks"))
         setattr(cls, "ILS-SHIR",
-            PermissibleValue(
-                text="ILS-SHIR",
-                meaning=None))
+            PermissibleValue(text="ILS-SHIR"))
         setattr(cls, "ILS-SHIR-OIS Compound",
-            PermissibleValue(
-                text="ILS-SHIR-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="ILS-SHIR-OIS Compound"))
         setattr(cls, "ILS-TELBOR",
-            PermissibleValue(
-                text="ILS-TELBOR",
-                meaning=None))
+            PermissibleValue(text="ILS-TELBOR"))
         setattr(cls, "ILS-TELBOR-Reference Banks",
-            PermissibleValue(
-                text="ILS-TELBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="ILS-TELBOR-Reference Banks"))
         setattr(cls, "ILS-TELBOR01-Reuters",
-            PermissibleValue(
-                text="ILS-TELBOR01-Reuters",
-                meaning=None))
+            PermissibleValue(text="ILS-TELBOR01-Reuters"))
         setattr(cls, "INR-BMK",
-            PermissibleValue(
-                text="INR-BMK",
-                meaning=None))
+            PermissibleValue(text="INR-BMK"))
         setattr(cls, "INR-CMT",
-            PermissibleValue(
-                text="INR-CMT",
-                meaning=None))
+            PermissibleValue(text="INR-CMT"))
         setattr(cls, "INR-FBIL-MIBOR-OIS-COMPOUND",
-            PermissibleValue(
-                text="INR-FBIL-MIBOR-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="INR-FBIL-MIBOR-OIS-COMPOUND"))
         setattr(cls, "INR-INBMK-REUTERS",
-            PermissibleValue(
-                text="INR-INBMK-REUTERS",
-                meaning=None))
+            PermissibleValue(text="INR-INBMK-REUTERS"))
         setattr(cls, "INR-MIBOR OIS",
-            PermissibleValue(
-                text="INR-MIBOR OIS",
-                meaning=None))
+            PermissibleValue(text="INR-MIBOR OIS"))
         setattr(cls, "INR-MIBOR-OIS Compound",
-            PermissibleValue(
-                text="INR-MIBOR-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="INR-MIBOR-OIS Compound"))
         setattr(cls, "INR-MIBOR-OIS-COMPOUND",
-            PermissibleValue(
-                text="INR-MIBOR-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="INR-MIBOR-OIS-COMPOUND"))
         setattr(cls, "INR-MIFOR",
-            PermissibleValue(
-                text="INR-MIFOR",
-                meaning=None))
+            PermissibleValue(text="INR-MIFOR"))
         setattr(cls, "INR-MIOIS",
-            PermissibleValue(
-                text="INR-MIOIS",
-                meaning=None))
+            PermissibleValue(text="INR-MIOIS"))
         setattr(cls, "INR-MITOR-OIS-COMPOUND",
-            PermissibleValue(
-                text="INR-MITOR-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="INR-MITOR-OIS-COMPOUND"))
         setattr(cls, "INR-Modified MIFOR",
-            PermissibleValue(
-                text="INR-Modified MIFOR",
-                meaning=None))
+            PermissibleValue(text="INR-Modified MIFOR"))
         setattr(cls, "INR-Reference Banks",
-            PermissibleValue(
-                text="INR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="INR-Reference Banks"))
         setattr(cls, "INR-Semi Annual Swap Rate-Non-deliverable-16:00-Tullett Prebon",
-            PermissibleValue(
-                text="INR-Semi Annual Swap Rate-Non-deliverable-16:00-Tullett Prebon",
-                meaning=None))
+            PermissibleValue(text="INR-Semi Annual Swap Rate-Non-deliverable-16:00-Tullett Prebon"))
         setattr(cls, "INR-Semi-Annual Swap Rate-11:30-BGCANTOR",
-            PermissibleValue(
-                text="INR-Semi-Annual Swap Rate-11:30-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="INR-Semi-Annual Swap Rate-11:30-BGCANTOR"))
         setattr(cls, "INR-Semi-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="INR-Semi-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="INR-Semi-Annual Swap Rate-Reference Banks"))
         setattr(cls, "ISK-REIBOR",
-            PermissibleValue(
-                text="ISK-REIBOR",
-                meaning=None))
+            PermissibleValue(text="ISK-REIBOR"))
         setattr(cls, "ISK-REIBOR-Reference Banks",
-            PermissibleValue(
-                text="ISK-REIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="ISK-REIBOR-Reference Banks"))
         setattr(cls, "ISK-REIBOR-Reuters",
-            PermissibleValue(
-                text="ISK-REIBOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="ISK-REIBOR-Reuters"))
         setattr(cls, "JPY USD-Basis Swaps-11:00-ICAP",
-            PermissibleValue(
-                text="JPY USD-Basis Swaps-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="JPY USD-Basis Swaps-11:00-ICAP"))
         setattr(cls, "JPY-Annual Swap Rate-11:00-TRADITION",
-            PermissibleValue(
-                text="JPY-Annual Swap Rate-11:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="JPY-Annual Swap Rate-11:00-TRADITION"))
         setattr(cls, "JPY-Annual Swap Rate-3:00-TRADITION",
-            PermissibleValue(
-                text="JPY-Annual Swap Rate-3:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="JPY-Annual Swap Rate-3:00-TRADITION"))
         setattr(cls, "JPY-BBSF-Bloomberg-10:00",
-            PermissibleValue(
-                text="JPY-BBSF-Bloomberg-10:00",
-                meaning=None))
+            PermissibleValue(text="JPY-BBSF-Bloomberg-10:00"))
         setattr(cls, "JPY-BBSF-Bloomberg-15:00",
-            PermissibleValue(
-                text="JPY-BBSF-Bloomberg-15:00",
-                meaning=None))
+            PermissibleValue(text="JPY-BBSF-Bloomberg-15:00"))
         setattr(cls, "JPY-Euroyen TIBOR",
-            PermissibleValue(
-                text="JPY-Euroyen TIBOR",
-                meaning=None))
+            PermissibleValue(text="JPY-Euroyen TIBOR"))
         setattr(cls, "JPY-ISDA-Swap Rate-10:00",
-            PermissibleValue(
-                text="JPY-ISDA-Swap Rate-10:00",
-                meaning=None))
+            PermissibleValue(text="JPY-ISDA-Swap Rate-10:00"))
         setattr(cls, "JPY-ISDA-Swap Rate-15:00",
-            PermissibleValue(
-                text="JPY-ISDA-Swap Rate-15:00",
-                meaning=None))
+            PermissibleValue(text="JPY-ISDA-Swap Rate-15:00"))
         setattr(cls, "JPY-LIBOR",
-            PermissibleValue(
-                text="JPY-LIBOR",
-                meaning=None))
+            PermissibleValue(text="JPY-LIBOR"))
         setattr(cls, "JPY-LIBOR TSR-10:00",
-            PermissibleValue(
-                text="JPY-LIBOR TSR-10:00",
-                meaning=None))
+            PermissibleValue(text="JPY-LIBOR TSR-10:00"))
         setattr(cls, "JPY-LIBOR TSR-15:00",
-            PermissibleValue(
-                text="JPY-LIBOR TSR-15:00",
-                meaning=None))
+            PermissibleValue(text="JPY-LIBOR TSR-15:00"))
         setattr(cls, "JPY-LIBOR-BBA",
-            PermissibleValue(
-                text="JPY-LIBOR-BBA",
-                meaning=None))
+            PermissibleValue(text="JPY-LIBOR-BBA"))
         setattr(cls, "JPY-LIBOR-BBA-Bloomberg",
-            PermissibleValue(
-                text="JPY-LIBOR-BBA-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="JPY-LIBOR-BBA-Bloomberg"))
         setattr(cls, "JPY-LIBOR-FRASETT",
-            PermissibleValue(
-                text="JPY-LIBOR-FRASETT",
-                meaning=None))
+            PermissibleValue(text="JPY-LIBOR-FRASETT"))
         setattr(cls, "JPY-LIBOR-ISDA",
-            PermissibleValue(
-                text="JPY-LIBOR-ISDA",
-                meaning=None))
+            PermissibleValue(text="JPY-LIBOR-ISDA"))
         setattr(cls, "JPY-LIBOR-Reference Banks",
-            PermissibleValue(
-                text="JPY-LIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="JPY-LIBOR-Reference Banks"))
         setattr(cls, "JPY-LTPR MHBK",
-            PermissibleValue(
-                text="JPY-LTPR MHBK",
-                meaning=None))
+            PermissibleValue(text="JPY-LTPR MHBK"))
         setattr(cls, "JPY-LTPR-MHCB",
-            PermissibleValue(
-                text="JPY-LTPR-MHCB",
-                meaning=None))
+            PermissibleValue(text="JPY-LTPR-MHCB"))
         setattr(cls, "JPY-LTPR-TBC",
-            PermissibleValue(
-                text="JPY-LTPR-TBC",
-                meaning=None))
+            PermissibleValue(text="JPY-LTPR-TBC"))
         setattr(cls, "JPY-MUTANCALL-TONAR",
-            PermissibleValue(
-                text="JPY-MUTANCALL-TONAR",
-                meaning=None))
+            PermissibleValue(text="JPY-MUTANCALL-TONAR"))
         setattr(cls, "JPY-OIS-11:00-ICAP",
-            PermissibleValue(
-                text="JPY-OIS-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="JPY-OIS-11:00-ICAP"))
         setattr(cls, "JPY-OIS-11:00-TRADITION",
-            PermissibleValue(
-                text="JPY-OIS-11:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="JPY-OIS-11:00-TRADITION"))
         setattr(cls, "JPY-OIS-3:00-TRADITION",
-            PermissibleValue(
-                text="JPY-OIS-3:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="JPY-OIS-3:00-TRADITION"))
         setattr(cls, "JPY-Quoting Banks-LIBOR",
-            PermissibleValue(
-                text="JPY-Quoting Banks-LIBOR",
-                meaning=None))
+            PermissibleValue(text="JPY-Quoting Banks-LIBOR"))
         setattr(cls, "JPY-STPR-Quoting Banks",
-            PermissibleValue(
-                text="JPY-STPR-Quoting Banks",
-                meaning=None))
+            PermissibleValue(text="JPY-STPR-Quoting Banks"))
         setattr(cls, "JPY-TIBOR",
-            PermissibleValue(
-                text="JPY-TIBOR",
-                meaning=None))
+            PermissibleValue(text="JPY-TIBOR"))
         setattr(cls, "JPY-TIBOR-17096",
-            PermissibleValue(
-                text="JPY-TIBOR-17096",
-                meaning=None))
+            PermissibleValue(text="JPY-TIBOR-17096"))
         setattr(cls, "JPY-TIBOR-17097",
-            PermissibleValue(
-                text="JPY-TIBOR-17097",
-                meaning=None))
+            PermissibleValue(text="JPY-TIBOR-17097"))
         setattr(cls, "JPY-TIBOR-DTIBOR01",
-            PermissibleValue(
-                text="JPY-TIBOR-DTIBOR01",
-                meaning=None))
+            PermissibleValue(text="JPY-TIBOR-DTIBOR01"))
         setattr(cls, "JPY-TIBOR-TIBM",
-            PermissibleValue(
-                text="JPY-TIBOR-TIBM",
-                meaning=None))
+            PermissibleValue(text="JPY-TIBOR-TIBM"))
         setattr(cls, "JPY-TIBOR-TIBM (10 Banks)",
-            PermissibleValue(
-                text="JPY-TIBOR-TIBM (10 Banks)",
-                meaning=None))
+            PermissibleValue(text="JPY-TIBOR-TIBM (10 Banks)"))
         setattr(cls, "JPY-TIBOR-TIBM (5 Banks)",
-            PermissibleValue(
-                text="JPY-TIBOR-TIBM (5 Banks)",
-                meaning=None))
+            PermissibleValue(text="JPY-TIBOR-TIBM (5 Banks)"))
         setattr(cls, "JPY-TIBOR-TIBM (All Banks)",
-            PermissibleValue(
-                text="JPY-TIBOR-TIBM (All Banks)",
-                meaning=None))
+            PermissibleValue(text="JPY-TIBOR-TIBM (All Banks)"))
         setattr(cls, "JPY-TIBOR-TIBM (All Banks)-Bloomberg",
-            PermissibleValue(
-                text="JPY-TIBOR-TIBM (All Banks)-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="JPY-TIBOR-TIBM (All Banks)-Bloomberg"))
         setattr(cls, "JPY-TIBOR-TIBM-Reference Banks",
-            PermissibleValue(
-                text="JPY-TIBOR-TIBM-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="JPY-TIBOR-TIBM-Reference Banks"))
         setattr(cls, "JPY-TIBOR-ZTIBOR",
-            PermissibleValue(
-                text="JPY-TIBOR-ZTIBOR",
-                meaning=None))
+            PermissibleValue(text="JPY-TIBOR-ZTIBOR"))
         setattr(cls, "JPY-TONA",
-            PermissibleValue(
-                text="JPY-TONA",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA"))
         setattr(cls, "JPY-TONA Average 180D",
-            PermissibleValue(
-                text="JPY-TONA Average 180D",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA Average 180D"))
         setattr(cls, "JPY-TONA Average 30D",
-            PermissibleValue(
-                text="JPY-TONA Average 30D",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA Average 30D"))
         setattr(cls, "JPY-TONA Average 90D",
-            PermissibleValue(
-                text="JPY-TONA Average 90D",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA Average 90D"))
         setattr(cls, "JPY-TONA Compounded Index",
-            PermissibleValue(
-                text="JPY-TONA Compounded Index",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA Compounded Index"))
         setattr(cls, "JPY-TONA ICE Compounded Index",
-            PermissibleValue(
-                text="JPY-TONA ICE Compounded Index",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA ICE Compounded Index"))
         setattr(cls, "JPY-TONA ICE Compounded Index 0 Floor",
-            PermissibleValue(
-                text="JPY-TONA ICE Compounded Index 0 Floor",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA ICE Compounded Index 0 Floor"))
         setattr(cls, "JPY-TONA ICE Compounded Index 0 Floor 2D Lag",
-            PermissibleValue(
-                text="JPY-TONA ICE Compounded Index 0 Floor 2D Lag",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA ICE Compounded Index 0 Floor 2D Lag"))
         setattr(cls, "JPY-TONA ICE Compounded Index 0 Floor 5D Lag",
-            PermissibleValue(
-                text="JPY-TONA ICE Compounded Index 0 Floor 5D Lag",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA ICE Compounded Index 0 Floor 5D Lag"))
         setattr(cls, "JPY-TONA ICE Compounded Index 2D Lag",
-            PermissibleValue(
-                text="JPY-TONA ICE Compounded Index 2D Lag",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA ICE Compounded Index 2D Lag"))
         setattr(cls, "JPY-TONA ICE Compounded Index 5D Lag",
-            PermissibleValue(
-                text="JPY-TONA ICE Compounded Index 5D Lag",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA ICE Compounded Index 5D Lag"))
         setattr(cls, "JPY-TONA TSR-10:00",
-            PermissibleValue(
-                text="JPY-TONA TSR-10:00",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA TSR-10:00"))
         setattr(cls, "JPY-TONA TSR-15:00",
-            PermissibleValue(
-                text="JPY-TONA TSR-15:00",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA TSR-15:00"))
         setattr(cls, "JPY-TONA-OIS Compound",
-            PermissibleValue(
-                text="JPY-TONA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA-OIS Compound"))
         setattr(cls, "JPY-TONA-OIS-COMPOUND",
-            PermissibleValue(
-                text="JPY-TONA-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="JPY-TONA-OIS-COMPOUND"))
         setattr(cls, "JPY-TORF QUICK",
-            PermissibleValue(
-                text="JPY-TORF QUICK",
-                meaning=None))
+            PermissibleValue(text="JPY-TORF QUICK"))
         setattr(cls, "JPY-TSR-Reference Banks",
-            PermissibleValue(
-                text="JPY-TSR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="JPY-TSR-Reference Banks"))
         setattr(cls, "JPY-TSR-Reuters-10:00",
-            PermissibleValue(
-                text="JPY-TSR-Reuters-10:00",
-                meaning=None))
+            PermissibleValue(text="JPY-TSR-Reuters-10:00"))
         setattr(cls, "JPY-TSR-Reuters-15:00",
-            PermissibleValue(
-                text="JPY-TSR-Reuters-15:00",
-                meaning=None))
+            PermissibleValue(text="JPY-TSR-Reuters-15:00"))
         setattr(cls, "JPY-TSR-Telerate-10:00",
-            PermissibleValue(
-                text="JPY-TSR-Telerate-10:00",
-                meaning=None))
+            PermissibleValue(text="JPY-TSR-Telerate-10:00"))
         setattr(cls, "JPY-TSR-Telerate-15:00",
-            PermissibleValue(
-                text="JPY-TSR-Telerate-15:00",
-                meaning=None))
+            PermissibleValue(text="JPY-TSR-Telerate-15:00"))
         setattr(cls, "KRW-Bond-3222",
-            PermissibleValue(
-                text="KRW-Bond-3222",
-                meaning=None))
+            PermissibleValue(text="KRW-Bond-3222"))
         setattr(cls, "KRW-CD 91D",
-            PermissibleValue(
-                text="KRW-CD 91D",
-                meaning=None))
+            PermissibleValue(text="KRW-CD 91D"))
         setattr(cls, "KRW-CD-3220",
-            PermissibleValue(
-                text="KRW-CD-3220",
-                meaning=None))
+            PermissibleValue(text="KRW-CD-3220"))
         setattr(cls, "KRW-CD-KSDA-Bloomberg",
-            PermissibleValue(
-                text="KRW-CD-KSDA-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="KRW-CD-KSDA-Bloomberg"))
         setattr(cls, "KRW-KOFR",
-            PermissibleValue(
-                text="KRW-KOFR",
-                meaning=None))
+            PermissibleValue(text="KRW-KOFR"))
         setattr(cls, "KRW-KOFR-OIS Compound",
-            PermissibleValue(
-                text="KRW-KOFR-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="KRW-KOFR-OIS Compound"))
         setattr(cls, "KRW-Quarterly Annual Swap Rate-3:30-ICAP",
-            PermissibleValue(
-                text="KRW-Quarterly Annual Swap Rate-3:30-ICAP",
-                meaning=None))
+            PermissibleValue(text="KRW-Quarterly Annual Swap Rate-3:30-ICAP"))
         setattr(cls, "MXN-TIIE",
-            PermissibleValue(
-                text="MXN-TIIE",
-                meaning=None))
+            PermissibleValue(text="MXN-TIIE"))
         setattr(cls, "MXN-TIIE ON",
-            PermissibleValue(
-                text="MXN-TIIE ON",
-                meaning=None))
+            PermissibleValue(text="MXN-TIIE ON"))
         setattr(cls, "MXN-TIIE ON-OIS Compound",
-            PermissibleValue(
-                text="MXN-TIIE ON-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="MXN-TIIE ON-OIS Compound"))
         setattr(cls, "MXN-TIIE-Banxico",
-            PermissibleValue(
-                text="MXN-TIIE-Banxico",
-                meaning=None))
+            PermissibleValue(text="MXN-TIIE-Banxico"))
         setattr(cls, "MXN-TIIE-Banxico-Bloomberg",
-            PermissibleValue(
-                text="MXN-TIIE-Banxico-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="MXN-TIIE-Banxico-Bloomberg"))
         setattr(cls, "MXN-TIIE-Banxico-Reference Banks",
-            PermissibleValue(
-                text="MXN-TIIE-Banxico-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="MXN-TIIE-Banxico-Reference Banks"))
         setattr(cls, "MXN-TIIE-Reference Banks",
-            PermissibleValue(
-                text="MXN-TIIE-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="MXN-TIIE-Reference Banks"))
         setattr(cls, "MYR-KLIBOR",
-            PermissibleValue(
-                text="MYR-KLIBOR",
-                meaning=None))
+            PermissibleValue(text="MYR-KLIBOR"))
         setattr(cls, "MYR-KLIBOR-BNM",
-            PermissibleValue(
-                text="MYR-KLIBOR-BNM",
-                meaning=None))
+            PermissibleValue(text="MYR-KLIBOR-BNM"))
         setattr(cls, "MYR-KLIBOR-Reference Banks",
-            PermissibleValue(
-                text="MYR-KLIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="MYR-KLIBOR-Reference Banks"))
         setattr(cls, "MYR-MYOR",
-            PermissibleValue(
-                text="MYR-MYOR",
-                meaning=None))
+            PermissibleValue(text="MYR-MYOR"))
         setattr(cls, "MYR-MYOR-OIS Compound",
-            PermissibleValue(
-                text="MYR-MYOR-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="MYR-MYOR-OIS Compound"))
         setattr(cls, "MYR-Quarterly Swap Rate-11:00-TRADITION",
-            PermissibleValue(
-                text="MYR-Quarterly Swap Rate-11:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="MYR-Quarterly Swap Rate-11:00-TRADITION"))
         setattr(cls, "MYR-Quarterly Swap Rate-TRADITION-Reference Banks",
-            PermissibleValue(
-                text="MYR-Quarterly Swap Rate-TRADITION-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="MYR-Quarterly Swap Rate-TRADITION-Reference Banks"))
         setattr(cls, "NOK-NIBOR",
-            PermissibleValue(
-                text="NOK-NIBOR",
-                meaning=None))
+            PermissibleValue(text="NOK-NIBOR"))
         setattr(cls, "NOK-NIBOR-NIBR",
-            PermissibleValue(
-                text="NOK-NIBOR-NIBR",
-                meaning=None))
+            PermissibleValue(text="NOK-NIBOR-NIBR"))
         setattr(cls, "NOK-NIBOR-NIBR-Bloomberg",
-            PermissibleValue(
-                text="NOK-NIBOR-NIBR-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="NOK-NIBOR-NIBR-Bloomberg"))
         setattr(cls, "NOK-NIBOR-NIBR-Reference Banks",
-            PermissibleValue(
-                text="NOK-NIBOR-NIBR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="NOK-NIBOR-NIBR-Reference Banks"))
         setattr(cls, "NOK-NIBOR-OIBOR",
-            PermissibleValue(
-                text="NOK-NIBOR-OIBOR",
-                meaning=None))
+            PermissibleValue(text="NOK-NIBOR-OIBOR"))
         setattr(cls, "NOK-NIBOR-Reference Banks",
-            PermissibleValue(
-                text="NOK-NIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="NOK-NIBOR-Reference Banks"))
         setattr(cls, "NOK-NOWA",
-            PermissibleValue(
-                text="NOK-NOWA",
-                meaning=None))
+            PermissibleValue(text="NOK-NOWA"))
         setattr(cls, "NOK-NOWA-OIS Compound",
-            PermissibleValue(
-                text="NOK-NOWA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="NOK-NOWA-OIS Compound"))
         setattr(cls, "NZD-BBR-BID",
-            PermissibleValue(
-                text="NZD-BBR-BID",
-                meaning=None))
+            PermissibleValue(text="NZD-BBR-BID"))
         setattr(cls, "NZD-BBR-FRA",
-            PermissibleValue(
-                text="NZD-BBR-FRA",
-                meaning=None))
+            PermissibleValue(text="NZD-BBR-FRA"))
         setattr(cls, "NZD-BBR-ISDC",
-            PermissibleValue(
-                text="NZD-BBR-ISDC",
-                meaning=None))
+            PermissibleValue(text="NZD-BBR-ISDC"))
         setattr(cls, "NZD-BBR-Reference Banks",
-            PermissibleValue(
-                text="NZD-BBR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="NZD-BBR-Reference Banks"))
         setattr(cls, "NZD-BBR-Telerate",
-            PermissibleValue(
-                text="NZD-BBR-Telerate",
-                meaning=None))
+            PermissibleValue(text="NZD-BBR-Telerate"))
         setattr(cls, "NZD-BKBM Bid",
-            PermissibleValue(
-                text="NZD-BKBM Bid",
-                meaning=None))
+            PermissibleValue(text="NZD-BKBM Bid"))
         setattr(cls, "NZD-BKBM FRA",
-            PermissibleValue(
-                text="NZD-BKBM FRA",
-                meaning=None))
+            PermissibleValue(text="NZD-BKBM FRA"))
         setattr(cls, "NZD-BKBM FRA Swap Rate ICAP",
-            PermissibleValue(
-                text="NZD-BKBM FRA Swap Rate ICAP",
-                meaning=None))
+            PermissibleValue(text="NZD-BKBM FRA Swap Rate ICAP"))
         setattr(cls, "NZD-NZIONA",
-            PermissibleValue(
-                text="NZD-NZIONA",
-                meaning=None))
+            PermissibleValue(text="NZD-NZIONA"))
         setattr(cls, "NZD-NZIONA-OIS Compound",
-            PermissibleValue(
-                text="NZD-NZIONA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="NZD-NZIONA-OIS Compound"))
         setattr(cls, "NZD-NZIONA-OIS-COMPOUND",
-            PermissibleValue(
-                text="NZD-NZIONA-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="NZD-NZIONA-OIS-COMPOUND"))
         setattr(cls, "NZD-Semi-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="NZD-Semi-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="NZD-Semi-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "NZD-Semi-Annual Swap Rate-BGCANTOR-Reference Banks",
-            PermissibleValue(
-                text="NZD-Semi-Annual Swap Rate-BGCANTOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="NZD-Semi-Annual Swap Rate-BGCANTOR-Reference Banks"))
         setattr(cls, "NZD-Swap Rate-ICAP",
-            PermissibleValue(
-                text="NZD-Swap Rate-ICAP",
-                meaning=None))
+            PermissibleValue(text="NZD-Swap Rate-ICAP"))
         setattr(cls, "NZD-Swap Rate-ICAP-Reference Banks",
-            PermissibleValue(
-                text="NZD-Swap Rate-ICAP-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="NZD-Swap Rate-ICAP-Reference Banks"))
         setattr(cls, "PHP-ORR",
-            PermissibleValue(
-                text="PHP-ORR",
-                meaning=None))
+            PermissibleValue(text="PHP-ORR"))
         setattr(cls, "PHP-PHIREF",
-            PermissibleValue(
-                text="PHP-PHIREF",
-                meaning=None))
+            PermissibleValue(text="PHP-PHIREF"))
         setattr(cls, "PHP-PHIREF-BAP",
-            PermissibleValue(
-                text="PHP-PHIREF-BAP",
-                meaning=None))
+            PermissibleValue(text="PHP-PHIREF-BAP"))
         setattr(cls, "PHP-PHIREF-Bloomberg",
-            PermissibleValue(
-                text="PHP-PHIREF-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="PHP-PHIREF-Bloomberg"))
         setattr(cls, "PHP-PHIREF-Reference Banks",
-            PermissibleValue(
-                text="PHP-PHIREF-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="PHP-PHIREF-Reference Banks"))
         setattr(cls, "PHP-Semi-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="PHP-Semi-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="PHP-Semi-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "PHP-Semi-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="PHP-Semi-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="PHP-Semi-Annual Swap Rate-Reference Banks"))
         setattr(cls, "PLN-POLONIA",
-            PermissibleValue(
-                text="PLN-POLONIA",
-                meaning=None))
+            PermissibleValue(text="PLN-POLONIA"))
         setattr(cls, "PLN-POLONIA-OIS Compound",
-            PermissibleValue(
-                text="PLN-POLONIA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="PLN-POLONIA-OIS Compound"))
         setattr(cls, "PLN-POLONIA-OIS-COMPOUND",
-            PermissibleValue(
-                text="PLN-POLONIA-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="PLN-POLONIA-OIS-COMPOUND"))
         setattr(cls, "PLN-WIBID",
-            PermissibleValue(
-                text="PLN-WIBID",
-                meaning=None))
+            PermissibleValue(text="PLN-WIBID"))
         setattr(cls, "PLN-WIBOR",
-            PermissibleValue(
-                text="PLN-WIBOR",
-                meaning=None))
+            PermissibleValue(text="PLN-WIBOR"))
         setattr(cls, "PLN-WIBOR-Reference Banks",
-            PermissibleValue(
-                text="PLN-WIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="PLN-WIBOR-Reference Banks"))
         setattr(cls, "PLN-WIBOR-WIBO",
-            PermissibleValue(
-                text="PLN-WIBOR-WIBO",
-                meaning=None))
+            PermissibleValue(text="PLN-WIBOR-WIBO"))
         setattr(cls, "PLN-WIRON",
-            PermissibleValue(
-                text="PLN-WIRON",
-                meaning=None))
+            PermissibleValue(text="PLN-WIRON"))
         setattr(cls, "PLN-WIRON-OIS Compound",
-            PermissibleValue(
-                text="PLN-WIRON-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="PLN-WIRON-OIS Compound"))
         setattr(cls, "PLZ-WIBOR-Reference Banks",
-            PermissibleValue(
-                text="PLZ-WIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="PLZ-WIBOR-Reference Banks"))
         setattr(cls, "PLZ-WIBOR-WIBO",
-            PermissibleValue(
-                text="PLZ-WIBOR-WIBO",
-                meaning=None))
+            PermissibleValue(text="PLZ-WIBOR-WIBO"))
         setattr(cls, "REPOFUNDS RATE-FRANCE-OIS-COMPOUND",
-            PermissibleValue(
-                text="REPOFUNDS RATE-FRANCE-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="REPOFUNDS RATE-FRANCE-OIS-COMPOUND"))
         setattr(cls, "REPOFUNDS RATE-GERMANY-OIS-COMPOUND",
-            PermissibleValue(
-                text="REPOFUNDS RATE-GERMANY-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="REPOFUNDS RATE-GERMANY-OIS-COMPOUND"))
         setattr(cls, "REPOFUNDS RATE-ITALY-OIS-COMPOUND",
-            PermissibleValue(
-                text="REPOFUNDS RATE-ITALY-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="REPOFUNDS RATE-ITALY-OIS-COMPOUND"))
         setattr(cls, "RON-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="RON-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="RON-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "RON-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="RON-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="RON-Annual Swap Rate-Reference Banks"))
         setattr(cls, "RON-RBOR-Reuters",
-            PermissibleValue(
-                text="RON-RBOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="RON-RBOR-Reuters"))
         setattr(cls, "RON-ROBID",
-            PermissibleValue(
-                text="RON-ROBID",
-                meaning=None))
+            PermissibleValue(text="RON-ROBID"))
         setattr(cls, "RON-ROBOR",
-            PermissibleValue(
-                text="RON-ROBOR",
-                meaning=None))
+            PermissibleValue(text="RON-ROBOR"))
         setattr(cls, "RUB-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="RUB-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="RUB-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "RUB-Annual Swap Rate-12:45-TRADITION",
-            PermissibleValue(
-                text="RUB-Annual Swap Rate-12:45-TRADITION",
-                meaning=None))
+            PermissibleValue(text="RUB-Annual Swap Rate-12:45-TRADITION"))
         setattr(cls, "RUB-Annual Swap Rate-4:15-TRADITION",
-            PermissibleValue(
-                text="RUB-Annual Swap Rate-4:15-TRADITION",
-                meaning=None))
+            PermissibleValue(text="RUB-Annual Swap Rate-4:15-TRADITION"))
         setattr(cls, "RUB-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="RUB-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="RUB-Annual Swap Rate-Reference Banks"))
         setattr(cls, "RUB-Annual Swap Rate-TRADITION-Reference Banks",
-            PermissibleValue(
-                text="RUB-Annual Swap Rate-TRADITION-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="RUB-Annual Swap Rate-TRADITION-Reference Banks"))
         setattr(cls, "RUB-Key Rate CBRF",
-            PermissibleValue(
-                text="RUB-Key Rate CBRF",
-                meaning=None))
+            PermissibleValue(text="RUB-Key Rate CBRF"))
         setattr(cls, "RUB-MOSPRIME-NFEA",
-            PermissibleValue(
-                text="RUB-MOSPRIME-NFEA",
-                meaning=None))
+            PermissibleValue(text="RUB-MOSPRIME-NFEA"))
         setattr(cls, "RUB-MOSPRIME-Reference Banks",
-            PermissibleValue(
-                text="RUB-MOSPRIME-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="RUB-MOSPRIME-Reference Banks"))
         setattr(cls, "RUB-MosPrime",
-            PermissibleValue(
-                text="RUB-MosPrime",
-                meaning=None))
+            PermissibleValue(text="RUB-MosPrime"))
         setattr(cls, "RUB-RUONIA",
-            PermissibleValue(
-                text="RUB-RUONIA",
-                meaning=None))
+            PermissibleValue(text="RUB-RUONIA"))
         setattr(cls, "RUB-RUONIA-OIS Compound",
-            PermissibleValue(
-                text="RUB-RUONIA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="RUB-RUONIA-OIS Compound"))
         setattr(cls, "RUB-RUONIA-OIS-COMPOUND",
-            PermissibleValue(
-                text="RUB-RUONIA-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="RUB-RUONIA-OIS-COMPOUND"))
         setattr(cls, "SAR-SAIBOR",
-            PermissibleValue(
-                text="SAR-SAIBOR",
-                meaning=None))
+            PermissibleValue(text="SAR-SAIBOR"))
         setattr(cls, "SAR-SRIOR-Reference Banks",
-            PermissibleValue(
-                text="SAR-SRIOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="SAR-SRIOR-Reference Banks"))
         setattr(cls, "SAR-SRIOR-SUAA",
-            PermissibleValue(
-                text="SAR-SRIOR-SUAA",
-                meaning=None))
+            PermissibleValue(text="SAR-SRIOR-SUAA"))
         setattr(cls, "SEK-Annual Swap Rate",
-            PermissibleValue(
-                text="SEK-Annual Swap Rate",
-                meaning=None))
+            PermissibleValue(text="SEK-Annual Swap Rate"))
         setattr(cls, "SEK-Annual Swap Rate-SESWFI",
-            PermissibleValue(
-                text="SEK-Annual Swap Rate-SESWFI",
-                meaning=None))
+            PermissibleValue(text="SEK-Annual Swap Rate-SESWFI"))
         setattr(cls, "SEK-SIOR-OIS-COMPOUND",
-            PermissibleValue(
-                text="SEK-SIOR-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="SEK-SIOR-OIS-COMPOUND"))
         setattr(cls, "SEK-STIBOR",
-            PermissibleValue(
-                text="SEK-STIBOR",
-                meaning=None))
+            PermissibleValue(text="SEK-STIBOR"))
         setattr(cls, "SEK-STIBOR-Bloomberg",
-            PermissibleValue(
-                text="SEK-STIBOR-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="SEK-STIBOR-Bloomberg"))
         setattr(cls, "SEK-STIBOR-OIS Compound",
-            PermissibleValue(
-                text="SEK-STIBOR-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="SEK-STIBOR-OIS Compound"))
         setattr(cls, "SEK-STIBOR-Reference Banks",
-            PermissibleValue(
-                text="SEK-STIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="SEK-STIBOR-Reference Banks"))
         setattr(cls, "SEK-STIBOR-SIDE",
-            PermissibleValue(
-                text="SEK-STIBOR-SIDE",
-                meaning=None))
+            PermissibleValue(text="SEK-STIBOR-SIDE"))
         setattr(cls, "SEK-SWESTR",
-            PermissibleValue(
-                text="SEK-SWESTR",
-                meaning=None))
+            PermissibleValue(text="SEK-SWESTR"))
         setattr(cls, "SEK-SWESTR Average 1M",
-            PermissibleValue(
-                text="SEK-SWESTR Average 1M",
-                meaning=None))
+            PermissibleValue(text="SEK-SWESTR Average 1M"))
         setattr(cls, "SEK-SWESTR Average 1W",
-            PermissibleValue(
-                text="SEK-SWESTR Average 1W",
-                meaning=None))
+            PermissibleValue(text="SEK-SWESTR Average 1W"))
         setattr(cls, "SEK-SWESTR Average 2M",
-            PermissibleValue(
-                text="SEK-SWESTR Average 2M",
-                meaning=None))
+            PermissibleValue(text="SEK-SWESTR Average 2M"))
         setattr(cls, "SEK-SWESTR Average 3M",
-            PermissibleValue(
-                text="SEK-SWESTR Average 3M",
-                meaning=None))
+            PermissibleValue(text="SEK-SWESTR Average 3M"))
         setattr(cls, "SEK-SWESTR Average 6M",
-            PermissibleValue(
-                text="SEK-SWESTR Average 6M",
-                meaning=None))
+            PermissibleValue(text="SEK-SWESTR Average 6M"))
         setattr(cls, "SEK-SWESTR Compounded Index",
-            PermissibleValue(
-                text="SEK-SWESTR Compounded Index",
-                meaning=None))
+            PermissibleValue(text="SEK-SWESTR Compounded Index"))
         setattr(cls, "SEK-SWESTR-OIS Compound",
-            PermissibleValue(
-                text="SEK-SWESTR-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="SEK-SWESTR-OIS Compound"))
         setattr(cls, "SGD-SIBOR",
-            PermissibleValue(
-                text="SGD-SIBOR",
-                meaning=None))
+            PermissibleValue(text="SGD-SIBOR"))
         setattr(cls, "SGD-SIBOR-Reference Banks",
-            PermissibleValue(
-                text="SGD-SIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="SGD-SIBOR-Reference Banks"))
         setattr(cls, "SGD-SIBOR-Reuters",
-            PermissibleValue(
-                text="SGD-SIBOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="SGD-SIBOR-Reuters"))
         setattr(cls, "SGD-SIBOR-Telerate",
-            PermissibleValue(
-                text="SGD-SIBOR-Telerate",
-                meaning=None))
+            PermissibleValue(text="SGD-SIBOR-Telerate"))
         setattr(cls, "SGD-SONAR-OIS-COMPOUND",
-            PermissibleValue(
-                text="SGD-SONAR-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="SGD-SONAR-OIS-COMPOUND"))
         setattr(cls, "SGD-SONAR-OIS-VWAP-COMPOUND",
-            PermissibleValue(
-                text="SGD-SONAR-OIS-VWAP-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="SGD-SONAR-OIS-VWAP-COMPOUND"))
         setattr(cls, "SGD-SOR",
-            PermissibleValue(
-                text="SGD-SOR",
-                meaning=None))
+            PermissibleValue(text="SGD-SOR"))
         setattr(cls, "SGD-SOR-Reference Banks",
-            PermissibleValue(
-                text="SGD-SOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="SGD-SOR-Reference Banks"))
         setattr(cls, "SGD-SOR-Reuters",
-            PermissibleValue(
-                text="SGD-SOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="SGD-SOR-Reuters"))
         setattr(cls, "SGD-SOR-Telerate",
-            PermissibleValue(
-                text="SGD-SOR-Telerate",
-                meaning=None))
+            PermissibleValue(text="SGD-SOR-Telerate"))
         setattr(cls, "SGD-SOR-VWAP",
-            PermissibleValue(
-                text="SGD-SOR-VWAP",
-                meaning=None))
+            PermissibleValue(text="SGD-SOR-VWAP"))
         setattr(cls, "SGD-SOR-VWAP-Reference Banks",
-            PermissibleValue(
-                text="SGD-SOR-VWAP-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="SGD-SOR-VWAP-Reference Banks"))
         setattr(cls, "SGD-SORA",
-            PermissibleValue(
-                text="SGD-SORA",
-                meaning=None))
+            PermissibleValue(text="SGD-SORA"))
         setattr(cls, "SGD-SORA-COMPOUND",
-            PermissibleValue(
-                text="SGD-SORA-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="SGD-SORA-COMPOUND"))
         setattr(cls, "SGD-SORA-OIS Compound",
-            PermissibleValue(
-                text="SGD-SORA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="SGD-SORA-OIS Compound"))
         setattr(cls, "SGD-Semi-Annual Currency Basis Swap Rate-11:00-Tullett Prebon",
-            PermissibleValue(
-                text="SGD-Semi-Annual Currency Basis Swap Rate-11:00-Tullett Prebon",
-                meaning=None))
+            PermissibleValue(text="SGD-Semi-Annual Currency Basis Swap Rate-11:00-Tullett Prebon"))
         setattr(cls, "SGD-Semi-Annual Currency Basis Swap Rate-16:00-Tullett Prebon",
-            PermissibleValue(
-                text="SGD-Semi-Annual Currency Basis Swap Rate-16:00-Tullett Prebon",
-                meaning=None))
+            PermissibleValue(text="SGD-Semi-Annual Currency Basis Swap Rate-16:00-Tullett Prebon"))
         setattr(cls, "SGD-Semi-Annual Swap Rate-11.00-TRADITION",
-            PermissibleValue(
-                text="SGD-Semi-Annual Swap Rate-11.00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="SGD-Semi-Annual Swap Rate-11.00-TRADITION"))
         setattr(cls, "SGD-Semi-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="SGD-Semi-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="SGD-Semi-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "SGD-Semi-Annual Swap Rate-11:00-Tullett Prebon",
-            PermissibleValue(
-                text="SGD-Semi-Annual Swap Rate-11:00-Tullett Prebon",
-                meaning=None))
+            PermissibleValue(text="SGD-Semi-Annual Swap Rate-11:00-Tullett Prebon"))
         setattr(cls, "SGD-Semi-Annual Swap Rate-16:00-Tullett Prebon",
-            PermissibleValue(
-                text="SGD-Semi-Annual Swap Rate-16:00-Tullett Prebon",
-                meaning=None))
+            PermissibleValue(text="SGD-Semi-Annual Swap Rate-16:00-Tullett Prebon"))
         setattr(cls, "SGD-Semi-Annual Swap Rate-ICAP",
-            PermissibleValue(
-                text="SGD-Semi-Annual Swap Rate-ICAP",
-                meaning=None))
+            PermissibleValue(text="SGD-Semi-Annual Swap Rate-ICAP"))
         setattr(cls, "SGD-Semi-Annual Swap Rate-ICAP-Reference Banks",
-            PermissibleValue(
-                text="SGD-Semi-Annual Swap Rate-ICAP-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="SGD-Semi-Annual Swap Rate-ICAP-Reference Banks"))
         setattr(cls, "SGD-Semi-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="SGD-Semi-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="SGD-Semi-Annual Swap Rate-Reference Banks"))
         setattr(cls, "SGD-Semi-Annual Swap Rate-TRADITION-Reference Banks",
-            PermissibleValue(
-                text="SGD-Semi-Annual Swap Rate-TRADITION-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="SGD-Semi-Annual Swap Rate-TRADITION-Reference Banks"))
         setattr(cls, "SKK-BRIBOR-BRBO",
-            PermissibleValue(
-                text="SKK-BRIBOR-BRBO",
-                meaning=None))
+            PermissibleValue(text="SKK-BRIBOR-BRBO"))
         setattr(cls, "SKK-BRIBOR-Bloomberg",
-            PermissibleValue(
-                text="SKK-BRIBOR-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="SKK-BRIBOR-Bloomberg"))
         setattr(cls, "SKK-BRIBOR-NBSK07",
-            PermissibleValue(
-                text="SKK-BRIBOR-NBSK07",
-                meaning=None))
+            PermissibleValue(text="SKK-BRIBOR-NBSK07"))
         setattr(cls, "SKK-BRIBOR-Reference Banks",
-            PermissibleValue(
-                text="SKK-BRIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="SKK-BRIBOR-Reference Banks"))
         setattr(cls, "THB-SOR-Reference Banks",
-            PermissibleValue(
-                text="THB-SOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="THB-SOR-Reference Banks"))
         setattr(cls, "THB-SOR-Reuters",
-            PermissibleValue(
-                text="THB-SOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="THB-SOR-Reuters"))
         setattr(cls, "THB-SOR-Telerate",
-            PermissibleValue(
-                text="THB-SOR-Telerate",
-                meaning=None))
+            PermissibleValue(text="THB-SOR-Telerate"))
         setattr(cls, "THB-Semi-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="THB-Semi-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="THB-Semi-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "THB-Semi-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="THB-Semi-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="THB-Semi-Annual Swap Rate-Reference Banks"))
         setattr(cls, "THB-THBFIX",
-            PermissibleValue(
-                text="THB-THBFIX",
-                meaning=None))
+            PermissibleValue(text="THB-THBFIX"))
         setattr(cls, "THB-THBFIX-Reference Banks",
-            PermissibleValue(
-                text="THB-THBFIX-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="THB-THBFIX-Reference Banks"))
         setattr(cls, "THB-THBFIX-Reuters",
-            PermissibleValue(
-                text="THB-THBFIX-Reuters",
-                meaning=None))
+            PermissibleValue(text="THB-THBFIX-Reuters"))
         setattr(cls, "THB-THOR",
-            PermissibleValue(
-                text="THB-THOR",
-                meaning=None))
+            PermissibleValue(text="THB-THOR"))
         setattr(cls, "THB-THOR-COMPOUND",
-            PermissibleValue(
-                text="THB-THOR-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="THB-THOR-COMPOUND"))
         setattr(cls, "THB-THOR-OIS Compound",
-            PermissibleValue(
-                text="THB-THOR-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="THB-THOR-OIS Compound"))
         setattr(cls, "TRY Annual Swap Rate-11:00-TRADITION",
-            PermissibleValue(
-                text="TRY Annual Swap Rate-11:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="TRY Annual Swap Rate-11:00-TRADITION"))
         setattr(cls, "TRY-Annual Swap Rate-11:15-BGCANTOR",
-            PermissibleValue(
-                text="TRY-Annual Swap Rate-11:15-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="TRY-Annual Swap Rate-11:15-BGCANTOR"))
         setattr(cls, "TRY-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="TRY-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="TRY-Annual Swap Rate-Reference Banks"))
         setattr(cls, "TRY-Semi-Annual Swap Rate-TRADITION-Reference Banks",
-            PermissibleValue(
-                text="TRY-Semi-Annual Swap Rate-TRADITION-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="TRY-Semi-Annual Swap Rate-TRADITION-Reference Banks"))
         setattr(cls, "TRY-TLREF",
-            PermissibleValue(
-                text="TRY-TLREF",
-                meaning=None))
+            PermissibleValue(text="TRY-TLREF"))
         setattr(cls, "TRY-TLREF-OIS Compound",
-            PermissibleValue(
-                text="TRY-TLREF-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="TRY-TLREF-OIS Compound"))
         setattr(cls, "TRY-TLREF-OIS-COMPOUND",
-            PermissibleValue(
-                text="TRY-TLREF-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="TRY-TLREF-OIS-COMPOUND"))
         setattr(cls, "TRY-TRLIBOR",
-            PermissibleValue(
-                text="TRY-TRLIBOR",
-                meaning=None))
+            PermissibleValue(text="TRY-TRLIBOR"))
         setattr(cls, "TRY-TRYIBOR-Reference Banks",
-            PermissibleValue(
-                text="TRY-TRYIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="TRY-TRYIBOR-Reference Banks"))
         setattr(cls, "TRY-TRYIBOR-Reuters",
-            PermissibleValue(
-                text="TRY-TRYIBOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="TRY-TRYIBOR-Reuters"))
         setattr(cls, "TWD-Quarterly-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="TWD-Quarterly-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="TWD-Quarterly-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "TWD-Quarterly-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="TWD-Quarterly-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="TWD-Quarterly-Annual Swap Rate-Reference Banks"))
         setattr(cls, "TWD-Reference Dealers",
-            PermissibleValue(
-                text="TWD-Reference Dealers",
-                meaning=None))
+            PermissibleValue(text="TWD-Reference Dealers"))
         setattr(cls, "TWD-Reuters-6165",
-            PermissibleValue(
-                text="TWD-Reuters-6165",
-                meaning=None))
+            PermissibleValue(text="TWD-Reuters-6165"))
         setattr(cls, "TWD-TAIBIR01",
-            PermissibleValue(
-                text="TWD-TAIBIR01",
-                meaning=None))
+            PermissibleValue(text="TWD-TAIBIR01"))
         setattr(cls, "TWD-TAIBIR02",
-            PermissibleValue(
-                text="TWD-TAIBIR02",
-                meaning=None))
+            PermissibleValue(text="TWD-TAIBIR02"))
         setattr(cls, "TWD-TAIBOR",
-            PermissibleValue(
-                text="TWD-TAIBOR",
-                meaning=None))
+            PermissibleValue(text="TWD-TAIBOR"))
         setattr(cls, "TWD-TAIBOR-Bloomberg",
-            PermissibleValue(
-                text="TWD-TAIBOR-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="TWD-TAIBOR-Bloomberg"))
         setattr(cls, "TWD-TAIBOR-Reuters",
-            PermissibleValue(
-                text="TWD-TAIBOR-Reuters",
-                meaning=None))
+            PermissibleValue(text="TWD-TAIBOR-Reuters"))
         setattr(cls, "TWD-TWCPBA",
-            PermissibleValue(
-                text="TWD-TWCPBA",
-                meaning=None))
+            PermissibleValue(text="TWD-TWCPBA"))
         setattr(cls, "TWD-Telerate-6165",
-            PermissibleValue(
-                text="TWD-Telerate-6165",
-                meaning=None))
+            PermissibleValue(text="TWD-Telerate-6165"))
         setattr(cls, "UK Base Rate",
-            PermissibleValue(
-                text="UK Base Rate",
-                meaning=None))
+            PermissibleValue(text="UK Base Rate"))
         setattr(cls, "USD Swap Rate-BCMP1",
-            PermissibleValue(
-                text="USD Swap Rate-BCMP1",
-                meaning=None))
+            PermissibleValue(text="USD Swap Rate-BCMP1"))
         setattr(cls, "USD Treasury Rate-BCMP1",
-            PermissibleValue(
-                text="USD Treasury Rate-BCMP1",
-                meaning=None))
+            PermissibleValue(text="USD Treasury Rate-BCMP1"))
         setattr(cls, "USD-3M LIBOR SWAP-CME vs LCH-ICAP",
-            PermissibleValue(
-                text="USD-3M LIBOR SWAP-CME vs LCH-ICAP",
-                meaning=None))
+            PermissibleValue(text="USD-3M LIBOR SWAP-CME vs LCH-ICAP"))
         setattr(cls, "USD-3M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
-            PermissibleValue(
-                text="USD-3M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="USD-3M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg"))
         setattr(cls, "USD-6M LIBOR SWAP-CME vs LCH-ICAP",
-            PermissibleValue(
-                text="USD-6M LIBOR SWAP-CME vs LCH-ICAP",
-                meaning=None))
+            PermissibleValue(text="USD-6M LIBOR SWAP-CME vs LCH-ICAP"))
         setattr(cls, "USD-6M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
-            PermissibleValue(
-                text="USD-6M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="USD-6M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg"))
         setattr(cls, "USD-AMERIBOR",
-            PermissibleValue(
-                text="USD-AMERIBOR",
-                meaning=None))
+            PermissibleValue(text="USD-AMERIBOR"))
         setattr(cls, "USD-AMERIBOR Average 30D",
-            PermissibleValue(
-                text="USD-AMERIBOR Average 30D",
-                meaning=None))
+            PermissibleValue(text="USD-AMERIBOR Average 30D"))
         setattr(cls, "USD-AMERIBOR Average 90D",
-            PermissibleValue(
-                text="USD-AMERIBOR Average 90D",
-                meaning=None))
+            PermissibleValue(text="USD-AMERIBOR Average 90D"))
         setattr(cls, "USD-AMERIBOR Term",
-            PermissibleValue(
-                text="USD-AMERIBOR Term",
-                meaning=None))
+            PermissibleValue(text="USD-AMERIBOR Term"))
         setattr(cls, "USD-AMERIBOR Term Structure",
-            PermissibleValue(
-                text="USD-AMERIBOR Term Structure",
-                meaning=None))
+            PermissibleValue(text="USD-AMERIBOR Term Structure"))
         setattr(cls, "USD-AXI Term",
-            PermissibleValue(
-                text="USD-AXI Term",
-                meaning=None))
+            PermissibleValue(text="USD-AXI Term"))
         setattr(cls, "USD-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="USD-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="USD-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "USD-Annual Swap Rate-11:00-TRADITION",
-            PermissibleValue(
-                text="USD-Annual Swap Rate-11:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="USD-Annual Swap Rate-11:00-TRADITION"))
         setattr(cls, "USD-Annual Swap Rate-4:00-TRADITION",
-            PermissibleValue(
-                text="USD-Annual Swap Rate-4:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="USD-Annual Swap Rate-4:00-TRADITION"))
         setattr(cls, "USD-BA-H.15",
-            PermissibleValue(
-                text="USD-BA-H.15",
-                meaning=None))
+            PermissibleValue(text="USD-BA-H.15"))
         setattr(cls, "USD-BA-Reference Dealers",
-            PermissibleValue(
-                text="USD-BA-Reference Dealers",
-                meaning=None))
+            PermissibleValue(text="USD-BA-Reference Dealers"))
         setattr(cls, "USD-BMA Municipal Swap Index",
-            PermissibleValue(
-                text="USD-BMA Municipal Swap Index",
-                meaning=None))
+            PermissibleValue(text="USD-BMA Municipal Swap Index"))
         setattr(cls, "USD-BSBY",
-            PermissibleValue(
-                text="USD-BSBY",
-                meaning=None))
+            PermissibleValue(text="USD-BSBY"))
         setattr(cls, "USD-CD-H.15",
-            PermissibleValue(
-                text="USD-CD-H.15",
-                meaning=None))
+            PermissibleValue(text="USD-CD-H.15"))
         setattr(cls, "USD-CD-Reference Dealers",
-            PermissibleValue(
-                text="USD-CD-Reference Dealers",
-                meaning=None))
+            PermissibleValue(text="USD-CD-Reference Dealers"))
         setattr(cls, "USD-CMS-Reference Banks",
-            PermissibleValue(
-                text="USD-CMS-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="USD-CMS-Reference Banks"))
         setattr(cls, "USD-CMS-Reference Banks-ICAP SwapPX",
-            PermissibleValue(
-                text="USD-CMS-Reference Banks-ICAP SwapPX",
-                meaning=None))
+            PermissibleValue(text="USD-CMS-Reference Banks-ICAP SwapPX"))
         setattr(cls, "USD-CMS-Reuters",
-            PermissibleValue(
-                text="USD-CMS-Reuters",
-                meaning=None))
+            PermissibleValue(text="USD-CMS-Reuters"))
         setattr(cls, "USD-CMS-Telerate",
-            PermissibleValue(
-                text="USD-CMS-Telerate",
-                meaning=None))
+            PermissibleValue(text="USD-CMS-Telerate"))
         setattr(cls, "USD-CMT",
-            PermissibleValue(
-                text="USD-CMT",
-                meaning=None))
+            PermissibleValue(text="USD-CMT"))
         setattr(cls, "USD-CMT Average 1W",
-            PermissibleValue(
-                text="USD-CMT Average 1W",
-                meaning=None))
+            PermissibleValue(text="USD-CMT Average 1W"))
         setattr(cls, "USD-CMT-T7051",
-            PermissibleValue(
-                text="USD-CMT-T7051",
-                meaning=None))
+            PermissibleValue(text="USD-CMT-T7051"))
         setattr(cls, "USD-CMT-T7052",
-            PermissibleValue(
-                text="USD-CMT-T7052",
-                meaning=None))
+            PermissibleValue(text="USD-CMT-T7052"))
         setattr(cls, "USD-COF11-FHLBSF",
-            PermissibleValue(
-                text="USD-COF11-FHLBSF",
-                meaning=None))
+            PermissibleValue(text="USD-COF11-FHLBSF"))
         setattr(cls, "USD-COF11-Reuters",
-            PermissibleValue(
-                text="USD-COF11-Reuters",
-                meaning=None))
+            PermissibleValue(text="USD-COF11-Reuters"))
         setattr(cls, "USD-COF11-Telerate",
-            PermissibleValue(
-                text="USD-COF11-Telerate",
-                meaning=None))
+            PermissibleValue(text="USD-COF11-Telerate"))
         setattr(cls, "USD-COFI",
-            PermissibleValue(
-                text="USD-COFI",
-                meaning=None))
+            PermissibleValue(text="USD-COFI"))
         setattr(cls, "USD-CP-H.15",
-            PermissibleValue(
-                text="USD-CP-H.15",
-                meaning=None))
+            PermissibleValue(text="USD-CP-H.15"))
         setattr(cls, "USD-CP-Money Market Yield",
-            PermissibleValue(
-                text="USD-CP-Money Market Yield",
-                meaning=None))
+            PermissibleValue(text="USD-CP-Money Market Yield"))
         setattr(cls, "USD-CP-Reference Dealers",
-            PermissibleValue(
-                text="USD-CP-Reference Dealers",
-                meaning=None))
+            PermissibleValue(text="USD-CP-Reference Dealers"))
         setattr(cls, "USD-CRITR",
-            PermissibleValue(
-                text="USD-CRITR",
-                meaning=None))
+            PermissibleValue(text="USD-CRITR"))
         setattr(cls, "USD-FFCB-DISCO",
-            PermissibleValue(
-                text="USD-FFCB-DISCO",
-                meaning=None))
+            PermissibleValue(text="USD-FFCB-DISCO"))
         setattr(cls, "USD-FXI Term",
-            PermissibleValue(
-                text="USD-FXI Term",
-                meaning=None))
+            PermissibleValue(text="USD-FXI Term"))
         setattr(cls, "USD-Federal Funds",
-            PermissibleValue(
-                text="USD-Federal Funds",
-                meaning=None))
+            PermissibleValue(text="USD-Federal Funds"))
         setattr(cls, "USD-Federal Funds-H.15",
-            PermissibleValue(
-                text="USD-Federal Funds-H.15",
-                meaning=None))
+            PermissibleValue(text="USD-Federal Funds-H.15"))
         setattr(cls, "USD-Federal Funds-H.15-Bloomberg",
-            PermissibleValue(
-                text="USD-Federal Funds-H.15-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="USD-Federal Funds-H.15-Bloomberg"))
         setattr(cls, "USD-Federal Funds-H.15-OIS-COMPOUND",
-            PermissibleValue(
-                text="USD-Federal Funds-H.15-OIS-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="USD-Federal Funds-H.15-OIS-COMPOUND"))
         setattr(cls, "USD-Federal Funds-OIS Compound",
-            PermissibleValue(
-                text="USD-Federal Funds-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="USD-Federal Funds-OIS Compound"))
         setattr(cls, "USD-Federal Funds-Reference Dealers",
-            PermissibleValue(
-                text="USD-Federal Funds-Reference Dealers",
-                meaning=None))
+            PermissibleValue(text="USD-Federal Funds-Reference Dealers"))
         setattr(cls, "USD-ISDA-Swap Rate",
-            PermissibleValue(
-                text="USD-ISDA-Swap Rate",
-                meaning=None))
+            PermissibleValue(text="USD-ISDA-Swap Rate"))
         setattr(cls, "USD-ISDA-Swap Rate-3:00",
-            PermissibleValue(
-                text="USD-ISDA-Swap Rate-3:00",
-                meaning=None))
+            PermissibleValue(text="USD-ISDA-Swap Rate-3:00"))
         setattr(cls, "USD-ISDAFIX3-Swap Rate",
-            PermissibleValue(
-                text="USD-ISDAFIX3-Swap Rate",
-                meaning=None))
+            PermissibleValue(text="USD-ISDAFIX3-Swap Rate"))
         setattr(cls, "USD-ISDAFIX3-Swap Rate-3:00",
-            PermissibleValue(
-                text="USD-ISDAFIX3-Swap Rate-3:00",
-                meaning=None))
+            PermissibleValue(text="USD-ISDAFIX3-Swap Rate-3:00"))
         setattr(cls, "USD-LIBOR",
-            PermissibleValue(
-                text="USD-LIBOR",
-                meaning=None))
+            PermissibleValue(text="USD-LIBOR"))
         setattr(cls, "USD-LIBOR ICE Swap Rate-11:00",
-            PermissibleValue(
-                text="USD-LIBOR ICE Swap Rate-11:00",
-                meaning=None))
+            PermissibleValue(text="USD-LIBOR ICE Swap Rate-11:00"))
         setattr(cls, "USD-LIBOR ICE Swap Rate-15:00",
-            PermissibleValue(
-                text="USD-LIBOR ICE Swap Rate-15:00",
-                meaning=None))
+            PermissibleValue(text="USD-LIBOR ICE Swap Rate-15:00"))
         setattr(cls, "USD-LIBOR-BBA",
-            PermissibleValue(
-                text="USD-LIBOR-BBA",
-                meaning=None))
+            PermissibleValue(text="USD-LIBOR-BBA"))
         setattr(cls, "USD-LIBOR-BBA-Bloomberg",
-            PermissibleValue(
-                text="USD-LIBOR-BBA-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="USD-LIBOR-BBA-Bloomberg"))
         setattr(cls, "USD-LIBOR-ISDA",
-            PermissibleValue(
-                text="USD-LIBOR-ISDA",
-                meaning=None))
+            PermissibleValue(text="USD-LIBOR-ISDA"))
         setattr(cls, "USD-LIBOR-LIBO",
-            PermissibleValue(
-                text="USD-LIBOR-LIBO",
-                meaning=None))
+            PermissibleValue(text="USD-LIBOR-LIBO"))
         setattr(cls, "USD-LIBOR-Reference Banks",
-            PermissibleValue(
-                text="USD-LIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="USD-LIBOR-Reference Banks"))
         setattr(cls, "USD-Municipal Swap Index",
-            PermissibleValue(
-                text="USD-Municipal Swap Index",
-                meaning=None))
+            PermissibleValue(text="USD-Municipal Swap Index"))
         setattr(cls, "USD-Municipal Swap Libor Ratio-11:00-ICAP",
-            PermissibleValue(
-                text="USD-Municipal Swap Libor Ratio-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="USD-Municipal Swap Libor Ratio-11:00-ICAP"))
         setattr(cls, "USD-Municipal Swap Rate-11:00-ICAP",
-            PermissibleValue(
-                text="USD-Municipal Swap Rate-11:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="USD-Municipal Swap Rate-11:00-ICAP"))
         setattr(cls, "USD-OIS-11:00-BGCANTOR",
-            PermissibleValue(
-                text="USD-OIS-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="USD-OIS-11:00-BGCANTOR"))
         setattr(cls, "USD-OIS-11:00-LON-ICAP",
-            PermissibleValue(
-                text="USD-OIS-11:00-LON-ICAP",
-                meaning=None))
+            PermissibleValue(text="USD-OIS-11:00-LON-ICAP"))
         setattr(cls, "USD-OIS-11:00-NY-ICAP",
-            PermissibleValue(
-                text="USD-OIS-11:00-NY-ICAP",
-                meaning=None))
+            PermissibleValue(text="USD-OIS-11:00-NY-ICAP"))
         setattr(cls, "USD-OIS-11:00-TRADITION",
-            PermissibleValue(
-                text="USD-OIS-11:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="USD-OIS-11:00-TRADITION"))
         setattr(cls, "USD-OIS-3:00-BGCANTOR",
-            PermissibleValue(
-                text="USD-OIS-3:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="USD-OIS-3:00-BGCANTOR"))
         setattr(cls, "USD-OIS-3:00-NY-ICAP",
-            PermissibleValue(
-                text="USD-OIS-3:00-NY-ICAP",
-                meaning=None))
+            PermissibleValue(text="USD-OIS-3:00-NY-ICAP"))
         setattr(cls, "USD-OIS-4:00-TRADITION",
-            PermissibleValue(
-                text="USD-OIS-4:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="USD-OIS-4:00-TRADITION"))
         setattr(cls, "USD-Overnight Bank Funding Rate",
-            PermissibleValue(
-                text="USD-Overnight Bank Funding Rate",
-                meaning=None))
+            PermissibleValue(text="USD-Overnight Bank Funding Rate"))
         setattr(cls, "USD-Prime",
-            PermissibleValue(
-                text="USD-Prime",
-                meaning=None))
+            PermissibleValue(text="USD-Prime"))
         setattr(cls, "USD-Prime-H.15",
-            PermissibleValue(
-                text="USD-Prime-H.15",
-                meaning=None))
+            PermissibleValue(text="USD-Prime-H.15"))
         setattr(cls, "USD-Prime-Reference Banks",
-            PermissibleValue(
-                text="USD-Prime-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="USD-Prime-Reference Banks"))
         setattr(cls, "USD-S&P Index-High Grade",
-            PermissibleValue(
-                text="USD-S&P Index-High Grade",
-                meaning=None))
+            PermissibleValue(text="USD-S&P Index-High Grade"))
         setattr(cls, "USD-SIBOR-Reference Banks",
-            PermissibleValue(
-                text="USD-SIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="USD-SIBOR-Reference Banks"))
         setattr(cls, "USD-SIBOR-SIBO",
-            PermissibleValue(
-                text="USD-SIBOR-SIBO",
-                meaning=None))
+            PermissibleValue(text="USD-SIBOR-SIBO"))
         setattr(cls, "USD-SIFMA Municipal Swap Index",
-            PermissibleValue(
-                text="USD-SIFMA Municipal Swap Index",
-                meaning=None))
+            PermissibleValue(text="USD-SIFMA Municipal Swap Index"))
         setattr(cls, "USD-SOFR",
-            PermissibleValue(
-                text="USD-SOFR",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR"))
         setattr(cls, "USD-SOFR Average 180D",
-            PermissibleValue(
-                text="USD-SOFR Average 180D",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR Average 180D"))
         setattr(cls, "USD-SOFR Average 30D",
-            PermissibleValue(
-                text="USD-SOFR Average 30D",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR Average 30D"))
         setattr(cls, "USD-SOFR Average 90D",
-            PermissibleValue(
-                text="USD-SOFR Average 90D",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR Average 90D"))
         setattr(cls, "USD-SOFR CME Term",
-            PermissibleValue(
-                text="USD-SOFR CME Term",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR CME Term"))
         setattr(cls, "USD-SOFR Compounded Index",
-            PermissibleValue(
-                text="USD-SOFR Compounded Index",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR Compounded Index"))
         setattr(cls, "USD-SOFR ICE Compounded Index",
-            PermissibleValue(
-                text="USD-SOFR ICE Compounded Index",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR ICE Compounded Index"))
         setattr(cls, "USD-SOFR ICE Compounded Index 0 Floor",
-            PermissibleValue(
-                text="USD-SOFR ICE Compounded Index 0 Floor",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR ICE Compounded Index 0 Floor"))
         setattr(cls, "USD-SOFR ICE Compounded Index 0 Floor 2D Lag",
-            PermissibleValue(
-                text="USD-SOFR ICE Compounded Index 0 Floor 2D Lag",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR ICE Compounded Index 0 Floor 2D Lag"))
         setattr(cls, "USD-SOFR ICE Compounded Index 0 Floor 5D Lag",
-            PermissibleValue(
-                text="USD-SOFR ICE Compounded Index 0 Floor 5D Lag",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR ICE Compounded Index 0 Floor 5D Lag"))
         setattr(cls, "USD-SOFR ICE Compounded Index 2D Lag",
-            PermissibleValue(
-                text="USD-SOFR ICE Compounded Index 2D Lag",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR ICE Compounded Index 2D Lag"))
         setattr(cls, "USD-SOFR ICE Compounded Index 5D Lag",
-            PermissibleValue(
-                text="USD-SOFR ICE Compounded Index 5D Lag",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR ICE Compounded Index 5D Lag"))
         setattr(cls, "USD-SOFR ICE Swap Rate",
-            PermissibleValue(
-                text="USD-SOFR ICE Swap Rate",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR ICE Swap Rate"))
         setattr(cls, "USD-SOFR ICE Swap Rate Spreads",
-            PermissibleValue(
-                text="USD-SOFR ICE Swap Rate Spreads",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR ICE Swap Rate Spreads"))
         setattr(cls, "USD-SOFR ICE Term",
-            PermissibleValue(
-                text="USD-SOFR ICE Term",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR ICE Term"))
         setattr(cls, "USD-SOFR-COMPOUND",
-            PermissibleValue(
-                text="USD-SOFR-COMPOUND",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR-COMPOUND"))
         setattr(cls, "USD-SOFR-OIS Compound",
-            PermissibleValue(
-                text="USD-SOFR-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="USD-SOFR-OIS Compound"))
         setattr(cls, "USD-SandP Index High Grade",
-            PermissibleValue(
-                text="USD-SandP Index High Grade",
-                meaning=None))
+            PermissibleValue(text="USD-SandP Index High Grade"))
         setattr(cls, "USD-TBILL Auction High Rate",
-            PermissibleValue(
-                text="USD-TBILL Auction High Rate",
-                meaning=None))
+            PermissibleValue(text="USD-TBILL Auction High Rate"))
         setattr(cls, "USD-TBILL Secondary Market-Bond Equivalent Yield",
-            PermissibleValue(
-                text="USD-TBILL Secondary Market-Bond Equivalent Yield",
-                meaning=None))
+            PermissibleValue(text="USD-TBILL Secondary Market-Bond Equivalent Yield"))
         setattr(cls, "USD-TBILL-H.15",
-            PermissibleValue(
-                text="USD-TBILL-H.15",
-                meaning=None))
+            PermissibleValue(text="USD-TBILL-H.15"))
         setattr(cls, "USD-TBILL-H.15-Bloomberg",
-            PermissibleValue(
-                text="USD-TBILL-H.15-Bloomberg",
-                meaning=None))
+            PermissibleValue(text="USD-TBILL-H.15-Bloomberg"))
         setattr(cls, "USD-TBILL-Secondary Market",
-            PermissibleValue(
-                text="USD-TBILL-Secondary Market",
-                meaning=None))
+            PermissibleValue(text="USD-TBILL-Secondary Market"))
         setattr(cls, "USD-TIBOR-ISDC",
-            PermissibleValue(
-                text="USD-TIBOR-ISDC",
-                meaning=None))
+            PermissibleValue(text="USD-TIBOR-ISDC"))
         setattr(cls, "USD-TIBOR-Reference Banks",
-            PermissibleValue(
-                text="USD-TIBOR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="USD-TIBOR-Reference Banks"))
         setattr(cls, "USD-Treasury Rate-ICAP BrokerTec",
-            PermissibleValue(
-                text="USD-Treasury Rate-ICAP BrokerTec",
-                meaning=None))
+            PermissibleValue(text="USD-Treasury Rate-ICAP BrokerTec"))
         setattr(cls, "USD-Treasury Rate-SwapMarker100",
-            PermissibleValue(
-                text="USD-Treasury Rate-SwapMarker100",
-                meaning=None))
+            PermissibleValue(text="USD-Treasury Rate-SwapMarker100"))
         setattr(cls, "USD-Treasury Rate-SwapMarker99",
-            PermissibleValue(
-                text="USD-Treasury Rate-SwapMarker99",
-                meaning=None))
+            PermissibleValue(text="USD-Treasury Rate-SwapMarker99"))
         setattr(cls, "USD-Treasury Rate-T19901",
-            PermissibleValue(
-                text="USD-Treasury Rate-T19901",
-                meaning=None))
+            PermissibleValue(text="USD-Treasury Rate-T19901"))
         setattr(cls, "USD-Treasury Rate-T500",
-            PermissibleValue(
-                text="USD-Treasury Rate-T500",
-                meaning=None))
+            PermissibleValue(text="USD-Treasury Rate-T500"))
         setattr(cls, "USD-Treasury-19901-3:00-ICAP",
-            PermissibleValue(
-                text="USD-Treasury-19901-3:00-ICAP",
-                meaning=None))
+            PermissibleValue(text="USD-Treasury-19901-3:00-ICAP"))
         setattr(cls, "VND-Semi-Annual Swap Rate-11:00-BGCANTOR",
-            PermissibleValue(
-                text="VND-Semi-Annual Swap Rate-11:00-BGCANTOR",
-                meaning=None))
+            PermissibleValue(text="VND-Semi-Annual Swap Rate-11:00-BGCANTOR"))
         setattr(cls, "VND-Semi-Annual Swap Rate-Reference Banks",
-            PermissibleValue(
-                text="VND-Semi-Annual Swap Rate-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="VND-Semi-Annual Swap Rate-Reference Banks"))
         setattr(cls, "ZAR-DEPOSIT-Reference Banks",
-            PermissibleValue(
-                text="ZAR-DEPOSIT-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="ZAR-DEPOSIT-Reference Banks"))
         setattr(cls, "ZAR-DEPOSIT-SAFEX",
-            PermissibleValue(
-                text="ZAR-DEPOSIT-SAFEX",
-                meaning=None))
+            PermissibleValue(text="ZAR-DEPOSIT-SAFEX"))
         setattr(cls, "ZAR-JIBAR",
-            PermissibleValue(
-                text="ZAR-JIBAR",
-                meaning=None))
+            PermissibleValue(text="ZAR-JIBAR"))
         setattr(cls, "ZAR-JIBAR-Reference Banks",
-            PermissibleValue(
-                text="ZAR-JIBAR-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="ZAR-JIBAR-Reference Banks"))
         setattr(cls, "ZAR-JIBAR-SAFEX",
-            PermissibleValue(
-                text="ZAR-JIBAR-SAFEX",
-                meaning=None))
+            PermissibleValue(text="ZAR-JIBAR-SAFEX"))
         setattr(cls, "ZAR-PRIME-AVERAGE",
-            PermissibleValue(
-                text="ZAR-PRIME-AVERAGE",
-                meaning=None))
+            PermissibleValue(text="ZAR-PRIME-AVERAGE"))
         setattr(cls, "ZAR-PRIME-AVERAGE-Reference Banks",
-            PermissibleValue(
-                text="ZAR-PRIME-AVERAGE-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="ZAR-PRIME-AVERAGE-Reference Banks"))
         setattr(cls, "ZAR-Prime Average",
-            PermissibleValue(
-                text="ZAR-Prime Average",
-                meaning=None))
+            PermissibleValue(text="ZAR-Prime Average"))
         setattr(cls, "ZAR-Quarterly Swap Rate-1:00-TRADITION",
-            PermissibleValue(
-                text="ZAR-Quarterly Swap Rate-1:00-TRADITION",
-                meaning=None))
+            PermissibleValue(text="ZAR-Quarterly Swap Rate-1:00-TRADITION"))
         setattr(cls, "ZAR-Quarterly Swap Rate-5:30-TRADITION",
-            PermissibleValue(
-                text="ZAR-Quarterly Swap Rate-5:30-TRADITION",
-                meaning=None))
+            PermissibleValue(text="ZAR-Quarterly Swap Rate-5:30-TRADITION"))
         setattr(cls, "ZAR-Quarterly Swap Rate-TRADITION-Reference Banks",
-            PermissibleValue(
-                text="ZAR-Quarterly Swap Rate-TRADITION-Reference Banks",
-                meaning=None))
+            PermissibleValue(text="ZAR-Quarterly Swap Rate-TRADITION-Reference Banks"))
         setattr(cls, "ZAR-ZARONIA",
-            PermissibleValue(
-                text="ZAR-ZARONIA",
-                meaning=None))
+            PermissibleValue(text="ZAR-ZARONIA"))
         setattr(cls, "ZAR-ZARONIA-OIS Compound",
-            PermissibleValue(
-                text="ZAR-ZARONIA-OIS Compound",
-                meaning=None))
+            PermissibleValue(text="ZAR-ZARONIA-OIS Compound"))
 
 class CodelistSettlementRateOption(EnumDefinitionImpl):
 
@@ -37502,467 +35774,225 @@ class CodelistSettlementRateOption(EnumDefinitionImpl):
     @classmethod
     def _addvals(cls):
         setattr(cls, "ARS.BNAR/ARS01",
-            PermissibleValue(
-                text="ARS.BNAR/ARS01",
-                meaning=None))
+            PermissibleValue(text="ARS.BNAR/ARS01"))
         setattr(cls, "ARS.EMTA.INDICATIVE.SURVEY.RATE/ARS04",
-            PermissibleValue(
-                text="ARS.EMTA.INDICATIVE.SURVEY.RATE/ARS04",
-                meaning=None))
+            PermissibleValue(text="ARS.EMTA.INDICATIVE.SURVEY.RATE/ARS04"))
         setattr(cls, "ARS.EMTA.INDUSTRY.SURVEY.RATE/ARS03",
-            PermissibleValue(
-                text="ARS.EMTA.INDUSTRY.SURVEY.RATE/ARS03",
-                meaning=None))
+            PermissibleValue(text="ARS.EMTA.INDUSTRY.SURVEY.RATE/ARS03"))
         setattr(cls, "ARS.MAE/ARS05",
-            PermissibleValue(
-                text="ARS.MAE/ARS05",
-                meaning=None))
+            PermissibleValue(text="ARS.MAE/ARS05"))
         setattr(cls, "ARS.OFFICIAL.RATE/ARS02",
-            PermissibleValue(
-                text="ARS.OFFICIAL.RATE/ARS02",
-                meaning=None))
+            PermissibleValue(text="ARS.OFFICIAL.RATE/ARS02"))
         setattr(cls, "BRL.BRBY/BRL01",
-            PermissibleValue(
-                text="BRL.BRBY/BRL01",
-                meaning=None))
+            PermissibleValue(text="BRL.BRBY/BRL01"))
         setattr(cls, "BRL.EMTA.INDICATIVE.SURVEY.RATE/BRL13",
-            PermissibleValue(
-                text="BRL.EMTA.INDICATIVE.SURVEY.RATE/BRL13",
-                meaning=None))
+            PermissibleValue(text="BRL.EMTA.INDICATIVE.SURVEY.RATE/BRL13"))
         setattr(cls, "BRL.EMTA.INDUSTRY.SURVEY.RATE/BRL12",
-            PermissibleValue(
-                text="BRL.EMTA.INDUSTRY.SURVEY.RATE/BRL12",
-                meaning=None))
+            PermissibleValue(text="BRL.EMTA.INDUSTRY.SURVEY.RATE/BRL12"))
         setattr(cls, "BRL.OFFICIAL.RATE/BRL02",
-            PermissibleValue(
-                text="BRL.OFFICIAL.RATE/BRL02",
-                meaning=None))
+            PermissibleValue(text="BRL.OFFICIAL.RATE/BRL02"))
         setattr(cls, "BRL.PCOT-COMMERCIAL/BRL03",
-            PermissibleValue(
-                text="BRL.PCOT-COMMERCIAL/BRL03",
-                meaning=None))
+            PermissibleValue(text="BRL.PCOT-COMMERCIAL/BRL03"))
         setattr(cls, "BRL.PCOT-FLOATING/BRL04",
-            PermissibleValue(
-                text="BRL.PCOT-FLOATING/BRL04",
-                meaning=None))
+            PermissibleValue(text="BRL.PCOT-FLOATING/BRL04"))
         setattr(cls, "BRL.PTAX-COMMERCIAL.BRFR/BRL06",
-            PermissibleValue(
-                text="BRL.PTAX-COMMERCIAL.BRFR/BRL06",
-                meaning=None))
+            PermissibleValue(text="BRL.PTAX-COMMERCIAL.BRFR/BRL06"))
         setattr(cls, "BRL.PTAX-COMMERCIAL/BRL05",
-            PermissibleValue(
-                text="BRL.PTAX-COMMERCIAL/BRL05",
-                meaning=None))
+            PermissibleValue(text="BRL.PTAX-COMMERCIAL/BRL05"))
         setattr(cls, "BRL.PTAX-FLOATING.BRFR/BRL08",
-            PermissibleValue(
-                text="BRL.PTAX-FLOATING.BRFR/BRL08",
-                meaning=None))
+            PermissibleValue(text="BRL.PTAX-FLOATING.BRFR/BRL08"))
         setattr(cls, "BRL.PTAX-FLOATING/BRL07",
-            PermissibleValue(
-                text="BRL.PTAX-FLOATING/BRL07",
-                meaning=None))
+            PermissibleValue(text="BRL.PTAX-FLOATING/BRL07"))
         setattr(cls, "BRL.PTAX/BRL09",
-            PermissibleValue(
-                text="BRL.PTAX/BRL09",
-                meaning=None))
+            PermissibleValue(text="BRL.PTAX/BRL09"))
         setattr(cls, "CLP.BCCH/CLP01",
-            PermissibleValue(
-                text="CLP.BCCH/CLP01",
-                meaning=None))
+            PermissibleValue(text="CLP.BCCH/CLP01"))
         setattr(cls, "CLP.CHILD-INFORMAL/CLP02",
-            PermissibleValue(
-                text="CLP.CHILD-INFORMAL/CLP02",
-                meaning=None))
+            PermissibleValue(text="CLP.CHILD-INFORMAL/CLP02"))
         setattr(cls, "CLP.CHILD-INTERBANK/CLP03",
-            PermissibleValue(
-                text="CLP.CHILD-INTERBANK/CLP03",
-                meaning=None))
+            PermissibleValue(text="CLP.CHILD-INTERBANK/CLP03"))
         setattr(cls, "CLP.CHILD-OBSERVADO/CLP04",
-            PermissibleValue(
-                text="CLP.CHILD-OBSERVADO/CLP04",
-                meaning=None))
+            PermissibleValue(text="CLP.CHILD-OBSERVADO/CLP04"))
         setattr(cls, "CLP.CHILG-INFORMAL/CLP05",
-            PermissibleValue(
-                text="CLP.CHILG-INFORMAL/CLP05",
-                meaning=None))
+            PermissibleValue(text="CLP.CHILG-INFORMAL/CLP05"))
         setattr(cls, "CLP.CHILG-INTERBANK/CLP06",
-            PermissibleValue(
-                text="CLP.CHILG-INTERBANK/CLP06",
-                meaning=None))
+            PermissibleValue(text="CLP.CHILG-INTERBANK/CLP06"))
         setattr(cls, "CLP.CHILG-OBSERVADO/CLP07",
-            PermissibleValue(
-                text="CLP.CHILG-OBSERVADO/CLP07",
-                meaning=None))
+            PermissibleValue(text="CLP.CHILG-OBSERVADO/CLP07"))
         setattr(cls, "CLP.DOLAR.OBS/CLP10",
-            PermissibleValue(
-                text="CLP.DOLAR.OBS/CLP10",
-                meaning=None))
+            PermissibleValue(text="CLP.DOLAR.OBS/CLP10"))
         setattr(cls, "CLP.EMTA.INDICATIVE.SURVEY.RATE/CLP11",
-            PermissibleValue(
-                text="CLP.EMTA.INDICATIVE.SURVEY.RATE/CLP11",
-                meaning=None))
+            PermissibleValue(text="CLP.EMTA.INDICATIVE.SURVEY.RATE/CLP11"))
         setattr(cls, "CLP.OFFICIAL.RATE/CLP08",
-            PermissibleValue(
-                text="CLP.OFFICIAL.RATE/CLP08",
-                meaning=None))
+            PermissibleValue(text="CLP.OFFICIAL.RATE/CLP08"))
         setattr(cls, "CLP.TELERATE.38942/CLP09",
-            PermissibleValue(
-                text="CLP.TELERATE.38942/CLP09",
-                meaning=None))
+            PermissibleValue(text="CLP.TELERATE.38942/CLP09"))
         setattr(cls, "CNY.SAEC/CNY01",
-            PermissibleValue(
-                text="CNY.SAEC/CNY01",
-                meaning=None))
+            PermissibleValue(text="CNY.SAEC/CNY01"))
         setattr(cls, "CNY.SFEMC.INDICATIVE.SURVEY.RATE/CNY02",
-            PermissibleValue(
-                text="CNY.SFEMC.INDICATIVE.SURVEY.RATE/CNY02",
-                meaning=None))
+            PermissibleValue(text="CNY.SFEMC.INDICATIVE.SURVEY.RATE/CNY02"))
         setattr(cls, "COP.CO/COL03/COP01",
-            PermissibleValue(
-                text="COP.CO/COL03/COP01",
-                meaning=None))
+            PermissibleValue(text="COP.CO/COL03/COP01"))
         setattr(cls, "COP.EMTA.INDICATIVE.SURVEY.RATE/COP03",
-            PermissibleValue(
-                text="COP.EMTA.INDICATIVE.SURVEY.RATE/COP03",
-                meaning=None))
+            PermissibleValue(text="COP.EMTA.INDICATIVE.SURVEY.RATE/COP03"))
         setattr(cls, "COP.TRM/COP02",
-            PermissibleValue(
-                text="COP.TRM/COP02",
-                meaning=None))
+            PermissibleValue(text="COP.TRM/COP02"))
         setattr(cls, "CURRENCY-IMPLIED.RATE.(ADR)/CURA1",
-            PermissibleValue(
-                text="CURRENCY-IMPLIED.RATE.(ADR)/CURA1",
-                meaning=None))
+            PermissibleValue(text="CURRENCY-IMPLIED.RATE.(ADR)/CURA1"))
         setattr(cls, "CURRENCY-IMPLIED.RATE.(LOCAL.ASSET)/CURA2",
-            PermissibleValue(
-                text="CURRENCY-IMPLIED.RATE.(LOCAL.ASSET)/CURA2",
-                meaning=None))
+            PermissibleValue(text="CURRENCY-IMPLIED.RATE.(LOCAL.ASSET)/CURA2"))
         setattr(cls, "CURRENCY-MUTUAL.AGREEMENT/CURA3",
-            PermissibleValue(
-                text="CURRENCY-MUTUAL.AGREEMENT/CURA3",
-                meaning=None))
+            PermissibleValue(text="CURRENCY-MUTUAL.AGREEMENT/CURA3"))
         setattr(cls, "CURRENCY-REFERENCE.DEALERS/CURA4",
-            PermissibleValue(
-                text="CURRENCY-REFERENCE.DEALERS/CURA4",
-                meaning=None))
+            PermissibleValue(text="CURRENCY-REFERENCE.DEALERS/CURA4"))
         setattr(cls, "CURRENCY-WHOLESALE.MARKET/CURA5",
-            PermissibleValue(
-                text="CURRENCY-WHOLESALE.MARKET/CURA5",
-                meaning=None))
+            PermissibleValue(text="CURRENCY-WHOLESALE.MARKET/CURA5"))
         setattr(cls, "ECS.DNRP/ECS01",
-            PermissibleValue(
-                text="ECS.DNRP/ECS01",
-                meaning=None))
+            PermissibleValue(text="ECS.DNRP/ECS01"))
         setattr(cls, "IDR.ABS/IDR01",
-            PermissibleValue(
-                text="IDR.ABS/IDR01",
-                meaning=None))
+            PermissibleValue(text="IDR.ABS/IDR01"))
         setattr(cls, "IDR.JISDOR/IDR04",
-            PermissibleValue(
-                text="IDR.JISDOR/IDR04",
-                meaning=None))
+            PermissibleValue(text="IDR.JISDOR/IDR04"))
         setattr(cls, "IDR.SFEMC.INDICATIVE.SURVEY.RATE/IDR02",
-            PermissibleValue(
-                text="IDR.SFEMC.INDICATIVE.SURVEY.RATE/IDR02",
-                meaning=None))
+            PermissibleValue(text="IDR.SFEMC.INDICATIVE.SURVEY.RATE/IDR02"))
         setattr(cls, "IDR.VWAP/IDR03",
-            PermissibleValue(
-                text="IDR.VWAP/IDR03",
-                meaning=None))
+            PermissibleValue(text="IDR.VWAP/IDR03"))
         setattr(cls, "ILS.BOIJ/ILS01",
-            PermissibleValue(
-                text="ILS.BOIJ/ILS01",
-                meaning=None))
+            PermissibleValue(text="ILS.BOIJ/ILS01"))
         setattr(cls, "ILS.FXIL/ILS02",
-            PermissibleValue(
-                text="ILS.FXIL/ILS02",
-                meaning=None))
+            PermissibleValue(text="ILS.FXIL/ILS02"))
         setattr(cls, "INR.FBIL/INR01",
-            PermissibleValue(
-                text="INR.FBIL/INR01",
-                meaning=None))
+            PermissibleValue(text="INR.FBIL/INR01"))
         setattr(cls, "INR.RBIB/INR01",
-            PermissibleValue(
-                text="INR.RBIB/INR01",
-                meaning=None))
+            PermissibleValue(text="INR.RBIB/INR01"))
         setattr(cls, "INR.SFEMC.INDICATIVE.SURVEY.RATE/INR02",
-            PermissibleValue(
-                text="INR.SFEMC.INDICATIVE.SURVEY.RATE/INR02",
-                meaning=None))
+            PermissibleValue(text="INR.SFEMC.INDICATIVE.SURVEY.RATE/INR02"))
         setattr(cls, "KRW.KEBEY/KRW01",
-            PermissibleValue(
-                text="KRW.KEBEY/KRW01",
-                meaning=None))
+            PermissibleValue(text="KRW.KEBEY/KRW01"))
         setattr(cls, "KRW.KFTC18/KRW02",
-            PermissibleValue(
-                text="KRW.KFTC18/KRW02",
-                meaning=None))
+            PermissibleValue(text="KRW.KFTC18/KRW02"))
         setattr(cls, "KRW.SFEMC.INDICATIVE.SURVEY.RATE/KRW04",
-            PermissibleValue(
-                text="KRW.SFEMC.INDICATIVE.SURVEY.RATE/KRW04",
-                meaning=None))
+            PermissibleValue(text="KRW.SFEMC.INDICATIVE.SURVEY.RATE/KRW04"))
         setattr(cls, "KRW.TELERATE.45644/KRW03",
-            PermissibleValue(
-                text="KRW.TELERATE.45644/KRW03",
-                meaning=None))
+            PermissibleValue(text="KRW.TELERATE.45644/KRW03"))
         setattr(cls, "KZT.EMTA.INDICATIVE.SURVEY.RATE/KZT02",
-            PermissibleValue(
-                text="KZT.EMTA.INDICATIVE.SURVEY.RATE/KZT02",
-                meaning=None))
+            PermissibleValue(text="KZT.EMTA.INDICATIVE.SURVEY.RATE/KZT02"))
         setattr(cls, "KZT.KASE/KZT01",
-            PermissibleValue(
-                text="KZT.KASE/KZT01",
-                meaning=None))
+            PermissibleValue(text="KZT.KASE/KZT01"))
         setattr(cls, "LBP.BDLX/LBP01",
-            PermissibleValue(
-                text="LBP.BDLX/LBP01",
-                meaning=None))
+            PermissibleValue(text="LBP.BDLX/LBP01"))
         setattr(cls, "MAD.OFFICIAL.RATE/MAD01",
-            PermissibleValue(
-                text="MAD.OFFICIAL.RATE/MAD01",
-                meaning=None))
+            PermissibleValue(text="MAD.OFFICIAL.RATE/MAD01"))
         setattr(cls, "MXP.BNMX/MXP01",
-            PermissibleValue(
-                text="MXP.BNMX/MXP01",
-                meaning=None))
+            PermissibleValue(text="MXP.BNMX/MXP01"))
         setattr(cls, "MXP.FIXING.RATE/MXP02",
-            PermissibleValue(
-                text="MXP.FIXING.RATE/MXP02",
-                meaning=None))
+            PermissibleValue(text="MXP.FIXING.RATE/MXP02"))
         setattr(cls, "MXP.MEX01/MXP03",
-            PermissibleValue(
-                text="MXP.MEX01/MXP03",
-                meaning=None))
+            PermissibleValue(text="MXP.MEX01/MXP03"))
         setattr(cls, "MXP.PUBLISHED/MXP04",
-            PermissibleValue(
-                text="MXP.PUBLISHED/MXP04",
-                meaning=None))
+            PermissibleValue(text="MXP.PUBLISHED/MXP04"))
         setattr(cls, "MYR.ABS/MYR01",
-            PermissibleValue(
-                text="MYR.ABS/MYR01",
-                meaning=None))
+            PermissibleValue(text="MYR.ABS/MYR01"))
         setattr(cls, "MYR.KL.REF/MYR04",
-            PermissibleValue(
-                text="MYR.KL.REF/MYR04",
-                meaning=None))
+            PermissibleValue(text="MYR.KL.REF/MYR04"))
         setattr(cls, "MYR.PPKM/MYR03",
-            PermissibleValue(
-                text="MYR.PPKM/MYR03",
-                meaning=None))
+            PermissibleValue(text="MYR.PPKM/MYR03"))
         setattr(cls, "MYR.SFEMC.INDICATIVE.SURVEY.RATE/MYR02",
-            PermissibleValue(
-                text="MYR.SFEMC.INDICATIVE.SURVEY.RATE/MYR02",
-                meaning=None))
+            PermissibleValue(text="MYR.SFEMC.INDICATIVE.SURVEY.RATE/MYR02"))
         setattr(cls, "PEN.EMTA.INDICATIVE.SURVEY.RATE/PEN04",
-            PermissibleValue(
-                text="PEN.EMTA.INDICATIVE.SURVEY.RATE/PEN04",
-                meaning=None))
+            PermissibleValue(text="PEN.EMTA.INDICATIVE.SURVEY.RATE/PEN04"))
         setattr(cls, "PEN.INTERBANK.AVE/PEN05",
-            PermissibleValue(
-                text="PEN.INTERBANK.AVE/PEN05",
-                meaning=None))
+            PermissibleValue(text="PEN.INTERBANK.AVE/PEN05"))
         setattr(cls, "PEN.PDSB/PEN01",
-            PermissibleValue(
-                text="PEN.PDSB/PEN01",
-                meaning=None))
+            PermissibleValue(text="PEN.PDSB/PEN01"))
         setattr(cls, "PEN.WT.AVE/PEN03",
-            PermissibleValue(
-                text="PEN.WT.AVE/PEN03",
-                meaning=None))
+            PermissibleValue(text="PEN.WT.AVE/PEN03"))
         setattr(cls, "PHP.BAPPESO/PHP06",
-            PermissibleValue(
-                text="PHP.BAPPESO/PHP06",
-                meaning=None))
+            PermissibleValue(text="PHP.BAPPESO/PHP06"))
         setattr(cls, "PHP.PDSPESO/PHP06",
-            PermissibleValue(
-                text="PHP.PDSPESO/PHP06",
-                meaning=None))
+            PermissibleValue(text="PHP.PDSPESO/PHP06"))
         setattr(cls, "PHP.PHPESO/PHP01",
-            PermissibleValue(
-                text="PHP.PHPESO/PHP01",
-                meaning=None))
+            PermissibleValue(text="PHP.PHPESO/PHP01"))
         setattr(cls, "PHP.SFEMC.INDICATIVE.SURVEY.RATE/PHP05",
-            PermissibleValue(
-                text="PHP.SFEMC.INDICATIVE.SURVEY.RATE/PHP05",
-                meaning=None))
+            PermissibleValue(text="PHP.SFEMC.INDICATIVE.SURVEY.RATE/PHP05"))
         setattr(cls, "PHP.TELERATE.15439/PHP03",
-            PermissibleValue(
-                text="PHP.TELERATE.15439/PHP03",
-                meaning=None))
+            PermissibleValue(text="PHP.TELERATE.15439/PHP03"))
         setattr(cls, "PHP.TELERATE.2920/PHP02",
-            PermissibleValue(
-                text="PHP.TELERATE.2920/PHP02",
-                meaning=None))
+            PermissibleValue(text="PHP.TELERATE.2920/PHP02"))
         setattr(cls, "PKR.SBPK/PKR01",
-            PermissibleValue(
-                text="PKR.SBPK/PKR01",
-                meaning=None))
+            PermissibleValue(text="PKR.SBPK/PKR01"))
         setattr(cls, "PKR.SFEMC.INDICATIVE.SURVEY.RATE/PKR02",
-            PermissibleValue(
-                text="PKR.SFEMC.INDICATIVE.SURVEY.RATE/PKR02",
-                meaning=None))
+            PermissibleValue(text="PKR.SFEMC.INDICATIVE.SURVEY.RATE/PKR02"))
         setattr(cls, "PLZ.NBPQ/PLZ01",
-            PermissibleValue(
-                text="PLZ.NBPQ/PLZ01",
-                meaning=None))
+            PermissibleValue(text="PLZ.NBPQ/PLZ01"))
         setattr(cls, "PLZ.NBPR/PLZ02",
-            PermissibleValue(
-                text="PLZ.NBPR/PLZ02",
-                meaning=None))
+            PermissibleValue(text="PLZ.NBPR/PLZ02"))
         setattr(cls, "RUB.CME-EMTA/RUB03",
-            PermissibleValue(
-                text="RUB.CME-EMTA/RUB03",
-                meaning=None))
+            PermissibleValue(text="RUB.CME-EMTA/RUB03"))
         setattr(cls, "RUB.EMTA.INDICATIVE.SURVEY.RATE/RUB04",
-            PermissibleValue(
-                text="RUB.EMTA.INDICATIVE.SURVEY.RATE/RUB04",
-                meaning=None))
+            PermissibleValue(text="RUB.EMTA.INDICATIVE.SURVEY.RATE/RUB04"))
         setattr(cls, "RUB.MICEXFRX/RUB01",
-            PermissibleValue(
-                text="RUB.MICEXFRX/RUB01",
-                meaning=None))
+            PermissibleValue(text="RUB.MICEXFRX/RUB01"))
         setattr(cls, "RUB.MMVB/RUB02",
-            PermissibleValue(
-                text="RUB.MMVB/RUB02",
-                meaning=None))
+            PermissibleValue(text="RUB.MMVB/RUB02"))
         setattr(cls, "SGD.VWAP/SGD3",
-            PermissibleValue(
-                text="SGD.VWAP/SGD3",
-                meaning=None))
+            PermissibleValue(text="SGD.VWAP/SGD3"))
         setattr(cls, "SKK.NBSB/SKK01",
-            PermissibleValue(
-                text="SKK.NBSB/SKK01",
-                meaning=None))
+            PermissibleValue(text="SKK.NBSB/SKK01"))
         setattr(cls, "THB.ABS/THB01",
-            PermissibleValue(
-                text="THB.ABS/THB01",
-                meaning=None))
+            PermissibleValue(text="THB.ABS/THB01"))
         setattr(cls, "THB.VWAP/THB01",
-            PermissibleValue(
-                text="THB.VWAP/THB01",
-                meaning=None))
+            PermissibleValue(text="THB.VWAP/THB01"))
         setattr(cls, "TWD.SFEMC.INDICATIVE.SURVEY.RATE/TWD04",
-            PermissibleValue(
-                text="TWD.SFEMC.INDICATIVE.SURVEY.RATE/TWD04",
-                meaning=None))
+            PermissibleValue(text="TWD.SFEMC.INDICATIVE.SURVEY.RATE/TWD04"))
         setattr(cls, "TWD.TAIFX1/TWD03",
-            PermissibleValue(
-                text="TWD.TAIFX1/TWD03",
-                meaning=None))
+            PermissibleValue(text="TWD.TAIFX1/TWD03"))
         setattr(cls, "TWD.TELERATE.6161/TWD01",
-            PermissibleValue(
-                text="TWD.TELERATE.6161/TWD01",
-                meaning=None))
+            PermissibleValue(text="TWD.TELERATE.6161/TWD01"))
         setattr(cls, "TWD.TFEMA/TWD02",
-            PermissibleValue(
-                text="TWD.TFEMA/TWD02",
-                meaning=None))
+            PermissibleValue(text="TWD.TFEMA/TWD02"))
         setattr(cls, "UAH.EMTA.INDICATIVE.SURVEY.RATE/UAH03",
-            PermissibleValue(
-                text="UAH.EMTA.INDICATIVE.SURVEY.RATE/UAH03",
-                meaning=None))
+            PermissibleValue(text="UAH.EMTA.INDICATIVE.SURVEY.RATE/UAH03"))
         setattr(cls, "UAH.EMTA.INDUSTRY.SURVEY.RATE/UAH02",
-            PermissibleValue(
-                text="UAH.EMTA.INDUSTRY.SURVEY.RATE/UAH02",
-                meaning=None))
+            PermissibleValue(text="UAH.EMTA.INDUSTRY.SURVEY.RATE/UAH02"))
         setattr(cls, "UAH.GFI/UAH01",
-            PermissibleValue(
-                text="UAH.GFI/UAH01",
-                meaning=None))
+            PermissibleValue(text="UAH.GFI/UAH01"))
         setattr(cls, "VEF.FIX/VEF01",
-            PermissibleValue(
-                text="VEF.FIX/VEF01",
-                meaning=None))
+            PermissibleValue(text="VEF.FIX/VEF01"))
         setattr(cls, "VND.ABS/VND01",
-            PermissibleValue(
-                text="VND.ABS/VND01",
-                meaning=None))
+            PermissibleValue(text="VND.ABS/VND01"))
         setattr(cls, "VND.FX/VND02",
-            PermissibleValue(
-                text="VND.FX/VND02",
-                meaning=None))
+            PermissibleValue(text="VND.FX/VND02"))
         setattr(cls, "VND.SFEMC.INDICATIVE.SURVEY.RATE/VND03",
-            PermissibleValue(
-                text="VND.SFEMC.INDICATIVE.SURVEY.RATE/VND03",
-                meaning=None))
+            PermissibleValue(text="VND.SFEMC.INDICATIVE.SURVEY.RATE/VND03"))
 
 class CommodityBusinessCalendar(EnumDefinitionImpl):
 
-    ADSM = PermissibleValue(
-        text="ADSM",
-        meaning=None)
-    APPI = PermissibleValue(
-        text="APPI",
-        meaning=None)
-    ASX = PermissibleValue(
-        text="ASX",
-        meaning=None)
-    AWB = PermissibleValue(
-        text="AWB",
-        meaning=None)
-    AWEX = PermissibleValue(
-        text="AWEX",
-        meaning=None)
-    BELPEX = PermissibleValue(
-        text="BELPEX",
-        meaning=None)
-    BLUENEXT = PermissibleValue(
-        text="BLUENEXT",
-        meaning=None)
-    COMEX = PermissibleValue(
-        text="COMEX",
-        meaning=None)
-    CRU = PermissibleValue(
-        text="CRU",
-        meaning=None)
-    DME = PermissibleValue(
-        text="DME",
-        meaning=None)
-    DowJonesPower = PermissibleValue(
-        text="DowJonesPower",
-        meaning=None)
-    FERTECON = PermissibleValue(
-        text="FERTECON",
-        meaning=None)
-    GLOBALCOAL = PermissibleValue(
-        text="GLOBALCOAL",
-        meaning=None)
-    KCBOT = PermissibleValue(
-        text="KCBOT",
-        meaning=None)
-    LME = PermissibleValue(
-        text="LME",
-        meaning=None)
-    MGEX = PermissibleValue(
-        text="MGEX",
-        meaning=None)
-    N2EX = PermissibleValue(
-        text="N2EX",
-        meaning=None)
-    NERC = PermissibleValue(
-        text="NERC",
-        meaning=None)
-    NGI = PermissibleValue(
-        text="NGI",
-        meaning=None)
-    NGX = PermissibleValue(
-        text="NGX",
-        meaning=None)
-    PERTAMINA = PermissibleValue(
-        text="PERTAMINA",
-        meaning=None)
-    PETROCHEMWIRE = PermissibleValue(
-        text="PETROCHEMWIRE",
-        meaning=None)
-    SGX = PermissibleValue(
-        text="SGX",
-        meaning=None)
-    SICOM = PermissibleValue(
-        text="SICOM",
-        meaning=None)
-    TGE = PermissibleValue(
-        text="TGE",
-        meaning=None)
+    ADSM = PermissibleValue(text="ADSM")
+    APPI = PermissibleValue(text="APPI")
+    ASX = PermissibleValue(text="ASX")
+    AWB = PermissibleValue(text="AWB")
+    AWEX = PermissibleValue(text="AWEX")
+    BELPEX = PermissibleValue(text="BELPEX")
+    BLUENEXT = PermissibleValue(text="BLUENEXT")
+    COMEX = PermissibleValue(text="COMEX")
+    CRU = PermissibleValue(text="CRU")
+    DME = PermissibleValue(text="DME")
+    DowJonesPower = PermissibleValue(text="DowJonesPower")
+    FERTECON = PermissibleValue(text="FERTECON")
+    GLOBALCOAL = PermissibleValue(text="GLOBALCOAL")
+    KCBOT = PermissibleValue(text="KCBOT")
+    LME = PermissibleValue(text="LME")
+    MGEX = PermissibleValue(text="MGEX")
+    N2EX = PermissibleValue(text="N2EX")
+    NERC = PermissibleValue(text="NERC")
+    NGI = PermissibleValue(text="NGI")
+    NGX = PermissibleValue(text="NGX")
+    PERTAMINA = PermissibleValue(text="PERTAMINA")
+    PETROCHEMWIRE = PermissibleValue(text="PETROCHEMWIRE")
+    SGX = PermissibleValue(text="SGX")
+    SICOM = PermissibleValue(text="SICOM")
+    TGE = PermissibleValue(text="TGE")
 
     _defn = EnumDefinition(
         name="CommodityBusinessCalendar",
@@ -37971,365 +36001,185 @@ class CommodityBusinessCalendar(EnumDefinitionImpl):
     @classmethod
     def _addvals(cls):
         setattr(cls, "AGRUS-FMB",
-            PermissibleValue(
-                text="AGRUS-FMB",
-                meaning=None))
+            PermissibleValue(text="AGRUS-FMB"))
         setattr(cls, "ARGUS-CRUDE",
-            PermissibleValue(
-                text="ARGUS-CRUDE",
-                meaning=None))
+            PermissibleValue(text="ARGUS-CRUDE"))
         setattr(cls, "ARGUS-EUROPEAN-GAS",
-            PermissibleValue(
-                text="ARGUS-EUROPEAN-GAS",
-                meaning=None))
+            PermissibleValue(text="ARGUS-EUROPEAN-GAS"))
         setattr(cls, "ARGUS-EUROPEAN-PRODUCTS",
-            PermissibleValue(
-                text="ARGUS-EUROPEAN-PRODUCTS",
-                meaning=None))
+            PermissibleValue(text="ARGUS-EUROPEAN-PRODUCTS"))
         setattr(cls, "ARGUS-INTERNATIONAL-LPG",
-            PermissibleValue(
-                text="ARGUS-INTERNATIONAL-LPG",
-                meaning=None))
+            PermissibleValue(text="ARGUS-INTERNATIONAL-LPG"))
         setattr(cls, "ARGUS-MCCLOSKEYS-COAL-REPORT",
-            PermissibleValue(
-                text="ARGUS-MCCLOSKEYS-COAL-REPORT",
-                meaning=None))
+            PermissibleValue(text="ARGUS-MCCLOSKEYS-COAL-REPORT"))
         setattr(cls, "ARGUS-US-PRODUCTS",
-            PermissibleValue(
-                text="ARGUS-US-PRODUCTS",
-                meaning=None))
+            PermissibleValue(text="ARGUS-US-PRODUCTS"))
         setattr(cls, "BALTIC-EXCHANGE",
-            PermissibleValue(
-                text="BALTIC-EXCHANGE",
-                meaning=None))
+            PermissibleValue(text="BALTIC-EXCHANGE"))
         setattr(cls, "BANK-NEGARA-MALAYSIA-POLICY-COMMITTEE",
-            PermissibleValue(
-                text="BANK-NEGARA-MALAYSIA-POLICY-COMMITTEE",
-                meaning=None))
+            PermissibleValue(text="BANK-NEGARA-MALAYSIA-POLICY-COMMITTEE"))
         setattr(cls, "BM&F",
-            PermissibleValue(
-                text="BM&F",
-                meaning=None))
+            PermissibleValue(text="BM&F"))
         setattr(cls, "BURSA-MALAYSIA-SETTLEMENT",
-            PermissibleValue(
-                text="BURSA-MALAYSIA-SETTLEMENT",
-                meaning=None))
+            PermissibleValue(text="BURSA-MALAYSIA-SETTLEMENT"))
         setattr(cls, "BURSA-MALAYSIA-TRADING",
-            PermissibleValue(
-                text="BURSA-MALAYSIA-TRADING",
-                meaning=None))
+            PermissibleValue(text="BURSA-MALAYSIA-TRADING"))
         setattr(cls, "CANADIAN-GAS-PRICE-REPORTER",
-            PermissibleValue(
-                text="CANADIAN-GAS-PRICE-REPORTER",
-                meaning=None))
+            PermissibleValue(text="CANADIAN-GAS-PRICE-REPORTER"))
         setattr(cls, "CBOT-SOFT",
-            PermissibleValue(
-                text="CBOT-SOFT",
-                meaning=None))
+            PermissibleValue(text="CBOT-SOFT"))
         setattr(cls, "CMAI-AROMATICS-MARKET-REPORT",
-            PermissibleValue(
-                text="CMAI-AROMATICS-MARKET-REPORT",
-                meaning=None))
+            PermissibleValue(text="CMAI-AROMATICS-MARKET-REPORT"))
         setattr(cls, "CMAI-GLOBAL-PLASTICS-AND-POLYMERS-MARKET-REPORT",
-            PermissibleValue(
-                text="CMAI-GLOBAL-PLASTICS-AND-POLYMERS-MARKET-REPORT",
-                meaning=None))
+            PermissibleValue(text="CMAI-GLOBAL-PLASTICS-AND-POLYMERS-MARKET-REPORT"))
         setattr(cls, "CMAI-METHANOL-MARKET-REPORT",
-            PermissibleValue(
-                text="CMAI-METHANOL-MARKET-REPORT",
-                meaning=None))
+            PermissibleValue(text="CMAI-METHANOL-MARKET-REPORT"))
         setattr(cls, "CMAI-MONOMERS-MARKET-REPORT",
-            PermissibleValue(
-                text="CMAI-MONOMERS-MARKET-REPORT",
-                meaning=None))
+            PermissibleValue(text="CMAI-MONOMERS-MARKET-REPORT"))
         setattr(cls, "CME-DAIRY",
-            PermissibleValue(
-                text="CME-DAIRY",
-                meaning=None))
+            PermissibleValue(text="CME-DAIRY"))
         setattr(cls, "CME-NON-DAIRY-SOFT",
-            PermissibleValue(
-                text="CME-NON-DAIRY-SOFT",
-                meaning=None))
+            PermissibleValue(text="CME-NON-DAIRY-SOFT"))
         setattr(cls, "CRU-LONG",
-            PermissibleValue(
-                text="CRU-LONG",
-                meaning=None))
+            PermissibleValue(text="CRU-LONG"))
         setattr(cls, "DEPARTMENT-OF-ENERGY",
-            PermissibleValue(
-                text="DEPARTMENT-OF-ENERGY",
-                meaning=None))
+            PermissibleValue(text="DEPARTMENT-OF-ENERGY"))
         setattr(cls, "DEWITT-BENZENE-DERIVATIVES",
-            PermissibleValue(
-                text="DEWITT-BENZENE-DERIVATIVES",
-                meaning=None))
+            PermissibleValue(text="DEWITT-BENZENE-DERIVATIVES"))
         setattr(cls, "DOW-JONES",
-            PermissibleValue(
-                text="DOW-JONES",
-                meaning=None))
+            PermissibleValue(text="DOW-JONES"))
         setattr(cls, "DOW-JONES-ENERGY-SERVICE",
-            PermissibleValue(
-                text="DOW-JONES-ENERGY-SERVICE",
-                meaning=None))
+            PermissibleValue(text="DOW-JONES-ENERGY-SERVICE"))
         setattr(cls, "EEX-COAL",
-            PermissibleValue(
-                text="EEX-COAL",
-                meaning=None))
+            PermissibleValue(text="EEX-COAL"))
         setattr(cls, "EEX-EMISSIONS",
-            PermissibleValue(
-                text="EEX-EMISSIONS",
-                meaning=None))
+            PermissibleValue(text="EEX-EMISSIONS"))
         setattr(cls, "EEX-GAS",
-            PermissibleValue(
-                text="EEX-GAS",
-                meaning=None))
+            PermissibleValue(text="EEX-GAS"))
         setattr(cls, "EEX-POWER",
-            PermissibleValue(
-                text="EEX-POWER",
-                meaning=None))
+            PermissibleValue(text="EEX-POWER"))
         setattr(cls, "EURONEX-MATIF",
-            PermissibleValue(
-                text="EURONEX-MATIF",
-                meaning=None))
+            PermissibleValue(text="EURONEX-MATIF"))
         setattr(cls, "FERTILIZER-WEEK",
-            PermissibleValue(
-                text="FERTILIZER-WEEK",
-                meaning=None))
+            PermissibleValue(text="FERTILIZER-WEEK"))
         setattr(cls, "GAS-DAILY",
-            PermissibleValue(
-                text="GAS-DAILY",
-                meaning=None))
+            PermissibleValue(text="GAS-DAILY"))
         setattr(cls, "GAS-DAILY-PRICE-GUIDE",
-            PermissibleValue(
-                text="GAS-DAILY-PRICE-GUIDE",
-                meaning=None))
+            PermissibleValue(text="GAS-DAILY-PRICE-GUIDE"))
         setattr(cls, "HEREN-REPORT",
-            PermissibleValue(
-                text="HEREN-REPORT",
-                meaning=None))
+            PermissibleValue(text="HEREN-REPORT"))
         setattr(cls, "ICE-CANADA",
-            PermissibleValue(
-                text="ICE-CANADA",
-                meaning=None))
+            PermissibleValue(text="ICE-CANADA"))
         setattr(cls, "ICE-ECX",
-            PermissibleValue(
-                text="ICE-ECX",
-                meaning=None))
+            PermissibleValue(text="ICE-ECX"))
         setattr(cls, "ICE-GAS",
-            PermissibleValue(
-                text="ICE-GAS",
-                meaning=None))
+            PermissibleValue(text="ICE-GAS"))
         setattr(cls, "ICE-OIL",
-            PermissibleValue(
-                text="ICE-OIL",
-                meaning=None))
+            PermissibleValue(text="ICE-OIL"))
         setattr(cls, "ICE-US-AGRICULTURAL",
-            PermissibleValue(
-                text="ICE-US-AGRICULTURAL",
-                meaning=None))
+            PermissibleValue(text="ICE-US-AGRICULTURAL"))
         setattr(cls, "ICE/10X-DAILY",
-            PermissibleValue(
-                text="ICE/10X-DAILY",
-                meaning=None))
+            PermissibleValue(text="ICE/10X-DAILY"))
         setattr(cls, "ICE/10X-MONTHLY",
-            PermissibleValue(
-                text="ICE/10X-MONTHLY",
-                meaning=None))
+            PermissibleValue(text="ICE/10X-MONTHLY"))
         setattr(cls, "ICIS-PRICING-BENZENE-(EUROPE)",
-            PermissibleValue(
-                text="ICIS-PRICING-BENZENE-(EUROPE)",
-                meaning=None))
+            PermissibleValue(text="ICIS-PRICING-BENZENE-(EUROPE)"))
         setattr(cls, "ICIS-PRICING-ETHYLENE-(EUROPE)",
-            PermissibleValue(
-                text="ICIS-PRICING-ETHYLENE-(EUROPE)",
-                meaning=None))
+            PermissibleValue(text="ICIS-PRICING-ETHYLENE-(EUROPE)"))
         setattr(cls, "ICIS-PRICING-POLYPROPYLENE-(EUROPE)",
-            PermissibleValue(
-                text="ICIS-PRICING-POLYPROPYLENE-(EUROPE)",
-                meaning=None))
+            PermissibleValue(text="ICIS-PRICING-POLYPROPYLENE-(EUROPE)"))
         setattr(cls, "INSIDE-FERC",
-            PermissibleValue(
-                text="INSIDE-FERC",
-                meaning=None))
+            PermissibleValue(text="INSIDE-FERC"))
         setattr(cls, "JAPAN-MOF-TSRR",
-            PermissibleValue(
-                text="JAPAN-MOF-TSRR",
-                meaning=None))
+            PermissibleValue(text="JAPAN-MOF-TSRR"))
         setattr(cls, "KUALA-LUMPUR-BANK",
-            PermissibleValue(
-                text="KUALA-LUMPUR-BANK",
-                meaning=None))
+            PermissibleValue(text="KUALA-LUMPUR-BANK"))
         setattr(cls, "LABUAN-BANK",
-            PermissibleValue(
-                text="LABUAN-BANK",
-                meaning=None))
+            PermissibleValue(text="LABUAN-BANK"))
         setattr(cls, "LIFFE-LONDON-SOFT",
-            PermissibleValue(
-                text="LIFFE-LONDON-SOFT",
-                meaning=None))
+            PermissibleValue(text="LIFFE-LONDON-SOFT"))
         setattr(cls, "LONDON-BULLION-MARKET",
-            PermissibleValue(
-                text="LONDON-BULLION-MARKET",
-                meaning=None))
+            PermissibleValue(text="LONDON-BULLION-MARKET"))
         setattr(cls, "LONDON-BULLION-MARKET-GOLD-A.M-ONLY",
-            PermissibleValue(
-                text="LONDON-BULLION-MARKET-GOLD-A.M-ONLY",
-                meaning=None))
+            PermissibleValue(text="LONDON-BULLION-MARKET-GOLD-A.M-ONLY"))
         setattr(cls, "LONDON-PLATINUM-PALLADIUM-MARKET",
-            PermissibleValue(
-                text="LONDON-PLATINUM-PALLADIUM-MARKET",
-                meaning=None))
+            PermissibleValue(text="LONDON-PLATINUM-PALLADIUM-MARKET"))
         setattr(cls, "NASDAQ-OMX",
-            PermissibleValue(
-                text="NASDAQ-OMX",
-                meaning=None))
+            PermissibleValue(text="NASDAQ-OMX"))
         setattr(cls, "NATURAL-GAS-WEEK",
-            PermissibleValue(
-                text="NATURAL-GAS-WEEK",
-                meaning=None))
+            PermissibleValue(text="NATURAL-GAS-WEEK"))
         setattr(cls, "NUCLEAR-MARKET-REVIEW",
-            PermissibleValue(
-                text="NUCLEAR-MARKET-REVIEW",
-                meaning=None))
+            PermissibleValue(text="NUCLEAR-MARKET-REVIEW"))
         setattr(cls, "NYMEX-ELECTRICITY",
-            PermissibleValue(
-                text="NYMEX-ELECTRICITY",
-                meaning=None))
+            PermissibleValue(text="NYMEX-ELECTRICITY"))
         setattr(cls, "NYMEX-GAS",
-            PermissibleValue(
-                text="NYMEX-GAS",
-                meaning=None))
+            PermissibleValue(text="NYMEX-GAS"))
         setattr(cls, "NYMEX-NATURAL-GAS",
-            PermissibleValue(
-                text="NYMEX-NATURAL-GAS",
-                meaning=None))
+            PermissibleValue(text="NYMEX-NATURAL-GAS"))
         setattr(cls, "NYMEX-OIL",
-            PermissibleValue(
-                text="NYMEX-OIL",
-                meaning=None))
+            PermissibleValue(text="NYMEX-OIL"))
         setattr(cls, "OFFICIAL-BOARD-MARKETS",
-            PermissibleValue(
-                text="OFFICIAL-BOARD-MARKETS",
-                meaning=None))
+            PermissibleValue(text="OFFICIAL-BOARD-MARKETS"))
         setattr(cls, "OPIS-LP-GAS",
-            PermissibleValue(
-                text="OPIS-LP-GAS",
-                meaning=None))
+            PermissibleValue(text="OPIS-LP-GAS"))
         setattr(cls, "OPIS-PROPANE",
-            PermissibleValue(
-                text="OPIS-PROPANE",
-                meaning=None))
+            PermissibleValue(text="OPIS-PROPANE"))
         setattr(cls, "PAPER-PACKAGING-MONITOR",
-            PermissibleValue(
-                text="PAPER-PACKAGING-MONITOR",
-                meaning=None))
+            PermissibleValue(text="PAPER-PACKAGING-MONITOR"))
         setattr(cls, "PAPER-TRADER",
-            PermissibleValue(
-                text="PAPER-TRADER",
-                meaning=None))
+            PermissibleValue(text="PAPER-TRADER"))
         setattr(cls, "PIX-PULP-BENCHMARK-INDICES",
-            PermissibleValue(
-                text="PIX-PULP-BENCHMARK-INDICES",
-                meaning=None))
+            PermissibleValue(text="PIX-PULP-BENCHMARK-INDICES"))
         setattr(cls, "PLATTS-APAG-MARKETSCAN",
-            PermissibleValue(
-                text="PLATTS-APAG-MARKETSCAN",
-                meaning=None))
+            PermissibleValue(text="PLATTS-APAG-MARKETSCAN"))
         setattr(cls, "PLATTS-BUNKERWIRE",
-            PermissibleValue(
-                text="PLATTS-BUNKERWIRE",
-                meaning=None))
+            PermissibleValue(text="PLATTS-BUNKERWIRE"))
         setattr(cls, "PLATTS-CLEAN-TANKERWIRE",
-            PermissibleValue(
-                text="PLATTS-CLEAN-TANKERWIRE",
-                meaning=None))
+            PermissibleValue(text="PLATTS-CLEAN-TANKERWIRE"))
         setattr(cls, "PLATTS-CRUDE-OIL-MARKETWIRE",
-            PermissibleValue(
-                text="PLATTS-CRUDE-OIL-MARKETWIRE",
-                meaning=None))
+            PermissibleValue(text="PLATTS-CRUDE-OIL-MARKETWIRE"))
         setattr(cls, "PLATTS-DIRTY-TANKERWIRE",
-            PermissibleValue(
-                text="PLATTS-DIRTY-TANKERWIRE",
-                meaning=None))
+            PermissibleValue(text="PLATTS-DIRTY-TANKERWIRE"))
         setattr(cls, "PLATTS-EUROPEAN-GAS",
-            PermissibleValue(
-                text="PLATTS-EUROPEAN-GAS",
-                meaning=None))
+            PermissibleValue(text="PLATTS-EUROPEAN-GAS"))
         setattr(cls, "PLATTS-EUROPEAN-MARKETSCAN",
-            PermissibleValue(
-                text="PLATTS-EUROPEAN-MARKETSCAN",
-                meaning=None))
+            PermissibleValue(text="PLATTS-EUROPEAN-MARKETSCAN"))
         setattr(cls, "PLATTS-METALS-ALERT",
-            PermissibleValue(
-                text="PLATTS-METALS-ALERT",
-                meaning=None))
+            PermissibleValue(text="PLATTS-METALS-ALERT"))
         setattr(cls, "PLATTS-OILGRAM",
-            PermissibleValue(
-                text="PLATTS-OILGRAM",
-                meaning=None))
+            PermissibleValue(text="PLATTS-OILGRAM"))
         setattr(cls, "PLATTS-TSI-IRON-ORE",
-            PermissibleValue(
-                text="PLATTS-TSI-IRON-ORE",
-                meaning=None))
+            PermissibleValue(text="PLATTS-TSI-IRON-ORE"))
         setattr(cls, "PLATTS-TSI-SCRAP",
-            PermissibleValue(
-                text="PLATTS-TSI-SCRAP",
-                meaning=None))
+            PermissibleValue(text="PLATTS-TSI-SCRAP"))
         setattr(cls, "PLATTS-TSI-STEEL",
-            PermissibleValue(
-                text="PLATTS-TSI-STEEL",
-                meaning=None))
+            PermissibleValue(text="PLATTS-TSI-STEEL"))
         setattr(cls, "PLATTS-US-MARKETSCAN",
-            PermissibleValue(
-                text="PLATTS-US-MARKETSCAN",
-                meaning=None))
+            PermissibleValue(text="PLATTS-US-MARKETSCAN"))
         setattr(cls, "PULP-AND-PAPER-INTERNATIONAL",
-            PermissibleValue(
-                text="PULP-AND-PAPER-INTERNATIONAL",
-                meaning=None))
+            PermissibleValue(text="PULP-AND-PAPER-INTERNATIONAL"))
         setattr(cls, "PULP-AND-PAPER-WEEK",
-            PermissibleValue(
-                text="PULP-AND-PAPER-WEEK",
-                meaning=None))
+            PermissibleValue(text="PULP-AND-PAPER-WEEK"))
         setattr(cls, "RIM-PRODUCTS-INTELLIGENCE-DAILY",
-            PermissibleValue(
-                text="RIM-PRODUCTS-INTELLIGENCE-DAILY",
-                meaning=None))
+            PermissibleValue(text="RIM-PRODUCTS-INTELLIGENCE-DAILY"))
         setattr(cls, "SAFEX-SOFT",
-            PermissibleValue(
-                text="SAFEX-SOFT",
-                meaning=None))
+            PermissibleValue(text="SAFEX-SOFT"))
         setattr(cls, "SFE-SOFT",
-            PermissibleValue(
-                text="SFE-SOFT",
-                meaning=None))
+            PermissibleValue(text="SFE-SOFT"))
         setattr(cls, "SP-GSCI",
-            PermissibleValue(
-                text="SP-GSCI",
-                meaning=None))
+            PermissibleValue(text="SP-GSCI"))
         setattr(cls, "STATISTICHES-BUNDESAMT",
-            PermissibleValue(
-                text="STATISTICHES-BUNDESAMT",
-                meaning=None))
+            PermissibleValue(text="STATISTICHES-BUNDESAMT"))
         setattr(cls, "TOCOM-OIL",
-            PermissibleValue(
-                text="TOCOM-OIL",
-                meaning=None))
+            PermissibleValue(text="TOCOM-OIL"))
         setattr(cls, "TOCOM-PRECIOUS",
-            PermissibleValue(
-                text="TOCOM-PRECIOUS",
-                meaning=None))
+            PermissibleValue(text="TOCOM-PRECIOUS"))
         setattr(cls, "TOCOM-SOFT",
-            PermissibleValue(
-                text="TOCOM-SOFT",
-                meaning=None))
+            PermissibleValue(text="TOCOM-SOFT"))
         setattr(cls, "UX-WEEKLY",
-            PermissibleValue(
-                text="UX-WEEKLY",
-                meaning=None))
+            PermissibleValue(text="UX-WEEKLY"))
         setattr(cls, "WORLD-PULP-MONTHLY",
-            PermissibleValue(
-                text="WORLD-PULP-MONTHLY",
-                meaning=None))
+            PermissibleValue(text="WORLD-PULP-MONTHLY"))
 
 class CommodityReferencePrice(EnumDefinitionImpl):
 
@@ -38340,379 +36190,187 @@ class CommodityReferencePrice(EnumDefinitionImpl):
     @classmethod
     def _addvals(cls):
         setattr(cls, "AGRI-AZUKI BEANS-OSE",
-            PermissibleValue(
-                text="AGRI-AZUKI BEANS-OSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-AZUKI BEANS-OSE"))
         setattr(cls, "AGRI-BARLEY-FEED-ASX",
-            PermissibleValue(
-                text="AGRI-BARLEY-FEED-ASX",
-                meaning=None))
+            PermissibleValue(text="AGRI-BARLEY-FEED-ASX"))
         setattr(cls, "AGRI-BUTTER-CASH SETTLED-CME",
-            PermissibleValue(
-                text="AGRI-BUTTER-CASH SETTLED-CME",
-                meaning=None))
+            PermissibleValue(text="AGRI-BUTTER-CASH SETTLED-CME"))
         setattr(cls, "AGRI-BUTTER-DAILY CASH TRADING-USDA",
-            PermissibleValue(
-                text="AGRI-BUTTER-DAILY CASH TRADING-USDA",
-                meaning=None))
+            PermissibleValue(text="AGRI-BUTTER-DAILY CASH TRADING-USDA"))
         setattr(cls, "AGRI-BUTTER-USDA",
-            PermissibleValue(
-                text="AGRI-BUTTER-USDA",
-                meaning=None))
+            PermissibleValue(text="AGRI-BUTTER-USDA"))
         setattr(cls, "AGRI-CANOLA-ICE",
-            PermissibleValue(
-                text="AGRI-CANOLA-ICE",
-                meaning=None))
+            PermissibleValue(text="AGRI-CANOLA-ICE"))
         setattr(cls, "AGRI-CATTLE-FEEDER-CME",
-            PermissibleValue(
-                text="AGRI-CATTLE-FEEDER-CME",
-                meaning=None))
+            PermissibleValue(text="AGRI-CATTLE-FEEDER-CME"))
         setattr(cls, "AGRI-CATTLE-LIVE-CME",
-            PermissibleValue(
-                text="AGRI-CATTLE-LIVE-CME",
-                meaning=None))
+            PermissibleValue(text="AGRI-CATTLE-LIVE-CME"))
         setattr(cls, "AGRI-CHEESE-BARRELS-DAILY CASH TRADING-USDA",
-            PermissibleValue(
-                text="AGRI-CHEESE-BARRELS-DAILY CASH TRADING-USDA",
-                meaning=None))
+            PermissibleValue(text="AGRI-CHEESE-BARRELS-DAILY CASH TRADING-USDA"))
         setattr(cls, "AGRI-CHEESE-BLOCKS-DAILY CASH TRADING-USDA",
-            PermissibleValue(
-                text="AGRI-CHEESE-BLOCKS-DAILY CASH TRADING-USDA",
-                meaning=None))
+            PermissibleValue(text="AGRI-CHEESE-BLOCKS-DAILY CASH TRADING-USDA"))
         setattr(cls, "AGRI-CHEESE-PRODUCT PRICE AVERAGES-USDA",
-            PermissibleValue(
-                text="AGRI-CHEESE-PRODUCT PRICE AVERAGES-USDA",
-                meaning=None))
+            PermissibleValue(text="AGRI-CHEESE-PRODUCT PRICE AVERAGES-USDA"))
         setattr(cls, "AGRI-COCOA-ICE",
-            PermissibleValue(
-                text="AGRI-COCOA-ICE",
-                meaning=None))
+            PermissibleValue(text="AGRI-COCOA-ICE"))
         setattr(cls, "AGRI-COCOA-LONDON-ICE",
-            PermissibleValue(
-                text="AGRI-COCOA-LONDON-ICE",
-                meaning=None))
+            PermissibleValue(text="AGRI-COCOA-LONDON-ICE"))
         setattr(cls, "AGRI-COFFEE-ARABICA-BMandF",
-            PermissibleValue(
-                text="AGRI-COFFEE-ARABICA-BMandF",
-                meaning=None))
+            PermissibleValue(text="AGRI-COFFEE-ARABICA-BMandF"))
         setattr(cls, "AGRI-COFFEE-ARABICA-ICE",
-            PermissibleValue(
-                text="AGRI-COFFEE-ARABICA-ICE",
-                meaning=None))
+            PermissibleValue(text="AGRI-COFFEE-ARABICA-ICE"))
         setattr(cls, "AGRI-COFFEE-ROBUSTA-ICE",
-            PermissibleValue(
-                text="AGRI-COFFEE-ROBUSTA-ICE",
-                meaning=None))
+            PermissibleValue(text="AGRI-COFFEE-ROBUSTA-ICE"))
         setattr(cls, "AGRI-CORN-CBOT",
-            PermissibleValue(
-                text="AGRI-CORN-CBOT",
-                meaning=None))
+            PermissibleValue(text="AGRI-CORN-CBOT"))
         setattr(cls, "AGRI-CORN-CBOT-JSE",
-            PermissibleValue(
-                text="AGRI-CORN-CBOT-JSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-CORN-CBOT-JSE"))
         setattr(cls, "AGRI-CORN-EURONEXT MATIF",
-            PermissibleValue(
-                text="AGRI-CORN-EURONEXT MATIF",
-                meaning=None))
+            PermissibleValue(text="AGRI-CORN-EURONEXT MATIF"))
         setattr(cls, "AGRI-COTTON-NO. 2-ICE",
-            PermissibleValue(
-                text="AGRI-COTTON-NO. 2-ICE",
-                meaning=None))
+            PermissibleValue(text="AGRI-COTTON-NO. 2-ICE"))
         setattr(cls, "AGRI-DAP-CENTRAL FLORIDA-FERTILIZER INDEX",
-            PermissibleValue(
-                text="AGRI-DAP-CENTRAL FLORIDA-FERTILIZER INDEX",
-                meaning=None))
+            PermissibleValue(text="AGRI-DAP-CENTRAL FLORIDA-FERTILIZER INDEX"))
         setattr(cls, "AGRI-DAP-FOB-NOLA BARGE-FERTILIZER INDEX",
-            PermissibleValue(
-                text="AGRI-DAP-FOB-NOLA BARGE-FERTILIZER INDEX",
-                meaning=None))
+            PermissibleValue(text="AGRI-DAP-FOB-NOLA BARGE-FERTILIZER INDEX"))
         setattr(cls, "AGRI-DAP-FOB-TAMPA-FERTILIZER INDEX",
-            PermissibleValue(
-                text="AGRI-DAP-FOB-TAMPA-FERTILIZER INDEX",
-                meaning=None))
+            PermissibleValue(text="AGRI-DAP-FOB-TAMPA-FERTILIZER INDEX"))
         setattr(cls, "AGRI-DAP-METRIC TONNE-FOB-TAMPA-FERTILIZER INDEX",
-            PermissibleValue(
-                text="AGRI-DAP-METRIC TONNE-FOB-TAMPA-FERTILIZER INDEX",
-                meaning=None))
+            PermissibleValue(text="AGRI-DAP-METRIC TONNE-FOB-TAMPA-FERTILIZER INDEX"))
         setattr(cls, "AGRI-HOGS-LEAN-CME",
-            PermissibleValue(
-                text="AGRI-HOGS-LEAN-CME",
-                meaning=None))
+            PermissibleValue(text="AGRI-HOGS-LEAN-CME"))
         setattr(cls, "AGRI-LUMBER-RANDOM LENGTH-CME",
-            PermissibleValue(
-                text="AGRI-LUMBER-RANDOM LENGTH-CME",
-                meaning=None))
+            PermissibleValue(text="AGRI-LUMBER-RANDOM LENGTH-CME"))
         setattr(cls, "AGRI-MAP-CFR-BRAZIL-DAILY-ARGUS",
-            PermissibleValue(
-                text="AGRI-MAP-CFR-BRAZIL-DAILY-ARGUS",
-                meaning=None))
+            PermissibleValue(text="AGRI-MAP-CFR-BRAZIL-DAILY-ARGUS"))
         setattr(cls, "AGRI-MAP-CFR-BRAZIL-WEEKLY-ARGUS",
-            PermissibleValue(
-                text="AGRI-MAP-CFR-BRAZIL-WEEKLY-ARGUS",
-                meaning=None))
+            PermissibleValue(text="AGRI-MAP-CFR-BRAZIL-WEEKLY-ARGUS"))
         setattr(cls, "AGRI-MILK-CLASS III-CME",
-            PermissibleValue(
-                text="AGRI-MILK-CLASS III-CME",
-                meaning=None))
+            PermissibleValue(text="AGRI-MILK-CLASS III-CME"))
         setattr(cls, "AGRI-MILK-CLASS IV-CME",
-            PermissibleValue(
-                text="AGRI-MILK-CLASS IV-CME",
-                meaning=None))
+            PermissibleValue(text="AGRI-MILK-CLASS IV-CME"))
         setattr(cls, "AGRI-MILK-NONFAT-DRY-CME",
-            PermissibleValue(
-                text="AGRI-MILK-NONFAT-DRY-CME",
-                meaning=None))
+            PermissibleValue(text="AGRI-MILK-NONFAT-DRY-CME"))
         setattr(cls, "AGRI-MILK-NONFAT-DRY-USDA",
-            PermissibleValue(
-                text="AGRI-MILK-NONFAT-DRY-USDA",
-                meaning=None))
+            PermissibleValue(text="AGRI-MILK-NONFAT-DRY-USDA"))
         setattr(cls, "AGRI-MILK-WMP-SGX",
-            PermissibleValue(
-                text="AGRI-MILK-WMP-SGX",
-                meaning=None))
+            PermissibleValue(text="AGRI-MILK-WMP-SGX"))
         setattr(cls, "AGRI-OATS-CBOT",
-            PermissibleValue(
-                text="AGRI-OATS-CBOT",
-                meaning=None))
+            PermissibleValue(text="AGRI-OATS-CBOT"))
         setattr(cls, "AGRI-ORANGE JUICE-FROZEN CONCENTRATED-ICE",
-            PermissibleValue(
-                text="AGRI-ORANGE JUICE-FROZEN CONCENTRATED-ICE",
-                meaning=None))
+            PermissibleValue(text="AGRI-ORANGE JUICE-FROZEN CONCENTRATED-ICE"))
         setattr(cls, "AGRI-PALM OIL-CRUDE-FCPO-BMD",
-            PermissibleValue(
-                text="AGRI-PALM OIL-CRUDE-FCPO-BMD",
-                meaning=None))
+            PermissibleValue(text="AGRI-PALM OIL-CRUDE-FCPO-BMD"))
         setattr(cls, "AGRI-PORK-CUTOUT-CME",
-            PermissibleValue(
-                text="AGRI-PORK-CUTOUT-CME",
-                meaning=None))
+            PermissibleValue(text="AGRI-PORK-CUTOUT-CME"))
         setattr(cls, "AGRI-RAPESEED-EURONEXT MATIF",
-            PermissibleValue(
-                text="AGRI-RAPESEED-EURONEXT MATIF",
-                meaning=None))
+            PermissibleValue(text="AGRI-RAPESEED-EURONEXT MATIF"))
         setattr(cls, "AGRI-RICE-ROUGH-CBOT",
-            PermissibleValue(
-                text="AGRI-RICE-ROUGH-CBOT",
-                meaning=None))
+            PermissibleValue(text="AGRI-RICE-ROUGH-CBOT"))
         setattr(cls, "AGRI-RUBBER-RSS3-OSE",
-            PermissibleValue(
-                text="AGRI-RUBBER-RSS3-OSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-RUBBER-RSS3-OSE"))
         setattr(cls, "AGRI-RUBBER-RSS3-SGX",
-            PermissibleValue(
-                text="AGRI-RUBBER-RSS3-SGX",
-                meaning=None))
+            PermissibleValue(text="AGRI-RUBBER-RSS3-SGX"))
         setattr(cls, "AGRI-RUBBER-TSR20-OSE",
-            PermissibleValue(
-                text="AGRI-RUBBER-TSR20-OSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-RUBBER-TSR20-OSE"))
         setattr(cls, "AGRI-RUBBER-TSR20-SGX",
-            PermissibleValue(
-                text="AGRI-RUBBER-TSR20-SGX",
-                meaning=None))
+            PermissibleValue(text="AGRI-RUBBER-TSR20-SGX"))
         setattr(cls, "AGRI-SOYBEAN-MEAL-CBOT",
-            PermissibleValue(
-                text="AGRI-SOYBEAN-MEAL-CBOT",
-                meaning=None))
+            PermissibleValue(text="AGRI-SOYBEAN-MEAL-CBOT"))
         setattr(cls, "AGRI-SOYBEAN-MEAL-CBOT-JSE",
-            PermissibleValue(
-                text="AGRI-SOYBEAN-MEAL-CBOT-JSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-SOYBEAN-MEAL-CBOT-JSE"))
         setattr(cls, "AGRI-SOYBEAN-OIL-CBOT",
-            PermissibleValue(
-                text="AGRI-SOYBEAN-OIL-CBOT",
-                meaning=None))
+            PermissibleValue(text="AGRI-SOYBEAN-OIL-CBOT"))
         setattr(cls, "AGRI-SOYBEAN-OIL-CBOT-JSE",
-            PermissibleValue(
-                text="AGRI-SOYBEAN-OIL-CBOT-JSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-SOYBEAN-OIL-CBOT-JSE"))
         setattr(cls, "AGRI-SOYBEANS-CBOT",
-            PermissibleValue(
-                text="AGRI-SOYBEANS-CBOT",
-                meaning=None))
+            PermissibleValue(text="AGRI-SOYBEANS-CBOT"))
         setattr(cls, "AGRI-SOYBEANS-CBOT-JSE",
-            PermissibleValue(
-                text="AGRI-SOYBEANS-CBOT-JSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-SOYBEANS-CBOT-JSE"))
         setattr(cls, "AGRI-SOYBEANS-JSE",
-            PermissibleValue(
-                text="AGRI-SOYBEANS-JSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-SOYBEANS-JSE"))
         setattr(cls, "AGRI-SUGAR-NO. 11-ICE",
-            PermissibleValue(
-                text="AGRI-SUGAR-NO. 11-ICE",
-                meaning=None))
+            PermissibleValue(text="AGRI-SUGAR-NO. 11-ICE"))
         setattr(cls, "AGRI-SUGAR-NO. 16-ICE",
-            PermissibleValue(
-                text="AGRI-SUGAR-NO. 16-ICE",
-                meaning=None))
+            PermissibleValue(text="AGRI-SUGAR-NO. 16-ICE"))
         setattr(cls, "AGRI-SUNFLOWER SEEDS-JSE",
-            PermissibleValue(
-                text="AGRI-SUNFLOWER SEEDS-JSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-SUNFLOWER SEEDS-JSE"))
         setattr(cls, "AGRI-UAN-FOB-NOLA BARGE-FERTILIZER INDEX",
-            PermissibleValue(
-                text="AGRI-UAN-FOB-NOLA BARGE-FERTILIZER INDEX",
-                meaning=None))
+            PermissibleValue(text="AGRI-UAN-FOB-NOLA BARGE-FERTILIZER INDEX"))
         setattr(cls, "AGRI-UREA-GRANULAR-FOB-EGYPT-FERTILIZER INDEX",
-            PermissibleValue(
-                text="AGRI-UREA-GRANULAR-FOB-EGYPT-FERTILIZER INDEX",
-                meaning=None))
+            PermissibleValue(text="AGRI-UREA-GRANULAR-FOB-EGYPT-FERTILIZER INDEX"))
         setattr(cls, "AGRI-UREA-GRANULAR-FOB-NOLA BARGE-FERTILIZER INDEX",
-            PermissibleValue(
-                text="AGRI-UREA-GRANULAR-FOB-NOLA BARGE-FERTILIZER INDEX",
-                meaning=None))
+            PermissibleValue(text="AGRI-UREA-GRANULAR-FOB-NOLA BARGE-FERTILIZER INDEX"))
         setattr(cls, "AGRI-UREA-GRANULAR-FOB-US GULF-DAILY-ARGUS",
-            PermissibleValue(
-                text="AGRI-UREA-GRANULAR-FOB-US GULF-DAILY-ARGUS",
-                meaning=None))
+            PermissibleValue(text="AGRI-UREA-GRANULAR-FOB-US GULF-DAILY-ARGUS"))
         setattr(cls, "AGRI-UREA-GRANULAR-FOB-US GULF-WEEKLY-ARGUS",
-            PermissibleValue(
-                text="AGRI-UREA-GRANULAR-FOB-US GULF-WEEKLY-ARGUS",
-                meaning=None))
+            PermissibleValue(text="AGRI-UREA-GRANULAR-FOB-US GULF-WEEKLY-ARGUS"))
         setattr(cls, "AGRI-UREA-PRILLED-FOB-YUZHNYY-FERTILIZER INDEX",
-            PermissibleValue(
-                text="AGRI-UREA-PRILLED-FOB-YUZHNYY-FERTILIZER INDEX",
-                meaning=None))
+            PermissibleValue(text="AGRI-UREA-PRILLED-FOB-YUZHNYY-FERTILIZER INDEX"))
         setattr(cls, "AGRI-WHEAT-CBOT",
-            PermissibleValue(
-                text="AGRI-WHEAT-CBOT",
-                meaning=None))
+            PermissibleValue(text="AGRI-WHEAT-CBOT"))
         setattr(cls, "AGRI-WHEAT-FEED-UK-ICE",
-            PermissibleValue(
-                text="AGRI-WHEAT-FEED-UK-ICE",
-                meaning=None))
+            PermissibleValue(text="AGRI-WHEAT-FEED-UK-ICE"))
         setattr(cls, "AGRI-WHEAT-HRW-KC-CME",
-            PermissibleValue(
-                text="AGRI-WHEAT-HRW-KC-CME",
-                meaning=None))
+            PermissibleValue(text="AGRI-WHEAT-HRW-KC-CME"))
         setattr(cls, "AGRI-WHEAT-HRW-MGEX",
-            PermissibleValue(
-                text="AGRI-WHEAT-HRW-MGEX",
-                meaning=None))
+            PermissibleValue(text="AGRI-WHEAT-HRW-MGEX"))
         setattr(cls, "AGRI-WHEAT-MILLING-ASX",
-            PermissibleValue(
-                text="AGRI-WHEAT-MILLING-ASX",
-                meaning=None))
+            PermissibleValue(text="AGRI-WHEAT-MILLING-ASX"))
         setattr(cls, "AGRI-WHEAT-MILLING-JSE",
-            PermissibleValue(
-                text="AGRI-WHEAT-MILLING-JSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-WHEAT-MILLING-JSE"))
         setattr(cls, "AGRI-WHEAT-MILLING-NO. 2-EURONEXT MATIF",
-            PermissibleValue(
-                text="AGRI-WHEAT-MILLING-NO. 2-EURONEXT MATIF",
-                meaning=None))
+            PermissibleValue(text="AGRI-WHEAT-MILLING-NO. 2-EURONEXT MATIF"))
         setattr(cls, "AGRI-WHEY-DRY-USDA",
-            PermissibleValue(
-                text="AGRI-WHEY-DRY-USDA",
-                meaning=None))
+            PermissibleValue(text="AGRI-WHEY-DRY-USDA"))
         setattr(cls, "AGRI-WHITE MAIZE-WM1-JSE",
-            PermissibleValue(
-                text="AGRI-WHITE MAIZE-WM1-JSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-WHITE MAIZE-WM1-JSE"))
         setattr(cls, "AGRI-WHITE MAIZE-WM2-JSE",
-            PermissibleValue(
-                text="AGRI-WHITE MAIZE-WM2-JSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-WHITE MAIZE-WM2-JSE"))
         setattr(cls, "AGRI-WHITE SUGAR-ICE",
-            PermissibleValue(
-                text="AGRI-WHITE SUGAR-ICE",
-                meaning=None))
+            PermissibleValue(text="AGRI-WHITE SUGAR-ICE"))
         setattr(cls, "AGRI-YELLOW MAIZE-YM1-JSE",
-            PermissibleValue(
-                text="AGRI-YELLOW MAIZE-YM1-JSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-YELLOW MAIZE-YM1-JSE"))
         setattr(cls, "AGRI-YELLOW MAIZE-YM2-JSE",
-            PermissibleValue(
-                text="AGRI-YELLOW MAIZE-YM2-JSE",
-                meaning=None))
+            PermissibleValue(text="AGRI-YELLOW MAIZE-YM2-JSE"))
         setattr(cls, "ENER-BIODIESEL-RED FAME-0 DEGREES CELSIUS CFPP-FOB-ARA-ARGUS",
-            PermissibleValue(
-                text="ENER-BIODIESEL-RED FAME-0 DEGREES CELSIUS CFPP-FOB-ARA-ARGUS",
-                meaning=None))
+            PermissibleValue(text="ENER-BIODIESEL-RED FAME-0 DEGREES CELSIUS CFPP-FOB-ARA-ARGUS"))
         setattr(cls, "ENER-BIODIESEL-RED RAPESEED OME-FOB-ARA-ARGUS",
-            PermissibleValue(
-                text="ENER-BIODIESEL-RED RAPESEED OME-FOB-ARA-ARGUS",
-                meaning=None))
+            PermissibleValue(text="ENER-BIODIESEL-RED RAPESEED OME-FOB-ARA-ARGUS"))
         setattr(cls, "ENER-BIODIESEL-RIN-ARGUS",
-            PermissibleValue(
-                text="ENER-BIODIESEL-RIN-ARGUS",
-                meaning=None))
+            PermissibleValue(text="ENER-BIODIESEL-RIN-ARGUS"))
         setattr(cls, "ENER-BIODIESEL-SME-B100-FOB-HOUSTON-ARGUS",
-            PermissibleValue(
-                text="ENER-BIODIESEL-SME-B100-FOB-HOUSTON-ARGUS",
-                meaning=None))
+            PermissibleValue(text="ENER-BIODIESEL-SME-B100-FOB-HOUSTON-ARGUS"))
         setattr(cls, "ENER-BIOFUEL-ADVANCED-RIN-ARGUS",
-            PermissibleValue(
-                text="ENER-BIOFUEL-ADVANCED-RIN-ARGUS",
-                meaning=None))
+            PermissibleValue(text="ENER-BIOFUEL-ADVANCED-RIN-ARGUS"))
         setattr(cls, "ENER-ETHANOL-BM&F",
-            PermissibleValue(
-                text="ENER-ETHANOL-BM&F",
-                meaning=None))
+            PermissibleValue(text="ENER-ETHANOL-BM&F"))
         setattr(cls, "ENER-ETHANOL-CHICAGO PIPE-PLATTS",
-            PermissibleValue(
-                text="ENER-ETHANOL-CHICAGO PIPE-PLATTS",
-                meaning=None))
+            PermissibleValue(text="ENER-ETHANOL-CHICAGO PIPE-PLATTS"))
         setattr(cls, "ENER-ETHANOL-CHICAGO-CBOT",
-            PermissibleValue(
-                text="ENER-ETHANOL-CHICAGO-CBOT",
-                meaning=None))
+            PermissibleValue(text="ENER-ETHANOL-CHICAGO-CBOT"))
         setattr(cls, "ENER-ETHANOL-CME",
-            PermissibleValue(
-                text="ENER-ETHANOL-CME",
-                meaning=None))
+            PermissibleValue(text="ENER-ETHANOL-CME"))
         setattr(cls, "ENER-ETHANOL-NYH BARGE-MO01-PLATTS",
-            PermissibleValue(
-                text="ENER-ETHANOL-NYH BARGE-MO01-PLATTS",
-                meaning=None))
+            PermissibleValue(text="ENER-ETHANOL-NYH BARGE-MO01-PLATTS"))
         setattr(cls, "ENER-ETHANOL-RIN-ARGUS",
-            PermissibleValue(
-                text="ENER-ETHANOL-RIN-ARGUS",
-                meaning=None))
+            PermissibleValue(text="ENER-ETHANOL-RIN-ARGUS"))
 
 class CreditEventType(EnumDefinitionImpl):
 
-    Bankruptcy = PermissibleValue(
-        text="Bankruptcy",
-        meaning=None)
-    DistressedRatingsDowngrade = PermissibleValue(
-        text="DistressedRatingsDowngrade",
-        meaning=None)
-    FailureToPay = PermissibleValue(
-        text="FailureToPay",
-        meaning=None)
-    FailureToPayInterest = PermissibleValue(
-        text="FailureToPayInterest",
-        meaning=None)
-    FailureToPayPrincipal = PermissibleValue(
-        text="FailureToPayPrincipal",
-        meaning=None)
-    GovernmentalIntervention = PermissibleValue(
-        text="GovernmentalIntervention",
-        meaning=None)
-    ImpliedWritedown = PermissibleValue(
-        text="ImpliedWritedown",
-        meaning=None)
-    MaturityExtension = PermissibleValue(
-        text="MaturityExtension",
-        meaning=None)
-    ObligationAcceleration = PermissibleValue(
-        text="ObligationAcceleration",
-        meaning=None)
-    ObligationDefault = PermissibleValue(
-        text="ObligationDefault",
-        meaning=None)
-    RepudiationMoratorium = PermissibleValue(
-        text="RepudiationMoratorium",
-        meaning=None)
-    Restructuring = PermissibleValue(
-        text="Restructuring",
-        meaning=None)
-    Writedown = PermissibleValue(
-        text="Writedown",
-        meaning=None)
+    Bankruptcy = PermissibleValue(text="Bankruptcy")
+    DistressedRatingsDowngrade = PermissibleValue(text="DistressedRatingsDowngrade")
+    FailureToPay = PermissibleValue(text="FailureToPay")
+    FailureToPayInterest = PermissibleValue(text="FailureToPayInterest")
+    FailureToPayPrincipal = PermissibleValue(text="FailureToPayPrincipal")
+    GovernmentalIntervention = PermissibleValue(text="GovernmentalIntervention")
+    ImpliedWritedown = PermissibleValue(text="ImpliedWritedown")
+    MaturityExtension = PermissibleValue(text="MaturityExtension")
+    ObligationAcceleration = PermissibleValue(text="ObligationAcceleration")
+    ObligationDefault = PermissibleValue(text="ObligationDefault")
+    RepudiationMoratorium = PermissibleValue(text="RepudiationMoratorium")
+    Restructuring = PermissibleValue(text="Restructuring")
+    Writedown = PermissibleValue(text="Writedown")
 
     _defn = EnumDefinition(
         name="CreditEventType",
@@ -38720,30 +36378,14 @@ class CreditEventType(EnumDefinitionImpl):
 
 class CreditRatingAgency(EnumDefinitionImpl):
 
-    AMBest = PermissibleValue(
-        text="AMBest",
-        meaning=None)
-    CBRS = PermissibleValue(
-        text="CBRS",
-        meaning=None)
-    DBRS = PermissibleValue(
-        text="DBRS",
-        meaning=None)
-    Fitch = PermissibleValue(
-        text="Fitch",
-        meaning=None)
-    Japanagency = PermissibleValue(
-        text="Japanagency",
-        meaning=None)
-    Moodys = PermissibleValue(
-        text="Moodys",
-        meaning=None)
-    RatingAndInvestmentInformation = PermissibleValue(
-        text="RatingAndInvestmentInformation",
-        meaning=None)
-    StandardAndPoors = PermissibleValue(
-        text="StandardAndPoors",
-        meaning=None)
+    AMBest = PermissibleValue(text="AMBest")
+    CBRS = PermissibleValue(text="CBRS")
+    DBRS = PermissibleValue(text="DBRS")
+    Fitch = PermissibleValue(text="Fitch")
+    Japanagency = PermissibleValue(text="Japanagency")
+    Moodys = PermissibleValue(text="Moodys")
+    RatingAndInvestmentInformation = PermissibleValue(text="RatingAndInvestmentInformation")
+    StandardAndPoors = PermissibleValue(text="StandardAndPoors")
 
     _defn = EnumDefinition(
         name="CreditRatingAgency",
@@ -38751,30 +36393,14 @@ class CreditRatingAgency(EnumDefinitionImpl):
 
 class CreditSeniority(EnumDefinitionImpl):
 
-    Other = PermissibleValue(
-        text="Other",
-        meaning=None)
-    SeniorLossAbsorbingCapacity = PermissibleValue(
-        text="SeniorLossAbsorbingCapacity",
-        meaning=None)
-    SeniorSec = PermissibleValue(
-        text="SeniorSec",
-        meaning=None)
-    SeniorUnSec = PermissibleValue(
-        text="SeniorUnSec",
-        meaning=None)
-    SubLowerTier2 = PermissibleValue(
-        text="SubLowerTier2",
-        meaning=None)
-    SubTier1 = PermissibleValue(
-        text="SubTier1",
-        meaning=None)
-    SubTier3 = PermissibleValue(
-        text="SubTier3",
-        meaning=None)
-    SubUpperTier2 = PermissibleValue(
-        text="SubUpperTier2",
-        meaning=None)
+    Other = PermissibleValue(text="Other")
+    SeniorLossAbsorbingCapacity = PermissibleValue(text="SeniorLossAbsorbingCapacity")
+    SeniorSec = PermissibleValue(text="SeniorSec")
+    SeniorUnSec = PermissibleValue(text="SeniorUnSec")
+    SubLowerTier2 = PermissibleValue(text="SubLowerTier2")
+    SubTier1 = PermissibleValue(text="SubTier1")
+    SubTier3 = PermissibleValue(text="SubTier3")
+    SubUpperTier2 = PermissibleValue(text="SubUpperTier2")
 
     _defn = EnumDefinition(
         name="CreditSeniority",
@@ -38782,54 +36408,22 @@ class CreditSeniority(EnumDefinitionImpl):
 
 class DeterminationMethod(EnumDefinitionImpl):
 
-    AgreedInitialPrice = PermissibleValue(
-        text="AgreedInitialPrice",
-        meaning=None)
-    AsSpecifiedInMasterConfirmation = PermissibleValue(
-        text="AsSpecifiedInMasterConfirmation",
-        meaning=None)
-    CalculationAgent = PermissibleValue(
-        text="CalculationAgent",
-        meaning=None)
-    ClosingPrice = PermissibleValue(
-        text="ClosingPrice",
-        meaning=None)
-    DividendCurrency = PermissibleValue(
-        text="DividendCurrency",
-        meaning=None)
-    ExpiringContractLevel = PermissibleValue(
-        text="ExpiringContractLevel",
-        meaning=None)
-    HedgeExecution = PermissibleValue(
-        text="HedgeExecution",
-        meaning=None)
-    IssuerPaymentCurrency = PermissibleValue(
-        text="IssuerPaymentCurrency",
-        meaning=None)
-    NAV = PermissibleValue(
-        text="NAV",
-        meaning=None)
-    OSPPrice = PermissibleValue(
-        text="OSPPrice",
-        meaning=None)
-    OpenPrice = PermissibleValue(
-        text="OpenPrice",
-        meaning=None)
-    SettlementCurrency = PermissibleValue(
-        text="SettlementCurrency",
-        meaning=None)
-    StrikeDateDetermination = PermissibleValue(
-        text="StrikeDateDetermination",
-        meaning=None)
-    TWAPPrice = PermissibleValue(
-        text="TWAPPrice",
-        meaning=None)
-    VWAPPrice = PermissibleValue(
-        text="VWAPPrice",
-        meaning=None)
-    ValuationTime = PermissibleValue(
-        text="ValuationTime",
-        meaning=None)
+    AgreedInitialPrice = PermissibleValue(text="AgreedInitialPrice")
+    AsSpecifiedInMasterConfirmation = PermissibleValue(text="AsSpecifiedInMasterConfirmation")
+    CalculationAgent = PermissibleValue(text="CalculationAgent")
+    ClosingPrice = PermissibleValue(text="ClosingPrice")
+    DividendCurrency = PermissibleValue(text="DividendCurrency")
+    ExpiringContractLevel = PermissibleValue(text="ExpiringContractLevel")
+    HedgeExecution = PermissibleValue(text="HedgeExecution")
+    IssuerPaymentCurrency = PermissibleValue(text="IssuerPaymentCurrency")
+    NAV = PermissibleValue(text="NAV")
+    OSPPrice = PermissibleValue(text="OSPPrice")
+    OpenPrice = PermissibleValue(text="OpenPrice")
+    SettlementCurrency = PermissibleValue(text="SettlementCurrency")
+    StrikeDateDetermination = PermissibleValue(text="StrikeDateDetermination")
+    TWAPPrice = PermissibleValue(text="TWAPPrice")
+    VWAPPrice = PermissibleValue(text="VWAPPrice")
+    ValuationTime = PermissibleValue(text="ValuationTime")
 
     _defn = EnumDefinition(
         name="DeterminationMethod",
@@ -38844,350 +36438,170 @@ class InflationRateIndex(EnumDefinitionImpl):
     @classmethod
     def _addvals(cls):
         setattr(cls, "AUD-CPI",
-            PermissibleValue(
-                text="AUD-CPI",
-                meaning=None))
+            PermissibleValue(text="AUD-CPI"))
         setattr(cls, "AUS-CPI",
-            PermissibleValue(
-                text="AUS-CPI",
-                meaning=None))
+            PermissibleValue(text="AUS-CPI"))
         setattr(cls, "AUS-HICP",
-            PermissibleValue(
-                text="AUS-HICP",
-                meaning=None))
+            PermissibleValue(text="AUS-HICP"))
         setattr(cls, "BLG-CPI-GI",
-            PermissibleValue(
-                text="BLG-CPI-GI",
-                meaning=None))
+            PermissibleValue(text="BLG-CPI-GI"))
         setattr(cls, "BLG-CPI-HI",
-            PermissibleValue(
-                text="BLG-CPI-HI",
-                meaning=None))
+            PermissibleValue(text="BLG-CPI-HI"))
         setattr(cls, "BLG-HICP",
-            PermissibleValue(
-                text="BLG-HICP",
-                meaning=None))
+            PermissibleValue(text="BLG-HICP"))
         setattr(cls, "BRL-IGPM",
-            PermissibleValue(
-                text="BRL-IGPM",
-                meaning=None))
+            PermissibleValue(text="BRL-IGPM"))
         setattr(cls, "BRL-IPCA",
-            PermissibleValue(
-                text="BRL-IPCA",
-                meaning=None))
+            PermissibleValue(text="BRL-IPCA"))
         setattr(cls, "CAD-CPI",
-            PermissibleValue(
-                text="CAD-CPI",
-                meaning=None))
+            PermissibleValue(text="CAD-CPI"))
         setattr(cls, "CLP-CPI",
-            PermissibleValue(
-                text="CLP-CPI",
-                meaning=None))
+            PermissibleValue(text="CLP-CPI"))
         setattr(cls, "CNY-CPI",
-            PermissibleValue(
-                text="CNY-CPI",
-                meaning=None))
+            PermissibleValue(text="CNY-CPI"))
         setattr(cls, "CZK-CPI",
-            PermissibleValue(
-                text="CZK-CPI",
-                meaning=None))
+            PermissibleValue(text="CZK-CPI"))
         setattr(cls, "DEK-CPI",
-            PermissibleValue(
-                text="DEK-CPI",
-                meaning=None))
+            PermissibleValue(text="DEK-CPI"))
         setattr(cls, "DEK-HICP",
-            PermissibleValue(
-                text="DEK-HICP",
-                meaning=None))
+            PermissibleValue(text="DEK-HICP"))
         setattr(cls, "DEM-CPI",
-            PermissibleValue(
-                text="DEM-CPI",
-                meaning=None))
+            PermissibleValue(text="DEM-CPI"))
         setattr(cls, "DEM-CPI-NRW",
-            PermissibleValue(
-                text="DEM-CPI-NRW",
-                meaning=None))
+            PermissibleValue(text="DEM-CPI-NRW"))
         setattr(cls, "DEM-HICP",
-            PermissibleValue(
-                text="DEM-HICP",
-                meaning=None))
+            PermissibleValue(text="DEM-HICP"))
         setattr(cls, "ESP-CPI",
-            PermissibleValue(
-                text="ESP-CPI",
-                meaning=None))
+            PermissibleValue(text="ESP-CPI"))
         setattr(cls, "ESP-HICP",
-            PermissibleValue(
-                text="ESP-HICP",
-                meaning=None))
+            PermissibleValue(text="ESP-HICP"))
         setattr(cls, "ESP-R-CPI",
-            PermissibleValue(
-                text="ESP-R-CPI",
-                meaning=None))
+            PermissibleValue(text="ESP-R-CPI"))
         setattr(cls, "ESP-R-HICP",
-            PermissibleValue(
-                text="ESP-R-HICP",
-                meaning=None))
+            PermissibleValue(text="ESP-R-HICP"))
         setattr(cls, "EUR-AI-CPI",
-            PermissibleValue(
-                text="EUR-AI-CPI",
-                meaning=None))
+            PermissibleValue(text="EUR-AI-CPI"))
         setattr(cls, "EUR-AI-R-CPI",
-            PermissibleValue(
-                text="EUR-AI-R-CPI",
-                meaning=None))
+            PermissibleValue(text="EUR-AI-R-CPI"))
         setattr(cls, "EUR-EXT-CPI",
-            PermissibleValue(
-                text="EUR-EXT-CPI",
-                meaning=None))
+            PermissibleValue(text="EUR-EXT-CPI"))
         setattr(cls, "EUR-EXT-R-CPI",
-            PermissibleValue(
-                text="EUR-EXT-R-CPI",
-                meaning=None))
+            PermissibleValue(text="EUR-EXT-R-CPI"))
         setattr(cls, "FIN-CPI",
-            PermissibleValue(
-                text="FIN-CPI",
-                meaning=None))
+            PermissibleValue(text="FIN-CPI"))
         setattr(cls, "FIN-HICP",
-            PermissibleValue(
-                text="FIN-HICP",
-                meaning=None))
+            PermissibleValue(text="FIN-HICP"))
         setattr(cls, "FRC-EXT-CPI",
-            PermissibleValue(
-                text="FRC-EXT-CPI",
-                meaning=None))
+            PermissibleValue(text="FRC-EXT-CPI"))
         setattr(cls, "FRC-HICP",
-            PermissibleValue(
-                text="FRC-HICP",
-                meaning=None))
+            PermissibleValue(text="FRC-HICP"))
         setattr(cls, "GRD-CPI",
-            PermissibleValue(
-                text="GRD-CPI",
-                meaning=None))
+            PermissibleValue(text="GRD-CPI"))
         setattr(cls, "GRD-HICP",
-            PermissibleValue(
-                text="GRD-HICP",
-                meaning=None))
+            PermissibleValue(text="GRD-HICP"))
         setattr(cls, "HKD-CPI",
-            PermissibleValue(
-                text="HKD-CPI",
-                meaning=None))
+            PermissibleValue(text="HKD-CPI"))
         setattr(cls, "HUF-CPI",
-            PermissibleValue(
-                text="HUF-CPI",
-                meaning=None))
+            PermissibleValue(text="HUF-CPI"))
         setattr(cls, "IDR-CPI",
-            PermissibleValue(
-                text="IDR-CPI",
-                meaning=None))
+            PermissibleValue(text="IDR-CPI"))
         setattr(cls, "ILS-CPI",
-            PermissibleValue(
-                text="ILS-CPI",
-                meaning=None))
+            PermissibleValue(text="ILS-CPI"))
         setattr(cls, "IRL-CPI",
-            PermissibleValue(
-                text="IRL-CPI",
-                meaning=None))
+            PermissibleValue(text="IRL-CPI"))
         setattr(cls, "IRL-HICP",
-            PermissibleValue(
-                text="IRL-HICP",
-                meaning=None))
+            PermissibleValue(text="IRL-HICP"))
         setattr(cls, "ISK-CPI",
-            PermissibleValue(
-                text="ISK-CPI",
-                meaning=None))
+            PermissibleValue(text="ISK-CPI"))
         setattr(cls, "ISK-HICP",
-            PermissibleValue(
-                text="ISK-HICP",
-                meaning=None))
+            PermissibleValue(text="ISK-HICP"))
         setattr(cls, "ITL-BC-EXT-CPI",
-            PermissibleValue(
-                text="ITL-BC-EXT-CPI",
-                meaning=None))
+            PermissibleValue(text="ITL-BC-EXT-CPI"))
         setattr(cls, "ITL-BC-INT-CPI",
-            PermissibleValue(
-                text="ITL-BC-INT-CPI",
-                meaning=None))
+            PermissibleValue(text="ITL-BC-INT-CPI"))
         setattr(cls, "ITL-HICP",
-            PermissibleValue(
-                text="ITL-HICP",
-                meaning=None))
+            PermissibleValue(text="ITL-HICP"))
         setattr(cls, "ITL-WC-EXT-CPI",
-            PermissibleValue(
-                text="ITL-WC-EXT-CPI",
-                meaning=None))
+            PermissibleValue(text="ITL-WC-EXT-CPI"))
         setattr(cls, "ITL-WC-INT-CPI",
-            PermissibleValue(
-                text="ITL-WC-INT-CPI",
-                meaning=None))
+            PermissibleValue(text="ITL-WC-INT-CPI"))
         setattr(cls, "JPY-CPI-EXF",
-            PermissibleValue(
-                text="JPY-CPI-EXF",
-                meaning=None))
+            PermissibleValue(text="JPY-CPI-EXF"))
         setattr(cls, "KRW-CPI",
-            PermissibleValue(
-                text="KRW-CPI",
-                meaning=None))
+            PermissibleValue(text="KRW-CPI"))
         setattr(cls, "LUX-CPI",
-            PermissibleValue(
-                text="LUX-CPI",
-                meaning=None))
+            PermissibleValue(text="LUX-CPI"))
         setattr(cls, "LUX-HICP",
-            PermissibleValue(
-                text="LUX-HICP",
-                meaning=None))
+            PermissibleValue(text="LUX-HICP"))
         setattr(cls, "MXN-CPI",
-            PermissibleValue(
-                text="MXN-CPI",
-                meaning=None))
+            PermissibleValue(text="MXN-CPI"))
         setattr(cls, "MXN-UDI",
-            PermissibleValue(
-                text="MXN-UDI",
-                meaning=None))
+            PermissibleValue(text="MXN-UDI"))
         setattr(cls, "MYR-CPI",
-            PermissibleValue(
-                text="MYR-CPI",
-                meaning=None))
+            PermissibleValue(text="MYR-CPI"))
         setattr(cls, "NLG-CPI",
-            PermissibleValue(
-                text="NLG-CPI",
-                meaning=None))
+            PermissibleValue(text="NLG-CPI"))
         setattr(cls, "NLG-HICP",
-            PermissibleValue(
-                text="NLG-HICP",
-                meaning=None))
+            PermissibleValue(text="NLG-HICP"))
         setattr(cls, "NOK-CPI",
-            PermissibleValue(
-                text="NOK-CPI",
-                meaning=None))
+            PermissibleValue(text="NOK-CPI"))
         setattr(cls, "NZD-CPI",
-            PermissibleValue(
-                text="NZD-CPI",
-                meaning=None))
+            PermissibleValue(text="NZD-CPI"))
         setattr(cls, "PER-CPI",
-            PermissibleValue(
-                text="PER-CPI",
-                meaning=None))
+            PermissibleValue(text="PER-CPI"))
         setattr(cls, "PLN-CPI",
-            PermissibleValue(
-                text="PLN-CPI",
-                meaning=None))
+            PermissibleValue(text="PLN-CPI"))
         setattr(cls, "POR-CPI",
-            PermissibleValue(
-                text="POR-CPI",
-                meaning=None))
+            PermissibleValue(text="POR-CPI"))
         setattr(cls, "POR-HICP",
-            PermissibleValue(
-                text="POR-HICP",
-                meaning=None))
+            PermissibleValue(text="POR-HICP"))
         setattr(cls, "RUB-CPI",
-            PermissibleValue(
-                text="RUB-CPI",
-                meaning=None))
+            PermissibleValue(text="RUB-CPI"))
         setattr(cls, "SEK-CPI",
-            PermissibleValue(
-                text="SEK-CPI",
-                meaning=None))
+            PermissibleValue(text="SEK-CPI"))
         setattr(cls, "SGD-CPI",
-            PermissibleValue(
-                text="SGD-CPI",
-                meaning=None))
+            PermissibleValue(text="SGD-CPI"))
         setattr(cls, "SWF-CPI",
-            PermissibleValue(
-                text="SWF-CPI",
-                meaning=None))
+            PermissibleValue(text="SWF-CPI"))
         setattr(cls, "TRY-CPI",
-            PermissibleValue(
-                text="TRY-CPI",
-                meaning=None))
+            PermissibleValue(text="TRY-CPI"))
         setattr(cls, "TWD-CPI",
-            PermissibleValue(
-                text="TWD-CPI",
-                meaning=None))
+            PermissibleValue(text="TWD-CPI"))
         setattr(cls, "UK-CPIH",
-            PermissibleValue(
-                text="UK-CPIH",
-                meaning=None))
+            PermissibleValue(text="UK-CPIH"))
         setattr(cls, "UK-HICP",
-            PermissibleValue(
-                text="UK-HICP",
-                meaning=None))
+            PermissibleValue(text="UK-HICP"))
         setattr(cls, "UK-RPI",
-            PermissibleValue(
-                text="UK-RPI",
-                meaning=None))
+            PermissibleValue(text="UK-RPI"))
         setattr(cls, "UK-RPIX",
-            PermissibleValue(
-                text="UK-RPIX",
-                meaning=None))
+            PermissibleValue(text="UK-RPIX"))
         setattr(cls, "USA-CPI-U",
-            PermissibleValue(
-                text="USA-CPI-U",
-                meaning=None))
+            PermissibleValue(text="USA-CPI-U"))
         setattr(cls, "ZAR-CPI",
-            PermissibleValue(
-                text="ZAR-CPI",
-                meaning=None))
+            PermissibleValue(text="ZAR-CPI"))
         setattr(cls, "ZAR-CPIX",
-            PermissibleValue(
-                text="ZAR-CPIX",
-                meaning=None))
+            PermissibleValue(text="ZAR-CPIX"))
 
 class InformationProvider(EnumDefinitionImpl):
 
-    AssocBanksSingapore = PermissibleValue(
-        text="AssocBanksSingapore",
-        meaning=None)
-    BancoCentralChile = PermissibleValue(
-        text="BancoCentralChile",
-        meaning=None)
-    BankOfCanada = PermissibleValue(
-        text="BankOfCanada",
-        meaning=None)
-    BankOfEngland = PermissibleValue(
-        text="BankOfEngland",
-        meaning=None)
-    BankOfJapan = PermissibleValue(
-        text="BankOfJapan",
-        meaning=None)
-    Bloomberg = PermissibleValue(
-        text="Bloomberg",
-        meaning=None)
-    EuroCentralBank = PermissibleValue(
-        text="EuroCentralBank",
-        meaning=None)
-    FHLBSF = PermissibleValue(
-        text="FHLBSF",
-        meaning=None)
-    FederalReserve = PermissibleValue(
-        text="FederalReserve",
-        meaning=None)
-    ICESWAP = PermissibleValue(
-        text="ICESWAP",
-        meaning=None)
-    ISDA = PermissibleValue(
-        text="ISDA",
-        meaning=None)
-    Refinitiv = PermissibleValue(
-        text="Refinitiv",
-        meaning=None)
-    ReserveBankAustralia = PermissibleValue(
-        text="ReserveBankAustralia",
-        meaning=None)
-    ReserveBankNewZealand = PermissibleValue(
-        text="ReserveBankNewZealand",
-        meaning=None)
-    Reuters = PermissibleValue(
-        text="Reuters",
-        meaning=None)
-    SAFEX = PermissibleValue(
-        text="SAFEX",
-        meaning=None)
-    TOKYOSWAP = PermissibleValue(
-        text="TOKYOSWAP",
-        meaning=None)
-    Telerate = PermissibleValue(
-        text="Telerate",
-        meaning=None)
+    AssocBanksSingapore = PermissibleValue(text="AssocBanksSingapore")
+    BancoCentralChile = PermissibleValue(text="BancoCentralChile")
+    BankOfCanada = PermissibleValue(text="BankOfCanada")
+    BankOfEngland = PermissibleValue(text="BankOfEngland")
+    BankOfJapan = PermissibleValue(text="BankOfJapan")
+    Bloomberg = PermissibleValue(text="Bloomberg")
+    EuroCentralBank = PermissibleValue(text="EuroCentralBank")
+    FHLBSF = PermissibleValue(text="FHLBSF")
+    FederalReserve = PermissibleValue(text="FederalReserve")
+    ICESWAP = PermissibleValue(text="ICESWAP")
+    ISDA = PermissibleValue(text="ISDA")
+    Refinitiv = PermissibleValue(text="Refinitiv")
+    ReserveBankAustralia = PermissibleValue(text="ReserveBankAustralia")
+    ReserveBankNewZealand = PermissibleValue(text="ReserveBankNewZealand")
+    Reuters = PermissibleValue(text="Reuters")
+    SAFEX = PermissibleValue(text="SAFEX")
+    TOKYOSWAP = PermissibleValue(text="TOKYOSWAP")
+    Telerate = PermissibleValue(text="Telerate")
 
     _defn = EnumDefinition(
         name="InformationProvider",
@@ -39195,12 +36609,8 @@ class InformationProvider(EnumDefinitionImpl):
 
 class InterpolationMethod(EnumDefinitionImpl):
 
-    Linear = PermissibleValue(
-        text="Linear",
-        meaning=None)
-    LinearZeroYield = PermissibleValue(
-        text="LinearZeroYield",
-        meaning=None)
+    Linear = PermissibleValue(text="Linear")
+    LinearZeroYield = PermissibleValue(text="LinearZeroYield")
 
     _defn = EnumDefinition(
         name="InterpolationMethod",
@@ -39209,102 +36619,40 @@ class InterpolationMethod(EnumDefinitionImpl):
     @classmethod
     def _addvals(cls):
         setattr(cls, "None",
-            PermissibleValue(
-                text="None",
-                meaning=None))
+            PermissibleValue(text="None"))
 
 class MasterAgreementType(EnumDefinitionImpl):
 
-    AFB = PermissibleValue(
-        text="AFB",
-        meaning=None)
-    Bespoke = PermissibleValue(
-        text="Bespoke",
-        meaning=None)
-    CMA = PermissibleValue(
-        text="CMA",
-        meaning=None)
-    CMOF = PermissibleValue(
-        text="CMOF",
-        meaning=None)
-    EEIPower = PermissibleValue(
-        text="EEIPower",
-        meaning=None)
-    EFETElectricity = PermissibleValue(
-        text="EFETElectricity",
-        meaning=None)
-    EFETGas = PermissibleValue(
-        text="EFETGas",
-        meaning=None)
-    EMA = PermissibleValue(
-        text="EMA",
-        meaning=None)
-    FBF = PermissibleValue(
-        text="FBF",
-        meaning=None)
-    GMRA = PermissibleValue(
-        text="GMRA",
-        meaning=None)
-    GMSLA = PermissibleValue(
-        text="GMSLA",
-        meaning=None)
-    GTMA = PermissibleValue(
-        text="GTMA",
-        meaning=None)
-    GasEDI = PermissibleValue(
-        text="GasEDI",
-        meaning=None)
-    German = PermissibleValue(
-        text="German",
-        meaning=None)
-    ICOM = PermissibleValue(
-        text="ICOM",
-        meaning=None)
-    IFEMA = PermissibleValue(
-        text="IFEMA",
-        meaning=None)
-    IFEOMA = PermissibleValue(
-        text="IFEOMA",
-        meaning=None)
-    ISDA = PermissibleValue(
-        text="ISDA",
-        meaning=None)
-    JSCC = PermissibleValue(
-        text="JSCC",
-        meaning=None)
-    LBMA = PermissibleValue(
-        text="LBMA",
-        meaning=None)
-    LEAP = PermissibleValue(
-        text="LEAP",
-        meaning=None)
-    MCPSA = PermissibleValue(
-        text="MCPSA",
-        meaning=None)
-    NAESBGas = PermissibleValue(
-        text="NAESBGas",
-        meaning=None)
-    NBP = PermissibleValue(
-        text="NBP",
-        meaning=None)
-    RussianDerivatives = PermissibleValue(
-        text="RussianDerivatives",
-        meaning=None)
-    RussianRepo = PermissibleValue(
-        text="RussianRepo",
-        meaning=None)
-    SCoTA = PermissibleValue(
-        text="SCoTA",
-        meaning=None)
-    Swiss = PermissibleValue(
-        text="Swiss",
-        meaning=None)
-    TTF = PermissibleValue(
-        text="TTF",
-        meaning=None)
-    ZBT = PermissibleValue(
-        text="ZBT",
-        meaning=None)
+    AFB = PermissibleValue(text="AFB")
+    Bespoke = PermissibleValue(text="Bespoke")
+    CMA = PermissibleValue(text="CMA")
+    CMOF = PermissibleValue(text="CMOF")
+    EEIPower = PermissibleValue(text="EEIPower")
+    EFETElectricity = PermissibleValue(text="EFETElectricity")
+    EFETGas = PermissibleValue(text="EFETGas")
+    EMA = PermissibleValue(text="EMA")
+    FBF = PermissibleValue(text="FBF")
+    GMRA = PermissibleValue(text="GMRA")
+    GMSLA = PermissibleValue(text="GMSLA")
+    GTMA = PermissibleValue(text="GTMA")
+    GasEDI = PermissibleValue(text="GasEDI")
+    German = PermissibleValue(text="German")
+    ICOM = PermissibleValue(text="ICOM")
+    IFEMA = PermissibleValue(text="IFEMA")
+    IFEOMA = PermissibleValue(text="IFEOMA")
+    ISDA = PermissibleValue(text="ISDA")
+    JSCC = PermissibleValue(text="JSCC")
+    LBMA = PermissibleValue(text="LBMA")
+    LEAP = PermissibleValue(text="LEAP")
+    MCPSA = PermissibleValue(text="MCPSA")
+    NAESBGas = PermissibleValue(text="NAESBGas")
+    NBP = PermissibleValue(text="NBP")
+    RussianDerivatives = PermissibleValue(text="RussianDerivatives")
+    RussianRepo = PermissibleValue(text="RussianRepo")
+    SCoTA = PermissibleValue(text="SCoTA")
+    Swiss = PermissibleValue(text="Swiss")
+    TTF = PermissibleValue(text="TTF")
+    ZBT = PermissibleValue(text="ZBT")
 
     _defn = EnumDefinition(
         name="MasterAgreementType",
@@ -39313,91 +36661,39 @@ class MasterAgreementType(EnumDefinitionImpl):
     @classmethod
     def _addvals(cls):
         setattr(cls, "IETA-ERPA",
-            PermissibleValue(
-                text="IETA-ERPA",
-                meaning=None))
+            PermissibleValue(text="IETA-ERPA"))
         setattr(cls, "IETA-ETMA",
-            PermissibleValue(
-                text="IETA-ETMA",
-                meaning=None))
+            PermissibleValue(text="IETA-ETMA"))
         setattr(cls, "IETA-IETMA",
-            PermissibleValue(
-                text="IETA-IETMA",
-                meaning=None))
+            PermissibleValue(text="IETA-IETMA"))
         setattr(cls, "ISDAFIA-CDEA",
-            PermissibleValue(
-                text="ISDAFIA-CDEA",
-                meaning=None))
+            PermissibleValue(text="ISDAFIA-CDEA"))
         setattr(cls, "ISDAIIFM-TMA",
-            PermissibleValue(
-                text="ISDAIIFM-TMA",
-                meaning=None))
+            PermissibleValue(text="ISDAIIFM-TMA"))
 
 class MasterConfirmationAnnexType(EnumDefinitionImpl):
 
-    ISDA2004IndexVarianceSwapAmericasInterdealer = PermissibleValue(
-        text="ISDA2004IndexVarianceSwapAmericasInterdealer",
-        meaning=None)
-    ISDA2004ShareVarianceSwapAmericasInterdealer = PermissibleValue(
-        text="ISDA2004ShareVarianceSwapAmericasInterdealer",
-        meaning=None)
-    ISDA2007DispersionVarianceSwapEuropean = PermissibleValue(
-        text="ISDA2007DispersionVarianceSwapEuropean",
-        meaning=None)
-    ISDA2007EquityFinanceSwapEuropean = PermissibleValue(
-        text="ISDA2007EquityFinanceSwapEuropean",
-        meaning=None)
-    ISDA2007IndexVarianceSwapAmericasInterdealer = PermissibleValue(
-        text="ISDA2007IndexVarianceSwapAmericasInterdealer",
-        meaning=None)
-    ISDA2007ShareVarianceSwapAmericasInterdealer = PermissibleValue(
-        text="ISDA2007ShareVarianceSwapAmericasInterdealer",
-        meaning=None)
-    ISDA2007VarianceOptionEuropean = PermissibleValue(
-        text="ISDA2007VarianceOptionEuropean",
-        meaning=None)
-    ISDA2008EquityFinanceSwapAsiaExcludingJapan = PermissibleValue(
-        text="ISDA2008EquityFinanceSwapAsiaExcludingJapan",
-        meaning=None)
-    ISDA2008EquityFinanceSwapAsiaExcludingJapanRev1 = PermissibleValue(
-        text="ISDA2008EquityFinanceSwapAsiaExcludingJapanRev1",
-        meaning=None)
-    ISDA2008EquityOptionAsiaExcludingJapan = PermissibleValue(
-        text="ISDA2008EquityOptionAsiaExcludingJapan",
-        meaning=None)
-    ISDA2008EquityOptionAsiaExcludingJapanRev1 = PermissibleValue(
-        text="ISDA2008EquityOptionAsiaExcludingJapanRev1",
-        meaning=None)
-    ISDA2008EquityOptionJapan = PermissibleValue(
-        text="ISDA2008EquityOptionJapan",
-        meaning=None)
-    ISDA2009ClosedMarketsOptionsAsiaExcludingJapan = PermissibleValue(
-        text="ISDA2009ClosedMarketsOptionsAsiaExcludingJapan",
-        meaning=None)
-    ISDA2009EquityEuropeanIS = PermissibleValue(
-        text="ISDA2009EquityEuropeanIS",
-        meaning=None)
-    ISDA2009EquityEuropeanInterdealerSS = PermissibleValue(
-        text="ISDA2009EquityEuropeanInterdealerSS",
-        meaning=None)
-    ISDA2009IndexShareOptionAmericas = PermissibleValue(
-        text="ISDA2009IndexShareOptionAmericas",
-        meaning=None)
-    ISDA2009IndexSwapEuropeanInterdealer = PermissibleValue(
-        text="ISDA2009IndexSwapEuropeanInterdealer",
-        meaning=None)
-    ISDA2009IndexSwapPanAsiaInterdealer = PermissibleValue(
-        text="ISDA2009IndexSwapPanAsiaInterdealer",
-        meaning=None)
-    ISDA2009ShareSwapPanAsia = PermissibleValue(
-        text="ISDA2009ShareSwapPanAsia",
-        meaning=None)
-    ISDA2010FairValueShareSwapEuropeanInterdealer = PermissibleValue(
-        text="ISDA2010FairValueShareSwapEuropeanInterdealer",
-        meaning=None)
-    ISDA2010IndexShareOptionEMEAInterdealer = PermissibleValue(
-        text="ISDA2010IndexShareOptionEMEAInterdealer",
-        meaning=None)
+    ISDA2004IndexVarianceSwapAmericasInterdealer = PermissibleValue(text="ISDA2004IndexVarianceSwapAmericasInterdealer")
+    ISDA2004ShareVarianceSwapAmericasInterdealer = PermissibleValue(text="ISDA2004ShareVarianceSwapAmericasInterdealer")
+    ISDA2007DispersionVarianceSwapEuropean = PermissibleValue(text="ISDA2007DispersionVarianceSwapEuropean")
+    ISDA2007EquityFinanceSwapEuropean = PermissibleValue(text="ISDA2007EquityFinanceSwapEuropean")
+    ISDA2007IndexVarianceSwapAmericasInterdealer = PermissibleValue(text="ISDA2007IndexVarianceSwapAmericasInterdealer")
+    ISDA2007ShareVarianceSwapAmericasInterdealer = PermissibleValue(text="ISDA2007ShareVarianceSwapAmericasInterdealer")
+    ISDA2007VarianceOptionEuropean = PermissibleValue(text="ISDA2007VarianceOptionEuropean")
+    ISDA2008EquityFinanceSwapAsiaExcludingJapan = PermissibleValue(text="ISDA2008EquityFinanceSwapAsiaExcludingJapan")
+    ISDA2008EquityFinanceSwapAsiaExcludingJapanRev1 = PermissibleValue(text="ISDA2008EquityFinanceSwapAsiaExcludingJapanRev1")
+    ISDA2008EquityOptionAsiaExcludingJapan = PermissibleValue(text="ISDA2008EquityOptionAsiaExcludingJapan")
+    ISDA2008EquityOptionAsiaExcludingJapanRev1 = PermissibleValue(text="ISDA2008EquityOptionAsiaExcludingJapanRev1")
+    ISDA2008EquityOptionJapan = PermissibleValue(text="ISDA2008EquityOptionJapan")
+    ISDA2009ClosedMarketsOptionsAsiaExcludingJapan = PermissibleValue(text="ISDA2009ClosedMarketsOptionsAsiaExcludingJapan")
+    ISDA2009EquityEuropeanIS = PermissibleValue(text="ISDA2009EquityEuropeanIS")
+    ISDA2009EquityEuropeanInterdealerSS = PermissibleValue(text="ISDA2009EquityEuropeanInterdealerSS")
+    ISDA2009IndexShareOptionAmericas = PermissibleValue(text="ISDA2009IndexShareOptionAmericas")
+    ISDA2009IndexSwapEuropeanInterdealer = PermissibleValue(text="ISDA2009IndexSwapEuropeanInterdealer")
+    ISDA2009IndexSwapPanAsiaInterdealer = PermissibleValue(text="ISDA2009IndexSwapPanAsiaInterdealer")
+    ISDA2009ShareSwapPanAsia = PermissibleValue(text="ISDA2009ShareSwapPanAsia")
+    ISDA2010FairValueShareSwapEuropeanInterdealer = PermissibleValue(text="ISDA2010FairValueShareSwapEuropeanInterdealer")
+    ISDA2010IndexShareOptionEMEAInterdealer = PermissibleValue(text="ISDA2010IndexShareOptionEMEAInterdealer")
 
     _defn = EnumDefinition(
         name="MasterConfirmationAnnexType",
@@ -39405,186 +36701,66 @@ class MasterConfirmationAnnexType(EnumDefinitionImpl):
 
 class MasterConfirmationType(EnumDefinitionImpl):
 
-    EquityAmericas = PermissibleValue(
-        text="EquityAmericas",
-        meaning=None)
-    EquityAsia = PermissibleValue(
-        text="EquityAsia",
-        meaning=None)
-    EquityEuropean = PermissibleValue(
-        text="EquityEuropean",
-        meaning=None)
-    ISDA1999Credit = PermissibleValue(
-        text="ISDA1999Credit",
-        meaning=None)
-    ISDA2003CreditAsia = PermissibleValue(
-        text="ISDA2003CreditAsia",
-        meaning=None)
-    ISDA2003CreditAustraliaNewZealand = PermissibleValue(
-        text="ISDA2003CreditAustraliaNewZealand",
-        meaning=None)
-    ISDA2003CreditEuropean = PermissibleValue(
-        text="ISDA2003CreditEuropean",
-        meaning=None)
-    ISDA2003CreditJapan = PermissibleValue(
-        text="ISDA2003CreditJapan",
-        meaning=None)
-    ISDA2003CreditNorthAmerican = PermissibleValue(
-        text="ISDA2003CreditNorthAmerican",
-        meaning=None)
-    ISDA2003CreditSingapore = PermissibleValue(
-        text="ISDA2003CreditSingapore",
-        meaning=None)
-    ISDA2003CreditSovereignAsia = PermissibleValue(
-        text="ISDA2003CreditSovereignAsia",
-        meaning=None)
-    ISDA2003CreditSovereignCentralAndEasternEurope = PermissibleValue(
-        text="ISDA2003CreditSovereignCentralAndEasternEurope",
-        meaning=None)
-    ISDA2003CreditSovereignJapan = PermissibleValue(
-        text="ISDA2003CreditSovereignJapan",
-        meaning=None)
-    ISDA2003CreditSovereignLatinAmerica = PermissibleValue(
-        text="ISDA2003CreditSovereignLatinAmerica",
-        meaning=None)
-    ISDA2003CreditSovereignMiddleEast = PermissibleValue(
-        text="ISDA2003CreditSovereignMiddleEast",
-        meaning=None)
-    ISDA2003CreditSovereignWesternEurope = PermissibleValue(
-        text="ISDA2003CreditSovereignWesternEurope",
-        meaning=None)
-    ISDA2003StandardCreditAsia = PermissibleValue(
-        text="ISDA2003StandardCreditAsia",
-        meaning=None)
-    ISDA2003StandardCreditAustraliaNewZealand = PermissibleValue(
-        text="ISDA2003StandardCreditAustraliaNewZealand",
-        meaning=None)
-    ISDA2003StandardCreditEuropean = PermissibleValue(
-        text="ISDA2003StandardCreditEuropean",
-        meaning=None)
-    ISDA2003StandardCreditJapan = PermissibleValue(
-        text="ISDA2003StandardCreditJapan",
-        meaning=None)
-    ISDA2003StandardCreditNorthAmerican = PermissibleValue(
-        text="ISDA2003StandardCreditNorthAmerican",
-        meaning=None)
-    ISDA2003StandardCreditSingapore = PermissibleValue(
-        text="ISDA2003StandardCreditSingapore",
-        meaning=None)
-    ISDA2004CreditSovereignAsia = PermissibleValue(
-        text="ISDA2004CreditSovereignAsia",
-        meaning=None)
-    ISDA2004CreditSovereignEmergingEuropeanAndMiddleEastern = PermissibleValue(
-        text="ISDA2004CreditSovereignEmergingEuropeanAndMiddleEastern",
-        meaning=None)
-    ISDA2004CreditSovereignJapan = PermissibleValue(
-        text="ISDA2004CreditSovereignJapan",
-        meaning=None)
-    ISDA2004CreditSovereignLatinAmerican = PermissibleValue(
-        text="ISDA2004CreditSovereignLatinAmerican",
-        meaning=None)
-    ISDA2004CreditSovereignWesternEuropean = PermissibleValue(
-        text="ISDA2004CreditSovereignWesternEuropean",
-        meaning=None)
-    ISDA2004EquityAmericasInterdealer = PermissibleValue(
-        text="ISDA2004EquityAmericasInterdealer",
-        meaning=None)
-    ISDA2004EquityAmericasInterdealerRev1 = PermissibleValue(
-        text="ISDA2004EquityAmericasInterdealerRev1",
-        meaning=None)
-    ISDA2004StandardCreditSovereignAsia = PermissibleValue(
-        text="ISDA2004StandardCreditSovereignAsia",
-        meaning=None)
-    ISDA2004StandardCreditSovereignEmergingEuropeanAndMiddleEastern = PermissibleValue(
-        text="ISDA2004StandardCreditSovereignEmergingEuropeanAndMiddleEastern",
-        meaning=None)
-    ISDA2004StandardCreditSovereignJapan = PermissibleValue(
-        text="ISDA2004StandardCreditSovereignJapan",
-        meaning=None)
-    ISDA2004StandardCreditSovereignLatinAmerican = PermissibleValue(
-        text="ISDA2004StandardCreditSovereignLatinAmerican",
-        meaning=None)
-    ISDA2004StandardCreditSovereignWesternEuropean = PermissibleValue(
-        text="ISDA2004StandardCreditSovereignWesternEuropean",
-        meaning=None)
-    ISDA2005EquityAsiaExcludingJapanInterdealer = PermissibleValue(
-        text="ISDA2005EquityAsiaExcludingJapanInterdealer",
-        meaning=None)
-    ISDA2005EquityAsiaExcludingJapanInterdealerRev2 = PermissibleValue(
-        text="ISDA2005EquityAsiaExcludingJapanInterdealerRev2",
-        meaning=None)
-    ISDA2005EquityJapaneseInterdealer = PermissibleValue(
-        text="ISDA2005EquityJapaneseInterdealer",
-        meaning=None)
-    ISDA2006VarianceSwapJapanese = PermissibleValue(
-        text="ISDA2006VarianceSwapJapanese",
-        meaning=None)
-    ISDA2006VarianceSwapJapaneseInterdealer = PermissibleValue(
-        text="ISDA2006VarianceSwapJapaneseInterdealer",
-        meaning=None)
-    ISDA2007EquityEuropean = PermissibleValue(
-        text="ISDA2007EquityEuropean",
-        meaning=None)
-    ISDA2007VarianceSwapAmericas = PermissibleValue(
-        text="ISDA2007VarianceSwapAmericas",
-        meaning=None)
-    ISDA2007VarianceSwapAsiaExcludingJapan = PermissibleValue(
-        text="ISDA2007VarianceSwapAsiaExcludingJapan",
-        meaning=None)
-    ISDA2007VarianceSwapAsiaExcludingJapanRev1 = PermissibleValue(
-        text="ISDA2007VarianceSwapAsiaExcludingJapanRev1",
-        meaning=None)
-    ISDA2007VarianceSwapAsiaExcludingJapanRev2 = PermissibleValue(
-        text="ISDA2007VarianceSwapAsiaExcludingJapanRev2",
-        meaning=None)
-    ISDA2007VarianceSwapEuropean = PermissibleValue(
-        text="ISDA2007VarianceSwapEuropean",
-        meaning=None)
-    ISDA2007VarianceSwapEuropeanRev1 = PermissibleValue(
-        text="ISDA2007VarianceSwapEuropeanRev1",
-        meaning=None)
-    ISDA2008DividendSwapJapan = PermissibleValue(
-        text="ISDA2008DividendSwapJapan",
-        meaning=None)
-    ISDA2008DividendSwapJapaneseRev1 = PermissibleValue(
-        text="ISDA2008DividendSwapJapaneseRev1",
-        meaning=None)
-    ISDA2008EquityAmericas = PermissibleValue(
-        text="ISDA2008EquityAmericas",
-        meaning=None)
-    ISDA2008EquityAsiaExcludingJapan = PermissibleValue(
-        text="ISDA2008EquityAsiaExcludingJapan",
-        meaning=None)
-    ISDA2008EquityAsiaExcludingJapanRev1 = PermissibleValue(
-        text="ISDA2008EquityAsiaExcludingJapanRev1",
-        meaning=None)
-    ISDA2008EquityJapan = PermissibleValue(
-        text="ISDA2008EquityJapan",
-        meaning=None)
-    ISDA2009EquityAmericas = PermissibleValue(
-        text="ISDA2009EquityAmericas",
-        meaning=None)
-    ISDA2009EquityEuropeanInterdealer = PermissibleValue(
-        text="ISDA2009EquityEuropeanInterdealer",
-        meaning=None)
-    ISDA2009EquityPanAsia = PermissibleValue(
-        text="ISDA2009EquityPanAsia",
-        meaning=None)
-    ISDA2010EquityEMEAInterdealer = PermissibleValue(
-        text="ISDA2010EquityEMEAInterdealer",
-        meaning=None)
-    ISDA2013VolatilitySwapAmericas = PermissibleValue(
-        text="ISDA2013VolatilitySwapAmericas",
-        meaning=None)
-    ISDA2013VolatilitySwapAsiaExcludingJapan = PermissibleValue(
-        text="ISDA2013VolatilitySwapAsiaExcludingJapan",
-        meaning=None)
-    ISDA2013VolatilitySwapEuropean = PermissibleValue(
-        text="ISDA2013VolatilitySwapEuropean",
-        meaning=None)
-    ISDA2013VolatilitySwapJapanese = PermissibleValue(
-        text="ISDA2013VolatilitySwapJapanese",
-        meaning=None)
+    EquityAmericas = PermissibleValue(text="EquityAmericas")
+    EquityAsia = PermissibleValue(text="EquityAsia")
+    EquityEuropean = PermissibleValue(text="EquityEuropean")
+    ISDA1999Credit = PermissibleValue(text="ISDA1999Credit")
+    ISDA2003CreditAsia = PermissibleValue(text="ISDA2003CreditAsia")
+    ISDA2003CreditAustraliaNewZealand = PermissibleValue(text="ISDA2003CreditAustraliaNewZealand")
+    ISDA2003CreditEuropean = PermissibleValue(text="ISDA2003CreditEuropean")
+    ISDA2003CreditJapan = PermissibleValue(text="ISDA2003CreditJapan")
+    ISDA2003CreditNorthAmerican = PermissibleValue(text="ISDA2003CreditNorthAmerican")
+    ISDA2003CreditSingapore = PermissibleValue(text="ISDA2003CreditSingapore")
+    ISDA2003CreditSovereignAsia = PermissibleValue(text="ISDA2003CreditSovereignAsia")
+    ISDA2003CreditSovereignCentralAndEasternEurope = PermissibleValue(text="ISDA2003CreditSovereignCentralAndEasternEurope")
+    ISDA2003CreditSovereignJapan = PermissibleValue(text="ISDA2003CreditSovereignJapan")
+    ISDA2003CreditSovereignLatinAmerica = PermissibleValue(text="ISDA2003CreditSovereignLatinAmerica")
+    ISDA2003CreditSovereignMiddleEast = PermissibleValue(text="ISDA2003CreditSovereignMiddleEast")
+    ISDA2003CreditSovereignWesternEurope = PermissibleValue(text="ISDA2003CreditSovereignWesternEurope")
+    ISDA2003StandardCreditAsia = PermissibleValue(text="ISDA2003StandardCreditAsia")
+    ISDA2003StandardCreditAustraliaNewZealand = PermissibleValue(text="ISDA2003StandardCreditAustraliaNewZealand")
+    ISDA2003StandardCreditEuropean = PermissibleValue(text="ISDA2003StandardCreditEuropean")
+    ISDA2003StandardCreditJapan = PermissibleValue(text="ISDA2003StandardCreditJapan")
+    ISDA2003StandardCreditNorthAmerican = PermissibleValue(text="ISDA2003StandardCreditNorthAmerican")
+    ISDA2003StandardCreditSingapore = PermissibleValue(text="ISDA2003StandardCreditSingapore")
+    ISDA2004CreditSovereignAsia = PermissibleValue(text="ISDA2004CreditSovereignAsia")
+    ISDA2004CreditSovereignEmergingEuropeanAndMiddleEastern = PermissibleValue(text="ISDA2004CreditSovereignEmergingEuropeanAndMiddleEastern")
+    ISDA2004CreditSovereignJapan = PermissibleValue(text="ISDA2004CreditSovereignJapan")
+    ISDA2004CreditSovereignLatinAmerican = PermissibleValue(text="ISDA2004CreditSovereignLatinAmerican")
+    ISDA2004CreditSovereignWesternEuropean = PermissibleValue(text="ISDA2004CreditSovereignWesternEuropean")
+    ISDA2004EquityAmericasInterdealer = PermissibleValue(text="ISDA2004EquityAmericasInterdealer")
+    ISDA2004EquityAmericasInterdealerRev1 = PermissibleValue(text="ISDA2004EquityAmericasInterdealerRev1")
+    ISDA2004StandardCreditSovereignAsia = PermissibleValue(text="ISDA2004StandardCreditSovereignAsia")
+    ISDA2004StandardCreditSovereignEmergingEuropeanAndMiddleEastern = PermissibleValue(text="ISDA2004StandardCreditSovereignEmergingEuropeanAndMiddleEastern")
+    ISDA2004StandardCreditSovereignJapan = PermissibleValue(text="ISDA2004StandardCreditSovereignJapan")
+    ISDA2004StandardCreditSovereignLatinAmerican = PermissibleValue(text="ISDA2004StandardCreditSovereignLatinAmerican")
+    ISDA2004StandardCreditSovereignWesternEuropean = PermissibleValue(text="ISDA2004StandardCreditSovereignWesternEuropean")
+    ISDA2005EquityAsiaExcludingJapanInterdealer = PermissibleValue(text="ISDA2005EquityAsiaExcludingJapanInterdealer")
+    ISDA2005EquityAsiaExcludingJapanInterdealerRev2 = PermissibleValue(text="ISDA2005EquityAsiaExcludingJapanInterdealerRev2")
+    ISDA2005EquityJapaneseInterdealer = PermissibleValue(text="ISDA2005EquityJapaneseInterdealer")
+    ISDA2006VarianceSwapJapanese = PermissibleValue(text="ISDA2006VarianceSwapJapanese")
+    ISDA2006VarianceSwapJapaneseInterdealer = PermissibleValue(text="ISDA2006VarianceSwapJapaneseInterdealer")
+    ISDA2007EquityEuropean = PermissibleValue(text="ISDA2007EquityEuropean")
+    ISDA2007VarianceSwapAmericas = PermissibleValue(text="ISDA2007VarianceSwapAmericas")
+    ISDA2007VarianceSwapAsiaExcludingJapan = PermissibleValue(text="ISDA2007VarianceSwapAsiaExcludingJapan")
+    ISDA2007VarianceSwapAsiaExcludingJapanRev1 = PermissibleValue(text="ISDA2007VarianceSwapAsiaExcludingJapanRev1")
+    ISDA2007VarianceSwapAsiaExcludingJapanRev2 = PermissibleValue(text="ISDA2007VarianceSwapAsiaExcludingJapanRev2")
+    ISDA2007VarianceSwapEuropean = PermissibleValue(text="ISDA2007VarianceSwapEuropean")
+    ISDA2007VarianceSwapEuropeanRev1 = PermissibleValue(text="ISDA2007VarianceSwapEuropeanRev1")
+    ISDA2008DividendSwapJapan = PermissibleValue(text="ISDA2008DividendSwapJapan")
+    ISDA2008DividendSwapJapaneseRev1 = PermissibleValue(text="ISDA2008DividendSwapJapaneseRev1")
+    ISDA2008EquityAmericas = PermissibleValue(text="ISDA2008EquityAmericas")
+    ISDA2008EquityAsiaExcludingJapan = PermissibleValue(text="ISDA2008EquityAsiaExcludingJapan")
+    ISDA2008EquityAsiaExcludingJapanRev1 = PermissibleValue(text="ISDA2008EquityAsiaExcludingJapanRev1")
+    ISDA2008EquityJapan = PermissibleValue(text="ISDA2008EquityJapan")
+    ISDA2009EquityAmericas = PermissibleValue(text="ISDA2009EquityAmericas")
+    ISDA2009EquityEuropeanInterdealer = PermissibleValue(text="ISDA2009EquityEuropeanInterdealer")
+    ISDA2009EquityPanAsia = PermissibleValue(text="ISDA2009EquityPanAsia")
+    ISDA2010EquityEMEAInterdealer = PermissibleValue(text="ISDA2010EquityEMEAInterdealer")
+    ISDA2013VolatilitySwapAmericas = PermissibleValue(text="ISDA2013VolatilitySwapAmericas")
+    ISDA2013VolatilitySwapAsiaExcludingJapan = PermissibleValue(text="ISDA2013VolatilitySwapAsiaExcludingJapan")
+    ISDA2013VolatilitySwapEuropean = PermissibleValue(text="ISDA2013VolatilitySwapEuropean")
+    ISDA2013VolatilitySwapJapanese = PermissibleValue(text="ISDA2013VolatilitySwapJapanese")
 
     _defn = EnumDefinition(
         name="MasterConfirmationType",
@@ -39593,185 +36769,95 @@ class MasterConfirmationType(EnumDefinitionImpl):
     @classmethod
     def _addvals(cls):
         setattr(cls, "2003CreditIndex",
-            PermissibleValue(
-                text="2003CreditIndex",
-                meaning=None))
+            PermissibleValue(text="2003CreditIndex"))
         setattr(cls, "2004EquityEuropeanInterdealer",
-            PermissibleValue(
-                text="2004EquityEuropeanInterdealer",
-                meaning=None))
+            PermissibleValue(text="2004EquityEuropeanInterdealer"))
         setattr(cls, "2005VarianceSwapEuropeanInterdealer",
-            PermissibleValue(
-                text="2005VarianceSwapEuropeanInterdealer",
-                meaning=None))
+            PermissibleValue(text="2005VarianceSwapEuropeanInterdealer"))
         setattr(cls, "2006DividendSwapEuropean",
-            PermissibleValue(
-                text="2006DividendSwapEuropean",
-                meaning=None))
+            PermissibleValue(text="2006DividendSwapEuropean"))
         setattr(cls, "2006DividendSwapEuropeanInterdealer",
-            PermissibleValue(
-                text="2006DividendSwapEuropeanInterdealer",
-                meaning=None))
+            PermissibleValue(text="2006DividendSwapEuropeanInterdealer"))
         setattr(cls, "2014CreditAsia",
-            PermissibleValue(
-                text="2014CreditAsia",
-                meaning=None))
+            PermissibleValue(text="2014CreditAsia"))
         setattr(cls, "2014CreditAsiaFinancial",
-            PermissibleValue(
-                text="2014CreditAsiaFinancial",
-                meaning=None))
+            PermissibleValue(text="2014CreditAsiaFinancial"))
         setattr(cls, "2014CreditAustraliaNewZealand",
-            PermissibleValue(
-                text="2014CreditAustraliaNewZealand",
-                meaning=None))
+            PermissibleValue(text="2014CreditAustraliaNewZealand"))
         setattr(cls, "2014CreditAustraliaNewZealandFinancial",
-            PermissibleValue(
-                text="2014CreditAustraliaNewZealandFinancial",
-                meaning=None))
+            PermissibleValue(text="2014CreditAustraliaNewZealandFinancial"))
         setattr(cls, "2014CreditEuropean",
-            PermissibleValue(
-                text="2014CreditEuropean",
-                meaning=None))
+            PermissibleValue(text="2014CreditEuropean"))
         setattr(cls, "2014CreditEuropeanCoCoFinancial",
-            PermissibleValue(
-                text="2014CreditEuropeanCoCoFinancial",
-                meaning=None))
+            PermissibleValue(text="2014CreditEuropeanCoCoFinancial"))
         setattr(cls, "2014CreditEuropeanFinancial",
-            PermissibleValue(
-                text="2014CreditEuropeanFinancial",
-                meaning=None))
+            PermissibleValue(text="2014CreditEuropeanFinancial"))
         setattr(cls, "2014CreditJapan",
-            PermissibleValue(
-                text="2014CreditJapan",
-                meaning=None))
+            PermissibleValue(text="2014CreditJapan"))
         setattr(cls, "2014CreditJapanFinancial",
-            PermissibleValue(
-                text="2014CreditJapanFinancial",
-                meaning=None))
+            PermissibleValue(text="2014CreditJapanFinancial"))
         setattr(cls, "2014CreditNorthAmerican",
-            PermissibleValue(
-                text="2014CreditNorthAmerican",
-                meaning=None))
+            PermissibleValue(text="2014CreditNorthAmerican"))
         setattr(cls, "2014CreditNorthAmericanFinancial",
-            PermissibleValue(
-                text="2014CreditNorthAmericanFinancial",
-                meaning=None))
+            PermissibleValue(text="2014CreditNorthAmericanFinancial"))
         setattr(cls, "2014CreditSingapore",
-            PermissibleValue(
-                text="2014CreditSingapore",
-                meaning=None))
+            PermissibleValue(text="2014CreditSingapore"))
         setattr(cls, "2014CreditSingaporeFinancial",
-            PermissibleValue(
-                text="2014CreditSingaporeFinancial",
-                meaning=None))
+            PermissibleValue(text="2014CreditSingaporeFinancial"))
         setattr(cls, "2014CreditSovereignAsia",
-            PermissibleValue(
-                text="2014CreditSovereignAsia",
-                meaning=None))
+            PermissibleValue(text="2014CreditSovereignAsia"))
         setattr(cls, "2014CreditSovereignEmergingEuropeanAndMiddleEastern",
-            PermissibleValue(
-                text="2014CreditSovereignEmergingEuropeanAndMiddleEastern",
-                meaning=None))
+            PermissibleValue(text="2014CreditSovereignEmergingEuropeanAndMiddleEastern"))
         setattr(cls, "2014CreditSovereignJapan",
-            PermissibleValue(
-                text="2014CreditSovereignJapan",
-                meaning=None))
+            PermissibleValue(text="2014CreditSovereignJapan"))
         setattr(cls, "2014CreditSovereignLatinAmerican",
-            PermissibleValue(
-                text="2014CreditSovereignLatinAmerican",
-                meaning=None))
+            PermissibleValue(text="2014CreditSovereignLatinAmerican"))
         setattr(cls, "2014CreditSovereignWesternEuropean",
-            PermissibleValue(
-                text="2014CreditSovereignWesternEuropean",
-                meaning=None))
+            PermissibleValue(text="2014CreditSovereignWesternEuropean"))
         setattr(cls, "2014StandardCreditAsia",
-            PermissibleValue(
-                text="2014StandardCreditAsia",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditAsia"))
         setattr(cls, "2014StandardCreditAsiaFinancial",
-            PermissibleValue(
-                text="2014StandardCreditAsiaFinancial",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditAsiaFinancial"))
         setattr(cls, "2014StandardCreditAustraliaNewZealand",
-            PermissibleValue(
-                text="2014StandardCreditAustraliaNewZealand",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditAustraliaNewZealand"))
         setattr(cls, "2014StandardCreditAustraliaNewZealandFinancial",
-            PermissibleValue(
-                text="2014StandardCreditAustraliaNewZealandFinancial",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditAustraliaNewZealandFinancial"))
         setattr(cls, "2014StandardCreditEuropean",
-            PermissibleValue(
-                text="2014StandardCreditEuropean",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditEuropean"))
         setattr(cls, "2014StandardCreditEuropeanCoCoFinancial",
-            PermissibleValue(
-                text="2014StandardCreditEuropeanCoCoFinancial",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditEuropeanCoCoFinancial"))
         setattr(cls, "2014StandardCreditEuropeanFinancial",
-            PermissibleValue(
-                text="2014StandardCreditEuropeanFinancial",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditEuropeanFinancial"))
         setattr(cls, "2014StandardCreditJapan",
-            PermissibleValue(
-                text="2014StandardCreditJapan",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditJapan"))
         setattr(cls, "2014StandardCreditJapanFinancial",
-            PermissibleValue(
-                text="2014StandardCreditJapanFinancial",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditJapanFinancial"))
         setattr(cls, "2014StandardCreditNorthAmerican",
-            PermissibleValue(
-                text="2014StandardCreditNorthAmerican",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditNorthAmerican"))
         setattr(cls, "2014StandardCreditNorthAmericanFinancial",
-            PermissibleValue(
-                text="2014StandardCreditNorthAmericanFinancial",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditNorthAmericanFinancial"))
         setattr(cls, "2014StandardCreditSingapore",
-            PermissibleValue(
-                text="2014StandardCreditSingapore",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditSingapore"))
         setattr(cls, "2014StandardCreditSingaporeFinancial",
-            PermissibleValue(
-                text="2014StandardCreditSingaporeFinancial",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditSingaporeFinancial"))
         setattr(cls, "2014StandardCreditSovereignAsia",
-            PermissibleValue(
-                text="2014StandardCreditSovereignAsia",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditSovereignAsia"))
         setattr(cls, "2014StandardCreditSovereignEmergingEuropeanAndMiddleEastern",
-            PermissibleValue(
-                text="2014StandardCreditSovereignEmergingEuropeanAndMiddleEastern",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditSovereignEmergingEuropeanAndMiddleEastern"))
         setattr(cls, "2014StandardCreditSovereignJapan",
-            PermissibleValue(
-                text="2014StandardCreditSovereignJapan",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditSovereignJapan"))
         setattr(cls, "2014StandardCreditSovereignLatinAmerican",
-            PermissibleValue(
-                text="2014StandardCreditSovereignLatinAmerican",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditSovereignLatinAmerican"))
         setattr(cls, "2014StandardCreditSovereignWesternEuropean",
-            PermissibleValue(
-                text="2014StandardCreditSovereignWesternEuropean",
-                meaning=None))
+            PermissibleValue(text="2014StandardCreditSovereignWesternEuropean"))
         setattr(cls, "DJ.CDX.EM",
-            PermissibleValue(
-                text="DJ.CDX.EM",
-                meaning=None))
+            PermissibleValue(text="DJ.CDX.EM"))
         setattr(cls, "DJ.CDX.EM.DIV",
-            PermissibleValue(
-                text="DJ.CDX.EM.DIV",
-                meaning=None))
+            PermissibleValue(text="DJ.CDX.EM.DIV"))
         setattr(cls, "DJ.CDX.NA",
-            PermissibleValue(
-                text="DJ.CDX.NA",
-                meaning=None))
+            PermissibleValue(text="DJ.CDX.NA"))
         setattr(cls, "DJ.iTraxx.Europe",
-            PermissibleValue(
-                text="DJ.iTraxx.Europe",
-                meaning=None))
+            PermissibleValue(text="DJ.iTraxx.Europe"))
 
 class CommodityLocationIdentifierTypeEnum(EnumDefinitionImpl):
     """
