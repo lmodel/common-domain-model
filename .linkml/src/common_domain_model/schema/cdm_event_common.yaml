@@ -32,6 +32,7 @@ imports:
   - ./cdm_product_common
   - ./cdm_product_common_settlement
   - ./cdm_product_template
+  - ./common_domain_model_keys
 enums:
   ActionEnum:
     description: The enumeration values to specify the actions associated with transactions.
@@ -1074,7 +1075,15 @@ classes:
               value_presence: PRESENT
   ContractDetails:
     description: Defines specific attributes that relate to contractual details of trades.
+    slots:
+      - documentation
     attributes:
+      governingLaw:
+        description: Represents the law governing the trade and associated contractual product terms.
+        range: GoverningLawEnum
+        annotations:
+          rosetta_metadata: scheme
+    slot_usage:
       documentation:
         description: Represents the legal document(s) that governs a trade and associated contractual
           product terms, either as a reference to such documents when specified as part of the CDM, or
@@ -1082,11 +1091,6 @@ classes:
           the document identifier, the publisher, the document vintage and the agreement date.
         range: LegalAgreement
         multivalued: true
-      governingLaw:
-        description: Represents the law governing the trade and associated contractual product terms.
-        range: GoverningLawEnum
-        annotations:
-          rosetta_metadata: scheme
     annotations:
       rosetta_metadata: key
     comments:
@@ -2537,22 +2541,17 @@ classes:
             value_presence: PRESENT
   Valuation:
     description: Defines the value of an investment, asset, or security
+    slots:
+      - timestamp
+      - source
     attributes:
       amount:
         description: Current value of the outstanding contract
         range: Money
         required: true
-      timestamp:
-        description: Date and time of the last valuation marked to market, provided by the central counterparty
-          (CCP) or calculated using the current or last available market price of the inputs.
-        range: datetime
-        required: true
       method:
         description: Method used for the valuation of the transaction by the valuation party.
         range: ValuationTypeEnum
-      source:
-        description: Source of the valuation of the transaction by the valuation party.
-        range: ValuationSourceEnum
       scope:
         description: Defines the scope of the valuation, what it applies to e.g. the collateral or the
           trade
@@ -2568,6 +2567,15 @@ classes:
       priceComponent:
         description: Denotes the price used to compute the valuation.
         range: Price
+    slot_usage:
+      timestamp:
+        description: Date and time of the last valuation marked to market, provided by the central counterparty
+          (CCP) or calculated using the current or last available market price of the inputs.
+        range: datetime
+        required: true
+      source:
+        description: Source of the valuation of the transaction by the valuation party.
+        range: ValuationSourceEnum
     all_of:
       - description: 'ValuationType: The below condition ensures one and only one of the two attributes:
           ''Valuation Method'' or ''Valuation Source'' is allowed. Valuation of a trade or a portfolio

@@ -296,8 +296,8 @@
 --     * Slot: id
 -- # Class: Commodity Description: Identifies a specific commodity by referencing a product identifier or by a product definition.
 --     * Slot: id
---     * Slot: priceQuoteType Description: Describes the required quote type of the underlying price that will be observed. Example values include 'Bid, 'Ask', 'Settlement' (for a futures contract) and 'WeightedAverage' (for some published prices and indices).
 --     * Slot: description Description: Provides additional information about the commodity underlier.
+--     * Slot: priceQuoteType Description: Describes the required quote type of the underlying price that will be observed. Example values include 'Bid, 'Ask', 'Settlement' (for a futures contract) and 'WeightedAverage' (for some published prices and indices).
 --     * Slot: isExchangeListed Description: Defines whether the asset is listed on a public exchange.
 --     * Slot: assetType Description: Specifies the type of asset.
 --     * Slot: commodityProductDefinition_id Description: Specifies the commodity underlier in the event that no ISDA Commodity Reference Benchmark exists.
@@ -379,8 +379,8 @@
 --     * Slot: priceSourceTime Description: Specifies the time at which the price should be observed.
 -- # Class: ProductIdentifier Description: Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash value to the ProductIdentifier instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage.
 --     * Slot: id
---     * Slot: identifier Description: Provides an identifier associated with a specific product. The identifier is unique within the public source specified in the source attribute.
 --     * Slot: source Description: Defines the source of the identifier.
+--     * Slot: identifier Description: Provides an identifier associated with a specific product. The identifier is unique within the public source specified in the source attribute.
 -- # Class: ProductTaxonomy Description: Specifies the product taxonomy, which is composed of a taxonomy value and a taxonomy source.
 --     * Slot: id
 --     * Slot: primaryAssetClass Description: Classifies the most important risk class of the trade.
@@ -420,9 +420,9 @@
 --     * Slot: value_id Description: The value according to that taxonomy. Optional as it may not be possible to classify the object in that taxonomy.
 -- # Class: TaxonomyClassification
 --     * Slot: id
+--     * Slot: description Description: A description of the class.
 --     * Slot: className Description: The name defined by the classification system for a specific attribute in the taxonomy
 --     * Slot: value Description: The value set by the taxonomy that is specific to the className attribute.
---     * Slot: description Description: A description of the class.
 --     * Slot: ordinal Description: In the case of multi-layered hierarchical classification systems such as commodity classification, the layer the value and className occupy in the classification hierarchy, where 1 represents the top-layer.
 -- # Class: TaxonomyValue Description: Defines a taxonomy value as either a simple string or a more granular expression with class names and values for each class.
 --     * Slot: id
@@ -461,24 +461,24 @@
 -- # Class: CodeListIdentification Description: A type to identify the version of a codelist
 --     * Slot: id
 --     * Slot: description Description: A description of the code list, e.g. A list of codes identifying business centers
+--     * Slot: version Description: The the most recent version of the codelist, eg. 9-1
 --     * Slot: publicationDate Description: The most recent date the code list was published, e.g. 2021-10-05
 --     * Slot: shortName Description: A short name (without whitespace) for the code list, e.g. businessCenterScheme
---     * Slot: version Description: The the most recent version of the codelist, eg. 9-1
 --     * Slot: codeShortId Description: The name of the code list, e.g. business-center
 --     * Slot: canonicalUri Description: Canonical URI which uniquely identifies all versions (collectively) of the referenced code list. Must be an absolute URI. Must not be used as a de facto location URI.
 --     * Slot: canonicalVersionUri Description: Canonical URI which uniquely identifies a specific version of the referenced code list. Must be an absolute URI. Must not be used as a de facto location URI.
 --     * Slot: locationUri Description: Suggested retrieval location for this version, in genericode format. An application must signal an error to the user if a document retrieved using a LocationUri is not in genericode format.
 -- # Class: CodeValue Description: A type to hold the value of the code in a codelist
 --     * Slot: id
---     * Slot: value Description: The value of the code, e.g. USNY
 --     * Slot: description Description: A description of the meaning of the code, e.g. New York City, USA
 --     * Slot: source Description: Where the code was defined,e.g. ISDA, FpML, Bloomberg
+--     * Slot: value Description: The value of the code, e.g. USNY
 --     * Slot: effectiveDate Description: When the code became/becomes effective
 --     * Slot: deprecatedDate Description: When the code ceased to be valid for new uses
 -- # Class: AssignedIdentifier Description: A class to specify the identifier value and its associated version.
 --     * Slot: id
---     * Slot: identifier Description: The identifier value.
 --     * Slot: version Description: The identifier version, which is specified as an integer and is meant to be incremented each time the transaction terms (whether contract or event) change. This version is made option to support the use case where the identifier is referenced without the version. The constraint that a contract and a lifecycle event need to have an associated version is enforced through data rules.
+--     * Slot: identifier Description: The identifier value.
 -- # Class: IdentifiedList Description: Attaches an identifier to a collection of objects, when those objects themselves can each be represented by an identifier. One use case is the representation of package transactions, where each component is a separate trade with its own identifier, and those trades are linked together as a package with its own identifier. The data type has been named generically rather than referring to 'packages' as it may have a number of other uses.
 --     * Slot: id
 --     * Slot: listId_id Description: The identifier for the list. In the case of a package transaction, this would be the package identifier. This attribute is mandatory to allow the list itself to be identified.
@@ -1024,8 +1024,8 @@
 -- # Class: Valuation Description: Defines the value of an investment, asset, or security
 --     * Slot: id
 --     * Slot: timestamp Description: Date and time of the last valuation marked to market, provided by the central counterparty (CCP) or calculated using the current or last available market price of the inputs.
---     * Slot: method Description: Method used for the valuation of the transaction by the valuation party.
 --     * Slot: source Description: Source of the valuation of the transaction by the valuation party.
+--     * Slot: method Description: Method used for the valuation of the transaction by the valuation party.
 --     * Slot: scope Description: Defines the scope of the valuation, what it applies to e.g. the collateral or the trade
 --     * Slot: delta Description: The ratio of the change in the price of a derivative transaction to the change in the price of the underlying. This field is applicable only to options and swaptions.
 --     * Slot: valuationTiming Description: Denotes when the valuation was sourced during a business day.
@@ -1439,8 +1439,8 @@
 -- # Class: FroHistory Description: FRO History
 --     * Slot: id
 --     * Slot: startDate Description: The date the Floating Rate Option was added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2017/04/06)
---     * Slot: updateDate Description: The date the Floating Rate Option was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2021/06/11)
 --     * Slot: endDate Description: The date the Floating Rate Option was removed from the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2014/01/01)
+--     * Slot: updateDate Description: The date the Floating Rate Option was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2021/06/11)
 --     * Slot: firstDefinedIn_id Description: The supplement or version the FRO was first added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. S52)
 --     * Slot: lastUpdatedIn_id Description: The supplement or version the FRO was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. FRO-M-V1)
 -- # Class: AmountScheduleWithInitialValue Description: A class to specify a currency amount or a currency amount schedule.
@@ -1473,8 +1473,8 @@
 --     * Slot: adjustedEndDate Description: The calculation period end date, adjusted according to any relevant business day convention.
 -- # Class: CalculationPeriodData
 --     * Slot: id
---     * Slot: startDate
---     * Slot: endDate
+--     * Slot: startDate Description: The CDM's startDate attribute; each class's slot_usage gives its meaning.
+--     * Slot: endDate Description: The CDM's endDate attribute; each class's slot_usage gives its meaning.
 --     * Slot: daysInPeriod
 --     * Slot: daysInLeapYearPeriod
 --     * Slot: isFirstPeriod
@@ -1646,8 +1646,8 @@
 --     * Slot: ResetInstructionState_id
 -- # Class: CompositionStep Description: Represents a single atomic step in the Instruction Composition lifecycle, including its instructions, status, and optional output. Each CompositionStep is defined by an identifier, a timestamp and a single Instruction.
 --     * Slot: id
---     * Slot: identifier Description: Identification of the Instruction Composition step.
 --     * Slot: timestamp Description: Date and time of the execution of the Instruction Composition step after being executed.
+--     * Slot: identifier Description: Identification of the Instruction Composition step.
 --     * Slot: compositionStepInstruction_id Description: Set of instructions defining the steps of each Instruction Composition process.
 -- # Class: CompositionStepInstruction Description: Set of instructions defining the steps of each Instruction Composition process. The CompositionStepInstruction is defined by a type (as the same instruction can be reused across different Instruction Composition types), and the selection of one of the list of CompositionStepInstructions (where the information for executing the step is held).
 --     * Slot: id
@@ -1724,8 +1724,8 @@
 --     * Slot: legalAgreementIdentification_id Description: The type of legal agreement, identified via a set of composable attributes: agreementName, publisher, governing law and version, e.g. ISDA 2013 Standard Credit Support Annex English Law.
 -- # Class: LegalAgreementIdentification Description: Specifies the type of legal agreement, identified via a set of composable attributes: agreementName, publisher, governing law and version, e.g. ISDA 2013 Standard Credit Support Annex English Law.
 --     * Slot: id
---     * Slot: governingLaw Description: The law governing the legal agreement, e.g. English Law, New York Law or Japanese Law.
 --     * Slot: publisher Description: The legal agreement publisher, e.g. ISDA.
+--     * Slot: governingLaw Description: The law governing the legal agreement, e.g. English Law, New York Law or Japanese Law.
 --     * Slot: vintage Description: In the case where successive definitions of the legal agreement have been developed, the vintage identification. This is typically (but not necessarily) done by referencing the year, e.g. 2013 in the case of the ISDA 2013 Standard Credit Support Annex.
 --     * Slot: agreementName_id Description: The legal agreement name, e.g. Credit Support Annex for Variation Margin.
 -- # Class: NonLegalEntity Description: Specifies a non-legal entity that exists in the agreement with a defined relationship to a Legal entity to the agreement
@@ -1741,9 +1741,9 @@
 --     * Slot: primaryContactInformation_id Description: The main notice/address information of the party.
 -- # Class: OtherAgreement Description: A class for defining an agreement executed between parties.
 --     * Slot: id
+--     * Slot: version Description: The version of the agreement.
 --     * Slot: identifier Description: An identifier that has been created to identify the agreement.
 --     * Slot: otherAgreementType Description: The agreement executed between the parties and intended to govern product-specific derivatives transactions between those parties.
---     * Slot: version Description: The version of the agreement.
 --     * Slot: date Description: The date on which the agreement was signed.
 -- # Class: OtherAgreementTerms Description: A class to specify a related legal agreement. For example, ISDA 2016 Credit Support Annex for Initial Margin, paragraph 13, General Principles, (s): Other CSA and Japanese Law CSA (VM). | ISDA 2016 Credit Support Annex for Variation Margin, paragraph 13, (o): Other CSA.
 --     * Slot: id
@@ -1751,15 +1751,15 @@
 --     * Slot: legalDocument Description: The specification of this other agreement, when the qualification is True.
 -- # Class: Resource Description: Describes the resource that contains the media representation of a business event (i.e used for stating the Publicly Available Information). For example, can describe a file or a URL that represents the event. This type is an extended version of a type defined by RIXML (www.rixml.org). Rosetta restricts the FpML implementation by not providing the ability to associated a document in hexadecimalBinary or base64Binary until such time that actual use cases will come up.
 --     * Slot: id
+--     * Slot: name Description: The name of the resource. It is specified as a NormalizedString in FpML.
+--     * Slot: url Description: Indicates where the resource can be found, as a URL that references the information on a web server accessible to the message recipient.
 --     * Slot: resourceId Description: The unique identifier of the resource within the event. FpML specifies this element of type resourceIdScheme but with no specified value.
 --     * Slot: resourceType Description: A description of the type of the resource, e.g. a confirmation.
 --     * Slot: language Description: Indicates the language of the resource, described using the ISO 639-2/T Code.
 --     * Slot: sizeInBytes Description: Indicates the size of the resource in bytes. It could be used by the end user to estimate the download time and storage needs.
 --     * Slot: mimeType Description: Indicates the type of media used to store the content. mimeType is used to determine the software product(s) that can read the content. MIME Types are described in RFC 2046.
---     * Slot: name Description: The name of the resource. It is specified as a NormalizedString in FpML.
 --     * Slot: comments Description: Any additional comments that are deemed necessary. For example, which software version is required to open the document? Or, how does this resource relate to the others for this event?
 --     * Slot: string Description: Provides extra information as string. In case the extra information is in XML format, a CDATA section must be placed around the source message to prevent its interpretation as XML content.
---     * Slot: url Description: Indicates where the resource can be found, as a URL that references the information on a web server accessible to the message recipient.
 --     * Slot: length_id Description: Indicates the length of the resource. For example, if the resource were a PDF file, the length would be in pages.
 -- # Class: ResourceLength Description: A class to indicate the length of the resource.
 --     * Slot: id
@@ -1932,8 +1932,8 @@
 --     * Slot: id
 --     * Slot: approved Description: Flag denoting whether the workflow step is approved or not
 --     * Slot: rejectedReason Description: Optional reason for rejecting the workflow step
---     * Slot: party_id Description: Reference to the Party who is approving/rejecting this workflow step
 --     * Slot: timestamp_id Description: Timestamp of the approval
+--     * Slot: party_id Description: Reference to the Party who is approving/rejecting this workflow step
 -- # Class: ClauseLibraryClause Description: Defines clauses that make up the Agreement.
 --     * Slot: id
 --     * Slot: name Description: Optional textual description of the clause.
@@ -2007,9 +2007,9 @@
 --     * Slot: id
 -- # Class: ApplicableRegime Description: A class to specify the applicable regulatory regime(s) that parties to a legal agreement, such as the ISDA 2016 and 2018 CSA for Initial Margin, might be subject to.
 --     * Slot: id
+--     * Slot: additionalType Description: The CDM's additionalType attribute; each class's slot_usage gives its meaning.
 --     * Slot: regime Description: The applicable regulatory regime, as specified through an enumeration.
 --     * Slot: additionalRegime Description: The additional regulatory regime as specified by the parties.
---     * Slot: additionalType
 --     * Slot: additionalTerms Description: The bespoke Additional Type for the purposes of Covered Transactions (IM).
 -- # Class: AppropriatedCollateralValuation Description: A class to specify the Valuation of Appropriated Collateral.
 --     * Slot: id
@@ -4664,15 +4664,15 @@
 -- # Class: AncillaryParty_partyReference
 --     * Slot: AncillaryParty_id Description: Autocreated FK slot
 --     * Slot: partyReference_id Description: Specifies the party, or parties, associated to the ancillary role.
+-- # Class: ContactInformation_email
+--     * Slot: ContactInformation_id Description: Autocreated FK slot
+--     * Slot: email Description: The email address.
 -- # Class: ContactInformation_telephone
 --     * Slot: ContactInformation_id Description: Autocreated FK slot
 --     * Slot: telephone_id Description: The telephone number.
 -- # Class: ContactInformation_address
 --     * Slot: ContactInformation_id Description: Autocreated FK slot
 --     * Slot: address_id Description: The street/postal address.
--- # Class: ContactInformation_email
---     * Slot: ContactInformation_id Description: Autocreated FK slot
---     * Slot: email Description: The email address.
 -- # Class: ContactInformation_webPage
 --     * Slot: ContactInformation_id Description: Autocreated FK slot
 --     * Slot: webPage Description: The web page. This attribute is not specified as part of the FpML ContactInformation complex type.
@@ -5195,15 +5195,15 @@
 -- # Class: NoticeContactInformation_naturalPerson
 --     * Slot: NoticeContactInformation_id Description: Autocreated FK slot
 --     * Slot: naturalPerson_id Description: Optional information about people involved in a transaction or business process.
+-- # Class: NoticeContactInformation_email
+--     * Slot: NoticeContactInformation_id Description: Autocreated FK slot
+--     * Slot: email Description: The email address.
 -- # Class: NoticeContactInformation_telephone
 --     * Slot: NoticeContactInformation_id Description: Autocreated FK slot
 --     * Slot: telephone_id Description: The telephone number.
 -- # Class: NoticeContactInformation_address
 --     * Slot: NoticeContactInformation_id Description: Autocreated FK slot
 --     * Slot: address_id Description: The street/postal address.
--- # Class: NoticeContactInformation_email
---     * Slot: NoticeContactInformation_id Description: Autocreated FK slot
---     * Slot: email Description: The email address.
 -- # Class: NoticeContactInformation_webPage
 --     * Slot: NoticeContactInformation_id Description: Autocreated FK slot
 --     * Slot: webPage Description: The web page. This attribute is not specified as part of the FpML ContactInformation complex type.
@@ -5213,15 +5213,15 @@
 -- # Class: TransferContactInformation_account
 --     * Slot: TransferContactInformation_id Description: Autocreated FK slot
 --     * Slot: account_id Description: Specifies the account infomation for transfers to a party.
+-- # Class: TransferContactInformation_email
+--     * Slot: TransferContactInformation_id Description: Autocreated FK slot
+--     * Slot: email Description: The email address.
 -- # Class: TransferContactInformation_telephone
 --     * Slot: TransferContactInformation_id Description: Autocreated FK slot
 --     * Slot: telephone_id Description: The telephone number.
 -- # Class: TransferContactInformation_address
 --     * Slot: TransferContactInformation_id Description: Autocreated FK slot
 --     * Slot: address_id Description: The street/postal address.
--- # Class: TransferContactInformation_email
---     * Slot: TransferContactInformation_id Description: Autocreated FK slot
---     * Slot: email Description: The email address.
 -- # Class: TransferContactInformation_webPage
 --     * Slot: TransferContactInformation_id Description: Autocreated FK slot
 --     * Slot: webPage Description: The web page. This attribute is not specified as part of the FpML ContactInformation complex type.
@@ -5312,12 +5312,12 @@
 -- # Class: WorkflowState_partyCustomisedWorkflow
 --     * Slot: WorkflowState_id Description: Autocreated FK slot
 --     * Slot: partyCustomisedWorkflow_id Description: Workflow data that is specific to certain market participants and is expressed as part of the CDM in a very generic manner, which can be party-specific. The initial use cases have been derived from the CME clearing and the DTCC TIW submissions.
--- # Class: WorkflowStep_approval
---     * Slot: WorkflowStep_id Description: Autocreated FK slot
---     * Slot: approval_id Description: Optional party approvals for the current workflow step. A workflow step can have any number of parties associated to it, thus this object is represented as a list. All parties that are expected to provide approval should have an item in this list that references them.
 -- # Class: WorkflowStep_timestamp
 --     * Slot: WorkflowStep_id Description: Autocreated FK slot
 --     * Slot: timestamp_id Description: The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier].
+-- # Class: WorkflowStep_approval
+--     * Slot: WorkflowStep_id Description: Autocreated FK slot
+--     * Slot: approval_id Description: Optional party approvals for the current workflow step. A workflow step can have any number of parties associated to it, thus this object is represented as a list. All parties that are expected to provide approval should have an item in this list that references them.
 -- # Class: WorkflowStep_eventIdentifier
 --     * Slot: WorkflowStep_id Description: Autocreated FK slot
 --     * Slot: eventIdentifier_id Description: The identifier(s) that uniquely identify a lifecycle event. The unbounded cardinality is meant to provide the ability to associate identifiers that are issued by distinct parties. As an example, each of the parties to the event may choose to associate their own identifiers to the event.
@@ -6116,8 +6116,8 @@ CREATE INDEX "ix_PriceSource_id" ON "PriceSource" (id);
 
 CREATE TABLE "ProductIdentifier" (
 	id INTEGER NOT NULL,
-	identifier TEXT NOT NULL,
 	source VARCHAR(10) NOT NULL,
+	identifier TEXT NOT NULL,
 	PRIMARY KEY (id)
 );
 CREATE INDEX "ix_ProductIdentifier_id" ON "ProductIdentifier" (id);
@@ -6157,9 +6157,9 @@ CREATE INDEX "ix_SpecialPurposeVehicleIssuerType_id" ON "SpecialPurposeVehicleIs
 
 CREATE TABLE "TaxonomyClassification" (
 	id INTEGER NOT NULL,
+	description TEXT,
 	"className" TEXT,
 	value TEXT NOT NULL,
-	description TEXT,
 	ordinal INTEGER,
 	PRIMARY KEY (id)
 );
@@ -6191,9 +6191,9 @@ CREATE INDEX "ix_SpecifiedCurrency_id" ON "SpecifiedCurrency" (id);
 CREATE TABLE "CodeListIdentification" (
 	id INTEGER NOT NULL,
 	description TEXT,
+	version TEXT NOT NULL,
 	"publicationDate" TEXT,
 	"shortName" TEXT NOT NULL,
-	version TEXT NOT NULL,
 	"codeShortId" TEXT,
 	"canonicalUri" TEXT NOT NULL,
 	"canonicalVersionUri" TEXT,
@@ -6204,9 +6204,9 @@ CREATE INDEX "ix_CodeListIdentification_id" ON "CodeListIdentification" (id);
 
 CREATE TABLE "CodeValue" (
 	id INTEGER NOT NULL,
-	value TEXT NOT NULL,
 	description TEXT,
 	source TEXT,
+	value TEXT NOT NULL,
 	"effectiveDate" DATE,
 	"deprecatedDate" DATE,
 	PRIMARY KEY (id)
@@ -6215,8 +6215,8 @@ CREATE INDEX "ix_CodeValue_id" ON "CodeValue" (id);
 
 CREATE TABLE "AssignedIdentifier" (
 	id INTEGER NOT NULL,
-	identifier TEXT NOT NULL,
 	version INTEGER,
+	identifier TEXT NOT NULL,
 	PRIMARY KEY (id)
 );
 CREATE INDEX "ix_AssignedIdentifier_id" ON "AssignedIdentifier" (id);
@@ -6908,9 +6908,9 @@ CREATE INDEX "ix_NoticeContactInformation_id" ON "NoticeContactInformation" (id)
 
 CREATE TABLE "OtherAgreement" (
 	id INTEGER NOT NULL,
+	version TEXT,
 	identifier TEXT,
 	"otherAgreementType" TEXT NOT NULL,
-	version TEXT,
 	date DATE,
 	PRIMARY KEY (id)
 );
@@ -7136,9 +7136,9 @@ CREATE INDEX "ix_AnyEligibilityToHoldCollateralCriteria_id" ON "AnyEligibilityTo
 
 CREATE TABLE "ApplicableRegime" (
 	id INTEGER NOT NULL,
+	"additionalType" VARCHAR(25),
 	regime VARCHAR(14),
 	"additionalRegime" TEXT,
-	"additionalType" VARCHAR(25),
 	"additionalTerms" TEXT,
 	PRIMARY KEY (id)
 );
@@ -9488,8 +9488,8 @@ CREATE INDEX "ix_ContactInformationElection_id" ON "ContactInformationElection" 
 
 CREATE TABLE "LegalAgreementIdentification" (
 	id INTEGER NOT NULL,
-	"governingLaw" VARCHAR(28),
 	publisher VARCHAR(15),
+	"governingLaw" VARCHAR(28),
 	vintage INTEGER,
 	"agreementName_id" INTEGER NOT NULL,
 	PRIMARY KEY (id),
@@ -9508,15 +9508,15 @@ CREATE INDEX "ix_NoticeInformationElection_id" ON "NoticeInformationElection" (i
 
 CREATE TABLE "Resource" (
 	id INTEGER NOT NULL,
+	name TEXT,
+	url TEXT,
 	"resourceId" TEXT NOT NULL,
 	"resourceType" VARCHAR(33),
 	language TEXT,
 	"sizeInBytes" NUMERIC,
 	"mimeType" TEXT,
-	name TEXT,
 	comments TEXT,
 	string TEXT,
-	url TEXT,
 	length_id INTEGER,
 	PRIMARY KEY (id),
 	FOREIGN KEY(length_id) REFERENCES "ResourceLength" (id)
@@ -9601,11 +9601,11 @@ CREATE TABLE "WorkflowStepApproval" (
 	id INTEGER NOT NULL,
 	approved BOOLEAN NOT NULL,
 	"rejectedReason" TEXT,
-	party_id INTEGER NOT NULL,
 	timestamp_id INTEGER NOT NULL,
+	party_id INTEGER NOT NULL,
 	PRIMARY KEY (id),
-	FOREIGN KEY(party_id) REFERENCES "Party" (id),
-	FOREIGN KEY(timestamp_id) REFERENCES "EventTimestamp" (id)
+	FOREIGN KEY(timestamp_id) REFERENCES "EventTimestamp" (id),
+	FOREIGN KEY(party_id) REFERENCES "Party" (id)
 );
 CREATE INDEX "ix_WorkflowStepApproval_id" ON "WorkflowStepApproval" (id);
 
@@ -10487,6 +10487,15 @@ CREATE TABLE "AncillaryParty_partyReference" (
 CREATE INDEX "ix_AncillaryParty_partyReference_partyReference_id" ON "AncillaryParty_partyReference" ("partyReference_id");
 CREATE INDEX "ix_AncillaryParty_partyReference_AncillaryParty_id" ON "AncillaryParty_partyReference" ("AncillaryParty_id");
 
+CREATE TABLE "ContactInformation_email" (
+	"ContactInformation_id" INTEGER,
+	email TEXT,
+	PRIMARY KEY ("ContactInformation_id", email),
+	FOREIGN KEY("ContactInformation_id") REFERENCES "ContactInformation" (id)
+);
+CREATE INDEX "ix_ContactInformation_email_email" ON "ContactInformation_email" (email);
+CREATE INDEX "ix_ContactInformation_email_ContactInformation_id" ON "ContactInformation_email" ("ContactInformation_id");
+
 CREATE TABLE "ContactInformation_telephone" (
 	"ContactInformation_id" INTEGER,
 	telephone_id INTEGER,
@@ -10506,15 +10515,6 @@ CREATE TABLE "ContactInformation_address" (
 );
 CREATE INDEX "ix_ContactInformation_address_ContactInformation_id" ON "ContactInformation_address" ("ContactInformation_id");
 CREATE INDEX "ix_ContactInformation_address_address_id" ON "ContactInformation_address" (address_id);
-
-CREATE TABLE "ContactInformation_email" (
-	"ContactInformation_id" INTEGER,
-	email TEXT,
-	PRIMARY KEY ("ContactInformation_id", email),
-	FOREIGN KEY("ContactInformation_id") REFERENCES "ContactInformation" (id)
-);
-CREATE INDEX "ix_ContactInformation_email_email" ON "ContactInformation_email" (email);
-CREATE INDEX "ix_ContactInformation_email_ContactInformation_id" ON "ContactInformation_email" ("ContactInformation_id");
 
 CREATE TABLE "ContactInformation_webPage" (
 	"ContactInformation_id" INTEGER,
@@ -10723,6 +10723,15 @@ CREATE TABLE "AgreementName_contractualMatrix" (
 CREATE INDEX "ix_AgreementName_contractualMatrix_contractualMatrix_id" ON "AgreementName_contractualMatrix" ("contractualMatrix_id");
 CREATE INDEX "ix_AgreementName_contractualMatrix_AgreementName_id" ON "AgreementName_contractualMatrix" ("AgreementName_id");
 
+CREATE TABLE "NoticeContactInformation_email" (
+	"NoticeContactInformation_id" INTEGER,
+	email TEXT,
+	PRIMARY KEY ("NoticeContactInformation_id", email),
+	FOREIGN KEY("NoticeContactInformation_id") REFERENCES "NoticeContactInformation" (id)
+);
+CREATE INDEX "ix_NoticeContactInformation_email_NoticeContactInformation_id" ON "NoticeContactInformation_email" ("NoticeContactInformation_id");
+CREATE INDEX "ix_NoticeContactInformation_email_email" ON "NoticeContactInformation_email" (email);
+
 CREATE TABLE "NoticeContactInformation_telephone" (
 	"NoticeContactInformation_id" INTEGER,
 	telephone_id INTEGER,
@@ -10743,15 +10752,6 @@ CREATE TABLE "NoticeContactInformation_address" (
 CREATE INDEX "ix_NoticeContactInformation_address_NoticeContactInformation_id" ON "NoticeContactInformation_address" ("NoticeContactInformation_id");
 CREATE INDEX "ix_NoticeContactInformation_address_address_id" ON "NoticeContactInformation_address" (address_id);
 
-CREATE TABLE "NoticeContactInformation_email" (
-	"NoticeContactInformation_id" INTEGER,
-	email TEXT,
-	PRIMARY KEY ("NoticeContactInformation_id", email),
-	FOREIGN KEY("NoticeContactInformation_id") REFERENCES "NoticeContactInformation" (id)
-);
-CREATE INDEX "ix_NoticeContactInformation_email_NoticeContactInformation_id" ON "NoticeContactInformation_email" ("NoticeContactInformation_id");
-CREATE INDEX "ix_NoticeContactInformation_email_email" ON "NoticeContactInformation_email" (email);
-
 CREATE TABLE "NoticeContactInformation_webPage" (
 	"NoticeContactInformation_id" INTEGER,
 	"webPage" TEXT,
@@ -10770,6 +10770,15 @@ CREATE TABLE "TransferContactInformation_account" (
 );
 CREATE INDEX "ix_TransferContactInformation_account_account_id" ON "TransferContactInformation_account" (account_id);
 CREATE INDEX "ix_TransferContactInformation_account_TransferContactInformation_id" ON "TransferContactInformation_account" ("TransferContactInformation_id");
+
+CREATE TABLE "TransferContactInformation_email" (
+	"TransferContactInformation_id" INTEGER,
+	email TEXT,
+	PRIMARY KEY ("TransferContactInformation_id", email),
+	FOREIGN KEY("TransferContactInformation_id") REFERENCES "TransferContactInformation" (id)
+);
+CREATE INDEX "ix_TransferContactInformation_email_email" ON "TransferContactInformation_email" (email);
+CREATE INDEX "ix_TransferContactInformation_email_TransferContactInformation_id" ON "TransferContactInformation_email" ("TransferContactInformation_id");
 
 CREATE TABLE "TransferContactInformation_telephone" (
 	"TransferContactInformation_id" INTEGER,
@@ -10790,15 +10799,6 @@ CREATE TABLE "TransferContactInformation_address" (
 );
 CREATE INDEX "ix_TransferContactInformation_address_TransferContactInformation_id" ON "TransferContactInformation_address" ("TransferContactInformation_id");
 CREATE INDEX "ix_TransferContactInformation_address_address_id" ON "TransferContactInformation_address" (address_id);
-
-CREATE TABLE "TransferContactInformation_email" (
-	"TransferContactInformation_id" INTEGER,
-	email TEXT,
-	PRIMARY KEY ("TransferContactInformation_id", email),
-	FOREIGN KEY("TransferContactInformation_id") REFERENCES "TransferContactInformation" (id)
-);
-CREATE INDEX "ix_TransferContactInformation_email_email" ON "TransferContactInformation_email" (email);
-CREATE INDEX "ix_TransferContactInformation_email_TransferContactInformation_id" ON "TransferContactInformation_email" ("TransferContactInformation_id");
 
 CREATE TABLE "TransferContactInformation_webPage" (
 	"TransferContactInformation_id" INTEGER,
@@ -13507,8 +13507,8 @@ CREATE INDEX "ix_FloatingRateIndexMappings_id" ON "FloatingRateIndexMappings" (i
 CREATE TABLE "FroHistory" (
 	id INTEGER NOT NULL,
 	"startDate" DATE,
-	"updateDate" DATE,
 	"endDate" DATE,
+	"updateDate" DATE,
 	"firstDefinedIn_id" INTEGER,
 	"lastUpdatedIn_id" INTEGER,
 	PRIMARY KEY (id),
@@ -14924,8 +14924,8 @@ CREATE INDEX "ix_MoneyRange_id" ON "MoneyRange" (id);
 
 CREATE TABLE "Commodity" (
 	id INTEGER NOT NULL,
-	"priceQuoteType" VARCHAR(18) NOT NULL,
 	description TEXT,
+	"priceQuoteType" VARCHAR(18) NOT NULL,
 	"isExchangeListed" BOOLEAN,
 	"assetType" VARCHAR(16) NOT NULL,
 	"commodityProductDefinition_id" INTEGER,
@@ -15001,8 +15001,8 @@ CREATE INDEX "ix_SpinOff_id" ON "SpinOff" (id);
 CREATE TABLE "Valuation" (
 	id INTEGER NOT NULL,
 	timestamp DATETIME NOT NULL,
-	method VARCHAR(12),
 	source VARCHAR(19),
+	method VARCHAR(12),
 	scope VARCHAR(10) NOT NULL,
 	delta NUMERIC,
 	"valuationTiming" VARCHAR(12),
@@ -18009,16 +18009,6 @@ CREATE TABLE "Workflow_steps" (
 CREATE INDEX "ix_Workflow_steps_Workflow_id" ON "Workflow_steps" ("Workflow_id");
 CREATE INDEX "ix_Workflow_steps_steps_id" ON "Workflow_steps" (steps_id);
 
-CREATE TABLE "WorkflowStep_approval" (
-	"WorkflowStep_id" INTEGER,
-	approval_id INTEGER,
-	PRIMARY KEY ("WorkflowStep_id", approval_id),
-	FOREIGN KEY("WorkflowStep_id") REFERENCES "WorkflowStep" (id),
-	FOREIGN KEY(approval_id) REFERENCES "WorkflowStepApproval" (id)
-);
-CREATE INDEX "ix_WorkflowStep_approval_approval_id" ON "WorkflowStep_approval" (approval_id);
-CREATE INDEX "ix_WorkflowStep_approval_WorkflowStep_id" ON "WorkflowStep_approval" ("WorkflowStep_id");
-
 CREATE TABLE "WorkflowStep_timestamp" (
 	"WorkflowStep_id" INTEGER,
 	timestamp_id INTEGER NOT NULL,
@@ -18028,6 +18018,16 @@ CREATE TABLE "WorkflowStep_timestamp" (
 );
 CREATE INDEX "ix_WorkflowStep_timestamp_WorkflowStep_id" ON "WorkflowStep_timestamp" ("WorkflowStep_id");
 CREATE INDEX "ix_WorkflowStep_timestamp_timestamp_id" ON "WorkflowStep_timestamp" (timestamp_id);
+
+CREATE TABLE "WorkflowStep_approval" (
+	"WorkflowStep_id" INTEGER,
+	approval_id INTEGER,
+	PRIMARY KEY ("WorkflowStep_id", approval_id),
+	FOREIGN KEY("WorkflowStep_id") REFERENCES "WorkflowStep" (id),
+	FOREIGN KEY(approval_id) REFERENCES "WorkflowStepApproval" (id)
+);
+CREATE INDEX "ix_WorkflowStep_approval_approval_id" ON "WorkflowStep_approval" (approval_id);
+CREATE INDEX "ix_WorkflowStep_approval_WorkflowStep_id" ON "WorkflowStep_approval" ("WorkflowStep_id");
 
 CREATE TABLE "WorkflowStep_eventIdentifier" (
 	"WorkflowStep_id" INTEGER,
@@ -18226,8 +18226,8 @@ CREATE INDEX "ix_Instruction_id" ON "Instruction" (id);
 
 CREATE TABLE "CompositionStep" (
 	id INTEGER NOT NULL,
-	identifier TEXT,
 	timestamp DATETIME,
+	identifier TEXT,
 	"compositionStepInstruction_id" INTEGER NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY("compositionStepInstruction_id") REFERENCES "CompositionStepInstruction" (id)

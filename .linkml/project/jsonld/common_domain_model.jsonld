@@ -75,7 +75,8 @@
     "./cdm_product_common",
     "./cdm_product_common_schedule",
     "./cdm_product_common_settlement",
-    "./cdm_product_template"
+    "./cdm_product_template",
+    "./common_domain_model_keys"
   ],
   "license": "Apache-2.0",
   "prefixes": [
@@ -30831,6 +30832,211 @@
   ],
   "slots": [
     {
+      "name": "additionalType",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/additionalType",
+      "description": "The CDM's additionalType attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/additionalType",
+      "owner": "ApplicableRegime",
+      "domain_of": [
+        "ApplicableRegime"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "description",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/description",
+      "description": "The CDM's description attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/description",
+      "owner": "OtherIndex",
+      "domain_of": [
+        "Commodity",
+        "TaxonomyClassification",
+        "CodeListIdentification",
+        "CodeValue",
+        "OtherIndex"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "documentation",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/documentation",
+      "description": "The CDM's documentation attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/documentation",
+      "owner": "ContractDetails",
+      "domain_of": [
+        "ContractDetails"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "email",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/email",
+      "description": "The CDM's email attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/email",
+      "owner": "ContactInformation",
+      "domain_of": [
+        "ContactInformation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "endDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "description": "The CDM's endDate attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "owner": "CalculationPeriodData",
+      "domain_of": [
+        "AveragingSchedule",
+        "DateRange",
+        "PeriodicDates",
+        "CustodianEvent",
+        "FroHistory",
+        "AssetDeliveryPeriods",
+        "DividendPeriod",
+        "CalculationPeriodData"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "description": "The CDM's name attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "owner": "IndexBase",
+      "domain_of": [
+        "TaxonomyValue",
+        "BusinessUnit",
+        "LegalEntity",
+        "Party",
+        "ClauseLibraryClause",
+        "ClauseLibraryClauseVariant",
+        "ClauseLibraryVariableSet",
+        "Resource",
+        "CSAMinimumTransferAmountVariableSet",
+        "CSAThresholdVariableSet",
+        "CsaAdditionalTerminationEvent",
+        "IndexBase"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "publisher",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/publisher",
+      "description": "The CDM's publisher attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/publisher",
+      "owner": "LegalAgreementIdentification",
+      "domain_of": [
+        "LegalAgreementIdentification"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "source",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/source",
+      "description": "The CDM's source attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/source",
+      "owner": "Valuation",
+      "domain_of": [
+        "ProductIdentifier",
+        "Taxonomy",
+        "CodeValue",
+        "Valuation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "startDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "description": "The CDM's startDate attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "owner": "CalculationPeriodData",
+      "domain_of": [
+        "AveragingSchedule",
+        "DateRange",
+        "PeriodicDates",
+        "FroHistory",
+        "AssetDeliveryPeriods",
+        "DividendPeriod",
+        "CalculationPeriodData"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "timestamp",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
+      "description": "The CDM's timestamp attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
+      "owner": "WorkflowStepApproval",
+      "domain_of": [
+        "Valuation",
+        "CompositionStep",
+        "WorkflowStep",
+        "WorkflowStepApproval"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "unit",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/unit",
+      "description": "The CDM's unit attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/unit",
+      "owner": "MeasureBase",
+      "domain_of": [
+        "MeasureBase"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "url",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/url",
+      "description": "The CDM's url attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/url",
+      "owner": "Resource",
+      "domain_of": [
+        "Resource"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "version",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/version",
+      "description": "The CDM's version attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/version",
+      "owner": "OtherAgreement",
+      "domain_of": [
+        "CodeListIdentification",
+        "AssignedIdentifier",
+        "OtherAgreement"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "adjustableDate__unadjustedDate",
       "description": "A date subject to adjustment. While in FpML this date is required, this cardinality constraint has been relaxed as part of the CDM in order to support the FRA representation, which effective and termination dates are specified in FpML as adjusted dates.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_datetime",
@@ -31179,34 +31385,6 @@
       "range": "BusinessDayAdjustments",
       "inlined": true,
       "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "averagingSchedule__startDate",
-      "description": "Date on which this period begins.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_datetime",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
-      "alias": "startDate",
-      "owner": "AveragingSchedule",
-      "domain_of": [
-        "AveragingSchedule"
-      ],
-      "range": "date",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "averagingSchedule__endDate",
-      "description": "Date on which this period ends.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_datetime",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
-      "alias": "endDate",
-      "owner": "AveragingSchedule",
-      "domain_of": [
-        "AveragingSchedule"
-      ],
-      "range": "date",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -31561,34 +31739,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "dateRange__startDate",
-      "description": "The first date of a date range.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_datetime",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
-      "alias": "startDate",
-      "owner": "DateRange",
-      "domain_of": [
-        "DateRange"
-      ],
-      "range": "date",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "dateRange__endDate",
-      "description": "The last date of a date range.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_datetime",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
-      "alias": "endDate",
-      "owner": "DateRange",
-      "domain_of": [
-        "DateRange"
-      ],
-      "range": "date",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "dateTimeList__dateTime",
       "description": "The CDM specifies that the zoned date time is to be expressed in accordance with ISO 8601, either as UTC as an offset to UTC.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_datetime",
@@ -31758,36 +31908,6 @@
         "PeriodRange"
       ],
       "range": "PeriodBound",
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "periodicDates__startDate",
-      "description": "The start date of the calculation period. FpML specifies that for interest rate swaps this date must only be specified if it is not equal to the effective date. It is always specified in the case of equity swaps and credit default swaps with periodic payments. This date may be subject to adjustment in accordance with a business day convention.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_datetime",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
-      "alias": "startDate",
-      "owner": "PeriodicDates",
-      "domain_of": [
-        "PeriodicDates"
-      ],
-      "range": "AdjustableOrRelativeDate",
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "periodicDates__endDate",
-      "description": "The end date of the calculation period. FpML specifies that for interest rate swaps this date must only be specified if it is not equal to the termination date. It is always specified in the case of equity swaps with periodic payments. This date may be subject to adjustment in accordance with a business day convention.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_datetime",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
-      "alias": "endDate",
-      "owner": "PeriodicDates",
-      "domain_of": [
-        "PeriodicDates"
-      ],
-      "range": "AdjustableOrRelativeDate",
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -32124,21 +32244,6 @@
       ],
       "range": "decimal",
       "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "measureBase__unit",
-      "description": "Qualifies the unit by which the amount is measured. Optional because a measure may be unit-less (e.g. when representing a ratio between amounts in the same unit).",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_math",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/unit",
-      "alias": "unit",
-      "owner": "MeasureBase",
-      "domain_of": [
-        "MeasureBase"
-      ],
-      "range": "UnitType",
-      "inlined": true,
-      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -32929,19 +33034,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "commodity__description",
-      "description": "Provides additional information about the commodity underlier.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/description",
-      "alias": "description",
-      "owner": "Commodity",
-      "domain_of": [
-        "Commodity"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "commodityProductDefinition__referenceFramework",
       "description": "Specifies the type of commodity.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
@@ -33514,20 +33606,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "productIdentifier__source",
-      "description": "Defines the source of the identifier.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/source",
-      "alias": "source",
-      "owner": "ProductIdentifier",
-      "domain_of": [
-        "ProductIdentifier"
-      ],
-      "range": "ProductIdTypeEnum",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "productTaxonomy__primaryAssetClass",
       "annotations": [
         {
@@ -33745,19 +33823,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "taxonomy__source",
-      "description": "The source of the taxonomy that defines the rules for classifying the object. The taxonomy source is taken from a enumerated list of taxonomy names. Optional as the taxonomy source may not be provided.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/source",
-      "alias": "source",
-      "owner": "Taxonomy",
-      "domain_of": [
-        "Taxonomy"
-      ],
-      "range": "TaxonomySourceEnum",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "taxonomy__value",
       "description": "The value according to that taxonomy. Optional as it may not be possible to classify the object in that taxonomy.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
@@ -33813,19 +33878,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "taxonomyClassification__description",
-      "description": "A description of the class.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/description",
-      "alias": "description",
-      "owner": "TaxonomyClassification",
-      "domain_of": [
-        "TaxonomyClassification"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "taxonomyClassification__ordinal",
       "description": "In the case of multi-layered hierarchical classification systems such as commodity classification, the layer the value and className occupy in the classification hierarchy, where 1 represents the top-layer.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
@@ -33836,26 +33888,6 @@
         "TaxonomyClassification"
       ],
       "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "taxonomyValue__name",
-      "annotations": [
-        {
-          "tag": "rosetta_metadata",
-          "value": "scheme",
-          "@type": "Annotation"
-        }
-      ],
-      "description": "Specifies the taxonomy value as a simple string, which may be associated to an external scheme.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
-      "alias": "name",
-      "owner": "TaxonomyValue",
-      "domain_of": [
-        "TaxonomyValue"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -34221,19 +34253,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "codeListIdentification__description",
-      "description": "A description of the code list, e.g. A list of codes identifying business centers",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/description",
-      "alias": "description",
-      "owner": "CodeListIdentification",
-      "domain_of": [
-        "CodeListIdentification"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "codeListIdentification__publicationDate",
       "description": "The most recent date the code list was published, e.g. 2021-10-05",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist",
@@ -34252,20 +34271,6 @@
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist",
       "slot_uri": "https://w3id.org/lmodel/common-domain-model/shortName",
       "alias": "shortName",
-      "owner": "CodeListIdentification",
-      "domain_of": [
-        "CodeListIdentification"
-      ],
-      "range": "string",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "codeListIdentification__version",
-      "description": "The the most recent version of the codelist, eg. 9-1",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/version",
-      "alias": "version",
       "owner": "CodeListIdentification",
       "domain_of": [
         "CodeListIdentification"
@@ -34342,32 +34347,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "codeValue__description",
-      "description": "A description of the meaning of the code, e.g. New York City, USA",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/description",
-      "alias": "description",
-      "owner": "CodeValue",
-      "domain_of": [
-        "CodeValue"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "codeValue__source",
-      "description": "Where the code was defined,e.g. ISDA, FpML, Bloomberg",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/source",
-      "alias": "source",
-      "owner": "CodeValue",
-      "domain_of": [
-        "CodeValue"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "codeValue__effectiveDate",
       "description": "When the code became/becomes effective",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist",
@@ -34412,19 +34391,6 @@
       ],
       "range": "string",
       "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "assignedIdentifier__version",
-      "description": "The identifier version, which is specified as an integer and is meant to be incremented each time the transaction terms (whether contract or event) change. This version is made option to support the use case where the identifier is referenced without the version. The constraint that a contract and a lifecycle event need to have an associated version is enforced through data rules.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_identifier",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/version",
-      "alias": "version",
-      "owner": "AssignedIdentifier",
-      "domain_of": [
-        "AssignedIdentifier"
-      ],
-      "range": "integer",
       "@type": "SlotDefinition"
     },
     {
@@ -34902,20 +34868,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "businessUnit__name",
-      "description": "A name used to describe the organizational unit",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
-      "alias": "name",
-      "owner": "BusinessUnit",
-      "domain_of": [
-        "BusinessUnit"
-      ],
-      "range": "string",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "businessUnit__identifier",
       "description": "An identifier used to uniquely identify the organizational unit",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party",
@@ -35006,20 +34958,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "contactInformation__email",
-      "description": "The email address.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/email",
-      "alias": "email",
-      "owner": "ContactInformation",
-      "domain_of": [
-        "ContactInformation"
-      ],
-      "range": "string",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "contactInformation__webPage",
       "description": "The web page. This attribute is not specified as part of the FpML ContactInformation complex type.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party",
@@ -35102,27 +35040,6 @@
         "EntityIdentifier"
       ],
       "range": "EntityIdentifierTypeEnum",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "legalEntity__name",
-      "annotations": [
-        {
-          "tag": "rosetta_metadata",
-          "value": "scheme",
-          "@type": "Annotation"
-        }
-      ],
-      "description": "The legal entity name.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
-      "alias": "name",
-      "owner": "LegalEntity",
-      "domain_of": [
-        "LegalEntity"
-      ],
-      "range": "string",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -35331,26 +35248,6 @@
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "party__name",
-      "annotations": [
-        {
-          "tag": "rosetta_metadata",
-          "value": "scheme",
-          "@type": "Annotation"
-        }
-      ],
-      "description": "The party name.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
-      "alias": "name",
-      "owner": "Party",
-      "domain_of": [
-        "Party"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -37111,22 +37008,6 @@
         "ContingentTransfer"
       ],
       "range": "CorporateActionTypeEnum",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "contractDetails__documentation",
-      "description": "Represents the legal document(s) that governs a trade and associated contractual product terms, either as a reference to such documents when specified as part of the CDM, or through identification of some of the key terms of those documents, such as the type of document, the document identifier, the publisher, the document vintage and the agreement date.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_common",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/documentation",
-      "alias": "documentation",
-      "owner": "ContractDetails",
-      "domain_of": [
-        "ContractDetails"
-      ],
-      "range": "LegalAgreement",
-      "multivalued": true,
-      "inlined": true,
-      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -39887,20 +39768,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "valuation__timestamp",
-      "description": "Date and time of the last valuation marked to market, provided by the central counterparty (CCP) or calculated using the current or last available market price of the inputs.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_common",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
-      "alias": "timestamp",
-      "owner": "Valuation",
-      "domain_of": [
-        "Valuation"
-      ],
-      "range": "datetime",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "valuation__method",
       "description": "Method used for the valuation of the transaction by the valuation party.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_common",
@@ -39911,19 +39778,6 @@
         "Valuation"
       ],
       "range": "ValuationTypeEnum",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "valuation__source",
-      "description": "Source of the valuation of the transaction by the valuation party.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_common",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/source",
-      "alias": "source",
-      "owner": "Valuation",
-      "domain_of": [
-        "Valuation"
-      ],
-      "range": "ValuationSourceEnum",
       "@type": "SlotDefinition"
     },
     {
@@ -40037,19 +39891,6 @@
         "CompositionStep"
       ],
       "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "compositionStep__timestamp",
-      "description": "Date and time of the execution of the Instruction Composition step after being executed.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_instructioncomposition",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
-      "alias": "timestamp",
-      "owner": "CompositionStep",
-      "domain_of": [
-        "CompositionStep"
-      ],
-      "range": "datetime",
       "@type": "SlotDefinition"
     },
     {
@@ -42136,23 +41977,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "workflowStep__timestamp",
-      "description": "The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier].",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_workflow",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
-      "alias": "timestamp",
-      "owner": "WorkflowStep",
-      "domain_of": [
-        "WorkflowStep"
-      ],
-      "range": "EventTimestamp",
-      "required": true,
-      "multivalued": true,
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "workflowStep__eventIdentifier",
       "description": "The identifier(s) that uniquely identify a lifecycle event. The unbounded cardinality is meant to provide the ability to associate identifiers that are issued by distinct parties. As an example, each of the parties to the event may choose to associate their own identifiers to the event.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_workflow",
@@ -42294,22 +42118,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "workflowStepApproval__timestamp",
-      "description": "Timestamp of the approval",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_workflow",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
-      "alias": "timestamp",
-      "owner": "WorkflowStepApproval",
-      "domain_of": [
-        "WorkflowStepApproval"
-      ],
-      "range": "EventTimestamp",
-      "required": true,
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "clauseLibraryClause__identifier",
       "description": "Unique identifier for the clause.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_clauselibrary",
@@ -42323,19 +42131,6 @@
       "required": true,
       "inlined": true,
       "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "clauseLibraryClause__name",
-      "description": "Optional textual description of the clause.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_clauselibrary",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
-      "alias": "name",
-      "owner": "ClauseLibraryClause",
-      "domain_of": [
-        "ClauseLibraryClause"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -42398,19 +42193,6 @@
       "required": true,
       "inlined": true,
       "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "clauseLibraryClauseVariant__name",
-      "description": "Optional textual description of the variant.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_clauselibrary",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
-      "alias": "name",
-      "owner": "ClauseLibraryClauseVariant",
-      "domain_of": [
-        "ClauseLibraryClauseVariant"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -42489,19 +42271,6 @@
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "clauseLibraryVariableSet__name",
-      "description": "The name of the variable.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_clauselibrary",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
-      "alias": "name",
-      "owner": "ClauseLibraryVariableSet",
-      "domain_of": [
-        "ClauseLibraryVariableSet"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -43150,26 +42919,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "legalAgreementIdentification__publisher",
-      "annotations": [
-        {
-          "tag": "doc_reference",
-          "value": "AcadiaSoft AM_1_0 namingConvention publisher",
-          "@type": "Annotation"
-        }
-      ],
-      "description": "The legal agreement publisher, e.g. ISDA.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/publisher",
-      "alias": "publisher",
-      "owner": "LegalAgreementIdentification",
-      "domain_of": [
-        "LegalAgreementIdentification"
-      ],
-      "range": "LegalAgreementPublisherEnum",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "legalAgreementIdentification__vintage",
       "annotations": [
         {
@@ -43301,26 +43050,6 @@
       ],
       "range": "string",
       "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "otherAgreement__version",
-      "annotations": [
-        {
-          "tag": "rosetta_metadata",
-          "value": "scheme",
-          "@type": "Annotation"
-        }
-      ],
-      "description": "The version of the agreement.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/version",
-      "alias": "version",
-      "owner": "OtherAgreement",
-      "domain_of": [
-        "OtherAgreement"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -43473,19 +43202,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "resource__name",
-      "description": "The name of the resource. It is specified as a NormalizedString in FpML.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
-      "alias": "name",
-      "owner": "Resource",
-      "domain_of": [
-        "Resource"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "resource__comments",
       "description": "Any additional comments that are deemed necessary. For example, which software version is required to open the document? Or, how does this resource relate to the others for this event?",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common",
@@ -43504,19 +43220,6 @@
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common",
       "slot_uri": "https://w3id.org/lmodel/common-domain-model/string",
       "alias": "string",
-      "owner": "Resource",
-      "domain_of": [
-        "Resource"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "resource__url",
-      "description": "Indicates where the resource can be found, as a URL that references the information on a web server accessible to the message recipient.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/url",
-      "alias": "url",
       "owner": "Resource",
       "domain_of": [
         "Resource"
@@ -44199,25 +43902,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "applicableRegime__additionalType",
-      "annotations": [
-        {
-          "tag": "doc_reference",
-          "value": "ISDA CSA_IM_2016 paragraph 13 General Principles clause (b)(B)",
-          "@type": "Annotation"
-        }
-      ],
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/additionalType",
-      "alias": "additionalType",
-      "owner": "ApplicableRegime",
-      "domain_of": [
-        "ApplicableRegime"
-      ],
-      "range": "AdditionalTypeEnum",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "applicableRegime__additionalTerms",
       "description": "The bespoke Additional Type for the purposes of Covered Transactions (IM).",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa",
@@ -44494,19 +44178,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "cSAMinimumTransferAmountVariableSet__name",
-      "description": "The name of the Rating Agency.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
-      "alias": "name",
-      "owner": "CSAMinimumTransferAmountVariableSet",
-      "domain_of": [
-        "CSAMinimumTransferAmountVariableSet"
-      ],
-      "range": "CreditRatingAgencyEnum",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "cSAMinimumTransferAmountVariableSet__value",
       "description": "The value assigned to the rating.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa",
@@ -44557,19 +44228,6 @@
       ],
       "range": "DeliveryReturnAmountEnum",
       "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "cSAThresholdVariableSet__name",
-      "description": "The relevant rating agency.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
-      "alias": "name",
-      "owner": "CSAThresholdVariableSet",
-      "domain_of": [
-        "CSAThresholdVariableSet"
-      ],
-      "range": "CreditRatingAgencyEnum",
       "@type": "SlotDefinition"
     },
     {
@@ -47547,20 +47205,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "csaAdditionalTerminationEvent__name",
-      "description": "The name of the additional termination event.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
-      "alias": "name",
-      "owner": "CsaAdditionalTerminationEvent",
-      "domain_of": [
-        "CsaAdditionalTerminationEvent"
-      ],
-      "range": "string",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "csaAdditionalTerminationEvent__applicableParty",
       "description": "Whether the additional termination event is applicable for the relevant party.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa",
@@ -47707,21 +47351,6 @@
       ],
       "range": "boolean",
       "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "custodianEvent__endDate",
-      "description": "The qualification of the Custodian Event (English Law & New York Law ISDA CSA) or Collateral Manager Event (Japanese Law ISDA CSA) End Date.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
-      "alias": "endDate",
-      "owner": "CustodianEvent",
-      "domain_of": [
-        "CustodianEvent"
-      ],
-      "range": "CustodianEventEndDate",
-      "inlined": true,
-      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -56990,26 +56619,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "indexBase__name",
-      "annotations": [
-        {
-          "tag": "rosetta_metadata",
-          "value": "scheme",
-          "@type": "Annotation"
-        }
-      ],
-      "description": "A description of the Index.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_observable_asset",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
-      "alias": "name",
-      "owner": "IndexBase",
-      "domain_of": [
-        "IndexBase"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "indexBase__provider",
       "description": "The organisation that creates or maintains the Index.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_observable_asset",
@@ -57260,19 +56869,6 @@
       "range": "Index",
       "inlined": true,
       "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "otherIndex__description",
-      "description": "A description that defines the OtherIndex.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_observable_asset",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/description",
-      "alias": "description",
-      "owner": "OtherIndex",
-      "domain_of": [
-        "OtherIndex"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -59186,19 +58782,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "froHistory__startDate",
-      "description": "The date the Floating Rate Option was added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2017/04/06)",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
-      "alias": "startDate",
-      "owner": "FroHistory",
-      "domain_of": [
-        "FroHistory"
-      ],
-      "range": "date",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "froHistory__firstDefinedIn",
       "description": "The supplement or version the FRO was first added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. S52)",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro",
@@ -59239,19 +58822,6 @@
       "range": "ContractualDefinition",
       "inlined": true,
       "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "froHistory__endDate",
-      "description": "The date the Floating Rate Option was removed from the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2014/01/01)",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
-      "alias": "endDate",
-      "owner": "FroHistory",
-      "domain_of": [
-        "FroHistory"
-      ],
-      "range": "date",
       "@type": "SlotDefinition"
     },
     {
@@ -60153,32 +59723,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "assetDeliveryPeriods__startDate",
-      "description": "Delivery start date",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_product_asset",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
-      "alias": "startDate",
-      "owner": "AssetDeliveryPeriods",
-      "domain_of": [
-        "AssetDeliveryPeriods"
-      ],
-      "range": "date",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "assetDeliveryPeriods__endDate",
-      "description": "Delivery end date",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_product_asset",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
-      "alias": "endDate",
-      "owner": "AssetDeliveryPeriods",
-      "domain_of": [
-        "AssetDeliveryPeriods"
-      ],
-      "range": "date",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "assetDeliveryProfile__loadType",
       "description": "Identification of the delivery profile.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_product_asset",
@@ -61038,36 +60582,6 @@
         "DividendPayoutRatio"
       ],
       "range": "BasketConstituent",
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "dividendPeriod__startDate",
-      "description": "Dividend period start date.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_product_asset",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
-      "alias": "startDate",
-      "owner": "DividendPeriod",
-      "domain_of": [
-        "DividendPeriod"
-      ],
-      "range": "DividendPaymentDate",
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "dividendPeriod__endDate",
-      "description": "Dividend period end date.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_product_asset",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
-      "alias": "endDate",
-      "owner": "DividendPeriod",
-      "domain_of": [
-        "DividendPeriod"
-      ],
-      "range": "DividendPaymentDate",
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -66217,32 +65731,6 @@
         "CalculationPeriodBase"
       ],
       "range": "date",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "calculationPeriodData__startDate",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
-      "alias": "startDate",
-      "owner": "CalculationPeriodData",
-      "domain_of": [
-        "CalculationPeriodData"
-      ],
-      "range": "date",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "calculationPeriodData__endDate",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule",
-      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
-      "alias": "endDate",
-      "owner": "CalculationPeriodData",
-      "domain_of": [
-        "CalculationPeriodData"
-      ],
-      "range": "date",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -73154,6 +72642,122 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "AveragingSchedule_startDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "description": "Date on which this period begins.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "startDate",
+      "domain": "AveragingSchedule",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "alias": "startDate",
+      "owner": "AveragingSchedule",
+      "domain_of": [
+        "AveragingSchedule"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "startDate",
+      "range": "date",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AveragingSchedule_endDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "description": "Date on which this period ends.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "endDate",
+      "domain": "AveragingSchedule",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "alias": "endDate",
+      "owner": "AveragingSchedule",
+      "domain_of": [
+        "AveragingSchedule"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "endDate",
+      "range": "date",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DateRange_startDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "description": "The first date of a date range.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "startDate",
+      "domain": "DateRange",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "alias": "startDate",
+      "owner": "DateRange",
+      "domain_of": [
+        "DateRange"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "startDate",
+      "range": "date",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DateRange_endDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "description": "The last date of a date range.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "endDate",
+      "domain": "DateRange",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "alias": "endDate",
+      "owner": "DateRange",
+      "domain_of": [
+        "DateRange"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "endDate",
+      "range": "date",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "PeriodicDates_startDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "description": "The start date of the calculation period. FpML specifies that for interest rate swaps this date must only be specified if it is not equal to the effective date. It is always specified in the case of equity swaps and credit default swaps with periodic payments. This date may be subject to adjustment in accordance with a business day convention.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "startDate",
+      "domain": "PeriodicDates",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "alias": "startDate",
+      "owner": "PeriodicDates",
+      "domain_of": [
+        "PeriodicDates"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "startDate",
+      "range": "AdjustableOrRelativeDate",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "PeriodicDates_endDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "description": "The end date of the calculation period. FpML specifies that for interest rate swaps this date must only be specified if it is not equal to the termination date. It is always specified in the case of equity swaps with periodic payments. This date may be subject to adjustment in accordance with a business day convention.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "endDate",
+      "domain": "PeriodicDates",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "alias": "endDate",
+      "owner": "PeriodicDates",
+      "domain_of": [
+        "PeriodicDates"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "endDate",
+      "range": "AdjustableOrRelativeDate",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "Measure_value",
       "description": "The value attribute must be present in a concrete measure.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model",
@@ -73186,6 +72790,26 @@
       "is_usage_slot": true,
       "usage_slot_name": "datedValue",
       "range": "DatedValue",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MeasureBase_unit",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/unit",
+      "description": "Qualifies the unit by which the amount is measured. Optional because a measure may be unit-less (e.g. when representing a ratio between amounts in the same unit).",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "unit",
+      "domain": "MeasureBase",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/unit",
+      "alias": "unit",
+      "owner": "MeasureBase",
+      "domain_of": [
+        "MeasureBase"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "unit",
+      "range": "UnitType",
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -73378,9 +73002,10 @@
     },
     {
       "name": "QuantitySchedule_unit",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/unit",
       "description": "Requires that a unit of amount must be specified for any quantity.",
-      "from_schema": "https://w3id.org/lmodel/common-domain-model",
-      "is_a": "measureBase__unit",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "MeasureBase_unit",
       "domain": "QuantitySchedule",
       "slot_uri": "https://w3id.org/lmodel/common-domain-model/unit",
       "alias": "unit",
@@ -73415,6 +73040,360 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "Commodity_description",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/description",
+      "description": "Provides additional information about the commodity underlier.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "description",
+      "domain": "Commodity",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/description",
+      "alias": "description",
+      "owner": "Commodity",
+      "domain_of": [
+        "Commodity"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ProductIdentifier_source",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/source",
+      "description": "Defines the source of the identifier.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "source",
+      "domain": "ProductIdentifier",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/source",
+      "alias": "source",
+      "owner": "ProductIdentifier",
+      "domain_of": [
+        "ProductIdentifier"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "source",
+      "range": "ProductIdTypeEnum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Taxonomy_source",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/source",
+      "description": "The source of the taxonomy that defines the rules for classifying the object. The taxonomy source is taken from a enumerated list of taxonomy names. Optional as the taxonomy source may not be provided.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "source",
+      "domain": "Taxonomy",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/source",
+      "alias": "source",
+      "owner": "Taxonomy",
+      "domain_of": [
+        "Taxonomy"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "source",
+      "range": "TaxonomySourceEnum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "TaxonomyClassification_description",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/description",
+      "description": "A description of the class.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "description",
+      "domain": "TaxonomyClassification",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/description",
+      "alias": "description",
+      "owner": "TaxonomyClassification",
+      "domain_of": [
+        "TaxonomyClassification"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "TaxonomyValue_name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "annotations": [
+        {
+          "tag": "rosetta_metadata",
+          "value": "scheme",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "Specifies the taxonomy value as a simple string, which may be associated to an external scheme.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "name",
+      "domain": "TaxonomyValue",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "alias": "name",
+      "owner": "TaxonomyValue",
+      "domain_of": [
+        "TaxonomyValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CodeListIdentification_description",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/description",
+      "description": "A description of the code list, e.g. A list of codes identifying business centers",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "description",
+      "domain": "CodeListIdentification",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/description",
+      "alias": "description",
+      "owner": "CodeListIdentification",
+      "domain_of": [
+        "CodeListIdentification"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CodeListIdentification_version",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/version",
+      "description": "The the most recent version of the codelist, eg. 9-1",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "version",
+      "domain": "CodeListIdentification",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/version",
+      "alias": "version",
+      "owner": "CodeListIdentification",
+      "domain_of": [
+        "CodeListIdentification"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "version",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CodeValue_description",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/description",
+      "description": "A description of the meaning of the code, e.g. New York City, USA",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "description",
+      "domain": "CodeValue",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/description",
+      "alias": "description",
+      "owner": "CodeValue",
+      "domain_of": [
+        "CodeValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CodeValue_source",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/source",
+      "description": "Where the code was defined,e.g. ISDA, FpML, Bloomberg",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "source",
+      "domain": "CodeValue",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/source",
+      "alias": "source",
+      "owner": "CodeValue",
+      "domain_of": [
+        "CodeValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "source",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AssignedIdentifier_version",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/version",
+      "description": "The identifier version, which is specified as an integer and is meant to be incremented each time the transaction terms (whether contract or event) change. This version is made option to support the use case where the identifier is referenced without the version. The constraint that a contract and a lifecycle event need to have an associated version is enforced through data rules.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "version",
+      "domain": "AssignedIdentifier",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/version",
+      "alias": "version",
+      "owner": "AssignedIdentifier",
+      "domain_of": [
+        "AssignedIdentifier"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "version",
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "BusinessUnit_name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "description": "A name used to describe the organizational unit",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "name",
+      "domain": "BusinessUnit",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "alias": "name",
+      "owner": "BusinessUnit",
+      "domain_of": [
+        "BusinessUnit"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ContactInformation_email",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/email",
+      "description": "The email address.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "email",
+      "domain": "ContactInformation",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/email",
+      "alias": "email",
+      "owner": "ContactInformation",
+      "domain_of": [
+        "ContactInformation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "email",
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LegalEntity_name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "annotations": [
+        {
+          "tag": "rosetta_metadata",
+          "value": "scheme",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "The legal entity name.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "name",
+      "domain": "LegalEntity",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "alias": "name",
+      "owner": "LegalEntity",
+      "domain_of": [
+        "LegalEntity"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Party_name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "annotations": [
+        {
+          "tag": "rosetta_metadata",
+          "value": "scheme",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "The party name.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "name",
+      "domain": "Party",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "alias": "name",
+      "owner": "Party",
+      "domain_of": [
+        "Party"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ContractDetails_documentation",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/documentation",
+      "description": "Represents the legal document(s) that governs a trade and associated contractual product terms, either as a reference to such documents when specified as part of the CDM, or through identification of some of the key terms of those documents, such as the type of document, the document identifier, the publisher, the document vintage and the agreement date.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "documentation",
+      "domain": "ContractDetails",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/documentation",
+      "alias": "documentation",
+      "owner": "ContractDetails",
+      "domain_of": [
+        "ContractDetails"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "documentation",
+      "range": "LegalAgreement",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Valuation_timestamp",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
+      "description": "Date and time of the last valuation marked to market, provided by the central counterparty (CCP) or calculated using the current or last available market price of the inputs.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "timestamp",
+      "domain": "Valuation",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
+      "alias": "timestamp",
+      "owner": "Valuation",
+      "domain_of": [
+        "Valuation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "timestamp",
+      "range": "datetime",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Valuation_source",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/source",
+      "description": "Source of the valuation of the transaction by the valuation party.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "source",
+      "domain": "Valuation",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/source",
+      "alias": "source",
+      "owner": "Valuation",
+      "domain_of": [
+        "Valuation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "source",
+      "range": "ValuationSourceEnum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CompositionStep_timestamp",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
+      "description": "Date and time of the execution of the Instruction Composition step after being executed.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "timestamp",
+      "domain": "CompositionStep",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
+      "alias": "timestamp",
+      "owner": "CompositionStep",
+      "domain_of": [
+        "CompositionStep"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "timestamp",
+      "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "Position_product",
       "description": "The product underlying the position.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model",
@@ -73432,6 +73411,128 @@
       "required": true,
       "inlined": true,
       "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "WorkflowStep_timestamp",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
+      "description": "The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier].",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "timestamp",
+      "domain": "WorkflowStep",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
+      "alias": "timestamp",
+      "owner": "WorkflowStep",
+      "domain_of": [
+        "WorkflowStep"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "timestamp",
+      "range": "EventTimestamp",
+      "required": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "WorkflowStepApproval_timestamp",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
+      "description": "Timestamp of the approval",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "timestamp",
+      "domain": "WorkflowStepApproval",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/timestamp",
+      "alias": "timestamp",
+      "owner": "WorkflowStepApproval",
+      "domain_of": [
+        "WorkflowStepApproval"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "timestamp",
+      "range": "EventTimestamp",
+      "required": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ClauseLibraryClause_name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "description": "Optional textual description of the clause.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "name",
+      "domain": "ClauseLibraryClause",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "alias": "name",
+      "owner": "ClauseLibraryClause",
+      "domain_of": [
+        "ClauseLibraryClause"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ClauseLibraryClauseVariant_name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "description": "Optional textual description of the variant.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "name",
+      "domain": "ClauseLibraryClauseVariant",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "alias": "name",
+      "owner": "ClauseLibraryClauseVariant",
+      "domain_of": [
+        "ClauseLibraryClauseVariant"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ClauseLibraryVariableSet_name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "description": "The name of the variable.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "name",
+      "domain": "ClauseLibraryVariableSet",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "alias": "name",
+      "owner": "ClauseLibraryVariableSet",
+      "domain_of": [
+        "ClauseLibraryVariableSet"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LegalAgreementIdentification_publisher",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/publisher",
+      "annotations": [
+        {
+          "tag": "doc_reference",
+          "value": "AcadiaSoft AM_1_0 namingConvention publisher",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "The legal agreement publisher, e.g. ISDA.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "publisher",
+      "domain": "LegalAgreementIdentification",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/publisher",
+      "alias": "publisher",
+      "owner": "LegalAgreementIdentification",
+      "domain_of": [
+        "LegalAgreementIdentification"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "publisher",
+      "range": "LegalAgreementPublisherEnum",
       "@type": "SlotDefinition"
     },
     {
@@ -73455,6 +73556,67 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "OtherAgreement_version",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/version",
+      "annotations": [
+        {
+          "tag": "rosetta_metadata",
+          "value": "scheme",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "The version of the agreement.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "version",
+      "domain": "OtherAgreement",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/version",
+      "alias": "version",
+      "owner": "OtherAgreement",
+      "domain_of": [
+        "OtherAgreement"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "version",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Resource_name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "description": "The name of the resource. It is specified as a NormalizedString in FpML.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "name",
+      "domain": "Resource",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "alias": "name",
+      "owner": "Resource",
+      "domain_of": [
+        "Resource"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Resource_url",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/url",
+      "description": "Indicates where the resource can be found, as a URL that references the information on a web server accessible to the message recipient.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "url",
+      "domain": "Resource",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/url",
+      "alias": "url",
+      "owner": "Resource",
+      "domain_of": [
+        "Resource"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "url",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "TransferInformationElection_primaryContactInformation",
       "description": "The main notice/address and account information of the party.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model",
@@ -73470,6 +73632,261 @@
       "usage_slot_name": "primaryContactInformation",
       "range": "TransferContactInformation",
       "required": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ApplicableRegime_additionalType",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/additionalType",
+      "annotations": [
+        {
+          "tag": "doc_reference",
+          "value": "ISDA CSA_IM_2016 paragraph 13 General Principles clause (b)(B)",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "The CDM's additionalType attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "additionalType",
+      "domain": "ApplicableRegime",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/additionalType",
+      "alias": "additionalType",
+      "owner": "ApplicableRegime",
+      "domain_of": [
+        "ApplicableRegime"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "additionalType",
+      "range": "AdditionalTypeEnum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CSAMinimumTransferAmountVariableSet_name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "description": "The name of the Rating Agency.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "name",
+      "domain": "CSAMinimumTransferAmountVariableSet",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "alias": "name",
+      "owner": "CSAMinimumTransferAmountVariableSet",
+      "domain_of": [
+        "CSAMinimumTransferAmountVariableSet"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "CreditRatingAgencyEnum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CSAThresholdVariableSet_name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "description": "The relevant rating agency.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "name",
+      "domain": "CSAThresholdVariableSet",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "alias": "name",
+      "owner": "CSAThresholdVariableSet",
+      "domain_of": [
+        "CSAThresholdVariableSet"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "CreditRatingAgencyEnum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CsaAdditionalTerminationEvent_name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "description": "The name of the additional termination event.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "name",
+      "domain": "CsaAdditionalTerminationEvent",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "alias": "name",
+      "owner": "CsaAdditionalTerminationEvent",
+      "domain_of": [
+        "CsaAdditionalTerminationEvent"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CustodianEvent_endDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "description": "The qualification of the Custodian Event (English Law & New York Law ISDA CSA) or Collateral Manager Event (Japanese Law ISDA CSA) End Date.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "endDate",
+      "domain": "CustodianEvent",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "alias": "endDate",
+      "owner": "CustodianEvent",
+      "domain_of": [
+        "CustodianEvent"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "endDate",
+      "range": "CustodianEventEndDate",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "IndexBase_name",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "annotations": [
+        {
+          "tag": "rosetta_metadata",
+          "value": "scheme",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "A description of the Index.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "name",
+      "domain": "IndexBase",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/name",
+      "alias": "name",
+      "owner": "IndexBase",
+      "domain_of": [
+        "IndexBase"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "OtherIndex_description",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/description",
+      "description": "A description that defines the OtherIndex.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "description",
+      "domain": "OtherIndex",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/description",
+      "alias": "description",
+      "owner": "OtherIndex",
+      "domain_of": [
+        "OtherIndex"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "FroHistory_startDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "description": "The date the Floating Rate Option was added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2017/04/06)",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "startDate",
+      "domain": "FroHistory",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "alias": "startDate",
+      "owner": "FroHistory",
+      "domain_of": [
+        "FroHistory"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "startDate",
+      "range": "date",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "FroHistory_endDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "description": "The date the Floating Rate Option was removed from the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2014/01/01)",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "endDate",
+      "domain": "FroHistory",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "alias": "endDate",
+      "owner": "FroHistory",
+      "domain_of": [
+        "FroHistory"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "endDate",
+      "range": "date",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AssetDeliveryPeriods_startDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "description": "Delivery start date",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "startDate",
+      "domain": "AssetDeliveryPeriods",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "alias": "startDate",
+      "owner": "AssetDeliveryPeriods",
+      "domain_of": [
+        "AssetDeliveryPeriods"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "startDate",
+      "range": "date",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AssetDeliveryPeriods_endDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "description": "Delivery end date",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "endDate",
+      "domain": "AssetDeliveryPeriods",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "alias": "endDate",
+      "owner": "AssetDeliveryPeriods",
+      "domain_of": [
+        "AssetDeliveryPeriods"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "endDate",
+      "range": "date",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DividendPeriod_startDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "description": "Dividend period start date.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "startDate",
+      "domain": "DividendPeriod",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "alias": "startDate",
+      "owner": "DividendPeriod",
+      "domain_of": [
+        "DividendPeriod"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "startDate",
+      "range": "DividendPaymentDate",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DividendPeriod_endDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "description": "Dividend period end date.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "endDate",
+      "domain": "DividendPeriod",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "alias": "endDate",
+      "owner": "DividendPeriod",
+      "domain_of": [
+        "DividendPeriod"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "endDate",
+      "range": "DividendPaymentDate",
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -73492,6 +73909,44 @@
       "required": true,
       "inlined": true,
       "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CalculationPeriodData_startDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "description": "The CDM's startDate attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "startDate",
+      "domain": "CalculationPeriodData",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/startDate",
+      "alias": "startDate",
+      "owner": "CalculationPeriodData",
+      "domain_of": [
+        "CalculationPeriodData"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "startDate",
+      "range": "date",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CalculationPeriodData_endDate",
+      "definition_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "description": "The CDM's endDate attribute; each class's slot_usage gives its meaning.",
+      "from_schema": "https://w3id.org/lmodel/common-domain-model/common_domain_model_keys",
+      "is_a": "endDate",
+      "domain": "CalculationPeriodData",
+      "slot_uri": "https://w3id.org/lmodel/common-domain-model/endDate",
+      "alias": "endDate",
+      "owner": "CalculationPeriodData",
+      "domain_of": [
+        "CalculationPeriodData"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "endDate",
+      "range": "date",
+      "required": true,
       "@type": "SlotDefinition"
     }
   ],
@@ -74141,26 +74596,12 @@
       "description": "Class to representing a method for generating a series of dates.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_datetime",
       "slots": [
-        "averagingSchedule__startDate",
-        "averagingSchedule__endDate",
+        "AveragingSchedule_startDate",
+        "AveragingSchedule_endDate",
         "averagingSchedule__averagingPeriodFrequency"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "startDate",
-          "description": "Date on which this period begins.",
-          "range": "date",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "endDate",
-          "description": "Date on which this period ends.",
-          "range": "date",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
         {
           "name": "averagingPeriodFrequency",
           "description": "The frequency at which averaging period occurs with the regular part of the valuation schedule and their roll date convention.",
@@ -74316,8 +74757,8 @@
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_datetime",
       "is_a": "DateRange",
       "slots": [
-        "dateRange__startDate",
-        "dateRange__endDate",
+        "DateRange_startDate",
+        "DateRange_endDate",
         "businessDateRange__businessDayConvention",
         "businessDateRange__businessCenters"
       ],
@@ -74789,26 +75230,10 @@
       ],
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_datetime",
       "slots": [
-        "dateRange__startDate",
-        "dateRange__endDate"
+        "DateRange_startDate",
+        "DateRange_endDate"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "startDate",
-          "description": "The first date of a date range.",
-          "range": "date",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "endDate",
-          "description": "The last date of a date range.",
-          "range": "date",
-          "required": true,
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://w3id.org/lmodel/common-domain-model/DateRange",
       "@type": "ClassDefinition"
     },
@@ -75140,26 +75565,14 @@
       "description": "A class for specifying a calculation period schedule.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_datetime",
       "slots": [
-        "periodicDates__startDate",
-        "periodicDates__endDate",
+        "PeriodicDates_startDate",
+        "PeriodicDates_endDate",
         "periodicDates__periodFrequency",
         "periodicDates__periodDatesAdjustments",
         "periodicDates__dayType"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "startDate",
-          "description": "The start date of the calculation period. FpML specifies that for interest rate swaps this date must only be specified if it is not equal to the effective date. It is always specified in the case of equity swaps and credit default swaps with periodic payments. This date may be subject to adjustment in accordance with a business day convention.",
-          "range": "AdjustableOrRelativeDate",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "endDate",
-          "description": "The end date of the calculation period. FpML specifies that for interest rate swaps this date must only be specified if it is not equal to the termination date. It is always specified in the case of equity swaps with periodic payments. This date may be subject to adjustment in accordance with a business day convention.",
-          "range": "AdjustableOrRelativeDate",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "periodFrequency",
           "description": "The frequency at which calculation period end dates occur with the regular part of the calculation period schedule and their roll date convention.",
@@ -75567,7 +75980,7 @@
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_math",
       "is_a": "MeasureBase",
       "slots": [
-        "measureBase__unit",
+        "MeasureBase_unit",
         "Measure_value",
         "Measure_datedValue"
       ],
@@ -75623,17 +76036,9 @@
       "slots": [
         "schedule__value",
         "schedule__datedValue",
-        "measureBase__unit"
+        "MeasureBase_unit"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "unit",
-          "description": "Qualifies the unit by which the amount is measured. Optional because a measure may be unit-less (e.g. when representing a ratio between amounts in the same unit).",
-          "range": "UnitType",
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://w3id.org/lmodel/common-domain-model/MeasureBase",
       "all_of": [
         {
@@ -75770,7 +76175,7 @@
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_math",
       "is_a": "Measure",
       "slots": [
-        "measureBase__unit",
+        "MeasureBase_unit",
         "Measure_datedValue",
         "NonNegativeMeasure_value"
       ],
@@ -77057,10 +77462,10 @@
         "assetBase__partyRole",
         "assetBase__ancillaryPartyRole",
         "assetBase__assetType",
+        "Commodity_description",
         "commodity__commodityProductDefinition",
         "commodity__priceQuoteType",
-        "commodity__deliveryDateReference",
-        "commodity__description"
+        "commodity__deliveryDateReference"
       ],
       "slot_usage": {},
       "attributes": [
@@ -77081,12 +77486,6 @@
           "name": "deliveryDateReference",
           "description": "Specifies the parameters for identifying the relevant contract date when the commodity reference price is a futures contract.",
           "range": "DeliveryDateParameters",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "description",
-          "description": "Provides additional information about the commodity underlier.",
-          "range": "string",
           "@type": "SlotDefinition"
         }
       ],
@@ -77969,8 +78368,8 @@
       "description": "Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash value to the ProductIdentifier instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
       "slots": [
-        "productIdentifier__identifier",
-        "productIdentifier__source"
+        "ProductIdentifier_source",
+        "productIdentifier__identifier"
       ],
       "slot_usage": {},
       "attributes": [
@@ -77987,13 +78386,6 @@
           "range": "string",
           "required": true,
           "@type": "SlotDefinition"
-        },
-        {
-          "name": "source",
-          "description": "Defines the source of the identifier.",
-          "range": "ProductIdTypeEnum",
-          "required": true,
-          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://w3id.org/lmodel/common-domain-model/ProductIdentifier",
@@ -78006,7 +78398,7 @@
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
       "is_a": "Taxonomy",
       "slots": [
-        "taxonomy__source",
+        "Taxonomy_source",
         "taxonomy__value",
         "taxonomy__calculated",
         "productTaxonomy__primaryAssetClass",
@@ -78320,18 +78712,12 @@
       ],
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
       "slots": [
-        "taxonomy__source",
+        "Taxonomy_source",
         "taxonomy__value",
         "taxonomy__calculated"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "source",
-          "description": "The source of the taxonomy that defines the rules for classifying the object. The taxonomy source is taken from a enumerated list of taxonomy names. Optional as the taxonomy source may not be provided.",
-          "range": "TaxonomySourceEnum",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "value",
           "description": "The value according to that taxonomy. Optional as it may not be possible to classify the object in that taxonomy.",
@@ -78353,9 +78739,9 @@
       "definition_uri": "https://w3id.org/lmodel/common-domain-model/TaxonomyClassification",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
       "slots": [
+        "TaxonomyClassification_description",
         "taxonomyClassification__className",
         "taxonomyClassification__value",
-        "taxonomyClassification__description",
         "taxonomyClassification__ordinal"
       ],
       "slot_usage": {},
@@ -78374,12 +78760,6 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "description",
-          "description": "A description of the class.",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
           "name": "ordinal",
           "description": "In the case of multi-layered hierarchical classification systems such as commodity classification, the layer the value and className occupy in the classification hierarchy, where 1 represents the top-layer.",
           "range": "integer",
@@ -78395,24 +78775,11 @@
       "description": "Defines a taxonomy value as either a simple string or a more granular expression with class names and values for each class.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common",
       "slots": [
-        "taxonomyValue__name",
+        "TaxonomyValue_name",
         "taxonomyValue__classification"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "name",
-          "annotations": [
-            {
-              "tag": "rosetta_metadata",
-              "value": "scheme",
-              "@type": "Annotation"
-            }
-          ],
-          "description": "Specifies the taxonomy value as a simple string, which may be associated to an external scheme.",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "classification",
           "description": "Specifies the taxonomy value as a set of class names and values for each class.",
@@ -78776,10 +79143,10 @@
       "description": "A type to identify the version of a codelist",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist",
       "slots": [
-        "codeListIdentification__description",
+        "CodeListIdentification_description",
+        "CodeListIdentification_version",
         "codeListIdentification__publicationDate",
         "codeListIdentification__shortName",
-        "codeListIdentification__version",
         "codeListIdentification__codeShortId",
         "codeListIdentification__canonicalUri",
         "codeListIdentification__canonicalVersionUri",
@@ -78787,12 +79154,6 @@
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "description",
-          "description": "A description of the code list, e.g. A list of codes identifying business centers",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "publicationDate",
           "description": "The most recent date the code list was published, e.g. 2021-10-05",
@@ -78802,13 +79163,6 @@
         {
           "name": "shortName",
           "description": "A short name (without whitespace) for the code list, e.g. businessCenterScheme",
-          "range": "string",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "version",
-          "description": "The the most recent version of the codelist, eg. 9-1",
           "range": "string",
           "required": true,
           "@type": "SlotDefinition"
@@ -78848,9 +79202,9 @@
       "description": "A type to hold the value of the code in a codelist",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist",
       "slots": [
+        "CodeValue_description",
+        "CodeValue_source",
         "codeValue__value",
-        "codeValue__description",
-        "codeValue__source",
         "codeValue__effectiveDate",
         "codeValue__deprecatedDate"
       ],
@@ -78861,18 +79215,6 @@
           "description": "The value of the code, e.g. USNY",
           "range": "string",
           "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "description",
-          "description": "A description of the meaning of the code, e.g. New York City, USA",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "source",
-          "description": "Where the code was defined,e.g. ISDA, FpML, Bloomberg",
-          "range": "string",
           "@type": "SlotDefinition"
         },
         {
@@ -78897,8 +79239,8 @@
       "description": "A class to specify the identifier value and its associated version.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_identifier",
       "slots": [
-        "assignedIdentifier__identifier",
-        "assignedIdentifier__version"
+        "AssignedIdentifier_version",
+        "assignedIdentifier__identifier"
       ],
       "slot_usage": {},
       "attributes": [
@@ -78914,12 +79256,6 @@
           "description": "The identifier value.",
           "range": "string",
           "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "version",
-          "description": "The identifier version, which is specified as an integer and is meant to be incremented each time the transaction terms (whether contract or event) change. This version is made option to support the use case where the identifier is referenced without the version. The constraint that a contract and a lifecycle event need to have an associated version is enforced through data rules.",
-          "range": "integer",
           "@type": "SlotDefinition"
         }
       ],
@@ -79459,19 +79795,12 @@
       "description": "A class to specify an organizational unit.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party",
       "slots": [
-        "businessUnit__name",
+        "BusinessUnit_name",
         "businessUnit__identifier",
         "businessUnit__contactInformation"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "name",
-          "description": "A name used to describe the organizational unit",
-          "range": "string",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
         {
           "name": "identifier",
           "description": "An identifier used to uniquely identify the organizational unit",
@@ -79523,9 +79852,9 @@
       "description": "A class to specify contact information associated with a party: telephone, postal/street address, email and web page.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party",
       "slots": [
+        "ContactInformation_email",
         "contactInformation__telephone",
         "contactInformation__address",
-        "contactInformation__email",
         "contactInformation__webPage"
       ],
       "slot_usage": {},
@@ -79541,13 +79870,6 @@
           "name": "address",
           "description": "The street/postal address.",
           "range": "Address",
-          "multivalued": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "email",
-          "description": "The email address.",
-          "range": "string",
           "multivalued": true,
           "@type": "SlotDefinition"
         },
@@ -79653,25 +79975,11 @@
       "description": "A class to specify a legal entity, with a required name and an optional entity identifier (such as the LEI).",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party",
       "slots": [
-        "legalEntity__name",
+        "LegalEntity_name",
         "legalEntity__entityIdentifier"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "name",
-          "annotations": [
-            {
-              "tag": "rosetta_metadata",
-              "value": "scheme",
-              "@type": "Annotation"
-            }
-          ],
-          "description": "The legal entity name.",
-          "range": "string",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
         {
           "name": "entityIdentifier",
           "description": "A legal entity identifier with a source (e.g. RED entity code).",
@@ -79916,8 +80224,8 @@
       "description": "A class to specify a party, without a qualification as to whether this party is a legal entity or a natural person, although the model provides the ability to associate a person (or set of persons) to a party, which use case would imply that such party would be a legal entity (even if not formally specified as such).",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party",
       "slots": [
+        "Party_name",
         "party__partyId",
-        "party__name",
         "party__businessUnit",
         "party__person",
         "party__personRole",
@@ -79932,19 +80240,6 @@
           "range": "PartyIdentifier",
           "required": true,
           "multivalued": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "name",
-          "annotations": [
-            {
-              "tag": "rosetta_metadata",
-              "value": "scheme",
-              "@type": "Annotation"
-            }
-          ],
-          "description": "The party name.",
-          "range": "string",
           "@type": "SlotDefinition"
         },
         {
@@ -81734,18 +82029,11 @@
       ],
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_common",
       "slots": [
-        "contractDetails__documentation",
+        "ContractDetails_documentation",
         "contractDetails__governingLaw"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "documentation",
-          "description": "Represents the legal document(s) that governs a trade and associated contractual product terms, either as a reference to such documents when specified as part of the CDM, or through identification of some of the key terms of those documents, such as the type of document, the document identifier, the publisher, the document vintage and the agreement date.",
-          "range": "LegalAgreement",
-          "multivalued": true,
-          "@type": "SlotDefinition"
-        },
         {
           "name": "governingLaw",
           "annotations": [
@@ -84519,10 +84807,10 @@
       "description": "Defines the value of an investment, asset, or security",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_common",
       "slots": [
+        "Valuation_timestamp",
+        "Valuation_source",
         "valuation__amount",
-        "valuation__timestamp",
         "valuation__method",
-        "valuation__source",
         "valuation__scope",
         "valuation__delta",
         "valuation__valuationTiming",
@@ -84538,22 +84826,9 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "timestamp",
-          "description": "Date and time of the last valuation marked to market, provided by the central counterparty (CCP) or calculated using the current or last available market price of the inputs.",
-          "range": "datetime",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
           "name": "method",
           "description": "Method used for the valuation of the transaction by the valuation party.",
           "range": "ValuationTypeEnum",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "source",
-          "description": "Source of the valuation of the transaction by the valuation party.",
-          "range": "ValuationSourceEnum",
           "@type": "SlotDefinition"
         },
         {
@@ -84693,8 +84968,8 @@
       "description": "Represents a single atomic step in the Instruction Composition lifecycle, including its instructions, status, and optional output. Each CompositionStep is defined by an identifier, a timestamp and a single Instruction.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_instructioncomposition",
       "slots": [
+        "CompositionStep_timestamp",
         "compositionStep__identifier",
-        "compositionStep__timestamp",
         "compositionStep__compositionStepInstruction"
       ],
       "slot_usage": {},
@@ -84703,12 +84978,6 @@
           "name": "identifier",
           "description": "Identification of the Instruction Composition step.",
           "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "timestamp",
-          "description": "Date and time of the execution of the Instruction Composition step after being executed.",
-          "range": "datetime",
           "@type": "SlotDefinition"
         },
         {
@@ -86694,6 +86963,7 @@
       ],
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_workflow",
       "slots": [
+        "WorkflowStep_timestamp",
         "workflowStep__businessEvent",
         "workflowStep__counterpartyPositionBusinessEvent",
         "workflowStep__proposedEvent",
@@ -86702,7 +86972,6 @@
         "workflowStep__previousWorkflowStep",
         "workflowStep__nextEvent",
         "workflowStep__messageInformation",
-        "workflowStep__timestamp",
         "workflowStep__eventIdentifier",
         "workflowStep__action",
         "workflowStep__party",
@@ -86766,14 +87035,6 @@
           "name": "messageInformation",
           "description": "Contains all information pertaining the FpML messaging header",
           "range": "MessageInformation",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "timestamp",
-          "description": "The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier].",
-          "range": "EventTimestamp",
-          "required": true,
-          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
@@ -86870,10 +87131,10 @@
       "description": "Party approvals associated to the current WorkflowStep.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_event_workflow",
       "slots": [
+        "WorkflowStepApproval_timestamp",
         "workflowStepApproval__approved",
         "workflowStepApproval__party",
-        "workflowStepApproval__rejectedReason",
-        "workflowStepApproval__timestamp"
+        "workflowStepApproval__rejectedReason"
       ],
       "slot_usage": {},
       "attributes": [
@@ -86903,13 +87164,6 @@
           "description": "Optional reason for rejecting the workflow step",
           "range": "string",
           "@type": "SlotDefinition"
-        },
-        {
-          "name": "timestamp",
-          "description": "Timestamp of the approval",
-          "range": "EventTimestamp",
-          "required": true,
-          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://w3id.org/lmodel/common-domain-model/WorkflowStepApproval",
@@ -86921,8 +87175,8 @@
       "description": "Defines clauses that make up the Agreement.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_clauselibrary",
       "slots": [
+        "ClauseLibraryClause_name",
         "clauseLibraryClause__identifier",
-        "clauseLibraryClause__name",
         "clauseLibraryClause__counterparty",
         "clauseLibraryClause__otherParty",
         "clauseLibraryClause__variant"
@@ -86934,12 +87188,6 @@
           "description": "Unique identifier for the clause.",
           "range": "AssignedIdentifier",
           "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "name",
-          "description": "Optional textual description of the clause.",
-          "range": "string",
           "@type": "SlotDefinition"
         },
         {
@@ -86975,8 +87223,8 @@
       "description": "Sets the details for a specific variant associated to a clause in the Agreement.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_clauselibrary",
       "slots": [
+        "ClauseLibraryClauseVariant_name",
         "clauseLibraryClauseVariant__identifier",
-        "clauseLibraryClauseVariant__name",
         "clauseLibraryClauseVariant__counterparty",
         "clauseLibraryClauseVariant__otherParty",
         "clauseLibraryClauseVariant__variableSet"
@@ -86988,12 +87236,6 @@
           "description": "Unique identifier for this variant.",
           "range": "AssignedIdentifier",
           "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "name",
-          "description": "Optional textual description of the variant.",
-          "range": "string",
           "@type": "SlotDefinition"
         },
         {
@@ -87053,8 +87295,8 @@
       ],
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_clauselibrary",
       "slots": [
+        "ClauseLibraryVariableSet_name",
         "clauseLibraryVariableSet__variableSet",
-        "clauseLibraryVariableSet__name",
         "clauseLibraryVariableSet__value"
       ],
       "slot_usage": {},
@@ -87064,12 +87306,6 @@
           "description": "For some variants a table of variables is required. To support this use case we need to be able to specify variables within variables. Including a variable set here gives us infinite nesting opportunities - realistically we are only ever expecting that a table would need to be defined for any particular clause, so we would expect two levels of nesting as a maximum i.e. variableSet->variableSet->name/value.",
           "range": "ClauseLibraryVariableSet",
           "multivalued": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "name",
-          "description": "The name of the variable.",
-          "range": "string",
           "@type": "SlotDefinition"
         },
         {
@@ -87805,9 +88041,9 @@
       ],
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common",
       "slots": [
+        "LegalAgreementIdentification_publisher",
         "legalAgreementIdentification__governingLaw",
         "legalAgreementIdentification__agreementName",
-        "legalAgreementIdentification__publisher",
         "legalAgreementIdentification__vintage"
       ],
       "slot_usage": {},
@@ -87837,19 +88073,6 @@
           "description": "The legal agreement name, e.g. Credit Support Annex for Variation Margin.",
           "range": "AgreementName",
           "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "publisher",
-          "annotations": [
-            {
-              "tag": "doc_reference",
-              "value": "AcadiaSoft AM_1_0 namingConvention publisher",
-              "@type": "Annotation"
-            }
-          ],
-          "description": "The legal agreement publisher, e.g. ISDA.",
-          "range": "LegalAgreementPublisherEnum",
           "@type": "SlotDefinition"
         },
         {
@@ -87905,9 +88128,9 @@
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common",
       "is_a": "ContactInformation",
       "slots": [
+        "ContactInformation_email",
         "contactInformation__telephone",
         "contactInformation__address",
-        "contactInformation__email",
         "contactInformation__webPage",
         "noticeContactInformation__naturalPerson",
         "noticeContactInformation__additionalInformation"
@@ -87961,9 +88184,9 @@
       "description": "A class for defining an agreement executed between parties.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common",
       "slots": [
+        "OtherAgreement_version",
         "otherAgreement__identifier",
         "otherAgreement__otherAgreementType",
-        "otherAgreement__version",
         "otherAgreement__date"
       ],
       "slot_usage": {},
@@ -87993,19 +88216,6 @@
           "description": "The agreement executed between the parties and intended to govern product-specific derivatives transactions between those parties.",
           "range": "string",
           "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "version",
-          "annotations": [
-            {
-              "tag": "rosetta_metadata",
-              "value": "scheme",
-              "@type": "Annotation"
-            }
-          ],
-          "description": "The version of the agreement.",
-          "range": "string",
           "@type": "SlotDefinition"
         },
         {
@@ -88056,16 +88266,16 @@
       "description": "Describes the resource that contains the media representation of a business event (i.e used for stating the Publicly Available Information). For example, can describe a file or a URL that represents the event. This type is an extended version of a type defined by RIXML (www.rixml.org). Rosetta restricts the FpML implementation by not providing the ability to associated a document in hexadecimalBinary or base64Binary until such time that actual use cases will come up.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common",
       "slots": [
+        "Resource_name",
+        "Resource_url",
         "resource__resourceId",
         "resource__resourceType",
         "resource__language",
         "resource__sizeInBytes",
         "resource__length",
         "resource__mimeType",
-        "resource__name",
         "resource__comments",
-        "resource__string",
-        "resource__url"
+        "resource__string"
       ],
       "slot_usage": {},
       "attributes": [
@@ -88135,12 +88345,6 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "name",
-          "description": "The name of the resource. It is specified as a NormalizedString in FpML.",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
           "name": "comments",
           "description": "Any additional comments that are deemed necessary. For example, which software version is required to open the document? Or, how does this resource relate to the others for this event?",
           "range": "string",
@@ -88149,12 +88353,6 @@
         {
           "name": "string",
           "description": "Provides extra information as string. In case the extra information is in XML format, a CDATA section must be placed around the source message to prevent its interpretation as XML content.",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "url",
-          "description": "Indicates where the resource can be found, as a URL that references the information on a web server accessible to the message recipient.",
           "range": "string",
           "@type": "SlotDefinition"
         }
@@ -88251,9 +88449,9 @@
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common",
       "is_a": "ContactInformation",
       "slots": [
+        "ContactInformation_email",
         "contactInformation__telephone",
         "contactInformation__address",
-        "contactInformation__email",
         "contactInformation__webPage",
         "transferContactInformation__account",
         "transferContactInformation__additionalInformation"
@@ -89059,10 +89257,10 @@
       "description": "A class to specify the applicable regulatory regime(s) that parties to a legal agreement, such as the ISDA 2016 and 2018 CSA for Initial Margin, might be subject to.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa",
       "slots": [
+        "ApplicableRegime_additionalType",
         "applicableRegime__regime",
         "applicableRegime__additionalRegime",
         "applicableRegime__regimeTerms",
-        "applicableRegime__additionalType",
         "applicableRegime__additionalTerms"
       ],
       "slot_usage": {},
@@ -89087,18 +89285,6 @@
           "multivalued": true,
           "minimum_cardinality": 2,
           "maximum_cardinality": 2,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "additionalType",
-          "annotations": [
-            {
-              "tag": "doc_reference",
-              "value": "ISDA CSA_IM_2016 paragraph 13 General Principles clause (b)(B)",
-              "@type": "Annotation"
-            }
-          ],
-          "range": "AdditionalTypeEnum",
           "@type": "SlotDefinition"
         },
         {
@@ -89414,19 +89600,13 @@
       "description": "Defines a combination of Rating Agency, Rating Value, amount and Currency code.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa",
       "slots": [
-        "cSAMinimumTransferAmountVariableSet__name",
+        "CSAMinimumTransferAmountVariableSet_name",
         "cSAMinimumTransferAmountVariableSet__value",
         "cSAMinimumTransferAmountVariableSet__amount",
         "cSAMinimumTransferAmountVariableSet__amountIsInfinity"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "name",
-          "description": "The name of the Rating Agency.",
-          "range": "CreditRatingAgencyEnum",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "value",
           "description": "The value assigned to the rating.",
@@ -89526,18 +89706,12 @@
       "description": "Defines a combination of Rating Agency, Rating Value, Threshold amount and Currency code.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa",
       "slots": [
-        "cSAThresholdVariableSet__name",
+        "CSAThresholdVariableSet_name",
         "cSAThresholdVariableSet__value",
         "cSAThresholdVariableSet__amount"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "name",
-          "description": "The relevant rating agency.",
-          "range": "CreditRatingAgencyEnum",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "value",
           "description": "Rating applicable to the party from a given rating agency.",
@@ -92119,18 +92293,11 @@
         "AdditionalTerminationEvent"
       ],
       "slots": [
-        "csaAdditionalTerminationEvent__name",
+        "CsaAdditionalTerminationEvent_name",
         "csaAdditionalTerminationEvent__applicableParty"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "name",
-          "description": "The name of the additional termination event.",
-          "range": "string",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
         {
           "name": "applicableParty",
           "description": "Whether the additional termination event is applicable for the relevant party.",
@@ -92294,8 +92461,8 @@
       "description": "A class to specify the Custodian Event.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa",
       "slots": [
-        "custodianEvent__isApplicable",
-        "custodianEvent__endDate"
+        "CustodianEvent_endDate",
+        "custodianEvent__isApplicable"
       ],
       "slot_usage": {},
       "attributes": [
@@ -92304,12 +92471,6 @@
           "description": "The qualification as to whether the Custodian Event (English Law & New York Law ISDA CSA) or the Collateral Manager Event (Japanese Law ISDA CSA) is applicable.",
           "range": "boolean",
           "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "endDate",
-          "description": "The qualification of the Custodian Event (English Law & New York Law ISDA CSA) or Collateral Manager Event (Japanese Law ISDA CSA) End Date.",
-          "range": "CustodianEventEndDate",
           "@type": "SlotDefinition"
         }
       ],
@@ -101264,7 +101425,7 @@
         "assetBase__partyRole",
         "assetBase__ancillaryPartyRole",
         "assetBase__assetType",
-        "indexBase__name",
+        "IndexBase_name",
         "indexBase__provider",
         "indexBase__assetClass",
         "assetFloatingRateIndex__floatingRateIndex",
@@ -101685,7 +101846,7 @@
         "assetBase__partyRole",
         "assetBase__ancillaryPartyRole",
         "assetBase__assetType",
-        "indexBase__name",
+        "IndexBase_name",
         "indexBase__provider",
         "indexBase__assetClass",
         "creditIndex__indexSeries",
@@ -102101,7 +102262,7 @@
         "assetBase__partyRole",
         "assetBase__ancillaryPartyRole",
         "assetBase__assetType",
-        "indexBase__name",
+        "IndexBase_name",
         "indexBase__provider",
         "indexBase__assetClass"
       ],
@@ -102200,7 +102361,7 @@
         "assetBase__partyRole",
         "assetBase__ancillaryPartyRole",
         "assetBase__assetType",
-        "indexBase__name",
+        "IndexBase_name",
         "indexBase__provider",
         "indexBase__assetClass",
         "foreignExchangeRateIndex__quotedCurrencyPair",
@@ -102568,25 +102729,12 @@
         "assetBase__partyRole",
         "assetBase__ancillaryPartyRole",
         "assetBase__assetType",
-        "indexBase__name",
+        "IndexBase_name",
         "indexBase__provider",
         "indexBase__assetClass"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "name",
-          "annotations": [
-            {
-              "tag": "rosetta_metadata",
-              "value": "scheme",
-              "@type": "Annotation"
-            }
-          ],
-          "description": "A description of the Index.",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "provider",
           "description": "The organisation that creates or maintains the Index.",
@@ -102630,7 +102778,7 @@
         "assetBase__partyRole",
         "assetBase__ancillaryPartyRole",
         "assetBase__assetType",
-        "indexBase__name",
+        "IndexBase_name",
         "indexBase__provider",
         "indexBase__assetClass",
         "inflationIndex__inflationRateIndex",
@@ -103139,20 +103287,12 @@
         "assetBase__partyRole",
         "assetBase__ancillaryPartyRole",
         "assetBase__assetType",
-        "indexBase__name",
+        "IndexBase_name",
         "indexBase__provider",
         "indexBase__assetClass",
-        "otherIndex__description"
+        "OtherIndex_description"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "description",
-          "description": "A description that defines the OtherIndex.",
-          "range": "string",
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://w3id.org/lmodel/common-domain-model/OtherIndex",
       "all_of": [
         {
@@ -103245,7 +103385,7 @@
       "slots": [
         "schedule__value",
         "schedule__datedValue",
-        "measureBase__unit",
+        "MeasureBase_unit",
         "priceSchedule__perUnitOf",
         "priceSchedule__priceType",
         "priceSchedule__priceSubType",
@@ -103724,7 +103864,7 @@
       "slots": [
         "schedule__value",
         "schedule__datedValue",
-        "measureBase__unit",
+        "MeasureBase_unit",
         "priceSchedule__perUnitOf",
         "priceSchedule__priceType",
         "priceSchedule__priceSubType",
@@ -105576,20 +105716,14 @@
       "description": "FRO History",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro",
       "slots": [
-        "froHistory__startDate",
+        "FroHistory_startDate",
+        "FroHistory_endDate",
         "froHistory__firstDefinedIn",
         "froHistory__updateDate",
-        "froHistory__lastUpdatedIn",
-        "froHistory__endDate"
+        "froHistory__lastUpdatedIn"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "startDate",
-          "description": "The date the Floating Rate Option was added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2017/04/06)",
-          "range": "date",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "firstDefinedIn",
           "description": "The supplement or version the FRO was first added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. S52)",
@@ -105606,12 +105740,6 @@
           "name": "lastUpdatedIn",
           "description": "The supplement or version the FRO was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. FRO-M-V1)",
           "range": "ContractualDefinition",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "endDate",
-          "description": "The date the Floating Rate Option was removed from the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2014/01/01)",
-          "range": "date",
           "@type": "SlotDefinition"
         }
       ],
@@ -106437,9 +106565,9 @@
       "description": "Defines the periods of delivery, including the delivery profile.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_product_asset",
       "slots": [
-        "assetDeliveryPeriods__profile",
-        "assetDeliveryPeriods__startDate",
-        "assetDeliveryPeriods__endDate"
+        "AssetDeliveryPeriods_startDate",
+        "AssetDeliveryPeriods_endDate",
+        "assetDeliveryPeriods__profile"
       ],
       "slot_usage": {},
       "attributes": [
@@ -106448,18 +106576,6 @@
           "description": "Defines the delivery profile of the asset, including the load type and the delivery intervals.",
           "range": "AssetDeliveryProfile",
           "multivalued": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "startDate",
-          "description": "Delivery start date",
-          "range": "date",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "endDate",
-          "description": "Delivery end date",
-          "range": "date",
           "@type": "SlotDefinition"
         }
       ],
@@ -106804,9 +106920,9 @@
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_product_asset",
       "is_a": "AssetDeliveryPeriods",
       "slots": [
+        "AssetDeliveryPeriods_startDate",
+        "AssetDeliveryPeriods_endDate",
         "assetDeliveryPeriods__profile",
-        "assetDeliveryPeriods__startDate",
-        "assetDeliveryPeriods__endDate",
         "calculationScheduleDeliveryPeriods__deliveryCapacity",
         "calculationScheduleDeliveryPeriods__priceTimeIntervalQuantity"
       ],
@@ -107533,8 +107649,8 @@
       "description": "Time bounded dividend payment periods, each with a dividend payment date per period.",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_product_asset",
       "slots": [
-        "dividendPeriod__startDate",
-        "dividendPeriod__endDate",
+        "DividendPeriod_startDate",
+        "DividendPeriod_endDate",
         "dividendPeriod__dateAdjustments",
         "dividendPeriod__basketConstituent",
         "dividendPeriod__dividendPaymentDate",
@@ -107542,18 +107658,6 @@
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "startDate",
-          "description": "Dividend period start date.",
-          "range": "DividendPaymentDate",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "endDate",
-          "description": "Dividend period end date.",
-          "range": "DividendPaymentDate",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "dateAdjustments",
           "description": "Date adjustments for all unadjusted dates in this dividend period.",
@@ -113004,8 +113108,8 @@
       "definition_uri": "https://w3id.org/lmodel/common-domain-model/CalculationPeriodData",
       "from_schema": "https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule",
       "slots": [
-        "calculationPeriodData__startDate",
-        "calculationPeriodData__endDate",
+        "CalculationPeriodData_startDate",
+        "CalculationPeriodData_endDate",
         "calculationPeriodData__daysInPeriod",
         "calculationPeriodData__daysInLeapYearPeriod",
         "calculationPeriodData__isFirstPeriod",
@@ -113013,18 +113117,6 @@
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "startDate",
-          "range": "date",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "endDate",
-          "range": "date",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
         {
           "name": "daysInPeriod",
           "range": "integer",
@@ -120614,8 +120706,8 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "common_domain_model.yaml",
-  "source_file_date": "2026-11-06T08:03:01",
-  "source_file_size": 2618,
+  "source_file_date": "2026-11-06T08:18:47",
+  "source_file_size": 2649,
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/common_domain_model.context.jsonld",
@@ -120658,6 +120750,7 @@
     "./cdm_product_common_schedule.context.jsonld",
     "./cdm_product_common_settlement.context.jsonld",
     "./cdm_product_template.context.jsonld",
+    "./common_domain_model_keys.context.jsonld",
     {
       "@base": "https://w3id.org/lmodel/common-domain-model/"
     }

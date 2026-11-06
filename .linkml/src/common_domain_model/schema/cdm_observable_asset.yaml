@@ -21,6 +21,7 @@ imports:
   - ./cdm_base_staticdata_party
   - ./cdm_observable_common
   - ./cdm_product_asset
+  - ./common_domain_model_keys
 enums:
   CommodityReferencePriceEnum:
     description: The enumeration values to specify the Commodity Reference Prices specified in the Annex
@@ -1956,18 +1957,21 @@ classes:
   IndexBase:
     is_a: AssetBase
     description: Identifies an index by referencing an identifier.
+    slots:
+      - name
     attributes:
-      name:
-        description: A description of the Index.
-        range: string
-        annotations:
-          rosetta_metadata: scheme
       provider:
         description: The organisation that creates or maintains the Index.
         range: LegalEntity
       assetClass:
         description: The Asset Class of the Index.
         range: AssetClassEnum
+    slot_usage:
+      name:
+        description: A description of the Index.
+        range: string
+        annotations:
+          rosetta_metadata: scheme
     all_of:
       - description: 'AssetType: Asset type must be Other.'
         slot_conditions:
@@ -2175,7 +2179,9 @@ classes:
     is_a: IndexBase
     description: Specification of a user-defined index that does not meet the criteria of other Index
       data types.
-    attributes:
+    slots:
+      - description
+    slot_usage:
       description:
         description: A description that defines the OtherIndex.
         range: string

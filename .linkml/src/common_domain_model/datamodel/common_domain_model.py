@@ -1904,9 +1904,9 @@ class Commodity(AssetBase):
     identifier: Union[Union[dict, AssetIdentifier], list[Union[dict, AssetIdentifier]]] = None
     assetType: Union[str, "AssetTypeEnum"] = None
     priceQuoteType: Union[str, "QuotationSideEnum"] = None
+    description: Optional[str] = None
     commodityProductDefinition: Optional[Union[dict, "CommodityProductDefinition"]] = None
     deliveryDateReference: Optional[Union[dict, "DeliveryDateParameters"]] = None
-    description: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.priceQuoteType):
@@ -1914,14 +1914,14 @@ class Commodity(AssetBase):
         if not isinstance(self.priceQuoteType, QuotationSideEnum):
             self.priceQuoteType = QuotationSideEnum(self.priceQuoteType)
 
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
         if self.commodityProductDefinition is not None and not isinstance(self.commodityProductDefinition, CommodityProductDefinition):
             self.commodityProductDefinition = CommodityProductDefinition(**as_dict(self.commodityProductDefinition))
 
         if self.deliveryDateReference is not None and not isinstance(self.deliveryDateReference, DeliveryDateParameters):
             self.deliveryDateReference = DeliveryDateParameters(**as_dict(self.deliveryDateReference))
-
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
 
         super().__post_init__(**kwargs)
 
@@ -2321,19 +2321,19 @@ class ProductIdentifier(YAMLRoot):
     class_name: ClassVar[str] = "ProductIdentifier"
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.ProductIdentifier
 
-    identifier: str = None
     source: Union[str, "ProductIdTypeEnum"] = None
+    identifier: str = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.identifier):
-            self.MissingRequiredField("identifier")
-        if not isinstance(self.identifier, str):
-            self.identifier = str(self.identifier)
-
         if self._is_empty(self.source):
             self.MissingRequiredField("source")
         if not isinstance(self.source, ProductIdTypeEnum):
             self.source = ProductIdTypeEnum(self.source)
+
+        if self._is_empty(self.identifier):
+            self.MissingRequiredField("identifier")
+        if not isinstance(self.identifier, str):
+            self.identifier = str(self.identifier)
 
         super().__post_init__(**kwargs)
 
@@ -2546,8 +2546,8 @@ class TaxonomyClassification(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.TaxonomyClassification
 
     value: str = None
-    className: Optional[str] = None
     description: Optional[str] = None
+    className: Optional[str] = None
     ordinal: Optional[int] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -2556,11 +2556,11 @@ class TaxonomyClassification(YAMLRoot):
         if not isinstance(self.value, str):
             self.value = str(self.value)
 
-        if self.className is not None and not isinstance(self.className, str):
-            self.className = str(self.className)
-
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
+
+        if self.className is not None and not isinstance(self.className, str):
+            self.className = str(self.className)
 
         if self.ordinal is not None and not isinstance(self.ordinal, int):
             self.ordinal = int(self.ordinal)
@@ -2774,8 +2774,8 @@ class CodeListIdentification(YAMLRoot):
     class_name: ClassVar[str] = "CodeListIdentification"
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.CodeListIdentification
 
-    shortName: str = None
     version: str = None
+    shortName: str = None
     canonicalUri: str = None
     description: Optional[str] = None
     publicationDate: Optional[str] = None
@@ -2784,15 +2784,15 @@ class CodeListIdentification(YAMLRoot):
     locationUri: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.shortName):
-            self.MissingRequiredField("shortName")
-        if not isinstance(self.shortName, str):
-            self.shortName = str(self.shortName)
-
         if self._is_empty(self.version):
             self.MissingRequiredField("version")
         if not isinstance(self.version, str):
             self.version = str(self.version)
+
+        if self._is_empty(self.shortName):
+            self.MissingRequiredField("shortName")
+        if not isinstance(self.shortName, str):
+            self.shortName = str(self.shortName)
 
         if self._is_empty(self.canonicalUri):
             self.MissingRequiredField("canonicalUri")
@@ -3248,19 +3248,19 @@ class ContactInformation(YAMLRoot):
     class_name: ClassVar[str] = "ContactInformation"
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.ContactInformation
 
+    email: Optional[Union[str, list[str]]] = empty_list()
     telephone: Optional[Union[Union[dict, "TelephoneNumber"], list[Union[dict, "TelephoneNumber"]]]] = empty_list()
     address: Optional[Union[Union[dict, Address], list[Union[dict, Address]]]] = empty_list()
-    email: Optional[Union[str, list[str]]] = empty_list()
     webPage: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        self._normalize_inlined_as_list(slot_name="telephone", slot_type=TelephoneNumber, key_name="number", keyed=False)
-
-        self._normalize_inlined_as_list(slot_name="address", slot_type=Address, key_name="street", keyed=False)
-
         if not isinstance(self.email, list):
             self.email = [self.email] if self.email is not None else []
         self.email = [v if isinstance(v, str) else str(v) for v in self.email]
+
+        self._normalize_inlined_as_list(slot_name="telephone", slot_type=TelephoneNumber, key_name="number", keyed=False)
+
+        self._normalize_inlined_as_list(slot_name="address", slot_type=Address, key_name="street", keyed=False)
 
         if not isinstance(self.webPage, list):
             self.webPage = [self.webPage] if self.webPage is not None else []
@@ -6179,36 +6179,36 @@ class Valuation(YAMLRoot):
     class_name: ClassVar[str] = "Valuation"
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.Valuation
 
-    amount: Union[dict, "Money"] = None
     timestamp: Union[str, XSDDateTime] = None
+    amount: Union[dict, "Money"] = None
     scope: Union[str, "ValuationScopeEnum"] = None
-    method: Optional[Union[str, "ValuationTypeEnum"]] = None
     source: Optional[Union[str, "ValuationSourceEnum"]] = None
+    method: Optional[Union[str, "ValuationTypeEnum"]] = None
     delta: Optional[Decimal] = None
     valuationTiming: Optional[Union[str, "PriceTimingEnum"]] = None
     priceComponent: Optional[Union[dict, "Price"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.amount):
-            self.MissingRequiredField("amount")
-        if not isinstance(self.amount, Money):
-            self.amount = Money(**as_dict(self.amount))
-
         if self._is_empty(self.timestamp):
             self.MissingRequiredField("timestamp")
         if not isinstance(self.timestamp, XSDDateTime):
             self.timestamp = XSDDateTime(self.timestamp)
+
+        if self._is_empty(self.amount):
+            self.MissingRequiredField("amount")
+        if not isinstance(self.amount, Money):
+            self.amount = Money(**as_dict(self.amount))
 
         if self._is_empty(self.scope):
             self.MissingRequiredField("scope")
         if not isinstance(self.scope, ValuationScopeEnum):
             self.scope = ValuationScopeEnum(self.scope)
 
-        if self.method is not None and not isinstance(self.method, ValuationTypeEnum):
-            self.method = ValuationTypeEnum(self.method)
-
         if self.source is not None and not isinstance(self.source, ValuationSourceEnum):
             self.source = ValuationSourceEnum(self.source)
+
+        if self.method is not None and not isinstance(self.method, ValuationTypeEnum):
+            self.method = ValuationTypeEnum(self.method)
 
         if self.delta is not None and not isinstance(self.delta, Decimal):
             self.delta = Decimal(self.delta)
@@ -6286,8 +6286,8 @@ class CompositionStep(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.CompositionStep
 
     compositionStepInstruction: Union[dict, "CompositionStepInstruction"] = None
-    identifier: Optional[str] = None
     timestamp: Optional[Union[str, XSDDateTime]] = None
+    identifier: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.compositionStepInstruction):
@@ -6295,11 +6295,11 @@ class CompositionStep(YAMLRoot):
         if not isinstance(self.compositionStepInstruction, CompositionStepInstruction):
             self.compositionStepInstruction = CompositionStepInstruction(**as_dict(self.compositionStepInstruction))
 
-        if self.identifier is not None and not isinstance(self.identifier, str):
-            self.identifier = str(self.identifier)
-
         if self.timestamp is not None and not isinstance(self.timestamp, XSDDateTime):
             self.timestamp = XSDDateTime(self.timestamp)
+
+        if self.identifier is not None and not isinstance(self.identifier, str):
+            self.identifier = str(self.identifier)
 
         super().__post_init__(**kwargs)
 
@@ -7733,12 +7733,17 @@ class WorkflowStepApproval(YAMLRoot):
     class_name: ClassVar[str] = "WorkflowStepApproval"
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.WorkflowStepApproval
 
+    timestamp: Union[dict, EventTimestamp] = None
     approved: Union[bool, Bool] = None
     party: Union[dict, Party] = None
-    timestamp: Union[dict, EventTimestamp] = None
     rejectedReason: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.timestamp):
+            self.MissingRequiredField("timestamp")
+        if not isinstance(self.timestamp, EventTimestamp):
+            self.timestamp = EventTimestamp(**as_dict(self.timestamp))
+
         if self._is_empty(self.approved):
             self.MissingRequiredField("approved")
         if not isinstance(self.approved, Bool):
@@ -7748,11 +7753,6 @@ class WorkflowStepApproval(YAMLRoot):
             self.MissingRequiredField("party")
         if not isinstance(self.party, Party):
             self.party = Party(**as_dict(self.party))
-
-        if self._is_empty(self.timestamp):
-            self.MissingRequiredField("timestamp")
-        if not isinstance(self.timestamp, EventTimestamp):
-            self.timestamp = EventTimestamp(**as_dict(self.timestamp))
 
         if self.rejectedReason is not None and not isinstance(self.rejectedReason, str):
             self.rejectedReason = str(self.rejectedReason)
@@ -7882,17 +7882,17 @@ class ClauseLibraryVariableSet(YAMLRoot):
     class_name: ClassVar[str] = "ClauseLibraryVariableSet"
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.ClauseLibraryVariableSet
 
-    variableSet: Optional[Union[Union[dict, "ClauseLibraryVariableSet"], list[Union[dict, "ClauseLibraryVariableSet"]]]] = empty_list()
     name: Optional[str] = None
+    variableSet: Optional[Union[Union[dict, "ClauseLibraryVariableSet"], list[Union[dict, "ClauseLibraryVariableSet"]]]] = empty_list()
     value: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
+        if self.name is not None and not isinstance(self.name, str):
+            self.name = str(self.name)
+
         if not isinstance(self.variableSet, list):
             self.variableSet = [self.variableSet] if self.variableSet is not None else []
         self.variableSet = [v if isinstance(v, ClauseLibraryVariableSet) else ClauseLibraryVariableSet(**as_dict(v)) for v in self.variableSet]
-
-        if self.name is not None and not isinstance(self.name, str):
-            self.name = str(self.name)
 
         if self.value is not None and not isinstance(self.value, str):
             self.value = str(self.value)
@@ -8210,8 +8210,8 @@ class LegalAgreementIdentification(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.LegalAgreementIdentification
 
     agreementName: Union[dict, AgreementName] = None
-    governingLaw: Optional[Union[str, "GoverningLawEnum"]] = None
     publisher: Optional[Union[str, "LegalAgreementPublisherEnum"]] = None
+    governingLaw: Optional[Union[str, "GoverningLawEnum"]] = None
     vintage: Optional[int] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -8220,11 +8220,11 @@ class LegalAgreementIdentification(YAMLRoot):
         if not isinstance(self.agreementName, AgreementName):
             self.agreementName = AgreementName(**as_dict(self.agreementName))
 
-        if self.governingLaw is not None and not isinstance(self.governingLaw, GoverningLawEnum):
-            self.governingLaw = GoverningLawEnum(self.governingLaw)
-
         if self.publisher is not None and not isinstance(self.publisher, LegalAgreementPublisherEnum):
             self.publisher = LegalAgreementPublisherEnum(self.publisher)
+
+        if self.governingLaw is not None and not isinstance(self.governingLaw, GoverningLawEnum):
+            self.governingLaw = GoverningLawEnum(self.governingLaw)
 
         if self.vintage is not None and not isinstance(self.vintage, int):
             self.vintage = int(self.vintage)
@@ -8331,8 +8331,8 @@ class OtherAgreement(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.OtherAgreement
 
     otherAgreementType: str = None
-    identifier: Optional[str] = None
     version: Optional[str] = None
+    identifier: Optional[str] = None
     date: Optional[Union[str, XSDDate]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -8341,11 +8341,11 @@ class OtherAgreement(YAMLRoot):
         if not isinstance(self.otherAgreementType, str):
             self.otherAgreementType = str(self.otherAgreementType)
 
-        if self.identifier is not None and not isinstance(self.identifier, str):
-            self.identifier = str(self.identifier)
-
         if self.version is not None and not isinstance(self.version, str):
             self.version = str(self.version)
+
+        if self.identifier is not None and not isinstance(self.identifier, str):
+            self.identifier = str(self.identifier)
 
         if self.date is not None and not isinstance(self.date, XSDDate):
             self.date = XSDDate(self.date)
@@ -8399,21 +8399,27 @@ class Resource(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.Resource
 
     resourceId: str = None
+    name: Optional[str] = None
+    url: Optional[str] = None
     resourceType: Optional[Union[str, "ResourceTypeEnum"]] = None
     language: Optional[str] = None
     sizeInBytes: Optional[Decimal] = None
     length: Optional[Union[dict, "ResourceLength"]] = None
     mimeType: Optional[str] = None
-    name: Optional[str] = None
     comments: Optional[str] = None
     string: Optional[str] = None
-    url: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.resourceId):
             self.MissingRequiredField("resourceId")
         if not isinstance(self.resourceId, str):
             self.resourceId = str(self.resourceId)
+
+        if self.name is not None and not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self.url is not None and not isinstance(self.url, str):
+            self.url = str(self.url)
 
         if self.resourceType is not None and not isinstance(self.resourceType, ResourceTypeEnum):
             self.resourceType = ResourceTypeEnum(self.resourceType)
@@ -8430,17 +8436,11 @@ class Resource(YAMLRoot):
         if self.mimeType is not None and not isinstance(self.mimeType, str):
             self.mimeType = str(self.mimeType)
 
-        if self.name is not None and not isinstance(self.name, str):
-            self.name = str(self.name)
-
         if self.comments is not None and not isinstance(self.comments, str):
             self.comments = str(self.comments)
 
         if self.string is not None and not isinstance(self.string, str):
             self.string = str(self.string)
-
-        if self.url is not None and not isinstance(self.url, str):
-            self.url = str(self.url)
 
         super().__post_init__(**kwargs)
 
@@ -9076,9 +9076,9 @@ class ApplicableRegime(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.ApplicableRegime
 
     regimeTerms: Union[Union[dict, "RegimeTerms"], list[Union[dict, "RegimeTerms"]]] = None
+    additionalType: Optional[Union[str, "AdditionalTypeEnum"]] = None
     regime: Optional[Union[str, "RegulatoryRegimeEnum"]] = None
     additionalRegime: Optional[str] = None
-    additionalType: Optional[Union[str, "AdditionalTypeEnum"]] = None
     additionalTerms: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -9086,14 +9086,14 @@ class ApplicableRegime(YAMLRoot):
             self.MissingRequiredField("regimeTerms")
         self._normalize_inlined_as_list(slot_name="regimeTerms", slot_type=RegimeTerms, key_name="party", keyed=False)
 
+        if self.additionalType is not None and not isinstance(self.additionalType, AdditionalTypeEnum):
+            self.additionalType = AdditionalTypeEnum(self.additionalType)
+
         if self.regime is not None and not isinstance(self.regime, RegulatoryRegimeEnum):
             self.regime = RegulatoryRegimeEnum(self.regime)
 
         if self.additionalRegime is not None and not isinstance(self.additionalRegime, str):
             self.additionalRegime = str(self.additionalRegime)
-
-        if self.additionalType is not None and not isinstance(self.additionalType, AdditionalTypeEnum):
-            self.additionalType = AdditionalTypeEnum(self.additionalType)
 
         if self.additionalTerms is not None and not isinstance(self.additionalTerms, str):
             self.additionalTerms = str(self.additionalTerms)
@@ -18504,14 +18504,17 @@ class FroHistory(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.FroHistory
 
     startDate: Optional[Union[str, XSDDate]] = None
+    endDate: Optional[Union[str, XSDDate]] = None
     firstDefinedIn: Optional[Union[dict, ContractualDefinition]] = None
     updateDate: Optional[Union[str, XSDDate]] = None
     lastUpdatedIn: Optional[Union[dict, ContractualDefinition]] = None
-    endDate: Optional[Union[str, XSDDate]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self.startDate is not None and not isinstance(self.startDate, XSDDate):
             self.startDate = XSDDate(self.startDate)
+
+        if self.endDate is not None and not isinstance(self.endDate, XSDDate):
+            self.endDate = XSDDate(self.endDate)
 
         if self.firstDefinedIn is not None and not isinstance(self.firstDefinedIn, ContractualDefinition):
             self.firstDefinedIn = ContractualDefinition(**as_dict(self.firstDefinedIn))
@@ -18521,9 +18524,6 @@ class FroHistory(YAMLRoot):
 
         if self.lastUpdatedIn is not None and not isinstance(self.lastUpdatedIn, ContractualDefinition):
             self.lastUpdatedIn = ContractualDefinition(**as_dict(self.lastUpdatedIn))
-
-        if self.endDate is not None and not isinstance(self.endDate, XSDDate):
-            self.endDate = XSDDate(self.endDate)
 
         super().__post_init__(**kwargs)
 
@@ -19034,20 +19034,20 @@ class AssetDeliveryPeriods(YAMLRoot):
     class_name: ClassVar[str] = "AssetDeliveryPeriods"
     class_model_uri: ClassVar[URIRef] = COMMON_DOMAIN_MODEL.AssetDeliveryPeriods
 
-    profile: Optional[Union[Union[dict, "AssetDeliveryProfile"], list[Union[dict, "AssetDeliveryProfile"]]]] = empty_list()
     startDate: Optional[Union[str, XSDDate]] = None
     endDate: Optional[Union[str, XSDDate]] = None
+    profile: Optional[Union[Union[dict, "AssetDeliveryProfile"], list[Union[dict, "AssetDeliveryProfile"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if not isinstance(self.profile, list):
-            self.profile = [self.profile] if self.profile is not None else []
-        self.profile = [v if isinstance(v, AssetDeliveryProfile) else AssetDeliveryProfile(**as_dict(v)) for v in self.profile]
-
         if self.startDate is not None and not isinstance(self.startDate, XSDDate):
             self.startDate = XSDDate(self.startDate)
 
         if self.endDate is not None and not isinstance(self.endDate, XSDDate):
             self.endDate = XSDDate(self.endDate)
+
+        if not isinstance(self.profile, list):
+            self.profile = [self.profile] if self.profile is not None else []
+        self.profile = [v if isinstance(v, AssetDeliveryProfile) else AssetDeliveryProfile(**as_dict(v)) for v in self.profile]
 
         super().__post_init__(**kwargs)
 
@@ -25736,7 +25736,7 @@ class NonTransferableProduct(YAMLRoot):
         if not isinstance(self.economicTerms, EconomicTerms):
             self.economicTerms = EconomicTerms(**as_dict(self.economicTerms))
 
-        self._normalize_inlined_as_list(slot_name="identifier", slot_type=ProductIdentifier, key_name="identifier", keyed=False)
+        self._normalize_inlined_as_list(slot_name="identifier", slot_type=ProductIdentifier, key_name="source", keyed=False)
 
         if not isinstance(self.taxonomy, list):
             self.taxonomy = [self.taxonomy] if self.taxonomy is not None else []
@@ -49095,6 +49095,45 @@ class OptionTypeEnum(EnumDefinitionImpl):
 class slots:
     pass
 
+slots.additionalType = Slot(uri=COMMON_DOMAIN_MODEL.additionalType, name="additionalType", curie=COMMON_DOMAIN_MODEL.curie('additionalType'),
+                   model_uri=COMMON_DOMAIN_MODEL.additionalType, domain=None, range=Optional[str])
+
+slots.description = Slot(uri=COMMON_DOMAIN_MODEL.description, name="description", curie=COMMON_DOMAIN_MODEL.curie('description'),
+                   model_uri=COMMON_DOMAIN_MODEL.description, domain=None, range=Optional[str])
+
+slots.documentation = Slot(uri=COMMON_DOMAIN_MODEL.documentation, name="documentation", curie=COMMON_DOMAIN_MODEL.curie('documentation'),
+                   model_uri=COMMON_DOMAIN_MODEL.documentation, domain=None, range=Optional[str])
+
+slots.email = Slot(uri=COMMON_DOMAIN_MODEL.email, name="email", curie=COMMON_DOMAIN_MODEL.curie('email'),
+                   model_uri=COMMON_DOMAIN_MODEL.email, domain=None, range=Optional[str])
+
+slots.endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.endDate, domain=None, range=Optional[str])
+
+slots.name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.name, domain=None, range=Optional[str])
+
+slots.publisher = Slot(uri=COMMON_DOMAIN_MODEL.publisher, name="publisher", curie=COMMON_DOMAIN_MODEL.curie('publisher'),
+                   model_uri=COMMON_DOMAIN_MODEL.publisher, domain=None, range=Optional[str])
+
+slots.source = Slot(uri=COMMON_DOMAIN_MODEL.source, name="source", curie=COMMON_DOMAIN_MODEL.curie('source'),
+                   model_uri=COMMON_DOMAIN_MODEL.source, domain=None, range=Optional[str])
+
+slots.startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.startDate, domain=None, range=Optional[str])
+
+slots.timestamp = Slot(uri=COMMON_DOMAIN_MODEL.timestamp, name="timestamp", curie=COMMON_DOMAIN_MODEL.curie('timestamp'),
+                   model_uri=COMMON_DOMAIN_MODEL.timestamp, domain=None, range=Optional[str])
+
+slots.unit = Slot(uri=COMMON_DOMAIN_MODEL.unit, name="unit", curie=COMMON_DOMAIN_MODEL.curie('unit'),
+                   model_uri=COMMON_DOMAIN_MODEL.unit, domain=None, range=Optional[str])
+
+slots.url = Slot(uri=COMMON_DOMAIN_MODEL.url, name="url", curie=COMMON_DOMAIN_MODEL.curie('url'),
+                   model_uri=COMMON_DOMAIN_MODEL.url, domain=None, range=Optional[str])
+
+slots.version = Slot(uri=COMMON_DOMAIN_MODEL.version, name="version", curie=COMMON_DOMAIN_MODEL.curie('version'),
+                   model_uri=COMMON_DOMAIN_MODEL.version, domain=None, range=Optional[str])
+
 slots.adjustableDate__unadjustedDate = Slot(uri=COMMON_DOMAIN_MODEL.unadjustedDate, name="adjustableDate__unadjustedDate", curie=COMMON_DOMAIN_MODEL.curie('unadjustedDate'),
                    model_uri=COMMON_DOMAIN_MODEL.adjustableDate__unadjustedDate, domain=None, range=Optional[Union[str, XSDDate]])
 
@@ -49160,12 +49199,6 @@ slots.adjustableRelativeOrPeriodicDates__periodicDates = Slot(uri=COMMON_DOMAIN_
 
 slots.adjustedRelativeDateOffset__relativeDateAdjustments = Slot(uri=COMMON_DOMAIN_MODEL.relativeDateAdjustments, name="adjustedRelativeDateOffset__relativeDateAdjustments", curie=COMMON_DOMAIN_MODEL.curie('relativeDateAdjustments'),
                    model_uri=COMMON_DOMAIN_MODEL.adjustedRelativeDateOffset__relativeDateAdjustments, domain=None, range=Optional[Union[dict, BusinessDayAdjustments]])
-
-slots.averagingSchedule__startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="averagingSchedule__startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.averagingSchedule__startDate, domain=None, range=Union[str, XSDDate])
-
-slots.averagingSchedule__endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="averagingSchedule__endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.averagingSchedule__endDate, domain=None, range=Union[str, XSDDate])
 
 slots.averagingSchedule__averagingPeriodFrequency = Slot(uri=COMMON_DOMAIN_MODEL.averagingPeriodFrequency, name="averagingSchedule__averagingPeriodFrequency", curie=COMMON_DOMAIN_MODEL.curie('averagingPeriodFrequency'),
                    model_uri=COMMON_DOMAIN_MODEL.averagingSchedule__averagingPeriodFrequency, domain=None, range=Union[dict, CalculationPeriodFrequency])
@@ -49236,12 +49269,6 @@ slots.customisableOffset__customProvision = Slot(uri=COMMON_DOMAIN_MODEL.customP
 slots.dateList__date = Slot(uri=COMMON_DOMAIN_MODEL.date, name="dateList__date", curie=COMMON_DOMAIN_MODEL.curie('date'),
                    model_uri=COMMON_DOMAIN_MODEL.dateList__date, domain=None, range=Union[Union[str, XSDDate], list[Union[str, XSDDate]]])
 
-slots.dateRange__startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="dateRange__startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.dateRange__startDate, domain=None, range=Union[str, XSDDate])
-
-slots.dateRange__endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="dateRange__endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.dateRange__endDate, domain=None, range=Union[str, XSDDate])
-
 slots.dateTimeList__dateTime = Slot(uri=COMMON_DOMAIN_MODEL.dateTime, name="dateTimeList__dateTime", curie=COMMON_DOMAIN_MODEL.curie('dateTime'),
                    model_uri=COMMON_DOMAIN_MODEL.dateTimeList__dateTime, domain=None, range=Union[Union[str, XSDDateTime], list[Union[str, XSDDateTime]]])
 
@@ -49277,12 +49304,6 @@ slots.periodRange__lowerBound = Slot(uri=COMMON_DOMAIN_MODEL.lowerBound, name="p
 
 slots.periodRange__upperBound = Slot(uri=COMMON_DOMAIN_MODEL.upperBound, name="periodRange__upperBound", curie=COMMON_DOMAIN_MODEL.curie('upperBound'),
                    model_uri=COMMON_DOMAIN_MODEL.periodRange__upperBound, domain=None, range=Optional[Union[dict, PeriodBound]])
-
-slots.periodicDates__startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="periodicDates__startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.periodicDates__startDate, domain=None, range=Optional[Union[dict, AdjustableOrRelativeDate]])
-
-slots.periodicDates__endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="periodicDates__endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.periodicDates__endDate, domain=None, range=Optional[Union[dict, AdjustableOrRelativeDate]])
 
 slots.periodicDates__periodFrequency = Slot(uri=COMMON_DOMAIN_MODEL.periodFrequency, name="periodicDates__periodFrequency", curie=COMMON_DOMAIN_MODEL.curie('periodFrequency'),
                    model_uri=COMMON_DOMAIN_MODEL.periodicDates__periodFrequency, domain=None, range=Optional[Union[dict, CalculationPeriodFrequency]])
@@ -49349,9 +49370,6 @@ slots.datedValue__date = Slot(uri=COMMON_DOMAIN_MODEL.date, name="datedValue__da
 
 slots.datedValue__value = Slot(uri=COMMON_DOMAIN_MODEL.value, name="datedValue__value", curie=COMMON_DOMAIN_MODEL.curie('value'),
                    model_uri=COMMON_DOMAIN_MODEL.datedValue__value, domain=None, range=Decimal)
-
-slots.measureBase__unit = Slot(uri=COMMON_DOMAIN_MODEL.unit, name="measureBase__unit", curie=COMMON_DOMAIN_MODEL.curie('unit'),
-                   model_uri=COMMON_DOMAIN_MODEL.measureBase__unit, domain=None, range=Optional[Union[dict, UnitType]])
 
 slots.moneyBound__money = Slot(uri=COMMON_DOMAIN_MODEL.money, name="moneyBound__money", curie=COMMON_DOMAIN_MODEL.curie('money'),
                    model_uri=COMMON_DOMAIN_MODEL.moneyBound__money, domain=None, range=Union[dict, Money])
@@ -49512,9 +49530,6 @@ slots.commodity__priceQuoteType = Slot(uri=COMMON_DOMAIN_MODEL.priceQuoteType, n
 slots.commodity__deliveryDateReference = Slot(uri=COMMON_DOMAIN_MODEL.deliveryDateReference, name="commodity__deliveryDateReference", curie=COMMON_DOMAIN_MODEL.curie('deliveryDateReference'),
                    model_uri=COMMON_DOMAIN_MODEL.commodity__deliveryDateReference, domain=None, range=Optional[Union[dict, DeliveryDateParameters]])
 
-slots.commodity__description = Slot(uri=COMMON_DOMAIN_MODEL.description, name="commodity__description", curie=COMMON_DOMAIN_MODEL.curie('description'),
-                   model_uri=COMMON_DOMAIN_MODEL.commodity__description, domain=None, range=Optional[str])
-
 slots.commodityProductDefinition__referenceFramework = Slot(uri=COMMON_DOMAIN_MODEL.referenceFramework, name="commodityProductDefinition__referenceFramework", curie=COMMON_DOMAIN_MODEL.curie('referenceFramework'),
                    model_uri=COMMON_DOMAIN_MODEL.commodityProductDefinition__referenceFramework, domain=None, range=Union[dict, CommodityReferenceFramework])
 
@@ -49629,9 +49644,6 @@ slots.priceSource__priceSourceTime = Slot(uri=COMMON_DOMAIN_MODEL.priceSourceTim
 slots.productIdentifier__identifier = Slot(uri=COMMON_DOMAIN_MODEL.identifier, name="productIdentifier__identifier", curie=COMMON_DOMAIN_MODEL.curie('identifier'),
                    model_uri=COMMON_DOMAIN_MODEL.productIdentifier__identifier, domain=None, range=str)
 
-slots.productIdentifier__source = Slot(uri=COMMON_DOMAIN_MODEL.source, name="productIdentifier__source", curie=COMMON_DOMAIN_MODEL.curie('source'),
-                   model_uri=COMMON_DOMAIN_MODEL.productIdentifier__source, domain=None, range=Union[str, "ProductIdTypeEnum"])
-
 slots.productTaxonomy__primaryAssetClass = Slot(uri=COMMON_DOMAIN_MODEL.primaryAssetClass, name="productTaxonomy__primaryAssetClass", curie=COMMON_DOMAIN_MODEL.curie('primaryAssetClass'),
                    model_uri=COMMON_DOMAIN_MODEL.productTaxonomy__primaryAssetClass, domain=None, range=Optional[Union[str, "AssetClassEnum"]])
 
@@ -49677,9 +49689,6 @@ slots.security__fundType = Slot(uri=COMMON_DOMAIN_MODEL.fundType, name="security
 slots.specialPurposeVehicleIssuerType__creditRisk = Slot(uri=COMMON_DOMAIN_MODEL.creditRisk, name="specialPurposeVehicleIssuerType__creditRisk", curie=COMMON_DOMAIN_MODEL.curie('creditRisk'),
                    model_uri=COMMON_DOMAIN_MODEL.specialPurposeVehicleIssuerType__creditRisk, domain=None, range=Optional[Union[str, "CreditRiskEnum"]])
 
-slots.taxonomy__source = Slot(uri=COMMON_DOMAIN_MODEL.source, name="taxonomy__source", curie=COMMON_DOMAIN_MODEL.curie('source'),
-                   model_uri=COMMON_DOMAIN_MODEL.taxonomy__source, domain=None, range=Optional[Union[str, "TaxonomySourceEnum"]])
-
 slots.taxonomy__value = Slot(uri=COMMON_DOMAIN_MODEL.value, name="taxonomy__value", curie=COMMON_DOMAIN_MODEL.curie('value'),
                    model_uri=COMMON_DOMAIN_MODEL.taxonomy__value, domain=None, range=Optional[Union[dict, TaxonomyValue]])
 
@@ -49692,14 +49701,8 @@ slots.taxonomyClassification__className = Slot(uri=COMMON_DOMAIN_MODEL.className
 slots.taxonomyClassification__value = Slot(uri=COMMON_DOMAIN_MODEL.value, name="taxonomyClassification__value", curie=COMMON_DOMAIN_MODEL.curie('value'),
                    model_uri=COMMON_DOMAIN_MODEL.taxonomyClassification__value, domain=None, range=str)
 
-slots.taxonomyClassification__description = Slot(uri=COMMON_DOMAIN_MODEL.description, name="taxonomyClassification__description", curie=COMMON_DOMAIN_MODEL.curie('description'),
-                   model_uri=COMMON_DOMAIN_MODEL.taxonomyClassification__description, domain=None, range=Optional[str])
-
 slots.taxonomyClassification__ordinal = Slot(uri=COMMON_DOMAIN_MODEL.ordinal, name="taxonomyClassification__ordinal", curie=COMMON_DOMAIN_MODEL.curie('ordinal'),
                    model_uri=COMMON_DOMAIN_MODEL.taxonomyClassification__ordinal, domain=None, range=Optional[int])
-
-slots.taxonomyValue__name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="taxonomyValue__name", curie=COMMON_DOMAIN_MODEL.curie('name'),
-                   model_uri=COMMON_DOMAIN_MODEL.taxonomyValue__name, domain=None, range=Optional[str])
 
 slots.taxonomyValue__classification = Slot(uri=COMMON_DOMAIN_MODEL.classification, name="taxonomyValue__classification", curie=COMMON_DOMAIN_MODEL.curie('classification'),
                    model_uri=COMMON_DOMAIN_MODEL.taxonomyValue__classification, domain=None, range=Optional[Union[Union[dict, TaxonomyClassification], list[Union[dict, TaxonomyClassification]]]])
@@ -49776,17 +49779,11 @@ slots.codeList__identification = Slot(uri=COMMON_DOMAIN_MODEL.identification, na
 slots.codeList__codes = Slot(uri=COMMON_DOMAIN_MODEL.codes, name="codeList__codes", curie=COMMON_DOMAIN_MODEL.curie('codes'),
                    model_uri=COMMON_DOMAIN_MODEL.codeList__codes, domain=None, range=Optional[Union[Union[dict, CodeValue], list[Union[dict, CodeValue]]]])
 
-slots.codeListIdentification__description = Slot(uri=COMMON_DOMAIN_MODEL.description, name="codeListIdentification__description", curie=COMMON_DOMAIN_MODEL.curie('description'),
-                   model_uri=COMMON_DOMAIN_MODEL.codeListIdentification__description, domain=None, range=Optional[str])
-
 slots.codeListIdentification__publicationDate = Slot(uri=COMMON_DOMAIN_MODEL.publicationDate, name="codeListIdentification__publicationDate", curie=COMMON_DOMAIN_MODEL.curie('publicationDate'),
                    model_uri=COMMON_DOMAIN_MODEL.codeListIdentification__publicationDate, domain=None, range=Optional[str])
 
 slots.codeListIdentification__shortName = Slot(uri=COMMON_DOMAIN_MODEL.shortName, name="codeListIdentification__shortName", curie=COMMON_DOMAIN_MODEL.curie('shortName'),
                    model_uri=COMMON_DOMAIN_MODEL.codeListIdentification__shortName, domain=None, range=str)
-
-slots.codeListIdentification__version = Slot(uri=COMMON_DOMAIN_MODEL.version, name="codeListIdentification__version", curie=COMMON_DOMAIN_MODEL.curie('version'),
-                   model_uri=COMMON_DOMAIN_MODEL.codeListIdentification__version, domain=None, range=str)
 
 slots.codeListIdentification__codeShortId = Slot(uri=COMMON_DOMAIN_MODEL.codeShortId, name="codeListIdentification__codeShortId", curie=COMMON_DOMAIN_MODEL.curie('codeShortId'),
                    model_uri=COMMON_DOMAIN_MODEL.codeListIdentification__codeShortId, domain=None, range=Optional[str])
@@ -49803,12 +49800,6 @@ slots.codeListIdentification__locationUri = Slot(uri=COMMON_DOMAIN_MODEL.locatio
 slots.codeValue__value = Slot(uri=COMMON_DOMAIN_MODEL.value, name="codeValue__value", curie=COMMON_DOMAIN_MODEL.curie('value'),
                    model_uri=COMMON_DOMAIN_MODEL.codeValue__value, domain=None, range=str)
 
-slots.codeValue__description = Slot(uri=COMMON_DOMAIN_MODEL.description, name="codeValue__description", curie=COMMON_DOMAIN_MODEL.curie('description'),
-                   model_uri=COMMON_DOMAIN_MODEL.codeValue__description, domain=None, range=Optional[str])
-
-slots.codeValue__source = Slot(uri=COMMON_DOMAIN_MODEL.source, name="codeValue__source", curie=COMMON_DOMAIN_MODEL.curie('source'),
-                   model_uri=COMMON_DOMAIN_MODEL.codeValue__source, domain=None, range=Optional[str])
-
 slots.codeValue__effectiveDate = Slot(uri=COMMON_DOMAIN_MODEL.effectiveDate, name="codeValue__effectiveDate", curie=COMMON_DOMAIN_MODEL.curie('effectiveDate'),
                    model_uri=COMMON_DOMAIN_MODEL.codeValue__effectiveDate, domain=None, range=Optional[Union[str, XSDDate]])
 
@@ -49817,9 +49808,6 @@ slots.codeValue__deprecatedDate = Slot(uri=COMMON_DOMAIN_MODEL.deprecatedDate, n
 
 slots.assignedIdentifier__identifier = Slot(uri=COMMON_DOMAIN_MODEL.identifier, name="assignedIdentifier__identifier", curie=COMMON_DOMAIN_MODEL.curie('identifier'),
                    model_uri=COMMON_DOMAIN_MODEL.assignedIdentifier__identifier, domain=None, range=str)
-
-slots.assignedIdentifier__version = Slot(uri=COMMON_DOMAIN_MODEL.version, name="assignedIdentifier__version", curie=COMMON_DOMAIN_MODEL.curie('version'),
-                   model_uri=COMMON_DOMAIN_MODEL.assignedIdentifier__version, domain=None, range=Optional[int])
 
 slots.identifiedList__listId = Slot(uri=COMMON_DOMAIN_MODEL.listId, name="identifiedList__listId", curie=COMMON_DOMAIN_MODEL.curie('listId'),
                    model_uri=COMMON_DOMAIN_MODEL.identifiedList__listId, domain=None, range=Union[dict, Identifier])
@@ -49902,9 +49890,6 @@ slots.assetPartyRole__partyReference = Slot(uri=COMMON_DOMAIN_MODEL.partyReferen
 slots.assetPartyRole__role = Slot(uri=COMMON_DOMAIN_MODEL.role, name="assetPartyRole__role", curie=COMMON_DOMAIN_MODEL.curie('role'),
                    model_uri=COMMON_DOMAIN_MODEL.assetPartyRole__role, domain=None, range=Union[str, "AssetPartyRoleEnum"])
 
-slots.businessUnit__name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="businessUnit__name", curie=COMMON_DOMAIN_MODEL.curie('name'),
-                   model_uri=COMMON_DOMAIN_MODEL.businessUnit__name, domain=None, range=str)
-
 slots.businessUnit__identifier = Slot(uri=COMMON_DOMAIN_MODEL.identifier, name="businessUnit__identifier", curie=COMMON_DOMAIN_MODEL.curie('identifier'),
                    model_uri=COMMON_DOMAIN_MODEL.businessUnit__identifier, domain=None, range=Optional[Union[dict, Identifier]])
 
@@ -49923,9 +49908,6 @@ slots.contactInformation__telephone = Slot(uri=COMMON_DOMAIN_MODEL.telephone, na
 slots.contactInformation__address = Slot(uri=COMMON_DOMAIN_MODEL.address, name="contactInformation__address", curie=COMMON_DOMAIN_MODEL.curie('address'),
                    model_uri=COMMON_DOMAIN_MODEL.contactInformation__address, domain=None, range=Optional[Union[Union[dict, Address], list[Union[dict, Address]]]])
 
-slots.contactInformation__email = Slot(uri=COMMON_DOMAIN_MODEL.email, name="contactInformation__email", curie=COMMON_DOMAIN_MODEL.curie('email'),
-                   model_uri=COMMON_DOMAIN_MODEL.contactInformation__email, domain=None, range=Optional[Union[str, list[str]]])
-
 slots.contactInformation__webPage = Slot(uri=COMMON_DOMAIN_MODEL.webPage, name="contactInformation__webPage", curie=COMMON_DOMAIN_MODEL.curie('webPage'),
                    model_uri=COMMON_DOMAIN_MODEL.contactInformation__webPage, domain=None, range=Optional[Union[str, list[str]]])
 
@@ -49940,9 +49922,6 @@ slots.entityIdentifier__identifier = Slot(uri=COMMON_DOMAIN_MODEL.identifier, na
 
 slots.entityIdentifier__identifierType = Slot(uri=COMMON_DOMAIN_MODEL.identifierType, name="entityIdentifier__identifierType", curie=COMMON_DOMAIN_MODEL.curie('identifierType'),
                    model_uri=COMMON_DOMAIN_MODEL.entityIdentifier__identifierType, domain=None, range=Optional[Union[str, "EntityIdentifierTypeEnum"]])
-
-slots.legalEntity__name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="legalEntity__name", curie=COMMON_DOMAIN_MODEL.curie('name'),
-                   model_uri=COMMON_DOMAIN_MODEL.legalEntity__name, domain=None, range=str)
 
 slots.legalEntity__entityIdentifier = Slot(uri=COMMON_DOMAIN_MODEL.entityIdentifier, name="legalEntity__entityIdentifier", curie=COMMON_DOMAIN_MODEL.curie('entityIdentifier'),
                    model_uri=COMMON_DOMAIN_MODEL.legalEntity__entityIdentifier, domain=None, range=Optional[Union[Union[dict, EntityIdentifier], list[Union[dict, EntityIdentifier]]]])
@@ -49982,9 +49961,6 @@ slots.naturalPersonRole__role = Slot(uri=COMMON_DOMAIN_MODEL.role, name="natural
 
 slots.party__partyId = Slot(uri=COMMON_DOMAIN_MODEL.partyId, name="party__partyId", curie=COMMON_DOMAIN_MODEL.curie('partyId'),
                    model_uri=COMMON_DOMAIN_MODEL.party__partyId, domain=None, range=Union[Union[dict, PartyIdentifier], list[Union[dict, PartyIdentifier]]])
-
-slots.party__name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="party__name", curie=COMMON_DOMAIN_MODEL.curie('name'),
-                   model_uri=COMMON_DOMAIN_MODEL.party__name, domain=None, range=Optional[str])
 
 slots.party__businessUnit = Slot(uri=COMMON_DOMAIN_MODEL.businessUnit, name="party__businessUnit", curie=COMMON_DOMAIN_MODEL.curie('businessUnit'),
                    model_uri=COMMON_DOMAIN_MODEL.party__businessUnit, domain=None, range=Optional[Union[Union[dict, BusinessUnit], list[Union[dict, BusinessUnit]]]])
@@ -50315,9 +50291,6 @@ slots.contingentTransfer__transferType = Slot(uri=COMMON_DOMAIN_MODEL.transferTy
 
 slots.contingentTransfer__corporateActionTransferType = Slot(uri=COMMON_DOMAIN_MODEL.corporateActionTransferType, name="contingentTransfer__corporateActionTransferType", curie=COMMON_DOMAIN_MODEL.curie('corporateActionTransferType'),
                    model_uri=COMMON_DOMAIN_MODEL.contingentTransfer__corporateActionTransferType, domain=None, range=Optional[Union[str, "CorporateActionTypeEnum"]])
-
-slots.contractDetails__documentation = Slot(uri=COMMON_DOMAIN_MODEL.documentation, name="contractDetails__documentation", curie=COMMON_DOMAIN_MODEL.curie('documentation'),
-                   model_uri=COMMON_DOMAIN_MODEL.contractDetails__documentation, domain=None, range=Optional[Union[Union[dict, LegalAgreement], list[Union[dict, LegalAgreement]]]])
 
 slots.contractDetails__governingLaw = Slot(uri=COMMON_DOMAIN_MODEL.governingLaw, name="contractDetails__governingLaw", curie=COMMON_DOMAIN_MODEL.curie('governingLaw'),
                    model_uri=COMMON_DOMAIN_MODEL.contractDetails__governingLaw, domain=None, range=Optional[Union[str, "GoverningLawEnum"]])
@@ -50844,14 +50817,8 @@ slots.unscheduledTransfer__transferType = Slot(uri=COMMON_DOMAIN_MODEL.transferT
 slots.valuation__amount = Slot(uri=COMMON_DOMAIN_MODEL.amount, name="valuation__amount", curie=COMMON_DOMAIN_MODEL.curie('amount'),
                    model_uri=COMMON_DOMAIN_MODEL.valuation__amount, domain=None, range=Union[dict, Money])
 
-slots.valuation__timestamp = Slot(uri=COMMON_DOMAIN_MODEL.timestamp, name="valuation__timestamp", curie=COMMON_DOMAIN_MODEL.curie('timestamp'),
-                   model_uri=COMMON_DOMAIN_MODEL.valuation__timestamp, domain=None, range=Union[str, XSDDateTime])
-
 slots.valuation__method = Slot(uri=COMMON_DOMAIN_MODEL.method, name="valuation__method", curie=COMMON_DOMAIN_MODEL.curie('method'),
                    model_uri=COMMON_DOMAIN_MODEL.valuation__method, domain=None, range=Optional[Union[str, "ValuationTypeEnum"]])
-
-slots.valuation__source = Slot(uri=COMMON_DOMAIN_MODEL.source, name="valuation__source", curie=COMMON_DOMAIN_MODEL.curie('source'),
-                   model_uri=COMMON_DOMAIN_MODEL.valuation__source, domain=None, range=Optional[Union[str, "ValuationSourceEnum"]])
 
 slots.valuation__scope = Slot(uri=COMMON_DOMAIN_MODEL.scope, name="valuation__scope", curie=COMMON_DOMAIN_MODEL.curie('scope'),
                    model_uri=COMMON_DOMAIN_MODEL.valuation__scope, domain=None, range=Union[str, "ValuationScopeEnum"])
@@ -50876,9 +50843,6 @@ slots.compositionState__ResetInstructionState = Slot(uri=COMMON_DOMAIN_MODEL.Res
 
 slots.compositionStep__identifier = Slot(uri=COMMON_DOMAIN_MODEL.identifier, name="compositionStep__identifier", curie=COMMON_DOMAIN_MODEL.curie('identifier'),
                    model_uri=COMMON_DOMAIN_MODEL.compositionStep__identifier, domain=None, range=Optional[str])
-
-slots.compositionStep__timestamp = Slot(uri=COMMON_DOMAIN_MODEL.timestamp, name="compositionStep__timestamp", curie=COMMON_DOMAIN_MODEL.curie('timestamp'),
-                   model_uri=COMMON_DOMAIN_MODEL.compositionStep__timestamp, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.compositionStep__compositionStepInstruction = Slot(uri=COMMON_DOMAIN_MODEL.compositionStepInstruction, name="compositionStep__compositionStepInstruction", curie=COMMON_DOMAIN_MODEL.curie('compositionStepInstruction'),
                    model_uri=COMMON_DOMAIN_MODEL.compositionStep__compositionStepInstruction, domain=None, range=Union[dict, CompositionStepInstruction])
@@ -51288,9 +51252,6 @@ slots.workflowStep__nextEvent = Slot(uri=COMMON_DOMAIN_MODEL.nextEvent, name="wo
 slots.workflowStep__messageInformation = Slot(uri=COMMON_DOMAIN_MODEL.messageInformation, name="workflowStep__messageInformation", curie=COMMON_DOMAIN_MODEL.curie('messageInformation'),
                    model_uri=COMMON_DOMAIN_MODEL.workflowStep__messageInformation, domain=None, range=Optional[Union[dict, MessageInformation]])
 
-slots.workflowStep__timestamp = Slot(uri=COMMON_DOMAIN_MODEL.timestamp, name="workflowStep__timestamp", curie=COMMON_DOMAIN_MODEL.curie('timestamp'),
-                   model_uri=COMMON_DOMAIN_MODEL.workflowStep__timestamp, domain=None, range=Union[Union[dict, EventTimestamp], list[Union[dict, EventTimestamp]]])
-
 slots.workflowStep__eventIdentifier = Slot(uri=COMMON_DOMAIN_MODEL.eventIdentifier, name="workflowStep__eventIdentifier", curie=COMMON_DOMAIN_MODEL.curie('eventIdentifier'),
                    model_uri=COMMON_DOMAIN_MODEL.workflowStep__eventIdentifier, domain=None, range=Union[Union[dict, Identifier], list[Union[dict, Identifier]]])
 
@@ -51318,14 +51279,8 @@ slots.workflowStepApproval__party = Slot(uri=COMMON_DOMAIN_MODEL.party, name="wo
 slots.workflowStepApproval__rejectedReason = Slot(uri=COMMON_DOMAIN_MODEL.rejectedReason, name="workflowStepApproval__rejectedReason", curie=COMMON_DOMAIN_MODEL.curie('rejectedReason'),
                    model_uri=COMMON_DOMAIN_MODEL.workflowStepApproval__rejectedReason, domain=None, range=Optional[str])
 
-slots.workflowStepApproval__timestamp = Slot(uri=COMMON_DOMAIN_MODEL.timestamp, name="workflowStepApproval__timestamp", curie=COMMON_DOMAIN_MODEL.curie('timestamp'),
-                   model_uri=COMMON_DOMAIN_MODEL.workflowStepApproval__timestamp, domain=None, range=Union[dict, EventTimestamp])
-
 slots.clauseLibraryClause__identifier = Slot(uri=COMMON_DOMAIN_MODEL.identifier, name="clauseLibraryClause__identifier", curie=COMMON_DOMAIN_MODEL.curie('identifier'),
                    model_uri=COMMON_DOMAIN_MODEL.clauseLibraryClause__identifier, domain=None, range=Union[dict, AssignedIdentifier])
-
-slots.clauseLibraryClause__name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="clauseLibraryClause__name", curie=COMMON_DOMAIN_MODEL.curie('name'),
-                   model_uri=COMMON_DOMAIN_MODEL.clauseLibraryClause__name, domain=None, range=Optional[str])
 
 slots.clauseLibraryClause__counterparty = Slot(uri=COMMON_DOMAIN_MODEL.counterparty, name="clauseLibraryClause__counterparty", curie=COMMON_DOMAIN_MODEL.curie('counterparty'),
                    model_uri=COMMON_DOMAIN_MODEL.clauseLibraryClause__counterparty, domain=None, range=Optional[Union[Union[str, "CounterpartyRoleEnum"], list[Union[str, "CounterpartyRoleEnum"]]]])
@@ -51338,9 +51293,6 @@ slots.clauseLibraryClause__variant = Slot(uri=COMMON_DOMAIN_MODEL.variant, name=
 
 slots.clauseLibraryClauseVariant__identifier = Slot(uri=COMMON_DOMAIN_MODEL.identifier, name="clauseLibraryClauseVariant__identifier", curie=COMMON_DOMAIN_MODEL.curie('identifier'),
                    model_uri=COMMON_DOMAIN_MODEL.clauseLibraryClauseVariant__identifier, domain=None, range=Union[dict, AssignedIdentifier])
-
-slots.clauseLibraryClauseVariant__name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="clauseLibraryClauseVariant__name", curie=COMMON_DOMAIN_MODEL.curie('name'),
-                   model_uri=COMMON_DOMAIN_MODEL.clauseLibraryClauseVariant__name, domain=None, range=Optional[str])
 
 slots.clauseLibraryClauseVariant__counterparty = Slot(uri=COMMON_DOMAIN_MODEL.counterparty, name="clauseLibraryClauseVariant__counterparty", curie=COMMON_DOMAIN_MODEL.curie('counterparty'),
                    model_uri=COMMON_DOMAIN_MODEL.clauseLibraryClauseVariant__counterparty, domain=None, range=Optional[Union[Union[str, "CounterpartyRoleEnum"], list[Union[str, "CounterpartyRoleEnum"]]]])
@@ -51356,9 +51308,6 @@ slots.clauseLibrarySchedule__clause = Slot(uri=COMMON_DOMAIN_MODEL.clause, name=
 
 slots.clauseLibraryVariableSet__variableSet = Slot(uri=COMMON_DOMAIN_MODEL.variableSet, name="clauseLibraryVariableSet__variableSet", curie=COMMON_DOMAIN_MODEL.curie('variableSet'),
                    model_uri=COMMON_DOMAIN_MODEL.clauseLibraryVariableSet__variableSet, domain=None, range=Optional[Union[Union[dict, ClauseLibraryVariableSet], list[Union[dict, ClauseLibraryVariableSet]]]])
-
-slots.clauseLibraryVariableSet__name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="clauseLibraryVariableSet__name", curie=COMMON_DOMAIN_MODEL.curie('name'),
-                   model_uri=COMMON_DOMAIN_MODEL.clauseLibraryVariableSet__name, domain=None, range=Optional[str])
 
 slots.clauseLibraryVariableSet__value = Slot(uri=COMMON_DOMAIN_MODEL.value, name="clauseLibraryVariableSet__value", curie=COMMON_DOMAIN_MODEL.curie('value'),
                    model_uri=COMMON_DOMAIN_MODEL.clauseLibraryVariableSet__value, domain=None, range=Optional[str])
@@ -51477,9 +51426,6 @@ slots.legalAgreementIdentification__governingLaw = Slot(uri=COMMON_DOMAIN_MODEL.
 slots.legalAgreementIdentification__agreementName = Slot(uri=COMMON_DOMAIN_MODEL.agreementName, name="legalAgreementIdentification__agreementName", curie=COMMON_DOMAIN_MODEL.curie('agreementName'),
                    model_uri=COMMON_DOMAIN_MODEL.legalAgreementIdentification__agreementName, domain=None, range=Union[dict, AgreementName])
 
-slots.legalAgreementIdentification__publisher = Slot(uri=COMMON_DOMAIN_MODEL.publisher, name="legalAgreementIdentification__publisher", curie=COMMON_DOMAIN_MODEL.curie('publisher'),
-                   model_uri=COMMON_DOMAIN_MODEL.legalAgreementIdentification__publisher, domain=None, range=Optional[Union[str, "LegalAgreementPublisherEnum"]])
-
 slots.legalAgreementIdentification__vintage = Slot(uri=COMMON_DOMAIN_MODEL.vintage, name="legalAgreementIdentification__vintage", curie=COMMON_DOMAIN_MODEL.curie('vintage'),
                    model_uri=COMMON_DOMAIN_MODEL.legalAgreementIdentification__vintage, domain=None, range=Optional[int])
 
@@ -51503,9 +51449,6 @@ slots.otherAgreement__identifier = Slot(uri=COMMON_DOMAIN_MODEL.identifier, name
 
 slots.otherAgreement__otherAgreementType = Slot(uri=COMMON_DOMAIN_MODEL.otherAgreementType, name="otherAgreement__otherAgreementType", curie=COMMON_DOMAIN_MODEL.curie('otherAgreementType'),
                    model_uri=COMMON_DOMAIN_MODEL.otherAgreement__otherAgreementType, domain=None, range=str)
-
-slots.otherAgreement__version = Slot(uri=COMMON_DOMAIN_MODEL.version, name="otherAgreement__version", curie=COMMON_DOMAIN_MODEL.curie('version'),
-                   model_uri=COMMON_DOMAIN_MODEL.otherAgreement__version, domain=None, range=Optional[str])
 
 slots.otherAgreement__date = Slot(uri=COMMON_DOMAIN_MODEL.date, name="otherAgreement__date", curie=COMMON_DOMAIN_MODEL.curie('date'),
                    model_uri=COMMON_DOMAIN_MODEL.otherAgreement__date, domain=None, range=Optional[Union[str, XSDDate]])
@@ -51534,17 +51477,11 @@ slots.resource__length = Slot(uri=COMMON_DOMAIN_MODEL.length, name="resource__le
 slots.resource__mimeType = Slot(uri=COMMON_DOMAIN_MODEL.mimeType, name="resource__mimeType", curie=COMMON_DOMAIN_MODEL.curie('mimeType'),
                    model_uri=COMMON_DOMAIN_MODEL.resource__mimeType, domain=None, range=Optional[str])
 
-slots.resource__name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="resource__name", curie=COMMON_DOMAIN_MODEL.curie('name'),
-                   model_uri=COMMON_DOMAIN_MODEL.resource__name, domain=None, range=Optional[str])
-
 slots.resource__comments = Slot(uri=COMMON_DOMAIN_MODEL.comments, name="resource__comments", curie=COMMON_DOMAIN_MODEL.curie('comments'),
                    model_uri=COMMON_DOMAIN_MODEL.resource__comments, domain=None, range=Optional[str])
 
 slots.resource__string = Slot(uri=COMMON_DOMAIN_MODEL.string, name="resource__string", curie=COMMON_DOMAIN_MODEL.curie('string'),
                    model_uri=COMMON_DOMAIN_MODEL.resource__string, domain=None, range=Optional[str])
-
-slots.resource__url = Slot(uri=COMMON_DOMAIN_MODEL.url, name="resource__url", curie=COMMON_DOMAIN_MODEL.curie('url'),
-                   model_uri=COMMON_DOMAIN_MODEL.resource__url, domain=None, range=Optional[str])
 
 slots.resourceLength__lengthUnit = Slot(uri=COMMON_DOMAIN_MODEL.lengthUnit, name="resourceLength__lengthUnit", curie=COMMON_DOMAIN_MODEL.curie('lengthUnit'),
                    model_uri=COMMON_DOMAIN_MODEL.resourceLength__lengthUnit, domain=None, range=Union[str, "LengthUnitEnum"])
@@ -51681,9 +51618,6 @@ slots.applicableRegime__additionalRegime = Slot(uri=COMMON_DOMAIN_MODEL.addition
 slots.applicableRegime__regimeTerms = Slot(uri=COMMON_DOMAIN_MODEL.regimeTerms, name="applicableRegime__regimeTerms", curie=COMMON_DOMAIN_MODEL.curie('regimeTerms'),
                    model_uri=COMMON_DOMAIN_MODEL.applicableRegime__regimeTerms, domain=None, range=Union[Union[dict, RegimeTerms], list[Union[dict, RegimeTerms]]])
 
-slots.applicableRegime__additionalType = Slot(uri=COMMON_DOMAIN_MODEL.additionalType, name="applicableRegime__additionalType", curie=COMMON_DOMAIN_MODEL.curie('additionalType'),
-                   model_uri=COMMON_DOMAIN_MODEL.applicableRegime__additionalType, domain=None, range=Optional[Union[str, "AdditionalTypeEnum"]])
-
 slots.applicableRegime__additionalTerms = Slot(uri=COMMON_DOMAIN_MODEL.additionalTerms, name="applicableRegime__additionalTerms", curie=COMMON_DOMAIN_MODEL.curie('additionalTerms'),
                    model_uri=COMMON_DOMAIN_MODEL.applicableRegime__additionalTerms, domain=None, range=Optional[str])
 
@@ -51741,9 +51675,6 @@ slots.cSAIndependentAmount__partyElection = Slot(uri=COMMON_DOMAIN_MODEL.partyEl
 slots.cSAIndependentAmount__additionalLanguage = Slot(uri=COMMON_DOMAIN_MODEL.additionalLanguage, name="cSAIndependentAmount__additionalLanguage", curie=COMMON_DOMAIN_MODEL.curie('additionalLanguage'),
                    model_uri=COMMON_DOMAIN_MODEL.cSAIndependentAmount__additionalLanguage, domain=None, range=Optional[str])
 
-slots.cSAMinimumTransferAmountVariableSet__name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="cSAMinimumTransferAmountVariableSet__name", curie=COMMON_DOMAIN_MODEL.curie('name'),
-                   model_uri=COMMON_DOMAIN_MODEL.cSAMinimumTransferAmountVariableSet__name, domain=None, range=Optional[Union[str, "CreditRatingAgencyEnum"]])
-
 slots.cSAMinimumTransferAmountVariableSet__value = Slot(uri=COMMON_DOMAIN_MODEL.value, name="cSAMinimumTransferAmountVariableSet__value", curie=COMMON_DOMAIN_MODEL.curie('value'),
                    model_uri=COMMON_DOMAIN_MODEL.cSAMinimumTransferAmountVariableSet__value, domain=None, range=Optional[str])
 
@@ -51755,9 +51686,6 @@ slots.cSAMinimumTransferAmountVariableSet__amountIsInfinity = Slot(uri=COMMON_DO
 
 slots.cSAReturnAmount__returnAmount = Slot(uri=COMMON_DOMAIN_MODEL.returnAmount, name="cSAReturnAmount__returnAmount", curie=COMMON_DOMAIN_MODEL.curie('returnAmount'),
                    model_uri=COMMON_DOMAIN_MODEL.cSAReturnAmount__returnAmount, domain=None, range=Union[str, "DeliveryReturnAmountEnum"])
-
-slots.cSAThresholdVariableSet__name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="cSAThresholdVariableSet__name", curie=COMMON_DOMAIN_MODEL.curie('name'),
-                   model_uri=COMMON_DOMAIN_MODEL.cSAThresholdVariableSet__name, domain=None, range=Optional[Union[str, "CreditRatingAgencyEnum"]])
 
 slots.cSAThresholdVariableSet__value = Slot(uri=COMMON_DOMAIN_MODEL.value, name="cSAThresholdVariableSet__value", curie=COMMON_DOMAIN_MODEL.curie('value'),
                    model_uri=COMMON_DOMAIN_MODEL.cSAThresholdVariableSet__value, domain=None, range=Optional[str])
@@ -52332,9 +52260,6 @@ slots.creditSupportProviderElection__creditSupportProvider = Slot(uri=COMMON_DOM
 slots.creditSupportProviderElection__bespokeCreditSuppportProvider = Slot(uri=COMMON_DOMAIN_MODEL.bespokeCreditSuppportProvider, name="creditSupportProviderElection__bespokeCreditSuppportProvider", curie=COMMON_DOMAIN_MODEL.curie('bespokeCreditSuppportProvider'),
                    model_uri=COMMON_DOMAIN_MODEL.creditSupportProviderElection__bespokeCreditSuppportProvider, domain=None, range=Optional[str])
 
-slots.csaAdditionalTerminationEvent__name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="csaAdditionalTerminationEvent__name", curie=COMMON_DOMAIN_MODEL.curie('name'),
-                   model_uri=COMMON_DOMAIN_MODEL.csaAdditionalTerminationEvent__name, domain=None, range=str)
-
 slots.csaAdditionalTerminationEvent__applicableParty = Slot(uri=COMMON_DOMAIN_MODEL.applicableParty, name="csaAdditionalTerminationEvent__applicableParty", curie=COMMON_DOMAIN_MODEL.curie('applicableParty'),
                    model_uri=COMMON_DOMAIN_MODEL.csaAdditionalTerminationEvent__applicableParty, domain=None, range=Union[Union[str, "CounterpartyRoleEnum"], list[Union[str, "CounterpartyRoleEnum"]]])
 
@@ -52364,9 +52289,6 @@ slots.custodianElection__additionalLanguage = Slot(uri=COMMON_DOMAIN_MODEL.addit
 
 slots.custodianEvent__isApplicable = Slot(uri=COMMON_DOMAIN_MODEL.isApplicable, name="custodianEvent__isApplicable", curie=COMMON_DOMAIN_MODEL.curie('isApplicable'),
                    model_uri=COMMON_DOMAIN_MODEL.custodianEvent__isApplicable, domain=None, range=Union[bool, Bool])
-
-slots.custodianEvent__endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="custodianEvent__endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.custodianEvent__endDate, domain=None, range=Optional[Union[dict, CustodianEventEndDate]])
 
 slots.custodianEventEndDate__daysAfterCustodianEvent = Slot(uri=COMMON_DOMAIN_MODEL.daysAfterCustodianEvent, name="custodianEventEndDate__daysAfterCustodianEvent", curie=COMMON_DOMAIN_MODEL.curie('daysAfterCustodianEvent'),
                    model_uri=COMMON_DOMAIN_MODEL.custodianEventEndDate__daysAfterCustodianEvent, domain=None, range=Union[dict, CustomisableOffset])
@@ -54201,9 +54123,6 @@ slots.index__ForeignExchangeRateIndex = Slot(uri=COMMON_DOMAIN_MODEL.ForeignExch
 slots.index__OtherIndex = Slot(uri=COMMON_DOMAIN_MODEL.OtherIndex, name="index__OtherIndex", curie=COMMON_DOMAIN_MODEL.curie('OtherIndex'),
                    model_uri=COMMON_DOMAIN_MODEL.index__OtherIndex, domain=None, range=Optional[Union[dict, OtherIndex]])
 
-slots.indexBase__name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="indexBase__name", curie=COMMON_DOMAIN_MODEL.curie('name'),
-                   model_uri=COMMON_DOMAIN_MODEL.indexBase__name, domain=None, range=Optional[str])
-
 slots.indexBase__provider = Slot(uri=COMMON_DOMAIN_MODEL.provider, name="indexBase__provider", curie=COMMON_DOMAIN_MODEL.curie('provider'),
                    model_uri=COMMON_DOMAIN_MODEL.indexBase__provider, domain=None, range=Optional[Union[dict, LegalEntity]])
 
@@ -54251,9 +54170,6 @@ slots.observable__Basket = Slot(uri=COMMON_DOMAIN_MODEL.Basket, name="observable
 
 slots.observable__Index = Slot(uri=COMMON_DOMAIN_MODEL.Index, name="observable__Index", curie=COMMON_DOMAIN_MODEL.curie('Index'),
                    model_uri=COMMON_DOMAIN_MODEL.observable__Index, domain=None, range=Optional[Union[dict, Index]])
-
-slots.otherIndex__description = Slot(uri=COMMON_DOMAIN_MODEL.description, name="otherIndex__description", curie=COMMON_DOMAIN_MODEL.curie('description'),
-                   model_uri=COMMON_DOMAIN_MODEL.otherIndex__description, domain=None, range=Optional[str])
 
 slots.performanceValuationDates__determinationMethod = Slot(uri=COMMON_DOMAIN_MODEL.determinationMethod, name="performanceValuationDates__determinationMethod", curie=COMMON_DOMAIN_MODEL.curie('determinationMethod'),
                    model_uri=COMMON_DOMAIN_MODEL.performanceValuationDates__determinationMethod, domain=None, range=Union[str, "DeterminationMethodEnum"])
@@ -54651,9 +54567,6 @@ slots.floatingRateIndexMappings__mapsTo = Slot(uri=COMMON_DOMAIN_MODEL.mapsTo, n
 slots.floatingRateIndexMappings__mapsFrom = Slot(uri=COMMON_DOMAIN_MODEL.mapsFrom, name="floatingRateIndexMappings__mapsFrom", curie=COMMON_DOMAIN_MODEL.curie('mapsFrom'),
                    model_uri=COMMON_DOMAIN_MODEL.floatingRateIndexMappings__mapsFrom, domain=None, range=Optional[Union[Union[dict, FloatingRateIndexMap], list[Union[dict, FloatingRateIndexMap]]]])
 
-slots.froHistory__startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="froHistory__startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.froHistory__startDate, domain=None, range=Optional[Union[str, XSDDate]])
-
 slots.froHistory__firstDefinedIn = Slot(uri=COMMON_DOMAIN_MODEL.firstDefinedIn, name="froHistory__firstDefinedIn", curie=COMMON_DOMAIN_MODEL.curie('firstDefinedIn'),
                    model_uri=COMMON_DOMAIN_MODEL.froHistory__firstDefinedIn, domain=None, range=Optional[Union[dict, ContractualDefinition]])
 
@@ -54662,9 +54575,6 @@ slots.froHistory__updateDate = Slot(uri=COMMON_DOMAIN_MODEL.updateDate, name="fr
 
 slots.froHistory__lastUpdatedIn = Slot(uri=COMMON_DOMAIN_MODEL.lastUpdatedIn, name="froHistory__lastUpdatedIn", curie=COMMON_DOMAIN_MODEL.curie('lastUpdatedIn'),
                    model_uri=COMMON_DOMAIN_MODEL.froHistory__lastUpdatedIn, domain=None, range=Optional[Union[dict, ContractualDefinition]])
-
-slots.froHistory__endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="froHistory__endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.froHistory__endDate, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.creditEventNotice__notifyingParty = Slot(uri=COMMON_DOMAIN_MODEL.notifyingParty, name="creditEventNotice__notifyingParty", curie=COMMON_DOMAIN_MODEL.curie('notifyingParty'),
                    model_uri=COMMON_DOMAIN_MODEL.creditEventNotice__notifyingParty, domain=None, range=Union[Union[str, "CounterpartyRoleEnum"], list[Union[str, "CounterpartyRoleEnum"]]])
@@ -54852,12 +54762,6 @@ slots.assetDeliveryInformation__commodityGrade = Slot(uri=COMMON_DOMAIN_MODEL.co
 slots.assetDeliveryPeriods__profile = Slot(uri=COMMON_DOMAIN_MODEL.profile, name="assetDeliveryPeriods__profile", curie=COMMON_DOMAIN_MODEL.curie('profile'),
                    model_uri=COMMON_DOMAIN_MODEL.assetDeliveryPeriods__profile, domain=None, range=Optional[Union[Union[dict, AssetDeliveryProfile], list[Union[dict, AssetDeliveryProfile]]]])
 
-slots.assetDeliveryPeriods__startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="assetDeliveryPeriods__startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.assetDeliveryPeriods__startDate, domain=None, range=Optional[Union[str, XSDDate]])
-
-slots.assetDeliveryPeriods__endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="assetDeliveryPeriods__endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.assetDeliveryPeriods__endDate, domain=None, range=Optional[Union[str, XSDDate]])
-
 slots.assetDeliveryProfile__loadType = Slot(uri=COMMON_DOMAIN_MODEL.loadType, name="assetDeliveryProfile__loadType", curie=COMMON_DOMAIN_MODEL.curie('loadType'),
                    model_uri=COMMON_DOMAIN_MODEL.assetDeliveryProfile__loadType, domain=None, range=Optional[Union[str, "LoadTypeEnum"]])
 
@@ -55028,12 +54932,6 @@ slots.dividendPayoutRatio__nonCashRatio = Slot(uri=COMMON_DOMAIN_MODEL.nonCashRa
 
 slots.dividendPayoutRatio__basketConstituent = Slot(uri=COMMON_DOMAIN_MODEL.basketConstituent, name="dividendPayoutRatio__basketConstituent", curie=COMMON_DOMAIN_MODEL.curie('basketConstituent'),
                    model_uri=COMMON_DOMAIN_MODEL.dividendPayoutRatio__basketConstituent, domain=None, range=Optional[Union[dict, BasketConstituent]])
-
-slots.dividendPeriod__startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="dividendPeriod__startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.dividendPeriod__startDate, domain=None, range=Optional[Union[dict, DividendPaymentDate]])
-
-slots.dividendPeriod__endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="dividendPeriod__endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.dividendPeriod__endDate, domain=None, range=Optional[Union[dict, DividendPaymentDate]])
 
 slots.dividendPeriod__dateAdjustments = Slot(uri=COMMON_DOMAIN_MODEL.dateAdjustments, name="dividendPeriod__dateAdjustments", curie=COMMON_DOMAIN_MODEL.curie('dateAdjustments'),
                    model_uri=COMMON_DOMAIN_MODEL.dividendPeriod__dateAdjustments, domain=None, range=Union[dict, BusinessDayAdjustments])
@@ -56069,12 +55967,6 @@ slots.calculationPeriodBase__adjustedStartDate = Slot(uri=COMMON_DOMAIN_MODEL.ad
 
 slots.calculationPeriodBase__adjustedEndDate = Slot(uri=COMMON_DOMAIN_MODEL.adjustedEndDate, name="calculationPeriodBase__adjustedEndDate", curie=COMMON_DOMAIN_MODEL.curie('adjustedEndDate'),
                    model_uri=COMMON_DOMAIN_MODEL.calculationPeriodBase__adjustedEndDate, domain=None, range=Optional[Union[str, XSDDate]])
-
-slots.calculationPeriodData__startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="calculationPeriodData__startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.calculationPeriodData__startDate, domain=None, range=Union[str, XSDDate])
-
-slots.calculationPeriodData__endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="calculationPeriodData__endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
-                   model_uri=COMMON_DOMAIN_MODEL.calculationPeriodData__endDate, domain=None, range=Union[str, XSDDate])
 
 slots.calculationPeriodData__daysInPeriod = Slot(uri=COMMON_DOMAIN_MODEL.daysInPeriod, name="calculationPeriodData__daysInPeriod", curie=COMMON_DOMAIN_MODEL.curie('daysInPeriod'),
                    model_uri=COMMON_DOMAIN_MODEL.calculationPeriodData__daysInPeriod, domain=None, range=int)
@@ -57441,11 +57333,32 @@ slots.value = Slot(uri=COMMON_DOMAIN_MODEL.value, name="value", curie=COMMON_DOM
 slots.datedValue = Slot(uri=COMMON_DOMAIN_MODEL.datedValue, name="datedValue", curie=COMMON_DOMAIN_MODEL.curie('datedValue'),
                    model_uri=COMMON_DOMAIN_MODEL.datedValue, domain=None, range=Optional[Union[dict, DatedValue]])
 
+slots.AveragingSchedule_startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="AveragingSchedule_startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.AveragingSchedule_startDate, domain=AveragingSchedule, range=Union[str, XSDDate])
+
+slots.AveragingSchedule_endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="AveragingSchedule_endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.AveragingSchedule_endDate, domain=AveragingSchedule, range=Union[str, XSDDate])
+
+slots.DateRange_startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="DateRange_startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.DateRange_startDate, domain=DateRange, range=Union[str, XSDDate])
+
+slots.DateRange_endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="DateRange_endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.DateRange_endDate, domain=DateRange, range=Union[str, XSDDate])
+
+slots.PeriodicDates_startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="PeriodicDates_startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.PeriodicDates_startDate, domain=PeriodicDates, range=Optional[Union[dict, AdjustableOrRelativeDate]])
+
+slots.PeriodicDates_endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="PeriodicDates_endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.PeriodicDates_endDate, domain=PeriodicDates, range=Optional[Union[dict, AdjustableOrRelativeDate]])
+
 slots.Measure_value = Slot(uri=COMMON_DOMAIN_MODEL.value, name="Measure_value", curie=COMMON_DOMAIN_MODEL.curie('value'),
                    model_uri=COMMON_DOMAIN_MODEL.Measure_value, domain=Measure, range=Decimal)
 
 slots.Measure_datedValue = Slot(uri=COMMON_DOMAIN_MODEL.datedValue, name="Measure_datedValue", curie=COMMON_DOMAIN_MODEL.curie('datedValue'),
                    model_uri=COMMON_DOMAIN_MODEL.Measure_datedValue, domain=Measure, range=Optional[Union[dict, DatedValue]])
+
+slots.MeasureBase_unit = Slot(uri=COMMON_DOMAIN_MODEL.unit, name="MeasureBase_unit", curie=COMMON_DOMAIN_MODEL.curie('unit'),
+                   model_uri=COMMON_DOMAIN_MODEL.MeasureBase_unit, domain=MeasureBase, range=Optional[Union[dict, "UnitType"]])
 
 slots.NonNegativeDatedValue_value = Slot(uri=COMMON_DOMAIN_MODEL.value, name="NonNegativeDatedValue_value", curie=COMMON_DOMAIN_MODEL.curie('value'),
                    model_uri=COMMON_DOMAIN_MODEL.NonNegativeDatedValue_value, domain=NonNegativeDatedValue, range=Union[Decimal, NonNegativeNumber])
@@ -57483,14 +57396,140 @@ slots.QuantitySchedule_unit = Slot(uri=COMMON_DOMAIN_MODEL.unit, name="QuantityS
 slots.ScheduleWithInitialValue_value = Slot(uri=COMMON_DOMAIN_MODEL.value, name="ScheduleWithInitialValue_value", curie=COMMON_DOMAIN_MODEL.curie('value'),
                    model_uri=COMMON_DOMAIN_MODEL.ScheduleWithInitialValue_value, domain=ScheduleWithInitialValue, range=Decimal)
 
+slots.Commodity_description = Slot(uri=COMMON_DOMAIN_MODEL.description, name="Commodity_description", curie=COMMON_DOMAIN_MODEL.curie('description'),
+                   model_uri=COMMON_DOMAIN_MODEL.Commodity_description, domain=Commodity, range=Optional[str])
+
+slots.ProductIdentifier_source = Slot(uri=COMMON_DOMAIN_MODEL.source, name="ProductIdentifier_source", curie=COMMON_DOMAIN_MODEL.curie('source'),
+                   model_uri=COMMON_DOMAIN_MODEL.ProductIdentifier_source, domain=ProductIdentifier, range=Union[str, "ProductIdTypeEnum"])
+
+slots.Taxonomy_source = Slot(uri=COMMON_DOMAIN_MODEL.source, name="Taxonomy_source", curie=COMMON_DOMAIN_MODEL.curie('source'),
+                   model_uri=COMMON_DOMAIN_MODEL.Taxonomy_source, domain=Taxonomy, range=Optional[Union[str, "TaxonomySourceEnum"]])
+
+slots.TaxonomyClassification_description = Slot(uri=COMMON_DOMAIN_MODEL.description, name="TaxonomyClassification_description", curie=COMMON_DOMAIN_MODEL.curie('description'),
+                   model_uri=COMMON_DOMAIN_MODEL.TaxonomyClassification_description, domain=TaxonomyClassification, range=Optional[str])
+
+slots.TaxonomyValue_name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="TaxonomyValue_name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.TaxonomyValue_name, domain=TaxonomyValue, range=Optional[str])
+
+slots.CodeListIdentification_description = Slot(uri=COMMON_DOMAIN_MODEL.description, name="CodeListIdentification_description", curie=COMMON_DOMAIN_MODEL.curie('description'),
+                   model_uri=COMMON_DOMAIN_MODEL.CodeListIdentification_description, domain=CodeListIdentification, range=Optional[str])
+
+slots.CodeListIdentification_version = Slot(uri=COMMON_DOMAIN_MODEL.version, name="CodeListIdentification_version", curie=COMMON_DOMAIN_MODEL.curie('version'),
+                   model_uri=COMMON_DOMAIN_MODEL.CodeListIdentification_version, domain=CodeListIdentification, range=str)
+
+slots.CodeValue_description = Slot(uri=COMMON_DOMAIN_MODEL.description, name="CodeValue_description", curie=COMMON_DOMAIN_MODEL.curie('description'),
+                   model_uri=COMMON_DOMAIN_MODEL.CodeValue_description, domain=CodeValue, range=Optional[str])
+
+slots.CodeValue_source = Slot(uri=COMMON_DOMAIN_MODEL.source, name="CodeValue_source", curie=COMMON_DOMAIN_MODEL.curie('source'),
+                   model_uri=COMMON_DOMAIN_MODEL.CodeValue_source, domain=CodeValue, range=Optional[str])
+
+slots.AssignedIdentifier_version = Slot(uri=COMMON_DOMAIN_MODEL.version, name="AssignedIdentifier_version", curie=COMMON_DOMAIN_MODEL.curie('version'),
+                   model_uri=COMMON_DOMAIN_MODEL.AssignedIdentifier_version, domain=AssignedIdentifier, range=Optional[int])
+
+slots.BusinessUnit_name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="BusinessUnit_name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.BusinessUnit_name, domain=BusinessUnit, range=str)
+
+slots.ContactInformation_email = Slot(uri=COMMON_DOMAIN_MODEL.email, name="ContactInformation_email", curie=COMMON_DOMAIN_MODEL.curie('email'),
+                   model_uri=COMMON_DOMAIN_MODEL.ContactInformation_email, domain=ContactInformation, range=Optional[Union[str, list[str]]])
+
+slots.LegalEntity_name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="LegalEntity_name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.LegalEntity_name, domain=LegalEntity, range=str)
+
+slots.Party_name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="Party_name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.Party_name, domain=Party, range=Optional[str])
+
+slots.ContractDetails_documentation = Slot(uri=COMMON_DOMAIN_MODEL.documentation, name="ContractDetails_documentation", curie=COMMON_DOMAIN_MODEL.curie('documentation'),
+                   model_uri=COMMON_DOMAIN_MODEL.ContractDetails_documentation, domain=ContractDetails, range=Optional[Union[Union[dict, "LegalAgreement"], list[Union[dict, "LegalAgreement"]]]])
+
+slots.Valuation_timestamp = Slot(uri=COMMON_DOMAIN_MODEL.timestamp, name="Valuation_timestamp", curie=COMMON_DOMAIN_MODEL.curie('timestamp'),
+                   model_uri=COMMON_DOMAIN_MODEL.Valuation_timestamp, domain=Valuation, range=Union[str, XSDDateTime])
+
+slots.Valuation_source = Slot(uri=COMMON_DOMAIN_MODEL.source, name="Valuation_source", curie=COMMON_DOMAIN_MODEL.curie('source'),
+                   model_uri=COMMON_DOMAIN_MODEL.Valuation_source, domain=Valuation, range=Optional[Union[str, "ValuationSourceEnum"]])
+
+slots.CompositionStep_timestamp = Slot(uri=COMMON_DOMAIN_MODEL.timestamp, name="CompositionStep_timestamp", curie=COMMON_DOMAIN_MODEL.curie('timestamp'),
+                   model_uri=COMMON_DOMAIN_MODEL.CompositionStep_timestamp, domain=CompositionStep, range=Optional[Union[str, XSDDateTime]])
+
 slots.Position_product = Slot(uri=COMMON_DOMAIN_MODEL.product, name="Position_product", curie=COMMON_DOMAIN_MODEL.curie('product'),
                    model_uri=COMMON_DOMAIN_MODEL.Position_product, domain=Position, range=Union[dict, "Product"])
+
+slots.WorkflowStep_timestamp = Slot(uri=COMMON_DOMAIN_MODEL.timestamp, name="WorkflowStep_timestamp", curie=COMMON_DOMAIN_MODEL.curie('timestamp'),
+                   model_uri=COMMON_DOMAIN_MODEL.WorkflowStep_timestamp, domain=WorkflowStep, range=Union[Union[dict, EventTimestamp], list[Union[dict, EventTimestamp]]])
+
+slots.WorkflowStepApproval_timestamp = Slot(uri=COMMON_DOMAIN_MODEL.timestamp, name="WorkflowStepApproval_timestamp", curie=COMMON_DOMAIN_MODEL.curie('timestamp'),
+                   model_uri=COMMON_DOMAIN_MODEL.WorkflowStepApproval_timestamp, domain=WorkflowStepApproval, range=Union[dict, EventTimestamp])
+
+slots.ClauseLibraryClause_name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="ClauseLibraryClause_name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.ClauseLibraryClause_name, domain=ClauseLibraryClause, range=Optional[str])
+
+slots.ClauseLibraryClauseVariant_name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="ClauseLibraryClauseVariant_name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.ClauseLibraryClauseVariant_name, domain=ClauseLibraryClauseVariant, range=Optional[str])
+
+slots.ClauseLibraryVariableSet_name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="ClauseLibraryVariableSet_name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.ClauseLibraryVariableSet_name, domain=ClauseLibraryVariableSet, range=Optional[str])
+
+slots.LegalAgreementIdentification_publisher = Slot(uri=COMMON_DOMAIN_MODEL.publisher, name="LegalAgreementIdentification_publisher", curie=COMMON_DOMAIN_MODEL.curie('publisher'),
+                   model_uri=COMMON_DOMAIN_MODEL.LegalAgreementIdentification_publisher, domain=LegalAgreementIdentification, range=Optional[Union[str, "LegalAgreementPublisherEnum"]])
 
 slots.NoticeInformationElection_primaryContactInformation = Slot(uri=COMMON_DOMAIN_MODEL.primaryContactInformation, name="NoticeInformationElection_primaryContactInformation", curie=COMMON_DOMAIN_MODEL.curie('primaryContactInformation'),
                    model_uri=COMMON_DOMAIN_MODEL.NoticeInformationElection_primaryContactInformation, domain=NoticeInformationElection, range=Union[dict, NoticeContactInformation])
 
+slots.OtherAgreement_version = Slot(uri=COMMON_DOMAIN_MODEL.version, name="OtherAgreement_version", curie=COMMON_DOMAIN_MODEL.curie('version'),
+                   model_uri=COMMON_DOMAIN_MODEL.OtherAgreement_version, domain=OtherAgreement, range=Optional[str])
+
+slots.Resource_name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="Resource_name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.Resource_name, domain=Resource, range=Optional[str])
+
+slots.Resource_url = Slot(uri=COMMON_DOMAIN_MODEL.url, name="Resource_url", curie=COMMON_DOMAIN_MODEL.curie('url'),
+                   model_uri=COMMON_DOMAIN_MODEL.Resource_url, domain=Resource, range=Optional[str])
+
 slots.TransferInformationElection_primaryContactInformation = Slot(uri=COMMON_DOMAIN_MODEL.primaryContactInformation, name="TransferInformationElection_primaryContactInformation", curie=COMMON_DOMAIN_MODEL.curie('primaryContactInformation'),
                    model_uri=COMMON_DOMAIN_MODEL.TransferInformationElection_primaryContactInformation, domain=TransferInformationElection, range=Union[dict, TransferContactInformation])
 
+slots.ApplicableRegime_additionalType = Slot(uri=COMMON_DOMAIN_MODEL.additionalType, name="ApplicableRegime_additionalType", curie=COMMON_DOMAIN_MODEL.curie('additionalType'),
+                   model_uri=COMMON_DOMAIN_MODEL.ApplicableRegime_additionalType, domain=ApplicableRegime, range=Optional[Union[str, "AdditionalTypeEnum"]])
+
+slots.CSAMinimumTransferAmountVariableSet_name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="CSAMinimumTransferAmountVariableSet_name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.CSAMinimumTransferAmountVariableSet_name, domain=CSAMinimumTransferAmountVariableSet, range=Optional[Union[str, "CreditRatingAgencyEnum"]])
+
+slots.CSAThresholdVariableSet_name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="CSAThresholdVariableSet_name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.CSAThresholdVariableSet_name, domain=CSAThresholdVariableSet, range=Optional[Union[str, "CreditRatingAgencyEnum"]])
+
+slots.CsaAdditionalTerminationEvent_name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="CsaAdditionalTerminationEvent_name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.CsaAdditionalTerminationEvent_name, domain=CsaAdditionalTerminationEvent, range=str)
+
+slots.CustodianEvent_endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="CustodianEvent_endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.CustodianEvent_endDate, domain=CustodianEvent, range=Optional[Union[dict, "CustodianEventEndDate"]])
+
+slots.IndexBase_name = Slot(uri=COMMON_DOMAIN_MODEL.name, name="IndexBase_name", curie=COMMON_DOMAIN_MODEL.curie('name'),
+                   model_uri=COMMON_DOMAIN_MODEL.IndexBase_name, domain=IndexBase, range=Optional[str])
+
+slots.OtherIndex_description = Slot(uri=COMMON_DOMAIN_MODEL.description, name="OtherIndex_description", curie=COMMON_DOMAIN_MODEL.curie('description'),
+                   model_uri=COMMON_DOMAIN_MODEL.OtherIndex_description, domain=OtherIndex, range=Optional[str])
+
+slots.FroHistory_startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="FroHistory_startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.FroHistory_startDate, domain=FroHistory, range=Optional[Union[str, XSDDate]])
+
+slots.FroHistory_endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="FroHistory_endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.FroHistory_endDate, domain=FroHistory, range=Optional[Union[str, XSDDate]])
+
+slots.AssetDeliveryPeriods_startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="AssetDeliveryPeriods_startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.AssetDeliveryPeriods_startDate, domain=AssetDeliveryPeriods, range=Optional[Union[str, XSDDate]])
+
+slots.AssetDeliveryPeriods_endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="AssetDeliveryPeriods_endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.AssetDeliveryPeriods_endDate, domain=AssetDeliveryPeriods, range=Optional[Union[str, XSDDate]])
+
+slots.DividendPeriod_startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="DividendPeriod_startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.DividendPeriod_startDate, domain=DividendPeriod, range=Optional[Union[dict, DividendPaymentDate]])
+
+slots.DividendPeriod_endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="DividendPeriod_endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.DividendPeriod_endDate, domain=DividendPeriod, range=Optional[Union[dict, DividendPaymentDate]])
+
 slots.EligibleCollateralCriteria_collateralCriteria = Slot(uri=COMMON_DOMAIN_MODEL.collateralCriteria, name="EligibleCollateralCriteria_collateralCriteria", curie=COMMON_DOMAIN_MODEL.curie('collateralCriteria'),
                    model_uri=COMMON_DOMAIN_MODEL.EligibleCollateralCriteria_collateralCriteria, domain=EligibleCollateralCriteria, range=Union[dict, CollateralCriteria])
+
+slots.CalculationPeriodData_startDate = Slot(uri=COMMON_DOMAIN_MODEL.startDate, name="CalculationPeriodData_startDate", curie=COMMON_DOMAIN_MODEL.curie('startDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.CalculationPeriodData_startDate, domain=CalculationPeriodData, range=Union[str, XSDDate])
+
+slots.CalculationPeriodData_endDate = Slot(uri=COMMON_DOMAIN_MODEL.endDate, name="CalculationPeriodData_endDate", curie=COMMON_DOMAIN_MODEL.curie('endDate'),
+                   model_uri=COMMON_DOMAIN_MODEL.CalculationPeriodData_endDate, domain=CalculationPeriodData, range=Union[str, XSDDate])

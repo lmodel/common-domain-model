@@ -73,3 +73,4 @@ imports:
   - ./cdm_product_common_schedule
   - ./cdm_product_common_settlement
   - ./cdm_product_template
+  - ./common_domain_model_keys

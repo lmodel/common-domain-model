@@ -16,6 +16,7 @@ imports:
   - linkml:types
   - ./cdm_base_datetime
   - ./cdm_observable_asset
+  - ./common_domain_model_keys
 types:
   NonNegativeNumber:
     typeof: decimal
@@ -352,7 +353,9 @@ classes:
     description: Provides an abstract type to define a measure as a single number or a schedule associated
       to a unit. This type is abstract because all its attributes are optional. The types that extend
       it can specify further existence constraints.
-    attributes:
+    slots:
+      - unit
+    slot_usage:
       unit:
         description: Qualifies the unit by which the amount is measured. Optional because a measure may
           be unit-less (e.g. when representing a ratio between amounts in the same unit).

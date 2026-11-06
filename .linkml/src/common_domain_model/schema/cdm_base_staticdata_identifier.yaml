@@ -15,6 +15,7 @@ imports:
   - linkml:types
   - ./cdm_base_staticdata_party
   - ./cdm_observable_asset
+  - ./common_domain_model_keys
 enums:
   CommodityLocationIdentifierTypeEnum:
     description: Defines the enumerated values to specify the nature of a location identifier.
@@ -42,6 +43,8 @@ enums:
 classes:
   AssignedIdentifier:
     description: A class to specify the identifier value and its associated version.
+    slots:
+      - version
     attributes:
       identifier:
         description: The identifier value.
@@ -49,6 +52,7 @@ classes:
         required: true
         annotations:
           rosetta_metadata: scheme
+    slot_usage:
       version:
         description: The identifier version, which is specified as an integer and is meant to be incremented
           each time the transaction terms (whether contract or event) change. This version is made option

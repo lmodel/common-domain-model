@@ -21,6 +21,7 @@ imports:
   - ./cdm_base_staticdata_codelist
   - ./cdm_base_staticdata_identifier
   - ./cdm_legaldocumentation_common
+  - ./common_domain_model_keys
 enums:
   FloatingRateIndexCalculationMethodEnum:
     description: 3rd level ISDA FRO category.
@@ -349,11 +350,10 @@ classes:
         multivalued: true
   FroHistory:
     description: FRO History
+    slots:
+      - startDate
+      - endDate
     attributes:
-      startDate:
-        description: The date the Floating Rate Option was added to the 2006 Definitions or 2021 Floating
-          Rate Matrix. (e.g. 2017/04/06)
-        range: date
       firstDefinedIn:
         description: The supplement or version the FRO was first added to the 2006 Definitions or 2021
           Floating Rate Matrix. (e.g. S52)
@@ -366,6 +366,11 @@ classes:
         description: The supplement or version the FRO was last updated in the 2006 Definitions or 2021
           Floating Rate Matrix. (e.g. FRO-M-V1)
         range: ContractualDefinition
+    slot_usage:
+      startDate:
+        description: The date the Floating Rate Option was added to the 2006 Definitions or 2021 Floating
+          Rate Matrix. (e.g. 2017/04/06)
+        range: date
       endDate:
         description: The date the Floating Rate Option was removed from the 2006 Definitions or 2021 Floating
           Rate Matrix. (e.g. 2014/01/01)

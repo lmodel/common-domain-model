@@ -18,6 +18,7 @@ imports:
   - ./cdm_base_staticdata_identifier
   - ./cdm_base_staticdata_party
   - ./cdm_event_common
+  - ./common_domain_model_keys
 enums:
   CreditLimitTypeEnum:
     description: The enumeration values to qualify the type of credit limits.
@@ -407,6 +408,8 @@ classes:
       a reference to a previous WorkflowStep in order to preserve lineage. A workflow step is accepted
       if it contains a business event, proposed if proposedEvent is present and is rejected if the rejected
       flag is set.
+    slots:
+      - timestamp
     attributes:
       businessEvent:
         description: Life cycle event for the step.
@@ -439,11 +442,6 @@ classes:
       messageInformation:
         description: Contains all information pertaining the FpML messaging header
         range: MessageInformation
-      timestamp:
-        description: The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier].
-        range: EventTimestamp
-        required: true
-        multivalued: true
       eventIdentifier:
         description: The identifier(s) that uniquely identify a lifecycle event. The unbounded cardinality
           is meant to provide the ability to associate identifiers that are issued by distinct parties.
@@ -471,6 +469,12 @@ classes:
           and the partyCustomisedWorkflow which purpose is to provide the ability to associate custom
           workflow information to the CDM.
         range: WorkflowState
+    slot_usage:
+      timestamp:
+        description: The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier].
+        range: EventTimestamp
+        required: true
+        multivalued: true
     all_of:
       - description: 'CounterpartyPositionBusinessEventOrBusinessEventOrProposedEventChoice: Choice rule
           to control that either positionBusinessEvent is present, businessEvent is present or proposedEvent
@@ -496,6 +500,8 @@ classes:
         exists and action = ActionEnum -> Cancel)'
   WorkflowStepApproval:
     description: Party approvals associated to the current WorkflowStep.
+    slots:
+      - timestamp
     attributes:
       approved:
         description: Flag denoting whether the workflow step is approved or not
@@ -510,6 +516,7 @@ classes:
       rejectedReason:
         description: Optional reason for rejecting the workflow step
         range: string
+    slot_usage:
       timestamp:
         description: Timestamp of the approval
         range: EventTimestamp

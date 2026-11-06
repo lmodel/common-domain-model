@@ -159,6 +159,9 @@
       "furtherDetails": {
          "@id": "furtherDetails"
       },
+      "additionalType": {
+         "@id": "additionalType"
+      },
       "customValue": {
          "@id": "customValue"
       },
@@ -577,14 +580,6 @@
       "additionalTerms": {
          "@id": "additionalTerms"
       },
-      "additionalType": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "additionalType"
-      },
       "regime": {
          "@context": {
             "text": "skos:notation",
@@ -684,17 +679,9 @@
          "@type": "@id",
          "@id": "periods"
       },
-      "endDate": {
-         "@type": "@id",
-         "@id": "endDate"
-      },
       "profile": {
          "@type": "@id",
          "@id": "profile"
-      },
-      "startDate": {
-         "@type": "@id",
-         "@id": "startDate"
       },
       "bankHolidaysTreatment": {
          "@context": {
@@ -838,9 +825,6 @@
             "meaning": "@id"
          },
          "@id": "securityType"
-      },
-      "version": {
-         "@id": "version"
       },
       "fallbackAET": {
          "@type": "xsd:boolean",
@@ -1230,9 +1214,6 @@
       "contactInformation": {
          "@type": "@id",
          "@id": "contactInformation"
-      },
-      "name": {
-         "@id": "name"
       },
       "buyer": {
          "@context": {
@@ -1764,9 +1745,6 @@
       "codeShortId": {
          "@id": "codeShortId"
       },
-      "description": {
-         "@id": "description"
-      },
       "locationUri": {
          "@id": "locationUri"
       },
@@ -1780,14 +1758,6 @@
       "deprecatedDate": {
          "@type": "xsd:date",
          "@id": "deprecatedDate"
-      },
-      "source": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "source"
       },
       "collateralPortfolio": {
          "@type": "@id",
@@ -2551,10 +2521,6 @@
          "@type": "@id",
          "@id": "compositionStepInstruction"
       },
-      "timestamp": {
-         "@type": "@id",
-         "@id": "timestamp"
-      },
       "compositionStepInstructions": {
          "@type": "@id",
          "@id": "compositionStepInstructions"
@@ -2654,9 +2620,6 @@
          "@type": "@id",
          "@id": "address"
       },
-      "email": {
-         "@id": "email"
-      },
       "telephone": {
          "@type": "@id",
          "@id": "telephone"
@@ -2691,10 +2654,6 @@
       "executionDetails": {
          "@type": "@id",
          "@id": "executionDetails"
-      },
-      "documentation": {
-         "@type": "@id",
-         "@id": "documentation"
       },
       "governingLaw": {
          "@type": "@id",
@@ -3508,6 +3467,9 @@
          "@type": "xsd:boolean",
          "@id": "deemedEffectiveNextLBD"
       },
+      "description": {
+         "@id": "description"
+      },
       "determinationRole": {
          "@context": {
             "text": "skos:notation",
@@ -3769,6 +3731,9 @@
          "@type": "@id",
          "@id": "minimumBillingAmount"
       },
+      "documentation": {
+         "@id": "documentation"
+      },
       "domesticCurrencyIssued": {
          "@type": "xsd:boolean",
          "@id": "domesticCurrencyIssued"
@@ -3885,6 +3850,12 @@
       },
       "otherEligibleSupport": {
          "@id": "otherEligibleSupport"
+      },
+      "email": {
+         "@id": "email"
+      },
+      "endDate": {
+         "@id": "endDate"
       },
       "earlyTerminationDate": {
          "@type": "xsd:boolean",
@@ -5499,14 +5470,6 @@
          "@type": "@id",
          "@id": "agreementName"
       },
-      "publisher": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "publisher"
-      },
       "vintage": {
          "@type": "xsd:integer",
          "@id": "vintage"
@@ -5789,10 +5752,6 @@
          "@type": "xsd:boolean",
          "@id": "materialChangeInCircumstanceIsApplicable"
       },
-      "unit": {
-         "@type": "@id",
-         "@id": "unit"
-      },
       "acquiredSecurity": {
          "@type": "@id",
          "@id": "acquiredSecurity"
@@ -5876,6 +5835,9 @@
       "numberValuationDates": {
          "@type": "xsd:integer",
          "@id": "numberValuationDates"
+      },
+      "name": {
+         "@id": "name"
       },
       "assignmentOfClaim": {
          "@type": "xsd:boolean",
@@ -6739,6 +6701,9 @@
          "@type": "xsd:boolean",
          "@id": "standardPublicSources"
       },
+      "publisher": {
+         "@id": "publisher"
+      },
       "change": {
          "@type": "@id",
          "@id": "change"
@@ -7148,9 +7113,6 @@
       "string": {
          "@id": "string"
       },
-      "url": {
-         "@id": "url"
-      },
       "lengthUnit": {
          "@context": {
             "text": "skos:notation",
@@ -7525,6 +7487,9 @@
          },
          "@id": "partyVersion"
       },
+      "source": {
+         "@id": "source"
+      },
       "sovereignAgencyRating": {
          "@type": "@id",
          "@id": "sovereignAgencyRating"
@@ -7647,6 +7612,9 @@
       "markToMarketValue": {
          "@type": "@id",
          "@id": "markToMarketValue"
+      },
+      "startDate": {
+         "@id": "startDate"
       },
       "closedState": {
          "@type": "@id",
@@ -7851,6 +7819,9 @@
             "meaning": "@id"
          },
          "@id": "roundToUnit"
+      },
+      "timestamp": {
+         "@id": "timestamp"
       },
       "tradeLot": {
          "@type": "@id",
@@ -8059,6 +8030,9 @@
          },
          "@id": "whoMaySubstitute"
       },
+      "unit": {
+         "@id": "unit"
+      },
       "financialUnit": {
          "@context": {
             "text": "skos:notation",
@@ -8066,6 +8040,9 @@
             "meaning": "@id"
          },
          "@id": "financialUnit"
+      },
+      "url": {
+         "@id": "url"
       },
       "delta": {
          "@type": "xsd:decimal",
@@ -8229,6 +8206,9 @@
       "volatilityStrikePrice": {
          "@type": "@id",
          "@id": "volatilityStrikePrice"
+      },
+      "version": {
+         "@id": "version"
       },
       "totalVolatilityCap": {
          "@type": "xsd:decimal",
@@ -8469,7 +8449,17 @@
          "@id": "AssetDeliveryInformation"
       },
       "AssetDeliveryPeriods": {
-         "@id": "AssetDeliveryPeriods"
+         "@id": "AssetDeliveryPeriods",
+         "@context": {
+            "startDate": {
+               "@id": "startDate",
+               "@type": "xsd:date"
+            },
+            "endDate": {
+               "@id": "endDate",
+               "@type": "xsd:date"
+            }
+         }
       },
       "AssetDeliveryProfile": {
          "@id": "AssetDeliveryProfile"
@@ -8490,7 +8480,13 @@
          "@id": "AssetSettlementRateOption"
       },
       "AssignedIdentifier": {
-         "@id": "AssignedIdentifier"
+         "@id": "AssignedIdentifier",
+         "@context": {
+            "version": {
+               "@id": "version",
+               "@type": "xsd:integer"
+            }
+         }
       },
       "AutomaticEarlyTermination": {
          "@id": "AutomaticEarlyTermination"
@@ -8526,7 +8522,17 @@
          "@id": "AveragingPeriod"
       },
       "AveragingSchedule": {
-         "@id": "AveragingSchedule"
+         "@id": "AveragingSchedule",
+         "@context": {
+            "startDate": {
+               "@id": "startDate",
+               "@type": "xsd:date"
+            },
+            "endDate": {
+               "@id": "endDate",
+               "@type": "xsd:date"
+            }
+         }
       },
       "AveragingStrikeFeature": {
          "@id": "AveragingStrikeFeature"
@@ -8658,7 +8664,17 @@
          "@id": "CalculationPeriodBase"
       },
       "CalculationPeriodData": {
-         "@id": "CalculationPeriodData"
+         "@id": "CalculationPeriodData",
+         "@context": {
+            "startDate": {
+               "@id": "startDate",
+               "@type": "xsd:date"
+            },
+            "endDate": {
+               "@id": "endDate",
+               "@type": "xsd:date"
+            }
+         }
       },
       "CalculationPeriodDates": {
          "@id": "CalculationPeriodDates"
@@ -8827,7 +8843,13 @@
          "@id": "CompositionState"
       },
       "CompositionStep": {
-         "@id": "CompositionStep"
+         "@id": "CompositionStep",
+         "@context": {
+            "timestamp": {
+               "@id": "timestamp",
+               "@type": "xsd:dateTime"
+            }
+         }
       },
       "CompositionStepInstruction": {
          "@id": "CompositionStepInstruction"
@@ -8860,7 +8882,13 @@
          "@id": "ContractBase"
       },
       "ContractDetails": {
-         "@id": "ContractDetails"
+         "@id": "ContractDetails",
+         "@context": {
+            "documentation": {
+               "@id": "documentation",
+               "@type": "@id"
+            }
+         }
       },
       "ContractFormationInstruction": {
          "@id": "ContractFormationInstruction"
@@ -9017,7 +9045,13 @@
          "@id": "CustodianElection"
       },
       "CustodianEvent": {
-         "@id": "CustodianEvent"
+         "@id": "CustodianEvent",
+         "@context": {
+            "endDate": {
+               "@id": "endDate",
+               "@type": "@id"
+            }
+         }
       },
       "CustodianEventEndDate": {
          "@id": "CustodianEventEndDate"
@@ -9047,7 +9081,17 @@
          "@id": "DateList"
       },
       "DateRange": {
-         "@id": "DateRange"
+         "@id": "DateRange",
+         "@context": {
+            "startDate": {
+               "@id": "startDate",
+               "@type": "xsd:date"
+            },
+            "endDate": {
+               "@id": "endDate",
+               "@type": "xsd:date"
+            }
+         }
       },
       "DateRelativeToCalculationPeriodDates": {
          "@id": "DateRelativeToCalculationPeriodDates"
@@ -9134,7 +9178,17 @@
          "@id": "DividendPayoutRatio"
       },
       "DividendPeriod": {
-         "@id": "DividendPeriod"
+         "@id": "DividendPeriod",
+         "@context": {
+            "startDate": {
+               "@id": "startDate",
+               "@type": "@id"
+            },
+            "endDate": {
+               "@id": "endDate",
+               "@type": "@id"
+            }
+         }
       },
       "DividendReturnTerms": {
          "@id": "DividendReturnTerms"
@@ -9371,7 +9425,17 @@
          "@id": "Frequency"
       },
       "FroHistory": {
-         "@id": "FroHistory"
+         "@id": "FroHistory",
+         "@context": {
+            "startDate": {
+               "@id": "startDate",
+               "@type": "xsd:date"
+            },
+            "endDate": {
+               "@id": "endDate",
+               "@type": "xsd:date"
+            }
+         }
       },
       "FutureValueAmount": {
          "@id": "FutureValueAmount"
@@ -9641,7 +9705,13 @@
          "@id": "Measure"
       },
       "MeasureBase": {
-         "@id": "MeasureBase"
+         "@id": "MeasureBase",
+         "@context": {
+            "unit": {
+               "@id": "unit",
+               "@type": "@id"
+            }
+         }
       },
       "Merger": {
          "@id": "Merger"
@@ -9920,7 +9990,17 @@
          "@id": "PeriodBound"
       },
       "PeriodicDates": {
-         "@id": "PeriodicDates"
+         "@id": "PeriodicDates",
+         "@context": {
+            "startDate": {
+               "@id": "startDate",
+               "@type": "@id"
+            },
+            "endDate": {
+               "@id": "endDate",
+               "@type": "@id"
+            }
+         }
       },
       "PeriodRange": {
          "@id": "PeriodRange"
@@ -10031,7 +10111,13 @@
          "@id": "QuantityMultiplier"
       },
       "QuantitySchedule": {
-         "@id": "QuantitySchedule"
+         "@id": "QuantitySchedule",
+         "@context": {
+            "unit": {
+               "@id": "unit",
+               "@type": "@id"
+            }
+         }
       },
       "Quanto": {
          "@id": "Quanto"
@@ -10477,7 +10563,13 @@
          "@id": "UnitType"
       },
       "Valuation": {
-         "@id": "Valuation"
+         "@id": "Valuation",
+         "@context": {
+            "timestamp": {
+               "@id": "timestamp",
+               "@type": "xsd:dateTime"
+            }
+         }
       },
       "ValuationAgent": {
          "@id": "ValuationAgent"
@@ -10537,10 +10629,22 @@
          "@id": "WorkflowState"
       },
       "WorkflowStep": {
-         "@id": "WorkflowStep"
+         "@id": "WorkflowStep",
+         "@context": {
+            "timestamp": {
+               "@id": "timestamp",
+               "@type": "@id"
+            }
+         }
       },
       "WorkflowStepApproval": {
-         "@id": "WorkflowStepApproval"
+         "@id": "WorkflowStepApproval",
+         "@context": {
+            "timestamp": {
+               "@id": "timestamp",
+               "@type": "@id"
+            }
+         }
       }
    }
 }

@@ -21,6 +21,7 @@ imports:
   - ./cdm_observable_event
   - ./cdm_product_asset
   - ./cdm_product_template
+  - ./common_domain_model_keys
 enums:
   PayRelativeToEnum:
     description: The enumerated values to specify whether payments occur relative to the calculation period
@@ -246,13 +247,10 @@ classes:
     annotations:
       rosetta_metadata: key
   CalculationPeriodData:
+    slots:
+      - startDate
+      - endDate
     attributes:
-      startDate:
-        range: date
-        required: true
-      endDate:
-        range: date
-        required: true
       daysInPeriod:
         range: integer
         required: true
@@ -264,6 +262,13 @@ classes:
         required: true
       isLastPeriod:
         range: boolean
+        required: true
+    slot_usage:
+      startDate:
+        range: date
+        required: true
+      endDate:
+        range: date
         required: true
   CalculationPeriodDates:
     description: 'A data for: defining the parameters used to generate the calculation period dates schedule,

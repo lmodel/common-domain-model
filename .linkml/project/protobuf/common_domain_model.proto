@@ -454,13 +454,14 @@ message AnyEligibilityToHoldCollateralCriteria {
 }
 // A class to specify the applicable regulatory regime(s) that parties to a legal agreement, such as the ISDA 2016 and 2018 CSA for Initial Margin, might be subject to.
 message ApplicableRegime {
+  // The CDM's additionalType attribute; each class's slot_usage gives its meaning.
+  AdditionalTypeEnum additionalType = 1;
   // The applicable regulatory regime, as specified through an enumeration.
-  RegulatoryRegimeEnum regime = 1;
+  RegulatoryRegimeEnum regime = 2;
   // The additional regulatory regime as specified by the parties.
-  string additionalRegime = 2;
+  string additionalRegime = 3;
   // A class that is used by the ApplicableRegime and the AdditionalRegime classes to specify the terms that are specific to each party and regime which are referred to in the Regime Table as part of certain legal agreements, such as the ISDA 2016 and 2018 CSA for Initial Margin.
-  repeated RegimeTerms regimeTerms = 3;
-  AdditionalTypeEnum additionalType = 4;
+  repeated RegimeTerms regimeTerms = 4;
   // The bespoke Additional Type for the purposes of Covered Transactions (IM).
   string additionalTerms = 5;
 }
@@ -526,12 +527,12 @@ message AssetDeliveryInformation {
 }
 // Defines the periods of delivery, including the delivery profile.
 message AssetDeliveryPeriods {
-  // Defines the delivery profile of the asset, including the load type and the delivery intervals.
-  repeated AssetDeliveryProfile profile = 1;
   // Delivery start date
-  string startDate = 2;
+  string startDate = 1;
   // Delivery end date
-  string endDate = 3;
+  string endDate = 2;
+  // Defines the delivery profile of the asset, including the load type and the delivery intervals.
+  repeated AssetDeliveryProfile profile = 3;
 }
 // Defines the delivery profile of the asset, including the load type and the delivery intervals.
 message AssetDeliveryProfile {
@@ -653,10 +654,10 @@ message AssetType {
 }
 // A class to specify the identifier value and its associated version.
 message AssignedIdentifier {
-  // The identifier value.
-  string identifier = 1;
   // The identifier version, which is specified as an integer and is meant to be incremented each time the transaction terms (whether contract or event) change. This version is made option to support the use case where the identifier is referenced without the version. The constraint that a contract and a lifecycle event need to have an associated version is enforced through data rules.
-  int32 version = 2;
+  int32 version = 1;
+  // The identifier value.
+  string identifier = 2;
 }
 // A class to specify the Automatic Early Termination provision applicable to a Master Agreement.
 message AutomaticEarlyTermination {
@@ -1250,7 +1251,9 @@ message CalculationPeriodBase {
   string adjustedEndDate = 2;
 }
 message CalculationPeriodData {
+  // The CDM's startDate attribute; each class's slot_usage gives its meaning.
   string startDate = 1;
+  // The CDM's endDate attribute; each class's slot_usage gives its meaning.
   string endDate = 2;
   int32 daysInPeriod = 3;
   int32 daysInLeapYearPeriod = 4;
@@ -1296,12 +1299,12 @@ message CalculationSchedule {
 }
 // Period and time profile over which the delivery takes place.
 message CalculationScheduleDeliveryPeriods {
-  // Defines the delivery profile of the asset, including the load type and the delivery intervals.
-  repeated AssetDeliveryProfile profile = 1;
   // Delivery start date
-  string startDate = 2;
+  string startDate = 1;
   // Delivery end date
-  string endDate = 3;
+  string endDate = 2;
+  // Defines the delivery profile of the asset, including the load type and the delivery intervals.
+  repeated AssetDeliveryProfile profile = 3;
   // The number of units included in the transaction for each delivery interval
   Quantity deliveryCapacity = 4;
   // Price per quantity per delivery time interval.
@@ -1436,10 +1439,10 @@ message Clause {
 }
 // Defines clauses that make up the Agreement.
 message ClauseLibraryClause {
-  // Unique identifier for the clause.
-  AssignedIdentifier identifier = 1;
   // Optional textual description of the clause.
-  string name = 2;
+  string name = 1;
+  // Unique identifier for the clause.
+  AssignedIdentifier identifier = 2;
   // Optional counterparty role. This can be used where a clause needs to be assigned to a specific party on the agreement based upon their role i.e. Party A or Party B.
   repeated CounterpartyRoleEnum counterparty = 3;
   // Optional party. This can be required for umbrella agreements where a clause may need to be assigned to a specific party who may or may not be on the agreement.
@@ -1449,10 +1452,10 @@ message ClauseLibraryClause {
 }
 // Sets the details for a specific variant associated to a clause in the Agreement.
 message ClauseLibraryClauseVariant {
-  // Unique identifier for this variant.
-  AssignedIdentifier identifier = 1;
   // Optional textual description of the variant.
-  string name = 2;
+  string name = 1;
+  // Unique identifier for this variant.
+  AssignedIdentifier identifier = 2;
   // Optional counterparty role. This can be used where a clause needs to assign a different variant to the different parties on the agreement based upon their role i.e. Party A or Party B.
   repeated CounterpartyRoleEnum counterparty = 3;
   // Optional party. This can be used where a clause needs to assign different variants to different parties who may or may not be on the agreement.
@@ -1467,10 +1470,10 @@ message ClauseLibrarySchedule {
 }
 // Defines a type where additional variables associated to clauses and their variants can be described.
 message ClauseLibraryVariableSet {
-  // For some variants a table of variables is required. To support this use case we need to be able to specify variables within variables. Including a variable set here gives us infinite nesting opportunities - realistically we are only ever expecting that a table would need to be defined for any particular clause, so we would expect two levels of nesting as a maximum i.e. variableSet->variableSet->name/value.
-  repeated ClauseLibraryVariableSet variableSet = 1;
   // The name of the variable.
-  string name = 2;
+  string name = 1;
+  // For some variants a table of variables is required. To support this use case we need to be able to specify variables within variables. Including a variable set here gives us infinite nesting opportunities - realistically we are only ever expecting that a table would need to be defined for any particular clause, so we would expect two levels of nesting as a maximum i.e. variableSet->variableSet->name/value.
+  repeated ClauseLibraryVariableSet variableSet = 2;
   // The value for this variable.
   string value = 3;
 }
@@ -1513,12 +1516,12 @@ message CodeList {
 message CodeListIdentification {
   // A description of the code list, e.g. A list of codes identifying business centers
   string description = 1;
-  // The most recent date the code list was published, e.g. 2021-10-05
-  string publicationDate = 2;
-  // A short name (without whitespace) for the code list, e.g. businessCenterScheme
-  string shortName = 3;
   // The the most recent version of the codelist, eg. 9-1
-  string version = 4;
+  string version = 2;
+  // The most recent date the code list was published, e.g. 2021-10-05
+  string publicationDate = 3;
+  // A short name (without whitespace) for the code list, e.g. businessCenterScheme
+  string shortName = 4;
   // The name of the code list, e.g. business-center
   string codeShortId = 5;
   // Canonical URI which uniquely identifies all versions (collectively) of the referenced code list. Must be an absolute URI. Must not be used as a de facto location URI.
@@ -1530,12 +1533,12 @@ message CodeListIdentification {
 }
 // A type to hold the value of the code in a codelist
 message CodeValue {
-  // The value of the code, e.g. USNY
-  string value = 1;
   // A description of the meaning of the code, e.g. New York City, USA
-  string description = 2;
+  string description = 1;
   // Where the code was defined,e.g. ISDA, FpML, Bloomberg
-  string source = 3;
+  string source = 2;
+  // The value of the code, e.g. USNY
+  string value = 3;
   // When the code became/becomes effective
   string effectiveDate = 4;
   // When the code ceased to be valid for new uses
@@ -1966,14 +1969,14 @@ message Commodity {
   repeated AssetAncillaryPartyRole ancillaryPartyRole = 6;
   // Specifies the type of asset.
   AssetTypeEnum assetType = 7;
-  // Specifies the commodity underlier in the event that no ISDA Commodity Reference Benchmark exists.
-  CommodityProductDefinition commodityProductDefinition = 8;
-  // Describes the required quote type of the underlying price that will be observed. Example values include 'Bid, 'Ask', 'Settlement' (for a futures contract) and 'WeightedAverage' (for some published prices and indices).
-  QuotationSideEnum priceQuoteType = 9;
-  // Specifies the parameters for identifying the relevant contract date when the commodity reference price is a futures contract.
-  DeliveryDateParameters deliveryDateReference = 10;
   // Provides additional information about the commodity underlier.
-  string description = 11;
+  string description = 8;
+  // Specifies the commodity underlier in the event that no ISDA Commodity Reference Benchmark exists.
+  CommodityProductDefinition commodityProductDefinition = 9;
+  // Describes the required quote type of the underlying price that will be observed. Example values include 'Bid, 'Ask', 'Settlement' (for a futures contract) and 'WeightedAverage' (for some published prices and indices).
+  QuotationSideEnum priceQuoteType = 10;
+  // Specifies the parameters for identifying the relevant contract date when the commodity reference price is a futures contract.
+  DeliveryDateParameters deliveryDateReference = 11;
 }
 // Payout based on the averaged price of a referenced underlier. (e.g. Commodities). Can represent both average (average of many) & bullet (average of 1) pricing
 message CommodityPayout {
@@ -2054,10 +2057,10 @@ message CompositionState {
 }
 // Represents a single atomic step in the Instruction Composition lifecycle, including its instructions, status, and optional output. Each CompositionStep is defined by an identifier, a timestamp and a single Instruction.
 message CompositionStep {
-  // Identification of the Instruction Composition step.
-  string identifier = 1;
   // Date and time of the execution of the Instruction Composition step after being executed.
-  string timestamp = 2;
+  string timestamp = 1;
+  // Identification of the Instruction Composition step.
+  string identifier = 2;
   // Set of instructions defining the steps of each Instruction Composition process.
   CompositionStepInstruction compositionStepInstruction = 3;
 }
@@ -2136,12 +2139,12 @@ message ConstituentWeight {
 }
 // A class to specify contact information associated with a party: telephone, postal/street address, email and web page.
 message ContactInformation {
-  // The telephone number.
-  repeated TelephoneNumber telephone = 1;
-  // The street/postal address.
-  repeated Address address = 2;
   // The email address.
-  repeated string email = 3;
+  repeated string email = 1;
+  // The telephone number.
+  repeated TelephoneNumber telephone = 2;
+  // The street/postal address.
+  repeated Address address = 3;
   // The web page. This attribute is not specified as part of the FpML ContactInformation complex type.
   repeated string webPage = 4;
 }
@@ -2976,10 +2979,10 @@ message CustodianElection {
 }
 // A class to specify the Custodian Event.
 message CustodianEvent {
-  // The qualification as to whether the Custodian Event (English Law & New York Law ISDA CSA) or the Collateral Manager Event (Japanese Law ISDA CSA) is applicable.
-  bool isApplicable = 1;
   // The qualification of the Custodian Event (English Law & New York Law ISDA CSA) or Collateral Manager Event (Japanese Law ISDA CSA) End Date.
-  CustodianEventEndDate endDate = 2;
+  CustodianEventEndDate endDate = 1;
+  // The qualification as to whether the Custodian Event (English Law & New York Law ISDA CSA) or the Collateral Manager Event (Japanese Law ISDA CSA) is applicable.
+  bool isApplicable = 2;
 }
 // A class to specify the Custodian Event.
 message CustodianEventEndDate {
@@ -4388,14 +4391,14 @@ message Frequency {
 message FroHistory {
   // The date the Floating Rate Option was added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2017/04/06)
   string startDate = 1;
-  // The supplement or version the FRO was first added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. S52)
-  ContractualDefinition firstDefinedIn = 2;
-  // The date the Floating Rate Option was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2021/06/11)
-  string updateDate = 3;
-  // The supplement or version the FRO was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. FRO-M-V1)
-  ContractualDefinition lastUpdatedIn = 4;
   // The date the Floating Rate Option was removed from the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2014/01/01)
-  string endDate = 5;
+  string endDate = 2;
+  // The supplement or version the FRO was first added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. S52)
+  ContractualDefinition firstDefinedIn = 3;
+  // The date the Floating Rate Option was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2021/06/11)
+  string updateDate = 4;
+  // The supplement or version the FRO was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. FRO-M-V1)
+  ContractualDefinition lastUpdatedIn = 5;
 }
 // A class defining a currency and a future value date.
 message FutureValueAmount {
@@ -5192,12 +5195,12 @@ message LegalAgreementBase {
 }
 // Specifies the type of legal agreement, identified via a set of composable attributes: agreementName, publisher, governing law and version, e.g. ISDA 2013 Standard Credit Support Annex English Law.
 message LegalAgreementIdentification {
-  // The law governing the legal agreement, e.g. English Law, New York Law or Japanese Law.
-  GoverningLawEnum governingLaw = 1;
-  // The legal agreement name, e.g. Credit Support Annex for Variation Margin.
-  AgreementName agreementName = 2;
   // The legal agreement publisher, e.g. ISDA.
-  LegalAgreementPublisherEnum publisher = 3;
+  LegalAgreementPublisherEnum publisher = 1;
+  // The law governing the legal agreement, e.g. English Law, New York Law or Japanese Law.
+  GoverningLawEnum governingLaw = 2;
+  // The legal agreement name, e.g. Credit Support Annex for Variation Margin.
+  AgreementName agreementName = 3;
   // In the case where successive definitions of the legal agreement have been developed, the vintage identification. This is typically (but not necessarily) done by referencing the year, e.g. 2013 in the case of the ISDA 2013 Standard Credit Support Annex.
   int32 vintage = 4;
 }
@@ -5854,12 +5857,12 @@ message NotDomesticCurrency {
 }
 // Specifies notice information including address and, optionally, an associated person. This type also supports the ISDA CSA representation as a single string, through the address attribute in Contact Information.
 message NoticeContactInformation {
-  // The telephone number.
-  repeated TelephoneNumber telephone = 1;
-  // The street/postal address.
-  repeated Address address = 2;
   // The email address.
-  repeated string email = 3;
+  repeated string email = 1;
+  // The telephone number.
+  repeated TelephoneNumber telephone = 2;
+  // The street/postal address.
+  repeated Address address = 3;
   // The web page. This attribute is not specified as part of the FpML ContactInformation complex type.
   repeated string webPage = 4;
   // Optional information about people involved in a transaction or business process.
@@ -6149,12 +6152,12 @@ message OptionStrike {
 }
 // A class for defining an agreement executed between parties.
 message OtherAgreement {
-  // An identifier that has been created to identify the agreement.
-  string identifier = 1;
-  // The agreement executed between the parties and intended to govern product-specific derivatives transactions between those parties.
-  string otherAgreementType = 2;
   // The version of the agreement.
-  string version = 3;
+  string version = 1;
+  // An identifier that has been created to identify the agreement.
+  string identifier = 2;
+  // The agreement executed between the parties and intended to govern product-specific derivatives transactions between those parties.
+  string otherAgreementType = 3;
   // The date on which the agreement was signed.
   string date = 4;
 }
@@ -6234,10 +6237,10 @@ message PartialExercise {
 }
 // A class to specify a party, without a qualification as to whether this party is a legal entity or a natural person, although the model provides the ability to associate a person (or set of persons) to a party, which use case would imply that such party would be a legal entity (even if not formally specified as such).
 message Party {
-  // The identifier associated with a party, e.g. the 20 digits LEI code.
-  repeated PartyIdentifier partyId = 1;
   // The party name.
-  string name = 2;
+  string name = 1;
+  // The identifier associated with a party, e.g. the 20 digits LEI code.
+  repeated PartyIdentifier partyId = 2;
   // Optional organization unit information used to describe the organization units (e.g. trading desks) involved in a transaction or business process, incl. the contact information (when relevant).
   repeated BusinessUnit businessUnit = 3;
   // The person(s) who might be associated with the party as part of the execution, contract or legal document.
@@ -6894,10 +6897,10 @@ message Product {
 }
 // Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash value to the ProductIdentifier instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage.
 message ProductIdentifier {
-  // Provides an identifier associated with a specific product. The identifier is unique within the public source specified in the source attribute.
-  string identifier = 1;
   // Defines the source of the identifier.
-  ProductIdTypeEnum source = 2;
+  ProductIdTypeEnum source = 1;
+  // Provides an identifier associated with a specific product. The identifier is unique within the public source specified in the source attribute.
+  string identifier = 2;
 }
 // Specifies the product taxonomy, which is composed of a taxonomy value and a taxonomy source.
 message ProductTaxonomy {
@@ -7382,26 +7385,26 @@ message ResolvablePriceQuantity {
 }
 // Describes the resource that contains the media representation of a business event (i.e used for stating the Publicly Available Information). For example, can describe a file or a URL that represents the event. This type is an extended version of a type defined by RIXML (www.rixml.org). Rosetta restricts the FpML implementation by not providing the ability to associated a document in hexadecimalBinary or base64Binary until such time that actual use cases will come up.
 message Resource {
-  // The unique identifier of the resource within the event. FpML specifies this element of type resourceIdScheme but with no specified value.
-  string resourceId = 1;
-  // A description of the type of the resource, e.g. a confirmation.
-  ResourceTypeEnum resourceType = 2;
-  // Indicates the language of the resource, described using the ISO 639-2/T Code.
-  string language = 3;
-  // Indicates the size of the resource in bytes. It could be used by the end user to estimate the download time and storage needs.
-  string sizeInBytes = 4;
-  // Indicates the length of the resource. For example, if the resource were a PDF file, the length would be in pages.
-  ResourceLength length = 5;
-  // Indicates the type of media used to store the content. mimeType is used to determine the software product(s) that can read the content. MIME Types are described in RFC 2046.
-  string mimeType = 6;
   // The name of the resource. It is specified as a NormalizedString in FpML.
-  string name = 7;
-  // Any additional comments that are deemed necessary. For example, which software version is required to open the document? Or, how does this resource relate to the others for this event?
-  string comments = 8;
-  // Provides extra information as string. In case the extra information is in XML format, a CDATA section must be placed around the source message to prevent its interpretation as XML content.
-  string string = 9;
+  string name = 1;
   // Indicates where the resource can be found, as a URL that references the information on a web server accessible to the message recipient.
-  string url = 10;
+  string url = 2;
+  // The unique identifier of the resource within the event. FpML specifies this element of type resourceIdScheme but with no specified value.
+  string resourceId = 3;
+  // A description of the type of the resource, e.g. a confirmation.
+  ResourceTypeEnum resourceType = 4;
+  // Indicates the language of the resource, described using the ISO 639-2/T Code.
+  string language = 5;
+  // Indicates the size of the resource in bytes. It could be used by the end user to estimate the download time and storage needs.
+  string sizeInBytes = 6;
+  // Indicates the length of the resource. For example, if the resource were a PDF file, the length would be in pages.
+  ResourceLength length = 7;
+  // Indicates the type of media used to store the content. mimeType is used to determine the software product(s) that can read the content. MIME Types are described in RFC 2046.
+  string mimeType = 8;
+  // Any additional comments that are deemed necessary. For example, which software version is required to open the document? Or, how does this resource relate to the others for this event?
+  string comments = 9;
+  // Provides extra information as string. In case the extra information is in XML format, a CDATA section must be placed around the source message to prevent its interpretation as XML content.
+  string string = 10;
 }
 // A class to indicate the length of the resource.
 message ResourceLength {
@@ -8129,12 +8132,12 @@ message Taxonomy {
   bool calculated = 3;
 }
 message TaxonomyClassification {
-  // The name defined by the classification system for a specific attribute in the taxonomy
-  string className = 1;
-  // The value set by the taxonomy that is specific to the className attribute.
-  string value = 2;
   // A description of the class.
-  string description = 3;
+  string description = 1;
+  // The name defined by the classification system for a specific attribute in the taxonomy
+  string className = 2;
+  // The value set by the taxonomy that is specific to the className attribute.
+  string value = 3;
   // In the case of multi-layered hierarchical classification systems such as commodity classification, the layer the value and className occupy in the classification hierarchy, where 1 represents the top-layer.
   int32 ordinal = 4;
 }
@@ -8431,12 +8434,12 @@ message TransferBase {
 }
 // Specifies transfer information including address and, optionally, an associated account. This type also supports the ISDA CSA representation as a single string, through the address attribute in Contact Information.
 message TransferContactInformation {
-  // The telephone number.
-  repeated TelephoneNumber telephone = 1;
-  // The street/postal address.
-  repeated Address address = 2;
   // The email address.
-  repeated string email = 3;
+  repeated string email = 1;
+  // The telephone number.
+  repeated TelephoneNumber telephone = 2;
+  // The street/postal address.
+  repeated Address address = 3;
   // The web page. This attribute is not specified as part of the FpML ContactInformation complex type.
   repeated string webPage = 4;
   // Specifies the account infomation for transfers to a party.
@@ -8569,14 +8572,14 @@ message UnscheduledTransfer {
 }
 // Defines the value of an investment, asset, or security
 message Valuation {
-  // Current value of the outstanding contract
-  Money amount = 1;
   // Date and time of the last valuation marked to market, provided by the central counterparty (CCP) or calculated using the current or last available market price of the inputs.
-  string timestamp = 2;
-  // Method used for the valuation of the transaction by the valuation party.
-  ValuationTypeEnum method = 3;
+  string timestamp = 1;
   // Source of the valuation of the transaction by the valuation party.
-  ValuationSourceEnum source = 4;
+  ValuationSourceEnum source = 2;
+  // Current value of the outstanding contract
+  Money amount = 3;
+  // Method used for the valuation of the transaction by the valuation party.
+  ValuationTypeEnum method = 4;
   // Defines the scope of the valuation, what it applies to e.g. the collateral or the trade
   ValuationScopeEnum scope = 5;
   // The ratio of the change in the price of a derivative transaction to the change in the price of the underlying. This field is applicable only to options and swaptions.
@@ -8811,24 +8814,24 @@ message WorkflowState {
 }
 // A workflow step represents the state of a business event. The workflow step contains a reference to a previous WorkflowStep in order to preserve lineage. A workflow step is accepted if it contains a business event, proposed if proposedEvent is present and is rejected if the rejected flag is set.
 message WorkflowStep {
-  // Life cycle event for the step.
-  BusinessEvent businessEvent = 1;
-  // Documents the life cycle event for a position.
-  CounterpartyPositionBusinessEvent counterpartyPositionBusinessEvent = 2;
-  // The proposed event for a workflow step.
-  EventInstruction proposedEvent = 3;
-  // Flags this step as rejected.
-  bool rejected = 4;
-  // Optional party approvals for the current workflow step. A workflow step can have any number of parties associated to it, thus this object is represented as a list. All parties that are expected to provide approval should have an item in this list that references them.
-  repeated WorkflowStepApproval approval = 5;
-  // Optional previous workflow step that provides lineage to workflow steps that precedes it.
-  WorkflowStep previousWorkflowStep = 6;
-  // The intended next event can be specified, even if the instructions are not known yet.
-  EventInstruction nextEvent = 7;
-  // Contains all information pertaining the FpML messaging header
-  MessageInformation messageInformation = 8;
   // The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier].
-  repeated EventTimestamp timestamp = 9;
+  repeated EventTimestamp timestamp = 1;
+  // Life cycle event for the step.
+  BusinessEvent businessEvent = 2;
+  // Documents the life cycle event for a position.
+  CounterpartyPositionBusinessEvent counterpartyPositionBusinessEvent = 3;
+  // The proposed event for a workflow step.
+  EventInstruction proposedEvent = 4;
+  // Flags this step as rejected.
+  bool rejected = 5;
+  // Optional party approvals for the current workflow step. A workflow step can have any number of parties associated to it, thus this object is represented as a list. All parties that are expected to provide approval should have an item in this list that references them.
+  repeated WorkflowStepApproval approval = 6;
+  // Optional previous workflow step that provides lineage to workflow steps that precedes it.
+  WorkflowStep previousWorkflowStep = 7;
+  // The intended next event can be specified, even if the instructions are not known yet.
+  EventInstruction nextEvent = 8;
+  // Contains all information pertaining the FpML messaging header
+  MessageInformation messageInformation = 9;
   // The identifier(s) that uniquely identify a lifecycle event. The unbounded cardinality is meant to provide the ability to associate identifiers that are issued by distinct parties. As an example, each of the parties to the event may choose to associate their own identifiers to the event.
   repeated Identifier eventIdentifier = 10;
   // Specifies whether the event is a new, a correction or a cancellation.
@@ -8843,14 +8846,14 @@ message WorkflowStep {
 }
 // Party approvals associated to the current WorkflowStep.
 message WorkflowStepApproval {
-  // Flag denoting whether the workflow step is approved or not
-  bool approved = 1;
-  // Reference to the Party who is approving/rejecting this workflow step
-  Party party = 2;
-  // Optional reason for rejecting the workflow step
-  string rejectedReason = 3;
   // Timestamp of the approval
-  EventTimestamp timestamp = 4;
+  EventTimestamp timestamp = 1;
+  // Flag denoting whether the workflow step is approved or not
+  bool approved = 2;
+  // Reference to the Party who is approving/rejecting this workflow step
+  Party party = 3;
+  // Optional reason for rejecting the workflow step
+  string rejectedReason = 4;
 }
 
 // The enumeration values to qualify the type of account.

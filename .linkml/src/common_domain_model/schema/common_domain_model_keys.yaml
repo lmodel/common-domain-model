@@ -1,0 +1,43 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/common_domain_model_keys
+name: common_domain_model_keys
+title: CDM keys shared with LOKF
+description: The attribute names the CDM shares with LOKF's schema, as slots, so that the schema's lokf
+  adapt copy can rename them. Each class that uses one gives its description and range in slot_usage.
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+slots:
+  additionalType:
+    description: The CDM's additionalType attribute; each class's slot_usage gives its meaning.
+  description:
+    description: The CDM's description attribute; each class's slot_usage gives its meaning.
+  documentation:
+    description: The CDM's documentation attribute; each class's slot_usage gives its meaning.
+  email:
+    description: The CDM's email attribute; each class's slot_usage gives its meaning.
+  endDate:
+    description: The CDM's endDate attribute; each class's slot_usage gives its meaning.
+  name:
+    description: The CDM's name attribute; each class's slot_usage gives its meaning.
+  publisher:
+    description: The CDM's publisher attribute; each class's slot_usage gives its meaning.
+  source:
+    description: The CDM's source attribute; each class's slot_usage gives its meaning.
+  startDate:
+    description: The CDM's startDate attribute; each class's slot_usage gives its meaning.
+  timestamp:
+    description: The CDM's timestamp attribute; each class's slot_usage gives its meaning.
+  unit:
+    description: The CDM's unit attribute; each class's slot_usage gives its meaning.
+  url:
+    description: The CDM's url attribute; each class's slot_usage gives its meaning.
+  version:
+    description: The CDM's version attribute; each class's slot_usage gives its meaning.

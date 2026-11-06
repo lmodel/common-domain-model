@@ -15,6 +15,7 @@ imports:
   - linkml:types
   - ./cdm_base_math
   - ./cdm_base_staticdata_codelist
+  - ./common_domain_model_keys
 enums:
   BusinessDayConventionEnum:
     description: The enumerated values to specify the convention for adjusting any relevant date if it
@@ -1080,7 +1081,16 @@ classes:
               equals_string: D
   AveragingSchedule:
     description: Class to representing a method for generating a series of dates.
+    slots:
+      - startDate
+      - endDate
     attributes:
+      averagingPeriodFrequency:
+        description: The frequency at which averaging period occurs with the regular part of the valuation
+          schedule and their roll date convention.
+        range: CalculationPeriodFrequency
+        required: true
+    slot_usage:
       startDate:
         description: Date on which this period begins.
         range: date
@@ -1088,11 +1098,6 @@ classes:
       endDate:
         description: Date on which this period ends.
         range: date
-        required: true
-      averagingPeriodFrequency:
-        description: The frequency at which averaging period occurs with the regular part of the valuation
-          schedule and their roll date convention.
-        range: CalculationPeriodFrequency
         required: true
   BusinessCenterTime:
     description: A class for defining a time with respect to a business day calendar location. For example,
@@ -1360,7 +1365,10 @@ classes:
     description: A class defining a contiguous series of calendar dates. The date range is defined as
       all the dates between and including the start and the end date. The start date must fall on or before
       the end date.
-    attributes:
+    slots:
+      - startDate
+      - endDate
+    slot_usage:
       startDate:
         description: The first date of a date range.
         range: date
@@ -1507,19 +1515,10 @@ classes:
                 value_presence: PRESENT
   PeriodicDates:
     description: A class for specifying a calculation period schedule.
+    slots:
+      - startDate
+      - endDate
     attributes:
-      startDate:
-        description: The start date of the calculation period. FpML specifies that for interest rate swaps
-          this date must only be specified if it is not equal to the effective date. It is always specified
-          in the case of equity swaps and credit default swaps with periodic payments. This date may be
-          subject to adjustment in accordance with a business day convention.
-        range: AdjustableOrRelativeDate
-      endDate:
-        description: The end date of the calculation period. FpML specifies that for interest rate swaps
-          this date must only be specified if it is not equal to the termination date. It is always specified
-          in the case of equity swaps with periodic payments. This date may be subject to adjustment in
-          accordance with a business day convention.
-        range: AdjustableOrRelativeDate
       periodFrequency:
         description: The frequency at which calculation period end dates occur with the regular part of
           the calculation period schedule and their roll date convention.
@@ -1533,6 +1532,19 @@ classes:
         description: Denotes the enumerated values to specify the day type classification used in counting
           the number of days between two dates.
         range: DayTypeEnum
+    slot_usage:
+      startDate:
+        description: The start date of the calculation period. FpML specifies that for interest rate swaps
+          this date must only be specified if it is not equal to the effective date. It is always specified
+          in the case of equity swaps and credit default swaps with periodic payments. This date may be
+          subject to adjustment in accordance with a business day convention.
+        range: AdjustableOrRelativeDate
+      endDate:
+        description: The end date of the calculation period. FpML specifies that for interest rate swaps
+          this date must only be specified if it is not equal to the termination date. It is always specified
+          in the case of equity swaps with periodic payments. This date may be subject to adjustment in
+          accordance with a business day convention.
+        range: AdjustableOrRelativeDate
   RelativeDateOffset:
     is_a: Offset
     description: A class defining a date (referred to as the derived date) as a relative offset from another

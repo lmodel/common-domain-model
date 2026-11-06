@@ -15,17 +15,17 @@ imports:
   - linkml:types
   - ./cdm_base_staticdata_identifier
   - ./cdm_base_staticdata_party
+  - ./common_domain_model_keys
 classes:
   ClauseLibraryClause:
     description: Defines clauses that make up the Agreement.
+    slots:
+      - name
     attributes:
       identifier:
         description: Unique identifier for the clause.
         range: AssignedIdentifier
         required: true
-      name:
-        description: Optional textual description of the clause.
-        range: string
       counterparty:
         description: Optional counterparty role. This can be used where a clause needs to be assigned
           to a specific party on the agreement based upon their role i.e. Party A or Party B.
@@ -44,16 +44,19 @@ classes:
         range: ClauseLibraryClauseVariant
         required: true
         multivalued: true
+    slot_usage:
+      name:
+        description: Optional textual description of the clause.
+        range: string
   ClauseLibraryClauseVariant:
     description: Sets the details for a specific variant associated to a clause in the Agreement.
+    slots:
+      - name
     attributes:
       identifier:
         description: Unique identifier for this variant.
         range: AssignedIdentifier
         required: true
-      name:
-        description: Optional textual description of the variant.
-        range: string
       counterparty:
         description: Optional counterparty role. This can be used where a clause needs to assign a different
           variant to the different parties on the agreement based upon their role i.e. Party A or Party
@@ -73,6 +76,10 @@ classes:
           any clause.
         range: ClauseLibraryVariableSet
         multivalued: true
+    slot_usage:
+      name:
+        description: Optional textual description of the variant.
+        range: string
   ClauseLibrarySchedule:
     description: The set of elections which specify an Agreement.
     attributes:
@@ -85,6 +92,8 @@ classes:
   ClauseLibraryVariableSet:
     description: Defines a type where additional variables associated to clauses and their variants can
       be described.
+    slots:
+      - name
     attributes:
       variableSet:
         description: For some variants a table of variables is required. To support this use case we need
@@ -94,11 +103,12 @@ classes:
           i.e. variableSet->variableSet->name/value.
         range: ClauseLibraryVariableSet
         multivalued: true
-      name:
-        description: The name of the variable.
-        range: string
       value:
         description: The value for this variable.
+        range: string
+    slot_usage:
+      name:
+        description: The name of the variable.
         range: string
     rules:
       - description: 'VariableSetExists: If we have a variableSet then we must not have any name/value

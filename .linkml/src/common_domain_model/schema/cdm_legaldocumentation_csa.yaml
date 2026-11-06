@@ -23,6 +23,7 @@ imports:
   - ./cdm_legaldocumentation_common
   - ./cdm_observable_asset
   - ./cdm_product_collateral
+  - ./common_domain_model_keys
 enums:
   AdditionalTerminationEventEnum:
     description: Specifies the types of events found in the related Master Agreement that may lead to
@@ -1644,6 +1645,8 @@ classes:
   ApplicableRegime:
     description: A class to specify the applicable regulatory regime(s) that parties to a legal agreement,
       such as the ISDA 2016 and 2018 CSA for Initial Margin, might be subject to.
+    slots:
+      - additionalType
     attributes:
       regime:
         description: The applicable regulatory regime, as specified through an enumeration.
@@ -1660,13 +1663,14 @@ classes:
         multivalued: true
         minimum_cardinality: 2
         maximum_cardinality: 2
+      additionalTerms:
+        description: The bespoke Additional Type for the purposes of Covered Transactions (IM).
+        range: string
+    slot_usage:
       additionalType:
         range: AdditionalTypeEnum
         annotations:
           doc_reference: ISDA CSA_IM_2016 paragraph 13 General Principles clause (b)(B)
-      additionalTerms:
-        description: The bespoke Additional Type for the purposes of Covered Transactions (IM).
-        range: string
     all_of:
       - description: 'ApplicableRegimeChoice: The applicable regime should be specified either as an enumeration
           or as an additional regime specified by the parties.'
@@ -1805,10 +1809,9 @@ classes:
         11 clause (b)(iii)(A) | ISDA CSD_English_1995 paragraph 11 clause (c)(iii)(A)
   CSAMinimumTransferAmountVariableSet:
     description: Defines a combination of Rating Agency, Rating Value, amount and Currency code.
+    slots:
+      - name
     attributes:
-      name:
-        description: The name of the Rating Agency.
-        range: CreditRatingAgencyEnum
       value:
         description: The value assigned to the rating.
         range: string
@@ -1818,6 +1821,10 @@ classes:
       amountIsInfinity:
         description: A flag that defines the Minimum Transfer Amount (MTA) as Infinity.
         range: boolean
+    slot_usage:
+      name:
+        description: The name of the Rating Agency.
+        range: CreditRatingAgencyEnum
     rules:
       - description: 'NameMustExist: If we have a name then we must also have a value.'
         preconditions:
@@ -1848,16 +1855,19 @@ classes:
         required: true
   CSAThresholdVariableSet:
     description: Defines a combination of Rating Agency, Rating Value, Threshold amount and Currency code.
+    slots:
+      - name
     attributes:
-      name:
-        description: The relevant rating agency.
-        range: CreditRatingAgencyEnum
       value:
         description: Rating applicable to the party from a given rating agency.
         range: string
       amount:
         description: The amount value applicable to the Threshold.
         range: integer
+    slot_usage:
+      name:
+        description: The relevant rating agency.
+        range: CreditRatingAgencyEnum
     rules:
       - description: 'NameMustExist: If we have a name then we must also have a value.'
         preconditions:
@@ -3056,17 +3066,20 @@ classes:
     description: A class to specify an optional termination event, additional to the Termination Events
       that will be deemed an Access Condition (Initial Margin CSA) or a Specified Condition (Variation
       Margin CSA).
+    slots:
+      - name
     attributes:
-      name:
-        description: The name of the additional termination event.
-        range: string
-        required: true
       applicableParty:
         description: Whether the additional termination event is applicable for the relevant party.
         range: CounterpartyRoleEnum
         required: true
         multivalued: true
         maximum_cardinality: 2
+    slot_usage:
+      name:
+        description: The name of the additional termination event.
+        range: string
+        required: true
     aliases:
       - AdditionalTerminationEvent
     annotations:
@@ -3133,12 +3146,15 @@ classes:
               value_presence: PRESENT
   CustodianEvent:
     description: A class to specify the Custodian Event.
+    slots:
+      - endDate
     attributes:
       isApplicable:
         description: The qualification as to whether the Custodian Event (English Law & New York Law ISDA
           CSA) or the Collateral Manager Event (Japanese Law ISDA CSA) is applicable.
         range: boolean
         required: true
+    slot_usage:
       endDate:
         description: The qualification of the Custodian Event (English Law & New York Law ISDA CSA) or
           Collateral Manager Event (Japanese Law ISDA CSA) End Date.

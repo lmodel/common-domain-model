@@ -7206,10 +7206,10 @@ type AnyEligibilityToHoldCollateralCriteria
 
 type ApplicableRegime
   {
+    additionalType: AdditionalTypeEnum
     regime: RegulatoryRegimeEnum
     additionalRegime: String
     regimeTerms: [RegimeTerms]!
-    additionalType: AdditionalTypeEnum
     additionalTerms: String
   }
 
@@ -7264,9 +7264,9 @@ type AssetDeliveryInformation
 
 type AssetDeliveryPeriods
   {
-    profile: [AssetDeliveryProfile]
     startDate: String
     endDate: String
+    profile: [AssetDeliveryProfile]
   }
 
 type AssetDeliveryProfile
@@ -7356,8 +7356,8 @@ type AssetType
 
 type AssignedIdentifier
   {
-    identifier: String!
     version: Int
+    identifier: String!
   }
 
 type AutomaticEarlyTermination
@@ -7842,9 +7842,9 @@ type CalculationSchedule
 
 type CalculationScheduleDeliveryPeriods
   {
-    profile: [AssetDeliveryProfile]
     startDate: String
     endDate: String
+    profile: [AssetDeliveryProfile]
     deliveryCapacity: Quantity
     priceTimeIntervalQuantity: Price
   }
@@ -7940,8 +7940,8 @@ type Clause
 
 type ClauseLibraryClause
   {
-    identifier: AssignedIdentifier!
     name: String
+    identifier: AssignedIdentifier!
     counterparty: [CounterpartyRoleEnum]
     otherParty: [PartyRoleEnum]
     variant: [ClauseLibraryClauseVariant]!
@@ -7949,8 +7949,8 @@ type ClauseLibraryClause
 
 type ClauseLibraryClauseVariant
   {
-    identifier: AssignedIdentifier!
     name: String
+    identifier: AssignedIdentifier!
     counterparty: [CounterpartyRoleEnum]
     otherParty: [PartyRoleEnum]
     variableSet: [ClauseLibraryVariableSet]
@@ -7963,8 +7963,8 @@ type ClauseLibrarySchedule
 
 type ClauseLibraryVariableSet
   {
-    variableSet: [ClauseLibraryVariableSet]
     name: String
+    variableSet: [ClauseLibraryVariableSet]
     value: String
   }
 
@@ -7996,9 +7996,9 @@ type CodeList
 type CodeListIdentification
   {
     description: String
+    version: String!
     publicationDate: String
     shortName: String!
-    version: String!
     codeShortId: String
     canonicalUri: String!
     canonicalVersionUri: String
@@ -8007,9 +8007,9 @@ type CodeListIdentification
 
 type CodeValue
   {
-    value: String!
     description: String
     source: String
+    value: String!
     effectiveDate: String
     deprecatedDate: String
   }
@@ -8299,10 +8299,10 @@ type Commodity
     partyRole: AssetPartyRole
     ancillaryPartyRole: [AssetAncillaryPartyRole]
     assetType: AssetTypeEnum!
+    description: String
     commodityProductDefinition: CommodityProductDefinition
     priceQuoteType: QuotationSideEnum!
     deliveryDateReference: DeliveryDateParameters
-    description: String
   }
 
 type CommodityPayout
@@ -8361,8 +8361,8 @@ type CompositionState
 
 type CompositionStep
   {
-    identifier: String
     timestamp: String
+    identifier: String
     compositionStepInstruction: CompositionStepInstruction!
   }
 
@@ -8423,9 +8423,9 @@ type ConstituentWeight
 
 type ContactInformation
   {
+    email: [String]
     telephone: [TelephoneNumber]
     address: [Address]
-    email: [String]
     webPage: [String]
   }
 
@@ -8995,8 +8995,8 @@ type CustodianElection
 
 type CustodianEvent
   {
-    isApplicable: Boolean!
     endDate: CustodianEventEndDate
+    isApplicable: Boolean!
   }
 
 type CustodianEventEndDate
@@ -10032,10 +10032,10 @@ type Frequency
 type FroHistory
   {
     startDate: String
+    endDate: String
     firstDefinedIn: ContractualDefinition
     updateDate: String
     lastUpdatedIn: ContractualDefinition
-    endDate: String
   }
 
 type FutureValueAmount
@@ -10652,9 +10652,9 @@ type LegalAgreementBase
 
 type LegalAgreementIdentification
   {
+    publisher: LegalAgreementPublisherEnum
     governingLaw: GoverningLawEnum
     agreementName: AgreementName!
-    publisher: LegalAgreementPublisherEnum
     vintage: Int
   }
 
@@ -11135,9 +11135,9 @@ type NotDomesticCurrency
 
 type NoticeContactInformation
   {
+    email: [String]
     telephone: [TelephoneNumber]
     address: [Address]
-    email: [String]
     webPage: [String]
     naturalPerson: [NaturalPerson]
     additionalInformation: String
@@ -11348,9 +11348,9 @@ type OptionStrike
 
 type OtherAgreement
   {
+    version: String
     identifier: String
     otherAgreementType: String!
-    version: String
     date: String
   }
 
@@ -11408,8 +11408,8 @@ type PartialExercise
 
 type Party
   {
-    partyId: [PartyIdentifier]!
     name: String
+    partyId: [PartyIdentifier]!
     businessUnit: [BusinessUnit]
     person: [NaturalPerson]
     personRole: [NaturalPersonRole]
@@ -11887,8 +11887,8 @@ type Product
 
 type ProductIdentifier
   {
-    identifier: String!
     source: ProductIdTypeEnum!
+    identifier: String!
   }
 
 type ProductTaxonomy
@@ -12249,16 +12249,16 @@ type ResolvablePriceQuantity
 
 type Resource
   {
+    name: String
+    url: String
     resourceId: String!
     resourceType: ResourceTypeEnum
     language: String
     sizeInBytes: Float
     length: ResourceLength
     mimeType: String
-    name: String
     comments: String
     string: String
-    url: String
   }
 
 type ResourceLength
@@ -12825,9 +12825,9 @@ type Taxonomy
 
 type TaxonomyClassification
   {
+    description: String
     className: String
     value: String!
-    description: String
     ordinal: Int
   }
 
@@ -13050,9 +13050,9 @@ type TransferBase
 
 type TransferContactInformation
   {
+    email: [String]
     telephone: [TelephoneNumber]
     address: [Address]
-    email: [String]
     webPage: [String]
     account: [Account]
     additionalInformation: String
@@ -13155,10 +13155,10 @@ type UnscheduledTransfer
 
 type Valuation
   {
-    amount: Money!
     timestamp: String!
-    method: ValuationTypeEnum
     source: ValuationSourceEnum
+    amount: Money!
+    method: ValuationTypeEnum
     scope: ValuationScopeEnum!
     delta: Float
     valuationTiming: PriceTimingEnum
@@ -13330,6 +13330,7 @@ type WorkflowState
 
 type WorkflowStep
   {
+    timestamp: [EventTimestamp]!
     businessEvent: BusinessEvent
     counterpartyPositionBusinessEvent: CounterpartyPositionBusinessEvent
     proposedEvent: EventInstruction
@@ -13338,7 +13339,6 @@ type WorkflowStep
     previousWorkflowStep: WorkflowStep
     nextEvent: EventInstruction
     messageInformation: MessageInformation
-    timestamp: [EventTimestamp]!
     eventIdentifier: [Identifier]!
     action: ActionEnum
     party: [Party]
@@ -13349,8 +13349,8 @@ type WorkflowStep
 
 type WorkflowStepApproval
   {
+    timestamp: EventTimestamp!
     approved: Boolean!
     party: Party!
     rejectedReason: String
-    timestamp: EventTimestamp!
   }

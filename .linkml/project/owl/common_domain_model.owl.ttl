@@ -28836,10 +28836,10 @@ common_domain_model:additionalTerms a owl:DatatypeProperty ;
 	rdfs:label "additionalTerms" ;
 	skos:definition "The bespoke Additional Type for the purposes of Covered Transactions (IM)." ;
 	skos:inScheme common_domain_model:cdm_legaldocumentation_csa .
-common_domain_model:additionalType a owl:ObjectProperty ;
+common_domain_model:additionalType a owl:DatatypeProperty ;
 	rdfs:label "additionalType" ;
-	skos:inScheme common_domain_model:cdm_legaldocumentation_csa ;
-	common_domain_model:doc_reference "ISDA CSA_IM_2016 paragraph 13 General Principles clause (b)(B)" .
+	skos:definition "The CDM's additionalType attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
 common_domain_model:address a owl:ObjectProperty ;
 	rdfs:label "address" ;
 	skos:definition "The street/postal address." ;
@@ -30389,7 +30389,10 @@ common_domain_model:derivedQuantity a owl:ObjectProperty ;
 	rdfs:label "derivedQuantity" ;
 	skos:definition "Specifies the derived quantity associated with the price. For instance when the price is an asset price expressed in a currency, the primary quantity is the asset's quantity while the derived quantity is the corresponding monetary amount in that currency. When the price is an exchange rate, both the primary quantity and the derived quantity are monetary amounts, in the 2 currencies of the exchange rate." ;
 	skos:inScheme common_domain_model:cdm_observable_asset .
-common_domain_model:description a owl:DatatypeProperty .
+common_domain_model:description a owl:DatatypeProperty ;
+	rdfs:label "description" ;
+	skos:definition "The CDM's description attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
 common_domain_model:designatedMaturity a owl:DatatypeProperty .
 common_domain_model:designatedMaturityApplicable a owl:DatatypeProperty ;
 	rdfs:label "designatedMaturityApplicable" ;
@@ -30543,10 +30546,10 @@ common_domain_model:documentIdentifier a owl:ObjectProperty ;
 	skos:definition "While FpML specifies the document identifier with a value and an associated scheme, the CDM makes use of the Identifier, which has an explicit issuer. The issuer of this identifier is not necessarily the same as the party reference." ;
 	skos:inScheme common_domain_model:cdm_legaldocumentation_csa ;
 	common_domain_model:rosetta_metadata "scheme" .
-common_domain_model:documentation a owl:ObjectProperty ;
+common_domain_model:documentation a owl:DatatypeProperty ;
 	rdfs:label "documentation" ;
-	skos:definition "Represents the legal document(s) that governs a trade and associated contractual product terms, either as a reference to such documents when specified as part of the CDM, or through identification of some of the key terms of those documents, such as the type of document, the document identifier, the publisher, the document vintage and the agreement date." ;
-	skos:inScheme common_domain_model:cdm_event_common .
+	skos:definition "The CDM's documentation attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
 common_domain_model:domesticCurrencyIssued a owl:DatatypeProperty ;
 	rdfs:label "domesticCurrencyIssued" ;
 	skos:definition "Identifies that the Security must be denominated in the domestic currency of the issuer." ;
@@ -30659,9 +30662,12 @@ common_domain_model:eligibleLocation a owl:DatatypeProperty ;
 	common_domain_model:rosetta_metadata "scheme" .
 common_domain_model:email a owl:DatatypeProperty ;
 	rdfs:label "email" ;
-	skos:definition "The email address." ;
-	skos:inScheme common_domain_model:cdm_base_staticdata_party .
-common_domain_model:endDate a owl:DatatypeProperty , owl:ObjectProperty .
+	skos:definition "The CDM's email attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
+common_domain_model:endDate a owl:DatatypeProperty ;
+	rdfs:label "endDate" ;
+	skos:definition "The CDM's endDate attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
 common_domain_model:endTime a owl:DatatypeProperty ;
 	rdfs:label "endTime" ;
 	skos:definition "The end time of the delivery interval for each block or shape." ;
@@ -32314,7 +32320,10 @@ common_domain_model:mutualEarlyTermination a owl:DatatypeProperty ;
 	rdfs:label "mutualEarlyTermination" ;
 	skos:definition "Used for specifying whether the Mutual Early Termination Right that is detailed in the Master Confirmation will apply." ;
 	skos:inScheme common_domain_model:cdm_product_template .
-common_domain_model:name a owl:DatatypeProperty , owl:ObjectProperty .
+common_domain_model:name a owl:DatatypeProperty ;
+	rdfs:label "name" ;
+	skos:definition "The CDM's name attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
 common_domain_model:namedAffiliate a owl:DatatypeProperty , owl:ObjectProperty .
 common_domain_model:namedEntity a owl:DatatypeProperty , owl:ObjectProperty .
 common_domain_model:nationalization a owl:ObjectProperty ;
@@ -33229,11 +33238,10 @@ common_domain_model:publicationCalendar a owl:ObjectProperty ;
 	skos:inScheme common_domain_model:cdm_observable_asset_fro .
 common_domain_model:publicationDate a owl:DatatypeProperty .
 common_domain_model:publiclyAvailableInformation a owl:ObjectProperty .
-common_domain_model:publisher a owl:ObjectProperty ;
+common_domain_model:publisher a owl:DatatypeProperty ;
 	rdfs:label "publisher" ;
-	skos:definition "The legal agreement publisher, e.g. ISDA." ;
-	skos:inScheme common_domain_model:cdm_legaldocumentation_common ;
-	common_domain_model:doc_reference "AcadiaSoft AM_1_0 namingConvention publisher" .
+	skos:definition "The CDM's publisher attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
 common_domain_model:purchaserSecurity a owl:ObjectProperty ;
 	rdfs:label "purchaserSecurity" ;
 	skos:definition "Defines the underlier for the Purchaser Company involved in Merger corporate action." ;
@@ -33949,7 +33957,10 @@ common_domain_model:sizeInBytes a owl:DatatypeProperty ;
 	rdfs:label "sizeInBytes" ;
 	skos:definition "Indicates the size of the resource in bytes. It could be used by the end user to estimate the download time and storage needs." ;
 	skos:inScheme common_domain_model:cdm_legaldocumentation_common .
-common_domain_model:source a owl:DatatypeProperty , owl:ObjectProperty .
+common_domain_model:source a owl:DatatypeProperty ;
+	rdfs:label "source" ;
+	skos:definition "The CDM's source attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
 common_domain_model:sourcePage a owl:DatatypeProperty ;
 	rdfs:label "sourcePage" ;
 	skos:definition "A specific page for the source for obtaining a market data point. In FpML, this is specified as a scheme, rateSourcePageScheme, for which no coding Scheme or URI is specified." ;
@@ -34113,7 +34124,10 @@ common_domain_model:standardValue a owl:ObjectProperty ;
 	skos:definition "The qualification of the Additional Type of transaction that can require the collection or delivery of initial margin when specified as a standard value." ;
 	skos:inScheme common_domain_model:cdm_legaldocumentation_csa .
 common_domain_model:standardisedException a owl:ObjectProperty .
-common_domain_model:startDate a owl:DatatypeProperty , owl:ObjectProperty .
+common_domain_model:startDate a owl:DatatypeProperty ;
+	rdfs:label "startDate" ;
+	skos:definition "The CDM's startDate attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
 common_domain_model:startTime a owl:DatatypeProperty ;
 	rdfs:label "startTime" ;
 	skos:definition "The start time of the delivery interval for each block or shape." ;
@@ -34332,7 +34346,10 @@ common_domain_model:timeRelativeTo a owl:ObjectProperty ;
 	skos:definition "The reference time zone or base time from which the relative time is calculated." ;
 	skos:inScheme common_domain_model:cdm_base_datetime ;
 	common_domain_model:rosetta_metadata "reference" .
-common_domain_model:timestamp a owl:DatatypeProperty , owl:ObjectProperty .
+common_domain_model:timestamp a owl:DatatypeProperty ;
+	rdfs:label "timestamp" ;
+	skos:definition "The CDM's timestamp attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
 common_domain_model:timezone a owl:ObjectProperty ;
 	rdfs:label "timezone" ;
 	skos:definition "Any relevant time zone where specified." ;
@@ -34482,10 +34499,10 @@ common_domain_model:unadjustedVarianceCap a owl:DatatypeProperty ;
 	skos:definition "For use when varianceCap is applicable. Contains the scaling factor of the Variance Cap that can differ on a trade-by-trade basis in the European market. For example, a Variance Cap of 2.5^2 x Variance Strike Price has an unadjustedVarianceCap of 2.5." ;
 	skos:inScheme common_domain_model:cdm_product_asset .
 common_domain_model:underlier a owl:ObjectProperty .
-common_domain_model:unit a owl:ObjectProperty ;
+common_domain_model:unit a owl:DatatypeProperty ;
 	rdfs:label "unit" ;
-	skos:definition "Qualifies the unit by which the amount is measured. Optional because a measure may be unit-less (e.g. when representing a ratio between amounts in the same unit)." ;
-	skos:inScheme common_domain_model:cdm_base_math .
+	skos:definition "The CDM's unit attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
 common_domain_model:unknownReferenceObligation a owl:DatatypeProperty ;
 	rdfs:label "unknownReferenceObligation" ;
 	skos:definition "Used to indicate that the Reference obligation associated with the Credit Default Swap is currently not known. This is not valid for Legal Confirmation purposes, but is valid for earlier stages in the trade life cycle (e.g. Broker Confirmation)." ;
@@ -34509,8 +34526,8 @@ common_domain_model:upperStrikeNumberOfOptions a owl:DatatypeProperty ;
 	skos:inScheme common_domain_model:cdm_product_template .
 common_domain_model:url a owl:DatatypeProperty ;
 	rdfs:label "url" ;
-	skos:definition "Indicates where the resource can be found, as a URL that references the information on a web server accessible to the message recipient." ;
-	skos:inScheme common_domain_model:cdm_legaldocumentation_common .
+	skos:definition "The CDM's url attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
 common_domain_model:us_CFTC_PR_EligibleCollateral a owl:ObjectProperty ;
 	rdfs:label "us_CFTC_PR_EligibleCollateral" ;
 	skos:definition "Identifies US Eligible Collateral Assets classification categories based on Uncleared Margin Rules published by the CFTC and the US Prudential Regulator. Note: While the same basic categories exist in the CFTC and US Prudential Regulators’ margin rules, the precise definitions or application of those rules could differ between the two rules." ;
@@ -34619,7 +34636,10 @@ common_domain_model:vegaNotionalAmount a owl:ObjectProperty ;
 common_domain_model:velocity a owl:ObjectProperty ;
 	rdfs:label "velocity" ;
 	skos:inScheme common_domain_model:cdm_event_workflow .
-common_domain_model:version a owl:DatatypeProperty .
+common_domain_model:version a owl:DatatypeProperty ;
+	rdfs:label "version" ;
+	skos:definition "The CDM's version attribute; each class's slot_usage gives its meaning." ;
+	skos:inScheme common_domain_model:common_domain_model_keys .
 common_domain_model:vintage a owl:DatatypeProperty ;
 	rdfs:label "vintage" ;
 	skos:definition "In the case where successive definitions of the legal agreement have been developed, the vintage identification. This is typically (but not necessarily) done by referencing the year, e.g. 2013 in the case of the ISDA 2013 Standard Credit Support Annex." ;
@@ -42760,7 +42780,7 @@ _:c14n12800 rdf:first common_domain_model:CollateralAssetDefinitionsEnum\#SU-IAD
 _:c14n12801 rdf:first common_domain_model:SettlementRateOptionEnum\#BRL.OFFICIAL.RATE\%2FBRL02 ;
 	rdf:rest _:c14n440 .
 _:c14n12802 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18252 ;
+	owl:allValuesFrom _:c14n18294 ;
 	owl:onProperty common_domain_model:assetType .
 _:c14n12803 rdf:first common_domain_model:CommodityReferencePriceEnum\#GASOLINE-RBOB-NEW\%20YORK-ICE ;
 	rdf:rest _:c14n13011 .
@@ -56934,216 +56954,219 @@ _:c14n1821 a owl:Restriction ;
 _:c14n18210 rdf:first _:c14n1902 ;
 	rdf:rest _:c14n4581 .
 _:c14n18211 a rdfs:Datatype ;
-	owl:oneOf _:c14n9484 .
+	owl:oneOf _:c14n18231 .
 _:c14n18212 a owl:Restriction ;
 	owl:allValuesFrom _:c14n18211 ;
-	owl:onProperty common_domain_model:rollConvention .
+	owl:onProperty common_domain_model:priceType .
 _:c14n18213 rdf:first _:c14n18212 ;
-	rdf:rest rdf:nil .
-_:c14n18214 rdf:first _:c14n18244 ;
-	rdf:rest _:c14n18213 .
-_:c14n18215 rdf:first _:c14n18242 ;
 	rdf:rest _:c14n18214 .
-_:c14n18216 rdf:first _:c14n18240 ;
+_:c14n18214 rdf:first _:c14n18219 ;
 	rdf:rest _:c14n18215 .
-_:c14n18217 rdf:first _:c14n18238 ;
-	rdf:rest _:c14n18216 .
-_:c14n18218 rdf:first _:c14n18236 ;
-	rdf:rest _:c14n18217 .
-_:c14n18219 rdf:first _:c14n18234 ;
-	rdf:rest _:c14n18218 .
+_:c14n18215 rdf:first _:c14n18216 ;
+	rdf:rest rdf:nil .
+_:c14n18216 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18217 ;
+	owl:onProperty common_domain_model:priceType .
+_:c14n18217 a rdfs:Datatype ;
+	owl:oneOf _:c14n18218 .
+_:c14n18218 rdf:first "Correlation" ;
+	rdf:rest rdf:nil .
+_:c14n18219 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18220 ;
+	owl:onProperty common_domain_model:priceType .
 _:c14n1822 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty common_domain_model:ancillaryParty .
-_:c14n18220 rdf:first _:c14n18232 ;
-	rdf:rest _:c14n18219 .
-_:c14n18221 rdf:first _:c14n18222 ;
-	rdf:rest _:c14n18220 .
-_:c14n18222 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18223 ;
-	owl:onProperty common_domain_model:rollConvention .
-_:c14n18223 a rdfs:Datatype ;
-	owl:oneOf _:c14n18224 .
-_:c14n18224 rdf:first "NONE" ;
+_:c14n18220 a rdfs:Datatype ;
+	owl:oneOf _:c14n18221 .
+_:c14n18221 rdf:first "Volatility" ;
 	rdf:rest rdf:nil .
-_:c14n18225 owl:unionOf _:c14n18221 .
-_:c14n18226 rdfs:subClassOf _:c14n18225 ;
-	owl:intersectionOf _:c14n18227 .
-_:c14n18227 rdf:first _:c14n18229 ;
-	rdf:rest _:c14n18228 .
-_:c14n18228 rdf:first common_domain_model:CalculationPeriodFrequency ;
+_:c14n18222 owl:unionOf _:c14n18213 .
+_:c14n18223 rdf:first _:c14n18222 ;
+	rdf:rest _:c14n18230 .
+_:c14n18224 rdfs:subClassOf _:c14n18225 ;
+	owl:intersectionOf _:c14n18223 .
+_:c14n18225 owl:intersectionOf _:c14n18226 .
+_:c14n18226 rdf:first _:c14n18229 ;
+	rdf:rest _:c14n18227 .
+_:c14n18227 rdf:first _:c14n18228 ;
 	rdf:rest rdf:nil .
+_:c14n18228 a owl:Restriction ;
+	owl:onProperty common_domain_model:unit ;
+	owl:someValuesFrom xsd:string .
 _:c14n18229 a owl:Restriction ;
-	owl:onProperty common_domain_model:period ;
-	owl:someValuesFrom _:c14n18230 .
+	owl:onProperty common_domain_model:perUnitOf ;
+	owl:someValuesFrom owl:Thing .
 _:c14n1823 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty common_domain_model:partyRole .
-_:c14n18230 a rdfs:Datatype ;
-	owl:oneOf _:c14n18231 .
-_:c14n18231 rdf:first "W" ;
+_:c14n18230 rdf:first common_domain_model:PriceSchedule ;
 	rdf:rest rdf:nil .
-_:c14n18232 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18233 ;
+_:c14n18231 rdf:first "Variance" ;
+	rdf:rest rdf:nil .
+_:c14n18232 a rdfs:Datatype ;
+	owl:oneOf _:c14n9484 .
+_:c14n18233 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18232 ;
 	owl:onProperty common_domain_model:rollConvention .
-_:c14n18233 a rdfs:Datatype ;
-	owl:oneOf _:c14n731 .
-_:c14n18234 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18235 ;
-	owl:onProperty common_domain_model:rollConvention .
-_:c14n18235 a rdfs:Datatype ;
-	owl:oneOf _:c14n12687 .
-_:c14n18236 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18237 ;
-	owl:onProperty common_domain_model:rollConvention .
-_:c14n18237 a rdfs:Datatype ;
-	owl:oneOf _:c14n6001 .
-_:c14n18238 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18239 ;
-	owl:onProperty common_domain_model:rollConvention .
-_:c14n18239 a rdfs:Datatype ;
-	owl:oneOf _:c14n13335 .
+_:c14n18234 rdf:first _:c14n18233 ;
+	rdf:rest rdf:nil .
+_:c14n18235 rdf:first _:c14n18265 ;
+	rdf:rest _:c14n18234 .
+_:c14n18236 rdf:first _:c14n18263 ;
+	rdf:rest _:c14n18235 .
+_:c14n18237 rdf:first _:c14n18261 ;
+	rdf:rest _:c14n18236 .
+_:c14n18238 rdf:first _:c14n18259 ;
+	rdf:rest _:c14n18237 .
+_:c14n18239 rdf:first _:c14n18257 ;
+	rdf:rest _:c14n18238 .
 _:c14n1824 rdf:first common_domain_model:CommodityInformationPublisherEnum\#BLUENEXT ;
 	rdf:rest _:c14n10455 .
-_:c14n18240 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18241 ;
+_:c14n18240 rdf:first _:c14n18255 ;
+	rdf:rest _:c14n18239 .
+_:c14n18241 rdf:first _:c14n18253 ;
+	rdf:rest _:c14n18240 .
+_:c14n18242 rdf:first _:c14n18243 ;
+	rdf:rest _:c14n18241 .
+_:c14n18243 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18244 ;
 	owl:onProperty common_domain_model:rollConvention .
-_:c14n18241 a rdfs:Datatype ;
-	owl:oneOf _:c14n12950 .
-_:c14n18242 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18243 ;
-	owl:onProperty common_domain_model:rollConvention .
-_:c14n18243 a rdfs:Datatype ;
-	owl:oneOf _:c14n7635 .
-_:c14n18244 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18245 ;
-	owl:onProperty common_domain_model:rollConvention .
-_:c14n18245 a rdfs:Datatype ;
-	owl:oneOf _:c14n14385 .
-_:c14n18246 a rdfs:Datatype ;
-	owl:oneOf _:c14n18247 .
-_:c14n18247 rdf:first "Other" ;
+_:c14n18244 a rdfs:Datatype ;
+	owl:oneOf _:c14n18245 .
+_:c14n18245 rdf:first "NONE" ;
 	rdf:rest rdf:nil .
-_:c14n18248 a rdfs:Datatype ;
-	owl:oneOf _:c14n18249 .
-_:c14n18249 rdf:first "Security" ;
+_:c14n18246 owl:unionOf _:c14n18242 .
+_:c14n18247 rdfs:subClassOf _:c14n18246 ;
+	owl:intersectionOf _:c14n18248 .
+_:c14n18248 rdf:first _:c14n18250 ;
+	rdf:rest _:c14n18249 .
+_:c14n18249 rdf:first common_domain_model:CalculationPeriodFrequency ;
 	rdf:rest rdf:nil .
 _:c14n1825 rdf:first common_domain_model:ClosedStateEnum\#Cancelled ;
 	rdf:rest _:c14n4878 .
-_:c14n18250 a rdfs:Datatype ;
-	owl:oneOf _:c14n14104 .
+_:c14n18250 a owl:Restriction ;
+	owl:onProperty common_domain_model:period ;
+	owl:someValuesFrom _:c14n18251 .
 _:c14n18251 a rdfs:Datatype ;
-	owl:oneOf _:c14n13626 .
-_:c14n18252 a rdfs:Datatype ;
-	owl:oneOf _:c14n18253 .
-_:c14n18253 rdf:first "Security" ;
+	owl:oneOf _:c14n18252 .
+_:c14n18252 rdf:first "W" ;
 	rdf:rest rdf:nil .
-_:c14n18254 a rdfs:Datatype ;
-	owl:oneOf _:c14n5656 .
-_:c14n18255 a owl:Restriction ;
+_:c14n18253 a owl:Restriction ;
 	owl:allValuesFrom _:c14n18254 ;
-	owl:onProperty common_domain_model:settlementType .
-_:c14n18256 rdf:first _:c14n18255 ;
-	rdf:rest _:c14n18257 .
-_:c14n18257 rdf:first _:c14n18258 ;
-	rdf:rest rdf:nil .
-_:c14n18258 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18259 ;
-	owl:onProperty common_domain_model:settlementType .
-_:c14n18259 a rdfs:Datatype ;
-	owl:oneOf _:c14n5383 .
+	owl:onProperty common_domain_model:rollConvention .
+_:c14n18254 a rdfs:Datatype ;
+	owl:oneOf _:c14n731 .
+_:c14n18255 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18256 ;
+	owl:onProperty common_domain_model:rollConvention .
+_:c14n18256 a rdfs:Datatype ;
+	owl:oneOf _:c14n12687 .
+_:c14n18257 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18258 ;
+	owl:onProperty common_domain_model:rollConvention .
+_:c14n18258 a rdfs:Datatype ;
+	owl:oneOf _:c14n6001 .
+_:c14n18259 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18260 ;
+	owl:onProperty common_domain_model:rollConvention .
 _:c14n1826 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty common_domain_model:accrualFactor .
-_:c14n18260 owl:unionOf _:c14n18256 .
-_:c14n18261 rdfs:subClassOf _:c14n18260 ;
-	owl:intersectionOf _:c14n18262 .
-_:c14n18262 rdf:first _:c14n18264 ;
-	rdf:rest _:c14n18263 .
-_:c14n18263 rdf:first common_domain_model:SettlementTerms ;
-	rdf:rest rdf:nil .
-_:c14n18264 owl:intersectionOf _:c14n18265 .
-_:c14n18265 rdf:first _:c14n1990 ;
-	rdf:rest _:c14n18266 .
-_:c14n18266 rdf:first _:c14n10224 ;
-	rdf:rest rdf:nil .
+_:c14n18260 a rdfs:Datatype ;
+	owl:oneOf _:c14n13335 .
+_:c14n18261 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18262 ;
+	owl:onProperty common_domain_model:rollConvention .
+_:c14n18262 a rdfs:Datatype ;
+	owl:oneOf _:c14n12950 .
+_:c14n18263 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18264 ;
+	owl:onProperty common_domain_model:rollConvention .
+_:c14n18264 a rdfs:Datatype ;
+	owl:oneOf _:c14n7635 .
+_:c14n18265 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18266 ;
+	owl:onProperty common_domain_model:rollConvention .
+_:c14n18266 a rdfs:Datatype ;
+	owl:oneOf _:c14n14385 .
 _:c14n18267 a rdfs:Datatype ;
 	owl:oneOf _:c14n18268 .
-_:c14n18268 rdf:first "Volatility" ;
+_:c14n18268 rdf:first "Other" ;
 	rdf:rest rdf:nil .
-_:c14n18269 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18267 ;
-	owl:onProperty common_domain_model:priceType .
+_:c14n18269 a rdfs:Datatype ;
+	owl:oneOf _:c14n18289 .
 _:c14n1827 rdf:first common_domain_model:FloatingRateIndexEnum\#USD-LIBOR\%20ICE\%20Swap\%20Rate-15\%3A00 ;
 	rdf:rest _:c14n11772 .
-_:c14n18270 rdf:first _:c14n18269 ;
-	rdf:rest _:c14n18271 .
-_:c14n18271 rdf:first _:c14n18272 ;
-	rdf:rest rdf:nil .
-_:c14n18272 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18273 ;
+_:c14n18270 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18269 ;
 	owl:onProperty common_domain_model:priceType .
-_:c14n18273 a rdfs:Datatype ;
-	owl:oneOf _:c14n18274 .
-_:c14n18274 rdf:first "Correlation" ;
+_:c14n18271 rdf:first _:c14n18270 ;
 	rdf:rest rdf:nil .
-_:c14n18275 rdf:first _:c14n18285 ;
-	rdf:rest _:c14n18270 .
-_:c14n18276 owl:unionOf _:c14n18275 .
-_:c14n18277 rdf:first _:c14n18276 ;
-	rdf:rest _:c14n18284 .
-_:c14n18278 rdfs:subClassOf _:c14n18279 ;
-	owl:intersectionOf _:c14n18277 .
-_:c14n18279 owl:intersectionOf _:c14n18280 .
+_:c14n18272 rdf:first _:c14n18273 ;
+	rdf:rest _:c14n18271 .
+_:c14n18273 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18274 ;
+	owl:onProperty common_domain_model:priceType .
+_:c14n18274 a rdfs:Datatype ;
+	owl:oneOf _:c14n18275 .
+_:c14n18275 rdf:first "Volatility" ;
+	rdf:rest rdf:nil .
+_:c14n18276 rdf:first _:c14n18286 ;
+	rdf:rest _:c14n18272 .
+_:c14n18277 owl:unionOf _:c14n18276 .
+_:c14n18278 rdf:first _:c14n18277 ;
+	rdf:rest _:c14n18285 .
+_:c14n18279 rdfs:subClassOf _:c14n18280 ;
+	owl:intersectionOf _:c14n18278 .
 _:c14n1828 rdf:first common_domain_model:FloatingRateIndexEnum\#USD-LIBOR ;
 	rdf:rest _:c14n3360 .
-_:c14n18280 rdf:first _:c14n18283 ;
-	rdf:rest _:c14n18281 .
-_:c14n18281 rdf:first _:c14n18282 ;
+_:c14n18280 owl:intersectionOf _:c14n18281 .
+_:c14n18281 rdf:first _:c14n18284 ;
+	rdf:rest _:c14n18282 .
+_:c14n18282 rdf:first _:c14n18283 ;
 	rdf:rest rdf:nil .
-_:c14n18282 a owl:Restriction ;
-	owl:onProperty common_domain_model:unit ;
-	owl:someValuesFrom owl:Thing .
 _:c14n18283 a owl:Restriction ;
+	owl:onProperty common_domain_model:unit ;
+	owl:someValuesFrom xsd:string .
+_:c14n18284 a owl:Restriction ;
 	owl:onProperty common_domain_model:perUnitOf ;
 	owl:someValuesFrom owl:Thing .
-_:c14n18284 rdf:first common_domain_model:PriceSchedule ;
+_:c14n18285 rdf:first common_domain_model:Price ;
 	rdf:rest rdf:nil .
-_:c14n18285 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18286 ;
+_:c14n18286 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18287 ;
 	owl:onProperty common_domain_model:priceType .
-_:c14n18286 a rdfs:Datatype ;
-	owl:oneOf _:c14n18287 .
-_:c14n18287 rdf:first "Variance" ;
+_:c14n18287 a rdfs:Datatype ;
+	owl:oneOf _:c14n18288 .
+_:c14n18288 rdf:first "Variance" ;
 	rdf:rest rdf:nil .
-_:c14n18288 a rdfs:Datatype ;
-	owl:oneOf _:c14n18289 .
-_:c14n18289 rdf:first "Other" ;
+_:c14n18289 rdf:first "Correlation" ;
 	rdf:rest rdf:nil .
 _:c14n1829 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty common_domain_model:strike .
 _:c14n18290 a rdfs:Datatype ;
-	owl:oneOf _:c14n18304 .
-_:c14n18291 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18290 ;
-	owl:onProperty common_domain_model:priceSubType .
-_:c14n18292 rdf:first _:c14n18291 ;
-	rdf:rest _:c14n18293 .
-_:c14n18293 rdf:first _:c14n18294 ;
+	owl:oneOf _:c14n18291 .
+_:c14n18291 rdf:first "Security" ;
 	rdf:rest rdf:nil .
-_:c14n18294 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18295 ;
-	owl:onProperty common_domain_model:priceSubType .
-_:c14n18295 a rdfs:Datatype ;
-	owl:oneOf _:c14n18296 .
-_:c14n18296 rdf:first "Rebate" ;
+_:c14n18292 a rdfs:Datatype ;
+	owl:oneOf _:c14n14104 .
+_:c14n18293 a rdfs:Datatype ;
+	owl:oneOf _:c14n13626 .
+_:c14n18294 a rdfs:Datatype ;
+	owl:oneOf _:c14n18295 .
+_:c14n18295 rdf:first "Security" ;
 	rdf:rest rdf:nil .
-_:c14n18297 owl:unionOf _:c14n18292 .
+_:c14n18296 a rdfs:Datatype ;
+	owl:oneOf _:c14n5656 .
+_:c14n18297 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18296 ;
+	owl:onProperty common_domain_model:settlementType .
 _:c14n18298 rdf:first _:c14n18297 ;
-	rdf:rest _:c14n18303 .
-_:c14n18299 rdfs:subClassOf _:c14n18300 ;
-	owl:intersectionOf _:c14n18298 .
+	rdf:rest _:c14n18299 .
+_:c14n18299 rdf:first _:c14n18300 ;
+	rdf:rest rdf:nil .
 _:c14n183 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty common_domain_model:repudiationMoratorium .
@@ -57151,65 +57174,62 @@ _:c14n1830 a owl:Restriction ;
 	owl:minCardinality 1 ;
 	owl:onProperty common_domain_model:fixingDate .
 _:c14n18300 a owl:Restriction ;
-	owl:onProperty common_domain_model:priceType ;
-	owl:someValuesFrom _:c14n18301 .
+	owl:allValuesFrom _:c14n18301 ;
+	owl:onProperty common_domain_model:settlementType .
 _:c14n18301 a rdfs:Datatype ;
-	owl:oneOf _:c14n18302 .
-_:c14n18302 rdf:first "InterestRate" ;
+	owl:oneOf _:c14n5383 .
+_:c14n18302 owl:unionOf _:c14n18298 .
+_:c14n18303 rdfs:subClassOf _:c14n18302 ;
+	owl:intersectionOf _:c14n18304 .
+_:c14n18304 rdf:first _:c14n18306 ;
+	rdf:rest _:c14n18305 .
+_:c14n18305 rdf:first common_domain_model:SettlementTerms ;
 	rdf:rest rdf:nil .
-_:c14n18303 rdf:first common_domain_model:Price ;
-	rdf:rest rdf:nil .
-_:c14n18304 rdf:first "Fee" ;
-	rdf:rest rdf:nil .
-_:c14n18305 a rdfs:Datatype ;
-	owl:oneOf _:c14n18325 .
-_:c14n18306 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18305 ;
-	owl:onProperty common_domain_model:priceType .
-_:c14n18307 rdf:first _:c14n18306 ;
+_:c14n18306 owl:intersectionOf _:c14n18307 .
+_:c14n18307 rdf:first _:c14n1990 ;
 	rdf:rest _:c14n18308 .
-_:c14n18308 rdf:first _:c14n18313 ;
-	rdf:rest _:c14n18309 .
-_:c14n18309 rdf:first _:c14n18310 ;
+_:c14n18308 rdf:first _:c14n10224 ;
 	rdf:rest rdf:nil .
+_:c14n18309 a rdfs:Datatype ;
+	owl:oneOf _:c14n18310 .
 _:c14n1831 a owl:Restriction ;
 	owl:allValuesFrom common_domain_model:CreditSupportAmountEnum ;
 	owl:onProperty common_domain_model:creditSupportAmount .
-_:c14n18310 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18311 ;
-	owl:onProperty common_domain_model:priceType .
+_:c14n18310 rdf:first "Other" ;
+	rdf:rest rdf:nil .
 _:c14n18311 a rdfs:Datatype ;
-	owl:oneOf _:c14n18312 .
-_:c14n18312 rdf:first "Correlation" ;
+	owl:oneOf _:c14n18325 .
+_:c14n18312 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18311 ;
+	owl:onProperty common_domain_model:priceSubType .
+_:c14n18313 rdf:first _:c14n18312 ;
+	rdf:rest _:c14n18314 .
+_:c14n18314 rdf:first _:c14n18315 ;
 	rdf:rest rdf:nil .
-_:c14n18313 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18314 ;
-	owl:onProperty common_domain_model:priceType .
-_:c14n18314 a rdfs:Datatype ;
-	owl:oneOf _:c14n18315 .
-_:c14n18315 rdf:first "Volatility" ;
+_:c14n18315 a owl:Restriction ;
+	owl:allValuesFrom _:c14n18316 ;
+	owl:onProperty common_domain_model:priceSubType .
+_:c14n18316 a rdfs:Datatype ;
+	owl:oneOf _:c14n18317 .
+_:c14n18317 rdf:first "Rebate" ;
 	rdf:rest rdf:nil .
-_:c14n18316 owl:unionOf _:c14n18307 .
-_:c14n18317 rdf:first _:c14n18316 ;
+_:c14n18318 owl:unionOf _:c14n18313 .
+_:c14n18319 rdf:first _:c14n18318 ;
 	rdf:rest _:c14n18324 .
-_:c14n18318 rdfs:subClassOf _:c14n18319 ;
-	owl:intersectionOf _:c14n18317 .
-_:c14n18319 owl:intersectionOf _:c14n18320 .
 _:c14n1832 rdf:first common_domain_model:ISOCurrencyCodeEnum\#PEN ;
 	rdf:rest _:c14n5756 .
-_:c14n18320 rdf:first _:c14n18323 ;
-	rdf:rest _:c14n18321 .
-_:c14n18321 rdf:first _:c14n18322 ;
+_:c14n18320 rdfs:subClassOf _:c14n18321 ;
+	owl:intersectionOf _:c14n18319 .
+_:c14n18321 a owl:Restriction ;
+	owl:onProperty common_domain_model:priceType ;
+	owl:someValuesFrom _:c14n18322 .
+_:c14n18322 a rdfs:Datatype ;
+	owl:oneOf _:c14n18323 .
+_:c14n18323 rdf:first "InterestRate" ;
 	rdf:rest rdf:nil .
-_:c14n18322 a owl:Restriction ;
-	owl:onProperty common_domain_model:unit ;
-	owl:someValuesFrom owl:Thing .
-_:c14n18323 a owl:Restriction ;
-	owl:onProperty common_domain_model:perUnitOf ;
-	owl:someValuesFrom owl:Thing .
 _:c14n18324 rdf:first common_domain_model:Price ;
 	rdf:rest rdf:nil .
-_:c14n18325 rdf:first "Variance" ;
+_:c14n18325 rdf:first "Fee" ;
 	rdf:rest rdf:nil .
 _:c14n18326 a rdfs:Datatype ;
 	owl:oneOf _:c14n18327 .
@@ -65442,7 +65462,7 @@ _:c14n244 a owl:Restriction ;
 _:c14n2440 rdf:first common_domain_model:FloatingRateIndexEnum\#GBP-6M\%20LIBOR\%20SWAP-EUREX\%20vs\%20LCH-ICAP-Bloomberg ;
 	rdf:rest _:c14n3714 .
 _:c14n2441 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18288 ;
+	owl:allValuesFrom _:c14n18309 ;
 	owl:onProperty common_domain_model:cashCollateralTransferSettlementTime .
 _:c14n2442 a owl:Restriction ;
 	owl:maxCardinality 1 ;
@@ -73044,7 +73064,7 @@ _:c14n5097 rdf:first common_domain_model:ISOCountryCodeEnum\#IS ;
 _:c14n5098 rdf:first common_domain_model:BrokerConfirmationTypeEnum\#StandardLCDXBulletTranche ;
 	rdf:rest _:c14n3590 .
 _:c14n5099 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18248 ;
+	owl:allValuesFrom _:c14n18290 ;
 	owl:onProperty common_domain_model:assetType .
 _:c14n51 a owl:Restriction ;
 	owl:allValuesFrom common_domain_model:Asset ;
@@ -83344,7 +83364,7 @@ _:c14n8686 a owl:Restriction ;
 _:c14n8687 rdf:first common_domain_model:CollateralEquityIndexEnum\#MSCI\%20ITALY ;
 	rdf:rest _:c14n4229 .
 _:c14n8688 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18251 ;
+	owl:allValuesFrom _:c14n18293 ;
 	owl:onProperty common_domain_model:assetType .
 _:c14n8689 rdf:first common_domain_model:SubstituteCalculationAgentAppointerEnum\#PartyA_Party_B ;
 	rdf:rest _:c14n7153 .
@@ -85797,7 +85817,7 @@ _:c14n9539 a owl:Restriction ;
 	owl:allValuesFrom xsd:boolean ;
 	owl:onProperty common_domain_model:applicable .
 _:c14n954 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18250 ;
+	owl:allValuesFrom _:c14n18292 ;
 	owl:onProperty common_domain_model:assetType .
 _:c14n9540 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -86855,7 +86875,7 @@ _:c14n9907 a owl:Restriction ;
 _:c14n9908 rdf:first common_domain_model:ISOCurrencyCodeEnum\#HTG ;
 	rdf:rest _:c14n13047 .
 _:c14n9909 a owl:Restriction ;
-	owl:allValuesFrom _:c14n18246 ;
+	owl:allValuesFrom _:c14n18267 ;
 	owl:onProperty common_domain_model:securities .
 _:c14n991 a owl:Restriction ;
 	owl:minCardinality 0 ;

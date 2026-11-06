@@ -12025,14 +12025,14 @@ export interface CollateralTaxonomyValue {
  * Identifies a specific commodity by referencing a product identifier or by a product definition.
  */
 export interface Commodity extends AssetBase {
+    /** Provides additional information about the commodity underlier. */
+    description?: string,
     /** Specifies the commodity underlier in the event that no ISDA Commodity Reference Benchmark exists. */
     commodityProductDefinition?: CommodityProductDefinition,
     /** Describes the required quote type of the underlying price that will be observed. Example values include 'Bid, 'Ask', 'Settlement' (for a futures contract) and 'WeightedAverage' (for some published prices and indices). */
     priceQuoteType: string,
     /** Specifies the parameters for identifying the relevant contract date when the commodity reference price is a futures contract. */
     deliveryDateReference?: DeliveryDateParameters,
-    /** Provides additional information about the commodity underlier. */
-    description?: string,
 }
 
 
@@ -12201,10 +12201,10 @@ export interface PriceSource {
  * Comprises an identifier and a source. The associated metadata key denotes the ability to associate a hash value to the ProductIdentifier instantiations for the purpose of model cross-referencing, in support of functionality such as the event effect and the lineage.
  */
 export interface ProductIdentifier {
-    /** Provides an identifier associated with a specific product. The identifier is unique within the public source specified in the source attribute. */
-    identifier: string,
     /** Defines the source of the identifier. */
     source: string,
+    /** Provides an identifier associated with a specific product. The identifier is unique within the public source specified in the source attribute. */
+    identifier: string,
 }
 
 
@@ -12293,12 +12293,12 @@ export interface Taxonomy {
 
 
 export interface TaxonomyClassification {
+    /** A description of the class. */
+    description?: string,
     /** The name defined by the classification system for a specific attribute in the taxonomy */
     className?: string,
     /** The value set by the taxonomy that is specific to the className attribute. */
     value: string,
-    /** A description of the class. */
-    description?: string,
     /** In the case of multi-layered hierarchical classification systems such as commodity classification, the layer the value and className occupy in the classification hierarchy, where 1 represents the top-layer. */
     ordinal?: number,
 }
@@ -12395,12 +12395,12 @@ export interface CodeList {
 export interface CodeListIdentification {
     /** A description of the code list, e.g. A list of codes identifying business centers */
     description?: string,
+    /** The the most recent version of the codelist, eg. 9-1 */
+    version: string,
     /** The most recent date the code list was published, e.g. 2021-10-05 */
     publicationDate?: string,
     /** A short name (without whitespace) for the code list, e.g. businessCenterScheme */
     shortName: string,
-    /** The the most recent version of the codelist, eg. 9-1 */
-    version: string,
     /** The name of the code list, e.g. business-center */
     codeShortId?: string,
     /** Canonical URI which uniquely identifies all versions (collectively) of the referenced code list. Must be an absolute URI. Must not be used as a de facto location URI. */
@@ -12416,12 +12416,12 @@ export interface CodeListIdentification {
  * A type to hold the value of the code in a codelist
  */
 export interface CodeValue {
-    /** The value of the code, e.g. USNY */
-    value: string,
     /** A description of the meaning of the code, e.g. New York City, USA */
     description?: string,
     /** Where the code was defined,e.g. ISDA, FpML, Bloomberg */
     source?: string,
+    /** The value of the code, e.g. USNY */
+    value: string,
     /** When the code became/becomes effective */
     effectiveDate?: date,
     /** When the code ceased to be valid for new uses */
@@ -12433,10 +12433,10 @@ export interface CodeValue {
  * A class to specify the identifier value and its associated version.
  */
 export interface AssignedIdentifier {
-    /** The identifier value. */
-    identifier: string,
     /** The identifier version, which is specified as an integer and is meant to be incremented each time the transaction terms (whether contract or event) change. This version is made option to support the use case where the identifier is referenced without the version. The constraint that a contract and a lifecycle event need to have an associated version is enforced through data rules. */
     version?: number,
+    /** The identifier value. */
+    identifier: string,
 }
 
 
@@ -12580,12 +12580,12 @@ export interface BuyerSeller {
  * A class to specify contact information associated with a party: telephone, postal/street address, email and web page.
  */
 export interface ContactInformation {
+    /** The email address. */
+    email?: string[],
     /** The telephone number. */
     telephone?: TelephoneNumber[],
     /** The street/postal address. */
     address?: Address[],
-    /** The email address. */
-    email?: string[],
     /** The web page. This attribute is not specified as part of the FpML ContactInformation complex type. */
     webPage?: string[],
 }
@@ -12664,10 +12664,10 @@ export interface NaturalPersonRole {
  * A class to specify a party, without a qualification as to whether this party is a legal entity or a natural person, although the model provides the ability to associate a person (or set of persons) to a party, which use case would imply that such party would be a legal entity (even if not formally specified as such).
  */
 export interface Party {
-    /** The identifier associated with a party, e.g. the 20 digits LEI code. */
-    partyId: PartyIdentifier[],
     /** The party name. */
     name?: string,
+    /** The identifier associated with a party, e.g. the 20 digits LEI code. */
+    partyId: PartyIdentifier[],
     /** Optional organization unit information used to describe the organization units (e.g. trading desks) involved in a transaction or business process, incl. the contact information (when relevant). */
     businessUnit?: BusinessUnit[],
     /** The person(s) who might be associated with the party as part of the execution, contract or legal document. */
@@ -13779,14 +13779,14 @@ export interface UnscheduledTransfer extends TransferBase {
  * Defines the value of an investment, asset, or security
  */
 export interface Valuation {
-    /** Current value of the outstanding contract */
-    amount: Money,
     /** Date and time of the last valuation marked to market, provided by the central counterparty (CCP) or calculated using the current or last available market price of the inputs. */
     timestamp: string,
-    /** Method used for the valuation of the transaction by the valuation party. */
-    method?: string,
     /** Source of the valuation of the transaction by the valuation party. */
     source?: string,
+    /** Current value of the outstanding contract */
+    amount: Money,
+    /** Method used for the valuation of the transaction by the valuation party. */
+    method?: string,
     /** Defines the scope of the valuation, what it applies to e.g. the collateral or the trade */
     scope: string,
     /** The ratio of the change in the price of a derivative transaction to the change in the price of the underlying. This field is applicable only to options and swaptions. */
@@ -14700,14 +14700,14 @@ export interface FloatingRateIndexMappings {
 export interface FroHistory {
     /** The date the Floating Rate Option was added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2017/04/06) */
     startDate?: date,
+    /** The date the Floating Rate Option was removed from the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2014/01/01) */
+    endDate?: date,
     /** The supplement or version the FRO was first added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. S52) */
     firstDefinedIn?: ContractualDefinition,
     /** The date the Floating Rate Option was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2021/06/11) */
     updateDate?: date,
     /** The supplement or version the FRO was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. FRO-M-V1) */
     lastUpdatedIn?: ContractualDefinition,
-    /** The date the Floating Rate Option was removed from the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2014/01/01) */
-    endDate?: date,
 }
 
 
@@ -14784,7 +14784,9 @@ export interface CalculationPeriodBase {
 
 
 export interface CalculationPeriodData {
+    /** The CDM's startDate attribute; each class's slot_usage gives its meaning. */
     startDate: date,
+    /** The CDM's endDate attribute; each class's slot_usage gives its meaning. */
     endDate: date,
     daysInPeriod: number,
     daysInLeapYearPeriod: number,
@@ -15233,10 +15235,10 @@ export interface CompositionState {
  * Represents a single atomic step in the Instruction Composition lifecycle, including its instructions, status, and optional output. Each CompositionStep is defined by an identifier, a timestamp and a single Instruction.
  */
 export interface CompositionStep {
-    /** Identification of the Instruction Composition step. */
-    identifier?: string,
     /** Date and time of the execution of the Instruction Composition step after being executed. */
     timestamp?: string,
+    /** Identification of the Instruction Composition step. */
+    identifier?: string,
     /** Set of instructions defining the steps of each Instruction Composition process. */
     compositionStepInstruction: CompositionStepInstruction,
 }
@@ -15441,12 +15443,12 @@ export interface LegalAgreementBase {
  * Specifies the type of legal agreement, identified via a set of composable attributes: agreementName, publisher, governing law and version, e.g. ISDA 2013 Standard Credit Support Annex English Law.
  */
 export interface LegalAgreementIdentification {
+    /** The legal agreement publisher, e.g. ISDA. */
+    publisher?: string,
     /** The law governing the legal agreement, e.g. English Law, New York Law or Japanese Law. */
     governingLaw?: string,
     /** The legal agreement name, e.g. Credit Support Annex for Variation Margin. */
     agreementName: AgreementName,
-    /** The legal agreement publisher, e.g. ISDA. */
-    publisher?: string,
     /** In the case where successive definitions of the legal agreement have been developed, the vintage identification. This is typically (but not necessarily) done by referencing the year, e.g. 2013 in the case of the ISDA 2013 Standard Credit Support Annex. */
     vintage?: number,
 }
@@ -15487,12 +15489,12 @@ export interface NoticeInformationElection extends ContactInformationElection {
  * A class for defining an agreement executed between parties.
  */
 export interface OtherAgreement {
+    /** The version of the agreement. */
+    version?: string,
     /** An identifier that has been created to identify the agreement. */
     identifier?: string,
     /** The agreement executed between the parties and intended to govern product-specific derivatives transactions between those parties. */
     otherAgreementType: string,
-    /** The version of the agreement. */
-    version?: string,
     /** The date on which the agreement was signed. */
     date?: date,
 }
@@ -15513,6 +15515,10 @@ export interface OtherAgreementTerms {
  * Describes the resource that contains the media representation of a business event (i.e used for stating the Publicly Available Information). For example, can describe a file or a URL that represents the event. This type is an extended version of a type defined by RIXML (www.rixml.org). Rosetta restricts the FpML implementation by not providing the ability to associated a document in hexadecimalBinary or base64Binary until such time that actual use cases will come up.
  */
 export interface Resource {
+    /** The name of the resource. It is specified as a NormalizedString in FpML. */
+    name?: string,
+    /** Indicates where the resource can be found, as a URL that references the information on a web server accessible to the message recipient. */
+    url?: string,
     /** The unique identifier of the resource within the event. FpML specifies this element of type resourceIdScheme but with no specified value. */
     resourceId: string,
     /** A description of the type of the resource, e.g. a confirmation. */
@@ -15525,14 +15531,10 @@ export interface Resource {
     length?: ResourceLength,
     /** Indicates the type of media used to store the content. mimeType is used to determine the software product(s) that can read the content. MIME Types are described in RFC 2046. */
     mimeType?: string,
-    /** The name of the resource. It is specified as a NormalizedString in FpML. */
-    name?: string,
     /** Any additional comments that are deemed necessary. For example, which software version is required to open the document? Or, how does this resource relate to the others for this event? */
     comments?: string,
     /** Provides extra information as string. In case the extra information is in XML format, a CDATA section must be placed around the source message to prevent its interpretation as XML content. */
     string?: string,
-    /** Indicates where the resource can be found, as a URL that references the information on a web server accessible to the message recipient. */
-    url?: string,
 }
 
 
@@ -15937,6 +15939,8 @@ export interface WorkflowState {
  * A workflow step represents the state of a business event. The workflow step contains a reference to a previous WorkflowStep in order to preserve lineage. A workflow step is accepted if it contains a business event, proposed if proposedEvent is present and is rejected if the rejected flag is set.
  */
 export interface WorkflowStep {
+    /** The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier]. */
+    timestamp: EventTimestamp[],
     /** Life cycle event for the step. */
     businessEvent?: BusinessEvent,
     /** Documents the life cycle event for a position. */
@@ -15953,8 +15957,6 @@ export interface WorkflowStep {
     nextEvent?: EventInstruction,
     /** Contains all information pertaining the FpML messaging header */
     messageInformation?: MessageInformation,
-    /** The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier]. */
-    timestamp: EventTimestamp[],
     /** The identifier(s) that uniquely identify a lifecycle event. The unbounded cardinality is meant to provide the ability to associate identifiers that are issued by distinct parties. As an example, each of the parties to the event may choose to associate their own identifiers to the event. */
     eventIdentifier: Identifier[],
     /** Specifies whether the event is a new, a correction or a cancellation. */
@@ -15973,14 +15975,14 @@ export interface WorkflowStep {
  * Party approvals associated to the current WorkflowStep.
  */
 export interface WorkflowStepApproval {
+    /** Timestamp of the approval */
+    timestamp: EventTimestamp,
     /** Flag denoting whether the workflow step is approved or not */
     approved: boolean,
     /** Reference to the Party who is approving/rejecting this workflow step */
     party: Party,
     /** Optional reason for rejecting the workflow step */
     rejectedReason?: string,
-    /** Timestamp of the approval */
-    timestamp: EventTimestamp,
 }
 
 
@@ -15988,10 +15990,10 @@ export interface WorkflowStepApproval {
  * Defines clauses that make up the Agreement.
  */
 export interface ClauseLibraryClause {
-    /** Unique identifier for the clause. */
-    identifier: AssignedIdentifier,
     /** Optional textual description of the clause. */
     name?: string,
+    /** Unique identifier for the clause. */
+    identifier: AssignedIdentifier,
     /** Optional counterparty role. This can be used where a clause needs to be assigned to a specific party on the agreement based upon their role i.e. Party A or Party B. */
     counterparty?: string,
     /** Optional party. This can be required for umbrella agreements where a clause may need to be assigned to a specific party who may or may not be on the agreement. */
@@ -16005,10 +16007,10 @@ export interface ClauseLibraryClause {
  * Sets the details for a specific variant associated to a clause in the Agreement.
  */
 export interface ClauseLibraryClauseVariant {
-    /** Unique identifier for this variant. */
-    identifier: AssignedIdentifier,
     /** Optional textual description of the variant. */
     name?: string,
+    /** Unique identifier for this variant. */
+    identifier: AssignedIdentifier,
     /** Optional counterparty role. This can be used where a clause needs to assign a different variant to the different parties on the agreement based upon their role i.e. Party A or Party B. */
     counterparty?: string,
     /** Optional party. This can be used where a clause needs to assign different variants to different parties who may or may not be on the agreement. */
@@ -16031,10 +16033,10 @@ export interface ClauseLibrarySchedule {
  * Defines a type where additional variables associated to clauses and their variants can be described.
  */
 export interface ClauseLibraryVariableSet {
-    /** For some variants a table of variables is required. To support this use case we need to be able to specify variables within variables. Including a variable set here gives us infinite nesting opportunities - realistically we are only ever expecting that a table would need to be defined for any particular clause, so we would expect two levels of nesting as a maximum i.e. variableSet->variableSet->name/value. */
-    variableSet?: ClauseLibraryVariableSet[],
     /** The name of the variable. */
     name?: string,
+    /** For some variants a table of variables is required. To support this use case we need to be able to specify variables within variables. Including a variable set here gives us infinite nesting opportunities - realistically we are only ever expecting that a table would need to be defined for any particular clause, so we would expect two levels of nesting as a maximum i.e. variableSet->variableSet->name/value. */
+    variableSet?: ClauseLibraryVariableSet[],
     /** The value for this variable. */
     value?: string,
 }
@@ -16217,13 +16219,14 @@ export interface AnyEligibilityToHoldCollateralCriteria {
  * A class to specify the applicable regulatory regime(s) that parties to a legal agreement, such as the ISDA 2016 and 2018 CSA for Initial Margin, might be subject to.
  */
 export interface ApplicableRegime {
+    /** The CDM's additionalType attribute; each class's slot_usage gives its meaning. */
+    additionalType?: string,
     /** The applicable regulatory regime, as specified through an enumeration. */
     regime?: string,
     /** The additional regulatory regime as specified by the parties. */
     additionalRegime?: string,
     /** A class that is used by the ApplicableRegime and the AdditionalRegime classes to specify the terms that are specific to each party and regime which are referred to in the Regime Table as part of certain legal agreements, such as the ISDA 2016 and 2018 CSA for Initial Margin. */
     regimeTerms: RegimeTerms[],
-    additionalType?: string,
     /** The bespoke Additional Type for the purposes of Covered Transactions (IM). */
     additionalTerms?: string,
 }
@@ -17029,10 +17032,10 @@ export interface CustodianElection {
  * A class to specify the Custodian Event.
  */
 export interface CustodianEvent {
-    /** The qualification as to whether the Custodian Event (English Law & New York Law ISDA CSA) or the Collateral Manager Event (Japanese Law ISDA CSA) is applicable. */
-    isApplicable: boolean,
     /** The qualification of the Custodian Event (English Law & New York Law ISDA CSA) or Collateral Manager Event (Japanese Law ISDA CSA) End Date. */
     endDate?: CustodianEventEndDate,
+    /** The qualification as to whether the Custodian Event (English Law & New York Law ISDA CSA) or the Collateral Manager Event (Japanese Law ISDA CSA) is applicable. */
+    isApplicable: boolean,
 }
 
 
@@ -19300,12 +19303,12 @@ export interface AssetDeliveryInformation {
  * Defines the periods of delivery, including the delivery profile.
  */
 export interface AssetDeliveryPeriods {
-    /** Defines the delivery profile of the asset, including the load type and the delivery intervals. */
-    profile?: AssetDeliveryProfile[],
     /** Delivery start date */
     startDate?: date,
     /** Delivery end date */
     endDate?: date,
+    /** Defines the delivery profile of the asset, including the load type and the delivery intervals. */
+    profile?: AssetDeliveryProfile[],
 }
 
 

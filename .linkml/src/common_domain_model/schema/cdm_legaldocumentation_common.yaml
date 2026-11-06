@@ -21,6 +21,7 @@ imports:
   - ./cdm_legaldocumentation_master
   - ./cdm_legaldocumentation_transaction
   - ./cdm_product_collateral
+  - ./common_domain_model_keys
 enums:
   ContractualDefinitionsEnum:
     description: The enumerated values to specify a set of standard contract definitions relevant to the
@@ -895,6 +896,8 @@ classes:
     description: 'Specifies the type of legal agreement, identified via a set of composable attributes:
       agreementName, publisher, governing law and version, e.g. ISDA 2013 Standard Credit Support Annex
       English Law.'
+    slots:
+      - publisher
     attributes:
       governingLaw:
         description: The law governing the legal agreement, e.g. English Law, New York Law or Japanese
@@ -908,11 +911,6 @@ classes:
         required: true
         annotations:
           doc_reference: AcadiaSoft AM_1_0 namingConvention documentName
-      publisher:
-        description: The legal agreement publisher, e.g. ISDA.
-        range: LegalAgreementPublisherEnum
-        annotations:
-          doc_reference: AcadiaSoft AM_1_0 namingConvention publisher
       vintage:
         description: In the case where successive definitions of the legal agreement have been developed,
           the vintage identification. This is typically (but not necessarily) done by referencing the
@@ -920,6 +918,12 @@ classes:
         range: integer
         annotations:
           doc_reference: AcadiaSoft AM_1_0 namingConvention csaVersion
+    slot_usage:
+      publisher:
+        description: The legal agreement publisher, e.g. ISDA.
+        range: LegalAgreementPublisherEnum
+        annotations:
+          doc_reference: AcadiaSoft AM_1_0 namingConvention publisher
     comments:
       - 'Rosetta condition CSAMarginType is not stated in LinkML: if agreementName -> creditSupportAgreementMarginType
         exists then agreementName -> creditSupportAgreementType exists and vintage >= 2016'
@@ -966,6 +970,8 @@ classes:
         required: true
   OtherAgreement:
     description: A class for defining an agreement executed between parties.
+    slots:
+      - version
     attributes:
       identifier:
         description: An identifier that has been created to identify the agreement.
@@ -979,14 +985,15 @@ classes:
         required: true
         annotations:
           rosetta_metadata: scheme
+      date:
+        description: The date on which the agreement was signed.
+        range: date
+    slot_usage:
       version:
         description: The version of the agreement.
         range: string
         annotations:
           rosetta_metadata: scheme
-      date:
-        description: The date on which the agreement was signed.
-        range: date
   OtherAgreementTerms:
     description: 'A class to specify a related legal agreement. For example, ISDA 2016 Credit Support
       Annex for Initial Margin, paragraph 13, General Principles, (s): Other CSA and Japanese Law CSA
@@ -1011,6 +1018,9 @@ classes:
       that represents the event. This type is an extended version of a type defined by RIXML (www.rixml.org).
       Rosetta restricts the FpML implementation by not providing the ability to associated a document
       in hexadecimalBinary or base64Binary until such time that actual use cases will come up.
+    slots:
+      - name
+      - url
     attributes:
       resourceId:
         description: The unique identifier of the resource within the event. FpML specifies this element
@@ -1043,9 +1053,6 @@ classes:
         range: string
         annotations:
           rosetta_metadata: scheme
-      name:
-        description: The name of the resource. It is specified as a NormalizedString in FpML.
-        range: string
       comments:
         description: Any additional comments that are deemed necessary. For example, which software version
           is required to open the document? Or, how does this resource relate to the others for this event?
@@ -1054,6 +1061,10 @@ classes:
         description: Provides extra information as string. In case the extra information is in XML format,
           a CDATA section must be placed around the source message to prevent its interpretation as XML
           content.
+        range: string
+    slot_usage:
+      name:
+        description: The name of the resource. It is specified as a NormalizedString in FpML.
         range: string
       url:
         description: Indicates where the resource can be found, as a URL that references the information

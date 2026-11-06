@@ -2729,7 +2729,8 @@
                         {
                             "type": "null"
                         }
-                    ]
+                    ],
+                    "description": "The CDM's additionalType attribute; each class's slot_usage gives its meaning."
                 },
                 "regime": {
                     "anyOf": [
@@ -7142,6 +7143,7 @@
                     "type": "integer"
                 },
                 "endDate": {
+                    "description": "The CDM's endDate attribute; each class's slot_usage gives its meaning.",
                     "format": "date",
                     "type": "string"
                 },
@@ -7152,6 +7154,7 @@
                     "type": "boolean"
                 },
                 "startDate": {
+                    "description": "The CDM's startDate attribute; each class's slot_usage gives its meaning.",
                     "format": "date",
                     "type": "string"
                 }
@@ -8801,8 +8804,8 @@
                 }
             },
             "required": [
-                "shortName",
                 "version",
+                "shortName",
                 "canonicalUri"
             ],
             "title": "CodeListIdentification",
@@ -42607,8 +42610,8 @@
                 }
             },
             "required": [
-                "identifier",
-                "source"
+                "source",
+                "identifier"
             ],
             "title": "ProductIdentifier",
             "type": "object"
@@ -52302,8 +52305,8 @@
                 }
             },
             "required": [
-                "amount",
                 "timestamp",
+                "amount",
                 "scope"
             ],
             "title": "Valuation",
@@ -53881,9 +53884,9 @@
                 }
             },
             "required": [
+                "timestamp",
                 "approved",
-                "party",
-                "timestamp"
+                "party"
             ],
             "title": "WorkflowStepApproval",
             "type": "object"

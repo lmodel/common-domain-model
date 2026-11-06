@@ -852,7 +852,10 @@ linkml:Sparqlpath xsd:string
 }
 
 <ApplicableRegime> CLOSED {
-    (  $<ApplicableRegime_tes> (  <regime> [ <https://w3id.org/lmodel/common-domain-model/RegulatoryRegimeEnum#Australia>
+    (  $<ApplicableRegime_tes> (  <additionalType> [ <https://w3id.org/lmodel/common-domain-model/AdditionalTypeEnum#NotApplicable>
+             <https://w3id.org/lmodel/common-domain-model/AdditionalTypeEnum#EquityOptionOrIndexOption>
+             <https://w3id.org/lmodel/common-domain-model/AdditionalTypeEnum#Other> ] ? ;
+          <regime> [ <https://w3id.org/lmodel/common-domain-model/RegulatoryRegimeEnum#Australia>
              <https://w3id.org/lmodel/common-domain-model/RegulatoryRegimeEnum#Canada>
              <https://w3id.org/lmodel/common-domain-model/RegulatoryRegimeEnum#CFTC>
              <https://w3id.org/lmodel/common-domain-model/RegulatoryRegimeEnum#EMIR>
@@ -869,9 +872,6 @@ linkml:Sparqlpath xsd:string
              <https://w3id.org/lmodel/common-domain-model/RegulatoryRegimeEnum#Hong%20Kong%20SFC> ] ? ;
           <additionalRegime> @linkml:String ? ;
           <regimeTerms> @<RegimeTerms> + ;
-          <additionalType> [ <https://w3id.org/lmodel/common-domain-model/AdditionalTypeEnum#NotApplicable>
-             <https://w3id.org/lmodel/common-domain-model/AdditionalTypeEnum#EquityOptionOrIndexOption>
-             <https://w3id.org/lmodel/common-domain-model/AdditionalTypeEnum#Other> ] ? ;
           <additionalTerms> @linkml:String ?
        ) ;
        rdf:type [ <ApplicableRegime> ] ?
@@ -1274,9 +1274,9 @@ linkml:Sparqlpath xsd:string
 
 <AssetDeliveryPeriods>  (
     CLOSED {
-       (  $<AssetDeliveryPeriods_tes> (  <profile> @<AssetDeliveryProfile> * ;
-             <startDate> @linkml:Date ? ;
-             <endDate> @linkml:Date ?
+       (  $<AssetDeliveryPeriods_tes> (  <startDate> @linkml:Date ? ;
+             <endDate> @linkml:Date ? ;
+             <profile> @<AssetDeliveryProfile> *
           ) ;
           rdf:type [ <AssetDeliveryPeriods> ] ?
        )
@@ -2187,8 +2187,8 @@ linkml:Sparqlpath xsd:string
 }
 
 <AssignedIdentifier> CLOSED {
-    (  $<AssignedIdentifier_tes> (  <identifier> @linkml:String ;
-          <version> @linkml:Integer ?
+    (  $<AssignedIdentifier_tes> (  <version> @linkml:Integer ? ;
+          <identifier> @linkml:String
        ) ;
        rdf:type [ <AssignedIdentifier> ] ?
     )
@@ -4802,8 +4802,8 @@ linkml:Sparqlpath xsd:string
 }
 
 <ClauseLibraryClause> CLOSED {
-    (  $<ClauseLibraryClause_tes> (  <identifier> @<AssignedIdentifier> ;
-          <name> @linkml:String ? ;
+    (  $<ClauseLibraryClause_tes> (  <name> @linkml:String ? ;
+          <identifier> @<AssignedIdentifier> ;
           <counterparty> [ <https://w3id.org/lmodel/common-domain-model/CounterpartyRoleEnum#Party1>
              <https://w3id.org/lmodel/common-domain-model/CounterpartyRoleEnum#Party2> ] * ;
           <otherParty> [ <https://w3id.org/lmodel/common-domain-model/PartyRoleEnum#Accountant>
@@ -4869,8 +4869,8 @@ linkml:Sparqlpath xsd:string
 }
 
 <ClauseLibraryClauseVariant> CLOSED {
-    (  $<ClauseLibraryClauseVariant_tes> (  <identifier> @<AssignedIdentifier> ;
-          <name> @linkml:String ? ;
+    (  $<ClauseLibraryClauseVariant_tes> (  <name> @linkml:String ? ;
+          <identifier> @<AssignedIdentifier> ;
           <counterparty> [ <https://w3id.org/lmodel/common-domain-model/CounterpartyRoleEnum#Party1>
              <https://w3id.org/lmodel/common-domain-model/CounterpartyRoleEnum#Party2> ] * ;
           <otherParty> [ <https://w3id.org/lmodel/common-domain-model/PartyRoleEnum#Accountant>
@@ -4942,8 +4942,8 @@ linkml:Sparqlpath xsd:string
 }
 
 <ClauseLibraryVariableSet> CLOSED {
-    (  $<ClauseLibraryVariableSet_tes> (  <variableSet> @<ClauseLibraryVariableSet> * ;
-          <name> @linkml:String ? ;
+    (  $<ClauseLibraryVariableSet_tes> (  <name> @linkml:String ? ;
+          <variableSet> @<ClauseLibraryVariableSet> * ;
           <value> @linkml:String ?
        ) ;
        rdf:type [ <ClauseLibraryVariableSet> ] ?
@@ -4989,9 +4989,9 @@ linkml:Sparqlpath xsd:string
 
 <CodeListIdentification> CLOSED {
     (  $<CodeListIdentification_tes> (  <description> @linkml:String ? ;
+          <version> @linkml:String ;
           <publicationDate> @linkml:String ? ;
           <shortName> @linkml:String ;
-          <version> @linkml:String ;
           <codeShortId> @linkml:String ? ;
           <canonicalUri> @linkml:String ;
           <canonicalVersionUri> @linkml:String ? ;
@@ -5002,9 +5002,9 @@ linkml:Sparqlpath xsd:string
 }
 
 <CodeValue> CLOSED {
-    (  $<CodeValue_tes> (  <value> @linkml:String ;
-          <description> @linkml:String ? ;
+    (  $<CodeValue_tes> (  <description> @linkml:String ? ;
           <source> @linkml:String ? ;
+          <value> @linkml:String ;
           <effectiveDate> @linkml:Date ? ;
           <deprecatedDate> @linkml:Date ?
        ) ;
@@ -6917,6 +6917,7 @@ linkml:Sparqlpath xsd:string
 <Commodity> CLOSED {
     (  $<Commodity_tes> (  &<AssetBase_tes> ;
           rdf:type [ <AssetBase> ] ? ;
+          <description> @linkml:String ? ;
           <commodityProductDefinition> @<CommodityProductDefinition> ? ;
           <priceQuoteType> [ <https://w3id.org/lmodel/common-domain-model/QuotationSideEnum#Afternoon>
              <https://w3id.org/lmodel/common-domain-model/QuotationSideEnum#Ask>
@@ -6940,8 +6941,7 @@ linkml:Sparqlpath xsd:string
              <https://w3id.org/lmodel/common-domain-model/QuotationSideEnum#NationalSingle>
              <https://w3id.org/lmodel/common-domain-model/QuotationSideEnum#WeightedAverage>
              <https://w3id.org/lmodel/common-domain-model/QuotationSideEnum#UnWeightedAverage> ] ;
-          <deliveryDateReference> @<DeliveryDateParameters> ? ;
-          <description> @linkml:String ?
+          <deliveryDateReference> @<DeliveryDateParameters> ?
        ) ;
        rdf:type [ <Commodity> ] ?
     )
@@ -7204,8 +7204,8 @@ linkml:Sparqlpath xsd:string
 }
 
 <CompositionStep> CLOSED {
-    (  $<CompositionStep_tes> (  <identifier> @linkml:String ? ;
-          <timestamp> @linkml:Datetime ? ;
+    (  $<CompositionStep_tes> (  <timestamp> @linkml:Datetime ? ;
+          <identifier> @linkml:String ? ;
           <compositionStepInstruction> @<CompositionStepInstruction>
        ) ;
        rdf:type [ <CompositionStep> ] ?
@@ -7293,9 +7293,9 @@ linkml:Sparqlpath xsd:string
 
 <ContactInformation>  (
     CLOSED {
-       (  $<ContactInformation_tes> (  <telephone> @<TelephoneNumber> * ;
+       (  $<ContactInformation_tes> (  <email> @linkml:String * ;
+             <telephone> @<TelephoneNumber> * ;
              <address> @<Address> * ;
-             <email> @linkml:String * ;
              <webPage> @linkml:String *
           ) ;
           rdf:type [ <ContactInformation> ] ?
@@ -8486,8 +8486,8 @@ linkml:Sparqlpath xsd:string
 }
 
 <CustodianEvent> CLOSED {
-    (  $<CustodianEvent_tes> (  <isApplicable> @linkml:Boolean ;
-          <endDate> @<CustodianEventEndDate> ?
+    (  $<CustodianEvent_tes> (  <endDate> @<CustodianEventEndDate> ? ;
+          <isApplicable> @linkml:Boolean
        ) ;
        rdf:type [ <CustodianEvent> ] ?
     )
@@ -13391,10 +13391,10 @@ linkml:Sparqlpath xsd:string
 
 <FroHistory> CLOSED {
     (  $<FroHistory_tes> (  <startDate> @linkml:Date ? ;
+          <endDate> @linkml:Date ? ;
           <firstDefinedIn> @<ContractualDefinition> ? ;
           <updateDate> @linkml:Date ? ;
-          <lastUpdatedIn> @<ContractualDefinition> ? ;
-          <endDate> @linkml:Date ?
+          <lastUpdatedIn> @<ContractualDefinition> ?
        ) ;
        rdf:type [ <FroHistory> ] ?
     )
@@ -15579,8 +15579,18 @@ linkml:Sparqlpath xsd:string
 )
 
 <LegalAgreementIdentification> CLOSED {
-    (  $<LegalAgreementIdentification_tes> (  <governingLaw> [
-             <https://w3id.org/lmodel/common-domain-model/GoverningLawEnum#AsSpecifiedInMasterAgreement>
+    (  $<LegalAgreementIdentification_tes> (  <publisher> [
+             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#AFB>
+             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#BNYM>
+             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#ISDAClearstream>
+             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#EMTA>
+             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#TheFXCommittee>
+             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#ISDAEuroclear>
+             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#ISDA>
+             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#ISLA>
+             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#JPMorgan>
+             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#ICMA> ] ? ;
+          <governingLaw> [ <https://w3id.org/lmodel/common-domain-model/GoverningLawEnum#AsSpecifiedInMasterAgreement>
              <https://w3id.org/lmodel/common-domain-model/GoverningLawEnum#BE>
              <https://w3id.org/lmodel/common-domain-model/GoverningLawEnum#CAAB>
              <https://w3id.org/lmodel/common-domain-model/GoverningLawEnum#CABC>
@@ -15603,16 +15613,6 @@ linkml:Sparqlpath xsd:string
              <https://w3id.org/lmodel/common-domain-model/GoverningLawEnum#USIL>
              <https://w3id.org/lmodel/common-domain-model/GoverningLawEnum#USNY> ] ? ;
           <agreementName> @<AgreementName> ;
-          <publisher> [ <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#AFB>
-             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#BNYM>
-             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#ISDAClearstream>
-             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#EMTA>
-             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#TheFXCommittee>
-             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#ISDAEuroclear>
-             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#ISDA>
-             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#ISLA>
-             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#JPMorgan>
-             <https://w3id.org/lmodel/common-domain-model/LegalAgreementPublisherEnum#ICMA> ] ? ;
           <vintage> @linkml:Integer ?
        ) ;
        rdf:type [ <LegalAgreementIdentification> ] ?
@@ -16667,9 +16667,9 @@ linkml:Sparqlpath xsd:string
 }
 
 <OtherAgreement> CLOSED {
-    (  $<OtherAgreement_tes> (  <identifier> @linkml:String ? ;
+    (  $<OtherAgreement_tes> (  <version> @linkml:String ? ;
+          <identifier> @linkml:String ? ;
           <otherAgreementType> @linkml:String ;
-          <version> @linkml:String ? ;
           <date> @linkml:Date ?
        ) ;
        rdf:type [ <OtherAgreement> ] ?
@@ -16748,8 +16748,8 @@ linkml:Sparqlpath xsd:string
 )
 
 <Party> CLOSED {
-    (  $<Party_tes> (  <partyId> @<PartyIdentifier> + ;
-          <name> @linkml:String ? ;
+    (  $<Party_tes> (  <name> @linkml:String ? ;
+          <partyId> @<PartyIdentifier> + ;
           <businessUnit> @<BusinessUnit> * ;
           <person> @<NaturalPerson> * ;
           <personRole> @<NaturalPersonRole> * ;
@@ -17489,8 +17489,7 @@ linkml:Sparqlpath xsd:string
 }
 
 <ProductIdentifier> CLOSED {
-    (  $<ProductIdentifier_tes> (  <identifier> @linkml:String ;
-          <source> [ <https://w3id.org/lmodel/common-domain-model/ProductIdTypeEnum#BBGID>
+    (  $<ProductIdentifier_tes> (  <source> [ <https://w3id.org/lmodel/common-domain-model/ProductIdTypeEnum#BBGID>
              <https://w3id.org/lmodel/common-domain-model/ProductIdTypeEnum#BBGTICKER>
              <https://w3id.org/lmodel/common-domain-model/ProductIdTypeEnum#CUSIP>
              <https://w3id.org/lmodel/common-domain-model/ProductIdTypeEnum#FIGI>
@@ -17504,7 +17503,8 @@ linkml:Sparqlpath xsd:string
              <https://w3id.org/lmodel/common-domain-model/ProductIdTypeEnum#SEDOL>
              <https://w3id.org/lmodel/common-domain-model/ProductIdTypeEnum#UPI>
              <https://w3id.org/lmodel/common-domain-model/ProductIdTypeEnum#Valoren>
-             <https://w3id.org/lmodel/common-domain-model/ProductIdTypeEnum#Wertpapier> ]
+             <https://w3id.org/lmodel/common-domain-model/ProductIdTypeEnum#Wertpapier> ] ;
+          <identifier> @linkml:String
        ) ;
        rdf:type [ <ProductIdentifier> ] ?
     )
@@ -18734,7 +18734,9 @@ linkml:Sparqlpath xsd:string
 }
 
 <Resource> CLOSED {
-    (  $<Resource_tes> (  <resourceId> @linkml:String ;
+    (  $<Resource_tes> (  <name> @linkml:String ? ;
+          <url> @linkml:String ? ;
+          <resourceId> @linkml:String ;
           <resourceType> [ <https://w3id.org/lmodel/common-domain-model/ResourceTypeEnum#Confirmation>
              <https://w3id.org/lmodel/common-domain-model/ResourceTypeEnum#SupplementalMaterialEconomicTerms>
              <https://w3id.org/lmodel/common-domain-model/ResourceTypeEnum#TermSheet> ] ? ;
@@ -18742,10 +18744,8 @@ linkml:Sparqlpath xsd:string
           <sizeInBytes> @linkml:Decimal ? ;
           <length> @<ResourceLength> ? ;
           <mimeType> @linkml:String ? ;
-          <name> @linkml:String ? ;
           <comments> @linkml:String ? ;
-          <string> @linkml:String ? ;
-          <url> @linkml:String ?
+          <string> @linkml:String ?
        ) ;
        rdf:type [ <Resource> ] ?
     )
@@ -21042,9 +21042,9 @@ linkml:Sparqlpath xsd:string
 )
 
 <TaxonomyClassification> CLOSED {
-    (  $<TaxonomyClassification_tes> (  <className> @linkml:String ? ;
+    (  $<TaxonomyClassification_tes> (  <description> @linkml:String ? ;
+          <className> @linkml:String ? ;
           <value> @linkml:String ;
-          <description> @linkml:String ? ;
           <ordinal> @linkml:Integer ?
        ) ;
        rdf:type [ <TaxonomyClassification> ] ?
@@ -22440,11 +22440,11 @@ linkml:Sparqlpath xsd:string
 }
 
 <Valuation> CLOSED {
-    (  $<Valuation_tes> (  <amount> @<Money> ;
-          <timestamp> @linkml:Datetime ;
+    (  $<Valuation_tes> (  <timestamp> @linkml:Datetime ;
+          <source> [ <https://w3id.org/lmodel/common-domain-model/ValuationSourceEnum#CentralCounterparty> ] ? ;
+          <amount> @<Money> ;
           <method> [ <https://w3id.org/lmodel/common-domain-model/ValuationTypeEnum#MarkToMarket>
              <https://w3id.org/lmodel/common-domain-model/ValuationTypeEnum#MarkToModel> ] ? ;
-          <source> [ <https://w3id.org/lmodel/common-domain-model/ValuationSourceEnum#CentralCounterparty> ] ? ;
           <scope> [ <https://w3id.org/lmodel/common-domain-model/ValuationScopeEnum#Collateral>
              <https://w3id.org/lmodel/common-domain-model/ValuationScopeEnum#Trade> ] ;
           <delta> @linkml:Decimal ? ;
@@ -23308,7 +23308,8 @@ linkml:Sparqlpath xsd:string
 }
 
 <WorkflowStep> CLOSED {
-    (  $<WorkflowStep_tes> (  <businessEvent> @<BusinessEvent> ? ;
+    (  $<WorkflowStep_tes> (  <timestamp> @<EventTimestamp> + ;
+          <businessEvent> @<BusinessEvent> ? ;
           <counterpartyPositionBusinessEvent> @<CounterpartyPositionBusinessEvent> ? ;
           <proposedEvent> @<EventInstruction> ? ;
           <rejected> @linkml:Boolean ? ;
@@ -23316,7 +23317,6 @@ linkml:Sparqlpath xsd:string
           <previousWorkflowStep> @<WorkflowStep> ? ;
           <nextEvent> @<EventInstruction> ? ;
           <messageInformation> @<MessageInformation> ? ;
-          <timestamp> @<EventTimestamp> + ;
           <eventIdentifier> @<Identifier> + ;
           <action> [ <https://w3id.org/lmodel/common-domain-model/ActionEnum#New>
              <https://w3id.org/lmodel/common-domain-model/ActionEnum#Correct>
@@ -23331,10 +23331,10 @@ linkml:Sparqlpath xsd:string
 }
 
 <WorkflowStepApproval> CLOSED {
-    (  $<WorkflowStepApproval_tes> (  <approved> @linkml:Boolean ;
+    (  $<WorkflowStepApproval_tes> (  <timestamp> @<EventTimestamp> ;
+          <approved> @linkml:Boolean ;
           <party> @<Party> ;
-          <rejectedReason> @linkml:String ? ;
-          <timestamp> @<EventTimestamp>
+          <rejectedReason> @linkml:String ?
        ) ;
        rdf:type [ <WorkflowStepApproval> ] ?
     )

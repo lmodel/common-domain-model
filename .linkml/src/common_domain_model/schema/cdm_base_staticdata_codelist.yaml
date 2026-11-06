@@ -13,6 +13,7 @@ default_prefix: common_domain_model
 default_range: string
 imports:
   - linkml:types
+  - ./common_domain_model_keys
 types:
   FpMLCodingScheme:
     typeof: string
@@ -3077,19 +3078,15 @@ classes:
         multivalued: true
   CodeListIdentification:
     description: A type to identify the version of a codelist
+    slots:
+      - description
+      - version
     attributes:
-      description:
-        description: A description of the code list, e.g. A list of codes identifying business centers
-        range: string
       publicationDate:
         description: The most recent date the code list was published, e.g. 2021-10-05
         range: string
       shortName:
         description: A short name (without whitespace) for the code list, e.g. businessCenterScheme
-        range: string
-        required: true
-      version:
-        description: The the most recent version of the codelist, eg. 9-1
         range: string
         required: true
       codeShortId:
@@ -3109,22 +3106,34 @@ classes:
           must signal an error to the user if a document retrieved using a LocationUri is not in genericode
           format.
         range: string
+    slot_usage:
+      description:
+        description: A description of the code list, e.g. A list of codes identifying business centers
+        range: string
+      version:
+        description: The the most recent version of the codelist, eg. 9-1
+        range: string
+        required: true
   CodeValue:
     description: A type to hold the value of the code in a codelist
+    slots:
+      - description
+      - source
     attributes:
       value:
         description: The value of the code, e.g. USNY
         range: string
         required: true
-      description:
-        description: A description of the meaning of the code, e.g. New York City, USA
-        range: string
-      source:
-        description: Where the code was defined,e.g. ISDA, FpML, Bloomberg
-        range: string
       effectiveDate:
         description: When the code became/becomes effective
         range: date
       deprecatedDate:
         description: When the code ceased to be valid for new uses
         range: date
+    slot_usage:
+      description:
+        description: A description of the meaning of the code, e.g. New York City, USA
+        range: string
+      source:
+        description: Where the code was defined,e.g. ISDA, FpML, Bloomberg
+        range: string

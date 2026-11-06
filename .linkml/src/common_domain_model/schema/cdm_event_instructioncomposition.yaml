@@ -15,6 +15,7 @@ imports:
   - linkml:types
   - ./cdm_event_common
   - ./cdm_event_instructioncomposition_reset
+  - ./common_domain_model_keys
 enums:
   InstructionCompositionTypeEnum:
     description: The enumerated values to specify the type of Instruction Composition.
@@ -43,17 +44,20 @@ classes:
     description: Represents a single atomic step in the Instruction Composition lifecycle, including its
       instructions, status, and optional output. Each CompositionStep is defined by an identifier, a timestamp
       and a single Instruction.
+    slots:
+      - timestamp
     attributes:
       identifier:
         description: Identification of the Instruction Composition step.
         range: string
-      timestamp:
-        description: Date and time of the execution of the Instruction Composition step after being executed.
-        range: datetime
       compositionStepInstruction:
         description: Set of instructions defining the steps of each Instruction Composition process.
         range: CompositionStepInstruction
         required: true
+    slot_usage:
+      timestamp:
+        description: Date and time of the execution of the Instruction Composition step after being executed.
+        range: datetime
   CompositionStepInstruction:
     description: Set of instructions defining the steps of each Instruction Composition process. The CompositionStepInstruction
       is defined by a type (as the same instruction can be reused across different Instruction Composition

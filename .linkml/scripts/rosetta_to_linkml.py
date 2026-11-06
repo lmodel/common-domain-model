@@ -44,6 +44,31 @@ SCHEMA_DIR = ROOT / "src" / "common_domain_model" / "schema"
 PINS = ROOT / "upstream" / "pin.yaml"
 
 SCHEMA_NAME = "common_domain_model"
+KEYS_MODULE = "common_domain_model_keys"
+
+# Attribute names the CDM uses that LOKF's schema also defines as slots, under
+# other IRIs. A host imports the schema's `lokf adapt` copy beside lokf.yaml, and
+# the JSON-LD context gives each key one IRI, so a CDM key named like a LOKF one
+# would project a concept's own description, name or version under the CDM's
+# IRI. `lokf adapt` renames a clashing slot in the copy, keeping its IRI, but not
+# a class's attribute, so these names are top-level slots in KEYS_MODULE, and each
+# class gives its own description and range in slot_usage. tests/test_schema_rules.py
+# holds the list to .lokf/lokf.yaml.
+LOKF_KEYS = (
+    "additionalType",
+    "description",
+    "documentation",
+    "email",
+    "endDate",
+    "name",
+    "publisher",
+    "source",
+    "startDate",
+    "timestamp",
+    "unit",
+    "url",
+    "version",
+)
 SCHEMA_ID = "https://w3id.org/lmodel/common-domain-model"
 PREFIX = "common_domain_model"
 
@@ -915,11 +940,17 @@ def class_def(model: Model, d: TypeDecl, report: Report) -> dict:
     attrs = {}
     usage = {}
     parent_attrs = model.all_attrs(model.decls[d.extends]) if d.extends else {}
+    shared = []
     for a in d.attrs:
         if a.override or a.name in parent_attrs:
             usage[a.name] = attribute_def(model, a)
+        elif a.name in LOKF_KEYS:
+            shared.append(a.name)
+            usage[a.name] = attribute_def(model, a)
         else:
             attrs[a.name] = attribute_def(model, a)
+    if shared:
+        out["slots"] = shared
     if attrs:
         out["attributes"] = attrs
     if usage:
@@ -1213,6 +1244,8 @@ def build() -> tuple[dict[str, str], Report]:
                 for ref in references(model, model.decls[name]):
                     if owner_module[ref] != mod_name:
                         imports.add(owner_module[ref])
+        if any(body.get("slots") for body in content["classes"].values()):
+            imports.add(KEYS_MODULE)
         namespace = mod_name.replace("_", ".")
         desc = ns_docs.get(namespace) or f"The CDM's {namespace} namespace."
         doc = header(mod_name, f"CDM {namespace}", desc, pin)
@@ -1224,6 +1257,23 @@ def build() -> tuple[dict[str, str], Report]:
             if content[kind]:
                 doc[kind] = content[kind]
         outputs[f"{mod_name}.yaml"] = dump(doc)
+    keys = header(
+        KEYS_MODULE,
+        "CDM keys shared with LOKF",
+        "The attribute names the CDM shares with LOKF's schema, as slots, so that the "
+        "schema's lokf adapt copy can rename them. Each class that uses one gives its "
+        "description and range in slot_usage.",
+        pin,
+    )
+    keys["prefixes"] = dict(PREFIXES)
+    keys["default_prefix"] = PREFIX
+    keys["default_range"] = "string"
+    keys["imports"] = ["linkml:types"]
+    keys["slots"] = {
+        name: {"description": f"The CDM's {name} attribute; each class's slot_usage gives its meaning."}
+        for name in LOKF_KEYS
+    }
+    outputs[f"{KEYS_MODULE}.yaml"] = dump(keys)
     umbrella = header(
         SCHEMA_NAME,
         "FINOS Common Domain Model",
@@ -1252,7 +1302,7 @@ def build() -> tuple[dict[str, str], Report]:
     umbrella["prefixes"] = dict(PREFIXES)
     umbrella["default_prefix"] = PREFIX
     umbrella["default_range"] = "string"
-    umbrella["imports"] = ["linkml:types"] + [f"./{m}" for m in sorted(by_module)]
+    umbrella["imports"] = ["linkml:types"] + [f"./{m}" for m in sorted(set(by_module) | {KEYS_MODULE})]
     outputs[f"{SCHEMA_NAME}.yaml"] = dump(umbrella)
     undescribed = sorted(
         name

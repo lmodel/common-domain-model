@@ -37,9 +37,77 @@ default_range: string
 imports:
 - linkml:types
 - lokf
+slots:
+  cdm_additionalType:
+    description: The CDM's additionalType attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:additionalType
+    aliases:
+    - additionalType
+  cdm_description:
+    description: The CDM's description attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:description
+    aliases:
+    - description
+  cdm_documentation:
+    description: The CDM's documentation attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:documentation
+    aliases:
+    - documentation
+  cdm_email:
+    description: The CDM's email attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:email
+    aliases:
+    - email
+  cdm_endDate:
+    description: The CDM's endDate attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:endDate
+    aliases:
+    - endDate
+  cdm_name:
+    description: The CDM's name attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:name
+    aliases:
+    - name
+  cdm_publisher:
+    description: The CDM's publisher attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:publisher
+    aliases:
+    - publisher
+  cdm_source:
+    description: The CDM's source attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:source
+    aliases:
+    - source
+  cdm_startDate:
+    description: The CDM's startDate attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:startDate
+    aliases:
+    - startDate
+  cdm_timestamp:
+    description: The CDM's timestamp attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:timestamp
+    aliases:
+    - timestamp
+  cdm_unit:
+    description: The CDM's unit attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:unit
+    aliases:
+    - unit
+  cdm_url:
+    description: The CDM's url attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:url
+    aliases:
+    - url
+  cdm_version:
+    description: The CDM's version attribute; each class's slot_usage gives its meaning.
+    slot_uri: common_domain_model:version
+    aliases:
+    - version
 classes:
   AssignedIdentifier:
     description: A class to specify the identifier value and its associated version.
+    slots:
+    - cdm_version
     attributes:
       identifier:
         description: The identifier value.
@@ -47,7 +115,8 @@ classes:
         required: true
         annotations:
           rosetta_metadata: scheme
-      version:
+    slot_usage:
+      cdm_version:
         description: The identifier version, which is specified as an integer and is meant to be incremented
           each time the transaction terms (whether contract or event) change. This version is made option
           to support the use case where the identifier is referenced without the version. The constraint
@@ -269,11 +338,9 @@ classes:
         required: true
   BusinessUnit:
     description: A class to specify an organizational unit.
+    slots:
+    - cdm_name
     attributes:
-      name:
-        description: A name used to describe the organizational unit
-        range: string
-        required: true
       identifier:
         description: An identifier used to uniquely identify the organizational unit
         range: Identifier
@@ -281,6 +348,11 @@ classes:
         description: The contact information for such business unit, when different from the contact information
           associated with the party.
         range: ContactInformation
+    slot_usage:
+      cdm_name:
+        description: A name used to describe the organizational unit
+        range: string
+        required: true
     annotations:
       rosetta_metadata: key
   BuyerSeller:
@@ -316,6 +388,8 @@ classes:
   ContactInformation:
     description: 'A class to specify contact information associated with a party: telephone, postal/street
       address, email and web page.'
+    slots:
+    - cdm_email
     attributes:
       telephone:
         description: The telephone number.
@@ -325,13 +399,14 @@ classes:
         description: The street/postal address.
         range: Address
         multivalued: true
-      email:
-        description: The email address.
-        range: string
-        multivalued: true
       webPage:
         description: The web page. This attribute is not specified as part of the FpML ContactInformation
           complex type.
+        range: string
+        multivalued: true
+    slot_usage:
+      cdm_email:
+        description: The email address.
         range: string
         multivalued: true
   Counterparty:
@@ -372,17 +447,20 @@ classes:
   LegalEntity:
     description: A class to specify a legal entity, with a required name and an optional entity identifier
       (such as the LEI).
+    slots:
+    - cdm_name
     attributes:
-      name:
+      entityIdentifier:
+        description: A legal entity identifier with a source (e.g. RED entity code).
+        range: EntityIdentifier
+        multivalued: true
+    slot_usage:
+      cdm_name:
         description: The legal entity name.
         range: string
         required: true
         annotations:
           rosetta_metadata: scheme
-      entityIdentifier:
-        description: A legal entity identifier with a source (e.g. RED entity code).
-        range: EntityIdentifier
-        multivalued: true
     annotations:
       rosetta_metadata: key
     is_a: Concept
@@ -472,17 +550,14 @@ classes:
       entity or a natural person, although the model provides the ability to associate a person (or set
       of persons) to a party, which use case would imply that such party would be a legal entity (even
       if not formally specified as such).
+    slots:
+    - cdm_name
     attributes:
       partyId:
         description: The identifier associated with a party, e.g. the 20 digits LEI code.
         range: PartyIdentifier
         required: true
         multivalued: true
-      name:
-        description: The party name.
-        range: string
-        annotations:
-          rosetta_metadata: scheme
       businessUnit:
         description: Optional organization unit information used to describe the organization units (e.g.
           trading desks) involved in a transaction or business process, incl. the contact information
@@ -508,6 +583,12 @@ classes:
           contact information is specific to the associated business unit(s) or person (s), it should
           be associated with those.
         range: ContactInformation
+    slot_usage:
+      cdm_name:
+        description: The party name.
+        range: string
+        annotations:
+          rosetta_metadata: scheme
     annotations:
       rosetta_metadata: key
     is_a: Concept
@@ -938,6 +1019,8 @@ classes:
   Commodity:
     is_a: AssetBase
     description: Identifies a specific commodity by referencing a product identifier or by a product definition.
+    slots:
+    - cdm_description
     attributes:
       commodityProductDefinition:
         description: Specifies the commodity underlier in the event that no ISDA Commodity Reference Benchmark
@@ -953,7 +1036,8 @@ classes:
         description: Specifies the parameters for identifying the relevant contract date when the commodity
           reference price is a futures contract.
         range: DeliveryDateParameters
-      description:
+    slot_usage:
+      cdm_description:
         description: Provides additional information about the commodity underlier.
         range: string
     all_of:
@@ -1297,6 +1381,8 @@ classes:
     description: Comprises an identifier and a source. The associated metadata key denotes the ability
       to associate a hash value to the ProductIdentifier instantiations for the purpose of model cross-referencing,
       in support of functionality such as the event effect and the lineage.
+    slots:
+    - cdm_source
     attributes:
       identifier:
         description: Provides an identifier associated with a specific product. The identifier is unique
@@ -1305,7 +1391,8 @@ classes:
         required: true
         annotations:
           rosetta_metadata: scheme
-      source:
+    slot_usage:
+      cdm_source:
         description: Defines the source of the identifier.
         range: ProductIdTypeEnum
         required: true
@@ -1332,7 +1419,7 @@ classes:
         or using asset classes.'
       exactly_one_of:
       - slot_conditions:
-          source:
+          cdm_source:
             value_presence: PRESENT
       - slot_conditions:
           primaryAssetClass:
@@ -1344,7 +1431,7 @@ classes:
     - description: 'TaxonomySource: A taxonomy source can only be associated with a taxonomy value.'
       preconditions:
         slot_conditions:
-          source:
+          cdm_source:
             value_presence: PRESENT
       postconditions:
         slot_conditions:
@@ -1442,12 +1529,9 @@ classes:
   Taxonomy:
     description: Defines the taxonomy of an object by combining a taxonomy source (i.e. the rules to classify
       the object) and a value (i.e. the output of those rules on the object).
+    slots:
+    - cdm_source
     attributes:
-      source:
-        description: The source of the taxonomy that defines the rules for classifying the object. The
-          taxonomy source is taken from a enumerated list of taxonomy names. Optional as the taxonomy
-          source may not be provided.
-        range: TaxonomySourceEnum
       value:
         description: The value according to that taxonomy. Optional as it may not be possible to classify
           the object in that taxonomy.
@@ -1456,6 +1540,12 @@ classes:
         description: Specifies whether the taxonomy has been derived from the model features using a CDM
           qualification function that determines the product type based on the model features.
         range: boolean
+    slot_usage:
+      cdm_source:
+        description: The source of the taxonomy that defines the rules for classifying the object. The
+          taxonomy source is taken from a enumerated list of taxonomy names. Optional as the taxonomy
+          source may not be provided.
+        range: TaxonomySourceEnum
     comments:
     - 'Rosetta condition OrdinalExists is not stated in LinkML: if value -> classification count > 1 then
       value -> classification -> ordinal count = value -> classification count'
@@ -1465,6 +1555,8 @@ classes:
     - 'Rosetta condition SequentialOrdinals is not stated in LinkML: if value -> classification count
       > 1 then value -> classification -> ordinal count = value -> classification -> ordinal max'
   TaxonomyClassification:
+    slots:
+    - cdm_description
     attributes:
       className:
         description: The name defined by the classification system for a specific attribute in the taxonomy
@@ -1473,33 +1565,37 @@ classes:
         description: The value set by the taxonomy that is specific to the className attribute.
         range: string
         required: true
-      description:
-        description: A description of the class.
-        range: string
       ordinal:
         description: In the case of multi-layered hierarchical classification systems such as commodity
           classification, the layer the value and className occupy in the classification hierarchy, where
           1 represents the top-layer.
         range: integer
+    slot_usage:
+      cdm_description:
+        description: A description of the class.
+        range: string
   TaxonomyValue:
     description: Defines a taxonomy value as either a simple string or a more granular expression with
       class names and values for each class.
+    slots:
+    - cdm_name
     attributes:
-      name:
+      classification:
+        description: Specifies the taxonomy value as a set of class names and values for each class.
+        range: TaxonomyClassification
+        multivalued: true
+    slot_usage:
+      cdm_name:
         description: Specifies the taxonomy value as a simple string, which may be associated to an external
           scheme.
         range: string
         annotations:
           rosetta_metadata: scheme
-      classification:
-        description: Specifies the taxonomy value as a set of class names and values for each class.
-        range: TaxonomyClassification
-        multivalued: true
     all_of:
     - description: ValueExists
       any_of:
       - slot_conditions:
-          name:
+          cdm_name:
             value_presence: PRESENT
       - slot_conditions:
           classification:
@@ -1517,19 +1613,15 @@ classes:
         multivalued: true
   CodeListIdentification:
     description: A type to identify the version of a codelist
+    slots:
+    - cdm_description
+    - cdm_version
     attributes:
-      description:
-        description: A description of the code list, e.g. A list of codes identifying business centers
-        range: string
       publicationDate:
         description: The most recent date the code list was published, e.g. 2021-10-05
         range: string
       shortName:
         description: A short name (without whitespace) for the code list, e.g. businessCenterScheme
-        range: string
-        required: true
-      version:
-        description: The the most recent version of the codelist, eg. 9-1
         range: string
         required: true
       codeShortId:
@@ -1549,25 +1641,37 @@ classes:
           must signal an error to the user if a document retrieved using a LocationUri is not in genericode
           format.
         range: string
+    slot_usage:
+      cdm_description:
+        description: A description of the code list, e.g. A list of codes identifying business centers
+        range: string
+      cdm_version:
+        description: The the most recent version of the codelist, eg. 9-1
+        range: string
+        required: true
   CodeValue:
     description: A type to hold the value of the code in a codelist
+    slots:
+    - cdm_description
+    - cdm_source
     attributes:
       value:
         description: The value of the code, e.g. USNY
         range: string
         required: true
-      description:
-        description: A description of the meaning of the code, e.g. New York City, USA
-        range: string
-      source:
-        description: Where the code was defined,e.g. ISDA, FpML, Bloomberg
-        range: string
       effectiveDate:
         description: When the code became/becomes effective
         range: date
       deprecatedDate:
         description: When the code ceased to be valid for new uses
         range: date
+    slot_usage:
+      cdm_description:
+        description: A description of the meaning of the code, e.g. New York City, USA
+        range: string
+      cdm_source:
+        description: Where the code was defined,e.g. ISDA, FpML, Bloomberg
+        range: string
   NotDomesticCurrency:
     description: 'A class to specify the ISDA 2003 Term: Not Domestic Currency.'
     attributes:
@@ -2499,6 +2603,8 @@ classes:
       a reference to a previous WorkflowStep in order to preserve lineage. A workflow step is accepted
       if it contains a business event, proposed if proposedEvent is present and is rejected if the rejected
       flag is set.
+    slots:
+    - cdm_timestamp
     attributes:
       businessEvent:
         description: Life cycle event for the step.
@@ -2531,11 +2637,6 @@ classes:
       messageInformation:
         description: Contains all information pertaining the FpML messaging header
         range: MessageInformation
-      timestamp:
-        description: The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier].
-        range: EventTimestamp
-        required: true
-        multivalued: true
       eventIdentifier:
         description: The identifier(s) that uniquely identify a lifecycle event. The unbounded cardinality
           is meant to provide the ability to associate identifiers that are issued by distinct parties.
@@ -2563,6 +2664,12 @@ classes:
           and the partyCustomisedWorkflow which purpose is to provide the ability to associate custom
           workflow information to the CDM.
         range: WorkflowState
+    slot_usage:
+      cdm_timestamp:
+        description: The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier].
+        range: EventTimestamp
+        required: true
+        multivalued: true
     all_of:
     - description: 'CounterpartyPositionBusinessEventOrBusinessEventOrProposedEventChoice: Choice rule
         to control that either positionBusinessEvent is present, businessEvent is present or proposedEvent
@@ -2588,6 +2695,8 @@ classes:
       exists and action = ActionEnum -> Cancel)'
   WorkflowStepApproval:
     description: Party approvals associated to the current WorkflowStep.
+    slots:
+    - cdm_timestamp
     attributes:
       approved:
         description: Flag denoting whether the workflow step is approved or not
@@ -2602,7 +2711,8 @@ classes:
       rejectedReason:
         description: Optional reason for rejecting the workflow step
         range: string
-      timestamp:
+    slot_usage:
+      cdm_timestamp:
         description: Timestamp of the approval
         range: EventTimestamp
         required: true
@@ -4983,14 +5093,13 @@ classes:
       rosetta_root_type: 'true'
   ClauseLibraryClause:
     description: Defines clauses that make up the Agreement.
+    slots:
+    - cdm_name
     attributes:
       identifier:
         description: Unique identifier for the clause.
         range: AssignedIdentifier
         required: true
-      name:
-        description: Optional textual description of the clause.
-        range: string
       counterparty:
         description: Optional counterparty role. This can be used where a clause needs to be assigned
           to a specific party on the agreement based upon their role i.e. Party A or Party B.
@@ -5009,16 +5118,19 @@ classes:
         range: ClauseLibraryClauseVariant
         required: true
         multivalued: true
+    slot_usage:
+      cdm_name:
+        description: Optional textual description of the clause.
+        range: string
   ClauseLibraryClauseVariant:
     description: Sets the details for a specific variant associated to a clause in the Agreement.
+    slots:
+    - cdm_name
     attributes:
       identifier:
         description: Unique identifier for this variant.
         range: AssignedIdentifier
         required: true
-      name:
-        description: Optional textual description of the variant.
-        range: string
       counterparty:
         description: Optional counterparty role. This can be used where a clause needs to assign a different
           variant to the different parties on the agreement based upon their role i.e. Party A or Party
@@ -5038,6 +5150,10 @@ classes:
           any clause.
         range: ClauseLibraryVariableSet
         multivalued: true
+    slot_usage:
+      cdm_name:
+        description: Optional textual description of the variant.
+        range: string
   ClauseLibrarySchedule:
     description: The set of elections which specify an Agreement.
     attributes:
@@ -5050,6 +5166,8 @@ classes:
   ClauseLibraryVariableSet:
     description: Defines a type where additional variables associated to clauses and their variants can
       be described.
+    slots:
+    - cdm_name
     attributes:
       variableSet:
         description: For some variants a table of variables is required. To support this use case we need
@@ -5059,11 +5177,12 @@ classes:
           i.e. variableSet->variableSet->name/value.
         range: ClauseLibraryVariableSet
         multivalued: true
-      name:
-        description: The name of the variable.
-        range: string
       value:
         description: The value for this variable.
+        range: string
+    slot_usage:
+      cdm_name:
+        description: The name of the variable.
         range: string
     rules:
     - description: 'VariableSetExists: If we have a variableSet then we must not have any name/value pairs
@@ -5074,14 +5193,14 @@ classes:
             value_presence: PRESENT
       postconditions:
         slot_conditions:
-          name:
+          cdm_name:
             value_presence: ABSENT
           value:
             value_presence: ABSENT
     - description: 'NameMustExist: If we have a name then we must also have a value.'
       preconditions:
         slot_conditions:
-          name:
+          cdm_name:
             value_presence: PRESENT
       postconditions:
         slot_conditions:
@@ -5094,7 +5213,7 @@ classes:
             value_presence: PRESENT
       postconditions:
         slot_conditions:
-          name:
+          cdm_name:
             value_presence: PRESENT
     comments:
     - 'Rosetta condition VariableSetNesting is not stated in LinkML: if variableSet -> variableSet exists
@@ -5340,6 +5459,8 @@ classes:
   ApplicableRegime:
     description: A class to specify the applicable regulatory regime(s) that parties to a legal agreement,
       such as the ISDA 2016 and 2018 CSA for Initial Margin, might be subject to.
+    slots:
+    - cdm_additionalType
     attributes:
       regime:
         description: The applicable regulatory regime, as specified through an enumeration.
@@ -5356,13 +5477,14 @@ classes:
         multivalued: true
         minimum_cardinality: 2
         maximum_cardinality: 2
-      additionalType:
-        range: AdditionalTypeEnum
-        annotations:
-          doc_reference: ISDA CSA_IM_2016 paragraph 13 General Principles clause (b)(B)
       additionalTerms:
         description: The bespoke Additional Type for the purposes of Covered Transactions (IM).
         range: string
+    slot_usage:
+      cdm_additionalType:
+        range: AdditionalTypeEnum
+        annotations:
+          doc_reference: ISDA CSA_IM_2016 paragraph 13 General Principles clause (b)(B)
     all_of:
     - description: 'ApplicableRegimeChoice: The applicable regime should be specified either as an enumeration
         or as an additional regime specified by the parties.'
@@ -5501,10 +5623,9 @@ classes:
         11 clause (b)(iii)(A) | ISDA CSD_English_1995 paragraph 11 clause (c)(iii)(A)
   CSAMinimumTransferAmountVariableSet:
     description: Defines a combination of Rating Agency, Rating Value, amount and Currency code.
+    slots:
+    - cdm_name
     attributes:
-      name:
-        description: The name of the Rating Agency.
-        range: CreditRatingAgencyEnum
       value:
         description: The value assigned to the rating.
         range: string
@@ -5514,11 +5635,15 @@ classes:
       amountIsInfinity:
         description: A flag that defines the Minimum Transfer Amount (MTA) as Infinity.
         range: boolean
+    slot_usage:
+      cdm_name:
+        description: The name of the Rating Agency.
+        range: CreditRatingAgencyEnum
     rules:
     - description: 'NameMustExist: If we have a name then we must also have a value.'
       preconditions:
         slot_conditions:
-          name:
+          cdm_name:
             value_presence: PRESENT
       postconditions:
         slot_conditions:
@@ -5531,7 +5656,7 @@ classes:
             value_presence: PRESENT
       postconditions:
         slot_conditions:
-          name:
+          cdm_name:
             value_presence: PRESENT
   CSAReturnAmount:
     description: In respect of a Valuation Date, the amount of collateral which a party is entitled to
@@ -5544,21 +5669,24 @@ classes:
         required: true
   CSAThresholdVariableSet:
     description: Defines a combination of Rating Agency, Rating Value, Threshold amount and Currency code.
+    slots:
+    - cdm_name
     attributes:
-      name:
-        description: The relevant rating agency.
-        range: CreditRatingAgencyEnum
       value:
         description: Rating applicable to the party from a given rating agency.
         range: string
       amount:
         description: The amount value applicable to the Threshold.
         range: integer
+    slot_usage:
+      cdm_name:
+        description: The relevant rating agency.
+        range: CreditRatingAgencyEnum
     rules:
     - description: 'NameMustExist: If we have a name then we must also have a value.'
       preconditions:
         slot_conditions:
-          name:
+          cdm_name:
             value_presence: PRESENT
       postconditions:
         slot_conditions:
@@ -5571,7 +5699,7 @@ classes:
             value_presence: PRESENT
       postconditions:
         slot_conditions:
-          name:
+          cdm_name:
             value_presence: PRESENT
   CSAValuationDate:
     description: Specifies the date on which the value of collateral or exposure are calculated in accordance
@@ -6752,17 +6880,20 @@ classes:
     description: A class to specify an optional termination event, additional to the Termination Events
       that will be deemed an Access Condition (Initial Margin CSA) or a Specified Condition (Variation
       Margin CSA).
+    slots:
+    - cdm_name
     attributes:
-      name:
-        description: The name of the additional termination event.
-        range: string
-        required: true
       applicableParty:
         description: Whether the additional termination event is applicable for the relevant party.
         range: CounterpartyRoleEnum
         required: true
         multivalued: true
         maximum_cardinality: 2
+    slot_usage:
+      cdm_name:
+        description: The name of the additional termination event.
+        range: string
+        required: true
     aliases:
     - AdditionalTerminationEvent
     annotations:
@@ -6829,13 +6960,16 @@ classes:
             value_presence: PRESENT
   CustodianEvent:
     description: A class to specify the Custodian Event.
+    slots:
+    - cdm_endDate
     attributes:
       isApplicable:
         description: The qualification as to whether the Custodian Event (English Law & New York Law ISDA
           CSA) or the Collateral Manager Event (Japanese Law ISDA CSA) is applicable.
         range: boolean
         required: true
-      endDate:
+    slot_usage:
+      cdm_endDate:
         description: The qualification of the Custodian Event (English Law & New York Law ISDA CSA) or
           Collateral Manager Event (Japanese Law ISDA CSA) End Date.
         range: CustodianEventEndDate
@@ -10904,6 +11038,8 @@ classes:
     description: 'Specifies the type of legal agreement, identified via a set of composable attributes:
       agreementName, publisher, governing law and version, e.g. ISDA 2013 Standard Credit Support Annex
       English Law.'
+    slots:
+    - cdm_publisher
     attributes:
       governingLaw:
         description: The law governing the legal agreement, e.g. English Law, New York Law or Japanese
@@ -10917,11 +11053,6 @@ classes:
         required: true
         annotations:
           doc_reference: AcadiaSoft AM_1_0 namingConvention documentName
-      publisher:
-        description: The legal agreement publisher, e.g. ISDA.
-        range: LegalAgreementPublisherEnum
-        annotations:
-          doc_reference: AcadiaSoft AM_1_0 namingConvention publisher
       vintage:
         description: In the case where successive definitions of the legal agreement have been developed,
           the vintage identification. This is typically (but not necessarily) done by referencing the
@@ -10929,6 +11060,12 @@ classes:
         range: integer
         annotations:
           doc_reference: AcadiaSoft AM_1_0 namingConvention csaVersion
+    slot_usage:
+      cdm_publisher:
+        description: The legal agreement publisher, e.g. ISDA.
+        range: LegalAgreementPublisherEnum
+        annotations:
+          doc_reference: AcadiaSoft AM_1_0 namingConvention publisher
     comments:
     - 'Rosetta condition CSAMarginType is not stated in LinkML: if agreementName -> creditSupportAgreementMarginType
       exists then agreementName -> creditSupportAgreementType exists and vintage >= 2016'
@@ -10975,6 +11112,8 @@ classes:
         required: true
   OtherAgreement:
     description: A class for defining an agreement executed between parties.
+    slots:
+    - cdm_version
     attributes:
       identifier:
         description: An identifier that has been created to identify the agreement.
@@ -10988,14 +11127,15 @@ classes:
         required: true
         annotations:
           rosetta_metadata: scheme
-      version:
+      date:
+        description: The date on which the agreement was signed.
+        range: date
+    slot_usage:
+      cdm_version:
         description: The version of the agreement.
         range: string
         annotations:
           rosetta_metadata: scheme
-      date:
-        description: The date on which the agreement was signed.
-        range: date
   OtherAgreementTerms:
     description: 'A class to specify a related legal agreement. For example, ISDA 2016 Credit Support
       Annex for Initial Margin, paragraph 13, General Principles, (s): Other CSA and Japanese Law CSA
@@ -11020,6 +11160,9 @@ classes:
       that represents the event. This type is an extended version of a type defined by RIXML (www.rixml.org).
       Rosetta restricts the FpML implementation by not providing the ability to associated a document
       in hexadecimalBinary or base64Binary until such time that actual use cases will come up.
+    slots:
+    - cdm_name
+    - cdm_url
     attributes:
       resourceId:
         description: The unique identifier of the resource within the event. FpML specifies this element
@@ -11052,9 +11195,6 @@ classes:
         range: string
         annotations:
           rosetta_metadata: scheme
-      name:
-        description: The name of the resource. It is specified as a NormalizedString in FpML.
-        range: string
       comments:
         description: Any additional comments that are deemed necessary. For example, which software version
           is required to open the document? Or, how does this resource relate to the others for this event?
@@ -11064,7 +11204,11 @@ classes:
           a CDATA section must be placed around the source message to prevent its interpretation as XML
           content.
         range: string
-      url:
+    slot_usage:
+      cdm_name:
+        description: The name of the resource. It is specified as a NormalizedString in FpML.
+        range: string
+      cdm_url:
         description: Indicates where the resource can be found, as a URL that references the information
           on a web server accessible to the message recipient.
         range: string
@@ -11077,14 +11221,14 @@ classes:
           string:
             value_presence: PRESENT
       - slot_conditions:
-          url:
+          cdm_url:
             value_presence: PRESENT
       - all_of:
         - slot_conditions:
             string:
               value_presence: ABSENT
         - slot_conditions:
-            url:
+            cdm_url:
               value_presence: ABSENT
   ResourceLength:
     description: A class to indicate the length of the resource.
@@ -11781,19 +11925,22 @@ classes:
             value_presence: PRESENT
   ContractDetails:
     description: Defines specific attributes that relate to contractual details of trades.
+    slots:
+    - cdm_documentation
     attributes:
-      documentation:
+      governingLaw:
+        description: Represents the law governing the trade and associated contractual product terms.
+        range: GoverningLawEnum
+        annotations:
+          rosetta_metadata: scheme
+    slot_usage:
+      cdm_documentation:
         description: Represents the legal document(s) that governs a trade and associated contractual
           product terms, either as a reference to such documents when specified as part of the CDM, or
           through identification of some of the key terms of those documents, such as the type of document,
           the document identifier, the publisher, the document vintage and the agreement date.
         range: LegalAgreement
         multivalued: true
-      governingLaw:
-        description: Represents the law governing the trade and associated contractual product terms.
-        range: GoverningLawEnum
-        annotations:
-          rosetta_metadata: scheme
     annotations:
       rosetta_metadata: key
     comments:
@@ -13238,22 +13385,17 @@ classes:
           value_presence: PRESENT
   Valuation:
     description: Defines the value of an investment, asset, or security
+    slots:
+    - cdm_timestamp
+    - cdm_source
     attributes:
       amount:
         description: Current value of the outstanding contract
         range: Money
         required: true
-      timestamp:
-        description: Date and time of the last valuation marked to market, provided by the central counterparty
-          (CCP) or calculated using the current or last available market price of the inputs.
-        range: datetime
-        required: true
       method:
         description: Method used for the valuation of the transaction by the valuation party.
         range: ValuationTypeEnum
-      source:
-        description: Source of the valuation of the transaction by the valuation party.
-        range: ValuationSourceEnum
       scope:
         description: Defines the scope of the valuation, what it applies to e.g. the collateral or the
           trade
@@ -13269,6 +13411,15 @@ classes:
       priceComponent:
         description: Denotes the price used to compute the valuation.
         range: Price
+    slot_usage:
+      cdm_timestamp:
+        description: Date and time of the last valuation marked to market, provided by the central counterparty
+          (CCP) or calculated using the current or last available market price of the inputs.
+        range: datetime
+        required: true
+      cdm_source:
+        description: Source of the valuation of the transaction by the valuation party.
+        range: ValuationSourceEnum
     all_of:
     - description: 'ValuationType: The below condition ensures one and only one of the two attributes:
         ''Valuation Method'' or ''Valuation Source'' is allowed. Valuation of a trade or a portfolio is
@@ -13280,7 +13431,7 @@ classes:
           method:
             value_presence: PRESENT
       - slot_conditions:
-          source:
+          cdm_source:
             value_presence: PRESENT
   ValuationInstruction:
     description: Specifies inputs needed to process a valuation.
@@ -15425,13 +15576,10 @@ classes:
     annotations:
       rosetta_metadata: key
   CalculationPeriodData:
+    slots:
+    - cdm_startDate
+    - cdm_endDate
     attributes:
-      startDate:
-        range: date
-        required: true
-      endDate:
-        range: date
-        required: true
       daysInPeriod:
         range: integer
         required: true
@@ -15443,6 +15591,13 @@ classes:
         required: true
       isLastPeriod:
         range: boolean
+        required: true
+    slot_usage:
+      cdm_startDate:
+        range: date
+        required: true
+      cdm_endDate:
+        range: date
         required: true
   CalculationPeriodDates:
     description: 'A data for: defining the parameters used to generate the calculation period dates schedule,
@@ -16208,16 +16363,20 @@ classes:
         multivalued: true
   AssetDeliveryPeriods:
     description: Defines the periods of delivery, including the delivery profile.
+    slots:
+    - cdm_startDate
+    - cdm_endDate
     attributes:
       profile:
         description: Defines the delivery profile of the asset, including the load type and the delivery
           intervals.
         range: AssetDeliveryProfile
         multivalued: true
-      startDate:
+    slot_usage:
+      cdm_startDate:
         description: Delivery start date
         range: date
-      endDate:
+      cdm_endDate:
         description: Delivery end date
         range: date
   AssetDeliveryProfile:
@@ -16712,13 +16871,10 @@ classes:
             maximum_value: 1
   DividendPeriod:
     description: Time bounded dividend payment periods, each with a dividend payment date per period.
+    slots:
+    - cdm_startDate
+    - cdm_endDate
     attributes:
-      startDate:
-        description: Dividend period start date.
-        range: DividendPaymentDate
-      endDate:
-        description: Dividend period end date.
-        range: DividendPaymentDate
       dateAdjustments:
         description: Date adjustments for all unadjusted dates in this dividend period.
         range: BusinessDayAdjustments
@@ -16738,6 +16894,13 @@ classes:
       dividendValuationDate:
         description: Specifies the dividend valuation dates of the swap.
         range: AdjustableOrRelativeDate
+    slot_usage:
+      cdm_startDate:
+        description: Dividend period start date.
+        range: DividendPaymentDate
+      cdm_endDate:
+        description: Dividend period end date.
+        range: DividendPaymentDate
   DividendReturnTerms:
     description: A class describing the conditions governing the payment of dividends to the receiver
       of the equity return, with the exception of the dividend payout ratio, which is defined for each
@@ -18550,18 +18713,21 @@ classes:
   IndexBase:
     is_a: AssetBase
     description: Identifies an index by referencing an identifier.
+    slots:
+    - cdm_name
     attributes:
-      name:
-        description: A description of the Index.
-        range: string
-        annotations:
-          rosetta_metadata: scheme
       provider:
         description: The organisation that creates or maintains the Index.
         range: LegalEntity
       assetClass:
         description: The Asset Class of the Index.
         range: AssetClassEnum
+    slot_usage:
+      cdm_name:
+        description: A description of the Index.
+        range: string
+        annotations:
+          rosetta_metadata: scheme
     all_of:
     - description: 'AssetType: Asset type must be Other.'
       slot_conditions:
@@ -18769,8 +18935,10 @@ classes:
     is_a: IndexBase
     description: Specification of a user-defined index that does not meet the criteria of other Index
       data types.
-    attributes:
-      description:
+    slots:
+    - cdm_description
+    slot_usage:
+      cdm_description:
         description: A description that defines the OtherIndex.
         range: string
     all_of:
@@ -18861,13 +19029,13 @@ classes:
               equals_string: Correlation
       postconditions:
         slot_conditions:
-          unit:
+          cdm_unit:
             value_presence: ABSENT
           perUnitOf:
             value_presence: ABSENT
       elseconditions:
         slot_conditions:
-          unit:
+          cdm_unit:
             value_presence: PRESENT
           perUnitOf:
             value_presence: PRESENT
@@ -19084,13 +19252,13 @@ classes:
               equals_string: Correlation
       postconditions:
         slot_conditions:
-          unit:
+          cdm_unit:
             value_presence: ABSENT
           perUnitOf:
             value_presence: ABSENT
       elseconditions:
         slot_conditions:
-          unit:
+          cdm_unit:
             value_presence: PRESENT
           perUnitOf:
             value_presence: PRESENT
@@ -19499,8 +19667,10 @@ classes:
     description: Provides an abstract type to define a measure as a single number or a schedule associated
       to a unit. This type is abstract because all its attributes are optional. The types that extend
       it can specify further existence constraints.
-    attributes:
-      unit:
+    slots:
+    - cdm_unit
+    slot_usage:
+      cdm_unit:
         description: Qualifies the unit by which the amount is measured. Optional because a measure may
           be unit-less (e.g. when representing a ratio between amounts in the same unit).
         range: UnitType
@@ -19766,7 +19936,7 @@ classes:
         description: Specifies the total quantity when the quantity itself is specified with a frequency.
         range: Schedule
     slot_usage:
-      unit:
+      cdm_unit:
         description: Requires that a unit of amount must be specified for any quantity.
         range: UnitType
         required: true
@@ -20144,19 +20314,23 @@ classes:
             equals_string: D
   AveragingSchedule:
     description: Class to representing a method for generating a series of dates.
+    slots:
+    - cdm_startDate
+    - cdm_endDate
     attributes:
-      startDate:
-        description: Date on which this period begins.
-        range: date
-        required: true
-      endDate:
-        description: Date on which this period ends.
-        range: date
-        required: true
       averagingPeriodFrequency:
         description: The frequency at which averaging period occurs with the regular part of the valuation
           schedule and their roll date convention.
         range: CalculationPeriodFrequency
+        required: true
+    slot_usage:
+      cdm_startDate:
+        description: Date on which this period begins.
+        range: date
+        required: true
+      cdm_endDate:
+        description: Date on which this period ends.
+        range: date
         required: true
   BusinessCenterTime:
     description: A class for defining a time with respect to a business day calendar location. For example,
@@ -20424,12 +20598,15 @@ classes:
     description: A class defining a contiguous series of calendar dates. The date range is defined as
       all the dates between and including the start and the end date. The start date must fall on or before
       the end date.
-    attributes:
-      startDate:
+    slots:
+    - cdm_startDate
+    - cdm_endDate
+    slot_usage:
+      cdm_startDate:
         description: The first date of a date range.
         range: date
         required: true
-      endDate:
+      cdm_endDate:
         description: The last date of a date range.
         range: date
         required: true
@@ -20571,19 +20748,10 @@ classes:
             value_presence: PRESENT
   PeriodicDates:
     description: A class for specifying a calculation period schedule.
+    slots:
+    - cdm_startDate
+    - cdm_endDate
     attributes:
-      startDate:
-        description: The start date of the calculation period. FpML specifies that for interest rate swaps
-          this date must only be specified if it is not equal to the effective date. It is always specified
-          in the case of equity swaps and credit default swaps with periodic payments. This date may be
-          subject to adjustment in accordance with a business day convention.
-        range: AdjustableOrRelativeDate
-      endDate:
-        description: The end date of the calculation period. FpML specifies that for interest rate swaps
-          this date must only be specified if it is not equal to the termination date. It is always specified
-          in the case of equity swaps with periodic payments. This date may be subject to adjustment in
-          accordance with a business day convention.
-        range: AdjustableOrRelativeDate
       periodFrequency:
         description: The frequency at which calculation period end dates occur with the regular part of
           the calculation period schedule and their roll date convention.
@@ -20597,6 +20765,19 @@ classes:
         description: Denotes the enumerated values to specify the day type classification used in counting
           the number of days between two dates.
         range: DayTypeEnum
+    slot_usage:
+      cdm_startDate:
+        description: The start date of the calculation period. FpML specifies that for interest rate swaps
+          this date must only be specified if it is not equal to the effective date. It is always specified
+          in the case of equity swaps and credit default swaps with periodic payments. This date may be
+          subject to adjustment in accordance with a business day convention.
+        range: AdjustableOrRelativeDate
+      cdm_endDate:
+        description: The end date of the calculation period. FpML specifies that for interest rate swaps
+          this date must only be specified if it is not equal to the termination date. It is always specified
+          in the case of equity swaps with periodic payments. This date may be subject to adjustment in
+          accordance with a business day convention.
+        range: AdjustableOrRelativeDate
   RelativeDateOffset:
     is_a: Offset
     description: A class defining a date (referred to as the derived date) as a relative offset from another
@@ -20985,11 +21166,10 @@ classes:
         multivalued: true
   FroHistory:
     description: FRO History
+    slots:
+    - cdm_startDate
+    - cdm_endDate
     attributes:
-      startDate:
-        description: The date the Floating Rate Option was added to the 2006 Definitions or 2021 Floating
-          Rate Matrix. (e.g. 2017/04/06)
-        range: date
       firstDefinedIn:
         description: The supplement or version the FRO was first added to the 2006 Definitions or 2021
           Floating Rate Matrix. (e.g. S52)
@@ -21002,7 +21182,12 @@ classes:
         description: The supplement or version the FRO was last updated in the 2006 Definitions or 2021
           Floating Rate Matrix. (e.g. FRO-M-V1)
         range: ContractualDefinition
-      endDate:
+    slot_usage:
+      cdm_startDate:
+        description: The date the Floating Rate Option was added to the 2006 Definitions or 2021 Floating
+          Rate Matrix. (e.g. 2017/04/06)
+        range: date
+      cdm_endDate:
         description: The date the Floating Rate Option was removed from the 2006 Definitions or 2021 Floating
           Rate Matrix. (e.g. 2014/01/01)
         range: date
@@ -21144,17 +21329,20 @@ classes:
     description: Represents a single atomic step in the Instruction Composition lifecycle, including its
       instructions, status, and optional output. Each CompositionStep is defined by an identifier, a timestamp
       and a single Instruction.
+    slots:
+    - cdm_timestamp
     attributes:
       identifier:
         description: Identification of the Instruction Composition step.
         range: string
-      timestamp:
-        description: Date and time of the execution of the Instruction Composition step after being executed.
-        range: datetime
       compositionStepInstruction:
         description: Set of instructions defining the steps of each Instruction Composition process.
         range: CompositionStepInstruction
         required: true
+    slot_usage:
+      cdm_timestamp:
+        description: Date and time of the execution of the Instruction Composition step after being executed.
+        range: datetime
   CompositionStepInstruction:
     description: Set of instructions defining the steps of each Instruction Composition process. The CompositionStepInstruction
       is defined by a type (as the same instruction can be reused across different Instruction Composition
@@ -39998,4 +40186,8 @@ types:
     description: Defined as a number with a minimum value of 0.
     minimum_value: 0
 notes:
-- 'Adapted for LOKF by `lokf adapt`. re-rooted on lokf:Concept: LegalEntity, Party.'
+- 'Adapted for LOKF by `lokf adapt`. re-rooted on lokf:Concept: LegalEntity, Party; renamed, IRIs unchanged:
+  additionalType -> cdm_additionalType, description -> cdm_description, documentation -> cdm_documentation,
+  email -> cdm_email, endDate -> cdm_endDate, name -> cdm_name, publisher -> cdm_publisher, source ->
+  cdm_source, startDate -> cdm_startDate, timestamp -> cdm_timestamp, unit -> cdm_unit, url -> cdm_url,
+  version -> cdm_version.'

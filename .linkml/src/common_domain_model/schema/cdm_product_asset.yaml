@@ -29,6 +29,7 @@ imports:
   - ./cdm_product_common_schedule
   - ./cdm_product_common_settlement
   - ./cdm_product_template
+  - ./common_domain_model_keys
 enums:
   BankHolidayTreatmentEnum:
     description: Defines whether the bank holidays are treated as weekdays or weekends in terms of delivery
@@ -431,12 +432,16 @@ classes:
         multivalued: true
   AssetDeliveryPeriods:
     description: Defines the periods of delivery, including the delivery profile.
+    slots:
+      - startDate
+      - endDate
     attributes:
       profile:
         description: Defines the delivery profile of the asset, including the load type and the delivery
           intervals.
         range: AssetDeliveryProfile
         multivalued: true
+    slot_usage:
       startDate:
         description: Delivery start date
         range: date
@@ -936,13 +941,10 @@ classes:
               maximum_value: 1
   DividendPeriod:
     description: Time bounded dividend payment periods, each with a dividend payment date per period.
+    slots:
+      - startDate
+      - endDate
     attributes:
-      startDate:
-        description: Dividend period start date.
-        range: DividendPaymentDate
-      endDate:
-        description: Dividend period end date.
-        range: DividendPaymentDate
       dateAdjustments:
         description: Date adjustments for all unadjusted dates in this dividend period.
         range: BusinessDayAdjustments
@@ -962,6 +964,13 @@ classes:
       dividendValuationDate:
         description: Specifies the dividend valuation dates of the swap.
         range: AdjustableOrRelativeDate
+    slot_usage:
+      startDate:
+        description: Dividend period start date.
+        range: DividendPaymentDate
+      endDate:
+        description: Dividend period end date.
+        range: DividendPaymentDate
   DividendReturnTerms:
     description: A class describing the conditions governing the payment of dividends to the receiver
       of the equity return, with the exception of the dividend payout ratio, which is defined for each

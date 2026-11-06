@@ -121,7 +121,8 @@ linkml_meta = LinkMLMeta({'annotations': {'upstream_commit': {'tag': 'upstream_c
                  './cdm_product_common',
                  './cdm_product_common_schedule',
                  './cdm_product_common_settlement',
-                 './cdm_product_template'],
+                 './cdm_product_template',
+                 './common_domain_model_keys'],
      'keywords': ['CDM',
                   'Common Domain Model',
                   'derivatives',
@@ -19620,7 +19621,16 @@ class AveragingSchedule(ConfiguredBaseModel):
     """
     Class to representing a method for generating a series of dates.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
+         'slot_usage': {'endDate': {'description': 'Date on which this period ends.',
+                                    'name': 'endDate',
+                                    'range': 'date',
+                                    'required': True},
+                        'startDate': {'description': 'Date on which this period '
+                                                     'begins.',
+                                      'name': 'startDate',
+                                      'range': 'date',
+                                      'required': True}}})
 
     startDate: date = Field(default=..., description="""Date on which this period begins.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
                        'DateRange',
@@ -19795,7 +19805,15 @@ class DateRange(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['Rosetta condition DatesOrdered is not stated in LinkML: '
                       'startDate <= endDate'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
+         'slot_usage': {'endDate': {'description': 'The last date of a date range.',
+                                    'name': 'endDate',
+                                    'range': 'date',
+                                    'required': True},
+                        'startDate': {'description': 'The first date of a date range.',
+                                      'name': 'startDate',
+                                      'range': 'date',
+                                      'required': True}}})
 
     startDate: date = Field(default=..., description="""The first date of a date range.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
                        'DateRange',
@@ -20051,7 +20069,33 @@ class PeriodicDates(ConfiguredBaseModel):
     """
     A class for specifying a calculation period schedule.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_datetime',
+         'slot_usage': {'endDate': {'description': 'The end date of the calculation '
+                                                   'period. FpML specifies that for '
+                                                   'interest rate swaps this date must '
+                                                   'only be specified if it is not '
+                                                   'equal to the termination date. It '
+                                                   'is always specified in the case of '
+                                                   'equity swaps with periodic '
+                                                   'payments. This date may be subject '
+                                                   'to adjustment in accordance with a '
+                                                   'business day convention.',
+                                    'name': 'endDate',
+                                    'range': 'AdjustableOrRelativeDate'},
+                        'startDate': {'description': 'The start date of the '
+                                                     'calculation period. FpML '
+                                                     'specifies that for interest rate '
+                                                     'swaps this date must only be '
+                                                     'specified if it is not equal to '
+                                                     'the effective date. It is always '
+                                                     'specified in the case of equity '
+                                                     'swaps and credit default swaps '
+                                                     'with periodic payments. This '
+                                                     'date may be subject to '
+                                                     'adjustment in accordance with a '
+                                                     'business day convention.',
+                                      'name': 'startDate',
+                                      'range': 'AdjustableOrRelativeDate'}}})
 
     startDate: Optional[AdjustableOrRelativeDate] = Field(default=None, description="""The start date of the calculation period. FpML specifies that for interest rate swaps this date must only be specified if it is not equal to the effective date. It is always specified in the case of equity swaps and credit default swaps with periodic payments. This date may be subject to adjustment in accordance with a business day convention.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
                        'DateRange',
@@ -20466,7 +20510,14 @@ class MeasureBase(Schedule):
                                     'date-value pairs. Both attributes may be '
                                     'specified, in which case the single amount number '
                                     'is the initial value.'}],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_math',
+         'slot_usage': {'unit': {'description': 'Qualifies the unit by which the '
+                                                'amount is measured. Optional because '
+                                                'a measure may be unit-less (e.g. when '
+                                                'representing a ratio between amounts '
+                                                'in the same unit).',
+                                 'name': 'unit',
+                                 'range': 'UnitType'}}})
 
     unit: Optional[UnitType] = Field(default=None, description="""Qualifies the unit by which the amount is measured. Optional because a measure may be unit-less (e.g. when representing a ratio between amounts in the same unit).""", json_schema_extra = { "linkml_meta": {'domain_of': ['MeasureBase']} })
     value: Optional[Decimal] = Field(default=None, description="""The initial rate or amount, as the case may be. An initial rate of 5% would be represented as 0.05.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatedValue',
@@ -21305,16 +21356,21 @@ class Commodity(AssetBase):
          'comments': ['Rosetta condition ValueSource is not stated in LinkML: if '
                       'taxonomy exists then (taxonomy -> source exists and taxonomy -> '
                       'value exists)'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
+         'slot_usage': {'description': {'description': 'Provides additional '
+                                                       'information about the '
+                                                       'commodity underlier.',
+                                        'name': 'description',
+                                        'range': 'string'}}})
 
-    commodityProductDefinition: Optional[CommodityProductDefinition] = Field(default=None, description="""Specifies the commodity underlier in the event that no ISDA Commodity Reference Benchmark exists.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity']} })
-    priceQuoteType: QuotationSideEnum = Field(default=..., description="""Describes the required quote type of the underlying price that will be observed. Example values include 'Bid, 'Ask', 'Settlement' (for a futures contract) and 'WeightedAverage' (for some published prices and indices).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity']} })
-    deliveryDateReference: Optional[DeliveryDateParameters] = Field(default=None, description="""Specifies the parameters for identifying the relevant contract date when the commodity reference price is a futures contract.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity']} })
     description: Optional[str] = Field(default=None, description="""Provides additional information about the commodity underlier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity',
                        'TaxonomyClassification',
                        'CodeListIdentification',
                        'CodeValue',
                        'OtherIndex']} })
+    commodityProductDefinition: Optional[CommodityProductDefinition] = Field(default=None, description="""Specifies the commodity underlier in the event that no ISDA Commodity Reference Benchmark exists.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity']} })
+    priceQuoteType: QuotationSideEnum = Field(default=..., description="""Describes the required quote type of the underlying price that will be observed. Example values include 'Bid, 'Ask', 'Settlement' (for a futures contract) and 'WeightedAverage' (for some published prices and indices).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity']} })
+    deliveryDateReference: Optional[DeliveryDateParameters] = Field(default=None, description="""Specifies the parameters for identifying the relevant contract date when the commodity reference price is a futures contract.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity']} })
     identifier: list[AssetIdentifier] = Field(default=..., description="""Asset Identifiers are used to uniquely identify an Asset, using a specified Asset Identifier Type.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetBase',
                        'AssetIdentifier',
                        'ProductIdentifier',
@@ -22057,8 +22113,14 @@ class ProductIdentifier(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'key'}},
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
+         'slot_usage': {'source': {'description': 'Defines the source of the '
+                                                  'identifier.',
+                                   'name': 'source',
+                                   'range': 'ProductIdTypeEnum',
+                                   'required': True}}})
 
+    source: ProductIdTypeEnum = Field(default=..., description="""Defines the source of the identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProductIdentifier', 'Taxonomy', 'CodeValue', 'Valuation']} })
     identifier: str = Field(default=..., description="""Provides an identifier associated with a specific product. The identifier is unique within the public source specified in the source attribute.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'scheme'}},
          'domain_of': ['AssetBase',
@@ -22084,7 +22146,6 @@ class ProductIdentifier(ConfiguredBaseModel):
                        'Clause',
                        'EligibleCollateralSpecification',
                        'NonTransferableProduct']} })
-    source: ProductIdTypeEnum = Field(default=..., description="""Defines the source of the identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProductIdentifier', 'Taxonomy', 'CodeValue', 'Valuation']} })
 
 
 class QuasiGovernmentIssuerType(ConfiguredBaseModel):
@@ -22266,7 +22327,16 @@ class Taxonomy(ConfiguredBaseModel):
                       'if value -> classification count > 1 then value -> '
                       'classification -> ordinal count = value -> classification -> '
                       'ordinal max'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
+         'slot_usage': {'source': {'description': 'The source of the taxonomy that '
+                                                  'defines the rules for classifying '
+                                                  'the object. The taxonomy source is '
+                                                  'taken from a enumerated list of '
+                                                  'taxonomy names. Optional as the '
+                                                  'taxonomy source may not be '
+                                                  'provided.',
+                                   'name': 'source',
+                                   'range': 'TaxonomySourceEnum'}}})
 
     source: Optional[TaxonomySourceEnum] = Field(default=None, description="""The source of the taxonomy that defines the rules for classifying the object. The taxonomy source is taken from a enumerated list of taxonomy names. Optional as the taxonomy source may not be provided.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProductIdentifier', 'Taxonomy', 'CodeValue', 'Valuation']} })
     value: Optional[TaxonomyValue] = Field(default=None, description="""The value according to that taxonomy. Optional as it may not be possible to classify the object in that taxonomy.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatedValue',
@@ -22328,8 +22398,16 @@ class ProductTaxonomy(Taxonomy):
 
 
 class TaxonomyClassification(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
+         'slot_usage': {'description': {'description': 'A description of the class.',
+                                        'name': 'description',
+                                        'range': 'string'}}})
 
+    description: Optional[str] = Field(default=None, description="""A description of the class.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity',
+                       'TaxonomyClassification',
+                       'CodeListIdentification',
+                       'CodeValue',
+                       'OtherIndex']} })
     className: Optional[str] = Field(default=None, description="""The name defined by the classification system for a specific attribute in the taxonomy""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyClassification']} })
     value: str = Field(default=..., description="""The value set by the taxonomy that is specific to the className attribute.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatedValue',
                        'Schedule',
@@ -22343,11 +22421,6 @@ class TaxonomyClassification(ConfiguredBaseModel):
                        'CSAThresholdVariableSet',
                        'DisputeResolution',
                        'OtherEligibleAndPostedSupport']} })
-    description: Optional[str] = Field(default=None, description="""A description of the class.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity',
-                       'TaxonomyClassification',
-                       'CodeListIdentification',
-                       'CodeValue',
-                       'OtherIndex']} })
     ordinal: Optional[int] = Field(default=None, description="""In the case of multi-layered hierarchical classification systems such as commodity classification, the layer the value and className occupy in the classification hierarchy, where 1 represents the top-layer.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyClassification']} })
 
 
@@ -22360,7 +22433,14 @@ class TaxonomyValue(ConfiguredBaseModel):
                                 {'slot_conditions': {'classification': {'name': 'classification',
                                                                         'value_presence': 'PRESENT'}}}],
                      'description': 'ValueExists'}],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_common',
+         'slot_usage': {'name': {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
+                                                                      'value': 'scheme'}},
+                                 'description': 'Specifies the taxonomy value as a '
+                                                'simple string, which may be '
+                                                'associated to an external scheme.',
+                                 'name': 'name',
+                                 'range': 'string'}}})
 
     name: Optional[str] = Field(default=None, description="""Specifies the taxonomy value as a simple string, which may be associated to an external scheme.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'scheme'}},
@@ -22506,21 +22586,31 @@ class CodeListIdentification(ConfiguredBaseModel):
     """
     A type to identify the version of a codelist
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist',
+         'slot_usage': {'description': {'description': 'A description of the code '
+                                                       'list, e.g. A list of codes '
+                                                       'identifying business centers',
+                                        'name': 'description',
+                                        'range': 'string'},
+                        'version': {'description': 'The the most recent version of the '
+                                                   'codelist, eg. 9-1',
+                                    'name': 'version',
+                                    'range': 'string',
+                                    'required': True}}})
 
     description: Optional[str] = Field(default=None, description="""A description of the code list, e.g. A list of codes identifying business centers""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity',
                        'TaxonomyClassification',
                        'CodeListIdentification',
                        'CodeValue',
                        'OtherIndex']} })
+    version: str = Field(default=..., description="""The the most recent version of the codelist, eg. 9-1""", json_schema_extra = { "linkml_meta": {'domain_of': ['CodeListIdentification',
+                       'AssignedIdentifier',
+                       'OtherAgreement']} })
     publicationDate: Optional[str] = Field(default=None, description="""The most recent date the code list was published, e.g. 2021-10-05""", json_schema_extra = { "linkml_meta": {'domain_of': ['CodeListIdentification',
                        'ContractualDefinition',
                        'ContractualTermsSupplement',
                        'SettledEntityMatrix']} })
     shortName: str = Field(default=..., description="""A short name (without whitespace) for the code list, e.g. businessCenterScheme""", json_schema_extra = { "linkml_meta": {'domain_of': ['CodeListIdentification']} })
-    version: str = Field(default=..., description="""The the most recent version of the codelist, eg. 9-1""", json_schema_extra = { "linkml_meta": {'domain_of': ['CodeListIdentification',
-                       'AssignedIdentifier',
-                       'OtherAgreement']} })
     codeShortId: Optional[str] = Field(default=None, description="""The name of the code list, e.g. business-center""", json_schema_extra = { "linkml_meta": {'domain_of': ['CodeListIdentification']} })
     canonicalUri: str = Field(default=..., description="""Canonical URI which uniquely identifies all versions (collectively) of the referenced code list. Must be an absolute URI. Must not be used as a de facto location URI.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CodeListIdentification']} })
     canonicalVersionUri: Optional[str] = Field(default=None, description="""Canonical URI which uniquely identifies a specific version of the referenced code list. Must be an absolute URI. Must not be used as a de facto location URI.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CodeListIdentification']} })
@@ -22531,8 +22621,23 @@ class CodeValue(ConfiguredBaseModel):
     """
     A type to hold the value of the code in a codelist
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_codelist',
+         'slot_usage': {'description': {'description': 'A description of the meaning '
+                                                       'of the code, e.g. New York '
+                                                       'City, USA',
+                                        'name': 'description',
+                                        'range': 'string'},
+                        'source': {'description': 'Where the code was defined,e.g. '
+                                                  'ISDA, FpML, Bloomberg',
+                                   'name': 'source',
+                                   'range': 'string'}}})
 
+    description: Optional[str] = Field(default=None, description="""A description of the meaning of the code, e.g. New York City, USA""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity',
+                       'TaxonomyClassification',
+                       'CodeListIdentification',
+                       'CodeValue',
+                       'OtherIndex']} })
+    source: Optional[str] = Field(default=None, description="""Where the code was defined,e.g. ISDA, FpML, Bloomberg""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProductIdentifier', 'Taxonomy', 'CodeValue', 'Valuation']} })
     value: str = Field(default=..., description="""The value of the code, e.g. USNY""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatedValue',
                        'Schedule',
                        'Taxonomy',
@@ -22545,12 +22650,6 @@ class CodeValue(ConfiguredBaseModel):
                        'CSAThresholdVariableSet',
                        'DisputeResolution',
                        'OtherEligibleAndPostedSupport']} })
-    description: Optional[str] = Field(default=None, description="""A description of the meaning of the code, e.g. New York City, USA""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity',
-                       'TaxonomyClassification',
-                       'CodeListIdentification',
-                       'CodeValue',
-                       'OtherIndex']} })
-    source: Optional[str] = Field(default=None, description="""Where the code was defined,e.g. ISDA, FpML, Bloomberg""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProductIdentifier', 'Taxonomy', 'CodeValue', 'Valuation']} })
     effectiveDate: Optional[date] = Field(default=None, description="""When the code became/becomes effective""", json_schema_extra = { "linkml_meta": {'domain_of': ['CodeValue',
                        'AgreementEventInstruction',
                        'ClosedState',
@@ -22573,8 +22672,25 @@ class AssignedIdentifier(ConfiguredBaseModel):
     """
     A class to specify the identifier value and its associated version.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_identifier'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_identifier',
+         'slot_usage': {'version': {'description': 'The identifier version, which is '
+                                                   'specified as an integer and is '
+                                                   'meant to be incremented each time '
+                                                   'the transaction terms (whether '
+                                                   'contract or event) change. This '
+                                                   'version is made option to support '
+                                                   'the use case where the identifier '
+                                                   'is referenced without the version. '
+                                                   'The constraint that a contract and '
+                                                   'a lifecycle event need to have an '
+                                                   'associated version is enforced '
+                                                   'through data rules.',
+                                    'name': 'version',
+                                    'range': 'integer'}}})
 
+    version: Optional[int] = Field(default=None, description="""The identifier version, which is specified as an integer and is meant to be incremented each time the transaction terms (whether contract or event) change. This version is made option to support the use case where the identifier is referenced without the version. The constraint that a contract and a lifecycle event need to have an associated version is enforced through data rules.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CodeListIdentification',
+                       'AssignedIdentifier',
+                       'OtherAgreement']} })
     identifier: str = Field(default=..., description="""The identifier value.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'scheme'}},
          'domain_of': ['AssetBase',
@@ -22600,9 +22716,6 @@ class AssignedIdentifier(ConfiguredBaseModel):
                        'Clause',
                        'EligibleCollateralSpecification',
                        'NonTransferableProduct']} })
-    version: Optional[int] = Field(default=None, description="""The identifier version, which is specified as an integer and is meant to be incremented each time the transaction terms (whether contract or event) change. This version is made option to support the use case where the identifier is referenced without the version. The constraint that a contract and a lifecycle event need to have an associated version is enforced through data rules.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CodeListIdentification',
-                       'AssignedIdentifier',
-                       'OtherAgreement']} })
 
 
 class IdentifiedList(ConfiguredBaseModel):
@@ -22827,7 +22940,12 @@ class BusinessUnit(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'key'}},
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
+         'slot_usage': {'name': {'description': 'A name used to describe the '
+                                                'organizational unit',
+                                 'name': 'name',
+                                 'range': 'string',
+                                 'required': True}}})
 
     name: str = Field(default=..., description="""A name used to describe the organizational unit""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyValue',
                        'BusinessUnit',
@@ -22881,11 +22999,15 @@ class ContactInformation(ConfiguredBaseModel):
     """
     A class to specify contact information associated with a party: telephone, postal/street address, email and web page.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
+         'slot_usage': {'email': {'description': 'The email address.',
+                                  'multivalued': True,
+                                  'name': 'email',
+                                  'range': 'string'}}})
 
+    email: Optional[list[str]] = Field(default=None, description="""The email address.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
     telephone: Optional[list[TelephoneNumber]] = Field(default=None, description="""The telephone number.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
     address: Optional[list[Address]] = Field(default=None, description="""The street/postal address.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
-    email: Optional[list[str]] = Field(default=None, description="""The email address.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
     webPage: Optional[list[str]] = Field(default=None, description="""The web page. This attribute is not specified as part of the FpML ContactInformation complex type.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
 
 
@@ -22964,7 +23086,13 @@ class LegalEntity(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'key'}},
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
+         'slot_usage': {'name': {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
+                                                                      'value': 'scheme'}},
+                                 'description': 'The legal entity name.',
+                                 'name': 'name',
+                                 'range': 'string',
+                                 'required': True}}})
 
     name: str = Field(default=..., description="""The legal entity name.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'scheme'}},
@@ -23047,9 +23175,13 @@ class Party(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'key'}},
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_party',
+         'slot_usage': {'name': {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
+                                                                      'value': 'scheme'}},
+                                 'description': 'The party name.',
+                                 'name': 'name',
+                                 'range': 'string'}}})
 
-    partyId: list[PartyIdentifier] = Field(default=..., description="""The identifier associated with a party, e.g. the 20 digits LEI code.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Party']} })
     name: Optional[str] = Field(default=None, description="""The party name.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'scheme'}},
          'domain_of': ['TaxonomyValue',
@@ -23064,6 +23196,7 @@ class Party(ConfiguredBaseModel):
                        'CSAMinimumTransferAmountVariableSet',
                        'CSAThresholdVariableSet',
                        'CsaAdditionalTerminationEvent']} })
+    partyId: list[PartyIdentifier] = Field(default=..., description="""The identifier associated with a party, e.g. the 20 digits LEI code.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Party']} })
     businessUnit: Optional[list[BusinessUnit]] = Field(default=None, description="""Optional organization unit information used to describe the organization units (e.g. trading desks) involved in a transaction or business process, incl. the contact information (when relevant).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Party']} })
     person: Optional[list[NaturalPerson]] = Field(default=None, description="""The person(s) who might be associated with the party as part of the execution, contract or legal document.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Party']} })
     personRole: Optional[list[NaturalPersonRole]] = Field(default=None, description="""The role of the person(s)""", json_schema_extra = { "linkml_meta": {'domain_of': ['Party']} })
@@ -23725,7 +23858,25 @@ class ContractDetails(ConfiguredBaseModel):
          'comments': ['Rosetta condition ExecutedAgreement is not stated in LinkML: if '
                       'documentation exists then documentation -> agreementDate '
                       'exists'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
+         'slot_usage': {'documentation': {'description': 'Represents the legal '
+                                                         'document(s) that governs a '
+                                                         'trade and associated '
+                                                         'contractual product terms, '
+                                                         'either as a reference to '
+                                                         'such documents when '
+                                                         'specified as part of the '
+                                                         'CDM, or through '
+                                                         'identification of some of '
+                                                         'the key terms of those '
+                                                         'documents, such as the type '
+                                                         'of document, the document '
+                                                         'identifier, the publisher, '
+                                                         'the document vintage and the '
+                                                         'agreement date.',
+                                          'multivalued': True,
+                                          'name': 'documentation',
+                                          'range': 'LegalAgreement'}}})
 
     documentation: Optional[list[LegalAgreement]] = Field(default=None, description="""Represents the legal document(s) that governs a trade and associated contractual product terms, either as a reference to such documents when specified as part of the CDM, or through identification of some of the key terms of those documents, such as the type of document, the document identifier, the publisher, the document vintage and the agreement date.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContractDetails']} })
     governingLaw: Optional[GoverningLawEnum] = Field(default=None, description="""Represents the law governing the trade and associated contractual product terms.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
@@ -25218,8 +25369,27 @@ class Valuation(ConfiguredBaseModel):
                                                                         'value_presence': 'PRESENT'}}},
                                         {'slot_conditions': {'source': {'name': 'source',
                                                                         'value_presence': 'PRESENT'}}}]}],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_common',
+         'slot_usage': {'source': {'description': 'Source of the valuation of the '
+                                                  'transaction by the valuation party.',
+                                   'name': 'source',
+                                   'range': 'ValuationSourceEnum'},
+                        'timestamp': {'description': 'Date and time of the last '
+                                                     'valuation marked to market, '
+                                                     'provided by the central '
+                                                     'counterparty (CCP) or calculated '
+                                                     'using the current or last '
+                                                     'available market price of the '
+                                                     'inputs.',
+                                      'name': 'timestamp',
+                                      'range': 'datetime',
+                                      'required': True}}})
 
+    timestamp: datetime  = Field(default=..., description="""Date and time of the last valuation marked to market, provided by the central counterparty (CCP) or calculated using the current or last available market price of the inputs.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation',
+                       'CompositionStep',
+                       'WorkflowStep',
+                       'WorkflowStepApproval']} })
+    source: Optional[ValuationSourceEnum] = Field(default=None, description="""Source of the valuation of the transaction by the valuation party.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProductIdentifier', 'Taxonomy', 'CodeValue', 'Valuation']} })
     amount: Money = Field(default=..., description="""Current value of the outstanding contract""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation',
                        'CSAMinimumTransferAmountVariableSet',
                        'CSAThresholdVariableSet',
@@ -25229,12 +25399,7 @@ class Valuation(ConfiguredBaseModel):
                        'ThresholdMinimumTransferAmountFixedAmount',
                        'FeaturePayment',
                        'ComputedAmount']} })
-    timestamp: datetime  = Field(default=..., description="""Date and time of the last valuation marked to market, provided by the central counterparty (CCP) or calculated using the current or last available market price of the inputs.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation',
-                       'CompositionStep',
-                       'WorkflowStep',
-                       'WorkflowStepApproval']} })
     method: Optional[ValuationTypeEnum] = Field(default=None, description="""Method used for the valuation of the transaction by the valuation party.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation', 'FloatingRateIndexCalculationDefaults']} })
-    source: Optional[ValuationSourceEnum] = Field(default=None, description="""Source of the valuation of the transaction by the valuation party.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProductIdentifier', 'Taxonomy', 'CodeValue', 'Valuation']} })
     scope: ValuationScopeEnum = Field(default=..., description="""Defines the scope of the valuation, what it applies to e.g. the collateral or the trade""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation']} })
     delta: Optional[Decimal] = Field(default=None, description="""The ratio of the change in the price of a derivative transaction to the change in the price of the underlying. This field is applicable only to options and swaptions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation']} })
     valuationTiming: Optional[PriceTimingEnum] = Field(default=None, description="""Denotes when the valuation was sourced during a business day.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation']} })
@@ -25616,7 +25781,12 @@ class IndexBase(AssetBase):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'all_of': [{'description': 'AssetType: Asset type must be Other.',
                      'slot_conditions': {'assetType': {'equals_string': 'Other',
                                                        'name': 'assetType'}}}],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
+         'slot_usage': {'name': {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
+                                                                      'value': 'scheme'}},
+                                 'description': 'A description of the Index.',
+                                 'name': 'name',
+                                 'range': 'string'}}})
 
     name: Optional[str] = Field(default=None, description="""A description of the Index.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'scheme'}},
@@ -26551,7 +26721,11 @@ class OtherIndex(IndexBase):
                                     'explicitly set.',
                      'slot_conditions': {'assetClass': {'name': 'assetClass',
                                                         'value_presence': 'PRESENT'}}}],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset',
+         'slot_usage': {'description': {'description': 'A description that defines the '
+                                                       'OtherIndex.',
+                                        'name': 'description',
+                                        'range': 'string'}}})
 
     description: Optional[str] = Field(default=None, description="""A description that defines the OtherIndex.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Commodity',
                        'TaxonomyClassification',
@@ -27666,7 +27840,19 @@ class FroHistory(ConfiguredBaseModel):
     """
     FRO History
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_fro',
+         'slot_usage': {'endDate': {'description': 'The date the Floating Rate Option '
+                                                   'was removed from the 2006 '
+                                                   'Definitions or 2021 Floating Rate '
+                                                   'Matrix. (e.g. 2014/01/01)',
+                                    'name': 'endDate',
+                                    'range': 'date'},
+                        'startDate': {'description': 'The date the Floating Rate '
+                                                     'Option was added to the 2006 '
+                                                     'Definitions or 2021 Floating '
+                                                     'Rate Matrix. (e.g. 2017/04/06)',
+                                      'name': 'startDate',
+                                      'range': 'date'}}})
 
     startDate: Optional[date] = Field(default=None, description="""The date the Floating Rate Option was added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2017/04/06)""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
                        'DateRange',
@@ -27675,9 +27861,6 @@ class FroHistory(ConfiguredBaseModel):
                        'CalculationPeriodData',
                        'AssetDeliveryPeriods',
                        'DividendPeriod']} })
-    firstDefinedIn: Optional[ContractualDefinition] = Field(default=None, description="""The supplement or version the FRO was first added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. S52)""", json_schema_extra = { "linkml_meta": {'domain_of': ['FroHistory']} })
-    updateDate: Optional[date] = Field(default=None, description="""The date the Floating Rate Option was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2021/06/11)""", json_schema_extra = { "linkml_meta": {'domain_of': ['FroHistory']} })
-    lastUpdatedIn: Optional[ContractualDefinition] = Field(default=None, description="""The supplement or version the FRO was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. FRO-M-V1)""", json_schema_extra = { "linkml_meta": {'domain_of': ['FroHistory']} })
     endDate: Optional[date] = Field(default=None, description="""The date the Floating Rate Option was removed from the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2014/01/01)""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
                        'DateRange',
                        'PeriodicDates',
@@ -27686,6 +27869,9 @@ class FroHistory(ConfiguredBaseModel):
                        'CustodianEvent',
                        'AssetDeliveryPeriods',
                        'DividendPeriod']} })
+    firstDefinedIn: Optional[ContractualDefinition] = Field(default=None, description="""The supplement or version the FRO was first added to the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. S52)""", json_schema_extra = { "linkml_meta": {'domain_of': ['FroHistory']} })
+    updateDate: Optional[date] = Field(default=None, description="""The date the Floating Rate Option was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. 2021/06/11)""", json_schema_extra = { "linkml_meta": {'domain_of': ['FroHistory']} })
+    lastUpdatedIn: Optional[ContractualDefinition] = Field(default=None, description="""The supplement or version the FRO was last updated in the 2006 Definitions or 2021 Floating Rate Matrix. (e.g. FRO-M-V1)""", json_schema_extra = { "linkml_meta": {'domain_of': ['FroHistory']} })
 
 
 class AmountScheduleWithInitialValue(ScheduleWithInitialValue):
@@ -27840,16 +28026,22 @@ class CalculationPeriod(CalculationPeriodBase):
 
 
 class CalculationPeriodData(ConfiguredBaseModel):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule',
+         'slot_usage': {'endDate': {'name': 'endDate',
+                                    'range': 'date',
+                                    'required': True},
+                        'startDate': {'name': 'startDate',
+                                      'range': 'date',
+                                      'required': True}}})
 
-    startDate: date = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
+    startDate: date = Field(default=..., description="""The CDM's startDate attribute; each class's slot_usage gives its meaning.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
                        'DateRange',
                        'PeriodicDates',
                        'FroHistory',
                        'CalculationPeriodData',
                        'AssetDeliveryPeriods',
                        'DividendPeriod']} })
-    endDate: date = Field(default=..., json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
+    endDate: date = Field(default=..., description="""The CDM's endDate attribute; each class's slot_usage gives its meaning.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
                        'DateRange',
                        'PeriodicDates',
                        'FroHistory',
@@ -28531,8 +28723,17 @@ class CompositionStep(ConfiguredBaseModel):
     """
     Represents a single atomic step in the Instruction Composition lifecycle, including its instructions, status, and optional output. Each CompositionStep is defined by an identifier, a timestamp and a single Instruction.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_instructioncomposition'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_instructioncomposition',
+         'slot_usage': {'timestamp': {'description': 'Date and time of the execution '
+                                                     'of the Instruction Composition '
+                                                     'step after being executed.',
+                                      'name': 'timestamp',
+                                      'range': 'datetime'}}})
 
+    timestamp: Optional[datetime ] = Field(default=None, description="""Date and time of the execution of the Instruction Composition step after being executed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation',
+                       'CompositionStep',
+                       'WorkflowStep',
+                       'WorkflowStepApproval']} })
     identifier: Optional[str] = Field(default=None, description="""Identification of the Instruction Composition step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetBase',
                        'AssetIdentifier',
                        'ProductIdentifier',
@@ -28556,10 +28757,6 @@ class CompositionStep(ConfiguredBaseModel):
                        'Clause',
                        'EligibleCollateralSpecification',
                        'NonTransferableProduct']} })
-    timestamp: Optional[datetime ] = Field(default=None, description="""Date and time of the execution of the Instruction Composition step after being executed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation',
-                       'CompositionStep',
-                       'WorkflowStep',
-                       'WorkflowStepApproval']} })
     compositionStepInstruction: CompositionStepInstruction = Field(default=..., description="""Set of instructions defining the steps of each Instruction Composition process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CompositionStep']} })
 
 
@@ -28983,8 +29180,21 @@ class LegalAgreementIdentification(ConfiguredBaseModel):
                       'agreementName -> creditSupportAgreementMarginType exists then '
                       'agreementName -> creditSupportAgreementType exists and vintage '
                       '>= 2016'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
+         'slot_usage': {'publisher': {'annotations': {'doc_reference': {'tag': 'doc_reference',
+                                                                        'value': 'AcadiaSoft '
+                                                                                 'AM_1_0 '
+                                                                                 'namingConvention '
+                                                                                 'publisher'}},
+                                      'description': 'The legal agreement publisher, '
+                                                     'e.g. ISDA.',
+                                      'name': 'publisher',
+                                      'range': 'LegalAgreementPublisherEnum'}}})
 
+    publisher: Optional[LegalAgreementPublisherEnum] = Field(default=None, description="""The legal agreement publisher, e.g. ISDA.""", json_schema_extra = { "linkml_meta": {'annotations': {'doc_reference': {'tag': 'doc_reference',
+                                           'value': 'AcadiaSoft AM_1_0 '
+                                                    'namingConvention publisher'}},
+         'domain_of': ['LegalAgreementIdentification']} })
     governingLaw: Optional[GoverningLawEnum] = Field(default=None, description="""The law governing the legal agreement, e.g. English Law, New York Law or Japanese Law.""", json_schema_extra = { "linkml_meta": {'annotations': {'doc_reference': {'tag': 'doc_reference',
                                            'value': 'AcadiaSoft AM_1_0 '
                                                     'namingConvention governingLaw'}},
@@ -28995,10 +29205,6 @@ class LegalAgreementIdentification(ConfiguredBaseModel):
     agreementName: AgreementName = Field(default=..., description="""The legal agreement name, e.g. Credit Support Annex for Variation Margin.""", json_schema_extra = { "linkml_meta": {'annotations': {'doc_reference': {'tag': 'doc_reference',
                                            'value': 'AcadiaSoft AM_1_0 '
                                                     'namingConvention documentName'}},
-         'domain_of': ['LegalAgreementIdentification']} })
-    publisher: Optional[LegalAgreementPublisherEnum] = Field(default=None, description="""The legal agreement publisher, e.g. ISDA.""", json_schema_extra = { "linkml_meta": {'annotations': {'doc_reference': {'tag': 'doc_reference',
-                                           'value': 'AcadiaSoft AM_1_0 '
-                                                    'namingConvention publisher'}},
          'domain_of': ['LegalAgreementIdentification']} })
     vintage: Optional[int] = Field(default=None, description="""In the case where successive definitions of the legal agreement have been developed, the vintage identification. This is typically (but not necessarily) done by referencing the year, e.g. 2013 in the case of the ISDA 2013 Standard Credit Support Annex.""", json_schema_extra = { "linkml_meta": {'annotations': {'doc_reference': {'tag': 'doc_reference',
                                            'value': 'AcadiaSoft AM_1_0 '
@@ -29054,9 +29260,9 @@ class NoticeContactInformation(ContactInformation):
     additionalInformation: Optional[str] = Field(default=None, description="""Additional information on the recipient.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NoticeContactInformation',
                        'TransferContactInformation',
                        'ProcessAgentElection']} })
+    email: Optional[list[str]] = Field(default=None, description="""The email address.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
     telephone: Optional[list[TelephoneNumber]] = Field(default=None, description="""The telephone number.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
     address: Optional[list[Address]] = Field(default=None, description="""The street/postal address.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
-    email: Optional[list[str]] = Field(default=None, description="""The email address.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
     webPage: Optional[list[str]] = Field(default=None, description="""The web page. This attribute is not specified as part of the FpML ContactInformation complex type.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
 
 
@@ -29091,8 +29297,18 @@ class OtherAgreement(ConfiguredBaseModel):
     """
     A class for defining an agreement executed between parties.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
+         'slot_usage': {'version': {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
+                                                                         'value': 'scheme'}},
+                                    'description': 'The version of the agreement.',
+                                    'name': 'version',
+                                    'range': 'string'}}})
 
+    version: Optional[str] = Field(default=None, description="""The version of the agreement.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
+                                              'value': 'scheme'}},
+         'domain_of': ['CodeListIdentification',
+                       'AssignedIdentifier',
+                       'OtherAgreement']} })
     identifier: Optional[str] = Field(default=None, description="""An identifier that has been created to identify the agreement.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'scheme'}},
          'domain_of': ['AssetBase',
@@ -29121,11 +29337,6 @@ class OtherAgreement(ConfiguredBaseModel):
     otherAgreementType: str = Field(default=..., description="""The agreement executed between the parties and intended to govern product-specific derivatives transactions between those parties.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'scheme'}},
          'domain_of': ['OtherAgreement']} })
-    version: Optional[str] = Field(default=None, description="""The version of the agreement.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
-                                              'value': 'scheme'}},
-         'domain_of': ['CodeListIdentification',
-                       'AssignedIdentifier',
-                       'OtherAgreement']} })
     date: Optional[date] = Field(default=None, description="""The date on which the agreement was signed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DateList',
                        'DatedValue',
                        'CalculateTransferInstruction',
@@ -29169,8 +29380,32 @@ class Resource(ConfiguredBaseModel):
                                                                                     'value_presence': 'ABSENT'}}},
                                                     {'slot_conditions': {'url': {'name': 'url',
                                                                                  'value_presence': 'ABSENT'}}}]}]}],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_common',
+         'slot_usage': {'name': {'description': 'The name of the resource. It is '
+                                                'specified as a NormalizedString in '
+                                                'FpML.',
+                                 'name': 'name',
+                                 'range': 'string'},
+                        'url': {'description': 'Indicates where the resource can be '
+                                               'found, as a URL that references the '
+                                               'information on a web server accessible '
+                                               'to the message recipient.',
+                                'name': 'url',
+                                'range': 'string'}}})
 
+    name: Optional[str] = Field(default=None, description="""The name of the resource. It is specified as a NormalizedString in FpML.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyValue',
+                       'BusinessUnit',
+                       'LegalEntity',
+                       'Party',
+                       'IndexBase',
+                       'Resource',
+                       'ClauseLibraryClause',
+                       'ClauseLibraryClauseVariant',
+                       'ClauseLibraryVariableSet',
+                       'CSAMinimumTransferAmountVariableSet',
+                       'CSAThresholdVariableSet',
+                       'CsaAdditionalTerminationEvent']} })
+    url: Optional[str] = Field(default=None, description="""Indicates where the resource can be found, as a URL that references the information on a web server accessible to the message recipient.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Resource']} })
     resourceId: str = Field(default=..., description="""The unique identifier of the resource within the event. FpML specifies this element of type resourceIdScheme but with no specified value.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'scheme'}},
          'domain_of': ['Resource']} })
@@ -29185,21 +29420,8 @@ class Resource(ConfiguredBaseModel):
     mimeType: Optional[str] = Field(default=None, description="""Indicates the type of media used to store the content. mimeType is used to determine the software product(s) that can read the content. MIME Types are described in RFC 2046.""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'scheme'}},
          'domain_of': ['Resource']} })
-    name: Optional[str] = Field(default=None, description="""The name of the resource. It is specified as a NormalizedString in FpML.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyValue',
-                       'BusinessUnit',
-                       'LegalEntity',
-                       'Party',
-                       'IndexBase',
-                       'Resource',
-                       'ClauseLibraryClause',
-                       'ClauseLibraryClauseVariant',
-                       'ClauseLibraryVariableSet',
-                       'CSAMinimumTransferAmountVariableSet',
-                       'CSAThresholdVariableSet',
-                       'CsaAdditionalTerminationEvent']} })
     comments: Optional[str] = Field(default=None, description="""Any additional comments that are deemed necessary. For example, which software version is required to open the document? Or, how does this resource relate to the others for this event?""", json_schema_extra = { "linkml_meta": {'domain_of': ['Resource']} })
     string: Optional[str] = Field(default=None, description="""Provides extra information as string. In case the extra information is in XML format, a CDATA section must be placed around the source message to prevent its interpretation as XML content.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Resource']} })
-    url: Optional[str] = Field(default=None, description="""Indicates where the resource can be found, as a URL that references the information on a web server accessible to the message recipient.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Resource']} })
 
 
 class ResourceLength(ConfiguredBaseModel):
@@ -29222,9 +29444,9 @@ class TransferContactInformation(ContactInformation):
     additionalInformation: Optional[str] = Field(default=None, description="""Additional transfer information.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NoticeContactInformation',
                        'TransferContactInformation',
                        'ProcessAgentElection']} })
+    email: Optional[list[str]] = Field(default=None, description="""The email address.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
     telephone: Optional[list[TelephoneNumber]] = Field(default=None, description="""The telephone number.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
     address: Optional[list[Address]] = Field(default=None, description="""The street/postal address.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
-    email: Optional[list[str]] = Field(default=None, description="""The email address.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
     webPage: Optional[list[str]] = Field(default=None, description="""The web page. This attribute is not specified as part of the FpML ContactInformation complex type.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactInformation']} })
 
 
@@ -30445,8 +30667,20 @@ class WorkflowStep(ConfiguredBaseModel):
                       '(proposedEvent exists and nextEvent is absent and rejected is '
                       'absent) or (previousWorkflowStep exists and action = ActionEnum '
                       '-> Cancel)'],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
+         'slot_usage': {'timestamp': {'description': 'The set of timestamp(s) '
+                                                     'associated with the event as a '
+                                                     'collection of [dateTime, '
+                                                     'qualifier].',
+                                      'multivalued': True,
+                                      'name': 'timestamp',
+                                      'range': 'EventTimestamp',
+                                      'required': True}}})
 
+    timestamp: list[EventTimestamp] = Field(default=..., description="""The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier].""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation',
+                       'CompositionStep',
+                       'WorkflowStep',
+                       'WorkflowStepApproval']} })
     businessEvent: Optional[BusinessEvent] = Field(default=None, description="""Life cycle event for the step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkflowStep']} })
     counterpartyPositionBusinessEvent: Optional[CounterpartyPositionBusinessEvent] = Field(default=None, description="""Documents the life cycle event for a position.""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkflowStep']} })
     proposedEvent: Optional[EventInstruction] = Field(default=None, description="""The proposed event for a workflow step.""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkflowStep']} })
@@ -30457,10 +30691,6 @@ class WorkflowStep(ConfiguredBaseModel):
          'domain_of': ['WorkflowStep']} })
     nextEvent: Optional[EventInstruction] = Field(default=None, description="""The intended next event can be specified, even if the instructions are not known yet.""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkflowStep']} })
     messageInformation: Optional[MessageInformation] = Field(default=None, description="""Contains all information pertaining the FpML messaging header""", json_schema_extra = { "linkml_meta": {'domain_of': ['AvailableInventory', 'WorkflowStep']} })
-    timestamp: list[EventTimestamp] = Field(default=..., description="""The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier].""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation',
-                       'CompositionStep',
-                       'WorkflowStep',
-                       'WorkflowStepApproval']} })
     eventIdentifier: list[Identifier] = Field(default=..., description="""The identifier(s) that uniquely identify a lifecycle event. The unbounded cardinality is meant to provide the ability to associate identifiers that are issued by distinct parties. As an example, each of the parties to the event may choose to associate their own identifiers to the event.""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkflowStep']} })
     action: Optional[ActionEnum] = Field(default=None, description="""Specifies whether the event is a new, a correction or a cancellation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkflowStep']} })
     party: Optional[list[Party]] = Field(default=None, description="""The specification of the event parties. This attribute is optional, as not applicable to certain events (e.g. most of the observations).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetBase',
@@ -30526,8 +30756,16 @@ class WorkflowStepApproval(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'key'}},
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_event_workflow',
+         'slot_usage': {'timestamp': {'description': 'Timestamp of the approval',
+                                      'name': 'timestamp',
+                                      'range': 'EventTimestamp',
+                                      'required': True}}})
 
+    timestamp: EventTimestamp = Field(default=..., description="""Timestamp of the approval""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation',
+                       'CompositionStep',
+                       'WorkflowStep',
+                       'WorkflowStepApproval']} })
     approved: bool = Field(default=..., description="""Flag denoting whether the workflow step is approved or not""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkflowStepApproval']} })
     party: Party = Field(default=..., description="""Reference to the Party who is approving/rejecting this workflow step""", json_schema_extra = { "linkml_meta": {'annotations': {'rosetta_metadata': {'tag': 'rosetta_metadata',
                                               'value': 'reference'}},
@@ -30584,18 +30822,30 @@ class WorkflowStepApproval(ConfiguredBaseModel):
                        'EventsOfDefaultElection',
                        'EligibleCollateralSpecification']} })
     rejectedReason: Optional[str] = Field(default=None, description="""Optional reason for rejecting the workflow step""", json_schema_extra = { "linkml_meta": {'domain_of': ['WorkflowStepApproval']} })
-    timestamp: EventTimestamp = Field(default=..., description="""Timestamp of the approval""", json_schema_extra = { "linkml_meta": {'domain_of': ['Valuation',
-                       'CompositionStep',
-                       'WorkflowStep',
-                       'WorkflowStepApproval']} })
 
 
 class ClauseLibraryClause(ConfiguredBaseModel):
     """
     Defines clauses that make up the Agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_clauselibrary'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_clauselibrary',
+         'slot_usage': {'name': {'description': 'Optional textual description of the '
+                                                'clause.',
+                                 'name': 'name',
+                                 'range': 'string'}}})
 
+    name: Optional[str] = Field(default=None, description="""Optional textual description of the clause.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyValue',
+                       'BusinessUnit',
+                       'LegalEntity',
+                       'Party',
+                       'IndexBase',
+                       'Resource',
+                       'ClauseLibraryClause',
+                       'ClauseLibraryClauseVariant',
+                       'ClauseLibraryVariableSet',
+                       'CSAMinimumTransferAmountVariableSet',
+                       'CSAThresholdVariableSet',
+                       'CsaAdditionalTerminationEvent']} })
     identifier: AssignedIdentifier = Field(default=..., description="""Unique identifier for the clause.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetBase',
                        'AssetIdentifier',
                        'ProductIdentifier',
@@ -30619,18 +30869,6 @@ class ClauseLibraryClause(ConfiguredBaseModel):
                        'Clause',
                        'EligibleCollateralSpecification',
                        'NonTransferableProduct']} })
-    name: Optional[str] = Field(default=None, description="""Optional textual description of the clause.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyValue',
-                       'BusinessUnit',
-                       'LegalEntity',
-                       'Party',
-                       'IndexBase',
-                       'Resource',
-                       'ClauseLibraryClause',
-                       'ClauseLibraryClauseVariant',
-                       'ClauseLibraryVariableSet',
-                       'CSAMinimumTransferAmountVariableSet',
-                       'CSAThresholdVariableSet',
-                       'CsaAdditionalTerminationEvent']} })
     counterparty: Optional[list[CounterpartyRoleEnum]] = Field(default=None, description="""Optional counterparty role. This can be used where a clause needs to be assigned to a specific party on the agreement based upon their role i.e. Party A or Party B.""", max_length=2, json_schema_extra = { "linkml_meta": {'domain_of': ['ExecutionInstruction',
                        'PartyChangeInstruction',
                        'AgreementTerms',
@@ -30648,8 +30886,24 @@ class ClauseLibraryClauseVariant(ConfiguredBaseModel):
     """
     Sets the details for a specific variant associated to a clause in the Agreement.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_clauselibrary'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_clauselibrary',
+         'slot_usage': {'name': {'description': 'Optional textual description of the '
+                                                'variant.',
+                                 'name': 'name',
+                                 'range': 'string'}}})
 
+    name: Optional[str] = Field(default=None, description="""Optional textual description of the variant.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyValue',
+                       'BusinessUnit',
+                       'LegalEntity',
+                       'Party',
+                       'IndexBase',
+                       'Resource',
+                       'ClauseLibraryClause',
+                       'ClauseLibraryClauseVariant',
+                       'ClauseLibraryVariableSet',
+                       'CSAMinimumTransferAmountVariableSet',
+                       'CSAThresholdVariableSet',
+                       'CsaAdditionalTerminationEvent']} })
     identifier: AssignedIdentifier = Field(default=..., description="""Unique identifier for this variant.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetBase',
                        'AssetIdentifier',
                        'ProductIdentifier',
@@ -30673,18 +30927,6 @@ class ClauseLibraryClauseVariant(ConfiguredBaseModel):
                        'Clause',
                        'EligibleCollateralSpecification',
                        'NonTransferableProduct']} })
-    name: Optional[str] = Field(default=None, description="""Optional textual description of the variant.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyValue',
-                       'BusinessUnit',
-                       'LegalEntity',
-                       'Party',
-                       'IndexBase',
-                       'Resource',
-                       'ClauseLibraryClause',
-                       'ClauseLibraryClauseVariant',
-                       'ClauseLibraryVariableSet',
-                       'CSAMinimumTransferAmountVariableSet',
-                       'CSAThresholdVariableSet',
-                       'CsaAdditionalTerminationEvent']} })
     counterparty: Optional[list[CounterpartyRoleEnum]] = Field(default=None, description="""Optional counterparty role. This can be used where a clause needs to assign a different variant to the different parties on the agreement based upon their role i.e. Party A or Party B.""", max_length=2, json_schema_extra = { "linkml_meta": {'domain_of': ['ExecutionInstruction',
                        'PartyChangeInstruction',
                        'AgreementTerms',
@@ -30740,14 +30982,11 @@ class ClauseLibraryVariableSet(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'name': {'name': 'name',
                                                                     'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'value': {'name': 'value',
-                                                                    'value_presence': 'PRESENT'}}}}]})
+                                                                    'value_presence': 'PRESENT'}}}}],
+         'slot_usage': {'name': {'description': 'The name of the variable.',
+                                 'name': 'name',
+                                 'range': 'string'}}})
 
-    variableSet: Optional[list[ClauseLibraryVariableSet]] = Field(default=None, description="""For some variants a table of variables is required. To support this use case we need to be able to specify variables within variables. Including a variable set here gives us infinite nesting opportunities - realistically we are only ever expecting that a table would need to be defined for any particular clause, so we would expect two levels of nesting as a maximum i.e. variableSet->variableSet->name/value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ClauseLibraryClauseVariant',
-                       'ClauseLibraryVariableSet',
-                       'DirectionRatingMultiplier',
-                       'LegacyIndependentAmountRatingsBased',
-                       'MinimumTransferAmountRatingsBased',
-                       'ThresholdRatingsBased']} })
     name: Optional[str] = Field(default=None, description="""The name of the variable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyValue',
                        'BusinessUnit',
                        'LegalEntity',
@@ -30760,6 +30999,12 @@ class ClauseLibraryVariableSet(ConfiguredBaseModel):
                        'CSAMinimumTransferAmountVariableSet',
                        'CSAThresholdVariableSet',
                        'CsaAdditionalTerminationEvent']} })
+    variableSet: Optional[list[ClauseLibraryVariableSet]] = Field(default=None, description="""For some variants a table of variables is required. To support this use case we need to be able to specify variables within variables. Including a variable set here gives us infinite nesting opportunities - realistically we are only ever expecting that a table would need to be defined for any particular clause, so we would expect two levels of nesting as a maximum i.e. variableSet->variableSet->name/value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ClauseLibraryClauseVariant',
+                       'ClauseLibraryVariableSet',
+                       'DirectionRatingMultiplier',
+                       'LegacyIndependentAmountRatingsBased',
+                       'MinimumTransferAmountRatingsBased',
+                       'ThresholdRatingsBased']} })
     value: Optional[str] = Field(default=None, description="""The value for this variable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DatedValue',
                        'Schedule',
                        'Taxonomy',
@@ -31244,19 +31489,30 @@ class ApplicableRegime(ConfiguredBaseModel):
                                                                         'value_presence': 'PRESENT'}}},
                                         {'slot_conditions': {'additionalRegime': {'name': 'additionalRegime',
                                                                                   'value_presence': 'PRESENT'}}}]}],
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
+         'slot_usage': {'additionalType': {'annotations': {'doc_reference': {'tag': 'doc_reference',
+                                                                             'value': 'ISDA '
+                                                                                      'CSA_IM_2016 '
+                                                                                      'paragraph '
+                                                                                      '13 '
+                                                                                      'General '
+                                                                                      'Principles '
+                                                                                      'clause '
+                                                                                      '(b)(B)'}},
+                                           'name': 'additionalType',
+                                           'range': 'AdditionalTypeEnum'}}})
 
+    additionalType: Optional[AdditionalTypeEnum] = Field(default=None, description="""The CDM's additionalType attribute; each class's slot_usage gives its meaning.""", json_schema_extra = { "linkml_meta": {'annotations': {'doc_reference': {'tag': 'doc_reference',
+                                           'value': 'ISDA CSA_IM_2016 paragraph 13 '
+                                                    'General Principles clause '
+                                                    '(b)(B)'}},
+         'domain_of': ['ApplicableRegime']} })
     regime: Optional[RegulatoryRegimeEnum] = Field(default=None, description="""The applicable regulatory regime, as specified through an enumeration.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ApplicableRegime',
                        'CollateralTransferAgreementElections',
                        'CreditSupportAgreementInitialMarginElections',
                        'SubstitutedRegimeElection']} })
     additionalRegime: Optional[str] = Field(default=None, description="""The additional regulatory regime as specified by the parties.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ApplicableRegime', 'SubstitutedRegimeElection']} })
     regimeTerms: list[RegimeTerms] = Field(default=..., description="""A class that is used by the ApplicableRegime and the AdditionalRegime classes to specify the terms that are specific to each party and regime which are referred to in the Regime Table as part of certain legal agreements, such as the ISDA 2016 and 2018 CSA for Initial Margin.""", min_length=2, max_length=2, json_schema_extra = { "linkml_meta": {'domain_of': ['ApplicableRegime']} })
-    additionalType: Optional[AdditionalTypeEnum] = Field(default=None, json_schema_extra = { "linkml_meta": {'annotations': {'doc_reference': {'tag': 'doc_reference',
-                                           'value': 'ISDA CSA_IM_2016 paragraph 13 '
-                                                    'General Principles clause '
-                                                    '(b)(B)'}},
-         'domain_of': ['ApplicableRegime']} })
     additionalTerms: Optional[str] = Field(default=None, description="""The bespoke Additional Type for the purposes of Covered Transactions (IM).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ApplicableRegime']} })
 
 
@@ -31504,7 +31760,10 @@ class CSAMinimumTransferAmountVariableSet(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'name': {'name': 'name',
                                                                     'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'value': {'name': 'value',
-                                                                    'value_presence': 'PRESENT'}}}}]})
+                                                                    'value_presence': 'PRESENT'}}}}],
+         'slot_usage': {'name': {'description': 'The name of the Rating Agency.',
+                                 'name': 'name',
+                                 'range': 'CreditRatingAgencyEnum'}}})
 
     name: Optional[CreditRatingAgencyEnum] = Field(default=None, description="""The name of the Rating Agency.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyValue',
                        'BusinessUnit',
@@ -31571,7 +31830,10 @@ class CSAThresholdVariableSet(ConfiguredBaseModel):
                     'postconditions': {'slot_conditions': {'name': {'name': 'name',
                                                                     'value_presence': 'PRESENT'}}},
                     'preconditions': {'slot_conditions': {'value': {'name': 'value',
-                                                                    'value_presence': 'PRESENT'}}}}]})
+                                                                    'value_presence': 'PRESENT'}}}}],
+         'slot_usage': {'name': {'description': 'The relevant rating agency.',
+                                 'name': 'name',
+                                 'range': 'CreditRatingAgencyEnum'}}})
 
     name: Optional[CreditRatingAgencyEnum] = Field(default=None, description="""The relevant rating agency.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyValue',
                        'BusinessUnit',
@@ -33423,7 +33685,12 @@ class CsaAdditionalTerminationEvent(ConfiguredBaseModel):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'aliases': ['AdditionalTerminationEvent'],
          'annotations': {'rosetta_name': {'tag': 'rosetta_name',
                                           'value': 'cdm.legaldocumentation.csa.AdditionalTerminationEvent'}},
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
+         'slot_usage': {'name': {'description': 'The name of the additional '
+                                                'termination event.',
+                                 'name': 'name',
+                                 'range': 'string',
+                                 'required': True}}})
 
     name: str = Field(default=..., description="""The name of the additional termination event.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TaxonomyValue',
                        'BusinessUnit',
@@ -33591,8 +33858,23 @@ class CustodianEvent(ConfiguredBaseModel):
                                                     'CSA_IM_NewYork_2016 paragraph 13 '
                                                     'General Principles clause '
                                                     '(n)(iii) name Custodian Event'}},
-         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa'})
+         'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_csa',
+         'slot_usage': {'endDate': {'description': 'The qualification of the Custodian '
+                                                   'Event (English Law & New York Law '
+                                                   'ISDA CSA) or Collateral Manager '
+                                                   'Event (Japanese Law ISDA CSA) End '
+                                                   'Date.',
+                                    'name': 'endDate',
+                                    'range': 'CustodianEventEndDate'}}})
 
+    endDate: Optional[CustodianEventEndDate] = Field(default=None, description="""The qualification of the Custodian Event (English Law & New York Law ISDA CSA) or Collateral Manager Event (Japanese Law ISDA CSA) End Date.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
+                       'DateRange',
+                       'PeriodicDates',
+                       'FroHistory',
+                       'CalculationPeriodData',
+                       'CustodianEvent',
+                       'AssetDeliveryPeriods',
+                       'DividendPeriod']} })
     isApplicable: bool = Field(default=..., description="""The qualification as to whether the Custodian Event (English Law & New York Law ISDA CSA) or the Collateral Manager Event (Japanese Law ISDA CSA) is applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AdditionalRepresentationElection',
                        'AdditionalRightsEvent',
                        'BespokeCalculationDate',
@@ -33618,14 +33900,6 @@ class CustodianEvent(ConfiguredBaseModel):
                        'CreditEventUponMergerElection',
                        'IsdaCalculationAgentElection',
                        'AutomaticExercise']} })
-    endDate: Optional[CustodianEventEndDate] = Field(default=None, description="""The qualification of the Custodian Event (English Law & New York Law ISDA CSA) or Collateral Manager Event (Japanese Law ISDA CSA) End Date.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
-                       'DateRange',
-                       'PeriodicDates',
-                       'FroHistory',
-                       'CalculationPeriodData',
-                       'CustodianEvent',
-                       'AssetDeliveryPeriods',
-                       'DividendPeriod']} })
 
 
 class CustodianEventEndDate(ConfiguredBaseModel):
@@ -40577,9 +40851,14 @@ class AssetDeliveryPeriods(ConfiguredBaseModel):
     """
     Defines the periods of delivery, including the delivery profile.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
+         'slot_usage': {'endDate': {'description': 'Delivery end date',
+                                    'name': 'endDate',
+                                    'range': 'date'},
+                        'startDate': {'description': 'Delivery start date',
+                                      'name': 'startDate',
+                                      'range': 'date'}}})
 
-    profile: Optional[list[AssetDeliveryProfile]] = Field(default=None, description="""Defines the delivery profile of the asset, including the load type and the delivery intervals.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetDeliveryPeriods']} })
     startDate: Optional[date] = Field(default=None, description="""Delivery start date""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
                        'DateRange',
                        'PeriodicDates',
@@ -40595,6 +40874,7 @@ class AssetDeliveryPeriods(ConfiguredBaseModel):
                        'CustodianEvent',
                        'AssetDeliveryPeriods',
                        'DividendPeriod']} })
+    profile: Optional[list[AssetDeliveryProfile]] = Field(default=None, description="""Defines the delivery profile of the asset, including the load type and the delivery intervals.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetDeliveryPeriods']} })
 
 
 class AssetDeliveryProfile(ConfiguredBaseModel):
@@ -40712,7 +40992,6 @@ class CalculationScheduleDeliveryPeriods(AssetDeliveryPeriods):
                        'CalculationScheduleDeliveryPeriods']} })
     priceTimeIntervalQuantity: Optional[Price] = Field(default=None, description="""Price per quantity per delivery time interval.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetDeliveryProfileBlock',
                        'CalculationScheduleDeliveryPeriods']} })
-    profile: Optional[list[AssetDeliveryProfile]] = Field(default=None, description="""Defines the delivery profile of the asset, including the load type and the delivery intervals.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetDeliveryPeriods']} })
     startDate: Optional[date] = Field(default=None, description="""Delivery start date""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
                        'DateRange',
                        'PeriodicDates',
@@ -40728,6 +41007,7 @@ class CalculationScheduleDeliveryPeriods(AssetDeliveryPeriods):
                        'CustodianEvent',
                        'AssetDeliveryPeriods',
                        'DividendPeriod']} })
+    profile: Optional[list[AssetDeliveryProfile]] = Field(default=None, description="""Defines the delivery profile of the asset, including the load type and the delivery intervals.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AssetDeliveryPeriods']} })
 
 
 class CashflowRepresentation(ConfiguredBaseModel):
@@ -40880,7 +41160,13 @@ class DividendPeriod(ConfiguredBaseModel):
     """
     Time bounded dividend payment periods, each with a dividend payment date per period.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/common-domain-model/cdm_product_asset',
+         'slot_usage': {'endDate': {'description': 'Dividend period end date.',
+                                    'name': 'endDate',
+                                    'range': 'DividendPaymentDate'},
+                        'startDate': {'description': 'Dividend period start date.',
+                                      'name': 'startDate',
+                                      'range': 'DividendPaymentDate'}}})
 
     startDate: Optional[DividendPaymentDate] = Field(default=None, description="""Dividend period start date.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AveragingSchedule',
                        'DateRange',

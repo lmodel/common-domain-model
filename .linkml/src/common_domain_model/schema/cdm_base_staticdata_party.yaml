@@ -15,6 +15,7 @@ default_range: string
 imports:
   - linkml:types
   - ./cdm_base_staticdata_identifier
+  - ./common_domain_model_keys
 enums:
   AccountTypeEnum:
     description: The enumeration values to qualify the type of account.
@@ -544,11 +545,9 @@ classes:
         required: true
   BusinessUnit:
     description: A class to specify an organizational unit.
+    slots:
+      - name
     attributes:
-      name:
-        description: A name used to describe the organizational unit
-        range: string
-        required: true
       identifier:
         description: An identifier used to uniquely identify the organizational unit
         range: Identifier
@@ -556,6 +555,11 @@ classes:
         description: The contact information for such business unit, when different from the contact information
           associated with the party.
         range: ContactInformation
+    slot_usage:
+      name:
+        description: A name used to describe the organizational unit
+        range: string
+        required: true
     annotations:
       rosetta_metadata: key
   BuyerSeller:
@@ -591,6 +595,8 @@ classes:
   ContactInformation:
     description: 'A class to specify contact information associated with a party: telephone, postal/street
       address, email and web page.'
+    slots:
+      - email
     attributes:
       telephone:
         description: The telephone number.
@@ -600,13 +606,14 @@ classes:
         description: The street/postal address.
         range: Address
         multivalued: true
-      email:
-        description: The email address.
-        range: string
-        multivalued: true
       webPage:
         description: The web page. This attribute is not specified as part of the FpML ContactInformation
           complex type.
+        range: string
+        multivalued: true
+    slot_usage:
+      email:
+        description: The email address.
         range: string
         multivalued: true
   Counterparty:
@@ -647,17 +654,20 @@ classes:
   LegalEntity:
     description: A class to specify a legal entity, with a required name and an optional entity identifier
       (such as the LEI).
+    slots:
+      - name
     attributes:
+      entityIdentifier:
+        description: A legal entity identifier with a source (e.g. RED entity code).
+        range: EntityIdentifier
+        multivalued: true
+    slot_usage:
       name:
         description: The legal entity name.
         range: string
         required: true
         annotations:
           rosetta_metadata: scheme
-      entityIdentifier:
-        description: A legal entity identifier with a source (e.g. RED entity code).
-        range: EntityIdentifier
-        multivalued: true
     annotations:
       rosetta_metadata: key
   NaturalPerson:
@@ -746,17 +756,14 @@ classes:
       entity or a natural person, although the model provides the ability to associate a person (or set
       of persons) to a party, which use case would imply that such party would be a legal entity (even
       if not formally specified as such).
+    slots:
+      - name
     attributes:
       partyId:
         description: The identifier associated with a party, e.g. the 20 digits LEI code.
         range: PartyIdentifier
         required: true
         multivalued: true
-      name:
-        description: The party name.
-        range: string
-        annotations:
-          rosetta_metadata: scheme
       businessUnit:
         description: Optional organization unit information used to describe the organization units (e.g.
           trading desks) involved in a transaction or business process, incl. the contact information
@@ -782,6 +789,12 @@ classes:
           contact information is specific to the associated business unit(s) or person (s), it should
           be associated with those.
         range: ContactInformation
+    slot_usage:
+      name:
+        description: The party name.
+        range: string
+        annotations:
+          rosetta_metadata: scheme
     annotations:
       rosetta_metadata: key
   PartyIdentifier:
