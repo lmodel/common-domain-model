@@ -1,0 +1,5 @@
+# Fails at: /
+# The name is required.
+entityIdentifier:
+  - identifier: 5493001KJTIIGC8Y1R12
+    identifierType: LEI

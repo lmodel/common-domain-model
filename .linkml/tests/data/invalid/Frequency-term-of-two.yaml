@@ -1,0 +1,4 @@
+# Fails at: /periodMultiplier
+# TermPeriod: a term period takes a multiplier of 1.
+periodMultiplier: 2
+period: T

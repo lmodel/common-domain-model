@@ -1,0 +1,7 @@
+# Fails at: /
+# BusinessCentersChoice: exactly one of the codes, the calendars or a reference.
+businessCenter:
+  - GBLO
+businessCentersReference:
+  businessCenter:
+    - USNY

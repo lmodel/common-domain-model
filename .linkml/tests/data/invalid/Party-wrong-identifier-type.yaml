@@ -1,0 +1,5 @@
+# Fails at: /partyId/0/identifierType
+# The identifier type is a value of PartyIdentifierTypeEnum.
+partyId:
+  - identifier: 5493001KJTIIGC8Y1R12
+    identifierType: ISIN

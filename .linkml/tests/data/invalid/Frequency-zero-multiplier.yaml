@@ -1,0 +1,4 @@
+# Fails at: /periodMultiplier
+# PositivePeriodMultiplier: the multiplier is a positive integer.
+periodMultiplier: 0
+period: M

@@ -1,0 +1,5 @@
+# A legal entity named by its Legal Entity Identifier.
+name: Example Bank plc
+entityIdentifier:
+  - identifier: 5493001KJTIIGC8Y1R12
+    identifierType: LEI

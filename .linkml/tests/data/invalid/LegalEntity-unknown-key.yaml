@@ -1,0 +1,4 @@
+# Fails at: /
+# A class holds only the attributes the CDM declares for it.
+name: Example Bank plc
+country: GB

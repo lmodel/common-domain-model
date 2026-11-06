@@ -1,0 +1,7 @@
+# Fails at: /
+# AdjustableDateChoice: the adjustments, or a reference to them, but not both.
+unadjustedDate: "2026-12-14"
+dateAdjustments:
+  businessDayConvention: NONE
+dateAdjustmentsReference:
+  businessDayConvention: NONE

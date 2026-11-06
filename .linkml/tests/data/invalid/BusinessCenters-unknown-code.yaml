@@ -1,0 +1,4 @@
+# Fails at: /businessCenter/0
+# A business centre is a code of FpML's business-center code list.
+businessCenter:
+  - XXLO

@@ -1,0 +1,5 @@
+# A party to a trade, identified by its LEI.
+partyId:
+  - identifier: 5493001KJTIIGC8Y1R12
+    identifierType: LEI
+name: Example Bank plc

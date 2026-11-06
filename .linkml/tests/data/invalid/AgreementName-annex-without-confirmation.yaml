@@ -1,0 +1,4 @@
+# Fails at: /
+# MasterConfirmation: an annex type needs a master confirmation type.
+agreementType: MasterConfirmation
+masterConfirmationAnnexType: ISDA2004IndexVarianceSwapAmericasInterdealer

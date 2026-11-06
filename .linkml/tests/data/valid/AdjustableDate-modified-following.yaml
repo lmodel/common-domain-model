@@ -1,0 +1,7 @@
+# A date adjusted by the modified following convention in London.
+unadjustedDate: "2026-12-14"
+dateAdjustments:
+  businessDayConvention: MODFOLLOWING
+  businessCenters:
+    businessCenter:
+      - GBLO

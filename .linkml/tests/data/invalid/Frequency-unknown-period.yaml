@@ -1,0 +1,4 @@
+# Fails at: /period
+# The period is a value of PeriodExtendedEnum.
+periodMultiplier: 6
+period: Q
