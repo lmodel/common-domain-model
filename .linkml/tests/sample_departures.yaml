@@ -1,0 +1,50 @@
+# FINOS's documents whose shape the schema refuses, with the reason for each.
+# tests/test_finos_samples.py fails when this list is wrong either way: a document
+# the schema refuses and this list leaves out, or one it names that now reads.
+#
+# Both reasons are references the FpML ingest carries over from an FpML href to an
+# object of another type than the attribute declares, so the reference cannot be the
+# object the CDM says it is. issues/99 reports them to FINOS.
+reasons:
+  dividend-date-names-trade-date: >-
+    DividendPeriod's startDate.dividendDate is an AdjustableOrRelativeDate with
+    [metadata reference], and the document points it at the trade's tradeDate,
+    which is a date.
+  calculation-period-dates-names-valuation-dates: >-
+    ResetDates' calculationPeriodDatesReference is a CalculationPeriodDates with
+    [metadata reference], and the document points it at the return leg's
+    interimValuationDates, which holds periodicDates.
+documents:
+  functions/business-event/quantity-change/full-termination-equity-swap-func-output.json: dividend-date-names-trade-date
+  functions/business-event/quantity-change/increase-equity-swap-existing-trade-lot-func-output.json: dividend-date-names-trade-date
+  functions/business-event/quantity-change/increase-equity-swap-func-output.json: dividend-date-names-trade-date
+  functions/business-event/quantity-change/partial-termination-equity-swap-func-output.json: dividend-date-names-trade-date
+  functions/business-event/stock-split/stock-split-equity-swap-func-output.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-10-incomplete-products-equity-swaps/eqs-ex04-zero-strike-long-form.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-10-incomplete-products-equity-swaps/eqs-ex05-single-stock-plus-fee-long-form.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-10-incomplete-products-equity-swaps/eqs-ex08-composite-basket-long-form-separate-spreads.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-10-incomplete-products-equity-swaps/eqs-ex17-cfd.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-10-incomplete-products-equity-swaps/trs-ex01-equity-basket.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-10-incomplete-products-equity-swaps/trs-ex02-single-equity.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-10-incomplete-products-equity-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-10-incomplete-products-equity-swaps/trs-ex04-index-ios.json: calculation-period-dates-names-valuation-dates
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-10-products-equity/eqs-ex01-single-underlyer-execution-long-form-other-party.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-10-products-equity/eqs-ex01-single-underlyer-execution-long-form.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-12-incomplete-products-equity/eqs-ex04-zero-strike-long-form.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-12-products-equity/eqs-ex01-single-underlyer-execution-long-form.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-12-products-equity/eqs-ex05-single-stock-plus-fee-long-form.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-12-products-equity/eqs-ex17-cfd.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-12-products-equity/trs-ex02-single-equity.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-12-products-equity/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-12-products-equity/trs-ex04-index-ios.json: calculation-period-dates-names-valuation-dates
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-13-incomplete-products-equity-swaps/eqs-ex04-zero-strike-long-form.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-13-incomplete-products-equity-swaps/eqs-ex05-single-stock-plus-fee-long-form.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-13-incomplete-products-equity-swaps/trs-ex01-equity-basket.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-13-products-equity-swaps/eqs-ex01-single-underlyer-execution-long-form.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-13-products-equity-swaps/eqs-ex02-composite-basket-long-form.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-13-products-equity-swaps/eqs-ex08-composite-basket-long-form-separate-spreads.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-13-products-equity-swaps/eqs-ex17-cfd.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-13-products-equity-swaps/eqs-ex20-single-underlyer-execution-long-form-ois.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-13-products-equity-swaps/trs-ex02-single-equity.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-13-products-equity-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.json: dividend-date-names-trade-date
+  ingest/output/fpml-confirmation-to-trade-state/fpml-5-13-products-equity-swaps/trs-ex04-index-ios.json: calculation-period-dates-names-valuation-dates
