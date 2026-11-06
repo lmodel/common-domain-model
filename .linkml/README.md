@@ -18,7 +18,7 @@ The schema models the [Common Domain Model](https://cdm.finos.org/) (CDM) that F
 
 This repository is a fork of [finos/common-domain-model](https://github.com/finos/common-domain-model). FINOS's tree sits unchanged at the repository's root, and this project sits beside it, in this folder, `.lokf/` and `knowledge-website/`. [tests/upstream_tree.tsv](tests/upstream_tree.tsv) pins every file of the release, and a weekly workflow opens an issue when FINOS releases from master again.
 
-The attributes and values keep the CDM's names, so a CDM document validates once [tests/rune_json.py](tests/rune_json.py) has taken out the keys Rune adds for metadata. `tests/test_finos_samples.py` reads the CDM documents in FINOS's tree that way.
+The attributes and values keep the CDM's names, so the JSON Schema can check a CDM document's shape once [tests/rune_json.py](tests/rune_json.py) has taken out the keys Rune adds for metadata. `tests/test_finos_samples.py` checks the CDM documents in FINOS's tree that way.
 
 ## Mappings
 
