@@ -1561,11 +1561,21 @@ classes:
           slot_conditions:
             customValue:
               value_presence: PRESENT
+      - description: 'StandardValue: The specification of a standard value by the parties to the legal
+          agreement is done through the qualification of a value distinct than `Other` as part of the
+          AdditionalTypeEnum, and implies that the customerValue is not being qualified.'
+        preconditions:
+          none_of:
+            - slot_conditions:
+                standardValue:
+                  equals_string: Other
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            customValue:
+              value_presence: ABSENT
     annotations:
       doc_reference: ISDA CSA_IM_2016 paragraph 13 General Principles clause (b)(B)
-    comments:
-      - 'Rosetta condition StandardValue is not stated in LinkML: if standardValue <> AdditionalTypeEnum
-        -> Other then customValue is absent'
   AddressesForTransfer:
     description: Specifies the address for transfer as specified by the respective parties to the agreement.
     attributes:
@@ -1913,6 +1923,7 @@ classes:
           slot_conditions:
             date:
               equals_string: CalendarDay
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             calendarDay:
@@ -2354,9 +2365,11 @@ classes:
             - slot_conditions:
                 cashCollateral:
                   equals_string: Other
+                  value_presence: PRESENT
             - slot_conditions:
                 securitiesCollateral:
                   equals_string: Other
+                  value_presence: PRESENT
         postconditions:
           slot_conditions:
             additionalLanguage:
@@ -2403,6 +2416,7 @@ classes:
           slot_conditions:
             conditionsPrecedentElection:
               equals_string: Other
+              value_presence: PRESENT
     annotations:
       doc_reference: ISDA CSA_IM_2016 paragraph 4 clause (a) | ISDA CSA_VM_2016 paragraph 4 clause (a)
         | ISDA CSD_IM_English_2016 paragraph 13 General Principles clause (e) name  Conditions Precedent
@@ -3130,6 +3144,7 @@ classes:
           slot_conditions:
             legacyVMCustodian:
               equals_string: NamedEntity
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             legacyNamedEntity:
@@ -3622,6 +3637,7 @@ classes:
           slot_conditions:
             dutyPayer:
               equals_string: Specify
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             dutyPayerLanguage:
@@ -4065,51 +4081,6 @@ classes:
         annotations:
           rosetta_metadata: scheme
     rules:
-      - description: 'From IndependentAmountRatings. RestrictCompare: Restricts allowable values pertaining
-          to how multiple credit ratings are compared when determining the applicable Independent Amount.'
-        preconditions:
-          slot_conditions:
-            compare:
-              value_presence: PRESENT
-        postconditions:
-          any_of:
-            - slot_conditions:
-                compare:
-                  equals_string: Compare
-            - slot_conditions:
-                compare:
-                  equals_string: Lowest
-            - slot_conditions:
-                compare:
-                  equals_string: Highest
-      - description: 'From IndependentAmountRatings. NamedAffiliate: Ensures Named Affiliate is provided
-          where the Rated Party is Named Affiliate.'
-        preconditions:
-          slot_conditions:
-            ratedParty:
-              equals_string: NamedAffiliate
-        postconditions:
-          slot_conditions:
-            namedAffiliate:
-              value_presence: PRESENT
-        elseconditions:
-          slot_conditions:
-            namedAffiliate:
-              value_presence: ABSENT
-      - description: 'From IndependentAmountRatings. NamedEntity: Ensures Named Entity is provided where
-          the Rated Party is Named Entity.'
-        preconditions:
-          slot_conditions:
-            ratedParty:
-              equals_string: NamedEntity
-        postconditions:
-          slot_conditions:
-            namedEntity:
-              value_presence: PRESENT
-        elseconditions:
-          slot_conditions:
-            namedEntity:
-              value_presence: ABSENT
       - description: 'RestrictCompare: Restricts allowable values pertaining to how multiple credit ratings
           are compared when determining the applicable Independent Amount.'
         preconditions:
@@ -4142,51 +4113,6 @@ classes:
         range: DirectionRatingMultiplier
         multivalued: true
     rules:
-      - description: 'From IndependentAmountRatings. RestrictCompare: Restricts allowable values pertaining
-          to how multiple credit ratings are compared when determining the applicable Independent Amount.'
-        preconditions:
-          slot_conditions:
-            compare:
-              value_presence: PRESENT
-        postconditions:
-          any_of:
-            - slot_conditions:
-                compare:
-                  equals_string: Compare
-            - slot_conditions:
-                compare:
-                  equals_string: Lowest
-            - slot_conditions:
-                compare:
-                  equals_string: Highest
-      - description: 'From IndependentAmountRatings. NamedAffiliate: Ensures Named Affiliate is provided
-          where the Rated Party is Named Affiliate.'
-        preconditions:
-          slot_conditions:
-            ratedParty:
-              equals_string: NamedAffiliate
-        postconditions:
-          slot_conditions:
-            namedAffiliate:
-              value_presence: PRESENT
-        elseconditions:
-          slot_conditions:
-            namedAffiliate:
-              value_presence: ABSENT
-      - description: 'From IndependentAmountRatings. NamedEntity: Ensures Named Entity is provided where
-          the Rated Party is Named Entity.'
-        preconditions:
-          slot_conditions:
-            ratedParty:
-              equals_string: NamedEntity
-        postconditions:
-          slot_conditions:
-            namedEntity:
-              value_presence: PRESENT
-        elseconditions:
-          slot_conditions:
-            namedEntity:
-              value_presence: ABSENT
       - description: 'CompareIA: Ensures the appropriate variable set is populated based on how the Ratings
           are compared.'
         preconditions:
@@ -4253,6 +4179,7 @@ classes:
           slot_conditions:
             resolutionAlternative:
               equals_string: SplitDifference
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             amount:
@@ -4385,6 +4312,7 @@ classes:
           slot_conditions:
             ratedParty:
               equals_string: NamedEntity
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             namedEntity:
@@ -4394,6 +4322,7 @@ classes:
           slot_conditions:
             ratedParty:
               equals_string: NamedAffiliate
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             namedAffiliate:
@@ -4555,6 +4484,7 @@ classes:
           slot_conditions:
             representativeEvent:
               equals_string: Other
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             representativeEventTerms:
@@ -4737,10 +4667,13 @@ classes:
           - slot_conditions:
               scale:
                 value_presence: ABSENT
+          - slot_conditions:
               debt:
                 value_presence: ABSENT
+          - slot_conditions:
               outlook:
                 value_presence: ABSENT
+          - slot_conditions:
               creditWatch:
                 value_presence: ABSENT
   RatingMultiplier:
@@ -4857,9 +4790,11 @@ classes:
             - slot_conditions:
                 cash:
                   equals_string: Other
+                  value_presence: PRESENT
             - slot_conditions:
                 securities:
                   equals_string: Other
+                  value_presence: PRESENT
         postconditions:
           slot_conditions:
             additionalLanguage:
@@ -5471,6 +5406,7 @@ classes:
           slot_conditions:
             ratedParty:
               equals_string: NamedEntity
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             namedEntity:
@@ -5480,6 +5416,7 @@ classes:
           slot_conditions:
             ratedParty:
               equals_string: NamedAffiliate
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             namedAffiliate:
@@ -5508,9 +5445,11 @@ classes:
             - slot_conditions:
                 cashCollateralTransferSettlementTime:
                   equals_string: Other
+                  value_presence: PRESENT
             - slot_conditions:
                 securititesCollateralTransferSettlementTime:
                   equals_string: Other
+                  value_presence: PRESENT
         postconditions:
           slot_conditions:
             additionalLanguage:

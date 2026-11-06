@@ -202,6 +202,7 @@ classes:
           slot_conditions:
             intent:
               equals_string: CorporateActionAdjustment
+              value_presence: PRESENT
   EventTimestamp:
     description: A class to represent the various set of timestamps that can be associated with lifecycle
       events, as a collection of [dateTime, qualifier].

@@ -590,6 +590,7 @@ classes:
           slot_conditions:
             observationTimeType:
               equals_string: SpecificTime
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             observationTime:
@@ -786,7 +787,7 @@ classes:
         range: PriceSchedule
         required: true
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->price
   ResetDates:
     description: 'A data defining: the parameters used to generate the reset dates schedule and associated
       fixing dates. The reset dates are the dates on which the new index value (which is observed on the
@@ -876,16 +877,6 @@ classes:
           periodMultiplier:
             minimum_value: 1
     rules:
-      - description: 'From Frequency. TermPeriod: FpML specifies that if period value is T (Term) then
-          periodMultiplier must contain the value 1.'
-        preconditions:
-          slot_conditions:
-            period:
-              equals_string: T
-        postconditions:
-          slot_conditions:
-            periodMultiplier:
-              equals_number: 1
       - description: 'FpML_ird_49: FpML validation rule ird-49 - WeeklyRollConvention should exist if
           and only if the period is ''W''.'
         preconditions:
@@ -997,3 +988,4 @@ classes:
           slot_conditions:
             observationNumber:
               minimum_value: 0
+              value_presence: PRESENT

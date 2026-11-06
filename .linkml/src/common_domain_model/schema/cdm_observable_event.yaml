@@ -300,6 +300,7 @@ classes:
           slot_conditions:
             amount:
               minimum_value: 0
+              value_presence: PRESENT
     annotations:
       rosetta_metadata: key
   GracePeriodExtension:
@@ -390,6 +391,7 @@ classes:
           slot_conditions:
             specifiedNumber:
               minimum_value: 0
+              value_presence: PRESENT
   Restructuring:
     attributes:
       applicable:

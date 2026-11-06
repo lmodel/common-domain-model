@@ -60,10 +60,15 @@ classes:
             maximumStockLoanRate:
               value_presence: PRESENT
         postconditions:
-          slot_conditions:
-            maximumStockLoanRate:
-              minimum_value: 0
-              maximum_value: 1
+          all_of:
+            - slot_conditions:
+                maximumStockLoanRate:
+                  minimum_value: 0
+                  value_presence: PRESENT
+            - slot_conditions:
+                maximumStockLoanRate:
+                  maximum_value: 1
+                  value_presence: PRESENT
       - description: 'InitialStockLoanRate: FpML specifies the initialStockLoanRate as a RestrictedPercentage,
           meaning that its value is comprised between 0 and 1.'
         preconditions:
@@ -71,10 +76,15 @@ classes:
             initialStockLoanRate:
               value_presence: PRESENT
         postconditions:
-          slot_conditions:
-            initialStockLoanRate:
-              minimum_value: 0
-              maximum_value: 1
+          all_of:
+            - slot_conditions:
+                initialStockLoanRate:
+                  minimum_value: 0
+                  value_presence: PRESENT
+            - slot_conditions:
+                initialStockLoanRate:
+                  maximum_value: 1
+                  value_presence: PRESENT
       - description: DisruptionEventsDeterminingParty
         preconditions:
           slot_conditions:
@@ -84,6 +94,7 @@ classes:
           slot_conditions:
             determiningParty:
               equals_string: DisruptionEventsDeterminingParty
+              value_presence: PRESENT
     annotations:
       doc_reference: ISDA EquityDerivativesDefinitions_2002
   Clause:

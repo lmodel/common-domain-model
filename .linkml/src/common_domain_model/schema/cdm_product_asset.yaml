@@ -737,6 +737,7 @@ classes:
           slot_conditions:
             numberOfDataSeries:
               minimum_value: 1
+              value_presence: PRESENT
     comments:
       - 'Rosetta condition CorrelationValue is not stated in LinkML: correlationStrikePrice -> value >
         - 1 and correlationStrikePrice -> value < 1'
@@ -906,7 +907,7 @@ classes:
           particular set of dividend payout ratios correspond.
         range: BasketConstituent
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->observable->Basket->basketConstituent
     all_of:
       - description: 'DividendPayoutRatioTotal: The dividend payout ratio should be comprised between
           0 and 100%, meaning 0 and 1.'
@@ -925,6 +926,7 @@ classes:
           slot_conditions:
             cashRatio:
               minimum_value: 0
+              value_presence: PRESENT
             totalRatio:
               maximum_value: 1
       - description: 'DividendPayoutRatioNonCash: The non cash dividend payout ratio should be comprised
@@ -937,6 +939,7 @@ classes:
           slot_conditions:
             nonCashRatio:
               minimum_value: 0
+              value_presence: PRESENT
             totalRatio:
               maximum_value: 1
   DividendPeriod:
@@ -954,7 +957,7 @@ classes:
           in the specified period.
         range: BasketConstituent
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->observable->Basket->basketConstituent
       dividendPaymentDate:
         description: Specifies when the dividend will be paid to the receiver of the equity return. Has
           the meaning as defined in the ISDA 2002 Equity Derivatives Definitions. Is not applicable in
@@ -1039,6 +1042,7 @@ classes:
           slot_conditions:
             extraordinaryDividendsParty:
               equals_string: ExtraordinaryDividendsParty
+              value_presence: PRESENT
     comments:
       - 'Rosetta condition DividendPeriod is not stated in LinkML: if firstOrSecondPeriod exists then
         dividendPeriod -> startDate is absent and dividendPeriod -> endDate is absent'
@@ -1195,7 +1199,7 @@ classes:
       rateOption:
         range: InterestRateIndex
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=Observable->Index->InterestRateIndex
       spreadSchedule:
         description: The ISDA Spread or a Spread schedule expressed as explicit spreads and dates. In
           the case of a schedule, the step dates may be subject to adjustment in accordance with any adjustments
@@ -1264,9 +1268,19 @@ classes:
           per annum rate, expressed as a decimal. The floor rate of 5% would be represented as 0.05.
         range: Strike
         multivalued: true
-    comments:
-      - 'Rosetta condition FloatingRateMultiplier is not stated in LinkML: if floatingRateMultiplier exists
-        then floatingRateMultiplier <> 1'
+    rules:
+      - description: 'FloatingRateMultiplier: FpML specifies that the floatingRateMultiplier should only
+          be included if different from 1.'
+        preconditions:
+          slot_conditions:
+            floatingRateMultiplier:
+              value_presence: PRESENT
+        postconditions:
+          none_of:
+            - slot_conditions:
+                floatingRateMultiplier:
+                  equals_number: 1.0
+                  value_presence: PRESENT
   FloatingRateSpecification:
     is_a: FloatingRate
     description: 'A class to specify the floating interest rate by extending the floating rate definition
@@ -1299,7 +1313,7 @@ classes:
       quantity:
         range: NonNegativeQuantitySchedule
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->quantity
       currency:
         description: The currency in which the an amount is denominated. The list of valid currencies
           is not presently positioned as an enumeration as part of the CDM because that scope is limited
@@ -1539,6 +1553,23 @@ classes:
               - slot_conditions:
                   paymentDate:
                     value_presence: ABSENT
+    rules:
+      - description: 'FpML_ird_9: FpML validation rule ird-9 - If calculationPeriodAmount/calculation/compoundingMethod
+          exists, then resetDates must exist.'
+        preconditions:
+          all_of:
+            - slot_conditions:
+                compoundingMethod:
+                  value_presence: PRESENT
+            - none_of:
+                - slot_conditions:
+                    compoundingMethod:
+                      equals_string: None
+                      value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            resetDates:
+              value_presence: PRESENT
     comments:
       - 'Rosetta condition FutureValueNotional is not stated in LinkML: if rateSpecification as FixedRateSpecification
         is absent then priceQuantity -> futureValueNotional is absent'
@@ -1573,8 +1604,6 @@ classes:
         -> calculationPeriodFrequency -> periodMultiplier exists and paymentDates -> paymentFrequency
         -> periodMultiplier <> calculationPeriodDates -> calculationPeriodFrequency -> periodMultiplier)
         then compoundingMethod exists'
-      - 'Rosetta condition FpML_ird_9 is not stated in LinkML: if compoundingMethod exists and compoundingMethod
-        <> CompoundingMethodEnum -> None then resetDates exists'
       - 'Rosetta condition FpML_ird_29 is not stated in LinkML: if compoundingMethod exists and compoundingMethod
         <> CompoundingMethodEnum -> None then rateSpecification as FixedRateSpecification is absent'
       - 'Rosetta condition CalculationPeriodDatesFirstCompoundingPeriodEndDate is not stated in LinkML:
@@ -2135,6 +2164,7 @@ classes:
           slot_conditions:
             numberOfValuationDates:
               minimum_value: 1
+              value_presence: PRESENT
   VarianceCapFloor:
     attributes:
       varianceCap:
@@ -2184,7 +2214,7 @@ classes:
         description: Specification of the exchange traded contract nearest.
         range: Observable
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->observable
     all_of:
       - description: 'From ReturnTermsBase. PositiveExpectedN: The number of expected trading dates must
           be positive'

@@ -2204,6 +2204,50 @@ classes:
         range: string
         multivalued: true
     rules:
+      - description: SecuritySubType
+        preconditions:
+          none_of:
+            - slot_conditions:
+                assetType:
+                  equals_string: Security
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            securityType:
+              value_presence: ABSENT
+      - description: BondSubType
+        preconditions:
+          none_of:
+            - slot_conditions:
+                securityType:
+                  equals_string: Debt
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            debtType:
+              value_presence: ABSENT
+      - description: EquitySubType
+        preconditions:
+          none_of:
+            - slot_conditions:
+                securityType:
+                  equals_string: Equity
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            equityType:
+              value_presence: ABSENT
+      - description: FundSubType
+        preconditions:
+          none_of:
+            - slot_conditions:
+                securityType:
+                  equals_string: Fund
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            fundType:
+              value_presence: ABSENT
       - description: OtherAssetSubType
         preconditions:
           slot_conditions:
@@ -2213,15 +2257,6 @@ classes:
           slot_conditions:
             otherAssetType:
               value_presence: PRESENT
-    comments:
-      - 'Rosetta condition SecuritySubType is not stated in LinkML: if assetType <> Security then securityType
-        is absent'
-      - 'Rosetta condition BondSubType is not stated in LinkML: if securityType <> Debt then debtType
-        is absent'
-      - 'Rosetta condition EquitySubType is not stated in LinkML: if securityType <> Equity then equityType
-        is absent'
-      - 'Rosetta condition FundSubType is not stated in LinkML: if securityType <> Fund then fundType
-        is absent'
   Cash:
     is_a: AssetBase
     description: An Asset that consists solely of a monetary holding in a currency. The currency of the
@@ -2276,15 +2311,51 @@ classes:
           of acquisition and financing of specific assets on a potentially limited recourse basis dependent
           of how it is designed. E.g. asset backed securities, including securitisations.
         range: SpecialPurposeVehicleIssuerType
-    comments:
-      - 'Rosetta condition SupraNationalSubType is not stated in LinkML: if issuerType <> SupraNational
-        then supraNationalType is absent'
-      - 'Rosetta condition QuasiGovernmentSubType is not stated in LinkML: if issuerType <> QuasiGovernment
-        then quasiGovernmentType is absent'
-      - 'Rosetta condition RegionalGovernmentSubType is not stated in LinkML: if issuerType <> RegionalGovernment
-        then regionalGovernmentType is absent'
-      - 'Rosetta condition SpecialPurposeVehicleSubType is not stated in LinkML: if issuerType <> SpecialPurposeVehicle
-        then specialPurposeVehicleType is absent'
+    rules:
+      - description: SupraNationalSubType
+        preconditions:
+          none_of:
+            - slot_conditions:
+                issuerType:
+                  equals_string: SupraNational
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            supraNationalType:
+              value_presence: ABSENT
+      - description: QuasiGovernmentSubType
+        preconditions:
+          none_of:
+            - slot_conditions:
+                issuerType:
+                  equals_string: QuasiGovernment
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            quasiGovernmentType:
+              value_presence: ABSENT
+      - description: RegionalGovernmentSubType
+        preconditions:
+          none_of:
+            - slot_conditions:
+                issuerType:
+                  equals_string: RegionalGovernment
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            regionalGovernmentType:
+              value_presence: ABSENT
+      - description: SpecialPurposeVehicleSubType
+        preconditions:
+          none_of:
+            - slot_conditions:
+                issuerType:
+                  equals_string: SpecialPurposeVehicle
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            specialPurposeVehicleType:
+              value_presence: ABSENT
   CollateralTaxonomy:
     description: Specifies the collateral taxonomy, which is composed of a taxonomy value and a taxonomy
       source.
@@ -2585,9 +2656,18 @@ classes:
         range: EquityTypeEnum
       depositaryReceipt:
         range: DepositaryReceiptTypeEnum
-    comments:
-      - 'Rosetta condition DepositaryReceiptSubType is not stated in LinkML: if equityType <> EquityTypeEnum
-        -> DepositaryReceipt then depositaryReceipt is absent'
+    rules:
+      - description: DepositaryReceiptSubType
+        preconditions:
+          none_of:
+            - slot_conditions:
+                equityType:
+                  equals_string: DepositaryReceipt
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            depositaryReceipt:
+              value_presence: ABSENT
   Instrument:
     description: A type of Asset that is issued by one party to one or more others.
     attributes:
@@ -2820,15 +2900,66 @@ classes:
       propertyType:
         description: Specifies the type of property when the security is linked to a property asset.
         range: PropertyTypeEnum
-    comments:
-      - 'Rosetta condition AssetBackedExists is not stated in LinkML: if securedType <> SecuredTypeEnum
-        -> AssetBacked then assetBacked is absent'
-      - 'Rosetta condition PropertyExists is not stated in LinkML: if assetBacked <> Mortgage or assetBacked
-        <> Property or collateralizedObligation <> CMO then propertyType is absent'
-      - 'Rosetta condition CollateralizedObligationExists is not stated in LinkML: if securedType <> CollateralizedObligation
-        then collateralizedObligation is absent'
-      - 'Rosetta condition CoveredBondsExists is not stated in LinkML: if securedType <> CoveredBonds
-        then coveredBond is absent'
+    rules:
+      - description: 'AssetBackedExists: Condition to restrict selection of the assetBacked attribute
+          if AssetBacked is not set as the securedType value.'
+        preconditions:
+          none_of:
+            - slot_conditions:
+                securedType:
+                  equals_string: AssetBacked
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            assetBacked:
+              value_presence: ABSENT
+      - description: 'PropertyExists: Condition to restrict selection of the property attribute if the
+          security is not linked to a property asset: mortgage, property, CMO.'
+        preconditions:
+          any_of:
+            - none_of:
+                - slot_conditions:
+                    assetBacked:
+                      equals_string: Mortgage
+                      value_presence: PRESENT
+            - none_of:
+                - slot_conditions:
+                    assetBacked:
+                      equals_string: Property
+                      value_presence: PRESENT
+            - none_of:
+                - slot_conditions:
+                    collateralizedObligation:
+                      equals_string: CMO
+                      value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            propertyType:
+              value_presence: ABSENT
+      - description: 'CollateralizedObligationExists: Condition to restrict selection of the collateralizedObligations
+          attribute if CollateralizedObligation is not set as the securedType value.'
+        preconditions:
+          none_of:
+            - slot_conditions:
+                securedType:
+                  equals_string: CollateralizedObligation
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            collateralizedObligation:
+              value_presence: ABSENT
+      - description: 'CoveredBondsExists: Condition to restrict selection of the coveredBonds attribute
+          if CoveredBonds is not set as the securedType value.'
+        preconditions:
+          none_of:
+            - slot_conditions:
+                securedType:
+                  equals_string: CoveredBonds
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            coveredBond:
+              value_presence: ABSENT
   Security:
     is_a: InstrumentBase
     description: Identifies a security by referencing an identifier and by specifying the sector.
@@ -2851,15 +2982,42 @@ classes:
         slot_conditions:
           assetType:
             equals_string: Security
+    rules:
+      - description: DebtSubType
+        preconditions:
+          none_of:
+            - slot_conditions:
+                securityType:
+                  equals_string: Debt
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            debtType:
+              value_presence: ABSENT
+      - description: EquitySubType
+        preconditions:
+          none_of:
+            - slot_conditions:
+                securityType:
+                  equals_string: Equity
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            equityType:
+              value_presence: ABSENT
+      - description: FundSubType
+        preconditions:
+          none_of:
+            - slot_conditions:
+                securityType:
+                  equals_string: Fund
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            fundType:
+              value_presence: ABSENT
     annotations:
       doc_reference: ICMA GMRA namingConvention Purchased Security
-    comments:
-      - 'Rosetta condition DebtSubType is not stated in LinkML: if securityType <> Debt then debtType
-        is absent'
-      - 'Rosetta condition EquitySubType is not stated in LinkML: if securityType <> Equity then equityType
-        is absent'
-      - 'Rosetta condition FundSubType is not stated in LinkML: if securityType <> Fund then fundType
-        is absent'
   SpecialPurposeVehicleIssuerType:
     description: Represents a class to allow specification of different types of special purpose vehicle
       (SPV) collateral.

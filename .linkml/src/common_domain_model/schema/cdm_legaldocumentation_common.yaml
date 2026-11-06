@@ -1171,6 +1171,7 @@ classes:
           slot_conditions:
             partyRole:
               equals_string: Sleeve
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             parentParty:

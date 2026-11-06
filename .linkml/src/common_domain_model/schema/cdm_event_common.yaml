@@ -840,16 +840,6 @@ classes:
         slot_conditions:
           eventDate:
             value_presence: PRESENT
-    rules:
-      - description: From EventInstruction. CorporateAction
-        preconditions:
-          slot_conditions:
-            corporateActionIntent:
-              value_presence: PRESENT
-        postconditions:
-          slot_conditions:
-            intent:
-              equals_string: CorporateActionAdjustment
     annotations:
       rosetta_root_type: 'true'
       rosetta_metadata: key
@@ -1038,9 +1028,11 @@ classes:
             - slot_conditions:
                 collateralPositionStatus:
                   equals_string: SettledAmount
+                  value_presence: PRESENT
             - slot_conditions:
                 collateralPositionStatus:
                   equals_string: InTransitAmount
+                  value_presence: PRESENT
   ContingentTransfer:
     is_a: PayoutTransferBase
     description: Specifies a transfer created from a trade contingent upon a specific, uncertain event
@@ -1069,6 +1061,7 @@ classes:
           slot_conditions:
             transferType:
               equals_string: CorporateAction
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             corporateActionTransferType:
@@ -1590,17 +1583,6 @@ classes:
         description: Represents Initial Margin (IM) exposure derived from schedule or Grid calculation.
         range: Exposure
     rules:
-      - description: 'From MarginCallBase. RegIMRoleIMOnly: Specifies a condition to ensure that RegIMRole
-          (Pledgor or Secured Party)is only applicable if the Reg margin type is defined as RegIM (Regulatory
-          Initial Margin).'
-        preconditions:
-          slot_conditions:
-            regIMRole:
-              value_presence: PRESENT
-        postconditions:
-          slot_conditions:
-            regMarginType:
-              equals_string: RegIM
       - description: 'ExposureSimmAndScheduleIMOnly: Specifies a condition to ensure that if margin exposure
           is defined as Simm IM and Schedule/Grid IM Exposure this is only applicable if the Reg margin
           type is defined as RegIM (Regulatory Initial Margin).'
@@ -1660,18 +1642,6 @@ classes:
           for recall purposes.
         range: EligibleCollateralCriteria
         multivalued: true
-    rules:
-      - description: 'From MarginCallBase. RegIMRoleIMOnly: Specifies a condition to ensure that RegIMRole
-          (Pledgor or Secured Party)is only applicable if the Reg margin type is defined as RegIM (Regulatory
-          Initial Margin).'
-        preconditions:
-          slot_conditions:
-            regIMRole:
-              value_presence: PRESENT
-        postconditions:
-          slot_conditions:
-            regMarginType:
-              equals_string: RegIM
   MarginCallResponse:
     is_a: MarginCallBase
     description: Represents common attributes required for a Margin Call Response under a legal agreement
@@ -1692,18 +1662,6 @@ classes:
           (in base currency).
         range: Money
         required: true
-    rules:
-      - description: 'From MarginCallBase. RegIMRoleIMOnly: Specifies a condition to ensure that RegIMRole
-          (Pledgor or Secured Party)is only applicable if the Reg margin type is defined as RegIM (Regulatory
-          Initial Margin).'
-        preconditions:
-          slot_conditions:
-            regIMRole:
-              value_presence: PRESENT
-        postconditions:
-          slot_conditions:
-            regMarginType:
-              equals_string: RegIM
   MarginCallResponseAction:
     description: Specifies the margin call action details, including collateral to be moved and its direction.
     attributes:
@@ -2066,6 +2024,7 @@ classes:
           slot_conditions:
             positionState:
               equals_string: Closed
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             closedState:

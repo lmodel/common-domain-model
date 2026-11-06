@@ -291,10 +291,15 @@ classes:
             recoveryFactor:
               value_presence: PRESENT
         postconditions:
-          slot_conditions:
-            recoveryFactor:
-              minimum_value: 0
-              maximum_value: 1
+          all_of:
+            - slot_conditions:
+                recoveryFactor:
+                  minimum_value: 0
+                  value_presence: PRESENT
+            - slot_conditions:
+                recoveryFactor:
+                  maximum_value: 1
+                  value_presence: PRESENT
     annotations:
       rosetta_metadata: key
     comments:
@@ -503,10 +508,14 @@ classes:
           is equal to ''ReferenceObligationsOnly'', then no other elements may be contained in the deliverable
           obligations element.'
         preconditions:
-          slot_conditions:
-            category:
-              value_presence: PRESENT
-              equals_string: ReferenceObligationsOnly
+          all_of:
+            - slot_conditions:
+                category:
+                  value_presence: PRESENT
+            - slot_conditions:
+                category:
+                  equals_string: ReferenceObligationsOnly
+                  value_presence: PRESENT
         postconditions:
           slot_conditions:
             acceleratedOrMatured:
@@ -560,7 +569,7 @@ classes:
         description: Fixed price step schedule, including an initial price specified as an absolute number.
         range: PriceSchedule
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->price
     comments:
       - 'Rosetta condition NonNegativePrice_amount is not stated in LinkML: if price -> value exists then
         price -> value >= 0.0'
@@ -633,17 +642,6 @@ classes:
           - slot_conditions:
               dateRelativeToCalculationPeriodDates:
                 value_presence: PRESENT
-    rules:
-      - description: 'From Period. DayPeriod: FpML specifies that if the periodMultiplier value is 0 (zero)
-          then period must contain the value D (day).'
-        preconditions:
-          slot_conditions:
-            periodMultiplier:
-              equals_number: 0
-        postconditions:
-          slot_conditions:
-            period:
-              equals_string: D
   LoanParticipation:
     is_a: PCDeliverableObligationCharac
     description: 'A class to specify loan with a participation agreement whereby the buyer is capable
@@ -790,6 +788,7 @@ classes:
           slot_conditions:
             businessDays:
               minimum_value: 0
+              value_presence: PRESENT
       - description: 'MaximumBusinessDays: FpML specifies maximumBusinessDays as a NonNegativeInteger.'
         preconditions:
           slot_conditions:
@@ -799,6 +798,7 @@ classes:
           slot_conditions:
             maximumBusinessDays:
               minimum_value: 0
+              value_presence: PRESENT
   PhysicalSettlementTerms:
     description: Specifies Physical Settlement Terms characteristics for the settlement of a Credit Default
       Swap or Option.
@@ -857,6 +857,7 @@ classes:
           slot_conditions:
             predeterminedClearingOrganizationParty:
               equals_string: PredeterminedClearingOrganizationParty
+              value_presence: PRESENT
     annotations:
       rosetta_metadata: key
   PricingDates:
@@ -1021,7 +1022,7 @@ classes:
           in a PriceQuantity object and only referenced inside the payout using an address.'
         range: NonNegativeQuantitySchedule
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->quantity
       quantityReference:
         description: Reference quantity when resolvable quantity is defined as relative to another (resolvable)
           quantity. A resolvable quantity needs to contain either an absolute quantity or a reference
@@ -1052,7 +1053,7 @@ classes:
         range: PriceSchedule
         multivalued: true
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->price
     annotations:
       rosetta_metadata: key
     comments:
@@ -1131,6 +1132,7 @@ classes:
           slot_conditions:
             securitySettlementCentre:
               equals_string: SecuritySettlementCentre
+              value_presence: PRESENT
       - description: CashSettlementCentre
         preconditions:
           slot_conditions:
@@ -1140,6 +1142,7 @@ classes:
           slot_conditions:
             cashSettlementCentre:
               equals_string: CashSettlementCentre
+              value_presence: PRESENT
     annotations:
       rosetta_metadata: key
   SettlementDate:
@@ -1231,6 +1234,7 @@ classes:
           slot_conditions:
             cashSettlementBusinessDays:
               minimum_value: 0
+              value_presence: PRESENT
         elseconditions:
           any_of:
             - slot_conditions:
@@ -1269,24 +1273,6 @@ classes:
         description: Specifies the physical settlement terms which apply to the transaction.
         range: PhysicalSettlementTerms
     rules:
-      - description: From SettlementBase. SecuritySettlementCentre
-        preconditions:
-          slot_conditions:
-            securitySettlementCentre:
-              value_presence: PRESENT
-        postconditions:
-          slot_conditions:
-            securitySettlementCentre:
-              equals_string: SecuritySettlementCentre
-      - description: From SettlementBase. CashSettlementCentre
-        preconditions:
-          slot_conditions:
-            cashSettlementCentre:
-              value_presence: PRESENT
-        postconditions:
-          slot_conditions:
-            cashSettlementCentre:
-              equals_string: CashSettlementCentre
       - description: 'OptionSettlementChoice: The option settlement cannot combine both physical and cash
           terms specification.'
         preconditions:
@@ -1303,11 +1289,30 @@ classes:
             - slot_conditions:
                 settlementType:
                   equals_string: CashOrPhysical
-    comments:
-      - 'Rosetta condition CashSettlementTerms is not stated in LinkML: if cashSettlementTerms exists
-        then settlementType <> SettlementTypeEnum -> Physical'
-      - 'Rosetta condition PhysicalSettlementTerms is not stated in LinkML: if physicalSettlementTerms
-        exists then settlementType <> SettlementTypeEnum -> Cash'
+      - description: 'CashSettlementTerms: If the cash settlement terms are specified, then the settlementType
+          can either be Cash, Election or CashOrPhysical'
+        preconditions:
+          slot_conditions:
+            cashSettlementTerms:
+              value_presence: PRESENT
+        postconditions:
+          none_of:
+            - slot_conditions:
+                settlementType:
+                  equals_string: Physical
+                  value_presence: PRESENT
+      - description: 'PhysicalSettlementTerms: If the physical settlement terms are specified, then the
+          settlementType can either be Physical, Election or CashOrPhysical'
+        preconditions:
+          slot_conditions:
+            physicalSettlementTerms:
+              value_presence: PRESENT
+        postconditions:
+          none_of:
+            - slot_conditions:
+                settlementType:
+                  equals_string: Cash
+                  value_presence: PRESENT
   ShapingProvision:
     description: Defines the applicable settlement limits that may require a settlement to be 'shaped',
       i.e. broken-down into smaller amounts.

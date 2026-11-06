@@ -95,7 +95,9 @@ def test_a_code_list_alias_holds_the_code_list():
     """FpMLCodingScheme(domain: ...) checks a code against FINOS's code list, so it is an enum."""
     bc = elements()["enums"]["BusinessCenter"]
     assert bc["enum_uri"] == "http://www.fpml.org/coding-scheme/business-center"
-    assert "GBLO" in bc["permissible_values"]
+    assert bc["see_also"] == ["http://www.fpml.org/coding-scheme/business-center-9-3"]
+    # FpML publishes no IRI for a code, so a value is the code and nothing more.
+    assert bc["permissible_values"]["GBLO"] == {}
 
 
 def test_every_choice_holds_exactly_one_option():
@@ -119,7 +121,10 @@ def test_every_condition_is_stated_or_named():
             continue
         cls = els["classes"][d.lname]
         stated = " ".join(
-            e["description"] for e in cls.get("all_of", []) + cls.get("rules", [])
+            e["description"]
+            for e in cls.get("all_of", [])
+            + cls.get("none_of", [])
+            + cls.get("rules", [])
         )
         unstated = " ".join(cls.get("comments", []))
         for c in d.conditions:
@@ -139,10 +144,14 @@ enum ColourEnum:
     Red
     Green displayName "green"
 
+typeAlias Count: int(min: 0)
+
 type Thing:
     a string (0..1)
     b string (0..1)
     n int (0..1)
+    m Count (1..1)
+    flag boolean (0..1)
     colour ColourEnum (0..1)
 
     condition Choose:
@@ -151,12 +160,26 @@ type Thing:
         optional choice a, b
     condition Positive:
         n > 0
+    condition PositiveM:
+        m > 0
     condition GreenNeedsA:
         if colour = ColourEnum -> Green then a exists else a is absent
     condition Bare:
         if colour = Red then b exists
     condition Path:
         a -> b exists
+    condition NotRed:
+        colour <> ColourEnum -> Red
+    condition NotRedWithA:
+        colour <> Red and a exists
+    condition NotRedOrA:
+        colour <> Red or a exists
+    condition RedUnlessA:
+        if a exists then colour <> ColourEnum -> Red
+    condition Flagged:
+        flag = True
+    condition Ordered:
+        a <= b
 
 type Sub extends Thing:
     c string (0..1)
@@ -177,16 +200,25 @@ def sample(tmp_path):
             d.extends = resolver.resolve(d, d.extends)
         for a in d.attrs:
             a.type = resolver.resolve(d, a.type)
+        if d.kind == "alias" and d.alias_base not in conv.BASIC_TYPES:
+            d.alias_base = resolver.resolve(d, d.alias_base)
     m = conv.Model({d.lname: d for d in decls})
     m.resolver = resolver
     return m
 
 
 def translate(m, type_name, cond_name, owner=None):
+    """The statements a condition becomes; one statement is returned on its own."""
     d = m.decls[type_name]
     o = m.decls[owner] if owner else d
     c = next(c for c in o.conditions if c.name == cond_name)
-    return conv.Translator(m, d, o).translate(c)
+    found = conv.Translator(m, d, o).translate(c)
+    return found[0] if len(found) == 1 else found
+
+
+RED = {
+    "slot_conditions": {"colour": {"equals_string": "Red", "value_presence": "PRESENT"}}
+}
 
 
 def test_required_choice_is_exactly_one(sample):
@@ -203,10 +235,18 @@ def test_optional_choice_allows_neither(sample):
     }
 
 
-def test_a_strict_integer_bound_becomes_inclusive(sample):
+def test_a_comparison_on_an_optional_attribute_requires_it(sample):
+    """Rune reads `null > 0` as false, so the bound alone would be too lax."""
     assert translate(sample, "Thing", "Positive") == (
         "class",
-        {"slot_conditions": {"n": {"minimum_value": 1}}},
+        {"slot_conditions": {"n": {"minimum_value": 1, "value_presence": "PRESENT"}}},
+    )
+
+
+def test_a_strict_bound_on_a_required_alias_of_int_becomes_inclusive(sample):
+    assert translate(sample, "Thing", "PositiveM") == (
+        "class",
+        {"slot_conditions": {"m": {"minimum_value": 1}}},
     )
 
 
@@ -214,16 +254,16 @@ def test_if_then_else_is_a_rule_on_the_display_name(sample):
     where, rule = translate(sample, "Thing", "GreenNeedsA")
     assert where == "rule"
     assert rule["preconditions"] == {
-        "slot_conditions": {"colour": {"equals_string": "green"}}
+        "slot_conditions": {
+            "colour": {"equals_string": "green", "value_presence": "PRESENT"}
+        }
     }
     assert rule["elseconditions"] == conv.absent("a")
 
 
 def test_a_bare_enum_value_is_read_against_the_attribute(sample):
     _, rule = translate(sample, "Thing", "Bare")
-    assert rule["preconditions"] == {
-        "slot_conditions": {"colour": {"equals_string": "Red"}}
-    }
+    assert rule["preconditions"] == RED
 
 
 def test_a_path_into_another_type_is_not_stated(sample):
@@ -231,7 +271,41 @@ def test_a_path_into_another_type_is_not_stated(sample):
         translate(sample, "Thing", "Path")
 
 
+def test_not_equal_at_class_level_is_the_classes_none_of(sample):
+    """`null <> X` is true in Rune, so `a <> X` denies a present value equal to X."""
+    assert translate(sample, "Thing", "NotRed") == ("none_of", RED)
+
+
+def test_not_equal_anded_with_an_atom_splits_into_two_statements(sample):
+    assert translate(sample, "Thing", "NotRedWithA") == [
+        ("none_of", RED),
+        ("class", conv.present("a")),
+    ]
+
+
+def test_not_equal_inside_or_nests_where_it_stands(sample):
+    assert translate(sample, "Thing", "NotRedOrA") == (
+        "class",
+        {"any_of": [{"none_of": [RED]}, conv.present("a")]},
+    )
+
+
+def test_not_equal_inside_a_rule_is_a_nested_none_of(sample):
+    _, rule = translate(sample, "Thing", "RedUnlessA")
+    assert rule["postconditions"] == {"none_of": [RED]}
+
+
+def test_equality_with_a_boolean_is_not_stated(sample):
+    with pytest.raises(conv.Unstated, match="equality with a boolean"):
+        translate(sample, "Thing", "Flagged")
+
+
+def test_a_comparison_of_two_attributes_is_not_stated(sample):
+    with pytest.raises(conv.Unstated, match="comparison of two attributes"):
+        translate(sample, "Thing", "Ordered")
+
+
 def test_one_of_covers_the_stating_types_attributes(sample):
     _, expr = translate(sample, "Sub", "Exactly")
     names = [next(iter(b["slot_conditions"])) for b in expr["exactly_one_of"]]
-    assert names == ["a", "b", "n", "colour", "c"]
+    assert names == ["a", "b", "n", "m", "flag", "colour", "c"]

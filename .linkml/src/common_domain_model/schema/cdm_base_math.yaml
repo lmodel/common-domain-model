@@ -457,17 +457,6 @@ classes:
           - slot_conditions:
               datedValue:
                 value_presence: PRESENT
-    rules:
-      - description: 'From QuantitySchedule. TotalQuantity: A total quantity must only be specified when
-          the frequency exists.'
-        preconditions:
-          slot_conditions:
-            total:
-              value_presence: PRESENT
-        postconditions:
-          slot_conditions:
-            frequency:
-              value_presence: PRESENT
   NonNegativeQuantitySchedule:
     is_a: QuantitySchedule
     description: Specifies a quantity schedule where all the values must be non-negative.
@@ -493,17 +482,6 @@ classes:
           - slot_conditions:
               datedValue:
                 value_presence: PRESENT
-    rules:
-      - description: 'From QuantitySchedule. TotalQuantity: A total quantity must only be specified when
-          the frequency exists.'
-        preconditions:
-          slot_conditions:
-            total:
-              value_presence: PRESENT
-        postconditions:
-          slot_conditions:
-            frequency:
-              value_presence: PRESENT
   NonNegativeSchedule:
     is_a: Schedule
     description: Specifies a schedule whose values are non-negative.
@@ -585,17 +563,6 @@ classes:
           - slot_conditions:
               datedValue:
                 value_presence: PRESENT
-    rules:
-      - description: 'From QuantitySchedule. TotalQuantity: A total quantity must only be specified when
-          the frequency exists.'
-        preconditions:
-          slot_conditions:
-            total:
-              value_presence: PRESENT
-        postconditions:
-          slot_conditions:
-            frequency:
-              value_presence: PRESENT
     comments:
       - 'Rosetta condition DatedValueIsAbsent is not stated in LinkML: datedValue is absent and total
         -> datedValue is absent'

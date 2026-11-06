@@ -412,10 +412,15 @@ classes:
             basketPercentage:
               value_presence: PRESENT
         postconditions:
-          slot_conditions:
-            basketPercentage:
-              minimum_value: 0
-              maximum_value: 1
+          all_of:
+            - slot_conditions:
+                basketPercentage:
+                  minimum_value: 0
+                  value_presence: PRESENT
+            - slot_conditions:
+                basketPercentage:
+                  maximum_value: 1
+                  value_presence: PRESENT
   DividendTerms:
     description: Information related to dividends and payments.
     attributes:
@@ -883,6 +888,7 @@ classes:
           slot_conditions:
             style:
               equals_string: European
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             expirationDate:
@@ -901,6 +907,7 @@ classes:
           slot_conditions:
             style:
               equals_string: Bermuda
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             exerciseDates:
@@ -1175,6 +1182,7 @@ classes:
           slot_conditions:
             maximumNotionalAmount:
               minimum_value: 0
+              value_presence: PRESENT
       - description: 'MinimumNumberOfOptions: FpML MultipleExercise construct specifies the minimumNumberOfOptions
           as a positive integer.'
         preconditions:
@@ -1185,6 +1193,7 @@ classes:
           slot_conditions:
             minimumNumberOfOptions:
               minimum_value: 0
+              value_presence: PRESENT
   NonTransferableProduct:
     description: A data type to specify the financial product's economic terms, alongside the product
       identification and product taxonomy. The non-transferable product data type represents a product
@@ -1568,7 +1577,7 @@ classes:
         range: PriceSchedule
         multivalued: true
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->price
       interimValuationPrice:
         description: Specifies the net initial valuation price(s) of the underlier at Performance Payout
           level. This price can be expressed either as an actual amount/currency, as a determination method,
@@ -1576,7 +1585,7 @@ classes:
         range: PriceSchedule
         multivalued: true
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->price
       finalValuationPrice:
         description: Specifies the net final valuation price(s) of the underlier at Performance Payout
           level. This price can be expressed either as an actual amount/currency, as a determination method,
@@ -1584,7 +1593,7 @@ classes:
         range: PriceSchedule
         multivalued: true
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->price
     all_of:
       - description: PortfolioOrStraightReturn
         exactly_one_of:
@@ -1639,13 +1648,13 @@ classes:
         range: Observable
         required: true
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->observable
       quantity:
         description: Specifies a quantity schedule for the underlier, which applies to each individual
           return leg.
         range: NonNegativeQuantitySchedule
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->quantity
       initialValuationPrice:
         description: Specifies the initial valuation price(s) of the underlier. This price can be expressed
           either as an actual amount/currency, as a determination method, or by reference to another value
@@ -1653,7 +1662,7 @@ classes:
         range: PriceSchedule
         multivalued: true
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->price
       interimValuationPrice:
         description: Specifies the initial valuation price(s) of the underlier. This price can be expressed
           either as an actual amount/currency, as a determination method, or by reference to another value
@@ -1661,7 +1670,7 @@ classes:
         range: PriceSchedule
         multivalued: true
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->price
       finalValuationPrice:
         description: '2018 ISDA CDM Equity Confirmation for Security Equity Swap: Final Price | Specifies
           the final valuation price of the underlier. This price can be expressed either as an actual
@@ -1670,7 +1679,7 @@ classes:
         range: PriceSchedule
         multivalued: true
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->price
     annotations:
       rosetta_metadata: key
   Product:
@@ -2087,7 +2096,7 @@ classes:
         description: Specifies the object to be observed for a price, it could be an asset or a reference.
         range: Observable
         annotations:
-          rosetta_metadata: address
+          rosetta_metadata: address "pointsTo"=PriceQuantity->observable
       Product:
         description: Enables either a TransferableProduct or a NonTransferableProduct to be used in an
           underlier.

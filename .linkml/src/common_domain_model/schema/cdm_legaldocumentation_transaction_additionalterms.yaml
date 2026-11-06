@@ -351,6 +351,7 @@ classes:
           slot_conditions:
             localSubstituteProvisionType:
               equals_string: LocalCurrencySubstitute
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             maximumDaysOfDisruption:
@@ -387,6 +388,7 @@ classes:
           slot_conditions:
             localSubstituteProvisionType:
               equals_string: LocalCurrencySubstitute
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             maximumDaysOfDisruption:
@@ -557,6 +559,7 @@ classes:
           slot_conditions:
             localSubstituteProvisionType:
               equals_string: LocalCurrencySubstitute
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             maximumDaysOfDisruption:
@@ -592,6 +595,7 @@ classes:
           slot_conditions:
             localSubstituteProvisionType:
               equals_string: LocalCurrencySubstitute
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             maximumDaysOfDisruption:

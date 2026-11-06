@@ -117,17 +117,6 @@ classes:
       fixingOffsetReason:
         description: Fixing Offset Reason
         range: string
-    rules:
-      - description: 'From Period. DayPeriod: FpML specifies that if the periodMultiplier value is 0 (zero)
-          then period must contain the value D (day).'
-        preconditions:
-          slot_conditions:
-            periodMultiplier:
-              equals_number: 0
-        postconditions:
-          slot_conditions:
-            period:
-              equals_string: D
   ContractualDefinition:
     attributes:
       identifier:
@@ -266,17 +255,6 @@ classes:
       designatedMaturity:
         description: Allows a reason to be specified for using the alternative fixing offset.
         range: string
-    rules:
-      - description: 'From Period. DayPeriod: FpML specifies that if the periodMultiplier value is 0 (zero)
-          then period must contain the value D (day).'
-        preconditions:
-          slot_conditions:
-            periodMultiplier:
-              equals_number: 0
-        postconditions:
-          slot_conditions:
-            period:
-              equals_string: D
   FloatingRateIndexFixingTime:
     is_a: BusinessCenterTime
     description: This type holds parameters defining the normal fixing time for a floating rate index.

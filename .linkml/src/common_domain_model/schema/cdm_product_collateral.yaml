@@ -1510,6 +1510,7 @@ classes:
           slot_conditions:
             mismatchResolution:
               equals_string: ReferenceAgency
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             referenceAgency:
@@ -1889,13 +1890,22 @@ classes:
           slot_conditions:
             compoundingType:
               equals_string: Business
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             compoundingBusinessCenter:
               value_presence: PRESENT
-    comments:
-      - 'Rosetta condition CompoundingBC2 is not stated in LinkML: if compoundingType <> CompoundingTypeEnum
-        -> Business then compoundingBusinessCenter is absent'
+      - description: CompoundingBC2
+        preconditions:
+          none_of:
+            - slot_conditions:
+                compoundingType:
+                  equals_string: Business
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            compoundingBusinessCenter:
+              value_presence: ABSENT
   CollateralInterestHandlingParameters:
     description: Represents parameters that describe how calculated interest amounts are handled, i.e.
       are they transferred/distributed, or is the collateral balance adjusted, is netting done, and any
@@ -1967,13 +1977,22 @@ classes:
           slot_conditions:
             alternativeToInterestAmount:
               equals_string: Other
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             alternativeProvision:
               value_presence: PRESENT
-    comments:
-      - 'Rosetta condition Alternative2 is not stated in LinkML: if alternativeToInterestAmount <> AlternativeToInterestAmountEnum
-        -> Other then alternativeProvision is absent'
+      - description: Alternative2
+        preconditions:
+          none_of:
+            - slot_conditions:
+                alternativeToInterestAmount:
+                  equals_string: Other
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            alternativeProvision:
+              value_presence: ABSENT
   CollateralInterestNotification:
     description: Represents the parameters describing when notifications should be made for required collateral
       interest transfers.
@@ -2104,6 +2123,7 @@ classes:
           slot_conditions:
             marginPercentage:
               minimum_value: 1
+              value_presence: PRESENT
     comments:
       - 'Rosetta condition HaircutPercentage is not stated in LinkML: if haircutPercentage exists then
         haircutPercentage >= 0 and haircutPercentage < 1'

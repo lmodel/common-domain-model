@@ -32,7 +32,6 @@ import sys
 from collections import defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
-from urllib.parse import quote
 
 import yaml
 
@@ -408,7 +407,9 @@ class Parser:
             return j + 1
         head = inner[0].text
         if head == "metadata" and len(inner) > 1:
-            annots.metadata.append(inner[1].text)
+            # The whole annotation, so `address "pointsTo"=X->y` keeps its target.
+            text = " ".join(t.text for t in inner[1:])
+            annots.metadata.append(re.sub(r"\s*(=|->)\s*", r"\1", text))
         elif head == "docReference":
             ref = DocRef(
                 body=inner[1].text if len(inner) > 1 else "",
@@ -830,6 +831,90 @@ class Translator:
                 return v["display"] or v["name"]
         raise Unstated(f"{enum_name} has no value {value}")
 
+    def base(self, typ: str) -> str:
+        """The basic type an attribute's type rests on, read through type aliases."""
+        seen: set[str] = set()
+        while typ not in BASIC_TYPES and typ in self.model.decls and typ not in seen:
+            seen.add(typ)
+            alias = self.model.decls[typ]
+            if alias.kind != "alias" or not alias.alias_base:
+                break
+            typ = alias.alias_base
+        return typ
+
+    def compare(self, op: str, a: Attr, right: Expr) -> dict:
+        """The condition `a <op> right` puts on a present value of the attribute."""
+        rng = self.base(a.type)
+        if (
+            right.op == "path"
+            and len(right.args[0]) == 1
+            and right.args[0][0] in self.attrs
+        ):
+            raise Unstated("comparison of two attributes")
+        if op == "=":
+            if right.op == "lit" and right.args[0] in ("True", "False"):
+                raise Unstated("equality with a boolean")
+            if right.op == "path":
+                return {"equals_string": self.enum_value(right, a)}
+            if right.op == "num" and rng in ("int", "number"):
+                n = right.args[0]
+                return {"equals_number": int(n) if rng == "int" else float(n)}
+            if right.op == "str" and rng == "string":
+                return {"equals_string": right.args[0]}
+            raise Unstated("equality with this kind of value")
+        if op in ("<", "<=", ">", ">="):
+            if right.op == "path":
+                raise Unstated("comparison of two attributes")
+            if right.op != "num" or rng not in ("int", "number"):
+                raise Unstated(f"comparison {op}")
+            n = right.args[0]
+            if rng == "int":
+                v = int(n)
+                if op == ">":
+                    return {"minimum_value": v + 1}
+                if op == ">=":
+                    return {"minimum_value": v}
+                if op == "<":
+                    return {"maximum_value": v - 1}
+                return {"maximum_value": v}
+            if op == ">=":
+                return {"minimum_value": num(n)}
+            if op == "<=":
+                return {"maximum_value": num(n)}
+            raise Unstated("a strict bound on a decimal")
+        raise Unstated(f"comparison {op}")
+
+    def comparison(self, e: Expr) -> tuple[Attr, dict]:
+        """The attribute a comparison reads and the condition it puts on its value.
+
+        Rune reads a comparison with an absent value as false, so a comparison on an
+        optional attribute also requires it.
+        """
+        op, left, right = e.args
+        if left.op != "path":
+            raise Unstated("comparison of a computed value")
+        a = self.slot(left)
+        if a.upper is None or a.upper > 1:
+            raise Unstated("comparison of a list")
+        cond = self.compare("=" if op == "<>" else op, a, right)
+        if a.lower == 0:
+            cond["value_presence"] = "PRESENT"
+        return a, cond
+
+    def negated(self, e: Expr) -> dict:
+        """The positive condition an `a <> X` denies, for a none_of.
+
+        Rune reads `null <> X` as true, so `a <> X` holds whenever a is absent or
+        differs from X: the negation of "a is present and equals X". The presence is
+        stated whatever the cardinality, because gen-json-schema requires the slots
+        of a none_of only where value_presence says so, and a negated condition on a
+        slot it does not require would deny an instance in which the slot is absent.
+        tests/test_generated_json_schema.py holds the generator to that.
+        """
+        a, cond = self.comparison(e)
+        cond["value_presence"] = "PRESENT"
+        return {"slot_conditions": {a.name: cond}}
+
     def atom(self, e: Expr) -> dict:
         """One slot condition, as a LinkML anonymous class expression."""
         if e.op == "exists":
@@ -839,55 +924,10 @@ class Translator:
             a = self.slot(e.args[0])
             return {"slot_conditions": {a.name: {"value_presence": "ABSENT"}}}
         if e.op == "cmp":
-            op, left, right = e.args
-            if left.op != "path":
-                raise Unstated("comparison of a computed value")
-            a = self.slot(left)
-            if a.upper is None or a.upper > 1:
-                raise Unstated("comparison of a list")
-            rng = a.type
-            if op == "=":
-                if right.op == "path":
-                    return {
-                        "slot_conditions": {
-                            a.name: {"equals_string": self.enum_value(right, a)}
-                        }
-                    }
-                if right.op == "num" and rng in ("int", "number"):
-                    n = right.args[0]
-                    return {
-                        "slot_conditions": {
-                            a.name: {
-                                "equals_number": int(n) if rng == "int" else float(n)
-                            }
-                        }
-                    }
-                if right.op == "str" and rng == "string":
-                    return {
-                        "slot_conditions": {a.name: {"equals_string": right.args[0]}}
-                    }
-                raise Unstated("equality with this kind of value")
-            if (
-                op in ("<", "<=", ">", ">=")
-                and right.op == "num"
-                and rng in ("int", "number")
-            ):
-                n = right.args[0]
-                if rng == "int":
-                    v = int(n)
-                    if op == ">":
-                        return {"slot_conditions": {a.name: {"minimum_value": v + 1}}}
-                    if op == ">=":
-                        return {"slot_conditions": {a.name: {"minimum_value": v}}}
-                    if op == "<":
-                        return {"slot_conditions": {a.name: {"maximum_value": v - 1}}}
-                    return {"slot_conditions": {a.name: {"maximum_value": v}}}
-                if op == ">=":
-                    return {"slot_conditions": {a.name: {"minimum_value": num(n)}}}
-                if op == "<=":
-                    return {"slot_conditions": {a.name: {"maximum_value": num(n)}}}
-                raise Unstated("a strict bound on a decimal")
-            raise Unstated(f"comparison {op}")
+            if e.args[0] == "<>":
+                return {"none_of": [self.negated(e)]}
+            a, cond = self.comparison(e)
+            return {"slot_conditions": {a.name: cond}}
         if e.op == "and":
             return merge_and(self.atom(e.args[0]), self.atom(e.args[1]))
         if e.op == "or":
@@ -897,11 +937,18 @@ class Translator:
             }
         raise Unstated(f"expression {e.op}")
 
-    def translate(self, c: Condition) -> tuple[str, dict]:
-        """Return ("class", expression) or ("rule", rule), or raise Unstated."""
+    def translate(self, c: Condition) -> list[tuple[str, dict]]:
+        """The statements a condition becomes, or raise Unstated.
+
+        Each is ("class", expression) for the class's all_of, ("none_of", expression)
+        for its none_of, or ("rule", rule). A bare `a <> X` is the class's own none_of
+        rather than a none_of nested in all_of, and a condition that `and`s one with
+        other atoms gives one statement per part, since the class holds them all
+        anyway; a `<>` inside an `or` or a rule nests where it stands.
+        """
         e = ExprParser(c.toks).parse()
         if e.op == "one-of":
-            return "class", {"exactly_one_of": [present(n) for n in self.own]}
+            return [("class", {"exactly_one_of": [present(n) for n in self.own]})]
         if e.op == "choice":
             kind, names = e.args
             for n in names:
@@ -910,14 +957,33 @@ class Translator:
             branches = [present(n) for n in names]
             if kind == "optional":
                 branches.append({"all_of": [absent(n) for n in names]})
-            return "class", {"exactly_one_of": branches}
+            return [("class", {"exactly_one_of": branches})]
         if e.op == "if":
             cond, then, other = e.args
             rule = {"preconditions": self.atom(cond), "postconditions": self.atom(then)}
             if other is not None:
                 rule["elseconditions"] = self.atom(other)
-            return "rule", rule
-        return "class", self.atom(e)
+            return [("rule", rule)]
+        out: list[tuple[str, dict]] = []
+        rest: list[Expr] = []
+        for part in conjuncts(e):
+            if part.op == "cmp" and part.args[0] == "<>":
+                out.append(("none_of", self.negated(part)))
+            else:
+                rest.append(part)
+        if rest:
+            joined = rest[0]
+            for part in rest[1:]:
+                joined = Expr("and", joined, part)
+            out.append(("class", self.atom(joined)))
+        return out
+
+
+def conjuncts(e: Expr) -> list[Expr]:
+    """The parts an `and` chain joins, in order; any other expression alone."""
+    if e.op == "and":
+        return conjuncts(e.args[0]) + conjuncts(e.args[1])
+    return [e]
 
 
 def num(text: str):
@@ -1065,19 +1131,19 @@ def class_def(model: Model, d: TypeDecl, report: Report) -> dict:
         out["attributes"] = attrs
     if usage:
         out["slot_usage"] = usage
-    class_exprs: list[dict] = []
-    rules: list[dict] = []
+    statements: dict[str, list[dict]] = {"class": [], "none_of": [], "rule": []}
     comments: list[str] = []
-    # A Rosetta condition binds every subtype too, but a LinkML class expression or
-    # rule does not pass down to a subclass in the generated JSON Schema, so each
-    # ancestor's conditions are stated again here, read against this type.
+    # A Rosetta condition binds every subtype too. gen-json-schema applies an
+    # ancestor's rules to a subclass, but reads a class expression (all_of, none_of)
+    # from the class alone, so each ancestor's class expressions are stated again
+    # here, read against this type, and its rules are not.
     owners = list(reversed(model.ancestors(d))) + [d]
     for owner in owners:
         for c in owner.conditions:
             label = c.name or f"Unnamed condition ({c.source()})"
             inherited = owner is not d
             try:
-                where, expr = Translator(model, d, owner).translate(c)
+                found = Translator(model, d, owner).translate(c)
             except (Unstated, IndexError) as exc:
                 if not inherited:
                     report.unstated.append((d.name, label, str(exc)))
@@ -1087,18 +1153,21 @@ def class_def(model: Model, d: TypeDecl, report: Report) -> dict:
                 continue
             desc = f"{label}: {c.doc}" if c.doc else label
             if inherited:
+                found = [s for s in found if s[0] != "rule"]
+                if not found:
+                    continue
                 desc = f"From {owner.name}. {desc}"
                 report.inherited += 1
             else:
                 report.stated += 1
-            if where == "class":
-                class_exprs.append({"description": desc, **expr})
-            else:
-                rules.append({"description": desc, **expr})
-    if class_exprs:
-        out["all_of"] = class_exprs
-    if rules:
-        out["rules"] = rules
+            for where, expr in found:
+                statements[where].append({"description": desc, **expr})
+    if statements["class"]:
+        out["all_of"] = statements["class"]
+    if statements["none_of"]:
+        out["none_of"] = statements["none_of"]
+    if statements["rule"]:
+        out["rules"] = statements["rule"]
     if d.kind == "choice":
         out.setdefault("annotations", {})["rosetta_choice"] = "true"
     if d.annots.root_type:
@@ -1171,14 +1240,12 @@ def alias_def(model: Model, d: TypeDecl, report: Report) -> tuple[str, dict]:
         out: dict = {}
         if d.doc:
             out["description"] = d.doc
+        # The values are the codes alone: FpML publishes no IRI for a code, so none
+        # is minted here as a `meaning`. The scheme's canonical URI is the enum's,
+        # and the version read is in see_also.
         out["enum_uri"] = ident["canonicalUri"]
         out["see_also"] = [ident["canonicalVersionUri"]]
-        out["permissible_values"] = {
-            c["value"]: {
-                "meaning": f"{ident['canonicalVersionUri']}#{quote(c['value'], safe='')}"
-            }
-            for c in cl["codes"]
-        }
+        out["permissible_values"] = {c["value"]: {} for c in cl["codes"]}
         out["annotations"] = {
             "fpml_coding_scheme_domain": domain,
             "fpml_coding_scheme_version": ident["version"],

@@ -185,6 +185,18 @@ classes:
         range: boolean
         required: true
     rules:
+      - description: 'GoverningLawDefinedNotOther: A validation rule to ensure that if a value from the
+          Governing Law Enum is selected, governingLawIfOther is omitted.'
+        preconditions:
+          none_of:
+            - slot_conditions:
+                governingLaw:
+                  equals_string: OTHER
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            governingLawIfOther:
+              value_presence: ABSENT
       - description: 'GoverningLawOtherThenProvided: A validation rule to ensure that if the value from
           the Governing Law Enum is ''OTHER'', governingLawIfOther exists.'
         preconditions:
@@ -195,9 +207,6 @@ classes:
           slot_conditions:
             governingLawIfOther:
               value_presence: PRESENT
-    comments:
-      - 'Rosetta condition GoverningLawDefinedNotOther is not stated in LinkML: if governingLaw <> OTHER
-        then governingLawIfOther is absent'
   IsdaAdditionalTerminationEvent:
     description: Elections to determine if Additional Termination Events apply to either party, and if
       so, what they are.
@@ -264,15 +273,26 @@ classes:
           slot_conditions:
             agent:
               equals_string: Other
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             agentIfOther:
               value_presence: PRESENT
+      - description: 'IsdaCalculationAgentElectionDefinedNotOther: A validation rule to determine if agent
+          is defined and not ''Other'', then the agentIfOther is omitted.'
+        preconditions:
+          none_of:
+            - slot_conditions:
+                agent:
+                  equals_string: Other
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            agentIfOther:
+              value_presence: ABSENT
     comments:
       - 'Rosetta condition IsdaCalculationAgentElectionDefined is not stated in LinkML: if isApplicable
         then agent exists'
-      - 'Rosetta condition IsdaCalculationAgentElectionDefinedNotOther is not stated in LinkML: if agent
-        <> Other then agentIfOther is absent'
   MasterAgreement:
     is_a: MasterAgreementBase
     description: The set of elections that define an ISDA Master Agreement.
@@ -472,10 +492,24 @@ classes:
           slot_conditions:
             substituteCalculationAgentAppointedBy:
               equals_string: Other
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             substituteCalculationAgentAppointedByIfOther:
               value_presence: PRESENT
+      - description: 'SubstituteCalculationAgentElectionDefinedNotOther: A validation rule to determine
+          if appointed by is defined and not ''Other'', then the substituteCalculationAgentAppointedByIfOther
+          is omitted.'
+        preconditions:
+          none_of:
+            - slot_conditions:
+                substituteCalculationAgentAppointedBy:
+                  equals_string: Other
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            substituteCalculationAgentAppointedByIfOther:
+              value_presence: ABSENT
       - description: 'SubstituteCalculationAgentIsBoreByElectionOtherThenProvided: A validation rule to
           determine if the cost bore by is defined as ''Other'' then the costOfSubstituteCalculationAgentBoreByIfOther
           exists.'
@@ -483,10 +517,24 @@ classes:
           slot_conditions:
             costOfSubstituteCalculationAgentIsBoreBy:
               equals_string: Other
+              value_presence: PRESENT
         postconditions:
           slot_conditions:
             costOfSubstituteCalculationAgentBoreByIfOther:
               value_presence: PRESENT
+      - description: 'SubstituteCalculationAgentIsBoreByElectionDefinedNotOther: A validation rule to
+          determine if the cost bore by is defined and not ''Other'', then the costOfSubstituteCalculationAgentBoreByIfOther
+          is omitted.'
+        preconditions:
+          none_of:
+            - slot_conditions:
+                costOfSubstituteCalculationAgentIsBoreBy:
+                  equals_string: Other
+                  value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            costOfSubstituteCalculationAgentBoreByIfOther:
+              value_presence: ABSENT
     comments:
       - 'Rosetta condition SubstituteCalculationAgentElectionDefined is not stated in LinkML: if methodologyForSubstitutionExists
         then substituteCalculationAgentIsIndependent exists and substituteCalculationAgentAppointedBy
@@ -495,12 +543,6 @@ classes:
         = False then substituteCalculationAgentIsIndependent is absent and substituteCalculationAgentAppointedBy
         is absent and substituteCalculationAgentAppointedByIfOther is absent and costOfSubstituteCalculationAgentIsBoreBy
         is absent and costOfSubstituteCalculationAgentBoreByIfOther is absent'
-      - 'Rosetta condition SubstituteCalculationAgentElectionDefinedNotOther is not stated in LinkML:
-        if substituteCalculationAgentAppointedBy <> Other then substituteCalculationAgentAppointedByIfOther
-        is absent'
-      - 'Rosetta condition SubstituteCalculationAgentIsBoreByElectionDefinedNotOther is not stated in
-        LinkML: if costOfSubstituteCalculationAgentIsBoreBy <> Other then costOfSubstituteCalculationAgentBoreByIfOther
-        is absent'
   TerminationCurrency:
     description: Specifies how the Termination Currency for the agreement will be determined.
     attributes:
