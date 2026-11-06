@@ -113,9 +113,10 @@ def _get(url: str) -> bytes:
 
 
 def _code(text: object) -> str:
-    """Text a server chose, such as a file name or an error message, as a code span,
-    so it cannot mention a person or add a link in the issue."""
-    return "`" + str(text).replace("`", "'") + "`"
+    """Text a server chose, such as a file name or an error message, as a code span
+    on one line, so it cannot mention a person or add a link in the issue. A blank
+    line would end the span, so every run of spaces and line breaks is one space."""
+    return "`" + " ".join(str(text).replace("`", "'").split()) + "`"
 
 
 def blob_sha(path: Path) -> str:
