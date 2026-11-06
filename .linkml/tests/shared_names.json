@@ -1,0 +1,231 @@
+{
+  "ai-governance-framework.yaml": {
+    "elements": [],
+    "keys": [
+      "category",
+      "issuer"
+    ]
+  },
+  "attack.yaml": {
+    "elements": [],
+    "keys": [
+      "city",
+      "comment",
+      "country",
+      "issuer",
+      "number",
+      "precision",
+      "product",
+      "value"
+    ]
+  },
+  "cve.yaml": {
+    "elements": [],
+    "keys": [
+      "criteria",
+      "other",
+      "product",
+      "scope",
+      "shortName",
+      "state",
+      "time",
+      "value"
+    ]
+  },
+  "d3fend.yaml": {
+    "elements": [],
+    "keys": [
+      "comment",
+      "comments",
+      "identifier",
+      "provider"
+    ]
+  },
+  "datatype.yaml": {
+    "elements": [],
+    "keys": [
+      "value"
+    ]
+  },
+  "dpv.yaml": {
+    "elements": [],
+    "keys": [
+      "identifier",
+      "language",
+      "value"
+    ]
+  },
+  "gist.yaml": {
+    "elements": [
+      "Account",
+      "Address",
+      "Agreement",
+      "Composite"
+    ],
+    "keys": []
+  },
+  "in-toto.yaml": {
+    "elements": [],
+    "keys": [
+      "value"
+    ]
+  },
+  "kev-catalog.yaml": {
+    "elements": [],
+    "keys": [
+      "product"
+    ]
+  },
+  "nist-nvd.yaml": {
+    "elements": [],
+    "keys": [
+      "action",
+      "change",
+      "comment",
+      "criteria",
+      "product",
+      "role",
+      "scope",
+      "value"
+    ]
+  },
+  "ocsf.yaml": {
+    "elements": [],
+    "keys": [
+      "account",
+      "action",
+      "agent",
+      "boundary",
+      "category",
+      "city",
+      "classification",
+      "codes",
+      "comment",
+      "country",
+      "direction",
+      "entity",
+      "feature",
+      "issuer",
+      "length",
+      "lineage",
+      "location",
+      "number",
+      "observations",
+      "precision",
+      "product",
+      "provider",
+      "role",
+      "state",
+      "surname",
+      "time",
+      "total",
+      "value"
+    ]
+  },
+  "oscal.yaml": {
+    "elements": [
+      "Address",
+      "Observation",
+      "Party",
+      "Resource",
+      "TelephoneNumber"
+    ],
+    "keys": [
+      "address",
+      "category",
+      "city",
+      "country",
+      "date",
+      "identifier",
+      "mappings",
+      "method",
+      "number",
+      "observations",
+      "parties",
+      "period",
+      "profile",
+      "state",
+      "steps",
+      "value"
+    ]
+  },
+  "slsa.yaml": {
+    "elements": [],
+    "keys": [
+      "parties",
+      "value"
+    ]
+  },
+  "spdx.yaml": {
+    "elements": [],
+    "keys": [
+      "comment",
+      "endTime",
+      "identifier",
+      "scope",
+      "startTime",
+      "value"
+    ]
+  },
+  "stix.yaml": {
+    "elements": [],
+    "keys": [
+      "city",
+      "comment",
+      "country",
+      "issuer",
+      "number",
+      "precision",
+      "product",
+      "value"
+    ]
+  },
+  "uco.yaml": {
+    "elements": [
+      "Account",
+      "Address",
+      "Observable",
+      "Observation"
+    ],
+    "keys": [
+      "account",
+      "accountType",
+      "action",
+      "address",
+      "callType",
+      "classification",
+      "comment",
+      "country",
+      "endTime",
+      "expirationDate",
+      "expirationTime",
+      "firstName",
+      "issuer",
+      "itemName",
+      "itemValue",
+      "language",
+      "length",
+      "location",
+      "middleName",
+      "mimeType",
+      "number",
+      "postalCode",
+      "profile",
+      "rate",
+      "scale",
+      "sizeInBytes",
+      "startTime",
+      "state",
+      "street",
+      "triggerType",
+      "value"
+    ]
+  },
+  "void.yaml": {
+    "elements": [],
+    "keys": [
+      "comment",
+      "feature"
+    ]
+  }
+}
