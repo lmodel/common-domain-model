@@ -1,0 +1,43 @@
+FINOS Common Domain Model LinkML Schema (common-domain-model)
+Copyright 2026 Noel McLoughlin
+
+This repository is a fork of the Common Domain Model (CDM) that FINOS publishes.
+Two licences apply, by path.
+
+The schema project, everything under .linkml/ and what this project adds beside
+FINOS's tree (.lokf/, knowledge_bundle, linkml_schema, knowledge-website/,
+llms.txt, .releaserc.json, .github/SECURITY.md,
+.github/PULL_REQUEST_TEMPLATE/knowledge-sync.md, .github/scripts/,
+.github/release/ and the workflows FINOS's tree does not hold), is licensed under
+the Apache License, Version 2.0 (see LICENSE beside this file), except for what
+the section below lists.
+
+Everything else is FINOS's, unchanged, and under FINOS's terms: LICENSE.md and
+NOTICE.md at the repository's root.
+
+FINOS Common Domain Model
+-------------------------
+
+The CDM is copyright FINOS and the CDM participants, and its specifications are
+licensed under the Community Specification License 1.0:
+https://github.com/finos/common-domain-model/blob/8.0.0-dev.13/LICENSE.md
+
+As section 1.2 of that licence asks, this is the attribution of the material the
+schema is derived from:
+
+- Material: FINOS Common Domain Model, its Rosetta model and its FpML code lists
+- Version: 8.0.0-dev.13 (commit dafe7bab2c015f40a486685508fc5c2e6a629def)
+- Source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+
+src/common_domain_model/schema/ is a derivative of the Rosetta files under
+rosetta-source/src/main/rosetta/ and of the code lists under
+rosetta-source/src/main/resources/codelist/json/, which
+scripts/rosetta_to_linkml.py reads. Its structure is this project's. Every
+description of a type, attribute, enumeration and value, and every code of a
+code list, is the CDM's, carried as written. The descriptions of FpML's codes and
+the text of the ISDA, ICMA and other documents the CDM cites by docReference are
+left out. src/common_domain_model/datamodel/, project/ and docs/schema/ are
+generated from the schema, and carry the same descriptions.
+
+FINOS, its logo and the Common Domain Model's name are FINOS's. This project is not
+a FINOS project, and its use of them does not imply FINOS's endorsement.
