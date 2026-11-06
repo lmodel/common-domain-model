@@ -46,18 +46,20 @@ def test_an_inherited_condition_binds_the_subtype():
 
 def test_an_inherited_rule_is_applied_once():
     """gen-json-schema applies an ancestor's rules to a subclass itself, so the
-    converter does not restate them: Offset carries Period's DayPeriod rule once."""
+    converter does not restate them: Offset carries Period's DayPeriod rule once,
+    beside its own DayType rule."""
     datetime = yaml.safe_load((SCHEMA.parent / "cdm_base_datetime.yaml").read_text())
     offset = datetime["classes"]["Offset"]
     assert offset["is_a"] == "Period"
-    assert "rules" not in offset
+    own = offset.get("rules", [])
+    assert own and not any(r["description"].startswith("From Period.") for r in own)
     period_rules = datetime["classes"]["Period"]["rules"]
     assert len(period_rules) == 1
     rendered = schema()["$defs"]["Offset"]
     conditionals = [e for e in rendered.get("allOf", []) if "if" in e]
     if "if" in rendered:
         conditionals.append(rendered)
-    assert len(conditionals) == len(period_rules)
+    assert len(conditionals) == len(period_rules) + len(own)
 
 
 # How gen-json-schema 1.12.1 renders a none_of, which is how the converter states a
