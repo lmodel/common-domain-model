@@ -12,12 +12,13 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 - **The FpML code lists as enumerations**, so a code-list type such as `BusinessCenter` checks its code as Rosetta does. The values are the codes, under the scheme's canonical URI; FpML publishes no IRI for a code, so none is minted. NOTICE carries the FpML Public License notice.
 - **A test that reads the CDM documents in FINOS's tree** with the committed JSON Schema, once `tests/rune_json.py` has taken out the keys Rune adds. `tests/sample_departures.yaml` lists the documents whose shape the schema refuses.
 - **A weekly watch** of FINOS's releases from master, against a list of every file of the pinned release.
-- **`.lokf/common-domain-model.yaml`, the schema's `lokf adapt` copy**, with `LegalEntity` and `Party` as the types a concept may name. The knowledge release attaches it as `schema-<tag>-common-domain-model.yaml`.
+- **`.lokf/schema/common-domain-model.yaml`, the schema's `lokf adapt` copy**, with `LegalEntity` and `Party` as the types a concept may name. The knowledge release attaches it as `schema-<tag>-common-domain-model.yaml`.
 - **The repository's Knowledge Trust Ladder (KTL) knowledge bundle and its sidecar automation**, from the KTL v0.61.0 templates with the lokf floor at 0.9.0, and a knowledge website in `knowledge-website/` that replaces the mkdocs site.
 - **The governance files**: SECURITY.md, AI_COVENANT.md, NOTICE and the CONTRIBUTING checklist.
 
 ### Changed
 
+- **The bundle's schema files sit in `.lokf/schema/`**: `lokf.yaml` and the adapt copy, as KTL's main branch lays them out. The knowledge release workflow and the sidecar preflight carry KTL #325's change to read that folder until a KTL release does, and the next sync replaces them.
 - **The schema project moved into the `.linkml/` sidecar**, and FINOS's tree is back to FINOS's files, byte for byte. `linkml_schema` at the root links to the schema's folder.
 - **Pin linkml and linkml-runtime at 1.12.1.** PyPI publishing and the docs preview stay off.
 

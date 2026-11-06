@@ -16,8 +16,8 @@ TREE = ROOT.parent
 # by the sidecar, and the adapt copies other lmodel repositories release. Each
 # neighbour is the schema asset of a release, downloaded and checked against the
 # release's .sha256, and pinned here by that checksum.
-COPY = TREE / ".lokf" / "common-domain-model.yaml"
-LOKF = TREE / ".lokf" / "lokf.yaml"
+COPY = TREE / ".lokf" / "schema" / "common-domain-model.yaml"
+LOKF = TREE / ".lokf" / "schema" / "lokf.yaml"
 NEIGHBOURS = {
     # lmodel/slsa v0.10.0
     "slsa.yaml": "9eeb68decc918565886794fe4eb6e32e1fee0620688cc699961c227242a2f4c2",

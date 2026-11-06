@@ -54,7 +54,7 @@ KEYS_MODULE = "common_domain_model_keys"
 # IRI. `lokf adapt` renames a clashing slot in the copy, keeping its IRI, but not
 # a class's attribute, so these names are top-level slots in KEYS_MODULE, and each
 # class gives its own description and range in slot_usage. tests/test_schema_rules.py
-# holds the list to .lokf/lokf.yaml.
+# holds the list to .lokf/schema/lokf.yaml.
 LOKF_KEYS = (
     "additionalType",
     "description",

@@ -23,7 +23,7 @@ exclude: >-
     \.linkml/tests/upstream_tree\.tsv$|
     \.linkml/tests/neighbours/|
     \.lokf/(scripts|m365)/|
-    \.lokf/(lokf|common-domain-model)\.yaml$|
+    \.lokf/schema/(lokf|common-domain-model)\.yaml$|
     \.github/release/package-lock\.json$|
     knowledge-website/package-lock\.json$
   )

@@ -85,7 +85,7 @@ jobs:
         if: matrix.python-version != '3.13'
         run: just _test-python _test-examples
 
-      # .lokf/common-domain-model.yaml is the copy the knowledge bundle validates
+      # .lokf/schema/common-domain-model.yaml is the copy the knowledge bundle validates
       # against and the release attaches, so it must match the schema and lokf.yaml.
       - name: Check the adapted schema copy
         if: matrix.python-version == '3.13'
