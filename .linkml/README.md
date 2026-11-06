@@ -22,7 +22,7 @@ The attributes and values keep the CDM's names, so the JSON Schema can check a C
 
 ## Mappings
 
-* **FpML coding schemes**: each code-list enumeration names its scheme in `enum_uri` and each code in `meaning`, as the CDM's code lists give them. `tests/test_converter.py` checks them.
+* **FpML coding schemes**: each code-list enumeration names its scheme in `enum_uri` and the version read in `see_also`, and its values are the scheme's codes, as the CDM's code lists give them. `tests/test_converter.py` checks them.
 
 ## Repository Structure
 

@@ -41,3 +41,26 @@ generated from the schema, and carry the same descriptions.
 
 FINOS, its logo and the Common Domain Model's name are FINOS's. This project is not
 a FINOS project, and its use of them does not imply FINOS's endorsement.
+
+FpML coding schemes
+-------------------
+
+The code lists under rosetta-source/src/main/resources/codelist/json/ are FpML
+coding schemes, part of the FpML Specifications, whose Licensor is the
+International Swaps and Derivatives Association, Inc. (ISDA). They are subject to
+the FpML Public License: https://www.fpml.org/the_standard/fpml-public-license/
+
+  The FpML Specifications of this document are subject to the FpML Public
+  License (the "License"); you may not use the FpML Specifications except in
+  compliance with the License. You may obtain a copy of the License at
+  https://www.FpML.org. The FpML Specifications distributed under the License
+  are distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either
+  express or implied. See the License for the specific language governing
+  rights and limitations under the License. The Licensor of the FpML
+  Specifications is the International Swaps and Derivatives Association, Inc.
+  All Rights Reserved.
+
+The schema carries each scheme's codes, its canonical URI (as `enum_uri`) and the
+URI of the version read (in `see_also`), and nothing else of the scheme: FpML's
+descriptions of the codes are left out, and no IRI is minted for a code. FpML is a
+registered trademark of ISDA.

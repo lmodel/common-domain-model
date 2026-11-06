@@ -15,16 +15,17 @@ The schema is the Common Domain Model (CDM) that FINOS publishes, at release 8.0
 | `choice` | A class with one attribute per option, named after the option's type, and an `exactly_one_of` over them. |
 | `enum` | An enumeration. A value with a `displayName` is keyed by that name, which is what Rune writes in JSON, and lists its Rosetta name under `aliases`. |
 | `enum ... extends` | The parent's values repeated, since LinkML enumerations do not inherit. |
-| `typeAlias` naming an FpML code list | An enumeration of the list's codes, with `enum_uri` naming the list. Rosetta checks a code against the list, and so does the enumeration. |
+| `typeAlias` naming an FpML code list | An enumeration of the list's codes, with `enum_uri` naming the list and `see_also` the version read. Rosetta checks a code against the list, and so does the enumeration. FpML publishes no IRI for a code, so a value carries no `meaning`. |
 | Another `typeAlias` | A LinkML type, with its bounds. |
 | `one-of`, `required choice`, `optional choice` | `exactly_one_of` on the class. An optional choice adds a branch in which none is present. |
-| A condition on the type's own attributes | A class expression, or a rule when it starts with `if`. |
-| `[metadata key]`, `[metadata reference]`, `[metadata scheme]` and the rest | The annotation `rosetta_metadata`. |
+| A condition on the type's own attributes | A class expression, or a rule when it starts with `if`. Rune reads a comparison with an absent value as false, so a comparison on an optional attribute also requires it (`value_presence: PRESENT`). |
+| `a <> X` | `none_of` over `a = X` with `a` present, since Rune reads `null <> X` as true: the class's own `none_of` for a bare condition, nested where it stands inside an `or` or a rule. |
+| `[metadata key]`, `[metadata reference]`, `[metadata scheme]` and the rest | The annotation `rosetta_metadata`, with the whole annotation's text, so an `address` keeps its `"pointsTo"` path. |
 | `[docReference ...]` | The annotation `doc_reference`, and `see_also` for a `schemeLocation`. A provision's text is left out. |
 | `[deprecated]` | `deprecated`. |
 | `[rootType]` | The annotation `rosetta_root_type`. |
 
-A Rosetta condition binds every subtype. A LinkML class expression or rule does not reach a subclass in the generated JSON Schema, so the converter states each one again on every subtype, with `From <Type>.` before its description.
+A Rosetta condition binds every subtype. The JSON Schema generator applies an ancestor's rules to a subclass itself, but reads a class expression (`all_of`, `none_of`) from the class alone, so the converter states each ancestor's class expressions again on every subtype, with `From <Type>.` before its description, and leaves its rules to the generator.
 
 Thirteen attribute names, such as `name`, `description` and `version`, are also slots of LOKF's schema, under other IRIs. They are top-level slots in `common_domain_model_keys.yaml`, and each class that uses one gives its description and range in `slot_usage`, so that `lokf adapt` can rename them in the copy a knowledge bundle imports.
 
@@ -37,9 +38,8 @@ About half of the CDM's conditions are stated. `just linkml-report` counts them,
 - a condition on a path into another type, such as `relatedAgreements -> agreementDate exists`, or on a choice option through `as`;
 - a comparison of two attributes, such as `startDate <= endDate`;
 - a condition over a list's members, with `count`, `only exists`, `contains`, `all` or `any`;
-- `<>`, because the converter cannot match what Rosetta gives for an absent value;
-- equality with `True` or `False`, since JSON Schema compares a LinkML string condition with a JSON boolean and never matches;
-- a strict bound on a decimal, such as `> 0`;
+- equality with `True` or `False`, since LinkML has no boolean slot condition, and JSON Schema compares a string condition with a JSON boolean and never matches;
+- a strict bound on a decimal, such as `> 0`, since LinkML's bounds are inclusive;
 - a function call, `switch` or `to-enum`.
 
 Four more things Rosetta states have no LinkML counterpart:
