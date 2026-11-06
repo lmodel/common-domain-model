@@ -678,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mapping/" class="md-nav__link">
+      <a href="../mapping.md" class="md-nav__link">
         
   
   
@@ -1881,7 +1881,7 @@ collateral.</p>
 <h2 id="payer-and-receiver">Payer and Receiver</h2>
 <p>The <code>InterestRatePayout</code> object must also define the payer and receiver.
 They payer and receiver are linked to the trade object that defines the
-counterparty and partyrole. In a repo transaction, the seller
+counterparty and partyRole. In a repo transaction, the seller
 (collateral giver - borrower) will be the payer and the buyer(collateral
 taker -- lender) will be receiver. The payer and receiver are extensions
 from the PayoutBase.</p>
@@ -1897,127 +1897,113 @@ purchase date and the <code>terminationDate</code> is the repurchase date. For a
 open repo the <code>terminationDate</code> is not set until the repo terminates.
 The external and global key references should include "PurchaseDate" and
 "RepurchaseDate":</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;effectiveDate&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;adjustableDate&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;dateAdjustments&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;businessCenters&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;businessCenter&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBLO&quot;</span>
-<span class="w">                    </span><span class="p">}</span>
-<span class="w">                </span><span class="p">]</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;businessDayConvention&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NONE&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="s2">&quot;unadjustedDate&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2023-06-16&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;externalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;PurchaseDate&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;globalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;PurchaseDate&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;terminationDate&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">     </span><span class="s2">&quot;adjustableDate&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;dateAdjustments&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;businessDayConvention&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NONE&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;externalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RepurchaseDate&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;globalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RepurchaseDate&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">        </span><span class="s2">&quot;unadjustedDate&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2023-06-17&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>``` json
+"effectiveDate" : {
+  "@key:external" : "PurchaseDate",
+  "adjustableDate" : {
+    "unadjustedDate" : "2023-06-16",
+    "dateAdjustments" : {
+      "businessDayConvention" : "NONE",
+      "businessCenters" : {
+        "businessCenter" : [ {
+          "@data" : "GBLO"
+        } ]
+      }
+    }
+  }
+}
+<div class="highlight"><pre><span></span><code> ``` json
+&quot;terminationDate&quot; : {
+  &quot;@key:external&quot; : &quot;PurchaseDate&quot;,
+  &quot;adjustableDate&quot; : {
+    &quot;unadjustedDate&quot; : &quot;2023-06-17&quot;,
+    &quot;dateAdjustments&quot; : {
+      &quot;businessDayConvention&quot; : &quot;NONE&quot;
+    }
+  }
+}
+</code></pre></div></p>
 <p>Repurchase transactions should also include tags to identify the
 purchase price and repurchase price. In the <code>interestRatePayout</code> and
 purchase price is set on the <code>priceQuantity</code> and the <code>initialPayment</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;priceQuantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;externalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;PurchasePrice&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;quantitySchedule&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;unit&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;currency&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">9879046.8</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;resolvedQuantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;unit&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;currency&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">9879046.8</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Repurchase transactions should also include the a legal agreement object
+<p>``` json
+"priceQuantity": {
+  "@key:external" : "PurchasePrice",
+  "quantitySchedule" : {
+    "value" : 9879046.8,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      }
+    },
+    "resolvedQuantity": {
+      "value": 9879046.8,
+      "unit" : {
+      "currency" : {
+        "@data" : "GBP"
+      }
+    }
+  }
+}
+<div class="highlight"><pre><span></span><code>Repurchase transactions should also include the a legal agreement object
 with reference to the GMRA or other private agreement by adding the
-legalAgreementIdentification object:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;contractDetails&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;documentation&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">         </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;legalAgreementIdentification&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;agreementName&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;masterAgreementType&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                        </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GMRA&quot;</span>
-<span class="w">                    </span><span class="p">}</span>
-<span class="w">                </span><span class="p">},</span>
-<span class="w">                </span><span class="s2">&quot;governingLaw&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBEN&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;publisher&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ICMA&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;vintage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2011</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Collateral is defined in <code>assetPayout-&gt;securityInformation</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;securityInformation&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;security&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">               </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                   </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GB00B24FF097&quot;</span>
-<span class="w">               </span><span class="p">},</span>
-<span class="w">               </span><span class="s2">&quot;identifierType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISIN&quot;</span>
-<span class="w">                </span><span class="p">}],</span>
-<span class="w">        </span><span class="s2">&quot;securityType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;DEBT&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Repurchase transactions are classified as a <code>MoneyMarket</code> types using
-<code>AssetClassEnum</code>, but this attribute is optional and is not required to
-qualify a trade.</p>
-<h2 id="haircut-and-margin">Haircut and Margin</h2>
-<p>Most repo trades include a haircut or margin adjustment to the
+legalAgreementIdentification object:
+
+ ``` json
+&quot;contractDetails&quot; : {
+  &quot;documentation&quot; : [ {
+    &quot;legalAgreementIdentification&quot; : {
+      &quot;agreementName&quot; : {
+        &quot;agreementType&quot; : &quot;MasterAgreement&quot;,
+        &quot;masterAgreementType&quot; : {
+          &quot;@data&quot; : &quot;GMRA&quot;
+        }
+      },
+      &quot;governingLaw&quot;: &quot;GBEN&quot;,
+      &quot;publisher&quot;: &quot;ICMA&quot;,
+      &quot;vintage&quot;: 2011
+    }
+  }
+}
+</code></pre></div></p>
+<p>Collateral is defined in <code>assetPayout-&gt;underlier</code>:</p>
+<p>``` json
+"underlier" : {
+  "@type" : "cdm.base.staticdata.asset.common.Security",
+  "identifier" : [ {
+    "identifier" : {
+      "@data" : "GB00B24FF097"
+    },
+    "identifierType" : "ISIN"
+  } ],
+  "securityType" : "Debt"
+}
+<div class="highlight"><pre><span></span><code>Repurchase transactions are classified as a `MoneyMarket` types using
+`AssetClassEnum`, but this attribute is optional and is not required to
+qualify a trade.
+
+## Haircut and Margin
+
+Most repo trades include a haircut or margin adjustment to the
 collateral value that affords the collateral holder a level of risk
 protection. Haircuts and margin adjustments are set on the
-<code>collateralProvision</code> attribute under
-<code>economicTerms-&gt;collateral-&gt;collateralProvisions</code>.</p>
-<p>Haircuts in json format appear as:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;collateralProvisions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;eligibleCollateral&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;criteria&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;treatment&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                        </span><span class="s2">&quot;valuationTreatment&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                            </span><span class="s2">&quot;haircutPercentage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span>
-<span class="w">                            </span><span class="p">}</span>
-<span class="w">                    </span><span class="p">}</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">]</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+`collateralProvision` attribute under
+`economicTerms-&gt;collateral-&gt;collateralProvisions`.
+
+Haircuts in json format appear as:
+
+ ``` json
+&quot;collateralProvisions&quot; : {
+  &quot;eligibleCollateral&quot; : [ {
+    &quot;treatment&quot; : {
+      &quot;valuationTreatment&quot; : {
+        &quot;haircutPercentage&quot; : 2
+      }
+    }
+  } ]
+}
+</code></pre></div></p>
 <h2 id="repurchase-transaction-example">Repurchase Transaction Example</h2>
 <p>Example: Fixed Term, Fixed Rate bi-lateral repo</p>
 <p>A fixed term, fixed rate bilateral repo transaction is a transaction
@@ -2044,145 +2030,141 @@ components are needed:</p>
 <p><a href="https://github.com/finos/common-domain-model/blob/master/docs/code-snippets/fixed-term-fixed-rate-repo-product.json">Fixed-Term,Fixed-Rate Repo Product</a></p>
 <p>The <code>priceQuantity</code> object is used to define the collateral value and
 repo rate.</p>
-<p>The repo rate is defined as a price with a <code>priceTypeEnum</code> value of
-"INTEREST_RATE".</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
-<span class="w">        </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;unit&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;currency&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.004</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;perUnitOf&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;currency&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="s2">&quot;priceExpression&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;priceType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;INTEREST_RATE&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="p">}}]</span>
-</code></pre></div>
-<p>The <code>priceQuantity</code> object is also used to define the collateral price
-and value:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;quantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
-<span class="w">        </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;unit&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;currency&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">9974250</span>
-<span class="p">}}]</span>
-</code></pre></div>
+<p>The repo rate is defined as a price with a <code>PriceTypeEnum</code> value of
+"InterestRate".</p>
+<p>``` json
+"price" : [ {
+  "value" : 0.004,
+  "unit" : {
+    "currency" : {
+      "@data" : "GBP"
+    }
+  },
+  "perUnitOf" : {
+    "currency" : {
+      "@data" : "GBP"
+    }
+  },
+  "priceType" : "InterestRate"
+} ]
+<div class="highlight"><pre><span></span><code>The `priceQuantity` object is also used to define the collateral price
+and value:
+
+ ``` json
+&quot;quantity&quot; : [ {
+  &quot;value&quot; : 9974250,
+  &quot;unit&quot; : {
+    &quot;currency&quot; : {
+      &quot;@data&quot; : &quot;GBP&quot;
+    }
+  }
+} ]
+</code></pre></div></p>
 <p>Collateral amount is defined in terms of the nominal par amount:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;quantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
-<span class="w">        </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;unit&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;currency&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">                </span><span class="p">}},</span>
-<span class="w">            </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">10000000</span>
-<span class="w">        </span><span class="p">}}]</span>
-</code></pre></div>
-<p>The collateral price can be defined as either Clean or Dirty price:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
-<span class="w">        </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;unit&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;currency&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0075</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;perUnitOf&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;currency&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="s2">&quot;priceExpression&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;cleanOrDirty&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;DIRTY&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;priceExpression&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;PERCENTAGE_OF_NOTIONAL&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;priceType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ASSET_PRICE&quot;</span>
-<span class="w">        </span><span class="p">}}}]</span>
-</code></pre></div>
+<p>``` json
+"quantity" : [ {
+  "value" : 10000000,
+  "unit" : {
+    "currency" : {
+      "@data" : "GBP"
+    }
+  }
+} ]
+<div class="highlight"><pre><span></span><code>The collateral price can be defined as either Clean or Dirty price:
+
+ ``` json
+&quot;price&quot; : [ {
+  &quot;value&quot; : 1.0075,
+  &quot;unit&quot; : {
+    &quot;currency&quot; : {
+      &quot;@data&quot; : &quot;GBP&quot;
+    }
+  },
+  &quot;perUnitOf&quot; : {
+    &quot;currency&quot; : {
+      &quot;@data&quot; : &quot;GBP&quot;
+    }
+  },
+  &quot;priceExpression&quot; : &quot;PercentageOfNotional&quot;,
+  &quot;priceType&quot; : &quot;AssetPrice&quot;
+} ]
+</code></pre></div></p>
 <p>Counterparties are defined in the counterparty object and need to define
-the role attribute as PARTY_1 or PARTY_2 as it relates to the
+the <code>role</code> attribute as <code>Party1</code> or <code>Party2</code> as it relates to the
 counterparty being the buyer or seller.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="s2">&quot;partyReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;externalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;UkBank&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;globalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1ef4886d&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;UK Bank plc&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">},</span>
-<span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;PARTY_2&quot;</span>
-<span class="p">}]</span>
-<span class="p">{</span><span class="s2">&quot;partyReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">           </span><span class="s2">&quot;externalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;UkBank&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;globalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1ef4886d&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;UK Bank plc&quot;</span>
-<span class="w">        </span><span class="p">}}},</span>
-<span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;PARTY_2&quot;</span>
-<span class="p">}]</span>
-</code></pre></div>
-<h2 id="partyroles">partyRoles</h2>
-<p>PartyRoles are necessary to define the buyer (cash lender) and seller
+<p>``` json
+"counterparty" : [ {
+  "role" : "Party1",
+  "partyReference" : {
+    "@key:external" : "GlobalBank",
+    "name" : {
+      "@data" : "Global Bank Inc"
+    }
+  }
+}, {
+  "role" : "Party2",
+  "partyReference" : {
+    "@key:external" : "UkBank",
+    "name" : {
+      "@data" : "UK Bank plc"
+    }
+  }
+} ]
+<div class="highlight"><pre><span></span><code>## partyRoles
+
+PartyRoles are necessary to define the buyer (cash lender) and seller
 (collateral giver). A reference global key is used to link the party
-role to the party defined in the party object:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;partyRoles&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
-<span class="s2">&quot;partyReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;externalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GlobalBank&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;globalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;296093b7&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;SELLER&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="p">{</span><span class="s2">&quot;partyReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;externalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;UkBank&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;globalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1ef4886d&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BUYER&quot;</span>
-<span class="p">}]</span>
-</code></pre></div>
+role to the party defined in the party object:
+
+ ``` json
+&quot;partyRoles&quot; : [ {
+  &quot;role&quot; : &quot;Seller&quot;,
+  &quot;partyReference&quot; : {
+    &quot;@key:external&quot; : &quot;GlobalBank&quot;,
+    &quot;name&quot; : {
+      &quot;@data&quot; : &quot;Global Bank Inc&quot;
+    }
+  }
+}, {
+  &quot;role&quot; : &quot;Buyer&quot;,
+  &quot;partyReference&quot; : {
+    &quot;@key:external&quot; : &quot;UkBank&quot;,
+    &quot;name&quot; : {
+      &quot;@data&quot; : &quot;UK Bank plc&quot;
+    }
+  }
+} ]
+</code></pre></div></p>
 <h2 id="trade-date">Trade Date</h2>
 <p>Trade Date is a simple date string:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;tradeDate&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2021-03-18&quot;</span>
-</code></pre></div>
-<h2 id="executing-business-event">Executing Business Event</h2>
-<p>Executing events in the CDM is performed by calling
-<code>Create_BusinessEvent</code> using one or more valid Instructions:</p>
-<p>To represent the repurchase agreement using the CFI taxonomy the json
-would look like:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;productTaxonomy&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">       </span><span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;CFI&quot;</span><span class="p">,</span>
-<span class="w">       </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">           </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;LRSTXD&quot;</span>
-<span class="w">           </span><span class="p">}</span>
-<span class="w">       </span><span class="p">}</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="s2">&quot;productQualifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Repurchase Agreement&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="s2">&quot;taxonomySource&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;CFI&quot;</span>
-<span class="p">}]</span>
-</code></pre></div>
+<p>``` json
+"tradeDate": "2021-03-18"
+<div class="highlight"><pre><span></span><code>## Executing Business Event
+
+Executing events in the CDM is performed by calling
+`Create_BusinessEvent` using one or more valid Instructions:
+
+To represent the repurchase agreement using the CFI taxonomy the json
+would look like:
+
+ ``` json
+&quot;taxonomy&quot; : [ {
+  &quot;source&quot; : &quot;CFI&quot;,
+  &quot;value&quot; : {
+    &quot;name&quot; : {
+      &quot;@data&quot; : &quot;LRSTXD&quot;
+    }
+  }
+}, {
+  &quot;source&quot; : &quot;CFI&quot;,
+  &quot;value&quot; : {
+    &quot;name&quot; : {
+      &quot;@data&quot; : &quot;RepurchaseAgreement&quot;
+    }
+  },
+  &quot;calculated&quot; : true
+} ],
+</code></pre></div></p>
 <h1 id="lifecycle-events">Lifecycle Events</h1>
 <p>Lifecycle events are actions that modify or close transactions. These
 actions may be taken by a counterparty or automatically generated due to

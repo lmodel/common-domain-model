@@ -930,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mapping/" class="md-nav__link">
+      <a href="../mapping.md" class="md-nav__link">
         
   
   
@@ -2414,20 +2414,16 @@ references to these types of documents.</p>
 </li>
 <li>
 <p><strong>Mapping to ISDA Create derivative documentation negotiation
-    platform</strong> : Synonyms identified as belonging to <code>ISDA_Create_1_0</code>
-    have been defined to establish mappings that support automated
+    platform</strong> : mappings have been defined to support automated
     transformation of ISDA Create documents into objects that are
     compliant with the CDM.</p>
 <ul>
-<li>The mapping between the two models through the use of Synonyms
-    validated that all the necessary permutations of elections and
-    data associated with the supported agreements have been
-    replicated in the CDM</li>
+<li>The mapping between the two models validated that all the
+    necessary permutations of elections and data associated with the
+    supported agreements have been replicated in the CDM</li>
 <li>Ingestion of JSON sample files generated from ISDA Create for
     samples of executed documents has been implemented to demonstrate this 
     capability between ISDA Create and the CDM.</li>
-<li>More details on Synonyms are provided in the Mapping (Synonym)
-    section of this document.</li>
 </ul>
 </li>
 </ul>
@@ -2552,7 +2548,7 @@ group of agreements.</p>
 <span class="w">  </span><span class="n">creditSupportAgreementElections</span><span class="w"> </span><span class="kt">CreditSupportAgreementElections</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">collateralTransferAgreementElections</span><span class="w"> </span><span class="kt">CollateralTransferAgreementElections</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">securityAgreementElections</span><span class="w"> </span><span class="kt">SecurityAgreementElections</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">  </span><span class="n">masterAgreementSchedule</span><span class="w"> </span><span class="kt">MasterAgreementSchedule</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">clauseLibrarySchedule</span><span class="w"> </span><span class="kt">ClauseLibrarySchedule</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">transactionAdditionalTerms</span><span class="w"> </span><span class="kt">TransactionAdditionalTerms</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">masterAgreementElections</span><span class="w"> </span><span class="kt">MasterAgreementElections</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">condition</span><span class="kt">:</span><span class="w"> </span><span class="n">one</span><span class="o">-</span><span class="kr">of</span>
@@ -2584,7 +2580,7 @@ values for each election (e.g. an election from a list of options or a specific
 type of information such as an amount, date or city). </p>
 <h2 id="master-agreement-schedule">Master Agreement Schedule</h2>
 <p>Legal documentation is required to describe the contract between parties on 
-every transaction. Specific master agreement types are available under the master namespace, and include the standard terms of ISDA, ISLA, and ICMA Master Agreements. The structures under the <code>MasterAgreementSchedule</code> have been
+every transaction. Specific master agreement types are available under the master namespace, and include the standard terms of ISDA, ISLA, and ICMA Master Agreements. The structures under the <code>ClauseLibrarySchedule</code> have been
 created to be domain agnostic, and generic enough to describe any industry 
 standard or bespoke master agreement.</p>
 <p>The types and datapoints that have been defined are loosely based upon the use 
@@ -2599,21 +2595,21 @@ clause.</p>
 held outside of the model itself. The identifiers themselves can be defined by 
 the publisher of a legal document.</p>
 <h3 id="clause">Clause</h3>
-<p>The <code>MasterAgreementSchedule</code> is where the details of the master agreement are 
+<p>The <code>ClauseLibrarySchedule</code> is where the details of the master agreement are 
 defined. This is made up of a list of the clauses that make up that agreement. 
 Each clause must have at least one variant associated to it.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">MasterAgreementSchedule:</span>
-<span class="w">    </span><span class="n">clause</span><span class="w"> </span><span class="kt">MasterAgreementClause</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">ClauseLibrarySchedule:</span>
+<span class="w">    </span><span class="n">clause</span><span class="w"> </span><span class="kt">ClauseLibraryClause</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
 </code></pre></div>
 <p>The <code>clause</code> allows a list of clauses to be represented, with each element in 
 the list representing a single clause in the agreement. Each clause has the 
 following data that can be defined for it.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">MasterAgreementClause:</span>
-<span class="w">    </span><span class="n">identifer</span><span class="w"> </span><span class="kt">MasterAgreementClauseIdentifierEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">ClauseLibraryClause:</span>
+<span class="w">    </span><span class="n">identifier</span><span class="w"> </span><span class="kt">AssignedIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">counterparty</span><span class="w"> </span><span class="kt">CounterpartyRoleEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="n">otherParty</span><span class="w"> </span><span class="kt">PartyRoleEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">variant</span><span class="w"> </span><span class="kt">MasterAgreementClauseVariant</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">    </span><span class="n">variant</span><span class="w"> </span><span class="kt">ClauseLibraryClauseVariant</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 <p><strong>Note:</strong>
@@ -2626,12 +2622,12 @@ will be introduced in a future enhancement to this area.</p>
 <p>The <code>variant</code> type is held under a <code>clause</code> and contains the elections defined 
 for the variant that has been selected for this clause. Note that it is also 
 possible that a clause can reference multiple variants.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">MasterAgreementClauseVariant:</span><span class="w"> </span>
-<span class="w">    </span><span class="n">identifier</span><span class="w"> </span><span class="kt">MasterAgreementVariantIdentifierEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">ClauseLibraryClauseVariant:</span><span class="w"> </span>
+<span class="w">    </span><span class="n">identifier</span><span class="w"> </span><span class="kt">AssignedIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="n">counterparty</span><span class="w"> </span><span class="kt">CounterpartyRoleEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="n">otherParty</span><span class="w"> </span><span class="kt">PartyRoleEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">variableSet</span><span class="w"> </span><span class="kt">MasterAgreementVariableSet</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">    </span><span class="n">variableSet</span><span class="w"> </span><span class="kt">ClauseLibraryVariableSet</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 <p><strong>Note:</strong>
@@ -2647,12 +2643,12 @@ These can be defined in the <code>variableSet</code> element of a <code>variant<
 and its value can be set. Note that variable names should match the names as 
 defined in the agreement documentation or Clause Library that represents that 
 agreement.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">MasterAgreementVariableSet:</span><span class="w"> </span>
-<span class="w">    </span><span class="n">variableSet</span><span class="w"> </span><span class="kt">MasterAgreementVariableSet</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">ClauseLibraryVariableSet:</span><span class="w"> </span>
+<span class="w">    </span><span class="n">variableSet</span><span class="w"> </span><span class="kt">ClauseLibraryVariableSet</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="n">value</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
 </code></pre></div>
-<p>The <code>MasterAgreementVariableSet</code> also includes a reference to itself. This 
+<p>The <code>ClauseLibraryVariableSet</code> also includes a reference to itself. This 
 allows tables of values rather than just single values to be entered for a 
 clause variant. To prevent anything deeper than a table of data to be 
 represented (i.e. columns and rows) a condition has been added to only allow two

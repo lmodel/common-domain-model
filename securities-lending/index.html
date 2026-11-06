@@ -678,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mapping/" class="md-nav__link">
+      <a href="../mapping.md" class="md-nav__link">
         
   
   
@@ -895,17 +895,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#non-cash-collateral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Non-cash Collateral
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#cash-pool" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -972,91 +961,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#interest-rate-and-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interest Rate and Value
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dates
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Dates">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#effective-date" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Effective Date
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#trade-date" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Trade Date
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#settlement-dates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Settlement Dates
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#termination-date" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Termination Date
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#legal-agreement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Legal Agreement
-      
-    </span>
-  </a>
   
 </li>
         
@@ -2091,17 +1997,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#non-cash-collateral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Non-cash Collateral
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#cash-pool" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2168,91 +2063,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#interest-rate-and-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interest Rate and Value
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dates
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Dates">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#effective-date" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Effective Date
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#trade-date" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Trade Date
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#settlement-dates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Settlement Dates
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#termination-date" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Termination Date
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#legal-agreement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Legal Agreement
-      
-    </span>
-  </a>
   
 </li>
         
@@ -2337,88 +2149,95 @@ define this as a cash collateralised loan. These types can be found under the
 <code>economicTerms-&gt;collateral</code> type.</p>
 <p>An example showing the location of the 
 security being lent and the payouts for the cash collateral is provided below:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;economicTerms&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="s2">&quot;payout&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;AssetPayout&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;underlier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;Instrument&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="s2">&quot;Security&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="p">...</span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="w">  </span><span class="s2">&quot;collateral&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;collateralProvisions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;collateralType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Cash&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;collateralPortfolio&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;collateralPosition&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="s2">&quot;Product&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">           </span><span class="s2">&quot;TransferableProduct&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">              </span><span class="s2">&quot;Cash&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                 </span><span class="p">...</span>
-<span class="w">               </span><span class="p">}</span><span class="w"> </span><span class="p">,</span>
-<span class="w">             </span><span class="s2">&quot;economicTerms&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="s2">&quot;payout&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="s2">&quot;InterestRatePayout&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;rateSpecification&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">,</span>
-<span class="w">                    </span><span class="err">&quot;</span><span class="nx">paymentDates</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">,</span>
-<span class="w">                    </span><span class="p">...</span>
-<span class="w">             </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">,</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3 id="non-cash-collateral">Non-cash Collateral</h3>
-<p>In a non-cash loan, the lender lends the borrower the requested securities, 
+<p>``` json
+"economicTerms": {
+  "payout": {
+    "AssetPayout": [ {
+      "underlier": {
+        "Instrument": {
+          "Security": {
+            "identifier": {
+             ...
+      } } } } } ]
+  },
+  ...
+  "collateral": {
+    "collateralProvisions": {
+      "collateralType": "Cash"
+    },
+    "collateralPortfolio": [ {
+      "collateralPosition": [ {
+         "Product": {
+           "TransferableProduct": {
+              "Cash": {
+                 ...
+               } ,
+             "economicTerms": {
+               "payout": {
+             "InterestRatePayout": {
+                    "rateSpecification": { ... } ,
+                    "paymentDates: { ... } ,
+                    ...
+             } } }
+   } } } ] } ] } ,
+  ...
+}
+<div class="highlight"><pre><span></span><code>### Non-cash Collateral
+
+In a non-cash loan, the lender lends the borrower the requested securities, 
 and the borrower provides collateral in the form of other securities or 
-products. </p>
-<p>The security that is being lent is modelled the same way as the cash case with
-an <code>underlier</code> in the main <code>AssetPayout</code>.</p>
-<p>The non-cash collateral is also still modelled with one or more <code>TransferableProduct</code> 
-in the <code>collateralPosition</code>.  Rather than the product containing <code>cash</code>, the actual
+products. 
+
+The security that is being lent is modelled the same way as the cash case with
+an `underlier` in the main `AssetPayout`.
+
+The non-cash collateral is also still modelled with one or more `TransferableProduct` 
+in the `collateralPosition`.  Rather than the product containing `cash`, the actual
 asset being used as collateral is specified. The details of the security should be entered
-in the attributes held within the <code>Security-&gt;identifier</code> type, being the <code>identifier</code>,
-<code>identifierType</code> and the <code>instrumentType</code>.  <code>economicTerms</code> can also be added
-if these are required to fully reflect the specifics of the collateral.</p>
-<p>The <code>collateralType</code> under <code>collateralProvisions</code> should be set to "<em>NonCash</em>" 
+in the attributes held within the `Security-&gt;identifier` type, being the `identifier`,
+`identifierType` and the `instrumentType`.  `economicTerms` can also be added
+if these are required to fully reflect the specifics of the collateral.
+
+The `collateralType` under `collateralProvisions` should be set to &quot;*NonCash*&quot; 
 to define this as a non-cash collateralised loan. These types can be found 
-under the <code>economicTerms-&gt;collateral</code> type.</p>
-<p>An example showing the location of the payouts for the non-cash collateral and 
-the security being lent is provided below:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;economicTerms&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="s2">&quot;payout&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;AssetPayout&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;underlier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;Instrument&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="s2">&quot;Security&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="p">...</span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="w">  </span><span class="s2">&quot;collateral&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;collateralProvisions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;collateralType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Cash&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;collateralPortfolio&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;collateralPosition&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="s2">&quot;Product&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">           </span><span class="s2">&quot;TransferableProduct&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="s2">&quot;Instrument&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="s2">&quot;Security&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                  </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                  </span><span class="p">...</span>
-<span class="w">             </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
-<span class="w">             </span><span class="s2">&quot;economicTerms&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="s2">&quot;payout&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="p">...</span>
-<span class="w">             </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">,</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="p">}</span>
-</code></pre></div>
+under the `economicTerms-&gt;collateral` type.
+
+An example showing the location of the payouts for the non-cash collateral and 
+the security being lent is provided below:
+
+ ``` json
+&quot;economicTerms&quot;: {
+  &quot;payout&quot;: {
+    &quot;AssetPayout&quot;: [ {
+      &quot;underlier&quot;: {
+        &quot;Instrument&quot;: {
+          &quot;Security&quot;: {
+            &quot;identifier&quot;: {
+             ...
+      } } } } } ]
+  },
+  ...
+  &quot;collateral&quot;: {
+    &quot;collateralProvisions&quot;: {
+      &quot;collateralType&quot;: &quot;Cash&quot;
+    },
+    &quot;collateralPortfolio&quot;: [ {
+      &quot;collateralPosition&quot;: [ {
+         &quot;Product&quot;: {
+           &quot;TransferableProduct&quot;: {
+             &quot;Instrument&quot;: {
+               &quot;Security&quot;: {
+                  &quot;identifier&quot;: {
+                  ...
+             } } } },
+             &quot;economicTerms&quot;: {
+               &quot;payout&quot;: {
+             ...
+             } } }
+   } } } ] } ,
+  ...
+}
+</code></pre></div></p>
 <h3 id="cash-pool">Cash Pool</h3>
 <p>In a cash pool loan, the lender lends the borrower the requested securities, 
 and takes cash as collateral from a cash pool held by the lender on behalf of 
@@ -2477,175 +2296,201 @@ to define the security that the price and quantity are associated to in the
 <p>The <code>price</code> will need to have its <code>priceType</code> set to "<em>AssetPrice</em>". The 
 simplest way to express the price is using the <code>value</code> attribute, an example 
 of which would be as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;priceQuantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="w">  </span><span class="s2">&quot;price&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;unit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;currency&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="s2">&quot;perUnitOf&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">       </span><span class="s2">&quot;financialUnit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Share&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="s2">&quot;priceType&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AssetPrice&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="p">}</span><span class="w"> </span><span class="p">]</span>
-</code></pre></div>
-<p>The <code>quantity</code> will need to define the number of shares in the <code>value</code> 
-attribute:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;priceQuantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="w">  </span><span class="s2">&quot;quantity&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;unit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;financialUnit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Share&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="p">}</span><span class="w"> </span><span class="p">]</span>
-</code></pre></div>
+<p>``` json
+"priceQuantity": [ {
+  ...
+  "price" : [ {
+    "value" : 25,
+    "unit" : {
+      "currency" : {
+       "@data" : "GBP"
+      }
+    },
+    "perUnitOf" : {
+      "financialUnit" : "Share"
+    },
+    "priceType" : "AssetPrice"
+  } ]
+  ...
+} ]
+<div class="highlight"><pre><span></span><code>The `quantity` will need to define the number of shares in the `value` 
+attribute:
+
+ ``` json
+&quot;priceQuantity&quot;: [ {
+  ...
+  &quot;quantity&quot; : [ {
+    &quot;value&quot; : 0,
+    &quot;unit&quot; : {
+      &quot;financialUnit&quot; : &quot;Share&quot;
+    }
+  } ]
+  ...
+} ]
+</code></pre></div></p>
 <p>If the security on loan is to be defined here then an <code>observable</code> should be 
 included in the <code>priceQuantity</code> too:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;priceQuantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="w">  </span><span class="s2">&quot;observable&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;productIdentifier&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;identifier&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GB00BDR05C01&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="s2">&quot;source&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISIN&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="p">}</span><span class="w"> </span><span class="p">]</span>
-</code></pre></div>
-<p><em>Note: the security on loan can also be defined under the <code>product -&gt; security</code></em>
-<em>details</em></p>
-<h4 id="interest-rate-and-value">Interest Rate and Value</h4>
-<p>The <code>priceQuantity</code> will need to include a <code>price</code> that represents the interest 
-rate and a <code>quantity</code> that holds the value that the interest rate is to be
-applied to. </p>
-<p>The <code>price</code> will need to have its <code>priceType</code> set to "<em>InterestRate</em>". The 
-simplest way to express the rate is using the <code>value</code> attribute, an example 
-of which would be as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;priceQuantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="w">  </span><span class="s2">&quot;price&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;unit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;currency&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="s2">&quot;perUnitOf&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;currency&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span><span class="w">      </span>
-<span class="w">      </span><span class="s2">&quot;priceType&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;InterestRate&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="p">}</span><span class="w"> </span><span class="p">]</span>
-</code></pre></div>
+<p>``` json
+"priceQuantity": [ {
+  ...
+  "observable" : {
+    "@data" : {
+      "@type" : "cdm.base.staticdata.asset.common.Security",
+      "identifier" : [ {
+        "identifier" : {
+          "@scheme" : "ISIN",
+          "@data" : "GB00BDR05C01"
+        },
+        "identifierType" : "ISIN"
+      } ],
+      "assetType" : "Security",
+      "securityType" : "Debt"
+    }
+  }
+  ...
+} ]
+<div class="highlight"><pre><span></span><code>*Note: the security on loan can also be defined under the `product -&gt; security`*
+*details*
+
+#### Interest Rate and Value
+
+The `priceQuantity` will need to include a `price` that represents the interest 
+rate and a `quantity` that holds the value that the interest rate is to be
+applied to. 
+
+The `price` will need to have its `priceType` set to &quot;*InterestRate*&quot;. The 
+simplest way to express the rate is using the `value` attribute, an example 
+of which would be as follows:
+
+ ``` json
+&quot;priceQuantity&quot;: [ {
+  ...
+  &quot;price&quot; : [ {
+    &quot;value&quot; : 0.01,
+    &quot;unit&quot; : {
+      &quot;currency&quot; : {
+       &quot;@data&quot; : &quot;GBP&quot;
+      }
+    },
+    &quot;perUnitOf&quot; : {
+      &quot;currency&quot; : {
+        &quot;@data&quot; : &quot;GBP&quot;
+      }
+    },    
+    &quot;priceType&quot; : &quot;InterestRate&quot;
+  } ]
+  ...
+} ]
+</code></pre></div></p>
 <p>The <code>quantity</code> will need to define the value that the rate is applied to in the 
 <code>value</code> attribute:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;priceQuantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="w">  </span><span class="s2">&quot;quantity&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">10000000</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;unit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;currency&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="p">}</span><span class="w"> </span><span class="p">]</span>
-</code></pre></div>
-<h3 id="dates">Dates</h3>
-<p>There are several key dates through the lifecycle of a securities lending 
-trade. The main ones that need to be defined are described in this section.</p>
-<h4 id="effective-date">Effective Date</h4>
-<p>The effective date in a securities lending trade refers to the date when the 
+<p>``` json
+"priceQuantity": [ {
+  ...
+  "quantity" : [ {
+    "value" : 10000000,
+    "unit" : {
+      "currency" : {
+       "@data" : "GBP"
+      }
+    }
+  } ]
+  ...
+} ]
+<div class="highlight"><pre><span></span><code>### Dates
+
+There are several key dates through the lifecycle of a securities lending 
+trade. The main ones that need to be defined are described in this section.
+
+#### Effective Date
+
+The effective date in a securities lending trade refers to the date when the 
 agreement or transaction between the lender and the borrower becomes binding 
 and takes effect. It signifies the point at which the terms and conditions 
-of the lending arrangement are legally enforceable. </p>
-<p>The <code>effectiveDate</code> can be found under the product's <code>economicTerms</code> type.</p>
-<h4 id="trade-date">Trade Date</h4>
-<p>The trade date is the specific day when the order to lend securities is 
+of the lending arrangement are legally enforceable. 
+
+The `effectiveDate` can be found under the product&#39;s `economicTerms` type.
+
+#### Trade Date
+
+The trade date is the specific day when the order to lend securities is 
 executed or placed in the market. The trade date marks the initiation of the 
 transaction, while the effective date represents the point at which the 
-agreement becomes legally binding. </p>
-<p>Once the trade has been executed then the <code>tradeDate</code> under the <code>trade</code> type 
-should be set to the date the trade was executed.</p>
-<h4 id="settlement-dates">Settlement Dates</h4>
-<p>The settlement date is when the securities legally change hands. In a 
+agreement becomes legally binding. 
+
+Once the trade has been executed then the `tradeDate` under the `trade` type 
+should be set to the date the trade was executed.
+
+#### Settlement Dates
+
+The settlement date is when the securities legally change hands. In a 
 securities lending trade, there are potentially two dates related to 
 settlement: the security settlement date, and for a trade against cash, the 
-cash settlement date.</p>
-<p>The security settlement date is when the securities on the trade are legally 
+cash settlement date.
+
+The security settlement date is when the securities on the trade are legally 
 transferred from the lender to the borrower. It is the day when the borrower 
-becomes the holder of record of the security.</p>
-<p>For cash trades the cash settlement date is the date when the cash payment for 
+becomes the holder of record of the security.
+
+For cash trades the cash settlement date is the date when the cash payment for 
 the borrowed securities is made by the borrower to the lender. It represents 
-the completion of the financial aspect of the securities lending transaction.</p>
-<p>In both instances the settlement dates are defined under the payouts associated 
-to the trade.</p>
-<p>For a trade against non-cash there would be two <code>assetPayouts</code>, one for the 
+the completion of the financial aspect of the securities lending transaction.
+
+In both instances the settlement dates are defined under the payouts associated 
+to the trade.
+
+For a trade against non-cash there would be two `assetPayouts`, one for the 
 non-cash collateral and another for the securities being lent. At a minimum 
-the <code>settlementDate</code> under <code>settlementTerms</code> in the <code>assetPayout</code> for the 
+the `settlementDate` under `settlementTerms` in the `assetPayout` for the 
 security being lent should be populated. However, it is recommended that the 
-<code>settlementDate</code> under both <code>assetPayout -&gt; settlementTerms</code> types are set.</p>
-<p>For a trade against cash there would be an <code>assetPayout</code> for the securities 
-being lent and a <code>settlementPayout</code> for the cash being used as collateral. 
-The security settlement date should be placed in the <code>settlementDate</code> under 
-<code>settlementTerms</code> in the <code>assetPayout</code>, and the cash settlement date should 
-be placed in the <code>settlementDate</code> under <code>settlementTerms</code> in the 
-<code>settlementPayout</code>.</p>
-<p><em>Note: For DVP trades the cash and security settlement dates will be the same.</em>
-<em>They should still be set under the <code>assetPayout-&gt;settlementTerms-&gt;settlementDate</code></em>
-<em>and <code>settlementPayout-&gt;settlementTerms-&gt;settlementDate</code> types as described</em>
-<em>above.</em></p>
-<h4 id="termination-date">Termination Date</h4>
-<p>Where a trade has a termination date this can be set under the 
-<code>terminationDate</code> of the product's <code>economicTerms</code> type. Additional details 
+`settlementDate` under both `assetPayout -&gt; settlementTerms` types are set.
+
+For a trade against cash there would be an `assetPayout` for the securities 
+being lent and a `settlementPayout` for the cash being used as collateral. 
+The security settlement date should be placed in the `settlementDate` under 
+`settlementTerms` in the `assetPayout`, and the cash settlement date should 
+be placed in the `settlementDate` under `settlementTerms` in the 
+`settlementPayout`.
+
+*Note: For DVP trades the cash and security settlement dates will be the same.*
+*They should still be set under the `assetPayout-&gt;settlementTerms-&gt;settlementDate`*
+*and `settlementPayout-&gt;settlementTerms-&gt;settlementDate` types as described*
+*above.*
+
+#### Termination Date
+
+Where a trade has a termination date this can be set under the 
+`terminationDate` of the product&#39;s `economicTerms` type. Additional details 
 related to the termination of a trade can be placed within the 
-<code>terminationProvision</code> type also under <code>economicTerms</code>.</p>
-<h3 id="legal-agreement">Legal Agreement</h3>
-<p>The agreement governing a trade should be referenced in the <code>contractDetails</code> 
-type under <code>trade</code>. For securities lending trades the ISLA Global Master 
-Securities Lending Agreement can be referenced by setting the <code>publisher</code> to 
-"<em>ISLA</em>" and the <code>agreementName-&gt;masterAgreementType</code> to "<em>GMSLA</em>". The 
-preprint version can also be set in the <code>vintage</code> attribute. </p>
-<p>These attributes are available under the <code>legalAgreementIdentification</code> type,
-an example of which is provided below:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;contractDetails&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="s2">&quot;documentation&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;legalAgreementIdentification&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;agreementName&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;masterAgreementType&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GMSLA&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="s2">&quot;publisher&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISLA&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;vintage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2010</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+`terminationProvision` type also under `economicTerms`.
+
+### Legal Agreement
+
+The agreement governing a trade should be referenced in the `contractDetails` 
+type under `trade`. For securities lending trades the ISLA Global Master 
+Securities Lending Agreement can be referenced by setting the `publisher` to 
+&quot;*ISLA*&quot; and the `agreementName-&gt;masterAgreementType` to &quot;*GMSLA*&quot;. The 
+preprint version can also be set in the `vintage` attribute. 
+
+These attributes are available under the `legalAgreementIdentification` type,
+an example of which is provided below:
+
+ ``` json
+&quot;contractDetails&quot; : {
+  &quot;documentation&quot; : [ {
+    &quot;legalAgreementIdentification&quot; : {
+      &quot;agreementName&quot; : {
+        &quot;agreementType&quot; : &quot;MasterAgreement&quot;,
+        &quot;masterAgreementType&quot; : {
+          &quot;@data&quot; : &quot;GMSLA&quot;
+        }
+      },
+      &quot;publisher&quot;: &quot;ISLA&quot;,
+      &quot;vintage&quot; : 2010
+    }
+  } ]
+}
+</code></pre></div></p>
 <p><em>Note: further details of the master agreement can be modelled in the</em>
 <em><code>masterAgreementSchedule</code> which is also provided underneath the <code>documentation</code></em>
 <em>type.</em></p>
@@ -2661,21 +2506,21 @@ under the product's <code>economicTerms</code>. </p>
 <em>"1.1".</em></p>
 <p>An example of a trade that has a 10% haircut and 105% margin would look as 
 follows:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;economicTerms&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="s2">&quot;collateral&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;collateralProvisions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;eligibleCollateral&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;treatment&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="s2">&quot;valuationTreatment&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;haircutPercentage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;marginPercentage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1.05</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<p><code>json
+"economicTerms": {
+  "collateral": {
+    "collateralProvisions": {
+      "eligibleCollateral": [ {
+        "treatment": [ {
+          "valuationTreatment": {
+            "haircutPercentage": 0.1,
+            "marginPercentage": 1.05
+          }
+        } ]
+      } ]
+    }
+  }
+}</code></p>
 
 
 

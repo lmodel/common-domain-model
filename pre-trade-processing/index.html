@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://lmodel.github.io/common-domain-model/pre-trade-processing/">
       
       
-        <link rel="prev" href="../mapping/">
+        <link rel="prev" href="../namespace/">
       
       
         <link rel="next" href="../eligible-collateral-representation/">
@@ -678,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mapping/" class="md-nav__link">
+      <a href="../mapping.md" class="md-nav__link">
         
   
   
@@ -846,17 +846,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#multiple-securities" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Multiple securities
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#securities-held-by-an-agent-lender" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -935,17 +924,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#single-security-from-a-particular-lender" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Single security from a particular lender
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#multiple-securities-from-multiple-lenders" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -960,51 +938,6 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trade-negotiation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Trade Negotiation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Trade Negotiation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#securities-lending-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Securities Lending example
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modelling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modelling
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Modelling">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#propose" class="md-nav__link">
@@ -2222,17 +2155,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#multiple-securities" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Multiple securities
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#securities-held-by-an-agent-lender" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2311,17 +2233,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#single-security-from-a-particular-lender" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Single security from a particular lender
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#multiple-securities-from-multiple-lenders" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2336,51 +2247,6 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trade-negotiation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Trade Negotiation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Trade Negotiation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#securities-lending-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Securities Lending example
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modelling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modelling
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Modelling">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#propose" class="md-nav__link">
@@ -2523,7 +2389,7 @@ specified. </p>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">AvailableInventory:</span>
 <span class="w">    </span><span class="p">[</span><span class="n">rootType</span><span class="p">]</span>
 <span class="w">    </span><span class="n">availableInventoryType</span><span class="w"> </span><span class="kt">AvailableInventoryTypeEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="n">identifer</span><span class="w"> </span><span class="kt">AssignedIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">identifier</span><span class="w"> </span><span class="kt">AssignedIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">comment</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">messageInformation</span><span class="w"> </span><span class="kt">MessageInformation</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">party</span><span class="w"> </span><span class="kt">Party</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
@@ -2533,63 +2399,63 @@ specified. </p>
 <p>The attributes available are:</p>
 <ul>
 <li>
-<p>The <code>availableInventoryType</code> is a mandatory enumeration which is used to 
-describe the purpose of this <code>AvailableInventory</code> instance. For the lender 
+<p>The  <code>availableInventoryType</code> is a mandatory enumeration which is used to 
+describe the purpose of this  <code>AvailableInventory</code> instance. For the lender 
 availability use case this should be set to "<em>AvailableToLend</em>"</p>
 </li>
 <li>
-<p>The optional <code>identifier</code> type for this group, which can be used to uniquely identify a group of inventory records.</p>
+<p>The optional  <code>identifier</code> type for this group, which can be used to uniquely identify a group of inventory records.</p>
 </li>
 <li>
-<p>The <code>comment</code> type for optional comments for this group of inventory records.</p>
+<p>The  <code>comment</code> type for optional comments for this group of inventory records.</p>
 </li>
 <li>
-<p>The optional <code>messageInformation</code> type allows details related to a message 
+<p>The optional  <code>messageInformation</code> type allows details related to a message 
 containing the availability to be described if required. </p>
 </li>
 <li>
-<p>The <code>party</code> attribute here describes all parties involved in this set of 
+<p>The  <code>party</code> attribute here describes all parties involved in this set of 
 availability. For example, this could include the sender of the availability, 
 the intended recipient, the beneficial owner(s), the lender (which may differ 
 from the sender as the lender may have the same piece of availability going 
 through multiple agents), an agent or a venue.</p>
 </li>
 <li>
-<p>Each of the parties included in the <code>party</code> type can be assigned a <code>partyRole</code>. 
-The <em>ValidPartyRole</em> condition within <code>AvailableInventory</code> restricts the types of 
+<p>Each of the parties included in the  <code>party</code> type can be assigned a  <code>partyRole</code>. 
+The <em>ValidPartyRole</em> condition within  <code>AvailableInventory</code> restricts the types of 
 role that can be assigned in this context. Valid roles are: "<em>AgentLender</em>", 
 "<em>BeneficialOwner</em>", "<em>Borrower</em>", "<em>Custodian</em>" or "<em>Lender</em>"</p>
 </li>
 <li>
-<p>The <code>availableInventoryRecord</code> record is where the securities that are to be 
+<p>The  <code>availableInventoryRecord</code> record is where the securities that are to be 
 shown as available should be listed.</p>
 </li>
 </ul>
 <h4 id="availableinventoryrecord">AvailableInventoryRecord</h4>
-<p>The <code>AvailableInventoryRecord</code> type is an array that is used to hold the list of 
+<p>The  <code>AvailableInventoryRecord</code> type is an array that is used to hold the list of 
 availability records that the lender wants to broadcast. Each availability 
 record will need to include details of the security and any associated criteria 
 e.g. the quantity of shares available, the rate at which the security is 
 available to borrow at.</p>
-<p>This type inherits additional mandatory types from the generic <code>InventoryRecord</code> type 
+<p>This type inherits additional mandatory types from the generic  <code>InventoryRecord</code> type 
 which it extends.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">InventoryRecord:</span>
-<span class="w">    </span><span class="n">identifer</span><span class="w"> </span><span class="kt">AssignedIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="n">identifier</span><span class="w"> </span><span class="kt">AssignedIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="n">security</span><span class="w"> </span><span class="kt">Security</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
 </code></pre></div>
-<p>The <code>identifier</code> and <code>security</code> should be used as follows:</p>
+<p>The  <code>identifier</code> and  <code>security</code> should be used as follows:</p>
 <ul>
 <li>
-<p>The <code>identifier</code> type is mandatory and is used to assign a specific reference 
+<p>The  <code>identifier</code> type is mandatory and is used to assign a specific reference 
 to this availability record. This allows the parties to uniquely identify any 
 row of availability.</p>
 </li>
 <li>
-<p>The <code>security</code> type allows the key security information to be provided, 
-including the <code>securityType</code> and identifier for the instrument. </p>
+<p>The  <code>security</code> type allows the key security information to be provided, 
+including the  <code>securityType</code> and identifier for the instrument. </p>
 </li>
 </ul>
-<p>The <code>AvailableInventoryRecord</code> itself allows the most common datapoints shared 
+<p>The  <code>AvailableInventoryRecord</code> itself allows the most common data points shared 
 when distributing availability to be specified. </p>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">AvailableInventoryRecord</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">InventoryRecord:</span><span class="w"> </span>
 <span class="w">    </span><span class="n">expirationDateTime</span><span class="w"> </span><span class="n">zonedDateTime</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
@@ -2604,24 +2470,24 @@ when distributing availability to be specified. </p>
 <ul>
 <li>
 <p>Where a time limit/restriction needs to be set against a piece of availability 
-then the <code>expirationDateTime</code> attribute can be used to express it.</p>
+then the  <code>expirationDateTime</code> attribute can be used to express it.</p>
 </li>
 <li>
-<p>The <code>collateral</code> type allows the lender to specify the type of collateral 
+<p>The  <code>collateral</code> type allows the lender to specify the type of collateral 
 required for a specific piece of availability.</p>
 </li>
 <li>
-<p>In this context the <code>partyRole</code> is primarily used to reference parties that 
-have already been defined in the <code>party</code> attribute of the top level 
-<code>AvailableInventory</code> type. It can also be used here to define the role of a 
+<p>In this context the  <code>partyRole</code> is primarily used to reference parties that 
+have already been defined in the  <code>party</code> attribute of the top level 
+ <code>AvailableInventory</code> type. It can also be used here to define the role of a 
 party at the individual security level if necessary (which could be required if 
 a security is held by multiple agents). There is a <em>ValidPartyRole</em> condition 
-within <code>AvailableInventoryRecord</code> that restricts the types of role that can 
+within  <code>AvailableInventoryRecord</code> that restricts the types of role that can 
 be assigned in this context to: "<em>AgentLender</em>", "<em>BeneficialOwner</em>", "<em>Custodian</em>"
 or "<em>Lender</em>".</p>
 </li>
 <li>
-<p>The <code>quantity</code> attribute can be used to specify the number of shares that are 
+<p>The  <code>quantity</code> attribute can be used to specify the number of shares that are 
 available. Note that this attribute is optional, the lender may want to only 
 broadcast the fact that they have a security available to drum up interest.</p>
 </li>
@@ -2646,75 +2512,94 @@ attempting to model their own availability. </p>
 <p>In this very simple example a party is broadcasting their availability for a
 single ISIN. Very limited details are provided implying that this is general
 availability targeted at the entire market.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;availableInventoryType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AvailableToLend&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;availableInventoryRecord&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;00001&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;security&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;securityType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Equity&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;productIdentifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GB00000000012&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISIN&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;quantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">10000</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<h5 id="multiple-securities">Multiple securities</h5>
-<p>Building upon the last example, in this example a party is broadcasting their
-availability for two ISINs. </p>
-<p>This time the party has not included the number of shares that they have 
-available for the first ISIN, "GB00000000012", forcing borrowers to request 
-more details before a deal can be negotiated.  </p>
-<p>For the second ISIN, "GB00000000013", they have included some specific lending 
-criteria to help the borrowers decide if they want to proceed with a loan.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;availableInventoryType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AvailableToLend&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;availableInventoryRecord&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;00001&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;security&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;securityType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Equity&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;productIdentifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GB00000000012&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISIN&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;00002&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;security&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;securityType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Equity&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;productIdentifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GB00000000013&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISIN&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;quantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1800000</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;interestRate&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;priceType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;InterestRate&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.025</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;unit&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;currency&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GBP&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>``` json
+{
+    "availableInventoryType": "AvailableToLend",
+    "availableInventoryRecord": [
+        {
+            "identifier": {
+              "assignedIdentifier" : [ {
+                "identifier" : {
+                  "@data" : "00001"
+                }
+              } ]
+            },
+            "security": {
+                "securityType": "Equity",
+                "productIdentifier": {
+                    "identifier": "GB00000000012",
+                    "source": "ISIN"
+                }
+            },
+            "quantity": {
+                "value": 10000
+            }
+        }
+    ]
+}
+<div class="highlight"><pre><span></span><code>##### Multiple securities
+
+Building upon the last example, in this example a party is broadcasting their
+availability for two ISINs. 
+
+This time the party has not included the number of shares that they have 
+available for the first ISIN, &quot;GB00000000012&quot;, forcing borrowers to request 
+more details before a deal can be negotiated.  
+
+For the second ISIN, &quot;GB00000000013&quot;, they have included some specific lending 
+criteria to help the borrowers decide if they want to proceed with a loan.
+
+ ``` json
+{
+    &quot;availableInventoryType&quot;: &quot;AvailableToLend&quot;,
+    &quot;availableInventoryRecord&quot;: [
+        {
+            &quot;identifier&quot;: {
+              &quot;assignedIdentifier&quot; : [ {
+                &quot;identifier&quot; : {
+                  &quot;@data&quot; : &quot;00001&quot;
+                }
+              } ]
+            },
+            &quot;security&quot;: {
+                &quot;securityType&quot;: &quot;Equity&quot;,
+                &quot;productIdentifier&quot;: {
+                    &quot;identifier&quot;: &quot;GB00000000012&quot;,
+                    &quot;source&quot;: &quot;ISIN&quot;
+                }
+            }
+        },
+        {
+            &quot;identifier&quot;: {
+              &quot;assignedIdentifier&quot; : [ {
+                &quot;identifier&quot; : {
+                  &quot;@data&quot; : &quot;00002&quot;
+                }
+              } ]
+            },
+            &quot;security&quot;: {
+                &quot;securityType&quot;: &quot;Equity&quot;,
+                &quot;productIdentifier&quot;: {
+                    &quot;identifier&quot;: &quot;GB00000000013&quot;,
+                    &quot;source&quot;: &quot;ISIN&quot;
+                }
+            },
+            &quot;quantity&quot;: {
+                &quot;value&quot;: 1800000
+            },
+            &quot;interestRate&quot;: {
+                &quot;priceType&quot;: &quot;InterestRate&quot;,
+                &quot;value&quot;: 0.025,
+                &quot;unit&quot;: {
+                    &quot;currency&quot;: {
+                      &quot;@data&quot;: &quot;GBP&quot;
+                    }
+                }
+            }
+        }
+    ]
+}
+</code></pre></div></p>
 <h5 id="securities-held-by-an-agent-lender">Securities held by an agent lender</h5>
 <p>In this final example, an agent lender is broadcasting the availability that 
 they have for a single security. They specify that they require other 
@@ -2722,82 +2607,86 @@ securities as collateral in a loan using this piece of availability (as they
 have set the <code>collateral -&gt; collateralType</code> enumeration to "<em>NonCash</em>"). </p>
 <p>The details of the agent lender are also included so recipients of the 
 availability will know that they are acting as an agent in this instance.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;availableInventoryType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AvailableToLend&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;party&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;partyId&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AGENT1&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Agency Services Limited&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;globalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;x123rt&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;externalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;agent1&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="s2">&quot;partyRole&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;partyReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;globalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;x123rt&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;externalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;agent1&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AgentLender&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="s2">&quot;availableInventoryRecord&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;00001&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;security&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;securityType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Equity&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;productIdentifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GB00000000013&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISIN&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;quantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">20000</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;collateral&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;collateralType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NonCash&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>``` json
+{
+    "availableInventoryType": "AvailableToLend",
+    "party" : [ {
+      "@key:external" : "agent1",
+      "partyId" : [ {
+        "identifier" : {
+          "@data" : "AGENT1"
+        }
+      } ],
+      "name" : {
+        "@data" : "Agency Services Limited"
+      }
+    } ],
+    "partyRole": [
+        {
+            "partyReference": {
+                "@ref:external": "agent1"
+            },
+            "role": "AgentLender"
+        }</p>
+<pre><code>],
+"availableInventoryRecord": [
+    {
+        "identifier": {
+          "assignedIdentifier" : [ {
+            "identifier" : {
+              "@data" : "00001"
+            }
+          } ]
+        },
+        "security": {
+            "securityType": "Equity",
+            "productIdentifier": {
+                "identifier": "GB00000000013",
+                "source": "ISIN"
+            }
+        },
+        "quantity": {
+            "value": 20000
+        },
+        "collateral": [
+            {
+                "collateralType": "NonCash"
+            }
+        }
+    }
+]
+</code></pre>
+<p>}
+```
+</p>
 <h3 id="modelling-the-borrower-request">Modelling the borrower request</h3>
 <p>When a borrower needs a security to cover a short position, or for some other 
 trading strategy, they can approach specific lenders or the general market to 
 locate the shares that they need. The model represents this using two types: 
-<code>SecurityLocate</code> and <code>AvailableInventoryRecord</code>.</p>
-<p><img alt="SecurityLocate" src="https://github.com/finos/common-domain-model/assets/112546065/00c78aed-6db7-41cf-95d6-a1e85b4ac5d3" /></p>
-<p><code>SecurityLocate</code> is designed to hold a list of <code>AvailableInventoryRecord</code> 
+<code>SecurityLocate</code> and <code>AvailableInventoryRecord</code>.
+
+<img alt="SecurityLocate" src="https://github.com/finos/common-domain-model/assets/112546065/00c78aed-6db7-41cf-95d6-a1e85b4ac5d3" />
+
+<code>SecurityLocate</code> is designed to hold a list of <code>AvailableInventoryRecord</code> 
 items, with each item within <code>AvailableInventoryRecord</code> representing a specific 
 security that the borrower is looking to locate. Thus, for a borrower to locate
 10 different securities, the structure required would consist of one 
 <code>SecurityLocate</code> with a list of 10 <code>AvailableInventoryRecord</code> items 
-within it.</p>
+within it.
+</p>
 <h4 id="securitylocate">SecurityLocate</h4>
 <p>As described above, <code>SecurityLocate</code> is used to hold the entire set of 
 securities that the borrower wants to locate. This is where details that 
-pertain to the overall request should be specified. </p>
-<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">SecurityLocate</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">AvailableInventory:</span>
-</code></pre></div>
+pertain to the overall request should be specified. 
+
+<code>Haskell
+type SecurityLocate extends AvailableInventory:</code></p>
 <p><em>Note: <code>SecurityLocate</code> is an extension of <code>AvailableInventory</code> and 
 thus inherits all the data points from within it.</em></p>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">AvailableInventory:</span>
 <span class="w">    </span><span class="p">[</span><span class="n">rootType</span><span class="p">]</span>
 <span class="w">    </span><span class="n">availableInventoryType</span><span class="w"> </span><span class="kt">AvailableInventoryTypeEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="n">identifer</span><span class="w"> </span><span class="kt">AssignedIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">identifier</span><span class="w"> </span><span class="kt">AssignedIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">comment</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="n">messageInformation</span><span class="w"> </span><span class="kt">MessageInformation</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="n">party</span><span class="w"> </span><span class="kt">Party</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
@@ -2847,7 +2736,7 @@ quantity of shares the borrower requires.</p>
 <p>This type inherits additional mandatory types from the generic <code>InventoryRecord</code> type 
 which it extends.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">InventoryRecord:</span>
-<span class="w">    </span><span class="n">identifer</span><span class="w"> </span><span class="kt">AssignedIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="n">identifier</span><span class="w"> </span><span class="kt">AssignedIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="n">security</span><span class="w"> </span><span class="kt">Security</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
 </code></pre></div>
 <p>The <code>identifier</code> and <code>security</code> should be used as follows:</p>
@@ -2920,255 +2809,257 @@ single ISIN available for them to borrow. No parties are specified implying that
 this is a general request targeted at the entire market.</p>
 <p>Note that no quantity is specified either, the borrower is first seeing who has 
 any availability for this security.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;availableInventoryType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RequestToBorrow&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;availableInventoryRecord&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;00001&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;security&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;securityType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Equity&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;productIdentifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GB00000000012&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISIN&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<h5 id="single-security-from-a-particular-lender">Single security from a particular lender</h5>
-<p>In this example, rather than the borrower sending a request to the entire market, 
+<p>``` json
+{
+    "availableInventoryType": "RequestToBorrow",
+    "availableInventoryRecord": [
+        {
+            "identifier": {
+              "assignedIdentifier" : [ {
+                "identifier" : {
+                  "@data" : "00001"
+                }
+              } ]
+            },
+            "security": {
+                "securityType": "Equity",
+                "productIdentifier": {
+                    "identifier": "GB00000000012",
+                    "source": "ISIN"
+                }
+            }
+        }
+    ]
+}
+<div class="highlight"><pre><span></span><code>##### Single security from a particular lender
+
+In this example, rather than the borrower sending a request to the entire market, 
 they have specified the agent lender that they want to borrow this ISIN from. 
 They have also included their own party details, setting themselves as the
-borrower.</p>
-<p>This time the party has also included the number of shares that they would like 
-to borrow.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;availableInventoryType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RequestToBorrow&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;party&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;partyId&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BORROWER1&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ACME Bank&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;globalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;pe4h12&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;externalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;borrower1&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;partyId&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AGENT1&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Agency Services Limited&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;globalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;x123rt&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;externalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;agent1&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="s2">&quot;partyRole&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;partyReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;globalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;pe4h12&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;externalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;borrower1&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Borrower&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;partyReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;globalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;x123rt&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;externalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;agent1&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AgentLender&quot;</span>
-<span class="w">        </span><span class="p">}</span><span class="w">       </span>
-<span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="s2">&quot;availableInventoryRecord&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;00001&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;security&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;securityType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Equity&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;productIdentifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GB00000000012&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISIN&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;quantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1800000</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+borrower.
+
+This time the party has also included the number of shares that they would like 
+to borrow.
+
+ ``` json
+{
+    &quot;availableInventoryType&quot; : &quot;RequestToBorrow&quot;,
+    &quot;party&quot; : [ {
+      &quot;@key:external&quot; : &quot;borrower1&quot;,
+      &quot;partyId&quot; : [ {
+        &quot;identifier&quot; : {
+          &quot;@data&quot; : &quot;BORROWER1&quot;
+        }
+      } ],
+      &quot;name&quot; : {
+        &quot;@data&quot; : &quot;ACME Bank&quot;
+      }
+    }, {
+      &quot;@key:external&quot; : &quot;agent1&quot;,
+      &quot;partyId&quot; : [ {
+        &quot;identifier&quot; : {
+          &quot;@data&quot; : &quot;AGENT1&quot;
+        }
+      } ],
+      &quot;name&quot; : {
+        &quot;@data&quot; : &quot;Agency Services Limited&quot;
+      }
+    } ],
+    &quot;partyRole&quot;: [
+        {
+            &quot;partyReference&quot;: {
+                &quot;@ref:external&quot; : &quot;borrower1&quot;
+            },
+            &quot;role&quot;: &quot;Borrower&quot;
+        },
+        {
+            &quot;partyReference&quot;: {
+                &quot;@ref:external&quot; : &quot;agent1&quot;
+            },
+            &quot;role&quot;: &quot;AgentLender&quot;
+        }       
+    ],
+    &quot;availableInventoryRecord&quot;: [
+        {
+            &quot;identifier&quot;: {
+              &quot;assignedIdentifier&quot; : [ {
+                &quot;identifier&quot; : {
+                  &quot;@data&quot; : &quot;00001&quot;
+                }
+              } ]
+            },
+            &quot;security&quot;: {
+                &quot;securityType&quot;: &quot;Equity&quot;,
+                &quot;productIdentifier&quot;: {
+                    &quot;identifier&quot;: &quot;GB00000000012&quot;,
+                    &quot;source&quot;: &quot;ISIN&quot;
+                }
+            },
+            &quot;quantity&quot;: {
+                &quot;value&quot;: 1800000
+            },
+        }
+    ]
+}
+</code></pre></div></p>
 <h5 id="multiple-securities-from-multiple-lenders">Multiple securities from multiple lenders</h5>
 <p>In this final example the borrower is now sending a request for two 
 securities to two agent lenders. Once again they have included their party 
 details too.</p>
 <p>This time the party has included the number of shares that they would like 
 to borrow for one of the securities, but not for the other.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;availableInventoryType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RequestToBorrow&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;party&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;partyId&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BORROWER1&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ACME Bank&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;globalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;pe4h12&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;externalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;borrower1&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;partyId&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AGENT1&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Agency Services Limited&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;globalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;x123rt&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;externalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;agent1&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;partyId&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AGENT2&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GTR Custody&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;globalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;9wq8rg&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;externalKey&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;agent2&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="s2">&quot;partyRole&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;partyReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;globalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;pe4h12&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;externalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;borrower1&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Borrower&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;partyReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;globalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;x123rt&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;externalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;agent1&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AgentLender&quot;</span>
-<span class="w">        </span><span class="p">},</span><span class="w">      </span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;partyReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;globalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;9wq8rg&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;externalReference&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;agent2&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AgentLender&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="s2">&quot;availableInventoryRecord&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;00001&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;security&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;securityType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Equity&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;productIdentifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GB00000000012&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISIN&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;quantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1800000</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;00002&quot;</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="s2">&quot;security&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;securityType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Equity&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;productIdentifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;identifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GB00000000010&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISIN&quot;</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2 id="trade-negotiation">Trade Negotiation</h2>
-<p>The following description of a trade negotiation is based upon a more in depth
+<p>``` json
+{
+    "availableInventoryType": "RequestToBorrow",
+    "party" : [ {
+      "@key:external" : "borrower1",
+      "partyId" : [ {
+        "identifier" : {
+          "@data" : "BORROWER1"
+        }
+      } ],
+      "name" : {
+        "@data" : "ACME Bank"
+      }
+    }, {
+      "@key:external" : "agent1",
+      "partyId" : [ {
+        "identifier" : {
+          "@data" : "AGENT1"
+        }
+      } ],
+      "name" : {
+        "@data" : "Agency Services Limited"
+      }
+    }, {
+      "@key:external" : "agent2",
+      "partyId" : [ {
+        "identifier" : {
+          "@data" : "AGENT2"
+        }
+      } ],
+      "name" : {
+        "@data" : "GTR Custody"
+      }
+    } ],
+    "partyRole": [
+        {
+            "partyReference": {
+                "@ref:external" : "borrower1"
+            },
+            "role": "Borrower"
+        },
+        {
+            "partyReference": {
+                "@ref:external" : "agent1"
+            },
+            "role": "AgentLender"
+        },    <br />
+        {
+            "partyReference": {
+                "@ref:external" : "agent2"
+            },
+            "role": "AgentLender"
+        }
+    ],
+    "availableInventoryRecord": [
+        {
+            "identifier": {
+              "assignedIdentifier" : [ {
+                "identifier" : {
+                  "@data" : "00001"
+                }
+              } ]
+            },
+            "security": {
+                "securityType": "Equity",
+                "productIdentifier": {
+                    "identifier": "GB00000000012",
+                    "source": "ISIN"
+                }
+            },
+            "quantity": {
+                "value": 1800000
+            },
+        },
+        {
+            "identifier": {
+              "assignedIdentifier" : [ {
+                "identifier" : {
+                  "@data" : "00002"
+                }
+              } ]
+            },
+            "security": {
+                "securityType": "Equity",
+                "productIdentifier": {
+                    "identifier": "GB00000000010",
+                    "source": "ISIN"
+                }
+            }
+        }
+    ]
+}
+<div class="highlight"><pre><span></span><code>## Trade Negotiation
+
+The following description of a trade negotiation is based upon a more in depth
 analysis on negotiating a securities lending trade undertaken by ISLA. A full
 discussion of the process can be found on the 
-<a href="https://www.islaemea.org/common-domain-model/#learn-more">ISLA website</a></p>
-<p>The CDM is built upon the concept of workflows. Each workflow can be broken down
+[ISLA website](https://www.islaemea.org/common-domain-model/#learn-more)
+
+The CDM is built upon the concept of workflows. Each workflow can be broken down
 into a series of steps. Each step holds the data required to transition a trade 
-from one state to another.  </p>
-<p>One party can propose a new step in a workflow, and another party (or parties) 
+from one state to another.  
+
+One party can propose a new step in a workflow, and another party (or parties) 
 can accept or reject the proposal. If the proposal is accepted, then the outcome
 is a new business event. If the proposal is rejected, then no event is generated, 
-and the workflow stops at this point.</p>
-<p>This process of proposing, rejecting or accepting steps in a workflow can be 
-used to model a trade negotiation through to execution. </p>
-<h3 id="securities-lending-example">Securities Lending example</h3>
-<p>In its simplest form, a borrower will propose a new trade execution to a lender,
+and the workflow stops at this point.
+
+This process of proposing, rejecting or accepting steps in a workflow can be 
+used to model a trade negotiation through to execution. 
+
+### Securities Lending example
+
+In its simplest form, a borrower will propose a new trade execution to a lender,
 sending them the details of the trade as they see it. The lender will accept the
 proposed trade and a trade execution business event will be generated. This is
-a standard <em>Propose-Accept</em> workflow.</p>
-<hr />
-<p><strong>Note:</strong>
+a standard _Propose-Accept_ workflow.
+
+---
+**Note:**
 Additional workflows, including where a lender rejects a proposal or offers a
 counter proposal, are described in more detail in the previously referenced
-document available from the <a href="https://www.islaemea.org/common-domain-model">ISLA website</a>.</p>
-<hr />
-<h3 id="modelling">Modelling</h3>
-<p>To model this basic <em>Propose-Accept</em> workflow we need to use the elements inside
-the <code>WorkflowStep</code> type:</p>
-<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">WorkflowStep:</span><span class="w"> </span>
-<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
-<span class="w">    </span><span class="p">[</span><span class="n">rootType</span><span class="p">]</span>
+document available from the [ISLA website](https://www.islaemea.org/common-domain-model).
 
-<span class="w">    </span><span class="n">businessEvent</span><span class="w"> </span><span class="kt">BusinessEvent</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">counterpartyPositionBusinessEvent</span><span class="w"> </span><span class="kt">CounterpartyPositionBusinessEvent</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">proposedEvent</span><span class="w"> </span><span class="kt">EventInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">rejected</span><span class="w"> </span><span class="n">boolean</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">approval</span><span class="w"> </span><span class="kt">WorkflowStepApproval</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">previousWorkflowStep</span><span class="w"> </span><span class="kt">WorkflowStep</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
-<span class="w">        </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">reference</span><span class="p">]</span>
-<span class="w">    </span><span class="n">nextEvent</span><span class="w"> </span><span class="kt">EventInstruction</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">messageInformation</span><span class="w"> </span><span class="kt">MessageInformation</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">timestamp</span><span class="w"> </span><span class="kt">EventTimestamp</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">eventIdentifier</span><span class="w"> </span><span class="kt">Identifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">action</span><span class="w"> </span><span class="kt">ActionEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">party</span><span class="w"> </span><span class="kt">Party</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">account</span><span class="w"> </span><span class="kt">Account</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">lineage</span><span class="w"> </span><span class="kt">Lineage</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
-<span class="w">        </span><span class="p">[</span><span class="n">deprecated</span><span class="p">]</span>
-<span class="w">    </span><span class="n">creditLimitInformation</span><span class="w"> </span><span class="kt">CreditLimitInformation</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="n">workflowState</span><span class="w"> </span><span class="kt">WorkflowState</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
-</code></pre></div>
+---
+
+### Modelling
+To model this basic _Propose-Accept_ workflow we need to use the elements inside
+the `WorkflowStep` type:
+
+``` Haskell
+type WorkflowStep: 
+    [metadata key]
+    [rootType]
+
+    businessEvent BusinessEvent (0..1) 
+    counterpartyPositionBusinessEvent CounterpartyPositionBusinessEvent (0..1) 
+    proposedEvent EventInstruction (0..1) 
+    rejected boolean (0..1) 
+    approval WorkflowStepApproval (0..*) 
+    previousWorkflowStep WorkflowStep (0..1) 
+        [metadata reference]
+    nextEvent EventInstruction (0..1) 
+    messageInformation MessageInformation (0..1) 
+    timestamp EventTimestamp (1..*) 
+    eventIdentifier Identifier (1..*) 
+    action ActionEnum (0..1) 
+    party Party (0..*) 
+    account Account (0..*)
+    creditLimitInformation CreditLimitInformation (0..1)
+    workflowState WorkflowState (0..1) 
+</code></pre></div></p>
 <p>The main items that will be used for this example workflow are:</p>
 <ul>
 <li><strong>businessEvent</strong> is used when an event has been successfully approved</li>
@@ -3290,7 +3181,7 @@ set to <code>True</code>. </p>
     >
       
         <a
-          href="../mapping/"
+          href="../namespace/"
           class="md-footer__link md-footer__link--prev"
           rel="prev"
         >
@@ -3302,7 +3193,7 @@ set to <code>True</code>. </p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Mapping
+              Namespace
             </div>
           </div>
         </a>

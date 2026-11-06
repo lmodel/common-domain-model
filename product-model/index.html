@@ -778,28 +778,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#quantity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quantity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#settlementterms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SettlementTerms
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#buyerseller" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1010,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mapping/" class="md-nav__link">
+      <a href="../mapping.md" class="md-nav__link">
         
   
   
@@ -2342,28 +2320,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#quantity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quantity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#settlementterms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SettlementTerms
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#buyerseller" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2445,8 +2401,10 @@ commodity, a loan or a security.</p>
 <span class="w">    </span><span class="n">identifier</span><span class="w"> </span><span class="kt">AssetIdentifier</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="n">taxonomy</span><span class="w"> </span><span class="kt">Taxonomy</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="n">isExchangeListed</span><span class="w"> </span><span class="n">boolean</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
-<span class="w">    </span><span class="n">exchange</span><span class="w"> </span><span class="kt">LegalEntity</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span>
-<span class="w">    </span><span class="n">relatedExchange</span><span class="w"> </span><span class="kt">LegalEntity</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="n">party</span><span class="w"> </span><span class="kt">Party</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">    </span><span class="n">partyRole</span><span class="w"> </span><span class="kt">AssetPartyRole</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">ancillaryPartyRole</span><span class="w"> </span><span class="kt">AssetAncillaryPartyRole</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">    </span><span class="n">assetType</span><span class="w"> </span><span class="kt">AssetTypeEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <p>The data types are designed to carry the minimal amount of information that is needed to uniquely identify the asset
 in question. </p>
@@ -2493,7 +2451,6 @@ Each type of instrument also has its own definitions with additional attributes 
 identify the asset.</p>
 <p>The additional attributes on <code>Loan</code> can be used when needed to uniquely identify the specific loan: </p>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">Loan</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">InstrumentBase:</span>
-<span class="w">    </span><span class="n">borrower</span><span class="w"> </span><span class="kt">LegalEntity</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
 <span class="w">    </span><span class="n">lien</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">        </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">scheme</span><span class="p">]</span>
 <span class="w">    </span><span class="n">facilityType</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
@@ -2616,11 +2573,11 @@ This is supported by the <code>TransferableProduct</code> data type.</p>
 <p>A TransferableProduct is a type of Product which allows to specify the EconomicTerms of an Asset.
 It can be used as the underlier of a basic Payout that describes the buying and selling of that Asset.</p>
 <p>:::</p>
-<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">TransferableProduct</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">Asset:</span>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">TransferableProduct:</span>
+<span class="w">    </span><span class="n">asset</span><span class="w"> </span><span class="kt">Asset</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">economicTerms</span><span class="w"> </span><span class="kt">EconomicTerms</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">productPartyRole</span><span class="w"> </span><span class="kt">CounterpartyRoleEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-<p>Because <code>TransferableProduct</code> extends <code>Asset</code>, it inherits its <code>identifier</code> and <code>taxonomy</code> attributes from it.
-In that case, those attributes are of type, respectively, <code>AssetIdentifier</code> and <code>Taxonomy</code>.</p>
 <h4 id="nontransferableproduct">NonTransferableProduct</h4>
 <p>By contrast with a transferable product, which can be held by a single party who can in turn transfer it to another,
 some financial products consist of bilateral agreements between two parties. As such, they cannot be freely transferred
@@ -2653,7 +2610,7 @@ to support the representation of economic terms.</p>
 apply throughout the life of the contract (which can last for decades
 for certain long-dated products) unless amended by mutual agreement.
 Contractual products may be fungible (replaceable by other
-identical or similar contracts) only under specific terms: e.g. the
+identical or similar contracts) only under specific terms: e.g. the
 existence of a close-out netting agreement between the parties.</p>
 <p>Given that each contractual product transaction is unique, all of the
 contract terms must be specified and stored in an easily accessible
@@ -2738,7 +2695,6 @@ a credit default payout to specify a credit default swap; an equity swap
 combines an interest rate payout and a performance payout; etc.</p>
 <p>:::</p>
 <div class="highlight"><pre><span></span><code><span class="nf">choice</span><span class="w"> </span><span class="kt">Payout:</span>
-<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
 <span class="w">  </span><span class="kt">AssetPayout</span>
 <span class="w">  </span><span class="kt">CommodityPayout</span>
 <span class="w">  </span><span class="kt">CreditDefaultPayout</span>
@@ -2753,6 +2709,7 @@ This data type provides a common structure for attributes such as
 quantity, price, settlement terms and the payer/receiver direction which
 are expected to be common across many payouts.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">PayoutBase:</span>
+<span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
 <span class="w">  </span><span class="n">payerReceiver</span><span class="w"> </span><span class="kt">PayerReceiver</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">priceQuantity</span><span class="w"> </span><span class="kt">ResolvablePriceQuantity</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">principalPayment</span><span class="w"> </span><span class="kt">PrincipalPayments</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
@@ -2973,7 +2930,7 @@ the underlying product may be.</p>
 in addition to the price and quantity and can be represented using the
 <a href="#settlementpayout"><code>SettlementPayout</code></a>.</p>
 <p>A <code>TradableProduct</code> also provides a mechanism to trade indices that
-otherwise cannot be directly transfered. The <code>Payout</code> would define how
+otherwise cannot be directly transferred. The <code>Payout</code> would define how
 the index is meant to be observed and the resulting cashflows between
 the parties based on that observed value.</p>
 <p>This example shows the structure for a foreign exchange trade which is composed
@@ -3091,7 +3048,7 @@ the case of composite products, are part of a data type called
 <span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
 <span class="w">  </span><span class="n">price</span><span class="w"> </span><span class="kt">PriceSchedule</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
 <span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">location</span><span class="p">]</span>
-<span class="w">  </span><span class="n">quantity</span><span class="w"> </span><span class="kt">NonNegativeQuantitySchedule</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">  </span><span class="n">quantity</span><span class="w"> </span><span class="kt">NonNegativeQuantitySchedule</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">location</span><span class="p">]</span>
 <span class="w">  </span><span class="n">observable</span><span class="w"> </span><span class="kt">Observable</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">location</span><span class="p">]</span>
@@ -3155,14 +3112,14 @@ attributes are optional. Various other data types that extend
 <code>MeasureBase</code> can further constrain the existence of those attributes:
 for instance, a <code>Measure</code> requires the <code>value</code> attribute to be present
 (but <code>unit</code> is still optional because a measure could be unit-less).</p>
-<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">MeasureBase:</span>
-<span class="w">  </span><span class="n">value</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">MeasureBase</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">Schedule:</span>
 <span class="w">  </span><span class="n">unit</span><span class="w"> </span><span class="kt">UnitType</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">Measure</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">MeasureBase:</span>
-
-<span class="w">  </span><span class="n">condition</span><span class="w"> </span><span class="kt">ValueExists:</span>
-<span class="w">    </span><span class="n">value</span><span class="w"> </span><span class="n">exists</span>
+<span class="w">  </span><span class="n">override</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">override</span><span class="w"> </span><span class="n">datedValue</span><span class="w"> </span><span class="kt">DatedValue</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="n">condition</span><span class="w"> </span><span class="kt">DatedValueIsAbsent:</span>
+<span class="w">    </span><span class="n">datedValue</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">absent</span>
 </code></pre></div>
 <p>The <code>UnitType</code> data type used to defined the <code>unit</code> attribute requires
 the definition of units using one of five defined types:</p>
@@ -3176,29 +3133,11 @@ the definition of units using one of five defined types:</p>
 <span class="w">  </span><span class="n">condition</span><span class="w"> </span><span class="kt">UnitType:</span>
 <span class="w">     </span><span class="n">one</span><span class="o">-</span><span class="kr">of</span>
 </code></pre></div>
-<p>A measure can vary over time. One often used case is a series of
-measures indexed by date. Such measures are all homogeneous, so the unit
-only needs to be represented once.</p>
-<p>To represent this, the <code>MeasureSchedule</code> type extends <code>MeasureBase</code> with
-a set of date and value pair attributes represented by the <code>DatedValue</code>
-type. In that structure, the existing <code>value</code> attribute can still be
-omitted but, when present, represents the schedule's initial value.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">MeasureSchedule</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">MeasureBase:</span>
-<span class="w">  </span><span class="n">datedValue</span><span class="w"> </span><span class="kt">DatedValue</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
-
-<span class="w">  </span><span class="n">condition</span><span class="w"> </span><span class="kt">ValueExists:</span>
-<span class="w">    </span><span class="n">value</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">datedValue</span><span class="w"> </span><span class="n">exists</span>
-</code></pre></div>
-<p>The price and quantity concepts for financial instruments are both
-modelled as extensions of the <code>MeasureSchedule</code> data type, as detailed
-below. This means that by default, price and quantity are considered as
-schedules although they can also represent a single value when the
-<code>datedValue</code> attribute is omitted.</p>
 <h3 id="price">Price</h3>
-<p>The <code>PriceSchedule</code> data type extends the <code>MeasureSchedule</code> data type
+<p>The <code>PriceSchedule</code> data type extends the <code>MeasureBase</code> data type
 with the addition of the <code>priceExpression</code> and <code>perUnitOf</code> attributes,
 which together further qualify the price.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">PriceSchedule</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">MeasureSchedule:</span>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">PriceSchedule</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">MeasureBase:</span>
 <span class="w">  </span><span class="n">perUnitOf</span><span class="w"> </span><span class="kt">UnitType</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">priceType</span><span class="w"> </span><span class="kt">PriceTypeEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">priceSubType</span><span class="w"> </span><span class="kt">PriceSubTypeEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
@@ -3206,6 +3145,7 @@ which together further qualify the price.</p>
 <span class="w">  </span><span class="n">composite</span><span class="w"> </span><span class="kt">PriceComposite</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">arithmeticOperator</span><span class="w"> </span><span class="kt">ArithmeticOperationEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">premiumType</span><span class="w"> </span><span class="kt">PremiumTypeEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">derivedQuantity</span><span class="w"> </span><span class="kt">NonNegativeQuantitySchedule</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <p>Note that the conditions for this data type are excluded from the
 snippet above for purposes of brevity.</p>
@@ -3218,65 +3158,51 @@ by requiring the <code>datedValue</code> attribute to be absent.</p>
 <p>Consider the example below for the initial price of the underlying
 equity in a single-name Equity Swap, which is a net price of 37.44 USD
 per Share:</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">37.44</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;unit&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;currency&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;USD&quot;</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="s2">&quot;perUnitOf&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="s2">&quot;financialUnit&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;SHARE&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="s2">&quot;priceExpression&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="s2">&quot;priceType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ASSET_PRICE&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="s2">&quot;grossOrNet&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NET&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;location&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;scope&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;DOCUMENT&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;price-1&quot;</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-</code></pre></div>
-<p>The full form of this example can be seen by ingesting one of the
+<p>``` json
+"price": [ {
+  "@key:scoped" : "price-1",
+  "value": 37.44,
+  "unit": {
+    "currency": {
+      "@data": "USD"
+    }
+  },
+  "perUnitOf": {
+    "financialUnit": "Share"
+  },
+  "priceType" : "AssetPrice",
+  "priceExpression" : "AbsoluteTerms"
+} ]
+<div class="highlight"><pre><span></span><code>The full form of this example can be seen by ingesting one of the
 samples provided in the CDM distribution under products / equity /
 eqs-ex01-single-underlyer-execution-long-form-other-party.xml. As can be
-seen in the full example, for an interest rate leg, the <code>unit</code> and the
-<code>perUnitOf</code> would both be a currency (e.g. 0.002 USD per USD). The
-<code>priceType</code> would be an InterestRate and, in the case of a floating leg,
-the <code>spreadType</code> would be a Spread.</p>
-<h3 id="quantity">Quantity</h3>
-<p>The <code>QuantitySchedule</code> data type also extends the <code>MeasureSchedule</code> data
-type with the addition of an optional <code>multiplier</code> attributes. It also
-requires the <code>unit</code> attribute to exist, i.e. a quantity cannot be
-unit-less. The <code>NonNegativeQuantitySchedule</code> data type further
-constrains it by requiring that all the values are non-negative.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">QuantitySchedule</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">MeasureSchedule:</span>
-<span class="w">  </span><span class="n">multiplier</span><span class="w"> </span><span class="kt">Measure</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">  </span><span class="n">frequency</span><span class="w"> </span><span class="kt">Frequency</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+seen in the full example, for an interest rate leg, the `unit` and the
+`perUnitOf` would both be a currency (e.g. 0.002 USD per USD). The
+`priceType` would be an InterestRate and, in the case of a floating leg,
+the `spreadType` would be a Spread.
 
-<span class="w">  </span><span class="n">condition</span><span class="w"> </span><span class="kt">Quantity_multiplier:</span>
-<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="n">multiplier</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">multiplier</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.0</span>
-<span class="w">  </span><span class="n">condition</span><span class="w"> </span><span class="kt">UnitOfAmountExists:</span>
-<span class="w">      </span><span class="n">unit</span><span class="w"> </span><span class="n">exists</span>
-</code></pre></div>
+### Quantity
+
+The `QuantitySchedule` data type also extends the `MeasureBase` data
+type with the addition of an optional `multiplier` attributes. It also
+requires the `unit` attribute to exist, i.e. a quantity cannot be
+unit-less. The `NonNegativeQuantitySchedule` data type further
+constrains it by requiring that all the values are non-negative.
+
+``` Haskell
+type QuantitySchedule extends MeasureBase:
+  override unit UnitType (1..1)
+  multiplier NonNegativeMeasure (0..1)
+  frequency Frequency (0..1)
+    total Schedule (0..1)
+
+  condition TotalQuantity:
+      if total exists then frequency exists
+</code></pre></div></p>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">NonNegativeQuantitySchedule</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">QuantitySchedule:</span>
-
-<span class="w">    </span><span class="n">condition</span><span class="w"> </span><span class="kt">NonNegativeQuantity_value:</span>
-<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">exists</span>
-<span class="w">        </span><span class="kr">then</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.0</span>
-
-<span class="w">    </span><span class="n">condition</span><span class="w"> </span><span class="kt">NonNegativeQuantity_datedValue:</span>
-<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="n">datedValue</span><span class="w"> </span><span class="n">exists</span>
-<span class="w">        </span><span class="kr">then</span><span class="w"> </span><span class="n">datedValue</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">    </span><span class="n">override</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="kt">NonNegativeNumber</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">override</span><span class="w"> </span><span class="n">datedValue</span><span class="w"> </span><span class="kt">NonNegativeDatedValue</span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
+<span class="w">    </span><span class="n">override</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="kt">NonNegativeSchedule</span>
 </code></pre></div>
 <p>The inherited attributes of <code>value</code>, <code>unit</code> and <code>datedValue</code> (in case
 the quantity is provided as a schedule) are sufficient to define a
@@ -3288,72 +3214,72 @@ this example, the trade involves the purchase or sale of 200 contracts
 of the WTI Crude Oil futures contract on the CME. Each contract
 represents 1,000 barrels, therefore the total quantity of the trade is
 for 200,000 barrels.</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;quantity&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;unit&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;financialUnit&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;CONTRACT&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="s2">&quot;multiplier&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;unit&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BBL&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;location&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="s2">&quot;scope&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;DOCUMENT&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;quantity-1&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">]</span>
-</code></pre></div>
-<p>The <code>frequency</code> attribute is used in a similar way when a quantity may
+<p>``` json
+"quantity" : [ {
+  "@key:scoped" : "quantity-1",
+  "value" : 200,
+  "unit" : {
+    "currency" : {
+      "@data" : "BBL"
+    }
+  },
+  "multiplier" : {
+    "value" : 1000,
+    "unit" : {
+      "financialUnit" : "Contract"
+    }
+  }
+} ]
+<div class="highlight"><pre><span></span><code>The `frequency` attribute is used in a similar way when a quantity may
 be defined based on a given time period, e.g. per hour or per day. In
 this case, the quantity needs to be multiplied by the size of the
 relevant period where it applies, e.g. a number of days, to get the
-total quantity.</p>
-<h3 id="settlementterms">SettlementTerms</h3>
-<p>In both the Equity Swap and Interest Rate Swap trade cases mentioned
+total quantity.
+
+### SettlementTerms
+
+In both the Equity Swap and Interest Rate Swap trade cases mentioned
 above, there are no settlement terms attached to the price and quantity.
 Instead, any future settlement is driven by the product mechanics and
 the price and quantity are just parameters in the definition of that
-product.</p>
-<p>In other cases, it is necessary to define settlement terms when either
+product.
+
+In other cases, it is necessary to define settlement terms when either
 the price or quantity or both are to be settled. A non-exhaustive list
-of cases includes:</p>
-<ul>
-<li>A cash transaction, i.e. when buying a certain quantity of a
-    security or commodity for a certain price</li>
-<li>An FX spot of forward transaction</li>
-<li>An option for which a premium must be paid</li>
-<li>A swap transaction that involves an upfront payment, e.g. in case of
-    unwind or novation</li>
-</ul>
-<p>In those cases, the corresponding <code>PriceQuantity</code> object also contains
-<code>settlementTerms</code> and <code>buyerSeller</code> attributes to define that
+of cases includes:
+
+-   A cash transaction, i.e. when buying a certain quantity of a
+    security or commodity for a certain price
+-   An FX spot of forward transaction
+-   An option for which a premium must be paid
+-   A swap transaction that involves an upfront payment, e.g. in case of
+    unwind or novation
+
+In those cases, the corresponding `PriceQuantity` object also contains
+`settlementTerms` and `buyerSeller` attributes to define that
 settlement. The actual settlement amounts will use the price and
-quantity agreed as part of the tradable product.</p>
-<p>The <code>SettlementTerms</code> data type defines the basic characteristics of a
+quantity agreed as part of the tradable product.
+
+The `SettlementTerms` data type defines the basic characteristics of a
 settlement: the settlement date, currency, whether it will be cash or
 physical, and the type of transfer. For instance, a settlement could be
-a <em>delivery-versus-payment</em> scenario for a cash security transaction or
-a <em>payment-versus-payment</em> scenario for an FX spot or forward
+a *delivery-versus-payment* scenario for a cash security transaction or
+a *payment-versus-payment* scenario for an FX spot or forward
 transaction. Those parameters that are common across all settlement
-methods are captured by the <code>SettlementBase</code> data type.</p>
-<p>Cash and physical settlement methods require different, specific
-parameters which are captured by the additional <code>cashSettlementTerms</code>
-and <code>physicalSettlementTerms</code> attributes, respectively. For instance, a
-non-deliverable FX forward will use the <code>cashSettlementTerms</code> attribute
+methods are captured by the `SettlementBase` data type.
+
+Cash and physical settlement methods require different, specific
+parameters which are captured by the additional `cashSettlementTerms`
+and `physicalSettlementTerms` attributes, respectively. For instance, a
+non-deliverable FX forward will use the `cashSettlementTerms` attribute
 to represent the parameters of the non-deliverable settlement, such as
-the observable FX fixing to use.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">SettlementTerms</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">SettlementBase:</span>
-<span class="w">  </span><span class="n">cashSettlementTerms</span><span class="w"> </span><span class="kt">CashSettlementTerms</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
-<span class="w">  </span><span class="n">physicalSettlementTerms</span><span class="w"> </span><span class="kt">PhysicalSettlementTerms</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
+the observable FX fixing to use.
+
+``` Haskell
+type SettlementTerms extends SettlementBase:
+  cashSettlementTerms CashSettlementTerms (0..*)
+  physicalSettlementTerms PhysicalSettlementTerms (0..1)
+</code></pre></div></p>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">SettlementBase:</span>
 <span class="w">  </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">key</span><span class="p">]</span>
 <span class="w">  </span><span class="n">settlementType</span><span class="w"> </span><span class="kt">SettlementTypeEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
@@ -3362,8 +3288,11 @@ the observable FX fixing to use.</p>
 <span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">scheme</span><span class="p">]</span>
 <span class="w">  </span><span class="n">settlementDate</span><span class="w"> </span><span class="kt">SettlementDate</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">settlementCentre</span><span class="w"> </span><span class="kt">SettlementCentreEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">[</span><span class="n">deprecated</span><span class="p">]</span>
 <span class="w">  </span><span class="n">settlementProvision</span><span class="w"> </span><span class="kt">SettlementProvision</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">standardSettlementStyle</span><span class="w"> </span><span class="kt">StandardSettlementStyleEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">securitySettlementCentre</span><span class="w"> </span><span class="kt">AssetAncillaryPartyRoleEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="n">cashSettlementCentre</span><span class="w"> </span><span class="kt">AssetAncillaryPartyRoleEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="buyerseller">BuyerSeller</h3>
 <p>When a settlement occurs for the price and/or quantity, it is necessary
@@ -3398,10 +3327,7 @@ inferred. The Product Qualification function name in the CDM begins with
 the word <code>Qualify</code> followed by an underscore <code>_</code> and then the product
 type from the applicable taxonomy (also separated by underscores).</p>
 <p>The CDM implements the ISDA Product Taxonomy v2.0 to qualify contractual
-products, foreign exchange, and repurchase agreements. Given the
-prevalence of usage of the ISDA Product Taxonomy v1.0, the equivalent
-name from that taxonomy is also systematically indicated in the CDM,
-using a <code>synonym</code> annotation displayed under the function output. An
+products, foreign exchange, and repurchase agreements. An
 example is provided below for the qualification of a Zero-Coupon
 Fixed-Float Inflation Swap:</p>
 <div class="highlight"><pre><span></span><code><span class="nf">func</span><span class="w"> </span><span class="kt">Qualify_InterestRate_InflationSwap_FixedFloat_ZeroCoupon:</span>
@@ -3438,7 +3364,7 @@ references the FpML <em>transaction type</em> field instead of just the product
 features, whose possible values are not publicly available and hence not
 positioned as a CDM enumeration.</p>
 <p>The output of the qualification function is used to populate the
-<code>productQualifier</code> attribute of the <code>ProductTaxonomy</code> object, which is
+<code>value</code> attribute of the <code>ProductTaxonomy</code> object, which is
 created when a <code>NonTransferableProduct</code> object is created. The product
 taxonomy includes both the product qualification generated by the CDM
 and any additional product taxonomy information which may come from the
@@ -3479,41 +3405,35 @@ hierarchical structure of any depth:</p>
 <span class="w">        </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">scheme</span><span class="p">]</span>
 <span class="w">    </span><span class="n">secondaryAssetClass</span><span class="w"> </span><span class="kt">AssetClassEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
 <span class="w">        </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">scheme</span><span class="p">]</span>
-<span class="w">    </span><span class="n">productQualifier</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="w">    </span><span class="n">condition</span><span class="w"> </span><span class="kt">TaxonomyType:</span>
 <span class="w">        </span><span class="n">required</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">primaryAssetClass</span><span class="p">,</span><span class="w"> </span><span class="n">secondaryAssetClass</span>
 
 <span class="w">    </span><span class="n">condition</span><span class="w"> </span><span class="kt">TaxonomySource:</span>
-<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">productQualifier</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="p">)</span>
-
-<span class="w">    </span><span class="n">condition</span><span class="w"> </span><span class="kt">TaxonomyValue:</span>
-<span class="w">        </span><span class="n">optional</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">productQualifier</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">exists</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;productTaxonomy&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;primaryAssetClass&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;scheme&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://www.fpml.org/coding-scheme/asset-class-simple&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;INTEREST_RATE&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;taxonomyValue&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;scheme&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://www.fpml.org/coding-scheme/product-taxonomy&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;InterestRate:IRSwap:FixedFloat&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="s2">&quot;taxonomySource&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISDA&quot;</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;productQualifier&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;InterestRate_IRSwap_FixedFloat&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;taxonomySource&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ISDA&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">]</span>
-</code></pre></div>
+<p><code>json
+"taxonomy" : [ {
+    "primaryAssetClass" : {
+    "@scheme" : "http://www.fpml.org/coding-scheme/asset-class-simple",
+    "@data" : "InterestRate"
+  }
+}, {
+  "source" : "ISDA",
+  "value" : {
+    "name" : {
+      "@scheme" : "http://www.fpml.org/coding-scheme/product-taxonomy",
+      "@data" : "InterestRate:IRSwap:FixedFloat"
+  } 
+  }
+}, {
+  "source" : "ISDA",
+  "value" : {
+    "name" : {
+      "@data" : "IInterestRate_IRSwap_FixedFloat"
+  },
+  "calculated" : true
+} ]</code></p>
 
 
 

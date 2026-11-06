@@ -1153,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mapping/" class="md-nav__link">
+      <a href="../mapping.md" class="md-nav__link">
         
   
   
@@ -2816,11 +2816,7 @@ event and can simply be referenced in <code>Trade</code>.</p>
 <span class="w">  </span><span class="n">partyRole</span><span class="w"> </span><span class="kt">PartyRole</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
 <span class="w">  </span><span class="n">executionDetails</span><span class="w"> </span><span class="kt">ExecutionDetails</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">contractDetails</span><span class="w"> </span><span class="kt">ContractDetails</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">  </span><span class="n">clearedDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="p">[</span><span class="n">deprecated</span><span class="p">]</span>
 <span class="w">  </span><span class="n">collateral</span><span class="w"> </span><span class="kt">Collateral</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">  </span><span class="n">account</span><span class="w"> </span><span class="kt">Account</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
-<span class="w">    </span><span class="p">[</span><span class="n">deprecated</span><span class="p">]</span>
 </code></pre></div>
 <hr />
 <p><strong>Note:</strong>
@@ -2926,11 +2922,11 @@ method - e.g. a compounded interest rate based on daily fixings.</p>
 </code></pre></div>
 <h3 id="transfer">Transfer</h3>
 <p>A transfer is a multi-purpose object that represents the transfer of any
-asset, including cash, from one party to another. The <code>Transfer</code> object
+asset from one party to another. The <code>Transfer</code> object
 is associated to an enumeration to qualify the status that the transfer
 is in, from instruction to settlement or rejection.</p>
 <p>:::tip Definition: Transfer</p>
-<p>Defines the movement of an Asset (eg cash, securities or commodities)
+<p>Defines the transfer of an Asset (eg cash, securities or commodities)
 between two parties on a date.</p>
 <p>:::</p>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">TransferState:</span>
@@ -2939,17 +2935,31 @@ between two parties on a date.</p>
 <span class="w">  </span><span class="n">transfer</span><span class="w"> </span><span class="kt">Transfer</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">transferStatus</span><span class="w"> </span><span class="kt">TransferStatusEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nf">choice</span><span class="w"> </span><span class="kt">Transfer:</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="nf">choice</span><span class="w"> </span><span class="kt">Transfer:</span>
 <span class="w">    </span><span class="kt">ScheduledTransfer</span>
-<span class="w">    </span><span class="kt">UnscheduledTransfer</span><span class="w">    </span>
+<span class="w">    </span><span class="kt">UnscheduledTransfer</span>
+<span class="w">    </span><span class="kt">ContingentTransfer</span>
 
-<span class="kr">type</span><span class="w"> </span><span class="kt">UnscheduledTransfer</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">TransferBase:</span><span class="w"> </span>
-<span class="w">    </span><span class="n">transferType</span><span class="w"> </span><span class="kt">UnscheduledTransferEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">UnscheduledTransfer</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">TransferBase:</span>
+<span class="w">    </span><span class="n">transferType</span><span class="w"> </span><span class="kt">UnscheduledTransferEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="kr">type</span><span class="w"> </span><span class="kt">ScheduledTransfer</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">TransferBase:</span><span class="w"> </span>
+<span class="w">    </span><span class="n">condition</span><span class="w"> </span><span class="kt">PartyReferencePayerReceiverExists:</span>
+<span class="w">        </span><span class="n">partyReferencePayerReceiver</span><span class="w"> </span><span class="n">exists</span>
+
+<span class="kr">type</span><span class="w"> </span><span class="kt">ScheduledTransfer</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">PayoutTransferBase:</span>
 <span class="w">    </span><span class="n">transferType</span><span class="w"> </span><span class="kt">ScheduledTransferEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="kr">type</span><span class="w"> </span><span class="kt">ContingentTransfer</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">PayoutTransferBase:</span>
+<span class="w">    </span><span class="n">transferType</span><span class="w"> </span><span class="kt">ContingentTransferEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">corporateActionTransferType</span><span class="w"> </span><span class="kt">CorporateActionTypeEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="n">payoutReference</span><span class="w"> </span><span class="kt">Payout</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span>
+
+<span class="w">    </span><span class="n">condition</span><span class="w"> </span><span class="kt">CorporateActionTransferTypeExists:</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="n">transferType</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">CorporateAction</span>
+<span class="w">        </span><span class="kr">then</span><span class="w"> </span><span class="n">corporateActionTransferType</span><span class="w"> </span><span class="n">exists</span>
+
+<span class="kr">type</span><span class="w"> </span><span class="kt">PayoutTransferBase</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="kt">TransferBase:</span>
+<span class="w">    </span><span class="n">payerReceiver</span><span class="w"> </span><span class="kt">PayerReceiver</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">payoutReference</span><span class="w"> </span><span class="kt">Payout</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">        </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">reference</span><span class="p">]</span>
 </code></pre></div>
 <h2 id="primitive-event">Primitive Events</h2>
@@ -3183,10 +3193,7 @@ reference. A reset does not modify the underlying <code>Trade</code> object.</p>
 <span class="w">    </span><span class="n">reset</span><span class="w"> </span><span class="kt">TradeState</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">ResetInstruction:</span>
-<span class="w">  </span><span class="n">payout</span><span class="w"> </span><span class="kt">Payout</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
-<span class="w">    </span><span class="p">[</span><span class="n">metadata</span><span class="w"> </span><span class="n">reference</span><span class="p">]</span>
-<span class="w">  </span><span class="n">rateRecordDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">  </span><span class="n">resetDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">reset</span><span class="w"> </span><span class="kt">Reset</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..*</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="transfer-primitive">Transfer Primitive</h4>
 <p>The transfer primitive function takes a <code>TransferState</code> object as
@@ -3272,71 +3279,65 @@ novation</em> of a contract, which comprises the following:</p>
     quantity corresponds to the novated quantity.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;primitiveInstruction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">     </span><span class="nt">&quot;split&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">       </span><span class="nt">&quot;breakdown&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;partyChange&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">           </span><span class="nt">&quot;counterparty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="nt">&quot;partyReference&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                 </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                   </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bank Z&quot;</span>
-<span class="w">                 </span><span class="p">},</span>
-<span class="w">                 </span><span class="nt">&quot;partyId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                   </span><span class="nt">&quot;identifier&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                     </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LEI3RPT0003&quot;</span>
-<span class="w">                   </span><span class="p">},</span>
-<span class="w">                   </span><span class="nt">&quot;identifierType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LEI&quot;</span><span class="p">,</span>
-<span class="w">                 </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="w">               </span><span class="p">}</span>
-<span class="w">             </span><span class="p">},</span>
-<span class="w">             </span><span class="nt">&quot;role&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PARTY_1&quot;</span>
-<span class="w">           </span><span class="p">},</span>
-<span class="w">           </span><span class="nt">&quot;tradeId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="nt">&quot;assignedIdentifier&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;split&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nt">&quot;breakdown&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="nt">&quot;partyChange&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;counterparty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">           </span><span class="nt">&quot;role&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Party1&quot;</span><span class="p">,</span>
+<span class="w">           </span><span class="nt">&quot;partyReference&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;partyId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
 <span class="w">               </span><span class="nt">&quot;identifier&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                 </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LEI3RPT0003DDDD&quot;</span>
+<span class="w">                 </span><span class="nt">&quot;@data&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LEI3RPT0003&quot;</span>
 <span class="w">               </span><span class="p">},</span>
-<span class="w">               </span><span class="nt">&quot;identifierType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UNIQUE_TRANSACTION_IDENTIFIER&quot;</span>
+<span class="w">               </span><span class="nt">&quot;identifierType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LEI&quot;</span>
 <span class="w">             </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
-<span class="w">             </span><span class="nt">&quot;issuer&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LEI3RPT0003&quot;</span>
-<span class="w">             </span><span class="p">},</span>
-<span class="w">           </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<span class="w">             </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;@data&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bank Z&quot;</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">           </span><span class="p">}</span>
 <span class="w">         </span><span class="p">},</span>
-<span class="w">         </span><span class="nt">&quot;quantityChange&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">           </span><span class="nt">&quot;change&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="nt">&quot;quantity&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                 </span><span class="nt">&quot;amount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span>
-<span class="w">                 </span><span class="nt">&quot;unitOfAmount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                   </span><span class="nt">&quot;currency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                     </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USD&quot;</span>
-<span class="w">                   </span><span class="p">}</span>
-<span class="w">                 </span><span class="p">}</span>
-<span class="w">               </span><span class="p">}</span>
-<span class="w">             </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<span class="w">         </span><span class="nt">&quot;tradeId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">           </span><span class="nt">&quot;issuer&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;@data&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LEI3RPT0003&quot;</span>
+<span class="w">           </span><span class="p">},</span>
+<span class="w">           </span><span class="nt">&quot;assignedIdentifier&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;identifier&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;@data&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LEI3RPT0003DDDD&quot;</span>
+<span class="w">             </span><span class="p">}</span>
 <span class="w">           </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
-<span class="w">           </span><span class="nt">&quot;direction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REPLACE&quot;</span>
-<span class="w">         </span><span class="p">}</span>
-<span class="w">       </span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;quantityChange&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">           </span><span class="nt">&quot;change&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="nt">&quot;quantity&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                 </span><span class="nt">&quot;amount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span>
-<span class="w">                 </span><span class="nt">&quot;unitOfAmount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                   </span><span class="nt">&quot;currency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                     </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USD&quot;</span>
-<span class="w">                   </span><span class="p">}</span>
-<span class="w">                 </span><span class="p">}</span>
+<span class="w">           </span><span class="nt">&quot;identifierType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UniqueTransactionIdentifier&quot;</span>
+<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<span class="w">       </span><span class="p">},</span>
+<span class="w">       </span><span class="nt">&quot;quantityChange&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;change&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">           </span><span class="nt">&quot;quantity&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span>
+<span class="w">             </span><span class="nt">&quot;unit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;currency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;@data&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USD&quot;</span>
 <span class="w">               </span><span class="p">}</span>
-<span class="w">             </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="w">           </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
-<span class="w">           </span><span class="nt">&quot;direction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REPLACE&quot;</span>
-<span class="w">         </span><span class="p">}</span>
-<span class="w">       </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
-<span class="w">     </span><span class="p">}</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">           </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<span class="w">         </span><span class="nt">&quot;direction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Replace&quot;</span>
+<span class="w">       </span><span class="p">}</span>
+<span class="w">     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="nt">&quot;quantityChange&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;change&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">           </span><span class="nt">&quot;quantity&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span>
+<span class="w">             </span><span class="nt">&quot;unit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;currency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                 </span><span class="nt">&quot;@data&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USD&quot;</span>
+<span class="w">               </span><span class="p">}</span>
+<span class="w">             </span><span class="p">}</span>
+<span class="w">           </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<span class="w">         </span><span class="nt">&quot;direction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Replace&quot;</span>
+<span class="w">       </span><span class="p">}</span>
+<span class="w">     </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
 <span class="w">   </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p>A business event is <em>atomic</em>, i.e. its primitive components cannot
 happen independently. They either all happen together or not at all. In
@@ -3392,9 +3393,8 @@ event and then insert the appropriate value or provide an exception
 message.</p>
 <hr />
 <p><strong>Note:</strong>
-The type of the <code>eventQualifier</code> attribute in <code>BusinessEvent</code>, called
-<code>eventType</code>, is a <em>meta-type</em> that indicates that its value is meant to
-be populated using some functional logic. That functional logic must be
+The <code>eventQualifier</code> attribute in <code>BusinessEvent</code> is meant to be
+populated using some functional logic. That functional logic must be
 represented by a qualification function annotated with
 <code>[qualification BusinessEvent]</code>, as in the example above. This mechanism
 is further detailed in the Rosetta DSL documentation.</p>
@@ -3482,8 +3482,6 @@ step to another in that workflow.</p>
 <span class="w">  </span><span class="n">action</span><span class="w"> </span><span class="kt">ActionEnum</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">party</span><span class="w"> </span><span class="kt">Party</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
 <span class="w">  </span><span class="n">account</span><span class="w"> </span><span class="kt">Account</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..*</span><span class="p">)</span>
-<span class="w">  </span><span class="n">lineage</span><span class="w"> </span><span class="kt">Lineage</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="p">[</span><span class="n">deprecated</span><span class="p">]</span>
 <span class="w">  </span><span class="n">creditLimitInformation</span><span class="w"> </span><span class="kt">CreditLimitInformation</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">  </span><span class="n">workflowState</span><span class="w"> </span><span class="kt">WorkflowState</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
@@ -3575,11 +3573,11 @@ of this approach.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;dateTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2007-10-31T18:08:40.335-05:00&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;qualification&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EVENT_SUBMITTED&quot;</span>
+<span class="w">    </span><span class="nt">&quot;qualification&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EventSubmitted&quot;</span>
 <span class="w"> </span><span class="p">},</span>
 <span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;dateTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2007-10-31T18:08:40.335-05:00&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;qualification&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EVENT_CREATED&quot;</span>
+<span class="w">    </span><span class="nt">&quot;qualification&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EventCreated&quot;</span>
 <span class="w"> </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div>

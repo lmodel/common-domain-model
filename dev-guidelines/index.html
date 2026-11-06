@@ -678,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mapping/" class="md-nav__link">
+      <a href="../mapping.md" class="md-nav__link">
         
   
   
@@ -2541,16 +2541,16 @@
 <ul>
 <li><a href="../maintainers/">Maintainers</a> - those who drive consensus within the working group</li>
 <li>Editors - those who codify ideas into a formal specification</li>
-<li>Participants - anyone who provides contributions to the project under a signed CSL CLA. A great way to sign the CLA is to open a Pull Request to add your name to the <a href="https://github.com/finos/standards-project-blueprint/blob/master/governance-documents/participants.md">participants</a> file. </li>
+<li>Participants - anyone who provides contributions to the project under a signed CSL CLA. A great way to sign the CLA is to open a Pull Request to add your name to the <a href="https://github.com/finos/standards-project-blueprint/blob/master/PARTICIPANTS.md">participants</a> file. </li>
 </ul>
 <h2 id="cdm-design-principles">CDM Design Principles</h2>
 <p>Contributions to the CDM have to comply with the set of <a href="../design-principles/">design principles</a> that include the following concepts:</p>
 <ul>
-<li><strong>Normalisation</strong> through abstraction of common components</li>
-<li><strong>Composability</strong> where objects are composed and qualified from the bottom up</li>
-<li><strong>Mapping</strong> to existing industry messaging formats</li>
-<li><strong>Embedded logic</strong> to represent industry processes</li>
-<li><strong>Modularisation</strong> into logical layers, using namespace organisation</li>
+<li><strong>Normalisation</strong> through abstraction of common components</li>
+<li><strong>Composability</strong> where objects are composed and qualified from the bottom up</li>
+<li><strong>Mapping</strong> to existing industry messaging formats</li>
+<li><strong>Embedded logic</strong> to represent industry processes</li>
+<li><strong>Modularisation</strong> into logical layers, using namespace organisation</li>
 </ul>
 <h2 id="version-management">Version Management</h2>
 <p>The CDM is developed, built and released using standard software
@@ -2580,8 +2580,6 @@ make any change to update to such version.</p>
 </li>
 <li>Allowed changes:<ul>
 <li>Change that relaxes any condition or cardinality constraint</li>
-<li>Change to any synonym that improves, or at least does not
-    degrade, the mapping coverage</li>
 <li>Addition of new examples or test packs</li>
 <li>Change to the user documentation or model descriptions</li>
 <li>Addition of new data types, optional attributes, enumerations,
@@ -2609,8 +2607,7 @@ reviewing and releasing changes to the CDM contributed by the wider
 industry community including market participants, trade associations and
 technology or service vendors. It describes:</p>
 <ul>
-<li>What a Contributor should do to edit and contribute changes to the
-    CDM</li>
+<li>What a Contributor should do to edit and contribute changes to the CDM</li>
 <li>What a Maintainer should do to review the changes</li>
 <li>How to release a new CDM version once changes have been approved</li>
 </ul>
@@ -2676,24 +2673,16 @@ CDM.</p>
 <h2 id="editing-the-model">Editing the model</h2>
 <p>Please refer to the <a href="../editing/">editing</a> section which covers editing the model in more detail.</p>
 <h3 id="testing">Testing</h3>
-<p>The CDM has adopted a test-driven development approach that maps model
-components to existing sample data (e.g., FpML documents or other
-existing standards). Mappings are specified in the CDM using <code>synonym</code>
-which are collected into a Translation Dictionary, and the sample data
-are collected into a Test Pack. Each new model version is
-regression-tested using those mappings to translate the sample data in
-the Test Pack and then comparing against the expected number of mapped
-data points, validation and qualification results.</p>
-<p>When using Rosetta to edit the model, contributors are invited to test
-their model changes live against the Test Pack using the Rosetta
-Translate application, referring to the <a href="https://docs.rosetta-technology.io/rosetta/rune-dsl/rune-modelling-component/">Rosetta Translate Guide</a>.
-When editing existing model components, the corresponding synonyms
-should be updated to maintain or improve existing mapping levels. When
-adding new model components, new sample data and corresponding synonym
-mappings should also be provided so the new use-case can be added to the
-set of regression tests.</p>
-<p>Please refer to the <a href="https://docs.rosetta-technology.io/rosetta/rune-dsl/rune-modelling-component/#mapping-component">Mapping Guide</a> for details about the synonym
-mapping syntax.</p>
+<p>The CDM has adopted a test-driven development approach that exercises
+model components against existing sample data (e.g., FpML documents or
+other existing standards). The sample data are collected into Test
+Packs, and each new model version is regression-tested by validating and
+qualifying the sample data in the Test Pack and comparing against the
+expected validation and qualification results.</p>
+<p>When editing existing model components, contributors are invited to test
+their changes against the Test Pack. When adding new model components,
+new sample data should also be provided so the new use-case can be added
+to the set of regression tests.</p>
 <h3 id="namespace">Namespace</h3>
 <p>All model components should be positioned appropriately in the existing
 namespace hierarchy. If the proposed contribution includes changes to
@@ -2754,7 +2743,7 @@ through the following review checklist:</p>
 <li>Review Pull Request to assert that:<ul>
 <li>Model changes fulfil the proposed design and use-case
     requirements</li>
-<li>Synonyms have been updated and output (JSON) looks correct</li>
+<li>Test pack sample data and output (JSON) look correct</li>
 <li>Contributed model version is not stale and does not conflict
     with any recent changes</li>
 <li>Changes are in accordance with the CDM governance guidelines</li>
@@ -2818,7 +2807,7 @@ once it is approved:</p>
     Maintainer should adjust or include any code snippets by editing the
     <em>documentation.rst</em> file on GitHub.</li>
 <li><strong>Code generation</strong>: Model changes may cause code generator failures
-    (e.g., Java, C#, Scala, Kotlin etc.). In the unlikely event of code
+    (e.g., Java, Typescript etc.). In the unlikely event of code
     generation failures, these will need to be addressed by the
     Maintainer.</li>
 </ul>
@@ -2890,7 +2879,7 @@ one-off branch in the source-control repository. Please refer to the
 <ol>
 <li>Fork it (<a href="https://github.com/finos/common-domain-model">https://github.com/finos/common-domain-model</a>)</li>
 <li>Create your feature branch (<code>git checkout -b feature/my-new-feature</code>)</li>
-<li>Make a change - <em>hint</em> you can make changes to Rosetta files directly on your desktop using the <a href="https://github.com/REGnosys/rosetta-dsl/tree/master/rosetta-ide/vscode">Rosetta VS Code plugin</a></li>
+<li>Make a change - <em>hint</em> you can make changes to Rosetta files directly on your desktop using the <a href="https://github.com/finos/rune-dsl/tree/main/rune-ide/vscode">Rune VS Code plugin</a></li>
 <li>Read our contribution guidelines and <a href="https://www.finos.org/code-of-conduct">Community Code of Conduct</a></li>
 <li>Commit your changes (<code>git commit -am 'My New Feature'</code>)</li>
 <li>Push to the branch (<code>git push origin feature/my-new-feature</code>)</li>

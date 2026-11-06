@@ -678,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mapping/" class="md-nav__link">
+      <a href="../mapping.md" class="md-nav__link">
         
   
   
@@ -2207,7 +2207,7 @@ information.</p>
 <p>The model is represented in the Rosetta DSL syntax. All syntax warnings
 and errors must be resolved to have a valid model before contributing
 any changes. For further guidance about features of the syntax, please
-refer to the <a href="https://docs.rosetta-technology.io/rosetta/rune-dsl/rune-modelling-component/">Rosetta DSL Documentation</a>.</p>
+refer to the <a href="https://rune.finos.org/docs/modelling-components/">Rune DSL Documentation</a>.</p>
 <p>In Rosetta Design, that syntax is automatically checked live as the user
 edits the model, as described in the <a href="https://docs.rosetta-technology.io/rosetta/rosetta-products/2-rosetta-design/#rosetta-design-content-assist">Rosetta Design Content Assist
 Guide</a>.</p>
@@ -2226,24 +2226,16 @@ latter will be able to assist in the resolution of the issues.</p>
 <p>For more information about auto-compilation using the Rosetta DSL,
 please refer to the <a href="https://docs.rosetta-technology.io/rosetta/rosetta-products/2-rosetta-design/#auto-completion-scoping">Rosetta Auto Compilation Guide</a>.</p>
 <h3 id="testing">Testing</h3>
-<p>The CDM has adopted a test-driven development approach that maps model
-components to existing sample data (e.g., FpML documents or other
-existing standards). Mappings are specified in the CDM using <code>synonym</code>
-which are collected into a Translation Dictionary, and the sample data
-are collected into a Test Pack. Each new model version is
-regression-tested using those mappings to translate the sample data in
-the Test Pack and then comparing against the expected number of mapped
-data points, validation and qualification results.</p>
-<p>When using Rosetta to edit the model, contributors are invited to test
-their model changes live against the Test Pack using the Rosetta
-Translate application, referring to the <a href="https://docs.rosetta-technology.io/rosetta/rune-dsl/rune-modelling-component/#translate">Rosetta Translate Guide</a>.
-When editing existing model components, the corresponding synonyms
-should be updated to maintain or improve existing mapping levels. When
-adding new model components, new sample data and corresponding synonym
-mappings should also be provided so the new use-case can be added to the
-set of regression tests.</p>
-<p>Please refer to the <a href="https://docs.rosetta-technology.io/rosetta/rune-dsl/rune-modelling-component/#mapping-component">Mapping Guide</a> for details about the synonym
-mapping syntax.</p>
+<p>The CDM has adopted a test-driven development approach that exercises
+model components against existing sample data (e.g., FpML documents or
+other existing standards). The sample data are collected into Test
+Packs, and each new model version is regression-tested by validating and
+qualifying the sample data in the Test Pack and comparing against the
+expected validation and qualification results.</p>
+<p>When editing existing model components, contributors are invited to test
+their changes against the Test Pack. When adding new model components,
+new sample data should also be provided so the new use-case can be added
+to the set of regression tests.</p>
 <h3 id="namespace">Namespace</h3>
 <p>All model components should be positioned appropriately in the existing
 namespace hierarchy. If the proposed contribution includes changes to
