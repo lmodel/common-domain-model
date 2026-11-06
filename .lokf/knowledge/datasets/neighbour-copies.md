@@ -22,7 +22,7 @@ status: draft
 
 # Neighbour copies
 
-Each neighbour is the schema asset of a release, checked against the release's checksum and pinned by it.[^test_schema_rules.py] The CDM's names are its own, so the copy shares some classes and keys with gist, oscal, uco and others, as `tests/shared_names.json` lists.[^shared_names.json]
+Each neighbour is the schema asset of a release. It was checked against the release's checksum, and the test pins it by that checksum.[^test_schema_rules.py] The CDM's names are its own, so the copy shares some classes and keys with gist, oscal, uco and others, as `tests/shared_names.json` lists.[^shared_names.json]
 
 [^test_schema_rules.py]: .linkml/tests/test_schema_rules.py, the docstrings
 [^shared_names.json]: .linkml/tests/shared_names.json

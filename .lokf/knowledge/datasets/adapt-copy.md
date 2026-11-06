@@ -28,7 +28,7 @@ status: draft
 
 `just lokf-adapt` writes the copy from the schema, with the roots `LegalEntity` and `Party` and the prefix `cdm`, and `just lokf-adapt-check` fails when it is stale.[^project.justfile]
 
-The copy renames the keys the CDM shares with LOKF, keeping their IRIs, so a concept of type `LegalEntity` writes its name as `cdm_name`.[^readme.md] `tests/test_schema_rules.py` holds the copy apart from LOKF and lists the names it shares with other lmodel copies.[^test_schema_rules.py]
+The copy renames the keys the CDM shares with LOKF and keeps their IRIs. A concept of type `LegalEntity` therefore writes its name as `cdm_name`.[^readme.md] `tests/test_schema_rules.py` holds the copy apart from LOKF and lists the names it shares with other lmodel copies.[^test_schema_rules.py]
 
 [^project.justfile]: .linkml/project.justfile, the lokf-adapt recipes
 [^test_schema_rules.py]: .linkml/tests/test_schema_rules.py, the docstrings

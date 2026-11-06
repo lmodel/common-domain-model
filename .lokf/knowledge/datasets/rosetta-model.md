@@ -22,7 +22,7 @@ status: draft
 
 # The CDM's Rosetta model
 
-The CDM declares its data model in Rosetta, one file per namespace and kind, such as `base-datetime-type.rosetta` and `base-datetime-enum.rosetta`.[^rosetta_to_linkml.py] The converter reads the type, choice, enumeration and type alias declarations, and leaves the functions and rules out, because they compute or classify data and are not data.[^about.md]
+The CDM declares its data model in Rosetta. Each file holds one namespace and one kind of declaration, such as `base-datetime-type.rosetta` and `base-datetime-enum.rosetta`.[^rosetta_to_linkml.py] The converter reads the type, choice, enumeration and type alias declarations. It leaves the functions and rules out, because they compute or classify data and are not data.[^about.md]
 
 [^rosetta_to_linkml.py]: .linkml/scripts/rosetta_to_linkml.py, the docstring
 [^about.md]: .linkml/docs/about.md

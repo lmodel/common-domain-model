@@ -29,7 +29,7 @@ status: draft
 
 # The CDM LinkML schema
 
-`scripts/rosetta_to_linkml.py` reads every `type`, `choice`, `enum` and `typeAlias` in FINOS's Rosetta files and writes one LinkML module per Rosetta namespace, plus the umbrella `common_domain_model.yaml` that imports them all.[^rosetta_to_linkml.py] A condition the converter cannot state is named in the class's `comments`, with its Rosetta text.
+`scripts/rosetta_to_linkml.py` reads every `type`, `choice`, `enum` and `typeAlias` in FINOS's Rosetta files. It writes one LinkML module per Rosetta namespace, and the umbrella `common_domain_model.yaml` that imports them all.[^rosetta_to_linkml.py] A condition the converter cannot state is named in the class's `comments`, with its Rosetta text.
 
 `docs/about.md` says what each Rosetta construct becomes.[^about.md] `tests/test_converter.py` fails when a module differs from what the converter writes, so nobody edits the modules by hand.[^test_converter.py]
 
