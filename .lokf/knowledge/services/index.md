@@ -1,4 +1,3 @@
 # Services
 
-* [Example Service A](example-service-a.md) - Placeholder service; replace with a real service of common-domain-model.
-* [Example Service B](example-service-b.md) - Placeholder service; replace with a real service of common-domain-model.
+* [Documentation site](documentation-site.md) - The knowledge website in `knowledge-website/`, built from the bundle, the README, the docs, the changelog and the schema's pages, and published to `https://lmodel.github.io/common-domain-model/`.

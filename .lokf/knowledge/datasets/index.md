@@ -1,0 +1,12 @@
+# Datasets
+
+* [The CDM LinkML schema](common-domain-model-linkml-schema.md) - The LinkML schema of the CDM: one module per Rosetta namespace under `.linkml/src/common_domain_model/schema/`, with every type, choice, enumeration and type alias, written by `scripts/rosetta_to_linkml.py` and never edited by hand.
+* [The CDM's Rosetta model](rosetta-model.md) - FINOS's Rosetta files under `rosetta-source/src/main/rosetta/`: the CDM's types, choices, enumerations, type aliases, conditions and functions, which the converter reads.
+* [The FpML code lists](fpml-code-lists.md) - The FpML coding schemes under `rosetta-source/src/main/resources/codelist/json/`, which the CDM's code-list type aliases name and the schema writes as enumerations of their codes.
+* [FINOS's tree](finos-tree.md) - Every file of FINOS's CDM release, unchanged at the repository's root: the Rosetta model, its resources and samples, the Java build, FINOS's documentation site in `website/` and its governance files.
+* [The upstream pin and tree list](upstream-pin.md) - `.linkml/upstream/pin.yaml`, which names the FINOS release the tree and the schema hold, and `.linkml/tests/upstream_tree.tsv`, which lists that release's files by git object hash.
+* [The adapt copy](adapt-copy.md) - `.lokf/common-domain-model.yaml`, the copy of the schema that `just lokf-adapt` writes for a knowledge bundle to import beside LOKF's schema, with `LegalEntity` and `Party` re-rooted on Concept and thirteen keys renamed with a `cdm_` prefix.
+* [Example data](example-data.md) - The examples and counter-examples under `.linkml/tests/data/`, named after the class they hold, which `tests/test_data.py` holds to the committed JSON Schema and the generated dataclasses.
+* [FINOS's CDM documents](finos-sample-documents.md) - The CDM documents Rune wrote in FINOS's tree, from its FpML ingest and its function tests, which `tests/test_finos_samples.py` reads with the committed JSON Schema, and the list of those whose shape the schema refuses.
+* [Neighbour copies](neighbour-copies.md) - The released adapt copies of other lmodel schemas under `.linkml/tests/neighbours/`, pinned by checksum, and `tests/shared_names.json`, which lists the names this copy shares with each.
+* [Generated artefacts](generated-artefacts.md) - What the LinkML generators write from the schema: the JSON Schema, OWL, SHACL, ShEx, SQL, GraphQL, protobuf, TypeScript and JSON-LD under `.linkml/project/`, the Python dataclasses and Pydantic models, and the merged schema in `.linkml/docs/schema/`.

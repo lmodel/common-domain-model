@@ -1,0 +1,8 @@
+# Explanations
+
+* [The fork's layout](fork-layout.md) - Why FINOS's tree sits unchanged at the root and this project sits beside it: the LinkML project in `.linkml/`, the knowledge bundle in `.lokf/`, the site in `knowledge-website/`, and the `linkml_schema` and `knowledge_bundle` doorways.
+* [What each Rosetta construct becomes](rosetta-to-linkml.md) - How the converter writes the CDM in LinkML: a namespace as a module, a type as a class, a choice as a class that holds exactly one option, an enumeration keyed by display name, a code-list alias as an enumeration, and conditions as class expressions or rules.
+* [What LinkML cannot state](what-linkml-cannot-state.md) - The CDM conditions and constructs the schema does not state: paths into another type, comparisons of two attributes, list conditions, `<>`, boolean equality, strict decimal bounds, function calls, metadata, subtypes in place of a parent and one meaning per attribute name.
+* [Reading a CDM document](reading-a-cdm-document.md) - How a CDM document that Rune wrote, with its `@type`, `@key`, `@ref` and `@data` keys, is put in the form the schema states, so that the generated JSON Schema can judge it.
+* [Keys shared with LOKF](keys-shared-with-lokf.md) - Why thirteen CDM attribute names, such as `name`, `description` and `version`, are top-level slots in `common_domain_model_keys.yaml`: so that `lokf adapt` renames them in the copy, and a concept's own description keeps LOKF's IRI.
+* [What is left out](what-is-left-out.md) - What the schema does not carry from FINOS's tree: the synonym mappings FINOS moved out before 8.0, the guessed SSSOM sets this fork used to carry, the namespaces that hold only functions, and the text of FpML's codes and of the documents the CDM cites.
