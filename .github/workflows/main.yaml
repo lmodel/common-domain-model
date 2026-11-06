@@ -74,8 +74,16 @@ jobs:
         if: matrix.python-version == '3.13'
         run: just lint
 
+      # `just test` first generates the whole project into tmp/, about ten minutes
+      # for the CDM's 780 classes, which proves the generators once; the other
+      # versions run the Python tests and the example runner alone.
       - name: Run test suite
+        if: matrix.python-version == '3.13'
         run: just test
+
+      - name: Run the Python tests and the examples
+        if: matrix.python-version != '3.13'
+        run: just _test-python _test-examples
 
       # .lokf/common-domain-model.yaml is the copy the knowledge bundle validates
       # against and the release attaches, so it must match the schema and lokf.yaml.
