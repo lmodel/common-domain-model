@@ -1,0 +1,2596 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_event_common
+name: cdm_event_common
+title: CDM cdm.event.common
+description: 'Business event concepts: primitives, contract state and associated state transition function
+  specifications.'
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_datetime_daycount
+  - ./cdm_base_math
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_base_staticdata_asset_rates
+  - ./cdm_base_staticdata_identifier
+  - ./cdm_base_staticdata_party
+  - ./cdm_event_position
+  - ./cdm_event_workflow
+  - ./cdm_legaldocumentation_common
+  - ./cdm_legaldocumentation_csa
+  - ./cdm_observable_asset
+  - ./cdm_observable_event
+  - ./cdm_product_asset
+  - ./cdm_product_collateral
+  - ./cdm_product_common
+  - ./cdm_product_common_settlement
+  - ./cdm_product_template
+enums:
+  ActionEnum:
+    description: The enumeration values to specify the actions associated with transactions.
+    permissible_values:
+      New:
+        description: A new instance of a transaction event, which is also characterized by the fact that
+          the eventIdentifier has an associated version 1.
+      Correct:
+        description: A correction of a prior instance of the transaction event. The eventIdentifier has
+          an associated version greater than 1.
+      Cancel:
+        description: A cancellation of a prior instance of the transaction event. The eventIdentifier
+          has an associated version greater than 1.
+  AffirmationStatusEnum:
+    description: Enumeration for the different types of affirmation status.
+    permissible_values:
+      Affirmed: {}
+      Unaffirmed: {}
+  AgreementEventIntentEnum:
+    description: Defines the intent of the agreement event. An agreement event may cover multiple business
+      scenarios, which result in different agreement lifecycle events.
+    permissible_values:
+      AmendedTerms:
+        description: Specifies that an agreement event results in updated agreement terms for the overall
+          legal agreement to which the agreement event applies.
+      AmendedParties:
+        description: Represents a change to the contractual parties to an agreement through the process
+          of addition or deletion.
+      Termination:
+        description: Represents a change that results in the related agreement being terminated.
+      AmendedAndRestated:
+        description: Represents a change in terms and or parties where the agreement is required to be
+          restated in its entirety.
+      Novation:
+        description: Represents a change where certain trades will be moved to a different agreement while
+          the existing agreement remains in place.
+      Superseded:
+        description: Represents a change where an agreement is being superseded by another existing agreement
+          and the agreement that is being amended is being terminated as a function of this process.
+  AssetTransferTypeEnum:
+    description: The qualification of the type of asset transfer.
+    permissible_values:
+      FreeOfPayment:
+        description: The transfer of assets takes place without a corresponding exchange of payment.
+  CallTypeEnum:
+    description: Represents the enumeration values that indicate the intended status of message type,
+      such as expected call, notification of a call or a margin call.
+    permissible_values:
+      MarginCall:
+        description: Identifies an actionable Margin Call.
+      Notification:
+        description: Identifies a notification of a Margin Call for legal obligation to notify other party
+          to initiate a margin call when notifying party is calculation or valuation agent.
+      ExpectedCall:
+        description: Identifies an expected Margin Call instruction for either party to notify the other
+          or their service provider of an expected margin call movement.
+  ClosedStateEnum:
+    description: The enumerated values to specify what led to the contract or execution closure.
+    permissible_values:
+      Allocated:
+        description: The execution or contract has been allocated.
+      Cancelled:
+        description: The execution or contract has been cancelled.
+      Exercised:
+        description: The (option) contract has been exercised.
+      Expired:
+        description: The (option) contract has expired without being exercised.
+      Matured:
+        description: The contract has reached its contractual termination date.
+      Novated:
+        description: The contract has been novated. This state applies to the stepped-out contract component
+          of the novation event.
+      Terminated:
+        description: The contract has been subject of an early termination event.
+  CollateralStatusEnum:
+    description: Represents the enumeration list to identify the settlement status of the collateral.
+    permissible_values:
+      FullAmount:
+        description: Indicates the collateral balance amount in full, inclusive of any pre-agreed collateral
+          positions in transit for settlement.
+      SettledAmount:
+        description: Indicates the collateral is settled and not an in transit pre-agreed collateral amount/s.
+      InTransitAmount:
+        description: Indicates collateral amount in transit settlement cycle only, excluding settled collateral
+          amount/s.
+  ConfirmationStatusEnum:
+    description: Enumeration for the different types of confirmation status.
+    permissible_values:
+      Confirmed: {}
+      Unconfirmed: {}
+  CorporateActionTypeEnum:
+    description: The enumerated values to specify the origin of a corporate action transfer.
+    permissible_values:
+      CashDividend:
+        description: Corporate action triggered by the distribution of a cash dividend.
+      StockDividend:
+        description: Corporate action triggered by the distribution of a stock dividend.
+      StockSplit:
+        description: Corporate action triggered by a stock split. A stock split or stock divide increases
+          the number of shares in a public company. The price is adjusted such that the before and after
+          market capitalization of the company remains the same and dilutiondoes not occur. The value
+          maps closely to the ISO code (SPLF) defined as a distribution of subsidiary stock to the shareholders
+          of the parent company without a surrender of shares.
+      ReverseStockSplit:
+        description: Corporate action triggered by a reverse split. A reverse stock split or reverse split
+          is a process by a company of issuing to each shareholder in that company a smaller number of
+          new shares in proportion to that shareholder's original shares that are subsequently canceled.
+          A reverse stock split is also called a stock merge. The reduction in the number of issued shares
+          is accompanied by a proportional increase in the share price. The value maps closely to the
+          ISO code (SPLR) defined as a decrease in a company's number of outstanding equities without
+          any change in the shareholder's equity or the aggregate market value at the time of the split.
+          Equity price and nominal value are increased accordingly.
+      SpinOff:
+        description: Corporate action triggered by a spin Off. A spin-out, also known as a spin-off or
+          a starburst, refers to a type of corporate action where a company splits off sections of itself
+          as a separate business. The value maps closely to the ISO code (SOFF) defined as a a distribution
+          of subsidiary stock to the shareholders of the parent company without a surrender of shares.
+          Spin-off represents a form of divestiture usually resulting in an independent company or in
+          an existing company. For example, demerger, distribution, unbundling.
+      Merger:
+        description: Corporate action triggered by a merger. Mergers and acquisitions (abbreviated M&A)
+          is an aspect of corporate strategy, corporate finance and management dealing with the buying,
+          selling, dividing and combining of different companies and similar entities that can help an
+          enterprise grow rapidly in its sector or location of origin, or a new field or new location,
+          without creating a subsidiary, other child entity or using a joint venture. The distinction
+          between a merger and an acquisition has become increasingly blurred in various respects (particularly
+          in terms of the ultimate economic outcome), although it has not completely disappeared in all
+          situations. The value maps closely to the ISO code (MRGR) defined as an offer made to shareholders,
+          normally by a third party, requesting them to sell (tender) or exchange their equities.
+      Delisting:
+        description: Corporate action triggered by the removal of a security from a stock exchange.
+      StockNameChange:
+        description: Corporate action triggered by a change in the name used to trade the security.
+      StockIdentifierChange:
+        description: Corporate action triggered by a change in the code used to trade the security.
+      RightsIssue:
+        description: Corporate action triggered by an issuance to shareholders of rights to purchase additional
+          shares at a discount.
+      Takeover:
+        description: Corporate action triggered by a takeover. A takeover is the purchase of onecompany
+          (the target) by another (the acquirer, or bidder). The value maps to the ISO code (TEND) but
+          is finer grained than TEND which emcompasses Tender/Acquisition/Takeover/Purchase Offer/Buyback.
+          ISO defines the TEND code as an offer made to shareholders, normally by a third party, requesting
+          them to sell (tender) or exchange their equities.
+      StockReclassification:
+        description: Corporate action triggered by a Stock Reclassification.
+      BonusIssue:
+        description: Corporate action triggered by a bonus issue. A bonus issue or bonus share is a free
+          share of stock given to current shareholders in a company, based upon the number of shares that
+          the shareholder already owns. While the issue of bonus shares increases the total number of
+          shares issued and owned, it does not change the value of the company. The value maps closely
+          to the ISO code (BONU) defined as a bonus, scrip or capitalisation issue. Security holders receive
+          additional assets free of payment from the issuer, in proportion to their holding.
+      ClassAction:
+        description: Corporate action triggered by a Class Action. An action where an individual represents
+          a group in a court claim. The judgment from the suit is for all the members of the group (class).
+          The value maps closely to the ISO code (CLSA) defined as the situation where interested parties
+          seek restitution for financial loss. The security holder may be offered the opportunity to join
+          a class action proceeding and would need to respond with an instruction.
+      EarlyRedemption:
+        description: Corporate action triggered by an early redemption. The value maps closely to the
+          ISO code (MCAL) defined as the redemption of an entire issue outstanding of securities, for
+          example, bonds, preferred equity, funds, by the issuer or its agent, for example, asset manager,
+          before final maturity.
+      Liquidation:
+        description: Corporate action triggered by a liquidation. When a business or firm is terminated
+          or bankrupt, its assets are sold (liquidated) and the proceeds pay creditors. Any leftovers
+          are distributed to shareholders. The value maps closely to the ISO code (LIQU) defined as a
+          distribution of cash, assets or both. Debt may be paid in order of priority based on preferred
+          claims to assets specified by the security.
+      BankruptcyOrInsolvency:
+        description: Corporate action triggered by bankruptcy, insolvency filing or insolvency of the
+          issuer of the Security.
+      IssuerNationalization:
+        description: Corporate action triggered by the nationalization of the issuer of the Security.
+      Relisting:
+        description: Corporate action triggered by the relisting of a security from the original stock
+          exchange to another exchange.
+      BespokeEvent:
+        description: Corporate Action which is separately agreed between the parties and/or described
+          elsewhere in the document (for instance in bespoke term described in string type objects present
+          in some root attributes of Agreement type).
+  CreditEventTypeEnum:
+    description: Represents the enumerated values to specify a credit event type.
+    permissible_values:
+      Bankruptcy:
+        description: 'The reference entity has been dissolved or has become insolvent. It also covers
+          events that may be a precursor to insolvency such as instigation of bankruptcy or insolvency
+          proceedings. Sovereign trades are not subject to Bankruptcy as ''technically'' a Sovereign cannot
+          become bankrupt. ISDA 2003 Term: Bankruptcy.'
+      DistressedRatingsDowngrade:
+        description: Results from the fact that the rating of the reference obligation is downgraded to
+          a distressed rating level. From a usage standpoint, this credit event is typically not applicable
+          in case of RMBS trades.
+      FailureToPay:
+        description: 'This credit event triggers, after the expiration of any applicable grace period,
+          if the reference entity fails to make due payments in an aggregrate amount of not less than
+          the payment requirement on one or more obligations (e.g. a missed coupon payment). ISDA 2003
+          Term: Failure to Pay.'
+      FailureToPayInterest:
+        description: 'Corresponds to the failure by the Reference Entity to pay an expected interest amount
+          or the payment of an actual interest amount that is less than the expected interest amount.
+          ISDA 2003 Term: Failure to Pay Interest.'
+      FailureToPayPrincipal:
+        description: 'Corresponds to the failure by the Reference Entity to pay an expected principal
+          amount or the payment of an actual principal amount that is less than the expected principal
+          amount. ISDA 2003 Term: Failure to Pay Principal.'
+      GovernmentalIntervention:
+        description: 'A governmental intervention is an event resulting from an action by a governmental
+          authority that materially impacts the reference entity''s obligations, such as an interest rate
+          reduction, principal reduction, deferral of interest or principal, change in priority ranking,
+          or change in currency or composition of payment. ISDA 2014 Term: Governmental Intervention.'
+      ImpliedWritedown:
+        description: Results from the fact that losses occur to the underlying instruments that do not
+          result in reductions of the outstanding principal of the reference obligation.
+      MaturityExtension:
+        description: Results from the fact that the underlier fails to make principal payments as expected.
+      ObligationAcceleration:
+        description: 'One or more of the obligations have been declared due and payable before they would
+          otherwise have been due and payable as a result of, or on the basis of, the occurrence of a
+          default, event of default or other similar condition or event other than failure to pay (preferred
+          by the market over Obligation Default, because more definitive and encompasses the definition
+          of Obligation Default - this is more favorable to the Seller). Subject to the default requirement
+          amount. ISDA 2003 Term: Obligation Acceleration.'
+      ObligationDefault:
+        description: 'One or more of the obligations have become capable of being declared due and payable
+          before they would otherwise have been due and payable as a result of, or on the basis of, the
+          occurrence of a default, event of default or other similar condition or event other than failure
+          to pay. ISDA 2003 Term: Obligation Default.'
+      RepudiationMoratorium:
+        description: 'The reference entity, or a governmental authority, either refuses to recognise or
+          challenges the validity of one or more obligations of the reference entity, or imposes a moratorium
+          thereby postponing payments on one or more of the obligations of the reference entity. Subject
+          to the default requirement amount. ISDA 2003 Term: Repudiation/Moratorium.'
+      Restructuring:
+        description: 'A restructuring is an event that materially impacts the reference entity''s obligations,
+          such as an interest rate reduction, principal reduction, deferral of interest or principal,
+          change in priority ranking, or change in currency or composition of payment. ISDA 2003 Term:
+          Restructuring.'
+      Writedown:
+        description: Results from the fact that the underlier writes down its outstanding principal amount.
+    annotations:
+      doc_reference: ISDA FpML_Coding_Scheme schemeLocation http://www.fpml.org/coding-scheme/credit-event-type
+    see_also:
+      - http://www.fpml.org/coding-scheme/credit-event-type
+  EventIntentEnum:
+    description: The enumeration values to qualify the intent associated with a transaction event.
+    permissible_values:
+      Allocation:
+        description: The intent is to allocate one or more trades as part of an allocated block trade.
+      CashFlow:
+        description: The intent is to designate a stand-alone cash transfer as a result of Trade contracual
+          terms e.g. incurred by payout for instance a Performance Amount or a Floating Rate Amount. The
+          particular CashFlow at stake shall be further specified in priceTransferEnum or transferTypeEnum.
+          For clarity, such intentEnum value shall not be used whenever a cash transfer is not stand-alone
+          but is instead embedded in another Event as part of the composable modelling e.g. Decrease with
+          Fees, Cross-Currency Notional Reset, etc. or any other Event whenever including a cash transfer
+          with other features. For clarity, a principal payment related to a Principal Exhange is excluded
+          as well, because a dedicated intentEnum value exists for this event i.e. PrincipalExchange value.
+      Clearing:
+        description: The intent is to clear the contract.
+      Compression:
+        description: The intent is to compress multiple trades as part of a netting or compression event.
+      ContractFormation:
+        description: The intent is to form a contract from an execution.
+      ContractTermsAmendment:
+        description: The intent is to amend the terms of the contract through renegotiation.
+      CorporateActionAdjustment:
+        description: The intent is to take into effect the occurrence of a Corporate Action and the particular
+          Corporate Action at stake shall be further specified in CorporateActionTypeEnum.
+      CreditEvent:
+        description: The intent is to take into effect the occurrence of a Credit Event.
+      Decrease:
+        description: The intent is to Decrease the quantity or notional of the contract.
+      EarlyTerminationProvision:
+        description: The intent is to fully unwind the Trade, as a result of the application of Trade
+          contractual terms (e.g. an obligation to do so before Termination Date as part of any kind of
+          Early Termination terms) as defined within the CDM EarlyTerminationProvision data type. Accordingly,
+          increase and decrease of positions which result from negotiation by the parties shall not be
+          designated by such intentEnum. For clarity, partial exercise of an option before its expiration
+          date is excluded as well, though related to Trade contract terms, because a dedicated intentEnum
+          value exists for this event i.e. OptionExercise value.
+      Increase:
+        description: The intent is to Increase the quantity or notional of the contract.
+      IndexTransition:
+        description: The intent is to replace an interest rate index by another one during the life of
+          a trade and add a transition spread on top of this index (and on top of the spreads already
+          defined in the trade, if any).
+      NotionalReset:
+        description: The intent is to increase or to decrease the notional of the Trade, in accordance
+          with Notional Reset features e.g. could apply for Cross Currency Swaps, Equity Performance Swaps,
+          etc.
+      NotionalStep:
+        description: The intent is to increase or to decrease the notional of the Trade, in accordance
+          with Step features attached to a Payout Quantity.
+      Novation:
+        description: The intent is to novate the contract.
+      ObservationRecord:
+        description: The intent is to record any kind of stand-alone obervervations e.g. internal data
+          recording, usage of CDM for recording and/or exchanging data as part of pricing 'consensus'
+          processing, etc. For clarity, such intentEnum value shall not be used whenever an observation
+          is not stand-alone but is instead embedded in another Event as part of the composable modelling
+          e.g. CashFlow to which an observation of prices is associated, etc.
+      OptionExercise:
+        description: The intent is to Exercise a contract that is made of one or several option payout
+          legs. For clarity, such intentEnum value shall not be used whenever an optional right is exercised
+          in relation with a Trade which composition includes other types of payout legs e.g. right to
+          call or to cancel before Termination Date as part of any kind of Early Termination terms other
+          than genuine bermuda or american style features described in option payout.
+      OptionalExtension:
+        description: The intent is to extend the trade through exercise of an optional right as defined
+          within the CDM OptionProvision data type.
+      OptionalCancellation:
+        description: The intent is to cancel the trade through exercise of an optional right as defined
+          within the CDM OptionProvision data type.
+      PortfolioRebalancing:
+        description: The intent is to rebalance a portfolio, by inserting new derivatives transactions
+          into portfolios of participants to reduce risks linked to those trades. These are offsetting
+          trades that rebalance relationships between different counterparties when it comes to exposure
+          of portfolios to certain types of risk, such as interest rate risk.
+      PrincipalExchange:
+        description: The intent is to pay or to receive a cash transfer, in accordance with Principal
+          Exchange features.
+      Reallocation:
+        description: The intent is to reallocate one or more trades as part of an allocated block trade.
+      Repurchase:
+        description: The intent is to close a repo transaction through repurchase.
+  ExecutionTypeEnum:
+    description: The enumerated values to specify how a contract has been executed, e.g. electronically,
+      verbally, ...
+    permissible_values:
+      Electronic:
+        description: Execution via electronic execution facility, derivatives contract market, or other
+          electronic message such as an instant message.
+      OffFacility:
+        description: Bilateral execution between counterparties not pursuant to the rules of a SEF or
+          DCM.
+      OnVenue:
+        description: Execution via a platform that may or may not be covered by a regulatory defintion.
+          OnVenue is intended to distinguish trades executed on a trading platform from those executed
+          via phone, email or messaging apps. The role and details of the venue are included in the party
+          attribute of the trade. The general rule is that if the parties utilitzed the services of the
+          platform to execute the trade then it would be considered OnVenue.
+  HaircutIndicatorEnum:
+    description: Represents the enumeration indicators to specify if an asset or group of assets valuation
+      is based on any valuation treatment haircut.
+    permissible_values:
+      PreHaircut:
+        description: Indicates Pre haircut value
+      PostHaircut:
+        description: Indicates Post haircut value
+  InstructionFunctionEnum:
+    description: The enumeration values indicating the BusinessEvent function associated input instructions.
+    permissible_values:
+      Execution: {}
+      ContractFormation: {}
+      QuantityChange: {}
+      Renegotiation: {}
+      Compression: {}
+  MarginCallActionEnum:
+    description: Represents the enumeration values to identify the collateral action instruction.
+    permissible_values:
+      Delivery:
+        description: Indicates an instruction of a new collateral asset delivery.
+      Return:
+        description: Indicates an instruction for a return of a principals collateral asset delivery.
+  MarginCallResponseTypeEnum:
+    description: Represents the enumeration values to define the response type to a margin call.
+    permissible_values:
+      AgreeinFull:
+        description: Specifies a 'Full Agreement' to Margin Call.
+      PartiallyAgree:
+        description: Specifies a 'Partial agreement' to Margin Call.
+      Dispute:
+        description: Specifies a 'Full Dispute' to a Margin call.
+  PerformanceTransferTypeEnum:
+    description: The enumerated values to specify the origin of a performance transfer
+    permissible_values:
+      Commodity: {}
+      Correlation: {}
+      Dividend: {}
+      Equity: {}
+      Interest: {}
+      Volatility: {}
+      Variance: {}
+  PositionEventIntentEnum:
+    permissible_values:
+      PositionCreation:
+        description: The intent is to form a position from a fully formed contract.
+      CorporateActionAdjustment:
+        description: The intent is to take into effect the occurrence of a Corporate Action and the particular
+          Corporate Action at stake shall be further specified in CorporateActionTypeEnum.
+      Decrease:
+        description: The intent is to Decrease the quantity of the position.
+      Increase:
+        description: The intent is to Increase the quantity of the position.
+      Transfer:
+        description: The intent is to transfer the position to another clearing member.
+      OptionExercise:
+        description: The intent is to Exercise a position or part of a position.
+      Valuation:
+        description: The intent is to update the valuation of the position.
+  PriceTimingEnum:
+    permissible_values:
+      ClosingPrice:
+        description: The last price anyone paid for a share of a product during the business hours of
+          the exchange where the product is traded on a business day.
+      OpeningPrice:
+        description: The first price anyone paid for a share of a product during the business hours of
+          the exchange where the product is traded on a business day.
+  RecordAmountTypeEnum:
+    description: The enumeration of the account level for the billing summary.
+    permissible_values:
+      AccountTotal: {}
+      GrandTotal: {}
+      ParentTotal: {}
+  RegIMRoleEnum:
+    description: Represents the enumeration values to specify the role of the party in relation to a regulatory
+      initial margin call.
+    permissible_values:
+      Pledgor:
+        description: Indicates 'Pledgor' party of initial margin call.
+      Secured:
+        description: Indicates 'Secured' party of initial margin call.
+  RegMarginTypeEnum:
+    description: Represents the enumeration values to specify the margin type in relation to bilateral
+      or regulatory obligation.
+    permissible_values:
+      VM:
+        description: Indicates Variation Margin
+      RegIM:
+        description: Indicates Regulatory Initial Margin
+      NonRegIM:
+        description: Indicates Non Regulatory Initial margin or independent amount
+  TransferStatusEnum:
+    description: The enumeration values to specify the transfer status.
+    permissible_values:
+      Disputed:
+        description: The transfer is disputed.
+      Instructed:
+        description: The transfer has been instructed.
+      Pending:
+        description: The transfer is pending instruction.
+      Settled:
+        description: The transfer has been settled.
+      Netted:
+        description: The transfer has been netted into a separate Transfer.
+  ValuationScopeEnum:
+    description: Scope of the valuation i.e. what it applies to.
+    permissible_values:
+      Collateral:
+        description: Valuation of the collateral used against a trade.
+      Trade:
+        description: Valuation of the actual trade itself.
+  ValuationSourceEnum:
+    description: Source for the valuation of the transaction by the valuation party.
+    permissible_values:
+      CentralCounterparty:
+        description: Central Counterparty's Valuation
+  ValuationTypeEnum:
+    description: Method used for the valuation of the transaction by the valuation party.
+    permissible_values:
+      MarkToMarket:
+        description: Mark-to-Market
+      MarkToModel:
+        description: Mark-to-Model
+classes:
+  AccrualFactor:
+    description: 'The accrual rate and related terms, to adjust the price of an underlier impacted by
+      a Corporate Action when economic impact consists in freezing the underlier price to the last fixing
+      then applying accruals per each remaining underlier price fixing date required i.e. for each fixing
+      date, adjustedPrice = lastFixingPrice x accrualFactor, where: accrualFactor = (1 + accrualRateValue
+      x DCF).'
+    attributes:
+      value:
+        description: The rate to be applied to the last fixing price, for price accrual calculation purposes.
+          DatedValue may be used for the purpose of representing Price series if such calculation is required
+          for multiple dates.
+        range: PriceSchedule
+        required: true
+        annotations:
+          rosetta_metadata: location
+      calculationTerms:
+        description: Describes the input terms involved in the calculation of the accrual factor.
+        range: AccrualFactorCalculationTerms
+    comments:
+      - 'Rosetta condition AccrualPriceIsRate is not stated in LinkML: value -> priceType = PriceTypeEnum
+        -> InterestRate'
+  AccrualFactorCalculationTerms:
+    description: Describes the input terms involved in the calculation of the accrual factor. Optionnally,
+      long and short stub interpolation rates can be specified.
+    attributes:
+      tenorTillMaturity:
+        description: The duration between last fixing date and the payment date of accruals, calculated
+          in accordance with the appropriate DayCountFraction.
+        range: decimal
+        required: true
+      dayCountFraction:
+        description: The enumerated values to specify the day count fraction.
+        range: DayCountFractionEnum
+        required: true
+      interpolationTerms:
+        description: Describes the rate, tenor, period duration for the short and long stubs, when the
+          accrualRate optionnaly results from an interpolation method.
+        range: StubValue
+  AdjustmentFactor:
+    description: Describes the terms involved for adjusting the price of the underlier impacted by a Corporate
+      Action.
+    attributes:
+      value:
+        description: The multiplier value applied to the price of the underlier impacted by a Corporate
+          Action.
+        range: decimal
+        required: true
+      calculationTerms:
+        description: Describes the input terms involved in the calculation of the adjustment factor applied
+          to the price of the underlier impacted by a Corporate Action.
+        range: AdjustmentFactorCalculationTerms
+  AdjustmentFactorCalculationTerms:
+    description: Describes the input terms involved in the calculation of the adjustment factor applied
+      to the price of the underlier impacted by a Corporate Action.
+    attributes:
+      shareForShareRatio:
+        description: Multiple value, say 'M/N' where 'M' is the number of shares after the event and 'N'
+          is the number of shares prior to the event.
+        range: decimal
+      shareForRightsRatio:
+        description: Multiple value, say 'M/N' where 'M' is the number of rights after the event, and
+          'N' of shares prior to the event.
+        range: decimal
+      rightsSubscriptionPrice:
+        description: The price to pay per each right.
+        range: Price
+      dividendRatio:
+        description: Multiplier value (e.g. 85 %, etc.) to calculate net dividend amount, given gross
+          amount before taking into account the relevant fiscal features.
+        range: decimal
+      spinOff:
+        description: Defines the underlier for both the Parent Company and the Child Compagny involved
+          in Spin Off corporate action, as well as the respective price observation for each.
+        range: SpinOff
+      merger:
+        description: Defines the underlier for both the Purchaser Company and the Acquired Compagny involved
+          in Spin Off corporate action, as well as the respective price observation for each.
+        range: Merger
+      accrualFactor:
+        description: The accrual rate and related terms, to adjust the price of an underlier impacted
+          by a Corporate Action when economic impact consists in freezing the underlier price to last
+          fixing and applying accruals for each remaining underlier price fixing date required i.e. for
+          each, adjustedPrice = lastFixingPrice x (1 + accrualRate x DCF).
+        range: AccrualFactor
+      lastFixingPriceBeforeAdjustment:
+        description: The last fixing price of the Underlier affected by the CorporateAction, before any
+          adjustment with regards to the CorporateAction.
+        range: Price
+      dividendObservation:
+        description: To record observations of dividends.
+        range: PriceSchedule
+      bespokeCalculationFormula:
+        description: To describe the formula used to calculate the Adjustment Factor.
+        range: string
+    all_of:
+      - description: SpinOffOrMergerOrAccrual
+        exactly_one_of:
+          - slot_conditions:
+              spinOff:
+                value_presence: PRESENT
+          - slot_conditions:
+              merger:
+                value_presence: PRESENT
+          - slot_conditions:
+              accrualFactor:
+                value_presence: PRESENT
+          - all_of:
+              - slot_conditions:
+                  spinOff:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  merger:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  accrualFactor:
+                    value_presence: ABSENT
+      - description: ShareRatio
+        exactly_one_of:
+          - slot_conditions:
+              shareForShareRatio:
+                value_presence: PRESENT
+          - slot_conditions:
+              shareForRightsRatio:
+                value_presence: PRESENT
+          - all_of:
+              - slot_conditions:
+                  shareForShareRatio:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  shareForRightsRatio:
+                    value_presence: ABSENT
+    comments:
+      - 'Rosetta condition DividendObservation is not stated in LinkML: if dividendObservation exists
+        then dividendObservation -> priceType = PriceTypeEnum -> Dividend'
+  AgreementEvent:
+    is_a: AgreementEventInstruction
+    description: An agreement event represents a life cycle event of a legal document. The combination
+      of legal term amendments, contracting party changes or agreement status changes that are represented
+      by an amendment agreement that includes a change to the overall Legal agreement representation through
+      a change in contractual parties or terms.
+    attributes:
+      eventQualifier:
+        description: The CDM event qualifier, which corresponds to the outcome of the isEvent qualification
+          logic which qualifies the lifecycle event as a function of its features (e.g. PartialTermination,
+          ClearingSubmission, Novation, ...).
+        range: string
+      after:
+        description: The agreement as it looks after the event
+        range: LegalAgreement
+        multivalued: true
+    annotations:
+      rosetta_root_type: 'true'
+      rosetta_metadata: key
+  AgreementEventInstruction:
+    description: Specifies the date of the event and the effective date of the event.
+    attributes:
+      eventDate:
+        description: Specifies the date of the agreement event.
+        range: date
+        required: true
+      effectiveDate:
+        description: Specifies the effective date of the agreement event.
+        range: date
+        required: true
+      instruction:
+        description: Specifies the instruction associated with the agreement event triggered by an amendment.
+        range: AgreementInstruction
+        multivalued: true
+      intent:
+        description: Specifies the purposes for which the amendment agreement exists and how it will impact
+          the agreement to which it applies.
+        range: AgreementEventIntentEnum
+        multivalued: true
+  AgreementInstruction:
+    description: Instruction to a function that will be used to perform an agreement event
+    attributes:
+      primitiveInstruction:
+        description: A Primitive Instruction set for an Agreement Event triggered by an Amendment
+        range: AgreementPrimitiveInstruction
+        multivalued: true
+      before:
+        description: Specifies the Legal Agreement that will be acted upon by the primitive event function.
+        range: LegalAgreement
+        annotations:
+          rosetta_metadata: reference
+    annotations:
+      rosetta_root_type: 'true'
+  AgreementPrimitiveInstruction:
+    description: Instruction to a function that will be used to capture terms or Party changes to an agreement
+      triggered by an amendment.
+    attributes:
+      termsChange:
+        description: A printive instruction set that details all associated terms changes that are defined
+          within the instruction
+        range: AgreementTermsChangeInstruction
+      partyChange:
+        description: A primitive Instruction set to capture any Party changes applicable to the agreement.
+        range: PartyChangeInstruction
+  AgreementTermsChangeInstruction:
+    description: A primitive instruction set that details all associated terms changes that are defined
+      within the instruction.
+    attributes:
+      vmCSATermsChange:
+        description: Specifies instructions describing a terms change to a Variation Margin agreement
+          as represented by a set of agreement instructions.
+        range: CreditSupportAgreementVariationMarginElections
+      imCSATermsChange:
+        description: Specifies instructions describing a terms change to a Initial Margin agreement as
+          represented by a set of agreement instructions.
+        range: CreditSupportAgreementInitialMarginElections
+      legacyCSATermsChange:
+        description: Specifies instructions describing a terms change to a Legacy CSA agreement as represented
+          by a set of agreement instructions.
+        range: CreditSupportAgreementLegacyElections
+  BillingInstruction:
+    description: Specifies the instructions for creation of a Security Lending billing invoice.
+    attributes:
+      sendingParty:
+        description: The party issuing the invoice
+        range: Party
+        required: true
+      receivingParty:
+        description: The party receiving the invoice
+        range: Party
+        required: true
+      billingStartDate:
+        description: The starting date of the period described by this invoice
+        range: date
+        required: true
+      billingEndDate:
+        description: The ending date of the period described by this invoice
+        range: date
+        required: true
+      billingRecordInstruction:
+        description: Instructions for creating the billing records contained within the invoice
+        range: BillingRecordInstruction
+        required: true
+        multivalued: true
+      billingSummary:
+        description: The billing summaries contained within the invoice
+        range: BillingSummaryInstruction
+        multivalued: true
+  BillingRecord:
+    description: Specifies individual records within a billing invoice.
+    attributes:
+      tradeState:
+        description: The trade for the individual billing record.
+        range: TradeState
+        required: true
+        annotations:
+          rosetta_metadata: reference
+      recordTransfer:
+        description: The settlement terms for the billing record
+        range: Transfer
+        required: true
+      recordStartDate:
+        description: The starting date of the period described by this record
+        range: date
+        required: true
+      recordEndDate:
+        description: The ending date of the period described by this record
+        range: date
+        required: true
+      minimumFee:
+        description: Indicates the minimum fee amount applied to the billing record, if any.
+        range: Money
+  BillingRecordInstruction:
+    description: Specifies the instructions for creation of a billing record.
+    attributes:
+      tradeState:
+        description: The trade for the individual billing record.
+        range: TradeState
+        required: true
+        annotations:
+          rosetta_metadata: reference
+      observation:
+        description: The observations used to calculate the billing amount.
+        range: Observation
+        required: true
+        multivalued: true
+      recordStartDate:
+        description: The starting date of the period described by this record
+        range: date
+        required: true
+      recordEndDate:
+        description: The ending date of the period described by this record
+        range: date
+        required: true
+      settlementDate:
+        description: The date for settlement of the transfer.
+        range: date
+        required: true
+  BillingSummary:
+    description: Specifies individual summaries within a billing invoice.
+    attributes:
+      summaryTransfer:
+        description: The settlement terms for the billing summary
+        range: Transfer
+      summaryAmountType:
+        description: The account level for the billing summary.
+        range: RecordAmountTypeEnum
+        required: true
+    comments:
+      - 'Rosetta condition GrandTotal is not stated in LinkML: if summaryAmountType = RecordAmountTypeEnum
+        -> GrandTotal then summaryTransfer exists and summaryTransfer ->> partyReferencePayerReceiver
+        is absent'
+      - 'Rosetta condition ParentTotal is not stated in LinkML: if summaryAmountType = RecordAmountTypeEnum
+        -> ParentTotal then summaryTransfer ->> partyReferencePayerReceiver exists and summaryTransfer
+        ->> partyReferencePayerReceiver -> payerAccountReference is absent and summaryTransfer ->> partyReferencePayerReceiver
+        -> receiverAccountReference is absent'
+      - 'Rosetta condition AccountTotal is not stated in LinkML: if summaryAmountType = RecordAmountTypeEnum
+        -> AccountTotal then summaryTransfer ->> partyReferencePayerReceiver -> payerAccountReference
+        exists and summaryTransfer ->> partyReferencePayerReceiver -> receiverAccountReference exists'
+  BillingSummaryInstruction:
+    description: Specifies the instructions for creation of a billing summary.
+    attributes:
+      summaryAmountType:
+        description: The account level for the billing summary.
+        range: RecordAmountTypeEnum
+        required: true
+  BusinessEvent:
+    is_a: EventInstruction
+    description: A business event represents a life cycle event of a trade. The combination of the state
+      changes results in a qualifiable life cycle event. An example of a Business Event is a PartialTermination
+      which is a defined by a quantity change primitive event.
+    attributes:
+      eventQualifier:
+        description: The CDM event qualifier, which corresponds to the outcome of the isEvent qualification
+          logic which qualifies the lifecycle event as a function of its features (e.g. PartialTermination,
+          ClearingSubmission, Novation, ...).
+        range: string
+      after:
+        description: Specifies the after trade state(s) created.
+        range: TradeState
+        multivalued: true
+    all_of:
+      - description: EventDate
+        slot_conditions:
+          eventDate:
+            value_presence: PRESENT
+    rules:
+      - description: From EventInstruction. CorporateAction
+        preconditions:
+          slot_conditions:
+            corporateActionIntent:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            intent:
+              equals_string: CorporateActionAdjustment
+    annotations:
+      rosetta_root_type: 'true'
+      rosetta_metadata: key
+  CalculateResetInstruction:
+    description: Defines the information needed to create a Reset Instruction for the Reset Business Event.
+    attributes:
+      payout:
+        range: Payout
+        required: true
+        multivalued: true
+        annotations:
+          rosetta_metadata: reference
+      rateRecordDate:
+        description: Specifies the 'Rate Record Day' for a Fallback rate. Fallback rate fixing processes
+          typically set the fixing rate in arrears, i.e., the Fallback Rate corresponding to a Rate Record
+          Date is set at the end of the interest accural period. When this applies, Reset->resetDate occurs
+          at the end of the interest period, and the Reset->rateRecordDate occurs near the start of the
+          interest period. The Reset->rateRecordDate and Reset->observations->observationIdentifier->observationDate
+          will differ if a Fallback rate is unavailable on the Rate Record Date, and the latest previous
+          available rate is used as the observation.
+        range: date
+      resetDate:
+        description: Specifies the date on which the reset is occuring.
+        range: date
+        required: true
+  CalculateTransferInstruction:
+    description: Defines the tradeState or payout on which to create a Transfer along with all necessary
+      resets.
+    attributes:
+      tradeState:
+        range: TradeState
+        required: true
+      payout:
+        range: Payout
+        required: true
+        annotations:
+          rosetta_metadata: reference
+      resets:
+        range: Reset
+        multivalued: true
+      payerReceiver:
+        range: PayerReceiver
+      quantity:
+        description: Specifies quantity amount returned if not the full amount from the TradeState, e.g.
+          partial return
+        range: Quantity
+      date:
+        range: date
+  ClearingInstruction:
+    description: All information required to perform the clear life cycle event; the clearing party (CCP),
+      the two parties facing each other on the alpha contract, and optionally the parties acting as clearing
+      members.
+    attributes:
+      alphaContract:
+        description: The contract that will be submitted to the clearing house for clearing. The contract
+          should indicate that it should be cleared by assigning a clearing organisation as a party role.
+        range: TradeState
+        required: true
+      clearingParty:
+        description: The Central Counter party (CCP) that the contract will be submitted to for clearing.
+        range: Party
+        required: true
+      party1:
+        description: First party facing the CCP if it is clearing for its own account.
+        range: Party
+        required: true
+      party2:
+        description: Second party facing the CCP if it is clearing for its own account.
+        range: Party
+        required: true
+      clearerParty1:
+        description: Optional party facing the CCP, acting as clearing member for party1.
+        range: Party
+      clearerParty2:
+        description: Optional party facing the CCP, acting as clearing member for party2.
+        range: Party
+      isOpenOffer:
+        description: Open Offer
+        range: boolean
+  ClosedState:
+    description: 'A class to qualify the closed state of an execution or a contract through the combination
+      or a state (e.g. terminated, novated) and a set of dates: activity date, effective date and, when
+      relevant, last payment date.'
+    attributes:
+      state:
+        description: The qualification of what gave way to the contract or execution closure, e.g. allocation,
+          termination, ...
+        range: ClosedStateEnum
+        required: true
+      activityDate:
+        description: The activity date on which the closing state took place, i.e. either the event date
+          of the closing event (e.g. option exercise, contract early termination) or the contractual termination
+          date.
+        range: date
+        required: true
+      effectiveDate:
+        description: The date on which the closing event contractually takes effect, when different from
+          the activity date. When an explicit event effective date attribute is associated with the closing
+          event, it will be that date. In the case of a cancellation event, it will be the date on which
+          the cancelled event took place.
+        range: date
+      lastPaymentDate:
+        description: The date associated with the last payment in relation to the artefact (e.g. contract)
+          to which this closed state applies. As an example, in the case of an early termination event,
+          it would be the settlement date of the associated fee, if applicable.
+        range: date
+  CollateralBalance:
+    description: Represents common attributes to define a collateral balance recorded by the principal
+      as held or posted.
+    attributes:
+      collateralBalanceStatus:
+        description: Defines the collateral balance breakdown of settlement status.
+        range: CollateralStatusEnum
+      haircutIndicator:
+        description: Indicates if the collateral balance amount is based on pre or post haircut, if a
+          haircut is associated with the collateral asset
+        range: HaircutIndicatorEnum
+      amountBaseCurrency:
+        description: Specifies the collateral balance amount in base currency determined within a collateral
+          legal agreement, or defined for reporting purposes.
+        range: Money
+        required: true
+      payerReceiver:
+        description: Specifies each of the parties in the collateral balance and its perspective with
+          regards to the direction of the collateral balance, posted or received.
+        range: PartyReferencePayerReceiver
+        required: true
+  CollateralPortfolio:
+    description: Represents common attributes to define the details of collateral assets, to be used in
+      margin call messaging and contribute to collateral balances e.g securities in a collateral account.
+    attributes:
+      portfolioIdentifier:
+        description: Specifies a unique identifier for a set of collateral positions in a portfolio.
+        range: Identifier
+      collateralPosition:
+        description: Specifies the individual components of the collateral positions in the collateral
+          portfolio.
+        range: CollateralPosition
+        multivalued: true
+      collateralBalance:
+        description: Represents the populated or calculated collateral aggregate balance amount for the
+          collateral portfolio.
+        range: CollateralBalance
+        multivalued: true
+      legalAgreement:
+        description: 'The specification of a legal agreement between two parties governing the collateral
+          relationship such as Credit Support Agreement or Collateral Transfer Agreement etc. (NB: this
+          can be provided by reference to a global key for each LegalAgreement object).'
+        range: LegalAgreement
+        annotations:
+          rosetta_metadata: reference
+    annotations:
+      rosetta_root_type: 'true'
+      rosetta_metadata: key
+  CollateralPosition:
+    is_a: PositionBase
+    description: Specifies the individual components of collateral positions.
+    attributes:
+      treatment:
+        description: Specifies if there is any treatment to be applied to collateral, such as percentage
+          discount which will impact collateral value.
+        range: CollateralTreatment
+      collateralPositionStatus:
+        description: Indicates the collateral positions settlement status.
+        range: CollateralStatusEnum
+    all_of:
+      - description: 'From PositionBase. ProductOrAsset: A Position must either refer to a grouping by
+          product or a grouping by asset.'
+        exactly_one_of:
+          - slot_conditions:
+              product:
+                value_presence: PRESENT
+          - slot_conditions:
+              asset:
+                value_presence: PRESENT
+    rules:
+      - description: 'CollateralPositionStatusSettledOrInTransitOnly: Represents a condition to ensure
+          that if a status is defined for a collateral position you must only indicate ''Settled Amount''
+          or ''In Transit'' amount from the available enumerations.'
+        preconditions:
+          slot_conditions:
+            collateralPositionStatus:
+              value_presence: PRESENT
+        postconditions:
+          any_of:
+            - slot_conditions:
+                collateralPositionStatus:
+                  equals_string: SettledAmount
+            - slot_conditions:
+                collateralPositionStatus:
+                  equals_string: InTransitAmount
+  ContingentTransfer:
+    is_a: PayoutTransferBase
+    description: Specifies a transfer created from a trade contingent upon a specific, uncertain event
+      on a contract. Extends PayoutTransferBase because a Contingent Transfer originates from a Payout.
+    attributes:
+      transferType:
+        description: Specifies the type of Contingent Transfer.
+        range: ContingentTransferEnum
+      corporateActionTransferType:
+        description: A transfer corresponding to a corporate action event
+        range: CorporateActionTypeEnum
+    all_of:
+      - description: 'From PayoutTransferBase. PayerReceiverChoice: Required choice between a generic,
+          unresolved payer/receiver and a party referenced payer/receiver for the transfer.'
+        exactly_one_of:
+          - slot_conditions:
+              partyReferencePayerReceiver:
+                value_presence: PRESENT
+          - slot_conditions:
+              payerReceiver:
+                value_presence: PRESENT
+    rules:
+      - description: 'CorporateActionTransferTypeExists: When a Contingent Transfer is a Corporate Action
+          the type of event must be specified.'
+        preconditions:
+          slot_conditions:
+            transferType:
+              equals_string: CorporateAction
+        postconditions:
+          slot_conditions:
+            corporateActionTransferType:
+              value_presence: PRESENT
+  ContractDetails:
+    description: Defines specific attributes that relate to contractual details of trades.
+    attributes:
+      documentation:
+        description: Represents the legal document(s) that governs a trade and associated contractual
+          product terms, either as a reference to such documents when specified as part of the CDM, or
+          through identification of some of the key terms of those documents, such as the type of document,
+          the document identifier, the publisher, the document vintage and the agreement date.
+        range: LegalAgreement
+        multivalued: true
+      governingLaw:
+        description: Represents the law governing the trade and associated contractual product terms.
+        range: GoverningLawEnum
+        annotations:
+          rosetta_metadata: scheme
+    annotations:
+      rosetta_metadata: key
+    comments:
+      - 'Rosetta condition ExecutedAgreement is not stated in LinkML: if documentation exists then documentation
+        -> agreementDate exists'
+  ContractFormationInstruction:
+    description: Specifies instructions to create a fully formed contract, with optional legal agreements.
+    attributes:
+      legalAgreement:
+        description: Optional legal agreements associated to the contract being formed, for instance a
+          master agreement.
+        range: LegalAgreement
+        multivalued: true
+    comments:
+      - 'Rosetta condition ExecutedAgreements is not stated in LinkML: if legalAgreement exists then legalAgreement
+        -> agreementDate exists'
+  CorporateAction:
+    description: Specifies the relevant data regarding a corporate action
+    attributes:
+      corporateActionType:
+        description: The type of corporate action taking place.
+        range: CorporateActionTypeEnum
+        required: true
+      exDate:
+        description: The date on which the corporate action is known to have taken place.
+        range: date
+        required: true
+      payDate:
+        description: The date on which resulting from the corporate action are delivered.
+        range: date
+        required: true
+      recordDate:
+        description: The date on which the account phyical balance and related underlier ownership is
+          recorded by the custodian.
+        range: date
+      announcementDate:
+        description: The date on which the corporate action is announced by the issuer.
+        range: date
+      underlier:
+        description: The underlier impacted by the corporate action.
+        range: Underlier
+        required: true
+      adjustmentFactor:
+        description: Specifies any additional details e.g. further descriptions depending on the particular
+          type of Corporate Action, adjustmentFactor, calculations
+        range: AdjustmentFactor
+      informationSource:
+        description: A class defining the source of data used in an Observation for any purposes. The
+          data is either sourced from a Provider, or from a Party.
+        range: InformationSource
+      dividendObservation:
+        description: To record observations of dividends.
+        range: PriceSchedule
+      bespokeEventDescription:
+        description: Corporate action triggered by the occurrence of an event which description is seperatly
+          agreed between the parties and/or described in any referenced agreement (for instance bespoke
+          term described in any string type objects present in most root attributes of Agreement type).
+        range: string
+    all_of:
+      - description: 'Unnamed condition (optional choice adjustmentFactor, dividendObservation): If intent
+          is to record dividend observation per se with no relation to an adjustment (typically when such
+          observation is made, looking forward dividend passthrough payments) then no adjustment is expected,
+          and vice-versa. For the avoidance of doubts, in the case dividend terms are involved in the
+          calculation or the occurrence of an adjustment calculation, then such information shall be defined
+          at such proper level i.e. precisely as an attribute of the adjustmentFactorCalculation.'
+        exactly_one_of:
+          - slot_conditions:
+              adjustmentFactor:
+                value_presence: PRESENT
+          - slot_conditions:
+              dividendObservation:
+                value_presence: PRESENT
+          - all_of:
+              - slot_conditions:
+                  adjustmentFactor:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  dividendObservation:
+                    value_presence: ABSENT
+    rules:
+      - description: 'CorporateActionTypeBespoke: When Enum value does not corresponds to standard terms,
+          then bespoke description must be populated.'
+        preconditions:
+          slot_conditions:
+            corporateActionType:
+              equals_string: BespokeEvent
+        postconditions:
+          slot_conditions:
+            bespokeEventDescription:
+              value_presence: PRESENT
+    comments:
+      - 'Rosetta condition DividendObservation is not stated in LinkML: if dividendObservation exists
+        then dividendObservation -> priceType = PriceTypeEnum -> Dividend'
+  CounterpartyPositionBusinessEvent:
+    description: A business event represents a life cycle event of a position. The combination of the
+      state changes results in a qualifiable life cycle event.
+    attributes:
+      intent:
+        description: The intent attribute is meant to be specified when the event qualification cannot
+          be programmatically inferred from the event features. As a result it is only associated with
+          those primitives that can give way to such ambiguity, the quantityChange being one of those.
+        range: PositionEventIntentEnum
+        required: true
+      corporateActionIntent:
+        description: The intent of a corporate action on the position.
+        range: CorporateActionTypeEnum
+      eventDate:
+        description: Specifies the date on which the event is taking place. This date is equal to the
+          trade date in the case of a simple execution. However it can be different from the trade date,
+          for example in the case of a partial termination.
+        range: date
+      effectiveDate:
+        description: The date on which the event contractually takes effect, when different from the event
+          date.
+        range: date
+      packageInformation:
+        description: Specifies the package information in case the business event represents several trades
+          executed as a package (hence this attribute is optional). The package information is only instantiated
+          once at the business event level to preserve referential integrity, whereas individual trades
+          make reference to it to identify that they are part of a package.
+        range: IdentifiedList
+      after:
+        description: Specifies the after position state(s) created.
+        range: CounterpartyPositionState
+        multivalued: true
+  CounterpartyPositionState:
+    description: Defines the fundamental financial information that can be changed by a Primitive Event
+      and by extension any business or life-cycle event. Each PositionState specifies where a Position
+      is in its life-cycle. PositionState is a root type and as such, can be created independently to
+      any other CDM data type, but can also be used as part of the CDM Event Model.
+    attributes:
+      counterpartyPosition:
+        description: Represents the Position that has been effected by a business or life-cycle event.
+        range: CounterpartyPosition
+        required: true
+      state:
+        description: Represents the State of the Position through its life-cycle.
+        range: State
+      observationHistory:
+        description: Represents the observed events related to a particular product or process, such as
+          credit events or corporate actions.
+        range: ObservationEvent
+        multivalued: true
+      valuationHistory:
+        range: Valuation
+        multivalued: true
+    annotations:
+      rosetta_root_type: 'true'
+      rosetta_metadata: key
+  CreditEvent:
+    description: Specifies the relevant data regarding a credit event.
+    attributes:
+      creditEventType:
+        description: The type of credit event taking place.
+        range: CreditEventTypeEnum
+        required: true
+      eventDeterminationDate:
+        description: The date in which the credit event is determined by the Credit Derivatives Determinations
+          Comitee.
+        range: date
+        required: true
+      auctionDate:
+        description: The date on which the auction is scheduled to occur.
+        range: date
+      finalPrice:
+        description: The final price resulting from the auction.
+        range: Price
+      recoveryPercent:
+        description: The percentage of the original value of the asset affected by the credit event that
+          can be recovered.
+        range: decimal
+      publiclyAvailableInformation:
+        description: A public information source, e.g. a particular newspaper or electronic news service,
+          that may publish relevant information used in the determination of whether or not a credit event
+          has occurred.
+        range: Resource
+        multivalued: true
+      referenceInformation:
+        description: The reference entity, part of a credit basket, impacted by the credit event.
+        range: ReferenceInformation
+        required: true
+  ExecutionDetails:
+    description: Defines specific attributes that relate to trade executions.
+    attributes:
+      executionType:
+        description: Identifies the type of execution, e.g. via voice, electronically...
+        range: ExecutionTypeEnum
+        required: true
+      executionVenue:
+        description: Represents the venue on which a trade was executed.
+        range: LegalEntity
+      packageReference:
+        description: A reference to the package linking the trade with other trades, in case the trade
+          was executed as part of a package (hence this attribute is optional).
+        range: IdentifiedList
+    rules:
+      - description: 'ExecutionVenue: When the execution type is set to ''Electronically'', the execution
+          venue must be specified.'
+        preconditions:
+          slot_conditions:
+            executionType:
+              equals_string: Electronic
+        postconditions:
+          slot_conditions:
+            executionVenue:
+              value_presence: PRESENT
+    annotations:
+      rosetta_metadata: key
+  ExecutionInstruction:
+    description: Specifies instructions for execution of a transaction, consisting of a product, price,
+      quantity, parties, trade identifier, execution details, and settlement terms.
+    attributes:
+      product:
+        description: Defines the financial product to be executed and contract formed.
+        range: NonTransferableProduct
+        required: true
+      priceQuantity:
+        description: Defines the prices (e.g. spread, equity price, FX rate), quantities (e.g. currency
+          amount, no. shares) and settlement terms (e.g. initial fee, broker fee, up-front cds payment
+          or option premium settlement) associated with the constituents of the transacted product.
+        range: PriceQuantity
+        required: true
+        multivalued: true
+      counterparty:
+        description: Maps two defined parties to counterparty enums for the transacted product.
+        range: Counterparty
+        required: true
+        multivalued: true
+        minimum_cardinality: 2
+        maximum_cardinality: 2
+      ancillaryParty:
+        description: Maps any ancillary parties, e.g. parties involved in the transaction that are not
+          one of the two principal parties.
+        range: AncillaryParty
+        multivalued: true
+      parties:
+        description: Defines all parties to that execution, including agents and brokers.
+        range: Party
+        required: true
+        multivalued: true
+        minimum_cardinality: 2
+      partyRoles:
+        description: Defines the role(s) that party(ies) may have in relation to the execution.
+        range: PartyRole
+        multivalued: true
+      executionDetails:
+        description: Specifies the type and venue of execution, e.g. via voice, or electronically.
+        range: ExecutionDetails
+        required: true
+      tradeDate:
+        description: Denotes the trade/execution date.
+        range: date
+        required: true
+        annotations:
+          rosetta_metadata: id
+      tradeTime:
+        description: Denotes the trade time and timezone as agreed by the parties to the trade.
+        range: TimeZone
+        annotations:
+          rosetta_metadata: id
+      tradeIdentifier:
+        description: Denotes one or more identifiers associated with the transaction.
+        range: TradeIdentifier
+        required: true
+        multivalued: true
+      collateral:
+        description: Detail the collateral requirement anticipated with the transaction.
+        range: Collateral
+      lotIdentifier:
+        description: Lot Identifier associated with the transaction.
+        range: Identifier
+  ExerciseInstruction:
+    description: Specifies the information required to communicate the choices made by the exercising
+      party, in a financial product endowing the party with at least one option.
+    attributes:
+      exerciseQuantity:
+        description: Contains instructions for exercising the option including a quantity change, and
+          optionally a transfer.
+        range: PrimitiveInstruction
+        required: true
+      exerciseOption:
+        description: The Payout being exercised on the trade.
+        range: Payout
+        annotations:
+          rosetta_metadata: reference
+      exerciseDate:
+        description: Specifies the date on which an option contained within the financial product would
+          be exercised. The date may be omitted if the contractual product allows for only a single date
+          of exercise (European exercise).
+        range: AdjustableOrAdjustedDate
+      exerciseTime:
+        description: Specifies the time at which an option contained within the financial product woulld
+          be exercised. The time may be omitted if the contractual product allows for only a single time
+          of exercise (European exercise).
+        range: BusinessCenterTime
+      replacementTradeIdentifier:
+        description: Specifies the trade identifier to apply to the replacement trade for physical exercise.
+        range: TradeIdentifier
+        multivalued: true
+    comments:
+      - 'Rosetta condition IsOptionPayout is not stated in LinkML: if exerciseOption exists then exerciseOption
+        switch OptionPayout then item exists, default False'
+  Exposure:
+    description: Represents the current mark to market value or IM calculation value of the trade portfolio
+      as recorded by the principle (in base currency).
+    attributes:
+      tradePortfolio:
+        description: Represents a Portfolio that describes all the positions held at a given time, in
+          various states which can be either traded, settled, etc., with lineage information to the previous
+          state.
+        range: PortfolioState
+        required: true
+        annotations:
+          rosetta_metadata: reference
+      aggregateValue:
+        description: Represents the aggregate value of the portfolio in base currency.
+        range: Money
+        required: true
+      calculationDateTime:
+        description: Indicates the date when the exposure is calculated if different from valuation date.
+        range: datetime
+      valuationDateTime:
+        description: Indicates the valuation date of the exposure underlying the calculation.
+        range: datetime
+        required: true
+  IndexTransitionInstruction:
+    description: Defines the information needed to create a Index Transition Business Event.
+    attributes:
+      priceQuantity:
+        description: 'Specifies both new floating rate index and spread adjustment for each leg to be
+          updated. The spread adjustment accounts for the difference between the old floating rate index
+          relative to the new one. This spread amount is added to the existing spread to determine the
+          new spread, which is applied from the specified effective date forward. In the case of the IBOR
+          Fallback Rate Adjustments, the adjustment spread (also known as the Fallback Adjustment) accounts
+          for two distinctions: i) the fact that the replacement Risk-Free Rate is an overnight rate while
+          IBORs have term structures (e.g., 1, 3, 6-month LIBOR); and (ii) the historical spread differential
+          between IBORs and their term equivalent Overnight Risk-Free Rate compounded rates.'
+        range: PriceQuantity
+        required: true
+        multivalued: true
+      effectiveDate:
+        description: Specifies the effective date of the index transition event. This is first date on
+          which the floating rate calculation will use the new floating rate index and adjusted spread
+          in the floating rate calculation.
+        range: date
+        required: true
+      cashTransfer:
+        description: Specifies the cash transfer that can optionally be tied to an index transition event.
+        range: Transfer
+    comments:
+      - 'Rosetta condition PriceQuantity is not stated in LinkML: priceQuantity -> price -> priceType
+        contains PriceTypeEnum -> InterestRate and priceQuantity -> observable as InterestRateIndex exists
+        and priceQuantity -> quantity is absent'
+  Instruction:
+    description: Instruction to a function that will be used to perform a business event
+    attributes:
+      primitiveInstruction:
+        description: Specifies the primitive instructions that will be used to call primitive event functions.
+        range: PrimitiveInstruction
+      before:
+        description: Specifies the trade state that will be acted on by the primitive event functions.
+        range: TradeState
+        annotations:
+          rosetta_metadata: reference
+    annotations:
+      rosetta_root_type: 'true'
+    comments:
+      - 'Rosetta condition ExclusiveSplitPrimitive is not stated in LinkML: if primitiveInstruction ->
+        split exists then primitiveInstruction -> split only exists'
+      - 'Rosetta condition NewTrade is not stated in LinkML: (if primitiveInstruction -> execution exists
+        then before is absent else True) and (if before is absent then primitiveInstruction -> execution
+        exists else True)'
+  Lineage:
+    description: 'A class to provide lineage information across lifecycle events through a pointer or
+      set of pointers into the event(s), contract(s) and, possibly, payout components that the event is
+      dependent on or relates to. As an example, if an contractFormation event is corrected, the correction
+      event will have a lineage into the initial event, which takes the form of a globalKey into that
+      initial contract formation event. Two referencing mechanisms are provided as part of the CDM: either
+      the globalKey, which corresponds to the hash value of the CDM class which is referred to, or a reference
+      qualifier which is meant to provide support for the ingestion of xml documents with id/href mechanisms.
+      The CDM recommends the use of the globalKey and provides a default implementation which is accessible
+      in the generated code through org.finos.cdm.globalKey.GlobalKeyHashCalculator. If implementers want
+      to use an alternative hashing mechanism, the API in which they need to plug it is com.rosetta.model.lib.HashFunction.'
+    attributes:
+      tradeReference:
+        range: Trade
+        multivalued: true
+        annotations:
+          rosetta_metadata: reference
+      eventReference:
+        description: The reference to the instantiation of an Event object, either through a globalKey
+          or an xml-derived id/href mechanism. The definition associated to the Lineage class provides
+          more details with respect to those referencing approaches, their expected usage and available
+          implementation.
+        range: WorkflowStep
+        multivalued: true
+        annotations:
+          rosetta_metadata: reference
+      portfolioStateReference:
+        description: The reference to the previous state of a Portfolio, in a chain of Events leading
+          up to a build of that Portfolio as the holding of Product(s) in specific Quantity(ies). As part
+          of the PortfolioState object, a pointer to the previous PortfolioState is provided through a
+          Lineage object, together with pointer(s) to the Event or set of Events leading up to the current
+          (new) state.
+        range: PortfolioState
+        multivalued: true
+        annotations:
+          rosetta_metadata: reference
+  MarginCallBase:
+    description: Represents common attributes required for Issuance and Response to a Margin Call action
+      as a result of a demand for delivery or return of collateral determined under a legal agreement
+      such as a credit support document or equivalent.
+    attributes:
+      instructionType:
+        description: Identifies the enumeration values to specify the call notification type, direction,
+          specific action type.
+        range: MarginCallInstructionType
+        required: true
+      party:
+        description: Represents the parties to the margin call. The cardinality is optional to address
+          the case where both parties of the event are specified and a third party if applicable.
+        range: Party
+        multivalued: true
+      partyRole:
+        description: Represents the role each specified party takes in the margin call. further to the
+          principal roles, payer and receiver.
+        range: PartyRole
+        multivalued: true
+      clearingBroker:
+        description: Indicates the name of the Clearing Broker FCM/DCM.
+        range: Party
+      callIdentifier:
+        description: Represents a unique Identifier for a margin call message, that can be referenced
+          throughout all points of the process.
+        range: Identifier
+      callAgreementType:
+        description: Specifies the legal agreement type the margin call is generated from and governed
+          by.
+        range: AgreementName
+        required: true
+      agreementMinimumTransferAmount:
+        description: Specifies the collateral legal agreement minimum transfer amount in base currency.
+        range: Money
+      agreementThreshold:
+        description: Specifies the collateral legal agreement threshold amount in base currency.
+        range: Money
+      agreementRounding:
+        description: Specifies the collateral legal agreement rounding in base currency.
+        range: Money
+      regMarginType:
+        description: Identifies margin type and if related regulatory mandate
+        range: RegMarginTypeEnum
+        required: true
+      regIMRole:
+        description: Indicates the role of the party in an regulatory initial margin call instruction
+          (i.e Pledgor party or Secured party).
+        range: RegIMRoleEnum
+      baseCurrencyExposure:
+        description: Represents the current mark to market value or IM calculation value of the trade
+          portfolio as recorded by the principle (in base currency), to be referenced in a margin call.
+        range: MarginCallExposure
+      collateralPortfolio:
+        description: Represents attributes to define the details of collateral assets within a collateral
+          portfolio to be used in margin call messaging and contribute to collateral balances e.g securities
+          in a collateral account recorded by the principal as held or posted.
+        range: CollateralPortfolio
+        annotations:
+          rosetta_metadata: reference
+      independentAmountBalance:
+        description: Represents additional credit support amount over and above mark to market value.
+        range: CollateralBalance
+    rules:
+      - description: 'RegIMRoleIMOnly: Specifies a condition to ensure that RegIMRole (Pledgor or Secured
+          Party)is only applicable if the Reg margin type is defined as RegIM (Regulatory Initial Margin).'
+        preconditions:
+          slot_conditions:
+            regIMRole:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            regMarginType:
+              equals_string: RegIM
+  MarginCallExposure:
+    is_a: MarginCallBase
+    description: Represents attributes required for mark to market value or IM calculation value of the
+      trade portfolio as recorded by the principle (in base currency).
+    attributes:
+      overallExposure:
+        description: Represents the whole overall mark to market value or IM calculation value of the
+          trade portfolio as recorded by the principle (in base currency).
+        range: Exposure
+        required: true
+      simmIMExposure:
+        description: Represents Initial Margin (IM) exposure derived from ISDA SIMM calculation.
+        range: Exposure
+      scheduleGridIMExposure:
+        description: Represents Initial Margin (IM) exposure derived from schedule or Grid calculation.
+        range: Exposure
+    rules:
+      - description: 'From MarginCallBase. RegIMRoleIMOnly: Specifies a condition to ensure that RegIMRole
+          (Pledgor or Secured Party)is only applicable if the Reg margin type is defined as RegIM (Regulatory
+          Initial Margin).'
+        preconditions:
+          slot_conditions:
+            regIMRole:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            regMarginType:
+              equals_string: RegIM
+      - description: 'ExposureSimmAndScheduleIMOnly: Specifies a condition to ensure that if margin exposure
+          is defined as Simm IM and Schedule/Grid IM Exposure this is only applicable if the Reg margin
+          type is defined as RegIM (Regulatory Initial Margin).'
+        preconditions:
+          slot_conditions:
+            simmIMExposure:
+              value_presence: PRESENT
+            scheduleGridIMExposure:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            regMarginType:
+              equals_string: RegIM
+    comments:
+      - 'Rosetta condition OverallExposureSumOfSimmAndScheduleIM is not stated in LinkML: if simmIMExposure
+        exists and scheduleGridIMExposure exists then (overallExposure -> aggregateValue -> value = simmIMExposure
+        -> aggregateValue -> value + scheduleGridIMExposure -> aggregateValue -> value) and (overallExposure
+        -> aggregateValue -> unit -> currency = simmIMExposure -> aggregateValue -> unit -> currency)
+        and (overallExposure -> aggregateValue -> unit -> currency = scheduleGridIMExposure -> aggregateValue
+        -> unit -> currency)'
+  MarginCallInstructionType:
+    description: Represents enumeration values to specify the call notification type, direction, specific
+      action type.
+    attributes:
+      callType:
+        description: Indicates the status of the call message type, such as expected call, notification
+          of a call or an actionable margin call.
+        range: CallTypeEnum
+        required: true
+      visibilityIndicator:
+        description: Indicates the choice if the call instruction is visible or not to the other party.
+        range: boolean
+    rules:
+      - description: 'CallTypeExpectedVisibility: Represents a condition to ensure that a visibility indicator
+          is specifies then the call type must be an expected call.'
+        preconditions:
+          slot_conditions:
+            callType:
+              equals_string: ExpectedCall
+        postconditions:
+          slot_conditions:
+            visibilityIndicator:
+              value_presence: PRESENT
+  MarginCallIssuance:
+    is_a: MarginCallBase
+    description: Represents common attributes required for a Margin Call Issuance under a legal agreement
+      such as a credit support document or equivalent.
+    attributes:
+      callAmountInBaseCurrency:
+        description: Specifies the amount of margin being called for which accounts for margin calculation
+          inclusive of exposure, independent amount,threshold,collateral balance, MTA, rounding increments
+          (in base currency detailed in supporting collateral agreement).
+        range: Money
+        required: true
+      recallNonCashCollateralDescription:
+        description: Specifies the details to describe or identify non-cash collateral eligible assets
+          for recall purposes.
+        range: EligibleCollateralCriteria
+        multivalued: true
+    rules:
+      - description: 'From MarginCallBase. RegIMRoleIMOnly: Specifies a condition to ensure that RegIMRole
+          (Pledgor or Secured Party)is only applicable if the Reg margin type is defined as RegIM (Regulatory
+          Initial Margin).'
+        preconditions:
+          slot_conditions:
+            regIMRole:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            regMarginType:
+              equals_string: RegIM
+  MarginCallResponse:
+    is_a: MarginCallBase
+    description: Represents common attributes required for a Margin Call Response under a legal agreement
+      such as a credit support document or equivalent.
+    attributes:
+      marginCallResponseAction:
+        description: Specifies the margin call action details, including collateral to be moved and direction.
+        range: MarginCallResponseAction
+        required: true
+        multivalued: true
+      marginResponseType:
+        description: Indicates the response type, such as, is the margin call response a 'full' 'part'
+          agreement or 'dispute'.
+        range: MarginCallResponseTypeEnum
+        required: true
+      agreedAmountBaseCurrency:
+        description: Indicates the amount that posting entity agrees to remit in response to margin call
+          (in base currency).
+        range: Money
+        required: true
+    rules:
+      - description: 'From MarginCallBase. RegIMRoleIMOnly: Specifies a condition to ensure that RegIMRole
+          (Pledgor or Secured Party)is only applicable if the Reg margin type is defined as RegIM (Regulatory
+          Initial Margin).'
+        preconditions:
+          slot_conditions:
+            regIMRole:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            regMarginType:
+              equals_string: RegIM
+  MarginCallResponseAction:
+    description: Specifies the margin call action details, including collateral to be moved and its direction.
+    attributes:
+      collateralPositionComponent:
+        description: Specifies the collateral to be moved and its direction.
+        range: CollateralPosition
+        required: true
+        multivalued: true
+      marginCallAction:
+        description: Specifies the margin call action details, specified as either Delivery or Return.
+        range: MarginCallActionEnum
+        required: true
+  Merger:
+    description: Defines the underlier for both the Purchaser Company and the Acquired Compagny involved
+      in Merger corporate action, as well as th respective price observation for each.
+    attributes:
+      purchaserSecurity:
+        description: Defines the underlier for the Purchaser Company involved in Merger corporate action.
+        range: Security
+        required: true
+      purchaserSecurityPrice:
+        description: The price observation that relates to underlier for the Purchaser Company.
+        range: Price
+        required: true
+      acquiredSecurity:
+        description: Defines the underlier for the Acquired Company involved in Merger corporate action.
+        range: Security
+        required: true
+      acquiredSecurityPrice:
+        description: The price observation that relates to underlier for the Acquired Company.
+        range: Price
+        required: true
+    comments:
+      - 'Rosetta condition EquityPrice is not stated in LinkML: purchaserSecurity -> securityType = Equity
+        and acquiredSecurity -> securityType = Equity'
+  ObservationEvent:
+    description: Specifies the necessary information to create any observation event.
+    attributes:
+      creditEvent:
+        description: Specifies the necessary information to create a credit event.
+        range: CreditEvent
+      corporateAction:
+        description: Specifies the necessary information to create a corporate action.
+        range: CorporateAction
+    all_of:
+      - description: Unnamed condition (one-of)
+        exactly_one_of:
+          - slot_conditions:
+              creditEvent:
+                value_presence: PRESENT
+          - slot_conditions:
+              corporateAction:
+                value_presence: PRESENT
+  ObservationInstruction:
+    description: Specifies inputs needed to process an observation.
+    attributes:
+      observationEvent:
+        description: Contains all information related to an observation.
+        range: ObservationEvent
+        required: true
+  PartyChangeInstruction:
+    description: 'Specifies instruction to change the party on a trade. This primitive instruction is
+      used in a number of scenarios including: clearing, allocation and novation. The instrution must
+      include a trade identifier, because a change of party effectively results in a different trade.'
+    attributes:
+      counterparty:
+        description: The new counterparty who is stepping into the trade. The stepping out counterparty
+          is inferred based on the counterparty role that is being updated.
+        range: Counterparty
+        required: true
+      ancillaryParty:
+        description: Specifies an ancillary party to be added onto the new transaction, e.g. the original
+          executing party in an allocation.
+        range: AncillaryParty
+      partyRole:
+        description: Specifies an additional party roles to be added on to the new transaction.
+        range: PartyRole
+      tradeId:
+        description: The identifier to be assigned to the new trade post change of party.
+        range: TradeIdentifier
+        required: true
+        multivalued: true
+  PayoutTransferBase:
+    is_a: TransferBase
+    description: Defines a transfer of an Asset associated with an economic payout - either a payout's
+      own scheduled terms or an outcome contingent on some other event. Carries a reference back to that
+      Payout, and allows the transfer's payer/receiver to be expressed as a generic, unresolved Party1
+      / Party2 enumerator, since a transfer generated directly from a payout's terms may not yet be tied
+      to resolved parties.
+    attributes:
+      payerReceiver:
+        description: Specifies who pays/receives the transfer, through a normalised Party1 / Party2 enumerator,
+          for use before the transfer is resolved to actual parties.
+        range: PayerReceiver
+      payoutReference:
+        description: Represents the origin to the transfer as a reference for lineage purposes, whether
+          it originated from trade level settlement terms or from payment terms on an economic payout.
+        range: Payout
+        annotations:
+          rosetta_metadata: reference
+    all_of:
+      - description: 'PayerReceiverChoice: Required choice between a generic, unresolved payer/receiver
+          and a party referenced payer/receiver for the transfer.'
+        exactly_one_of:
+          - slot_conditions:
+              partyReferencePayerReceiver:
+                value_presence: PRESENT
+          - slot_conditions:
+              payerReceiver:
+                value_presence: PRESENT
+  PositionIdentifier:
+    is_a: Identifier
+    description: Defines a position identifier as a special case of the generic identifier type, that
+      also includes the position identifier class.
+    attributes:
+      identifierType:
+        description: The enumerated classification of the identifier. Optional as a position identifier
+          may be party-specific, in which case it may not correspond to any established classification.
+        range: TradeIdentifierTypeEnum
+    all_of:
+      - description: 'From Identifier. IssuerChoice: The identifier issuer is specified either explicitly
+          or by reference to one of the parties.'
+        exactly_one_of:
+          - slot_conditions:
+              issuerReference:
+                value_presence: PRESENT
+          - slot_conditions:
+              issuer:
+                value_presence: PRESENT
+  PrimitiveInstruction:
+    description: A Primitive Instruction describes the inputs required to pass into the corresponding
+      PrimitiveEvent function.
+    attributes:
+      contractFormation:
+        description: Specifies instructions describing an contract formation primitive event.
+        range: ContractFormationInstruction
+      execution:
+        description: Specifies instructions describing an execution primitive event.
+        range: ExecutionInstruction
+      exercise:
+        description: Specifies instructions describing an exercise primitive event.
+        range: ExerciseInstruction
+      partyChange:
+        description: Specifies instructions describing a party change primitive event.
+        range: PartyChangeInstruction
+      quantityChange:
+        description: Specifies instructions describing an quantity change primitive event.
+        range: QuantityChangeInstruction
+      reset:
+        description: Specifies instructions describing a reset event.
+        range: ResetInstruction
+      split:
+        description: Specifies instructions to split a trade into multiple branches.
+        range: SplitInstruction
+      termsChange:
+        description: Specifies instructions describing a terms change primitive event.
+        range: TermsChangeInstruction
+      transfer:
+        description: Specifies instructions describing a transfer primitive event.
+        range: TransferInstruction
+      indexTransition:
+        description: Specifies inputs needed to process a Index Transition business event.
+        range: IndexTransitionInstruction
+      stockSplit:
+        description: Specifies inputs needed to process a Stock Split business event.
+        range: StockSplitInstruction
+      observation:
+        description: Specifies inputs needed to process an observation.
+        range: ObservationInstruction
+      valuation:
+        description: Specifies inputs needed to process an update of a valuation.
+        range: ValuationInstruction
+  QuantityChangeInstruction:
+    description: Instructions required to create a Quantity Change Primitive Event, which can be either
+      an increase, a decrease or a replacement. An increase adds a new trade lot to the original trade,
+      whereas a decrease subtracts from an existing trade lot's quantity. A replacement updates the quantity
+      of an existing trade lot to the new value.
+    attributes:
+      change:
+        description: Quantity by which the trade is being increased, decreased or replaced, and the price
+          at which such quantity change is agreed. The quantity change should always be specified as a
+          positive number, with the direction (increase/decrease/replacement) being specified by the direction
+          enumeration. A fee can also be associated to the quantity change by specifying a Price component
+          of type CashPrice, including the corresponding settlement date and direction.
+        range: PriceQuantity
+        required: true
+        multivalued: true
+      direction:
+        description: Direction of the quantity change specified as either an increase, decrease or replacement.
+        range: QuantityChangeDirectionEnum
+        required: true
+      lotIdentifier:
+        description: Identifier for the new lot (in case of increase) or for the existing lot to be changed(in
+          case of decrease or replacement). This optional attribute is mandatory in case of a decrease
+          or replacement if the initial trade state contains multiple trade lots.
+        range: Identifier
+        multivalued: true
+  Reset:
+    description: Defines the reset value or fixing value produced in cashflow calculations, during the
+      life-cycle of a financial instrument. The reset process defined in Create_Reset function joins product
+      definition details with observations to compute the reset value.
+    attributes:
+      resetValue:
+        description: Specifies the reset or fixing value. The fixing value could be a cash price, interest
+          rate, or other value.
+        range: Price
+        required: true
+      resetDate:
+        description: Specifies the date on which the reset occurred.
+        range: date
+        required: true
+      rateRecordDate:
+        description: Specifies the 'Rate Record Day' for a Fallback rate. Fallback rate fixing processes
+          typically set the fixing rate in arrears, i.e., the Fallback Rate corresponding to a Rate Record
+          Date is set at the end of the interest accural period. When this applies, Reset->resetDate occurs
+          at the end of the interest period, and the Reset->rateRecordDate occurs near the start of the
+          interest period. The Reset->rateRecordDate and Reset->observations->observationIdentifier->observationDate
+          will differ if a Fallback rate is unavailable on the Rate Record Date, and the latest previous
+          available rate is used as the observation.
+        range: date
+      observations:
+        description: Represents an audit of the observations used to produce the reset value. If multiple
+          observations were necessary to produce the reset value, the aggregation method should be defined
+          on the payout.
+        range: Observation
+        required: true
+        multivalued: true
+        annotations:
+          rosetta_metadata: reference
+      averagingMethodology:
+        description: Identifies the aggregation method to use in the case where multiple observations
+          are used to compute the reset value and the method is not defined in a payout.
+        range: AveragingCalculation
+    annotations:
+      rosetta_metadata: key
+    comments:
+      - 'Rosetta condition AveragingMethodologyExists is not stated in LinkML: if observations count >
+        1 then averagingMethodology exists'
+  ResetInstruction:
+    description: Defines the information needed to execute a Reset Business Event.
+    attributes:
+      reset:
+        description: Specifies the terms of the Reset.
+        range: Reset
+        required: true
+        multivalued: true
+  ReturnInstruction:
+    description: Specifies the information required to create the return of a Security Finance Transaction.
+    attributes:
+      quantity:
+        description: Specifies the quantity of shares and cash to be returned in a partial return event.
+        range: Quantity
+        required: true
+        multivalued: true
+  ScheduledTransfer:
+    is_a: PayoutTransferBase
+    description: A scheduled transfer built into the contract. Extends PayoutTransferBase because a Scheduled
+      Transfer originates from a Payout.
+    attributes:
+      transferType:
+        description: Specifies the type of Scheduled Transfer.
+        range: ScheduledTransferEnum
+        required: true
+    all_of:
+      - description: 'From PayoutTransferBase. PayerReceiverChoice: Required choice between a generic,
+          unresolved payer/receiver and a party referenced payer/receiver for the transfer.'
+        exactly_one_of:
+          - slot_conditions:
+              partyReferencePayerReceiver:
+                value_presence: PRESENT
+          - slot_conditions:
+              payerReceiver:
+                value_presence: PRESENT
+  SecurityLendingInvoice:
+    description: Specifies the information required for inclusion in a securities lending billing invoice.
+    attributes:
+      sendingParty:
+        description: The party issuing the invoice
+        range: Party
+        required: true
+      receivingParty:
+        description: The party receiving the invoice
+        range: Party
+        required: true
+      billingStartDate:
+        description: The starting date of the period described by this invoice
+        range: date
+        required: true
+      billingEndDate:
+        description: The ending date of the period described by this invoice
+        range: date
+        required: true
+      billingRecord:
+        description: The billing records contained within the invoice
+        range: BillingRecord
+        required: true
+        multivalued: true
+      billingSummary:
+        description: The billing summaries contained within the invoice
+        range: BillingSummary
+        required: true
+        multivalued: true
+    annotations:
+      rosetta_root_type: 'true'
+      rosetta_metadata: key
+  SpinOff:
+    description: Defines the underlier for both the Parent Company and the Child Compagny involved in
+      Spin Off corporate action, as well as th respective price observation for each.
+    attributes:
+      parentSecurity:
+        description: Defines the underlier for the Parent Company involved in Spin Off corporate action.
+        range: Security
+        required: true
+      parentSecurityPrice:
+        description: The price observation that relates to underlier for the Parent Company.
+        range: Price
+        required: true
+      childSecurity:
+        description: Defines the underlier for the Child Company involved in Spin Off corporate action.
+        range: Security
+        required: true
+      childSecurityPrice:
+        description: The price observation that relates to underlier for the Child Company.
+        range: Price
+        required: true
+    comments:
+      - 'Rosetta condition EquityPrice is not stated in LinkML: parentSecurity -> securityType = Equity
+        and childSecurity -> securityType = Equity'
+  SplitInstruction:
+    description: Specifies instructions for a split, consisting of a breakdown of instructions to be applied
+      to each branch of the split. This instruction can be used to duplicate a trade, as in a clearing
+      scenario, or to split a trade into smaller quantities (in which case each breakdown instruction
+      needs to include a quantity change), as in an allocation.
+    attributes:
+      breakdown:
+        description: Each split breakdown specifies the set of primitive instructions to be applied to
+          a single branch of that split. N split breakdowns result in N output trades, which include the
+          original trade. Instructions for how to handle the original trade (e.g. if it must be closed)
+          must be specified in one of the breakdowns.
+        range: PrimitiveInstruction
+        required: true
+        multivalued: true
+  State:
+    description: Defines the state of a trade at a point in the Trade's life cycle. Trades have many state
+      dimensions, all of which are represented here. For example, states useful for position keeping are
+      represented alongside those needed for regulatory reporting.
+    attributes:
+      closedState:
+        description: Represents the qualification of what led to the trade's closure alongside the dates
+          on which this closure took effect.
+        range: ClosedState
+      positionState:
+        description: Identifies the state of the position, to distinguish if just executed, formed, already
+          settled, closed, etc.
+        range: PositionStatusEnum
+    rules:
+      - description: 'ClosedStateExists: When the position state is identified as closed, the closed state
+          must also be specified.'
+        preconditions:
+          slot_conditions:
+            positionState:
+              equals_string: Closed
+        postconditions:
+          slot_conditions:
+            closedState:
+              value_presence: PRESENT
+  StockSplitInstruction:
+    description: Data required to perform a stock split business event.
+    attributes:
+      adjustmentRatio:
+        description: The number that denotes the cumulative quantity of post-split shares issued to shareholders
+          versus the quantity of pre-split shares previously issued to shareholders. This number will
+          be multiplied by existing shares in an equity derivative contract or other positions to determine
+          the post-split number of shares. With regard to any reference to price, the pre-split reference
+          price will be divided by this number to determine the post-split reference price.
+        range: decimal
+        required: true
+      effectiveDate:
+        description: The effective date of the stock split, also known as the ex-date. This is the date
+          on which the additional shares are paid to the shareholders, or in the case of a reverse stock
+          split, the number shares held by each shareholder is proportionally reduced. Equity derivative
+          transactions can be amended in firms' internal systems on such date. In most markets, the listed
+          stock price is reduced (or increased for a reverse stock split) to account for the split on
+          the same date, but in some markets the price adjustment occurs on a later date. In either case,
+          equity derivative transactions should be amended on the date that the stocks are paid to the
+          shareholders (or consolidated).
+        range: date
+        required: true
+  TermsChangeInstruction:
+    description: Specifies instructions for terms change consisting of the new transaction terms, and
+      the renegotiation fee.
+    attributes:
+      product:
+        description: product to be changed
+        range: NonTransferableProduct
+      ancillaryParty:
+        description: ancillary party to be changed
+        range: AncillaryParty
+        multivalued: true
+      adjustment:
+        range: NotionalAdjustmentEnum
+    all_of:
+      - description: AtLeastOneOf
+        any_of:
+          - slot_conditions:
+              product:
+                value_presence: PRESENT
+          - slot_conditions:
+              ancillaryParty:
+                value_presence: PRESENT
+          - slot_conditions:
+              adjustment:
+                value_presence: PRESENT
+  Trade:
+    is_a: TradableProduct
+    description: Defines the output of a financial transaction between parties - a Business Event. A Trade
+      impacts the financial position (i.e. the balance sheet) of involved parties.
+    attributes:
+      tradeIdentifier:
+        description: Represents the identifier(s) that uniquely identify a trade for an identity issuer.
+          A trade can include multiple identifiers, for example a trade that is reportable to both the
+          CFTC and ESMA, and then has an associated USI (Unique Swap Identifier) UTI (Unique Trade Identifier).
+        range: TradeIdentifier
+        required: true
+        multivalued: true
+      tradeDate:
+        description: Specifies the date which the trade was agreed.
+        range: date
+        required: true
+        annotations:
+          rosetta_metadata: id
+      tradeTime:
+        description: Denotes the trade time and timezone as agreed by the parties to the trade.
+        range: TimeZone
+        annotations:
+          rosetta_metadata: id
+      party:
+        description: Represents the parties to the trade. The cardinality is optional to address the case
+          where the trade is defined within a BusinessEvent data type, in which case the party is specified
+          in BusinessEvent.
+        range: Party
+        multivalued: true
+      partyRole:
+        description: Represents the role each specified party takes in the trade. further to the principal
+          roles, payer and receiver.
+        range: PartyRole
+        multivalued: true
+      executionDetails:
+        description: Represents information specific to trades that arose from executions.
+        range: ExecutionDetails
+      contractDetails:
+        description: Represents information specific to trades involving contractual products.
+        range: ContractDetails
+      collateral:
+        description: Represents the collateral obligations of a party.
+        range: Collateral
+    annotations:
+      rosetta_metadata: key
+      doc_reference: ICMA GMRA namingConvention Transaction
+    comments:
+      - 'Rosetta condition SettlementPayout is not stated in LinkML: if SettlementPayoutOnlyExists (product
+        -> economicTerms -> payout) then partyRole -> role contains PartyRoleEnum -> Buyer and partyRole
+        -> role contains PartyRoleEnum -> Seller and tradeLot -> priceQuantity -> price exists'
+      - 'Rosetta condition PackageTrade is not stated in LinkML: if executionDetails -> packageReference
+        exists then executionDetails -> packageReference -> componentId -> assignedIdentifier contains
+        tradeIdentifier -> assignedIdentifier'
+      - 'Rosetta condition DeliverableObligationsPhysicalSettlementMatrix is not stated in LinkML: if
+        (contractDetails -> documentation -> legalAgreementIdentification -> agreementName -> contractualMatrix
+        -> matrixType all <> MatrixTypeEnum -> CreditDerivativesPhysicalSettlementMatrix or contractDetails
+        -> documentation -> legalAgreementIdentification -> agreementName -> contractualMatrix -> matrixType
+        is absent) and product -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms ->
+        physicalSettlementTerms -> deliverableObligations exists then (product -> economicTerms -> payout
+        as CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms -> deliverableObligations
+        -> notSubordinated exists and product -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms
+        -> physicalSettlementTerms -> deliverableObligations -> specifiedCurrency exists and product ->
+        economicTerms -> payout as CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms ->
+        deliverableObligations -> notSovereignLender exists and product -> economicTerms -> payout as
+        CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms -> deliverableObligations ->
+        notDomesticCurrency exists and product -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms
+        -> physicalSettlementTerms -> deliverableObligations -> notDomesticLaw exists and product -> economicTerms
+        -> payout as CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms -> deliverableObligations
+        -> notContingent exists and product -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms
+        -> physicalSettlementTerms -> deliverableObligations -> notDomesticIssuance exists and product
+        -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms
+        -> deliverableObligations -> assignableLoan exists and product -> economicTerms -> payout as CreditDefaultPayout
+        -> settlementTerms -> physicalSettlementTerms -> deliverableObligations -> consentRequiredLoan
+        exists and product -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms
+        -> deliverableObligations -> transferable exists and product -> economicTerms -> payout as CreditDefaultPayout
+        -> settlementTerms -> physicalSettlementTerms -> deliverableObligations -> maximumMaturity exists
+        and product -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms
+        -> deliverableObligations -> notBearer exists) and (product -> economicTerms -> payout as CreditDefaultPayout
+        -> settlementTerms -> physicalSettlementTerms -> deliverableObligations -> fullFaithAndCreditObLiability
+        exists or product -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms
+        -> deliverableObligations -> generalFundObligationLiability exists or product -> economicTerms
+        -> payout as CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms -> deliverableObligations
+        -> revenueObligationLiability exists)'
+      - 'Rosetta condition ObligationsPhysicalSettlementMatrix is not stated in LinkML: if (contractDetails
+        -> documentation -> legalAgreementIdentification -> agreementName -> contractualMatrix -> matrixType
+        all <> MatrixTypeEnum -> CreditDerivativesPhysicalSettlementMatrix or contractDetails -> documentation
+        -> legalAgreementIdentification -> agreementName -> contractualMatrix -> matrixType is absent)
+        and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> obligations
+        exists then (product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> obligations
+        -> notSubordinated exists and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms
+        -> obligations -> notSovereignLender exists and product -> economicTerms -> payout as CreditDefaultPayout
+        -> protectionTerms -> obligations -> notDomesticLaw exists and product -> economicTerms -> payout
+        as CreditDefaultPayout -> protectionTerms -> obligations -> notDomesticIssuance exists) and (product
+        -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> obligations -> fullFaithAndCreditObLiability
+        exists or product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> obligations
+        -> generalFundObligationLiability exists or product -> economicTerms -> payout as CreditDefaultPayout
+        -> protectionTerms -> obligations -> revenueObligationLiability exists)'
+      - 'Rosetta condition CreditEventsPhysicalSettlementMatrix is not stated in LinkML: if (contractDetails
+        -> documentation -> legalAgreementIdentification -> agreementName -> contractualMatrix -> matrixType
+        all <> MatrixTypeEnum -> CreditDerivativesPhysicalSettlementMatrix or contractDetails -> documentation
+        -> legalAgreementIdentification -> agreementName -> contractualMatrix -> matrixType is absent)
+        and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> creditEvents
+        exists then (product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> creditEvents
+        -> bankruptcy exists and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms
+        -> creditEvents -> obligationDefault exists and product -> economicTerms -> payout as CreditDefaultPayout
+        -> protectionTerms -> creditEvents -> obligationAcceleration exists and product -> economicTerms
+        -> payout as CreditDefaultPayout -> protectionTerms -> creditEvents -> repudiationMoratorium exists
+        and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> creditEvents
+        -> governmentalIntervention exists)'
+      - 'Rosetta condition RestructuringPhysicalSettlementMatrix is not stated in LinkML: if (contractDetails
+        -> documentation -> legalAgreementIdentification -> agreementName -> contractualMatrix -> matrixType
+        all <> MatrixTypeEnum -> CreditDerivativesPhysicalSettlementMatrix or contractDetails -> documentation
+        -> legalAgreementIdentification -> agreementName -> contractualMatrix -> matrixType is absent)
+        and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> creditEvents
+        -> restructuring exists then product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms
+        -> creditEvents -> restructuring -> multipleHolderObligation exists'
+      - 'Rosetta condition AdditionalFixedPaymentsMortgages is not stated in LinkML: if ((product -> economicTerms
+        -> payout as CreditDefaultPayout -> generalTerms -> referenceInformation -> referenceObligation
+        -> security -> securityType any = Debt and product -> economicTerms -> payout as CreditDefaultPayout
+        -> generalTerms -> referenceInformation -> referenceObligation -> security -> debtType -> debtEconomics
+        -> secured -> securedType any = AssetBacked) or contractDetails -> documentation -> legalAgreementIdentification
+        -> agreementName -> contractualTermsSupplement -> contractualTermsSupplementType contains ContractualSupplementTypeEnum
+        -> CDSonMBS) and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms
+        -> floatingAmountEvents exists then (product -> economicTerms -> payout as CreditDefaultPayout
+        -> protectionTerms -> floatingAmountEvents -> additionalFixedPayments -> interestShortfallReimbursement
+        exists and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> floatingAmountEvents
+        -> additionalFixedPayments -> principalShortfallReimbursement exists and product -> economicTerms
+        -> payout as CreditDefaultPayout -> protectionTerms -> floatingAmountEvents -> additionalFixedPayments
+        -> writedownReimbursement exists)'
+      - 'Rosetta condition FloatingAmountEventsMortgages is not stated in LinkML: if ((product -> economicTerms
+        -> payout as CreditDefaultPayout -> generalTerms -> referenceInformation -> referenceObligation
+        -> security -> securityType any = Debt and product -> economicTerms -> payout as CreditDefaultPayout
+        -> generalTerms -> referenceInformation -> referenceObligation -> security -> debtType -> debtEconomics
+        -> secured -> securedType any = AssetBacked) or contractDetails -> documentation -> legalAgreementIdentification
+        -> agreementName -> contractualTermsSupplement -> contractualTermsSupplementType contains ContractualSupplementTypeEnum
+        -> CDSonMBS) and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms
+        -> floatingAmountEvents exists then (product -> economicTerms -> payout as CreditDefaultPayout
+        -> protectionTerms -> floatingAmountEvents -> failureToPayPrincipal exists and product -> economicTerms
+        -> payout as CreditDefaultPayout -> protectionTerms -> floatingAmountEvents -> writedown exists
+        and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> floatingAmountEvents
+        -> impliedWritedown exists)'
+      - 'Rosetta condition CreditEventsMortgages is not stated in LinkML: if ((product -> economicTerms
+        -> payout as CreditDefaultPayout -> generalTerms -> referenceInformation -> referenceObligation
+        -> security -> securityType any = Debt and product -> economicTerms -> payout as CreditDefaultPayout
+        -> generalTerms -> referenceInformation -> referenceObligation -> security -> debtType -> debtEconomics
+        -> secured -> securedType any = AssetBacked) or contractDetails -> documentation -> legalAgreementIdentification
+        -> agreementName -> contractualTermsSupplement -> contractualTermsSupplementType contains ContractualSupplementTypeEnum
+        -> CDSonMBS) and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms
+        -> creditEvents exists then (product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms
+        -> creditEvents -> failureToPayPrincipal exists and product -> economicTerms -> payout as CreditDefaultPayout
+        -> protectionTerms -> creditEvents -> failureToPayInterest exists and product -> economicTerms
+        -> payout as CreditDefaultPayout -> protectionTerms -> creditEvents -> distressedRatingsDowngrade
+        exists and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> creditEvents
+        -> maturityExtension exists and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms
+        -> creditEvents -> writedown exists and product -> economicTerms -> payout as CreditDefaultPayout
+        -> protectionTerms -> creditEvents -> impliedWritedown exists)'
+      - 'Rosetta condition HedgingParty is not stated in LinkML: if partyRole -> role contains PartyRoleEnum
+        -> HedgingParty then FilterPartyRole (partyRole, PartyRoleEnum -> HedgingParty) count <= 2'
+      - 'Rosetta condition DeterminingParty is not stated in LinkML: if partyRole -> role contains PartyRoleEnum
+        -> DeterminingParty then FilterPartyRole (partyRole, PartyRoleEnum -> DeterminingParty) count
+        <= 2'
+      - 'Rosetta condition BarrierDerterminationAgent is not stated in LinkML: if partyRole -> role contains
+        PartyRoleEnum -> BarrierDeterminationAgent then FilterPartyRole (partyRole, PartyRoleEnum -> BarrierDeterminationAgent)
+        count <= 1'
+      - 'Rosetta condition FpML_cd_1 is not stated in LinkML: if product -> economicTerms -> payout as
+        CreditDefaultPayout -> generalTerms -> referenceInformation exists then tradeDate < product ->
+        economicTerms -> effectiveDate -> adjustableDate -> unadjustedDate or tradeDate < product -> economicTerms
+        -> effectiveDate -> adjustableDate -> adjustedDate'
+      - 'Rosetta condition FpML_cd_7 is not stated in LinkML: if contractDetails -> documentation -> legalAgreementIdentification
+        -> agreementName -> masterConfirmationType is absent and contractDetails -> documentation -> legalAgreementIdentification
+        -> agreementName -> contractualMatrix is absent and product -> economicTerms -> payout as CreditDefaultPayout
+        -> generalTerms -> referenceInformation exists then product -> economicTerms -> payout as InterestRatePayout
+        -> calculationPeriodDates -> effectiveDate -> adjustableDate -> dateAdjustments exists or tradeDate
+        < product -> economicTerms -> effectiveDate -> adjustableDate -> adjustedDate'
+      - 'Rosetta condition FpML_cd_8 is not stated in LinkML: if contractDetails -> documentation -> legalAgreementIdentification
+        -> agreementName -> masterConfirmationType is absent and contractDetails -> documentation -> legalAgreementIdentification
+        -> agreementName -> contractualMatrix is absent and product -> economicTerms -> payout as CreditDefaultPayout
+        -> generalTerms -> referenceInformation exists then product -> economicTerms -> terminationDate
+        -> adjustableDate -> dateAdjustments exists'
+      - 'Rosetta condition FpML_cd_11 is not stated in LinkML: if contractDetails -> documentation ->
+        legalAgreementIdentification -> agreementName -> masterConfirmationType is absent and contractDetails
+        -> documentation -> legalAgreementIdentification -> agreementName -> contractualMatrix is absent
+        and product -> economicTerms -> payout as CreditDefaultPayout -> generalTerms -> referenceInformation
+        exists and contractDetails -> documentation -> legalAgreementIdentification -> agreementName ->
+        contractualDefinitionsType any = ContractualDefinitionsEnum -> ISDA2003CreditDerivatives then
+        product -> economicTerms -> payout as CreditDefaultPayout -> generalTerms -> referenceInformation
+        -> allGuarantees exists'
+      - 'Rosetta condition FpML_cd_19 is not stated in LinkML: if contractDetails -> documentation ->
+        legalAgreementIdentification -> agreementName -> contractualDefinitionsType any = ContractualDefinitionsEnum
+        -> ISDA1999CreditDerivatives then product -> economicTerms -> payout as CreditDefaultPayout ->
+        protectionTerms -> creditEvents -> creditEventNotice -> businessCenter is absent and product ->
+        economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> creditEvents -> restructuring
+        -> multipleHolderObligation is absent and product -> economicTerms -> payout as CreditDefaultPayout
+        -> protectionTerms -> creditEvents -> restructuring -> multipleCreditEventNotices is absent and
+        product -> economicTerms -> payout as CreditDefaultPayout -> generalTerms -> referenceInformation
+        -> allGuarantees is absent and product -> economicTerms -> payout as CreditDefaultPayout -> generalTerms
+        -> indexReferenceInformation is absent and product -> economicTerms -> payout as CreditDefaultPayout
+        -> generalTerms -> substitution is absent and product -> economicTerms -> payout as CreditDefaultPayout
+        -> generalTerms -> modifiedEquityDelivery is absent'
+      - 'Rosetta condition FpML_cd_20 is not stated in LinkML: if contractDetails -> documentation ->
+        legalAgreementIdentification -> agreementName -> contractualDefinitionsType any = ContractualDefinitionsEnum
+        -> ISDA2003CreditDerivatives then product -> economicTerms -> payout as CreditDefaultPayout ->
+        protectionTerms -> obligations -> notContingent is absent'
+      - 'Rosetta condition FpML_cd_23 is not stated in LinkML: if contractDetails -> documentation ->
+        legalAgreementIdentification -> agreementName -> masterConfirmationType is absent and contractDetails
+        -> documentation -> legalAgreementIdentification -> agreementName -> contractualMatrix is absent
+        and product -> economicTerms -> payout as CreditDefaultPayout -> generalTerms -> referenceInformation
+        exists then product -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms -> cashSettlementTerms
+        exists or product -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms
+        exists'
+      - 'Rosetta condition FpML_cd_24 is not stated in LinkML: if contractDetails -> documentation ->
+        legalAgreementIdentification -> agreementName -> masterConfirmationType is absent and contractDetails
+        -> documentation -> legalAgreementIdentification -> agreementName -> contractualMatrix is absent
+        and product -> economicTerms -> payout as CreditDefaultPayout -> generalTerms -> referenceInformation
+        exists then product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms -> creditEvents
+        -> creditEventNotice exists and product -> economicTerms -> payout as CreditDefaultPayout -> protectionTerms
+        -> obligations exists and product -> economicTerms -> payout as CreditDefaultPayout -> generalTerms
+        -> referenceInformation -> referencePrice exists'
+      - 'Rosetta condition FpML_cd_25 is not stated in LinkML: if contractDetails -> documentation ->
+        legalAgreementIdentification -> agreementName -> masterConfirmationType is absent and contractDetails
+        -> documentation -> legalAgreementIdentification -> agreementName -> contractualMatrix is absent
+        and product -> economicTerms -> payout as CreditDefaultPayout -> generalTerms -> referenceInformation
+        exists and product -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms
+        exists then product -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms -> settlementCurrency
+        exists and product -> economicTerms -> payout as CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms
+        -> physicalSettlementPeriod exists and product -> economicTerms -> payout as CreditDefaultPayout
+        -> settlementTerms -> physicalSettlementTerms -> escrow exists and product -> economicTerms ->
+        payout as CreditDefaultPayout -> settlementTerms -> physicalSettlementTerms -> deliverableObligations
+        -> accruedInterest exists'
+      - 'Rosetta condition FpML_cd_32 is not stated in LinkML: if contractDetails -> documentation ->
+        legalAgreementIdentification -> agreementName -> masterConfirmationType is absent and contractDetails
+        -> documentation -> legalAgreementIdentification -> agreementName -> contractualMatrix is absent
+        and product -> economicTerms -> payout as CreditDefaultPayout -> generalTerms -> referenceInformation
+        exists and product -> economicTerms -> payout as InterestRatePayout -> priceQuantity exists and
+        tradeLot -> priceQuantity -> quantity -> value exists then product -> economicTerms -> payout
+        as InterestRatePayout -> dayCountFraction exists'
+      - 'Rosetta condition ExtraordinaryEvents is not stated in LinkML: if contractDetails -> documentation
+        -> agreementTerms -> agreement -> transactionAdditionalTerms -> equityAdditionalTerms -> extraordinaryEvents
+        exists then (product -> economicTerms -> payout as PerformancePayout -> returnTerms -> priceReturnTerms
+        exists or product -> economicTerms -> payout as OptionPayout exists) and Qualify_AssetClass_Equity
+        (product -> economicTerms)'
+      - 'Rosetta condition DisruptionEventsDeterminingParty is not stated in LinkML: if contractDetails
+        -> documentation -> agreementTerms -> agreement -> transactionAdditionalTerms -> equityAdditionalTerms
+        -> extraordinaryEvents -> additionalDisruptionEvents -> determiningParty exists then ancillaryParty
+        -> role contains AncillaryRoleEnum -> DisruptionEventsDeterminingParty and if ancillaryParty ->
+        role contains AncillaryRoleEnum -> DisruptionEventsDeterminingParty then contractDetails -> documentation
+        -> agreementTerms -> agreement -> transactionAdditionalTerms -> equityAdditionalTerms -> extraordinaryEvents
+        -> additionalDisruptionEvents -> determiningParty exists'
+  TradeIdentifier:
+    is_a: Identifier
+    description: Defines a trade identifier as a special case of the generic identifier type, that also
+      includes the trade identifier class.
+    attributes:
+      identifierType:
+        description: The enumerated classification of the identifier. Optional as a trade identifier may
+          be party-specific, in which case it may not correspond to any established classification.
+        range: TradeIdentifierTypeEnum
+    all_of:
+      - description: 'From Identifier. IssuerChoice: The identifier issuer is specified either explicitly
+          or by reference to one of the parties.'
+        exactly_one_of:
+          - slot_conditions:
+              issuerReference:
+                value_presence: PRESENT
+          - slot_conditions:
+              issuer:
+                value_presence: PRESENT
+  TradePricingReport:
+    description: The attributes that are specific for consensus based pricing reporting.
+    attributes:
+      trade:
+        description: Represents the cosensus based pricing parameters on a trade basis.
+        range: Trade
+        required: true
+      pricingTime:
+        description: The regional exchange close time for the underlying contract,including time zone,
+          at which the trades should be priced. This provides an indication for which regional snapshot
+          should be used for pricing primarily for Global markets where there are multiple regional close
+          times.
+        range: TimeZone
+        required: true
+      discountingIndex:
+        description: It specifies the interest payable on collateral delivered under a CSA covering the
+          trade.
+        range: FloatingRateIndexEnum
+  TradeState:
+    description: Defines the fundamental financial information that can be changed by a Primitive Event
+      and by extension any business or life-cycle event. Each TradeState specifies where a Trade is in
+      its life-cycle. TradeState is a root type and as such, can be created independently to any other
+      CDM data type, but can also be used as part of the CDM Event Model.
+    attributes:
+      trade:
+        description: Represents the Trade that has been effected by a business or life-cycle event.
+        range: Trade
+        required: true
+      state:
+        description: Represents the State of the Trade through its life-cycle.
+        range: State
+      resetHistory:
+        description: Represents the updated Trade attributes which can change as the result of a reset
+          event. Only the changed values are captured, leaving the remaining data attributes empty. See
+          Create_Reset function for further details on how TradeState is used in the Reset event. The
+          TradeState data type is used to maintain backwards compatibility with the current Reset mechanism.
+        range: Reset
+        multivalued: true
+      transferHistory:
+        description: Represents the updated Trade attributes which can change as the result of a transfer
+          event.
+        range: TransferState
+        multivalued: true
+      observationHistory:
+        description: Represents the observed events related to a particular product or process, such as
+          credit events or corporate actions.
+        range: ObservationEvent
+        multivalued: true
+      valuationHistory:
+        range: Valuation
+        multivalued: true
+    annotations:
+      rosetta_root_type: 'true'
+      rosetta_metadata: key
+  Transfer:
+    description: The type of transfer.
+    attributes:
+      ScheduledTransfer:
+        description: A transfer created from a scheduled event on a contract, e.g. Coupon, Dividend Return,
+          Fixed Rate Return
+        range: ScheduledTransfer
+      UnscheduledTransfer:
+        description: An ad-hoc transfer instigated by a party to the contract e.g. Recall, Return.
+        range: UnscheduledTransfer
+      ContingentTransfer:
+        description: A transfer created from a contingent event on a contract, e.g. Corporate Action,
+          Credit Event or Exercise
+        range: ContingentTransfer
+    all_of:
+      - description: 'OneOf: A choice type holds exactly one of its options.'
+        exactly_one_of:
+          - slot_conditions:
+              ScheduledTransfer:
+                value_presence: PRESENT
+          - slot_conditions:
+              UnscheduledTransfer:
+                value_presence: PRESENT
+          - slot_conditions:
+              ContingentTransfer:
+                value_presence: PRESENT
+    annotations:
+      rosetta_choice: 'true'
+  TransferBase:
+    description: Defines the transfer of an Asset (eg cash, securities or commodities) between two parties
+      on a date.
+    attributes:
+      identifier:
+        description: Represents a unique reference to the transfer.
+        range: Identifier
+        multivalued: true
+        annotations:
+          rosetta_metadata: scheme
+      quantity:
+        description: Represents the amount of the asset to be transferred. The cashflow amount is always
+          a positive number, as the cashflow direction is implied by the payer/receiver attribute.
+        range: NonNegativeQuantity
+        required: true
+      asset:
+        description: Represents the object that is subject to the transfer, it could be an asset or a
+          reference.
+        range: Asset
+        required: true
+      settlementDate:
+        description: Represents the date on which the transfer to due.
+        range: AdjustableOrAdjustedOrRelativeDate
+        required: true
+      paymentDiscounting:
+        description: FpML specifies the FpML PaymentDiscounting.model group for representing the discounting
+          elements that can be associated with a payment.
+        range: PaymentDiscounting
+      partyReferencePayerReceiver:
+        description: Represents the resolved parties to the transfer and their role.
+        range: PartyReferencePayerReceiver
+    comments:
+      - 'Rosetta condition QuantityUnitExists is not stated in LinkML: if asset as Cash exists then quantity
+        -> unit -> currency exists else if asset as Commodity exists then quantity -> unit -> capacityUnit
+        exists else if asset as Instrument exists then quantity -> unit -> financialUnit exists'
+  TransferInstruction:
+    description: Defines the payout on which to create a Transfer along with all necessary resets.
+    attributes:
+      transferState:
+        description: Specifies the terms and state of a transfers.
+        range: TransferState
+        multivalued: true
+  TransferState:
+    description: Defines the fundamental financial information associated with a Transfer event. Each
+      TransferState specifies where a Transfer is in its life-cycle. TransferState is a root type and
+      as such, can be created independently to any other CDM data type, but can also be used as part of
+      the CDM Event Model.
+    attributes:
+      transfer:
+        description: Represents the Transfer that has been effected by a business or life-cycle event.
+        range: Transfer
+        required: true
+      transferStatus:
+        description: Represents the State of the Transfer through its life-cycle.
+        range: TransferStatusEnum
+    annotations:
+      rosetta_root_type: 'true'
+      rosetta_metadata: key
+  UnscheduledTransfer:
+    is_a: TransferBase
+    description: An ad-hoc transfer instigated by a party to the contract. Extends TransferBase rather
+      than PayoutTransferBase because an Unscheduled Transfer is not derived from a Payout's terms - it
+      is initiated by a party against a known counterparty, so it will always have a resolved payer/receiver.
+    attributes:
+      transferType:
+        description: Specifies the type of unscheduled transfer.
+        range: UnscheduledTransferEnum
+    all_of:
+      - description: 'PartyReferencePayerReceiverExists: An Unscheduled Transfer must specify the resolved
+          payer and receiver parties to the transfer.'
+        slot_conditions:
+          partyReferencePayerReceiver:
+            value_presence: PRESENT
+  Valuation:
+    description: Defines the value of an investment, asset, or security
+    attributes:
+      amount:
+        description: Current value of the outstanding contract
+        range: Money
+        required: true
+      timestamp:
+        description: Date and time of the last valuation marked to market, provided by the central counterparty
+          (CCP) or calculated using the current or last available market price of the inputs.
+        range: datetime
+        required: true
+      method:
+        description: Method used for the valuation of the transaction by the valuation party.
+        range: ValuationTypeEnum
+      source:
+        description: Source of the valuation of the transaction by the valuation party.
+        range: ValuationSourceEnum
+      scope:
+        description: Defines the scope of the valuation, what it applies to e.g. the collateral or the
+          trade
+        range: ValuationScopeEnum
+        required: true
+      delta:
+        description: The ratio of the change in the price of a derivative transaction to the change in
+          the price of the underlying. This field is applicable only to options and swaptions.
+        range: decimal
+      valuationTiming:
+        description: Denotes when the valuation was sourced during a business day.
+        range: PriceTimingEnum
+      priceComponent:
+        description: Denotes the price used to compute the valuation.
+        range: Price
+    all_of:
+      - description: 'ValuationType: The below condition ensures one and only one of the two attributes:
+          ''Valuation Method'' or ''Valuation Source'' is allowed. Valuation of a trade or a portfolio
+          is either internally calculated (via M2Market or M2Model methods) or supplied from an external
+          source (e.g Central Counterparty''s Valuation). Valuation cannot be based upon internal calculations
+          and external source at the same time.'
+        exactly_one_of:
+          - slot_conditions:
+              method:
+                value_presence: PRESENT
+          - slot_conditions:
+              source:
+                value_presence: PRESENT
+  ValuationInstruction:
+    description: Specifies inputs needed to process a valuation.
+    attributes:
+      valuation:
+        description: Contains all information related to a valuation.
+        range: Valuation
+        required: true
+        multivalued: true
+      replace:
+        description: Specifies whether the previous valuation tracks in the valuation history are removed
+          (True) or kept (False).
+        range: boolean
+        required: true

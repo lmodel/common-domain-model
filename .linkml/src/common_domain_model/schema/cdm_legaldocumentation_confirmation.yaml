@@ -1,0 +1,263 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_confirmation
+name: cdm_legaldocumentation_confirmation
+title: CDM cdm.legaldocumentation.confirmation
+description: The CDM's cdm.legaldocumentation.confirmation namespace.
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_observable_asset
+  - ./cdm_product_asset
+  - ./cdm_product_common_schedule
+  - ./cdm_product_common_settlement
+enums:
+  BrokerConfirmationTypeEnum:
+    description: The enumerated values to specify the type of Broker Confirm that the FpML trade represents.
+    permissible_values:
+      ABX:
+        description: Broker Confirmation Type representing ABX index trades.
+      AsiaCorporate:
+        description: Broker Confirmation Type of Asia Corporate.
+      AsiaSovereign:
+        description: Broker Confirmation Type of Asia Sovereign.
+      AustraliaCorporate:
+        description: Broker Confirmation Type of Australia Corporate.
+      AustraliaSovereign:
+        description: Broker Confirmation Type of Australia Sovereign.
+      CDSonLeveragedLoans:
+        description: Broker Confirmation Type for use with Credit Derivative Transactions on Leveraged
+          Loans.
+      CDSonMBS:
+        description: Broker Confirmation Type for use with Credit Derivative Transactions on Mortgage-backed
+          Security with Pay-As-You-Go or Physical Settlement.
+      CDXEmergingMarkets:
+        description: Broker Confirmation Type for CDX Emerging Markets Untranched Transactions.
+      CDXEmergingMarketsDiversified:
+        description: Broker Confirmation Type for CDX Emerging Markets Diversified Untranched Transactions.
+      CDXSwaption:
+        description: Broker Confirmation Type for CDX Swaption Transactions.
+      CDXTranche:
+        description: Broker Confirmation Type for Dow Jones CDX Tranche Transactions.
+      CMBX:
+        description: Broker Confirmation Type representing CMBX index trades.
+      'DJ.CDX.EM ':
+        description: Broker Confirmation Type for CDS Index trades relating to Dow Jones CDX.EM index
+          series.
+        aliases:
+          - DJ_CDX_EM_
+      DJ.CDX.NA:
+        description: Broker Confirmation Type for CDS Index trades relating to Dow Jones CDX.NA.IG and
+          Dow Jones CDX.NA.HY index series.
+        aliases:
+          - DJ_CDX_NA
+      EmergingEuropeanAndMiddleEasternSovereign:
+        description: Broker Confirmation Type of Emerging European and Middle Eastern Sovereign.
+      EmergingEuropeanCorporate:
+        description: Broker Confirmation Type for EMERGING EUROPEAN CORPORATE.
+      EmergingEuropeanCorporateLPN:
+        description: Broker Confirmation Type for EMERGING EUROPEAN CORPORATE LPN.
+      EuropeanCMBS:
+        description: Broker Confirmation Type for Single Name European CMBS Transactions.
+      EuropeanCorporate:
+        description: Broker Confirmation Type of European Corporate.
+      EuropeanRMBS:
+        description: Broker Confirmation Type for Single Name European RMBS Transactions.
+      JapanCorporate:
+        description: Broker Confirmation Type of Japan Corporate.
+      JapanSovereign:
+        description: Broker Confirmation Type of Japan Sovereign.
+      LatinAmericaCorporate:
+        description: Broker Confirmation Type of Latin America Corporate.
+      LatinAmericaCorporateBond:
+        description: Broker Confirmation Type for LATIN AMERICA CORPORATE B.
+      LatinAmericaCorporateBondOrLoan:
+        description: Broker Confirmation Type for LATIN AMERICA CORPORATE BL.
+      LatinAmericaSovereign:
+        description: Broker Confirmation Type of Latin America Sovereign.
+      MBX:
+        description: Broker Confirmation Type for MBX Transactions.
+      MCDX:
+        description: Broker Confirmation Type for Municipal CDX Untranched Transactions.
+      NewZealandCorporate:
+        description: Broker Confirmation Type of New Zealand Corporate.
+      NewZealandSovereign:
+        description: Broker Confirmation Type of New Zealand Sovereign.
+      NorthAmericanCorporate:
+        description: Broker ConfirmationType of North American Corporate.
+      PO:
+        description: Broker Confirmation Type for PO Index Transactions.
+      SingaporeCorporate:
+        description: Broker Confirmation Type of Singapore Corporate.
+      SingaporeSovereign:
+        description: Broker Confirmation Type of Singapore Sovereign.
+      StandardAsiaCorporate:
+        description: Broker Confirmation Type of STANDARD ASIA CORPORATE.
+      StandardAsiaSovereign:
+        description: Broker Confirmation Type of STANDARD ASIA SOVEREIGN.
+      StandardAustraliaCorporate:
+        description: Broker Confirmation Type of STANDARD AUSTRALIA CORPORATE.
+      StandardAustraliaSovereign:
+        description: Broker Confirmation Type of STANDARD AUSTRALIA SOVEREIGN.
+      StandardCDXTranche:
+        description: Broker Confirmation Type for Standard CDX Tranche Transactions.
+      StandardEmergingEuropeanAndMiddleEasternSovereign:
+        description: Broker Confirmation Type of STANDARD EMERGING EUROPEAN AND MIDDLE EASTERN SOVEREIGN.
+      StandardEmergingEuropeanCorporate:
+        description: Broker Confirmation Type of STANDARD EMERGING EUROPEAN CORPORATE.
+      StandardEmergingEuropeanCorporateLPN:
+        description: Broker Confirmation Type of STANDARD EMERGING EUROPEAN CORPORATE LPN.
+      StandardEuropeanCorporate:
+        description: Broker Confirmation Type for STANDARD EUROPEAN CORPORATE.
+      StandardJapanCorporate:
+        description: Broker Confirmation Type of STANDARD JAPAN CORPORATE.
+      StandardJapanSovereign:
+        description: Broker Confirmation Type of STANDARD JAPAN SOVEREIGN.
+      StandardLCDS:
+        description: Standard Syndicated Secured Loan Credit Default Swap Broker Confirmation Type.
+      StandardLCDSBullet:
+        description: Broker Confirmation Type for Standard Syndicated Secured Loan Credit Default Swap
+          Bullet Transactions.
+      StandardLCDXBullet:
+        description: Broker Confirmation Type for Standard Syndicated Secured Loan Credit Default Swap
+          Index Bullet Transactions.
+      StandardLCDXBulletTranche:
+        description: Broker Confirmation Type for Standard Syndicated Secured Loan Credit Default Swap
+          Index Bullet Tranche Transactions.
+      StandardLatinAmericaCorporateBond:
+        description: Broker Confirmation Type of STANDARD LATIN AMERICA CORPORATE B.
+      StandardLatinAmericaCorporateBondOrLoan:
+        description: Broker Confirmation Type of STANDARD LATIN AMERICA CORPORATE BL.
+      StandardLatinAmericaSovereign:
+        description: Broker Confirmation Type of STANDARD LATIN AMERICA SOVEREIGN.
+      StandardNewZealandCorporate:
+        description: Broker Confirmation Type of STANDARD NEW ZEALAND CORPORATE.
+      StandardNewZealandSovereign:
+        description: Broker Confirmation Type of STANDARD NEW ZEALAND SOVEREIGN.
+      StandardNorthAmericanCorporate:
+        description: Broker Confirmation Type for STANDARD NORTH AMERICAN CORPORATE.
+      StandardSingaporeCorporate:
+        description: Broker Confirmation Type of STANDARD SINGAPORE CORPORATE.
+      StandardSingaporeSovereign:
+        description: Broker Confirmation Type of STANDARD SINGAPORE SOVEREIGN.
+      StandardSubordinatedEuropeanInsuranceCorporate:
+        description: Broker Confirmation Type for STANDARD SUBORDINATED EUROPEAN INSURANCE CORPORATE.
+      StandardWesternEuropeanSovereign:
+        description: Broker Confirmation Type for STANDARD WESTERN EUROPEAN SOVEREIGN.
+      StandardiTraxxEuropeTranche:
+        description: Broker Confirmation Type for Standard iTraxx Europe Tranched Transactions.
+      SubordinatedEuropeanInsuranceCorporate:
+        description: Broker Confirmation Type of Subordinated European Insurance Corporate.
+      SukukCorporate:
+        description: Broker Confirmation Type of SUKUK CORPORATE.
+      SukukSovereign:
+        description: Broker Confirmation Type of SUKUK SOVEREIGN.
+      SyndicatedSecuredLoanCDS:
+        description: Syndicated Secured Loan Credit Default Swap Broker Confirmation Type.
+      TRX:
+        description: Broker Confirmation Type for TRX Transactions.
+      TRX.II:
+        description: Broker Confirmation Type for TRX.II Transactions.
+        aliases:
+          - TRX_II
+      USMunicipalFullFaithAndCredit:
+        description: Broker Confirmation Type for U.S. MUNICIPAL FULL FAITH AND CREDIT.
+      USMunicipalGeneralFund:
+        description: Broker Confirmation Type for U.S. MUNICIPAL GENERAL FUND.
+      USMunicipalRevenue:
+        description: Broker Confirmation Type for U.S. MUNICIPAL REVENUE.
+      WesternEuropeanSovereign:
+        description: Broker Confirmation Type of Western European Sovereign.
+      iTraxxAsiaExJapan:
+        description: Broker Confirmation Type for iTraxx Asia Excluding Japan.
+      iTraxxAsiaExJapanSwaption:
+        description: Broker Confirmation Type for iTraxx Asia Ex-Japan Swaption Transactions.
+      iTraxxAsiaExJapanTranche:
+        description: Broker Confirmation Type for iTraxx Asia Excluding Japan Tranched Transactions.
+      iTraxxAustralia:
+        description: Broker Confirmation Type for iTraxx Australia.
+      iTraxxAustraliaSwaption:
+        description: Broker Confirmation Type for iTraxx Australia Swaption Transactions.
+      iTraxxAustraliaTranche:
+        description: Broker Confirmation Type for iTraxx Australia Tranched Transactions.
+      iTraxxCJ:
+        description: Broker Confirmation Type for iTraxx CJ.
+      iTraxxCJTranche:
+        description: Broker Confirmation Type for iTraxx CJ Tranched Transactions.
+      iTraxxEurope:
+        description: Broker Confirmation Type for iTraxx Europe Transactions
+      iTraxxEuropeSwaption:
+        description: Broker Confirmation Type for iTraxx Europe Swaption Transactions.
+      iTraxxEuropeTranche:
+        description: Broker Confirmation Type for iTraxx Europe Tranched Transactions.
+      iTraxxJapan:
+        description: Broker Confirmation Type for iTraxx Japan.
+      iTraxxJapanSwaption:
+        description: Broker Confirmation Type for iTraxx Japan Swaption Transactions.
+      iTraxxJapanTranche:
+        description: Broker Confirmation Type for iTraxx Japan Tranched Transactions.
+      iTraxxLevX:
+        description: Broker Confirmation Type for iTraxx LevX.
+      iTraxxSDI75:
+        description: Broker Confirmation Type for iTraxx SDI 75 Transactions.
+      iTraxxSovX:
+        description: Broker Confirmation Type for iTraxx SovX.
+classes:
+  BrokerConfirmation:
+    description: Identifies the market sector in which the trade has been arranged.
+    attributes:
+      brokerConfirmationType:
+        description: The type of broker confirmation executed between the parties.
+        range: BrokerConfirmationTypeEnum
+        required: true
+        deprecated: Marked [deprecated] in the CDM.
+        annotations:
+          rosetta_metadata: scheme
+  EquityMasterConfirmation:
+    is_a: MasterConfirmationBase
+    description: Specification for General Terms and Elections of an Equity Master Confirmation that is
+      applicable across multiple Equity confirmations and is referenced by each of these confirmations,
+      an example of which being the 2018 ISDA CDM Equity Confirmation for Security Equity Swap.
+  EquitySwapMasterConfirmation2018:
+    is_a: EquityMasterConfirmation
+    description: Specification for the General Terms and Relationship Supplement Elections as provided
+      in the 2018 ISDA CDM Equity Confirmation for Security Equity Swap.
+    attributes:
+      typeOfSwapElection:
+        description: Per Part 1 Section 4, 'Dividend Obligations', of the 2018 ISDA CDM Equity Confirmation,
+          Para 4.2 'Dividend Returns'.
+        range: ReturnTypeEnum
+        required: true
+      pricingMethodElection:
+        description: Per Part 1 Section 5, 'Pricing', of the 2018 ISDA CDM Equity Confirmation, Para 5.1.
+        range: PriceReturnTerms
+        required: true
+      linearInterpolationElection:
+        description: Per Part 1 Section 3, 'Floating Obligations', of the 2018 ISDA CDM Equity Confirmation.
+          Para 3.3.
+        range: InterpolationMethodEnum
+        required: true
+      settlementTerms:
+        description: Per Part 1 Section 8, 'Settlement', of the 2018 ISDA CDM Equity Confirmation for
+          Security Equity Swap.
+        range: SettlementTerms
+        required: true
+      valuationDates:
+        description: The parameters used to generate the 'Equity Valuation Dates' schedule, including
+          the Effective Date and Termination Date for the Swap.
+        range: ValuationDates
+        required: true
+      equityCashSettlementDates:
+        description: The parameters used to generate the payment date schedule, relative to the equityCalculationPeriod.
+          Per Part 1 Section 12, 'Definitions', of the 2018 ISDA CDM Equity Confirmation. Para 73.
+        range: PaymentDates
+        required: true
+  MasterConfirmationBase:
+    description: Legal agreement specification for General Terms and Elections that are applicable across
+      multiple confirmations and are referenced by these confirmations.

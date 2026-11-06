@@ -1,0 +1,518 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_event_workflow
+name: cdm_event_workflow
+title: CDM cdm.event.workflow
+description: 'Workflow concepts (orthogonal to business event): time stamp, credit limit, trade warehouse
+  info and associated function specifications.'
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_staticdata_identifier
+  - ./cdm_base_staticdata_party
+  - ./cdm_event_common
+enums:
+  CreditLimitTypeEnum:
+    description: The enumeration values to qualify the type of credit limits.
+    permissible_values:
+      CS01:
+        description: The type of credit line expressed in CS01. The sensitivity with respect to changes
+          in the CDS spread.
+      DV01:
+        description: The type of credit line expressed in DV01. The dollar value of a one basis point
+          decrease in interest rates. It shows the change in a bond's price compared to a decrease in
+          the bond's yield.
+      IM:
+        description: The type of credit line expressed in Initial Margin value.
+      Notional:
+        description: The type of credit line expressed in Notional amount.
+      NPV:
+        description: The type of credit line expressed as a Net Present Value.
+      PV01:
+        description: The type of credit line expressed in PV01. The value of a one dollar or one basis
+          point annuity.
+  EventTimestampQualificationEnum:
+    description: The enumeration values to qualify the timestamps that can be associated with a lifecycle
+      event. The reason for such approach is that the experience of integrating the DTCC and CME data
+      representations suggests that a wide set of timestamps are currently utilized among service providers,
+      while there is not at present an objective set of criteria that could help suggest a defined set
+      of timestamps as part of the CDM. Implementers are expected to evaluate the current enumeration
+      values to determine whether those meet their requirements. If not, they are expected to engage with
+      the CDM team to evaluate the addition of further value(s) to this enumeration, which will then participate
+      to the development of a compendium for further evaluation at a later point in order to determine
+      whether this modeling is appropriate.
+    permissible_values:
+      clearingDateTime:
+        description: The date and time on the trade was cleared.
+      clearingConfirmationDateTime:
+        description: The date and time on which trade was confirmed as cleared.
+      clearingReceiptDateTime:
+        description: The date and time on which trade was received by Clearing Body.
+      clearingSubmissionDateTime:
+        description: The date and time on which the event was submitted for clearing.
+      confirmationDateTime:
+        description: The date and time on which the event was confirmed.
+      eventCreationDateTime:
+        description: The date and time on which the event was created.
+      eventExpirationDateTime:
+        description: The date and time on which the event will be considered expired.
+      eventProcessingDateTime:
+        description: The date and time on which the event was processed.
+      eventSentDateTime:
+        description: The date and time on which the event was sent.
+      eventSubmittedDateTime:
+        description: The date and time on which the event was submitted.
+      executionDateTime:
+        description: The date and time on which the trade execution was performed.
+      transactionCreationDateTime:
+        description: 'The date and time on which the transaction has been created. This timestamp is specified
+          as such by the CME ClearPort Matched IRS Trade submission API specification: ''The transaction
+          date time of the trade. Represents the date & time on which the trade was initially generated
+          either by CME Clearing or firm. The transaction date time may be assigned by CME Clearing at
+          the point the trade is reported as cleared. Transaction date time can also be provided by an
+          external submitter of the trade at the point the trade is submitted.'''
+  LimitLevelEnum:
+    description: 'The enumeration values to specify the level at which the limit is set: customer business,
+      proprietary business or account level. This is part of the CME specification for clearing credit
+      limits, although not specified as a set of enumerated values as part of the clearing confirmation
+      specification.'
+    permissible_values:
+      Account:
+        description: The limit is set in relation to the proprietary business undertaken by the clearing
+          counterparty.
+      Customer:
+        description: The limit is set in relation to the customer business undertaken by the clearing
+          counterparty.
+      House:
+        description: The limit is set at the account level in relation to the clearing counterparty.
+  WarehouseIdentityEnum:
+    permissible_values:
+      DTCC_TIW_Gold:
+        description: The DTCC Trade Information Warehouse Gold service
+  WorkflowStatusEnum:
+    permissible_values:
+      Accepted: {}
+      Alleged: {}
+      Amended: {}
+      Cancelled: {}
+      Certain: {}
+      Cleared: {}
+      Pending: {}
+      Rejected: {}
+      Submitted: {}
+      Terminated: {}
+      Uncertain: {}
+      Unconfirmed: {}
+      Affirmed: {}
+      Confirmed: {}
+classes:
+  CreditLimitInformation:
+    description: A class to represent the credit limit utilisation information.
+    attributes:
+      limitApplicable:
+        range: LimitApplicableExtended
+        required: true
+        multivalued: true
+  CreditLimitUtilisation:
+    description: Credit limit utilisation breakdown by executed trades and pending orders.
+    attributes:
+      executed:
+        description: Credit limit utilisation attributable to executed trades.
+        range: CreditLimitUtilisationPosition
+      pending:
+        description: Credit limit utilisation attributable to pending unexecuted orders.
+        range: CreditLimitUtilisationPosition
+  CreditLimitUtilisationPosition:
+    attributes:
+      shortPosition:
+        description: Credit limit utilisation attributable to short positions.
+        range: decimal
+      longPosition:
+        description: Credit limit utilisation attributable to long positions.
+        range: decimal
+      global:
+        description: Global credit limit utilisation amount, agnostic of long/short position direction.
+        range: decimal
+  CustomisedWorkflow:
+    description: In its initial iteration, this class is meant to support the DTCC TIW workflow information.
+    attributes:
+      itemName:
+        description: In this initial iteration, this corresponds to the DTCC TIW element name.
+        range: string
+        required: true
+      itemValue:
+        description: In this initial iteration, this corresponds to the DTCC value.
+        range: string
+        required: true
+  EventInstruction:
+    description: Specifies instructions to create a BusinessEvent.
+    attributes:
+      intent:
+        description: The intent attribute is meant to be specified when the event qualification cannot
+          be programmatically inferred from the event features. As a result it is only associated with
+          those primitives that can give way to such ambiguity, the quantityChange being one of those.
+          An example of such is a reduction in the trade notional, which could be interpreted as either
+          a trade correction (unless a maximum period of time post-event is specified as part of the qualification),
+          a partial termination or a portfolio rebalancing in the case of an equity swap. On the other
+          hand, an event such as the exercise is not expected to have an associated intent as there should
+          not be ambiguity.
+        range: EventIntentEnum
+      corporateActionIntent:
+        range: CorporateActionTypeEnum
+      eventDate:
+        description: Specifies the date on which the event is taking place. This date is equal to the
+          trade date in the case of a simple execution. However it can be different from the trade date,
+          for example in the case of a partial termination.
+        range: date
+      eventTime:
+        description: The time and zone of the date in which the event is taking place.
+        range: TimeZone
+      effectiveDate:
+        description: The date on which the event contractually takes effect, when different from the event
+          date.
+        range: date
+      effectiveTime:
+        description: The time and zone of the date in which the event contractually takes effect.
+        range: TimeZone
+      packageInformation:
+        description: Specifies the package information in case the business event represents several trades
+          executed as a package (hence this attribute is optional). The package information is only instantiated
+          once at the business event level to preserve referential integrity, whereas individual trades
+          make reference to it to identify that they are part of a package.
+        range: IdentifiedList
+      instruction:
+        description: Specifies the instructions to create the Business Event.
+        range: Instruction
+        multivalued: true
+    rules:
+      - description: CorporateAction
+        preconditions:
+          slot_conditions:
+            corporateActionIntent:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            intent:
+              equals_string: CorporateActionAdjustment
+  EventTimestamp:
+    description: A class to represent the various set of timestamps that can be associated with lifecycle
+      events, as a collection of [dateTime, qualifier].
+    attributes:
+      dateTime:
+        description: The CDM specifies that the zoned date time is to be expressed in accordance with
+          ISO 8601, either as UTC as an offset to UTC.
+        range: datetime
+        required: true
+      qualification:
+        description: The timestamp qualifier is specified through an enumeration because the experience
+          of integrating the DTCC and CME data representations suggests that a wide set of timestamps
+          are currently utilized among service providers, while there is not at present an objective set
+          of criteria that could help suggest a defined set of timestamps as part of the CDM. At some
+          future point, one possible baseline could be developed from the review of the set of timestamps
+          specified across regulatory regimes and regulations (incl. regulations such as high frequency
+          trading). Also, the integration with a further set of implementations and the specification
+          of business workflows such as clearing as part of the CDM development should help confirm the
+          implementation approach in this respect.
+        range: EventTimestampQualificationEnum
+        required: true
+  LimitApplicable:
+    attributes:
+      limitType:
+        description: Standard code to indicate which type of credit line is being referred to - i.e. IM,
+          DV01, PV01, CS01, Notional, Clip Size, Notional, maximumOrderQuantity.
+        range: CreditLimitTypeEnum
+        annotations:
+          rosetta_metadata: scheme
+      clipSize:
+        description: This element is required in FpML, optional in CDM for the purpose of accommodating
+          the CME data representation while making reference to the FpML one.
+        range: integer
+      amountUtilized:
+        description: The limit utilised by all the cleared trades for the limit level and limit type.
+          While the attribute is of type integer in FpML and the CME schema, it has been specified to
+          be of type number in the CDM to take into consideration java size limits as well as for consistency
+          purposes with the way most monetary amounts are expressed.
+        range: decimal
+      utilization:
+        range: CreditLimitUtilisation
+      amountRemaining:
+        description: The limit remaining for the limit level and limit type. This does not take into account
+          any pending trades. While the attribute is of type integer in FpML and the CME schema, it has
+          been specified to be of type number in the CDM to take into consideration java size limits as
+          well as for consistency purposes with the way most monetary amounts are expressed.
+        range: decimal
+      currency:
+        description: The currency in which the applicable limit is denominated. The list of valid currencies
+          is not presently positioned as an enumeration as part of the CDM because that scope is limited
+          to the values specified by ISDA and FpML. As a result, implementers have to make reference to
+          the relevant standard, such as the ISO 4217 standard for currency codes.
+        range: string
+        annotations:
+          rosetta_metadata: scheme
+      velocity:
+        range: Velocity
+    all_of:
+      - description: 'LimitApplicableChoice: Choice rule to represent an FpML choice construct.'
+        exactly_one_of:
+          - slot_conditions:
+              amountUtilized:
+                value_presence: PRESENT
+          - slot_conditions:
+              utilization:
+                value_presence: PRESENT
+          - all_of:
+              - slot_conditions:
+                  amountUtilized:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  utilization:
+                    value_presence: ABSENT
+  LimitApplicableExtended:
+    is_a: LimitApplicable
+    description: A class to represent the CDM attributes that are not part of the FpML standard. Once
+      broader usage is confirmed, it is expected that those two classes can be collapsed.
+    attributes:
+      limitLevel:
+        description: 'The level at which the limit is set: customer business, proprietary business or
+          account level. This attribute is specified as a string as part of the CME clearing confirmation
+          specification.'
+        range: LimitLevelEnum
+        annotations:
+          rosetta_metadata: scheme
+      limitAmount:
+        description: The total limit available for the limit level and limit type. While the attribute
+          is of type integer in the CME schema, it has been specified to be of type number in the CDM
+          to take into consideration java size limits as well as for consistency purposes with the way
+          most monetary amounts are expressed.
+        range: decimal
+      limitImpactDueToTrade:
+        description: The limit utilized by this specific trade. While the attribute is of type integer
+          in the CME schema, it has been specified to be of type number in the CDM to take into consideration
+          java size limits as well as for consistency purposes with the way most monetary amounts are
+          expressed.
+        range: decimal
+    all_of:
+      - description: 'From LimitApplicable. LimitApplicableChoice: Choice rule to represent an FpML choice
+          construct.'
+        exactly_one_of:
+          - slot_conditions:
+              amountUtilized:
+                value_presence: PRESENT
+          - slot_conditions:
+              utilization:
+                value_presence: PRESENT
+          - all_of:
+              - slot_conditions:
+                  amountUtilized:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  utilization:
+                    value_presence: ABSENT
+  MessageInformation:
+    description: This class corresponds to the components of the FpML MessageHeader.model.
+    attributes:
+      messageId:
+        description: A unique identifier assigned to the message.
+        range: string
+        required: true
+        annotations:
+          rosetta_metadata: scheme
+      sentBy:
+        description: The identifier for the originator of a message instance.
+        range: string
+        annotations:
+          rosetta_metadata: scheme
+      sentTo:
+        description: The identifier(s) for the recipient(s) of a message instance.
+        range: string
+        multivalued: true
+        annotations:
+          rosetta_metadata: scheme
+      copyTo:
+        description: A unique identifier (within the specified coding scheme) giving the details of some
+          party to whom a copy of this message will be sent for reference.
+        range: string
+        multivalued: true
+        annotations:
+          rosetta_metadata: scheme
+  PartyCustomisedWorkflow:
+    description: A class to specify a party-related, non-standardized data in a generic form.
+    attributes:
+      partyReference:
+        description: Reference to the party to which the workflow pertains to.
+        range: Party
+        annotations:
+          rosetta_metadata: reference
+      partyName:
+        description: The party name to which the workflow pertains to.
+        range: string
+      customisedWorkflow:
+        description: Non-standardized data in a generic form.
+        range: CustomisedWorkflow
+        required: true
+        multivalued: true
+    all_of:
+      - description: 'PartyCustomisedWorkflowChoice: The identification of the party to which the PartyCustomisedWorkflow
+          pertains to can be done through either a party reference or the party name.'
+        exactly_one_of:
+          - slot_conditions:
+              partyName:
+                value_presence: PRESENT
+          - slot_conditions:
+              partyReference:
+                value_presence: PRESENT
+  Velocity:
+    attributes:
+      periodMultiplier:
+        range: integer
+      period:
+        range: PeriodTimeEnum
+  Workflow:
+    description: A collection of workflow steps which together make up an entire workflow sequence.
+    attributes:
+      steps:
+        range: WorkflowStep
+        required: true
+        multivalued: true
+  WorkflowState:
+    description: A class to specify workflow information, which is conceptually applicable to all lifecycle
+      events.
+    attributes:
+      workflowStatus:
+        description: The workflow status indicator, e.g. Accepted, Rejected, ...
+        range: WorkflowStatusEnum
+        required: true
+      comment:
+        description: A comment field to be associated with the workflow, e.g. to specify why a transaction
+          event was rejected by a party.
+        range: string
+      partyCustomisedWorkflow:
+        description: Workflow data that is specific to certain market participants and is expressed as
+          part of the CDM in a very generic manner, which can be party-specific. The initial use cases
+          have been derived from the CME clearing and the DTCC TIW submissions.
+        range: PartyCustomisedWorkflow
+        multivalued: true
+      warehouseIdentity:
+        description: The identity of the warehouse, if any, that is executing that workflow step.
+        range: WarehouseIdentityEnum
+  WorkflowStep:
+    description: A workflow step represents the state of a business event. The workflow step contains
+      a reference to a previous WorkflowStep in order to preserve lineage. A workflow step is accepted
+      if it contains a business event, proposed if proposedEvent is present and is rejected if the rejected
+      flag is set.
+    attributes:
+      businessEvent:
+        description: Life cycle event for the step.
+        range: BusinessEvent
+      counterpartyPositionBusinessEvent:
+        description: Documents the life cycle event for a position.
+        range: CounterpartyPositionBusinessEvent
+      proposedEvent:
+        description: The proposed event for a workflow step.
+        range: EventInstruction
+      rejected:
+        description: Flags this step as rejected.
+        range: boolean
+      approval:
+        description: Optional party approvals for the current workflow step. A workflow step can have
+          any number of parties associated to it, thus this object is represented as a list. All parties
+          that are expected to provide approval should have an item in this list that references them.
+        range: WorkflowStepApproval
+        multivalued: true
+      previousWorkflowStep:
+        description: Optional previous workflow step that provides lineage to workflow steps that precedes
+          it.
+        range: WorkflowStep
+        annotations:
+          rosetta_metadata: reference
+      nextEvent:
+        description: The intended next event can be specified, even if the instructions are not known
+          yet.
+        range: EventInstruction
+      messageInformation:
+        description: Contains all information pertaining the FpML messaging header
+        range: MessageInformation
+      timestamp:
+        description: The set of timestamp(s) associated with the event as a collection of [dateTime, qualifier].
+        range: EventTimestamp
+        required: true
+        multivalued: true
+      eventIdentifier:
+        description: The identifier(s) that uniquely identify a lifecycle event. The unbounded cardinality
+          is meant to provide the ability to associate identifiers that are issued by distinct parties.
+          As an example, each of the parties to the event may choose to associate their own identifiers
+          to the event.
+        range: Identifier
+        required: true
+        multivalued: true
+      action:
+        description: Specifies whether the event is a new, a correction or a cancellation.
+        range: ActionEnum
+      party:
+        description: The specification of the event parties. This attribute is optional, as not applicable
+          to certain events (e.g. most of the observations).
+        range: Party
+        multivalued: true
+      account:
+        description: Optional account information that could be associated to the event.
+        range: Account
+        multivalued: true
+      creditLimitInformation:
+        range: CreditLimitInformation
+      workflowState:
+        description: The event workflow information, i.e. the workflow status, the associated comment
+          and the partyCustomisedWorkflow which purpose is to provide the ability to associate custom
+          workflow information to the CDM.
+        range: WorkflowState
+    all_of:
+      - description: 'CounterpartyPositionBusinessEventOrBusinessEventOrProposedEventChoice: Choice rule
+          to control that either positionBusinessEvent is present, businessEvent is present or proposedEvent
+          is present, but not more than one at the same time.'
+        exactly_one_of:
+          - slot_conditions:
+              counterpartyPositionBusinessEvent:
+                value_presence: PRESENT
+          - slot_conditions:
+              businessEvent:
+                value_presence: PRESENT
+          - slot_conditions:
+              proposedEvent:
+                value_presence: PRESENT
+    annotations:
+      rosetta_root_type: 'true'
+      rosetta_metadata: key
+    comments:
+      - 'Rosetta condition WorkflowStepStatus is not stated in LinkML: (businessEvent exists and nextEvent
+        -> instruction is absent and rejected is absent) or (nextEvent -> instruction exists and businessEvent
+        is absent and rejected is absent) or (rejected exists and businessEvent is absent and nextEvent
+        is absent) or (proposedEvent exists and nextEvent is absent and rejected is absent) or (previousWorkflowStep
+        exists and action = ActionEnum -> Cancel)'
+  WorkflowStepApproval:
+    description: Party approvals associated to the current WorkflowStep.
+    attributes:
+      approved:
+        description: Flag denoting whether the workflow step is approved or not
+        range: boolean
+        required: true
+      party:
+        description: Reference to the Party who is approving/rejecting this workflow step
+        range: Party
+        required: true
+        annotations:
+          rosetta_metadata: reference
+      rejectedReason:
+        description: Optional reason for rejecting the workflow step
+        range: string
+      timestamp:
+        description: Timestamp of the approval
+        range: EventTimestamp
+        required: true
+    annotations:
+      rosetta_metadata: key

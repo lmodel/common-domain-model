@@ -1,0 +1,104 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_margin_schedule
+name: cdm_margin_schedule
+title: CDM cdm.margin.schedule
+description: The CDM's cdm.margin.schedule namespace.
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_observable_asset
+enums:
+  StandardizedScheduleAssetClassEnum:
+    permissible_values:
+      InterestRates: {}
+      Credit: {}
+      ForeignExchange: {}
+      Equity: {}
+      Commodity: {}
+  StandardizedScheduleProductClassEnum:
+    permissible_values:
+      Swap: {}
+      CrossCurrencySwap: {}
+      Swaption: {}
+      SwaptionStraddle: {}
+      SwapWithCallableBermudanRightToEnterExitSwaps: {}
+      IRExoticSwapWithAnExoticCouponAgainstAFloatingLeg: {}
+      Option: {}
+      ForwardRateAgreement: {}
+      SingleNameCreditDefaultSwap: {}
+      IndexCDS: {}
+      IndexTranche: {}
+      CreditNthToDefault: {}
+      CreditTotalReturnSwapOnABond: {}
+      DeliverableSwap: {}
+      NonDeliverableCrossCurrencySwap: {}
+      DeliverableForward: {}
+      NonDeliverableForward: {}
+      DeliverableOption: {}
+      NonDeliverableOption: {}
+      VarianceSwap: {}
+      VolatilitySwap: {}
+      CorrelationSwap: {}
+      Forward: {}
+      DividendSwap: {}
+      DeliverableOptionF: {}
+      ContractForDifference: {}
+      SwapsAndPortfolioSwaps: {}
+      FixedFloatSwap: {}
+      BasisSwap: {}
+classes:
+  StandardizedSchedule:
+    attributes:
+      assetClass:
+        range: StandardizedScheduleAssetClassEnum
+        required: true
+      productClass:
+        range: StandardizedScheduleProductClassEnum
+        required: true
+      notional:
+        range: decimal
+        required: true
+      notionalCurrency:
+        range: string
+        required: true
+      durationInYears:
+        range: decimal
+    comments:
+      - 'Rosetta condition PositiveNotional is not stated in LinkML: notional > 0'
+      - 'Rosetta condition ValidCurrency is not stated in LinkML: notionalCurrency to-enum ISOCurrencyCodeEnum
+        exists'
+      - 'Rosetta condition PositiveDuration is not stated in LinkML: if durationInYears exists then durationInYears
+        > 0'
+  StandardizedScheduleInitialMargin:
+    attributes:
+      tradeInfo:
+        range: StandardizedScheduleTradeInfo
+        multivalued: true
+      netInitialMargin:
+        range: Money
+        required: true
+    comments:
+      - 'Rosetta condition NonNegativeNetInitialMargin is not stated in LinkML: netInitialMargin -> value
+        >= 0'
+  StandardizedScheduleTradeInfo:
+    attributes:
+      assetClass:
+        range: StandardizedScheduleAssetClassEnum
+      productClass:
+        range: StandardizedScheduleProductClassEnum
+      grossInitialMargin:
+        range: Money
+      markToMarketValue:
+        range: Money
+    comments:
+      - 'Rosetta condition PositiveGrossInitialMargin is not stated in LinkML: grossInitialMargin -> value
+        > 0'
+      - 'Rosetta condition SameCurrencies is not stated in LinkML: grossInitialMargin -> unit -> currency
+        = markToMarketValue -> unit -> currency'

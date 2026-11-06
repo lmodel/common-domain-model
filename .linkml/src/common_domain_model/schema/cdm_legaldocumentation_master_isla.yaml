@@ -1,0 +1,170 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isla
+name: cdm_legaldocumentation_master_isla
+title: CDM cdm.legaldocumentation.master.isla
+description: The CDM's cdm.legaldocumentation.master.isla namespace.
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_base_staticdata_party
+  - ./cdm_legaldocumentation_master
+enums:
+  AggregationSpecificationEnum:
+    description: The potential options for specifying whether mark to market value of collateral is determined
+      on an aggregated or loan by loan basis.
+    permissible_values:
+      Aggregated:
+        description: The market value is determined on an aggregated basis.
+      LoanByLoan:
+        description: The market value is determined on a loan by loan basis.
+      AggregatedAndLoanByLoan:
+        description: The market value is determined on an aggregated basis for some loans but on a Loan
+          by Loan basis for others.
+      NotSpecified:
+        description: It is not specified how the market value is determined.
+  ApplicabilityOfElectionEnum:
+    description: The potential options for specifying whether a particular election applies in a GMSLA.
+    permissible_values:
+      Applicable:
+        description: The election is applicable.
+      NotApplicable:
+        description: The election is not applicable.
+      NotSpecified:
+        description: The applicability of the election has not been specified.
+classes:
+  Aggregation:
+    description: The definitions for whether aggregation applies to the GMSLA, and if so how it applies.
+    attributes:
+      aggregationType:
+        description: How is the mark to market value determined?
+        range: AggregationSpecificationEnum
+        required: true
+      loansCanBeGrouped:
+        description: The mark to market can be defined separately for different groups of loans.
+        range: boolean
+        required: true
+      otherDetails:
+        description: Any specfic elections that are not captured by the above options, such as grouping
+          information.
+        range: string
+  BaseCurrency:
+    description: The definitions regarding base currency determinations relating to the GMSLA.
+    attributes:
+      baseCurrency:
+        description: The base currency as defined in the GMSLA.
+        range: CurrencyCodeEnum
+        required: true
+      baseCurrencyMustBeFreelyConvertible:
+        description: The base currency that is defined must be freely convertible.
+        range: boolean
+      baseCurrencyIfOriginalNotFreelyConvertible:
+        description: If the base currency is not freely convertible, the fallback currency can be defined
+          here.
+        range: CurrencyCodeEnum
+  CollateralSpecification:
+    description: The definitions regarding collateral relating to the GMSLA.
+    attributes:
+      standardDefinitionOfMarketValueUsed:
+        description: Is the standard definition of 'Market Value' used in the GMSLA?
+        range: boolean
+        required: true
+      definitionOfMarketValueNonStandard:
+        description: If the definition of 'Market Value' is non standard, it can be specified here.
+        range: string
+      aggregation:
+        description: How does paragraph 5.4 (aggregation) apply to the GMSLA?
+        range: Aggregation
+        required: true
+      nettingObligationsApply:
+        description: Does paragraph 5.6 (netting of obligations to deliver Collateral and redeliver Equivalent
+          Collateral) apply to the GMSLA?
+        range: ApplicabilityOfElectionEnum
+        required: true
+      failureToDevliverIndemnityApplies:
+        description: Does paragraph 6.4 (indemnity for failure to redeliver Equivalent Non-Cash Collateral)
+          apply to the GMSLA?
+        range: ApplicabilityOfElectionEnum
+        required: true
+      notificationTime:
+        description: What is the notification time of the GMSLA?
+        range: BusinessCenterTime
+        required: true
+    comments:
+      - 'Rosetta condition StandardMarketCondition is not stated in LinkML: if standardDefinitionOfMarketValueUsed
+        <> True then definitionOfMarketValueNonStandard exists'
+  EventsOfDefault:
+    description: The definitions regarding any different events of default relating to the GMSLA.
+    attributes:
+      partyElection:
+        description: The specified events of default elections for the respective parties signing the
+          GMSLA.
+        range: EventsOfDefaultElection
+        required: true
+        multivalued: true
+        minimum_cardinality: 2
+        maximum_cardinality: 2
+  EventsOfDefaultElection:
+    description: The specific party elections for events of default.
+    attributes:
+      party:
+        description: The specified party.
+        range: CounterpartyRoleEnum
+        required: true
+      automaticEarlyTerminationApplies:
+        description: Does automatic early termination apply to the specified party?
+        range: ApplicabilityOfElectionEnum
+        required: true
+      existingLoans:
+        description: Are existing loans covered in the event of default (Only relevant to 2010 GMSLAs)?
+        range: ApplicabilityOfElectionEnum
+      automation:
+        description: Are third party vendors allowed to automate the processing of loans in the event
+          of default (Only relevant to 2010 GMSLAs)?
+        range: ApplicabilityOfElectionEnum
+      automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple:
+        description: In the case where party is acting as an agent, is automatic early termination specified
+          on a per principle basis?
+        range: boolean
+        required: true
+      automaticEarlyTerminationRequiredDueToSystemOfLaw:
+        description: Automatic early termination only applies if required due to system of law, otherwise
+          it is not applicable.
+        range: boolean
+        required: true
+      automaticEarlyTerminationInModifiedForm:
+        description: Automatic early termination applies in a modified form only.
+        range: boolean
+        required: true
+      automaticEarlyTerminationOther:
+        description: Optional string to capture any further information regarding the automatic early
+          termination even of default.
+        range: string
+    comments:
+      - 'Rosetta condition AutomaticEarlyTerminationMustBeApplicable is not stated in LinkML: if automaticEarlyTerminationInModifiedForm
+        or automaticEarlyTerminationSpecifiedSeparatelyForEachPrinciple then automaticEarlyTerminationApplies
+        = Applicable'
+  GlobalMasterSecuritiesLendingAgreement:
+    is_a: MasterAgreementBase
+    description: The set of elections that define a GMSLA.
+    attributes:
+      collateral:
+        description: The definitions regarding collateral relating to the GMSLA.
+        range: CollateralSpecification
+        required: true
+      baseCurrency:
+        description: The definitions regarding base currency determinations relating to the GMSLA.
+        range: BaseCurrency
+        required: true
+      eventsOfDefault:
+        description: The definitions regarding any different events of default relating to the GMSLA.
+        range: EventsOfDefault
+        required: true

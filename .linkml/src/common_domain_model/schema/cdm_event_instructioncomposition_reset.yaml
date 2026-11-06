@@ -1,0 +1,155 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_event_instructioncomposition_reset
+name: cdm_event_instructioncomposition_reset
+title: CDM cdm.event.instructioncomposition.reset
+description: The CDM's cdm.event.instructioncomposition.reset namespace.
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_math
+  - ./cdm_base_staticdata_asset_rates
+  - ./cdm_observable_asset
+  - ./cdm_observable_asset_calculatedrate
+  - ./cdm_observable_asset_fro
+  - ./cdm_product_common_schedule
+enums:
+  ResetInstructionCompositionStepsEnum:
+    description: Defines the strictly sequenced lifecycle of a Reset process. Each enum value represents
+      a discrete atomic action required to transition the Instruction Composition from initial trade parameters
+      to the final Reset execution output.
+    permissible_values:
+      CollectFloatingRateOptionInstruction: {}
+      DetermineUnadjustedCalculationPeriodInstruction: {}
+      AdjustPeriodInstruction: {}
+      AdjustDateInstruction: {}
+      DetermineUnadjustedObservationDatesInstruction: {}
+      AdjustObservationDatesInstruction: {}
+      CalculateResetValueInstruction: {}
+      ResetInstructionOutput: {}
+classes:
+  AdjustDateInstruction:
+    description: Instruction that holds the adjusted date.
+    attributes:
+      adjustedDate:
+        range: date
+        required: true
+  AdjustObservationDatesInstruction:
+    description: Instruction that holds the adjusted observation dates.
+    attributes:
+      adjustedObservationDates:
+        range: date
+        required: true
+        multivalued: true
+  AdjustPeriodInstruction:
+    description: Instruction that holds the adjusted period.
+    attributes:
+      adjustedPeriod:
+        range: CalculationPeriodBase
+        required: true
+  CalculateResetValueInstruction:
+    description: Instruction storing the computed reset value and the calculation method used to derive
+      it.
+    attributes:
+      resetValue:
+        range: Price
+        required: true
+      calculationMethod:
+        range: CalculationMethodEnum
+      observedRateDates:
+        range: DatedValue
+        required: true
+        multivalued: true
+  CollectFloatingRateOptionInstruction:
+    description: Instruction that identifies the floating rate index and the trade date required for downstream
+      Floating Rate Option Data retrieval.
+    attributes:
+      floatingRateIndex:
+        range: FloatingRateIndexEnum
+        required: true
+      tradeDate:
+        range: date
+        required: true
+  DetermineUnadjustedCalculationPeriodInstruction:
+    description: Instruction that contains the unadjusted calculation period.
+    attributes:
+      unadjustedCalculationPeriod:
+        range: CalculationPeriodBase
+        required: true
+      unadjustedResetDate:
+        range: date
+        required: true
+  DetermineUnadjustedObservationDatesInstruction:
+    description: Instruction that holds the unadjusted observation dates.
+    attributes:
+      unadjustedObservationDates:
+        range: date
+        required: true
+        multivalued: true
+      floatingRateIndexData:
+        range: FloatingRateIndexDefinition
+        required: true
+  ResetInstructionState:
+    description: The definitive state object for the Reset process. It acts as a cumulative 'Golden Record,'
+      storing every data point captured from Step 1 (Index Collection) through Step 7 (Final Calculation)
+      to ensure deterministic processing.
+    attributes:
+      floatingRateIndex:
+        description: The benchmark rate index (e.g., LIBOR, EURIBOR, SOFR) identified for this reset.
+        range: FloatingRateIndexEnum
+      tradeDate:
+        description: The date the underlying trade was executed, used for referencing the relevant holiday
+          calendars.
+        range: date
+      unadjustedCalculationPeriod:
+        description: The raw start and end dates of the period before any business day adjustments are
+          applied.
+        range: CalculationPeriodBase
+      unadjustedResetDate:
+        description: The theoretical reset date before applying business day conventions.
+        range: date
+      adjustedCalculationPeriod:
+        description: The calculation period after adjusting for non-business days and relevant financial
+          calendars.
+        range: CalculationPeriodBase
+      adjustedResetDate:
+        description: The final, legally binding reset date after applying business day conventions.
+        range: date
+      unadjustedObservationDates:
+        description: The raw dates on which the market rate should be observed according to the index
+          definition.
+        range: date
+        multivalued: true
+      floatingRateOptionData:
+        description: The specific day count fraction, fixings, and lookback parameters associated with
+          the chosen index.
+        range: FloatingRateIndexDefinition
+      adjustedObservationDates:
+        description: The final set of observation dates adjusted for bank holidays and index-specific
+          calendars.
+        range: date
+        multivalued: true
+      resetValue:
+        description: The final calculated rate or price derived from the observed market data.
+        range: Price
+      calculationMethod:
+        description: The specific compounding or averaging formula used to arrive at the final reset value.
+        range: CalculationMethodEnum
+      observedRateDates:
+        description: The audit trail of individual market fixings captured on each adjusted observation
+          date.
+        range: DatedValue
+        multivalued: true
+  ResetInstructionSteps:
+    description: A wrapper that encapsulates the specific ResetInstructionCompositionStepsEnum, allowing
+      the engine to identify the exact phase of the Reset lifecycle currently being processed.
+    attributes:
+      resetInstructionCompositionSteps:
+        range: ResetInstructionCompositionStepsEnum
+        required: true

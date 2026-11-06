@@ -1,0 +1,20 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_icma
+name: cdm_legaldocumentation_master_icma
+title: CDM cdm.legaldocumentation.master.icma
+description: The CDM's cdm.legaldocumentation.master.icma namespace.
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_legaldocumentation_master
+classes:
+  GlobalMasterRepoAgreement:
+    is_a: MasterAgreementBase
+    description: The set of elections that define a GMRA

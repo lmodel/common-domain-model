@@ -1,0 +1,185 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_event_instructioncomposition
+name: cdm_event_instructioncomposition
+title: CDM cdm.event.instructioncomposition
+description: The CDM's cdm.event.instructioncomposition namespace.
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_event_common
+  - ./cdm_event_instructioncomposition_reset
+enums:
+  InstructionCompositionTypeEnum:
+    description: The enumerated values to specify the type of Instruction Composition.
+    permissible_values:
+      ResetInstruction:
+        description: 'The relevant Steps for this Instruction Composition are: collectFloatingRateOptionIndex,
+          recordFloatingRateOptionData, calculateObservationPeriod, adjustDates, recordMarketRates, and
+          calculateResetValue.'
+classes:
+  CompositionState:
+    description: A container that holds the cumulative state of an Instruction Composition. It selects
+      the specific history/state schema (e.g., ResetInstructionState) based on the lifecycle process being
+      executed.
+    attributes:
+      ResetInstructionState:
+        range: ResetInstructionState
+    all_of:
+      - description: 'OneOf: A choice type holds exactly one of its options.'
+        exactly_one_of:
+          - slot_conditions:
+              ResetInstructionState:
+                value_presence: PRESENT
+    annotations:
+      rosetta_choice: 'true'
+  CompositionStep:
+    description: Represents a single atomic step in the Instruction Composition lifecycle, including its
+      instructions, status, and optional output. Each CompositionStep is defined by an identifier, a timestamp
+      and a single Instruction.
+    attributes:
+      identifier:
+        description: Identification of the Instruction Composition step.
+        range: string
+      timestamp:
+        description: Date and time of the execution of the Instruction Composition step after being executed.
+        range: datetime
+      compositionStepInstruction:
+        description: Set of instructions defining the steps of each Instruction Composition process.
+        range: CompositionStepInstruction
+        required: true
+  CompositionStepInstruction:
+    description: Set of instructions defining the steps of each Instruction Composition process. The CompositionStepInstruction
+      is defined by a type (as the same instruction can be reused across different Instruction Composition
+      types), and the selection of one of the list of CompositionStepInstructions (where the information
+      for executing the step is held).
+    attributes:
+      instructionCompositionType:
+        description: Definition of the Instruction Composition.
+        range: InstructionCompositionTypeEnum
+        required: true
+      compositionStepInstructions:
+        description: List of all Instruction CompositionSteps that can be reusable across Instruction
+          Compositions.
+        range: CompositionStepInstructions
+        required: true
+  CompositionStepInstructions:
+    description: Container for all instruction steps that can be used within an InstructionComposition.
+    attributes:
+      collectFloatingRateOption:
+        description: Data needed to execute the extraction of the Floating Rate Option index name.
+        range: CollectFloatingRateOptionInstruction
+      determineUnadjustedCalculationPeriod:
+        description: Data needed to determine the Unadjusted Calculation Period.
+        range: DetermineUnadjustedCalculationPeriodInstruction
+      adjustPeriod:
+        description: Data needed to adjust the Calculation Period.
+        range: AdjustPeriodInstruction
+      adjustDate:
+        description: Data needed to adjust the Reset Date.
+        range: AdjustDateInstruction
+      determineUnadjustedObservationDates:
+        description: Data needed to determine the Unadjusted Observation Dates.
+        range: DetermineUnadjustedObservationDatesInstruction
+      adjustObservationDates:
+        description: Data needed to adjust the Observation Dates.
+        range: AdjustObservationDatesInstruction
+      calculateResetValue:
+        description: Data needed to calculate the Reset Value.
+        range: CalculateResetValueInstruction
+      resetInstruction:
+        description: Data needed to record the Reset Instruction.
+        range: ResetInstruction
+    all_of:
+      - description: NonEmptyInstruction
+        exactly_one_of:
+          - slot_conditions:
+              collectFloatingRateOption:
+                value_presence: PRESENT
+          - slot_conditions:
+              determineUnadjustedCalculationPeriod:
+                value_presence: PRESENT
+          - slot_conditions:
+              adjustPeriod:
+                value_presence: PRESENT
+          - slot_conditions:
+              adjustDate:
+                value_presence: PRESENT
+          - slot_conditions:
+              determineUnadjustedObservationDates:
+                value_presence: PRESENT
+          - slot_conditions:
+              adjustObservationDates:
+                value_presence: PRESENT
+          - slot_conditions:
+              calculateResetValue:
+                value_presence: PRESENT
+          - slot_conditions:
+              resetInstruction:
+                value_presence: PRESENT
+  InstructionComposition:
+    description: Represents an Instruction Composition orchestration, holding data, shared history, and
+      an ordered sequence of CompositionSteps. Each InstructionComposition will have one or more CompositionStps.
+    attributes:
+      compositionStep:
+        description: Ordered sequence of CompositionSteps that drive the Instruction Composition process
+          (atomic actions, calculations, validations).
+        range: CompositionStep
+        required: true
+        multivalued: true
+      compositionState:
+        description: Shared state accumulated across executed steps, capturing intermediate and final
+          outputs of the Instruction Composition process.
+        range: CompositionState
+      instructionCompositionType:
+        description: Type of Instruction Composition being orchestrated (e.g. ResetInstruction).
+        range: InstructionCompositionTypeEnum
+        required: true
+      identifier:
+        description: Unique identifier of this InstructionComposition instance.
+        range: string
+        required: true
+      tradeId:
+        description: Identifier of the underlying trade to which this InstructionComposition relates.
+        range: TradeIdentifier
+      instructionCompositionOutput:
+        description: Outputs of each Instruction Composition process. The recording of this information
+          will be done in a single step at the end of the process for each Instruction Composition.
+        range: InstructionCompositionOutput
+    annotations:
+      rosetta_root_type: 'true'
+    comments:
+      - 'Rosetta condition InstructionCompositionType is not stated in LinkML: compositionStep -> compositionStepInstruction
+        -> instructionCompositionType all = instructionCompositionType'
+      - 'Rosetta condition CompositionStateByType is not stated in LinkML: if instructionCompositionType
+        = ResetInstruction then (compositionState switch ResetInstructionState then True) = True'
+  InstructionCompositionOutput:
+    description: Records the relevant output of each Instruction Composition. Will be updated while executing
+      the relevant steps of the Instruction Composition so at the end of the process the output should
+      be completed and ready to use in other parts of the system.
+    attributes:
+      resetInstruction:
+        description: Defines the reset value or fixing value produced in cashflow calculations, during
+          the life-cycle of a financial instrument. The reset process defined in Create_Reset function
+          joins product definition details with observations to compute the reset value.
+        range: ResetInstruction
+  InstructionCompositionSteps:
+    description: A top-level routing object used to specify which process-specific instruction set is
+      currently active within the execution engine.
+    attributes:
+      ResetInstructionSteps:
+        range: ResetInstructionSteps
+    all_of:
+      - description: 'OneOf: A choice type holds exactly one of its options.'
+        exactly_one_of:
+          - slot_conditions:
+              ResetInstructionSteps:
+                value_presence: PRESENT
+    annotations:
+      rosetta_choice: 'true'

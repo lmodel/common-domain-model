@@ -1,0 +1,1372 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_product_common_settlement
+name: cdm_product_common_settlement
+title: CDM cdm.product.common.settlement
+description: 'Common product settlement concepts: cash vs physical, non-deliverable, money and cashflow,
+  delivery vs payment.'
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_math
+  - ./cdm_base_staticdata_asset_credit
+  - ./cdm_base_staticdata_party
+  - ./cdm_observable_asset
+  - ./cdm_product_asset
+  - ./cdm_product_common_schedule
+enums:
+  CashSettlementMethodEnum:
+    description: Defines the different cash settlement methods for a product where cash settlement is
+      applicable.
+    permissible_values:
+      CashPriceMethod:
+        description: An ISDA defined cash settlement method used for the determination of the applicable
+          cash settlement amount. The method is defined in the 2006 ISDA Definitions, Section 18.3. Cash
+          Settlement Methods, paragraph (a).
+      CashPriceAlternateMethod:
+        description: An ISDA defined cash settlement method used for the determination of the applicable
+          cash settlement amount. The method is defined in the 2006 ISDA Definitions, Section 18.3. Cash
+          Settlement Methods, paragraph (b).
+      ParYieldCurveAdjustedMethod:
+        description: An ISDA defined cash settlement method used for the determination of the applicable
+          cash settlement amount. The method is defined in the 2006 ISDA Definitions, Section 18.3. Cash
+          Settlement Methods, paragraph (c).
+      ZeroCouponYieldAdjustedMethod:
+        description: An ISDA defined cash settlement method used for the determination of the applicable
+          cash settlement amount. The method is defined in the 2006 ISDA Definitions, Section 18.3. Cash
+          Settlement Methods, paragraph (d).
+      ParYieldCurveUnadjustedMethod:
+        description: An ISDA defined cash settlement method used for the determination of the applicable
+          cash settlement amount. The method is defined in the 2006 ISDA Definitions, Section 18.3. Cash
+          Settlement Methods, paragraph (e).
+      CrossCurrencyMethod:
+        description: An ISDA defined cash settlement method used for the determination of the applicable
+          cash settlement amount. The method is defined in the 2006 ISDA Definitions, Section 18.3. Cash
+          Settlement Methods, paragraph (f) (published in Supplement number 23).
+      CollateralizedCashPriceMethod:
+        description: An ISDA defined cash settlement method (yield curve) used for the determination of
+          the applicable cash settlement amount. The method is defined in the 2006 ISDA Definitions, Section
+          18.3. Cash Settlement Methods, paragraph (g) (published in Supplement number 28). The method
+          is defined in the 2021 ISDA Definitions, section 18.2.6.
+      MidMarketIndicativeQuotations:
+        description: An ISDA defined cash settlement method used for the determination of the applicable
+          cash settlement amount. The method is defined in the 2021 ISDA Definitions, Section 18.2.1.
+      MidMarketIndicativeQuotationsAlternate:
+        description: An ISDA defined cash settlement method used for the determination of the applicable
+          cash settlement amount. The method is defined in the 2021 ISDA Definitions, Section 18.2.2.
+      MidMarketCalculationAgentDetermination:
+        description: An ISDA defined cash settlement method used for the determination of the applicable
+          cash settlement amount. The method is defined in the 2021 ISDA Definitions, Section 18.2.3.
+      ReplacementValueFirmQuotations:
+        description: An ISDA defined cash settlement method used for the determination of the applicable
+          cash settlement amount. The method is defined in the 2021 ISDA Definitions, Section 18.2.4.
+      ReplacementValueCalculationAgentDetermination:
+        description: An ISDA defined cash settlement method used for the determination of the applicable
+          cash settlement amount. The method is defined in the 2021 ISDA Definitions, Section 18.2.5
+  ContingentTransferEnum:
+    description: The qualification of the type of transfer contingent on a trade lifecycle event.
+    permissible_values:
+      CorporateAction:
+        description: A transfer corresponding to a corporate action event.
+      CreditEvent:
+        description: A transfer resulting from a credit event.
+      Exercise:
+        description: A transfer associated with an exercise lifecycle event.
+  DeliveryMethodEnum:
+    description: Specifies delivery methods for securities transactions. This coding-scheme defines the
+      possible delivery methods for securities.
+    permissible_values:
+      DeliveryVersusPayment:
+        description: Indicates that a securities delivery must be made against payment in simultaneous
+          transmissions and stipulate each other.
+      FreeOfPayment:
+        description: Indicates that a securities delivery can be made without a simultaneous cash payment
+          in exchange and not depending on if payment obligations are fulfilled or not and vice versa.
+      PreDelivery:
+        description: Indicates that a securities delivery must be made in full before the payment for
+          the securities; fulfillment of payment obligations depends on securities delivery obligations
+          fulfillment.
+      PrePayment:
+        description: Indicates that a payment in full amount must be made before the securities delivery;
+          fulfillment of securities delivery obligations depends on payment obligations fulfillment.
+  ScheduledTransferEnum:
+    description: The qualification of the type of transfer associated with contracts and their lifecycle
+      events.
+    permissible_values:
+      Coupon:
+        description: A transfer corresponding to the periodic accrued interests.
+      DividendReturn:
+        description: A transfer corresponding to the synthetic dividend of an equity underlier asset traded
+          through a derivative instrument.
+      FixedRateReturn:
+        description: A transfer corresponding to the return of the fixed interest rate portion of a derivative
+          instrument that has different types of underlying assets, such as a total return swap.
+      FloatingRateReturn:
+        description: A transfer corresponding to the return of the floating interest rate portion of a
+          derivative instrument that has different types of underlying assets, such as a total return
+          swap.
+      FractionalAmount:
+        description: A transfer corresponding to the compensation for missing assets due to the rounding
+          of digits in the original number of assets to be delivered as per payout calculation.
+      InterestReturn:
+        description: A transfer corresponding to the return of the interest rate portion of a derivative
+          instrument that has different types of underlying assets, such as a total return swap.
+      NetInterest:
+        description: Net interest across payout components. Applicable to products such as interest rate
+          swaps.
+      Performance:
+        description: A transfer corresponding to a performance return. The settlementOrigin attribute
+          on the Transfer should point to the relevant Payout defining the performance calculation.
+      Principal:
+        description: An amount which corresponds to the notional of the contract for various business
+          reasons. This could be associated to a cashflow (e.g. a principal payment) or a transfer (e.g.
+          delivery of an asset).
+  SettlementCentreEnum:
+    description: Defines the settlement centre for a securities transaction.
+    permissible_values:
+      EuroclearBank:
+        description: Euroclear Bank
+      ClearstreamBankingLuxembourg:
+        description: ClearStream Banking Luxembourg
+  SettlementTypeEnum:
+    description: The enumeration values to specify how the option is to be settled when exercised.
+    permissible_values:
+      Cash:
+        description: The intrinsic value of the option will be delivered by way of a cash settlement amount
+          determined, (i) by reference to the differential between the strike price and the settlement
+          price; or (ii) in accordance with a bilateral agreement between the parties.
+      Physical:
+        description: The securities underlying the transaction will be delivered by (i) in the case of
+          a call, the seller to the buyer, or (ii) in the case of a put, the buyer to the seller versus
+          a settlement amount equivalent to the strike price per share.
+      Election:
+        description: Allow Election of either Cash or Physical settlement.
+      CashOrPhysical:
+        description: Allow use of either Cash or Physical settlement without prior Election.
+  StandardSettlementStyleEnum:
+    description: The enumerated values to specify whether a trade is settling using standard settlement
+      instructions as well as whether it is a candidate for settlement netting.
+    permissible_values:
+      Standard:
+        description: This trade will settle using standard predetermined funds settlement instructions.
+      Net:
+        description: This trade is a candidate for settlement netting.
+      StandardAndNet:
+        description: This trade will settle using standard predetermined funds settlement instructions
+          and is a candidate for settlement netting.
+      PairAndNet:
+        description: These trades have been paired and are a candidate for settlement netting.
+  TransferSettlementEnum:
+    description: The enumeration values to specify how the transfer will settle, e.g. DvP.
+    permissible_values:
+      DeliveryVersusDelivery:
+        description: Simultaneous transfer of two assets, typically securities, as a way to avoid settlement
+          risk.
+      DeliveryVersusPayment:
+        description: Settlement in which the transfer of the asset and the cash settlement are simultaneous.
+      PaymentVersusPayment:
+        description: Simultaneous transfer of cashflows.
+      NotCentralSettlement:
+        description: No central settlement.
+  UnscheduledTransferEnum:
+    description: The qualification of the type of ad-hoc transfers and cash flows that can be associated
+      with contracts and their lifecycle events.
+    permissible_values:
+      Recall:
+        description: A recall of securities by the lender who has lent them out.
+      Return:
+        description: A return by the borrower to the lender of the full or partial quantity of securities
+          on the contract.
+      Assignment:
+        description: A transfer resulting from the assignment of a contract to a new counterparty.
+      BrokerageCommission:
+        description: The brokerage commission.
+      Increase:
+        description: A transfer associated with an increase lifecycle event.
+      Novation:
+        description: The novation fee.
+      PartialTermination:
+        description: A transfer associated with a partial termination lifecycle event.
+      Premium:
+        description: Denotes the amount payable by the buyer to the seller for an option. The premium
+          is paid on the specified premium payment date or on each premium payment date if specified.
+      Renegotiation:
+        description: A transfer associated with a renegotiation lifecycle event.
+      Termination:
+        description: A transfer associated with a termination lifecycle event.
+      Upfront:
+        description: An upfront transfer associated to the swap to adjust for a difference between the
+          swap price and the current market price.
+classes:
+  CashSettlementTerms:
+    description: Defines the terms required to compute and settle a cash settlement amount according to
+      a fixing value, including the fixing source, fixing method and fixing date. In FpML, PhysicalSettlementTerms
+      and CashSettlementTerms extend SettlementTerms. In the CDM, this extension paradigm has not been
+      used because SettlementTerms class has been used for purposes related to securities transactions,
+      while it is not used as such in the FpML standard (i.e. only as an abstract construct.
+    attributes:
+      cashSettlementMethod:
+        description: 'Specifies the type of cash settlement method: cash price, yield curve etc.'
+        range: CashSettlementMethodEnum
+      valuationMethod:
+        description: Specifies the parameters required to obtain a valuation, including the source, quotation
+          method (bid, mid etc.) and any applicable quotation amount.
+        range: ValuationMethod
+      valuationDate:
+        description: Defines the different methods to specify a valuation date, as used for cash settlement.
+          The Single / Multiple ValuationDate is used for the determination of recovery in a credit event,
+          the RelativeDateOffset is used for cash-settled option, and FxFixingDate is used for cross-currency
+          settlement.
+        range: ValuationDate
+      valuationTime:
+        description: 'The time of the cash settlement valuation date when the cash settlement amount will
+          be determined according to the cash settlement method, if the parties have not otherwise been
+          able to agree the cash settlement amount. When using quations, this is the time of day in the
+          specified business center when the calculation agent seeks quotations for an amount of the reference
+          obligation for purposes of cash settlement. ISDA 2003 Term: Valuation Time.'
+        range: BusinessCenterTime
+      cashSettlementAmount:
+        description: 'The amount paid by the seller to the buyer for cash settlement on the cash settlement
+          date. If not otherwise specified, would typically be calculated as 100 (or the Reference Price)
+          minus the price of the Reference Obligation (all expressed as a percentage) times Floating Rate
+          Payer Calculation Amount. ISDA 2003 Term: Cash Settlement Amount.'
+        range: Money
+      recoveryFactor:
+        description: Used for fixed recovery, specifies the recovery level, determined at contract formation,
+          to be applied on a default. Used to calculate the amount paid by the seller to the buyer for
+          cash settlement on the cash settlement date. Amount calculation is (1 minus the Recovery Factor)
+          multiplied by the Floating Rate Payer Calculation Amount. The currency will be derived from
+          the Floating Rate Payer Calculation Amount.
+        range: decimal
+      fixedSettlement:
+        description: 'Used for Recovery Lock, to indicate whether fixed Settlement is Applicable or Not
+          Applicable. If Buyer fails to deliver an effective Notice of Physical Settlement on or before
+          the Buyer NOPS Cut-off Date, and if Seller fails to deliver an effective Seller NOPS on or before
+          the Seller NOPS Cut-off Date, then either: (a) if Fixed Settlement is specified in the related
+          Confirmation as not applicable, then the Seller NOPS Cut-off Date shall be the Termination Date;
+          or (b) if Fixed Settlement is specified in the related Confirmation as applicable, then: (i)
+          if the Fixed Settlement Amount is a positive number, Seller shall, subject to Section 3.1 (except
+          for the requirement of satisfaction of the Notice of Physical Settlement Condition to Settlement),
+          pay the Fixed Settlement Amount to Buyer on the Fixed Settlement Payment Date; and (ii) if the
+          Fixed Settlement Amount is a negative number, Buyer shall, subject to Section 3.1 (except for
+          the requirement of satisfaction of the Notice of Physical Settlement Condition to Settlement),
+          pay the absolute value of the Fixed Settlement Amount to Seller on the Fixed Settlement Payment
+          Date.'
+        range: boolean
+      accruedInterest:
+        description: 'Indicates whether accrued interest is included (true) or not (false). For cash settlement
+          this specifies whether quotations should be obtained inclusive or not of accrued interest. For
+          physical settlement this specifies whether the buyer should deliver the obligation with an outstanding
+          principal balance that includes or excludes accrued interest. ISDA 2003 Term: Include/Exclude
+          Accrued Interest.'
+        range: boolean
+    all_of:
+      - description: 'CashSettlementTermsChoice: Choice rule to represent an FpML choice construct.'
+        exactly_one_of:
+          - slot_conditions:
+              cashSettlementAmount:
+                value_presence: PRESENT
+          - slot_conditions:
+              recoveryFactor:
+                value_presence: PRESENT
+          - all_of:
+              - slot_conditions:
+                  cashSettlementAmount:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  recoveryFactor:
+                    value_presence: ABSENT
+    rules:
+      - description: 'RecoveryFactor: FpML specifies recoveryFactor as a RestrictedPercentage, meaning
+          that it is a decimal which value is restricted between 0 and 1.'
+        preconditions:
+          slot_conditions:
+            recoveryFactor:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            recoveryFactor:
+              minimum_value: 0
+              maximum_value: 1
+    annotations:
+      rosetta_metadata: key
+    comments:
+      - 'Rosetta condition CashCollateralMethod is not stated in LinkML: if valuationMethod -> cashCollateralValuationMethod
+        exists then cashSettlementMethod = CashSettlementMethodEnum -> MidMarketIndicativeQuotations or
+        cashSettlementMethod = CashSettlementMethodEnum -> MidMarketIndicativeQuotationsAlternate or cashSettlementMethod
+        = CashSettlementMethodEnum -> MidMarketCalculationAgentDetermination or cashSettlementMethod =
+        CashSettlementMethodEnum -> ReplacementValueFirmQuotations or cashSettlementMethod = CashSettlementMethodEnum
+        -> ReplacementValueCalculationAgentDetermination'
+      - 'Rosetta condition MidMarketValuationMethod is not stated in LinkML: if (valuationMethod -> cashCollateralValuationMethod
+        -> applicableCsa exists or valuationMethod -> cashCollateralValuationMethod -> agreedDiscountRate
+        exists or valuationMethod -> cashCollateralValuationMethod -> cashCollateralInterestRate exists)
+        then cashSettlementMethod = CashSettlementMethodEnum -> MidMarketIndicativeQuotations or cashSettlementMethod
+        = CashSettlementMethodEnum -> MidMarketIndicativeQuotationsAlternate or cashSettlementMethod =
+        CashSettlementMethodEnum -> MidMarketCalculationAgentDetermination'
+      - 'Rosetta condition ReplacementValueMethod is not stated in LinkML: if valuationMethod -> cashCollateralValuationMethod
+        -> protectedParty exists then cashSettlementMethod = CashSettlementMethodEnum -> ReplacementValueFirmQuotations
+        or cashSettlementMethod = CashSettlementMethodEnum -> ReplacementValueCalculationAgentDetermination'
+      - 'Rosetta condition FirmQuotationMethod is not stated in LinkML: if valuationMethod -> cashCollateralValuationMethod
+        -> prescribedDocumentationAdjustment exists then cashSettlementMethod = CashSettlementMethodEnum
+        -> ReplacementValueFirmQuotations'
+  CommodityPriceReturnTerms:
+    description: Defines parameters in which the commodity price is assessed.
+    attributes:
+      rounding:
+        description: Defines rounding rules and precision to be used in the rounding of a number.
+        range: Rounding
+      spread:
+        description: Defines a spread value for one or more defined dates.
+        range: SpreadSchedule
+      rollFeature:
+        description: Used in conjunction with an exchange-based pricing source. Identifies a way in which
+          the futures contracts referenced will roll between periods.
+        range: RollFeature
+      conversionFactor:
+        description: Defines the conversion applied if the quantity unit on contract is different from
+          unit on referenced underlier.
+        range: decimal
+  ComputedAmount:
+    description: A class to specify the outcome of a computed amount, for testing purposes.
+    attributes:
+      callFunction:
+        range: string
+        required: true
+      amount:
+        range: decimal
+        required: true
+      currency:
+        description: The currency in which the computed amount is denominated. The list of valid currencies
+          is not presently positioned as an enumeration as part of the CDM because that scope is limited
+          to the values specified by ISDA and FpML. As a result, implementers have to make reference to
+          the relevant standard, such as the ISO 4217 standard for currency codes.
+        range: string
+        annotations:
+          rosetta_metadata: scheme
+  DeliverableObligations:
+    description: A class to specify all the ISDA terms relevant to defining the deliverable obligations.
+    attributes:
+      accruedInterest:
+        description: 'Indicates whether accrued interest is included (true) or not (false). For cash settlement
+          this specifies whether quotations should be obtained inclusive or not of accrued interest. For
+          physical settlement this specifies whether the buyer should deliver the obligation with an outstanding
+          principal balance that includes or excludes accrued interest. ISDA 2003 Term: Include/Exclude
+          Accrued Interest.'
+        range: boolean
+      category:
+        description: 'Used in both obligations and deliverable obligations to represent a class or type
+          of securities which apply. ISDA 2003 Term: Obligation Category/Deliverable Obligation Category.'
+        range: ObligationCategoryEnum
+      notSubordinated:
+        description: 'An obligation and deliverable obligation characteristic. An obligation that ranks
+          at least equal with the most senior Reference Obligation in priority of payment or, if no Reference
+          Obligation is specified in the related Confirmation, the obligations of the Reference Entity
+          that are senior. ISDA 2003 Term: Not Subordinated.'
+        range: boolean
+      specifiedCurrency:
+        description: 'An obligation and deliverable obligation characteristic. The currency or currencies
+          in which an obligation or deliverable obligation must be payable. ISDA 2003 Term: Specified
+          Currency.'
+        range: SpecifiedCurrency
+      notSovereignLender:
+        description: 'An obligation and deliverable obligation characteristic. Any obligation that is
+          not primarily (majority) owed to a Sovereign or Supranational Organisation. ISDA 2003 Term:
+          Not Sovereign Lender.'
+        range: boolean
+      notDomesticCurrency:
+        description: 'An obligation and deliverable obligation characteristic. Any obligation that is
+          payable in any currency other than the domestic currency. Domestic currency is either the currency
+          so specified or, if no currency is specified, the currency of (a) the reference entity, if the
+          reference entity is a sovereign, or (b) the jurisdiction in which the relevant reference entity
+          is organised, if the reference entity is not a sovereign. ISDA 2003 Term: Not Domestic Currency.'
+        range: NotDomesticCurrency
+      notDomesticLaw:
+        description: 'An obligation and deliverable obligation characteristic. If the reference entity
+          is a Sovereign, this means any obligation that is not subject to the laws of the reference entity.
+          If the reference entity is not a sovereign, this means any obligation that is not subject to
+          the laws of the jurisdiction of the reference entity. ISDA 2003 Term: Not Domestic Law.'
+        range: boolean
+      listed:
+        description: 'An obligation and deliverable obligation characteristic. Indicates whether or not
+          the obligation is quoted, listed or ordinarily purchased and sold on an exchange. ISDA 2003
+          Term: Listed.'
+        range: boolean
+      notContingent:
+        description: 'A deliverable obligation characteristic. In essence Not Contingent means the repayment
+          of principal cannot be dependant on a formula/index, i.e. to prevent the risk of being delivered
+          an instrument that may never pay any element of principal, and to ensure that the obligation
+          is interest bearing (on a regular schedule). ISDA 2003 Term: Not Contingent.'
+        range: boolean
+      notDomesticIssuance:
+        description: 'An obligation and deliverable obligation characteristic. Any obligation other than
+          an obligation that was intended to be offered for sale primarily in the domestic market of the
+          relevant Reference Entity. This specifies that the obligation must be an internationally recognised
+          bond. ISDA 2003 Term: Not Domestic Issuance.'
+        range: boolean
+      assignableLoan:
+        description: 'A deliverable obligation characteristic. A loan that is freely assignable to a bank
+          or financial institution without the consent of the Reference Entity or the guarantor, if any,
+          of the loan (or the consent of the applicable borrower if a Reference Entity is guaranteeing
+          the loan) or any agent. ISDA 2003 Term: Assignable Loan.'
+        range: PCDeliverableObligationCharac
+      consentRequiredLoan:
+        description: 'A deliverable obligation characteristic. A loan that is capable of being assigned
+          with the consent of the Reference Entity or the guarantor, if any, of the loan or any agent.
+          ISDA 2003 Term: Consent Required Loan.'
+        range: PCDeliverableObligationCharac
+      directLoanParticipation:
+        description: 'A deliverable obligation characteristic. A loan with a participation agreement whereby
+          the buyer is capable of creating, or procuring the creation of, a contractual right in favour
+          of the seller that provides the seller with recourse to the participation seller for a specified
+          share in any payments due under the relevant loan which are received by the participation seller.
+          ISDA 2003 Term: Direct Loan Participation.'
+        range: LoanParticipation
+      transferable:
+        description: 'A deliverable obligation characteristic. An obligation that is transferable to institutional
+          investors without any contractual, statutory or regulatory restrictions. ISDA 2003 Term: Transferable.'
+        range: boolean
+      maximumMaturity:
+        description: 'A deliverable obligation characteristic. An obligation that has a remaining maturity
+          from the Physical Settlement Date of not greater than the period specified. ISDA 2003 Term:
+          Maximum Maturity.'
+        range: Period
+      acceleratedOrMatured:
+        description: 'A deliverable obligation characteristic. An obligation at time of default is due
+          to mature and due to be repaid, or as a result of downgrade/bankruptcy is due to be repaid as
+          a result of an acceleration clause. ISDA 2003 Term: Accelerated or Matured.'
+        range: boolean
+      notBearer:
+        description: 'A deliverable obligation characteristic. Any obligation that is not a bearer instrument.
+          This applies to Bonds only and is meant to avoid tax, fraud and security/delivery provisions
+          that can potentially be associated with Bearer Bonds. ISDA 2003 Term: Not Bearer.'
+        range: boolean
+      fullFaithAndCreditObLiability:
+        description: 'An obligation and deliverable obligation characteristic. Defined in the ISDA published
+          additional provisions for U.S. Municipal as Reference Entity. ISDA 2003 Term: Full Faith and
+          Credit Obligation Liability.'
+        range: boolean
+      generalFundObligationLiability:
+        description: 'An obligation and deliverable obligation characteristic. Defined in the ISDA published
+          additional provisions for U.S. Municipal as Reference Entity. ISDA 2003 Term: General Fund Obligation
+          Liability.'
+        range: boolean
+      revenueObligationLiability:
+        description: 'An obligation and deliverable obligation characteristic. Defined in the ISDA published
+          additional provisions for U.S. Municipal as Reference Entity. ISDA 2003 Term: Revenue Obligation
+          Liability.'
+        range: boolean
+      indirectLoanParticipation:
+        description: 'ISDA 1999 Term: Indirect Loan Participation. NOTE: Only applicable as a deliverable
+          obligation under ISDA Credit 1999.'
+        range: LoanParticipation
+      excluded:
+        description: 'A free format string to specify any excluded obligations or deliverable obligations,
+          as the case may be, of the reference entity or excluded types of obligations or deliverable
+          obligations. ISDA 2003 Term: Excluded Obligations/Excluded Deliverable Obligations.'
+        range: string
+      othReferenceEntityObligations:
+        description: 'This element is used to specify any other obligations of a reference entity in both
+          obligations and deliverable obligations. The obligations can be specified free-form. ISDA 2003
+          Term: Other Obligations of a Reference Entity.'
+        range: string
+    all_of:
+      - description: 'DeliverableObligationsChoice: Choice rule to represent an FpML choice construct.'
+        exactly_one_of:
+          - slot_conditions:
+              fullFaithAndCreditObLiability:
+                value_presence: PRESENT
+          - slot_conditions:
+              generalFundObligationLiability:
+                value_presence: PRESENT
+          - slot_conditions:
+              revenueObligationLiability:
+                value_presence: PRESENT
+          - all_of:
+              - slot_conditions:
+                  fullFaithAndCreditObLiability:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  generalFundObligationLiability:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  revenueObligationLiability:
+                    value_presence: ABSENT
+    rules:
+      - description: 'FpML_cd_34: FpML validation rule cd-34 - Context: DeliverableObligations. If category
+          is equal to ''ReferenceObligationsOnly'', then no other elements may be contained in the deliverable
+          obligations element.'
+        preconditions:
+          slot_conditions:
+            category:
+              value_presence: PRESENT
+              equals_string: ReferenceObligationsOnly
+        postconditions:
+          slot_conditions:
+            acceleratedOrMatured:
+              value_presence: ABSENT
+            accruedInterest:
+              value_presence: ABSENT
+            assignableLoan:
+              value_presence: ABSENT
+            consentRequiredLoan:
+              value_presence: ABSENT
+            directLoanParticipation:
+              value_presence: ABSENT
+            excluded:
+              value_presence: ABSENT
+            fullFaithAndCreditObLiability:
+              value_presence: ABSENT
+            generalFundObligationLiability:
+              value_presence: ABSENT
+            indirectLoanParticipation:
+              value_presence: ABSENT
+            listed:
+              value_presence: ABSENT
+            maximumMaturity:
+              value_presence: ABSENT
+            notBearer:
+              value_presence: ABSENT
+            notContingent:
+              value_presence: ABSENT
+            notDomesticCurrency:
+              value_presence: ABSENT
+            notDomesticIssuance:
+              value_presence: ABSENT
+            notDomesticLaw:
+              value_presence: ABSENT
+            notSovereignLender:
+              value_presence: ABSENT
+            notSubordinated:
+              value_presence: ABSENT
+            othReferenceEntityObligations:
+              value_presence: ABSENT
+            revenueObligationLiability:
+              value_presence: ABSENT
+            specifiedCurrency:
+              value_presence: ABSENT
+            transferable:
+              value_presence: ABSENT
+  FixedPrice:
+    description: A predefined price accorded by the counterparties.
+    attributes:
+      price:
+        description: Fixed price step schedule, including an initial price specified as an absolute number.
+        range: PriceSchedule
+        annotations:
+          rosetta_metadata: address
+    comments:
+      - 'Rosetta condition NonNegativePrice_amount is not stated in LinkML: if price -> value exists then
+        price -> value >= 0.0'
+      - 'Rosetta condition NonNegativePrice_datedValue is not stated in LinkML: if price -> datedValue
+        exists then price -> datedValue -> value all >= 0.0'
+  FxFixingDate:
+    is_a: Offset
+    description: Extends the Offset structure to specify an FX fixing date as an offset to dates specified
+      somewhere else in the document.
+    attributes:
+      businessDayConvention:
+        description: The convention for adjusting a date if it would otherwise fall on a day that is not
+          a business day, as specified by an ISDA convention (e.g. Following, Precedent).
+        range: BusinessDayConventionEnum
+      businessCenters:
+        range: BusinessCenters
+      businessCentersReference:
+        description: A reference to a set of financial business centers defined elsewhere in the document.
+          This set of business centers is used to determine whether a particular day is a business day
+          or not.
+        range: BusinessCenters
+        annotations:
+          rosetta_metadata: reference
+      dateRelativeToPaymentDates:
+        description: The payment date references on which settlements in non-deliverable currency are
+          due and will then have to be converted according to the terms specified through the other parts
+          of the nonDeliverableSettlement structure.
+        range: DateRelativeToPaymentDates
+      dateRelativeToCalculationPeriodDates:
+        description: The calculation period references on which settlements in non-deliverable currency
+          are due and will then have to be converted according to the terms specified through the other
+          parts of the nonDeliverableSettlement structure. Implemented for Brazilian-CDI swaps where it
+          will refer to the termination date of the appropriate leg.
+        range: DateRelativeToCalculationPeriodDates
+      dateRelativeToValuationDates:
+        description: The calculation period references on which settlements in non-deliverable currency
+          are due and will then have to be converted according to the terms specified through the other
+          parts of the nonDeliverableSettlement structure. Implemented for Brazilian-CDI swaps where it
+          will refer to the termination date of the appropriate leg.
+        range: DateRelativeToValuationDates
+      fxFixingDate:
+        description: Describes the specific date when a non-deliverable forward or cash-settled option
+          will 'fix' against a particular rate, which will be used to compute the ultimate cash settlement.
+          This element should be omitted where a single, discrete fixing date cannot be identified e.g.
+          on an american option, where fixing may occur at any date on a continuous range. This attribute
+          was formerly part of 'fxSettlementTerms', which is now being harmonised into a common 'CashSettlementTerms'
+          that includes a 'ValuationDate'.
+        range: AdjustableOrRelativeDate
+    all_of:
+      - description: 'BusinessCentersChoice: condition to represent an FpML choice construct.'
+        exactly_one_of:
+          - slot_conditions:
+              businessCenters:
+                value_presence: PRESENT
+          - slot_conditions:
+              businessCentersReference:
+                value_presence: PRESENT
+          - all_of:
+              - slot_conditions:
+                  businessCenters:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  businessCentersReference:
+                    value_presence: ABSENT
+      - description: 'DateChoice: condition to represent an FpML choice construct.'
+        exactly_one_of:
+          - slot_conditions:
+              dateRelativeToPaymentDates:
+                value_presence: PRESENT
+          - slot_conditions:
+              dateRelativeToCalculationPeriodDates:
+                value_presence: PRESENT
+    rules:
+      - description: 'From Period. DayPeriod: FpML specifies that if the periodMultiplier value is 0 (zero)
+          then period must contain the value D (day).'
+        preconditions:
+          slot_conditions:
+            periodMultiplier:
+              equals_number: 0
+        postconditions:
+          slot_conditions:
+            period:
+              equals_string: D
+  LoanParticipation:
+    is_a: PCDeliverableObligationCharac
+    description: 'A class to specify loan with a participation agreement whereby the buyer is capable
+      of creating, or procuring the creation of, a contractual right in favour of the seller that provides
+      the seller with recourse to the participation seller for a specified share in any payments due under
+      the relevant loan which are received by the participation seller. ISDA 2003 Term: Direct Loan Participation.'
+    attributes:
+      qualifyingParticipationSeller:
+        description: 'If Direct Loan Participation is specified as a deliverable obligation characteristic,
+          this specifies any requirements for the Qualifying Participation Seller. The requirements may
+          be listed free-form. ISDA 2003 Term: Qualifying Participation Seller.'
+        range: string
+  PCDeliverableObligationCharac:
+    description: A class to specify the Partial Cash Deliverable Obligation Characteristic.
+    attributes:
+      applicable:
+        description: Indicates whether the provision is applicable.
+        range: boolean
+        required: true
+      partialCashSettlement:
+        description: Specifies whether either 'Partial Cash Settlement of Assignable Loans', 'Partial
+          Cash Settlement of Consent Required Loans' or 'Partial Cash Settlement of Participations' is
+          applicable. If this element is specified and Assignable Loan is a Deliverable Obligation Characteristic,
+          any Assignable Loan that is deliverable, but where a non-receipt of Consent by the Physical
+          Settlement Date has occurred, the Loan can be cash settled rather than physically delivered.
+          If this element is specified and Consent Required Loan is a Deliverable Obligation Characteristic,
+          any Consent Required Loan that is deliverable, but where a non-receipt of Consent by the Physical
+          Settlement Date has occurred, the Loan can be cash settled rather than physically delivered.
+          If this element is specified and Direct Loan Participation is a Deliverable Obligation Characteristic,
+          any Participation that is deliverable, but where this participation has not been effected (has
+          not come into effect) by the Physical Settlement Date, the participation can be cash settled
+          rather than physically delivered.
+        range: boolean
+  PaymentDetail:
+    attributes:
+      paymentDate:
+        range: AdjustableOrRelativeDate
+      paymentRule:
+        description: The calculation rule.
+        range: PaymentRule
+        required: true
+      paymentAmount:
+        description: A fixed payment amount.
+        range: Money
+    annotations:
+      rosetta_metadata: key
+  PaymentDiscounting:
+    description: This class corresponds to the FpML PaymentDiscounting.model group for representing the
+      discounting elements that can be associated with a payment.
+    attributes:
+      discountFactor:
+        description: The value representing the discount factor used to calculate the present value of
+          the cash flow.
+        range: decimal
+      presentValueAmount:
+        description: The amount representing the present value of the forecast payment.
+        range: Money
+  PaymentRule:
+    description: A class defining the payment calculation rule. As of FpML 5.10, percentage rule is the
+      only calculation rule that has been specified as part of the standard.
+    attributes:
+      percentageRule:
+        description: This attribute is not present as part of the FpML construct, as the payment rule
+          is specialised by means of runtime type extension through the xsi:type.
+        range: PercentageRule
+  PayoutBase:
+    description: A data type that contains the common attributes (e.g. payer and receiver parties) and
+      validation conditions that apply across all payout types
+    attributes:
+      payerReceiver:
+        description: Canonical representation of the payer and receiver parties applicable to each payout
+          leg.
+        range: PayerReceiver
+        required: true
+      priceQuantity:
+        description: Each payout leg must implement the quantity concept as a 'resolvable' type, which
+          allows for different payout legs to be linked to each other (e.g. in the case of cross-curreny
+          products).
+        range: ResolvablePriceQuantity
+      principalPayment:
+        description: The specification of the principal exchange. Optional as only applicable in the case
+          of cross-currency or zero-coupon swaps with a final payment.
+        range: PrincipalPayments
+      settlementTerms:
+        description: Each payout leg must specifies its settlement terms, including the delivery type
+          (i.e. cash vs physical, and their respective terms), the transfer type (DvP etc.) and settlement
+          date, if any.
+        range: SettlementTerms
+    annotations:
+      rosetta_metadata: key
+    comments:
+      - 'Rosetta condition FinalPrincipalAmountExists is not stated in LinkML: if principalPayment ->
+        principalPaymentSchedule -> finalPrincipalPayment exists and priceQuantity -> quantitySchedule
+        exists and priceQuantity -> reset is absent then principalPayment -> principalPaymentSchedule
+        -> finalPrincipalPayment -> principalAmount exists or principalPayment -> principalPaymentSchedule
+        -> finalPrincipalPayment -> presentValuePrincipalAmount exists'
+  PercentageRule:
+    description: A class defining a content model for a calculation rule defined as percentage of the
+      notional amount.
+    attributes:
+      paymentPercent:
+        description: A percentage of the notional amount.
+        range: decimal
+        required: true
+      notionalAmountReference:
+        description: A reference to the notional amount.
+        range: Money
+        required: true
+        annotations:
+          rosetta_metadata: reference
+  PhysicalSettlementPeriod:
+    attributes:
+      businessDaysNotSpecified:
+        description: An explicit indication that a number of business days are not specified and therefore
+          ISDA fallback provisions should apply.
+        range: boolean
+      businessDays:
+        description: 'A number of business days. Its precise meaning is dependant on the context in which
+          this element is used. ISDA 2003 Term: Business Day.'
+        range: integer
+      maximumBusinessDays:
+        description: A maximum number of business days. Its precise meaning is dependant on the context
+          in which this element is used. Intended to be used to limit a particular ISDA fallback provision.
+        range: integer
+    all_of:
+      - description: Unnamed condition (one-of)
+        exactly_one_of:
+          - slot_conditions:
+              businessDaysNotSpecified:
+                value_presence: PRESENT
+          - slot_conditions:
+              businessDays:
+                value_presence: PRESENT
+          - slot_conditions:
+              maximumBusinessDays:
+                value_presence: PRESENT
+    rules:
+      - description: 'BusinessDays: FpML specifies businessDays as a NonNegativeInteger.'
+        preconditions:
+          slot_conditions:
+            businessDays:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            businessDays:
+              minimum_value: 0
+      - description: 'MaximumBusinessDays: FpML specifies maximumBusinessDays as a NonNegativeInteger.'
+        preconditions:
+          slot_conditions:
+            maximumBusinessDays:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            maximumBusinessDays:
+              minimum_value: 0
+  PhysicalSettlementTerms:
+    description: Specifies Physical Settlement Terms characteristics for the settlement of a Credit Default
+      Swap or Option.
+    attributes:
+      clearedPhysicalSettlement:
+        description: Specifies whether the swap resulting from physical settlement of the swaption transaction
+          will clear through a clearing house. The meaning of Cleared Physical Settlement is defined in
+          the 2006 ISDA Definitions, Section 15.2 (published in Supplement number 28).
+        range: boolean
+      predeterminedClearingOrganizationParty:
+        description: Specifies the clearing organization (CCP, DCO) to which the trade should be cleared.
+        range: AncillaryRoleEnum
+      physicalSettlementPeriod:
+        description: 'The number of business days used in the determination of the physical settlement
+          date. The physical settlement date is this number of business days after all applicable conditions
+          to settlement are satisfied. If a number of business days is not specified fallback provisions
+          apply for determining the number of business days. If Section 8.5/8.6 of the 1999/2003 ISDA
+          Definitions are to apply the businessDaysNotSpecified element should be included. If a specified
+          number of business days are to apply these should be specified in the businessDays element.
+          If Section 8.5/8.6 of the 1999/2003 ISDA Definitions are to apply but capped at a maximum number
+          of business days then the maximum number should be specified in the maximumBusinessDays element.
+          ISDA 2003 Term: Physical Settlement Period.'
+        range: PhysicalSettlementPeriod
+      deliverableObligations:
+        description: This element contains all the ISDA terms relevant to defining the deliverable obligations.
+        range: DeliverableObligations
+      escrow:
+        description: 'If this element is specified and set to ''true'', indicates that physical settlement
+          must take place through the use of an escrow agent. (For Canadian counterparties this is always
+          ''Not Applicable''. ISDA 2003 Term: Escrow.'
+        range: boolean
+      sixtyBusinessDaySettlementCap:
+        description: 'If this element is specified and set to ''true'', for a transaction documented under
+          the 2003 ISDA Credit Derivatives Definitions, has the effect of incorporating the language set
+          forth below into the confirmation. The section references are to the 2003 ISDA Credit Derivatives
+          Definitions. Notwithstanding Section 1.7 or any provisions of Sections 9.9 or 9.10 to the contrary,
+          but without prejudice to Section 9.3 and (where applicable) Sections 9.4, 9.5 and 9.6, if the
+          Termination Date has not occurred on or prior to the date that is 60 Business Days following
+          the Physical Settlement Date, such 60th Business Day shall be deemed to be the Termination Date
+          with respect to this Transaction except in relation to any portion of the Transaction (an ''Affected
+          Portion'') in respect of which: (1) a valid notice of Buy-in Price has been delivered that is
+          effective fewer than three Business Days prior to such 60th Business Day, in which case the
+          Termination Date for that Affected Portion shall be the third Business Day following the date
+          on which such notice is effective; or (2) Buyer has purchased but not Delivered Deliverable
+          Obligations validly specified by Seller pursuant to Section 9.10(b), in which case the Termination
+          Date for that Affected Portion shall be the tenth Business Day following the date on which Seller
+          validly specified such Deliverable Obligations to Buyer.'
+        range: boolean
+    rules:
+      - description: PredeterminedClearingOrganizationParty
+        preconditions:
+          slot_conditions:
+            predeterminedClearingOrganizationParty:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            predeterminedClearingOrganizationParty:
+              equals_string: PredeterminedClearingOrganizationParty
+    annotations:
+      rosetta_metadata: key
+  PricingDates:
+    description: Specifies specific dates or parametric rules for the dates on which the price will be
+      determined
+    attributes:
+      specifiedDates:
+        description: Defines specified dates on which the price will be determined.
+        range: AdjustableDates
+        multivalued: true
+      parametricDates:
+        description: Defines rules for the dates on which the price will be determined.
+        range: ParametricDates
+    all_of:
+      - description: Unnamed condition (one-of)
+        exactly_one_of:
+          - slot_conditions:
+              specifiedDates:
+                value_presence: PRESENT
+          - slot_conditions:
+              parametricDates:
+                value_presence: PRESENT
+  PrincipalPayment:
+    description: Any kind of principal payments when the amount is known and thus fixed.
+    attributes:
+      principalPaymentDate:
+        description: The date where the PrincipalPayment shall be settled.
+        range: AdjustableDate
+      payerReceiver:
+        description: Specifies the parties responsible for making and receiving payments defined by this
+          structure.
+        range: PayerReceiver
+      principalAmount:
+        description: When known at the time the transaction is made, the cash amount to be paid.
+        range: Money
+      discountFactor:
+        description: The value representing the discount factor used to calculate the present value of
+          the principal payment amount.
+        range: decimal
+      presentValuePrincipalAmount:
+        description: The amount representing the present value of the principal payment.
+        range: Money
+    all_of:
+      - description: PrincipalAmount
+        exactly_one_of:
+          - slot_conditions:
+              principalAmount:
+                value_presence: PRESENT
+          - slot_conditions:
+              presentValuePrincipalAmount:
+                value_presence: PRESENT
+          - all_of:
+              - slot_conditions:
+                  principalAmount:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  presentValuePrincipalAmount:
+                    value_presence: ABSENT
+    rules:
+      - description: DiscountFactor
+        preconditions:
+          slot_conditions:
+            presentValuePrincipalAmount:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            discountFactor:
+              value_presence: PRESENT
+    annotations:
+      rosetta_metadata: key
+  PrincipalPaymentSchedule:
+    description: Describe dates schedules for Principal Exchanges and related role of the parties when
+      known.
+    attributes:
+      initialPrincipalPayment:
+        description: Principal Payment made at Trade inception.
+        range: PrincipalPayment
+      intermediatePrincipalPayment:
+        description: Principal Payment as part of the Trade lifecycle e.g. as part of notional reset adjustements
+          in a Cross Currency Swap with a varying notional leg.
+        range: AdjustableRelativeOrPeriodicDates
+      finalPrincipalPayment:
+        description: Principal Payment at Trade maturity
+        range: PrincipalPayment
+    comments:
+      - 'Rosetta condition InitialPrincipalAmountExists is not stated in LinkML: if initialPrincipalPayment
+        exists then initialPrincipalPayment -> principalAmount exists or initialPrincipalPayment -> presentValuePrincipalAmount
+        exists'
+  PrincipalPayments:
+    description: A class defining which principal exchanges occur for the stream.
+    attributes:
+      initialPayment:
+        description: A true/false flag to indicate whether there is an initial exchange of principal on
+          the effective date.
+        range: boolean
+        required: true
+      finalPayment:
+        description: A true/false flag to indicate whether there is a final exchange of principal on the
+          termination date.
+        range: boolean
+        required: true
+      intermediatePayment:
+        description: A true/false flag to indicate whether there are intermediate or interim exchanges
+          of principal during the term of the swap.
+        range: boolean
+        required: true
+      varyingLegNotionalCurrency:
+        description: Indicate the Payout legs which nominal amount may vary in regards of FX Fixing dates
+          as determined in the product terms.
+        range: string
+        multivalued: true
+      principalPaymentSchedule:
+        description: Describe dates schedules for Principal Exchanges and related role of the parties
+          when known.
+        range: PrincipalPaymentSchedule
+    annotations:
+      rosetta_metadata: key
+  QuantityMultiplier:
+    description: Class to specify a mechanism for a quantity to be set as a multiplier to another (reference)
+      quantity, based on a price observation. At the moment this class only supports FX or Equity-linked
+      notional and re-uses existing building blocks for those 2 cases, until such time when component
+      can be made more generic. This captures the case of resetting cross-currency swaps and resetting
+      equity swaps.
+    attributes:
+      fxLinkedNotionalSchedule:
+        description: Multiplier specified as an FX-linked schedule, e.g. for a resetting cross-currency
+          swap..
+        range: FxLinkedNotionalSchedule
+      multiplierValue:
+        range: decimal
+    all_of:
+      - description: Unnamed condition (one-of)
+        exactly_one_of:
+          - slot_conditions:
+              fxLinkedNotionalSchedule:
+                value_presence: PRESENT
+          - slot_conditions:
+              multiplierValue:
+                value_presence: PRESENT
+  ResolvablePriceQuantity:
+    description: 'Generic class to specify the quantity for different payout legs in a contractual product,
+      when that quantity can vary across payout legs or across time. A resolvable quantity can always
+      be resolved into a single quantity from the quantity notation which has a corresponding asset identifier.
+      In addition to the base case, where quantity is directly specified as a number as part of the quantity
+      notation, the other use cases are: (i) quantity based on some pre-defined schedule (eg amortising
+      notional), (ii) quantity based on some pre-defined events (eg resetting cross-currency notional),
+      or quantity set as reference to another quantity (eg equity notional as no. securities x price).'
+    attributes:
+      resolvedQuantity:
+        description: A product's quantity as a single, non-negative amount. When specified as part of
+          a product definition, this quantity attribute would not be set. Instead it is specified on the
+          quantity notation along with an asset identifier matching this payout's asset identifier. This
+          allows the quantity to be resolved for a payout leg, which can then be specified here for convenience
+          during data processing. There needs to be at least one resolvable quantity across payout legs
+          of a product to define an anchor that other payout quantities can refer to. This attribute is
+          ignored when mapping existing FpML messages.
+        range: Quantity
+      quantitySchedule:
+        description: 'A payout''s quantity specified as a schedule, which may also contain a single value
+          if that quantity is constant. There can only be a single quantity schedule applicable to a payout:
+          e.g. the notional for an interest rate leg. The quantity must be specified outside of the payout
+          in a PriceQuantity object and only referenced inside the payout using an address.'
+        range: NonNegativeQuantitySchedule
+        annotations:
+          rosetta_metadata: address
+      quantityReference:
+        description: Reference quantity when resolvable quantity is defined as relative to another (resolvable)
+          quantity. A resolvable quantity needs to contain either an absolute quantity or a reference
+          to another (resolvable) quantity. This requirement is captured by a choice rule on the class.
+        range: ResolvablePriceQuantity
+        annotations:
+          rosetta_metadata: reference
+      quantityMultiplier:
+        description: Quantity multiplier is specified on top of a reference quantity and is used as a
+          multiplying factor when resolving the quantity. A quantity multiplier can only exist when the
+          resolvable quantity specifies a reference quantity.
+        range: QuantityMultiplier
+      reset:
+        description: Whether the quantity is resettable
+        range: boolean
+      futureValueNotional:
+        description: 'The future value notional is specific to BRL CDI swaps, and is specified alongside
+          the notional amount. The value is calculated as follows: Future Value Notional = Notional Amount
+          * (1 + Fixed Rate) ^ (Fixed Rate Day Count Fraction). The currency should always match that
+          expressed in the notional schedule. The value date should match the adjusted termination date.'
+        range: FutureValueAmount
+      priceSchedule:
+        description: 'A payout''s price specified as a schedule, which may also contain a single value
+          if that price is constant. There may be multiple prices specified for a single payout: e.g.
+          a floating interest rate leg may specify a spread, a cap and/or floor and a multiplier. The
+          price must be specified outside of the payout in a PriceQuantity object and only referenced
+          inside the payout using an address.'
+        range: PriceSchedule
+        multivalued: true
+        annotations:
+          rosetta_metadata: address
+    annotations:
+      rosetta_metadata: key
+    comments:
+      - 'Rosetta condition QuantityMultiplier is not stated in LinkML: if quantityMultiplier exists then
+        quantityReference -> reference exists'
+  RollFeature:
+    description: Used in conjunction with an exchange-based pricing source. Identifies a way in which
+      the futures contracts referenced will roll between periods.
+    attributes:
+      rollSourceCalendar:
+        description: Used in conjunction with an exchange-based pricing source. Identifies a date source
+          calendar from which the pricing dates and thus roll to the next contract will be based off (e.g.
+          pricing is based on the NYMEX WTI First Nearby Futures Contract, if Future is chosen, the pricing
+          will roll to the next futures contract on expiration, if ListedOption is chosen, the pricing
+          will roll to the next futures contract on the Option expiration date which is three business
+          days before the expiration of the NYMEX WTI futures contract.) Omitting this element will result
+          in the default behavior expected with the pricing source described within the commodity element.
+        range: RollSourceCalendarEnum
+      deliveryDateRollConvention:
+        description: Specifies, for a Commodity Transaction that references a delivery date for a listed
+          future, the day on which the specified future will roll to the next nearby month prior to the
+          expiration of the referenced future. If the future will not roll at all - i.e. the price will
+          be taken from the expiring contract, 0 should be specified here. If the future will roll to
+          the next nearby on the last trading day - i.e. the price will be taken from the next nearby
+          on the last trading day, then 1 should be specified and so on.
+        range: Offset
+  SettlementBase:
+    description: A base class to be extended by the SettlementTerms class.
+    attributes:
+      settlementType:
+        description: Whether the settlement will be cash, physical, by election, ...
+        range: SettlementTypeEnum
+        required: true
+      transferSettlementType:
+        description: The qualification as to how the transfer will settle, e.g. a DvP settlement.
+        range: TransferSettlementEnum
+      settlementCurrency:
+        description: The settlement currency is to be specified when the Settlement Amount cannot be known
+          in advance. The list of valid currencies is not presently positioned as an enumeration as part
+          of the CDM because that scope is limited to the values specified by ISDA and FpML. As a result,
+          implementers have to make reference to the relevant standard, such as the ISO 4217 standard
+          for currency codes.
+        range: string
+        annotations:
+          rosetta_metadata: scheme
+          doc_reference: ICMA GMRA namingConvention Contractual Currency
+      settlementDate:
+        description: The date on which the settlement amount will be paid, subject to adjustment in accordance
+          with any applicable business day convention. This component would not be present for a mandatory
+          early termination provision where the cash settlement payment date is the mandatory early termination
+          date.
+        range: SettlementDate
+      settlementCentre:
+        description: 'Optional settlement centre as an enumerated list: Euroclear, Clearstream.'
+        range: SettlementCentreEnum
+        deprecated: Marked [deprecated] in the CDM.
+      settlementProvision:
+        description: Optionally defines the parameters that regulate a settlement.
+        range: SettlementProvision
+      standardSettlementStyle:
+        description: Settlement Style.
+        range: StandardSettlementStyleEnum
+      securitySettlementCentre:
+        description: Specifies the settlement centre of a security.
+        range: AssetAncillaryPartyRoleEnum
+      cashSettlementCentre:
+        description: Specifies the settlement centre of cash.
+        range: AssetAncillaryPartyRoleEnum
+    rules:
+      - description: SecuritySettlementCentre
+        preconditions:
+          slot_conditions:
+            securitySettlementCentre:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            securitySettlementCentre:
+              equals_string: SecuritySettlementCentre
+      - description: CashSettlementCentre
+        preconditions:
+          slot_conditions:
+            cashSettlementCentre:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            cashSettlementCentre:
+              equals_string: CashSettlementCentre
+    annotations:
+      rosetta_metadata: key
+  SettlementDate:
+    description: A data defining the settlement date(s) for cash or physical settlement as either a set
+      of explicit dates, together with applicable adjustments, or as a date relative to some other (anchor)
+      date, or as any date in a range of contiguous business days. This data type provides a level of
+      abstraction on top of the different legacy methods used to specify a settlement / payment date,
+      which vary across product types, asset classes and delivery types.
+    attributes:
+      adjustableOrRelativeDate:
+        description: A single settlement date subject to adjustment or specified as relative to another
+          date (e.g. the trade date). This attribute was formerly part of 'SettlementTerms', which is
+          now being harmonised to include a common 'SettlementDate', as inherited from 'SettlementBase'.
+        range: AdjustableOrAdjustedOrRelativeDate
+      valueDate:
+        description: The settlement date for a forward settling product. For Foreign Exchange contracts,
+          this represents a common settlement date between both currency legs. To specify different settlement
+          dates for each currency leg, see the ForeignExchange class. This attribute was formerly part
+          of 'SettlementTerms', which is now being harmonised to include a common 'SettlementDate', as
+          inherited from 'SettlementBase'.
+        range: date
+      adjustableDates:
+        description: A series of dates that shall be subject to adjustment if they would otherwise fall
+          on a day that is not a business day in the specified business centers, together with the convention
+          for adjusting the date. This attributes was formerly part of 'CashSettlementPaymentDate' as
+          included into 'OptionCashSettlement' (which is now merged into a unique 'CashSettlementTerms'
+          data type.
+        range: AdjustableDates
+      businessDateRange:
+        description: A range of contiguous business days. This attribute is meant to be merged with the
+          'settlementDate' at some future point once we refactor 'Date' to use a single complex type across
+          the model. This attributes was formerly part of 'CashSettlementPaymentDate', as included into
+          'OptionCashSettlement' (which is now merged into a unique 'CashSettlementTerms' data type.
+        range: BusinessDateRange
+      cashSettlementBusinessDays:
+        description: 'The number of business days used in the determination of the cash settlement payment
+          date. If a cash settlement amount is specified, the cash settlement payment date will be this
+          number of business days following the calculation of the final price. If a cash settlement amount
+          is not specified, the cash settlement payment date will be this number of business days after
+          all conditions to settlement are satisfied. ISDA 2003 Term: Cash Settlement Date. This attribute
+          was formerly part of ''CashSettlementTerms'' as used for credit event settlement, which now
+          includes a common ''SettlementDate'' attribute.'
+        range: integer
+      paymentDelay:
+        description: Applicable to CDS on MBS to specify whether payment delays are applicable to the
+          fixed Amount. RMBS typically have a payment delay of 5 days between the coupon date of the reference
+          obligation and the payment date of the synthetic swap. CMBS do not, on the other hand, with
+          both payment dates being on the 25th of each month.
+        range: boolean
+    all_of:
+      - description: 'DateChoice: Settlement date must be specified either throught the ''settlementDate''
+          or ''valueDate'' attribute. This is a temporary work-around until such time when we can retire
+          the ''valueDate'' attribute.'
+        exactly_one_of:
+          - slot_conditions:
+              adjustableOrRelativeDate:
+                value_presence: PRESENT
+          - slot_conditions:
+              valueDate:
+                value_presence: PRESENT
+          - slot_conditions:
+              adjustableDates:
+                value_presence: PRESENT
+          - slot_conditions:
+              businessDateRange:
+                value_presence: PRESENT
+          - all_of:
+              - slot_conditions:
+                  adjustableOrRelativeDate:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  valueDate:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  adjustableDates:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  businessDateRange:
+                    value_presence: ABSENT
+    rules:
+      - description: 'BusinessDays: FpML specifies cashSettlementBusinessDays as a nonNegativeInteger.
+          If cashSettlementBusinessDays is not specified, then another settlement date method must be
+          specified.'
+        preconditions:
+          slot_conditions:
+            cashSettlementBusinessDays:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            cashSettlementBusinessDays:
+              minimum_value: 0
+        elseconditions:
+          any_of:
+            - slot_conditions:
+                adjustableOrRelativeDate:
+                  value_presence: PRESENT
+            - slot_conditions:
+                valueDate:
+                  value_presence: PRESENT
+            - slot_conditions:
+                adjustableDates:
+                  value_presence: PRESENT
+            - slot_conditions:
+                businessDateRange:
+                  value_presence: PRESENT
+    annotations:
+      rosetta_metadata: key
+  SettlementProvision:
+    description: Defines parameters that regulate a settlement, for instance whether this settlement should
+      be netted with other ones or broken-down into smaller amounts.
+    attributes:
+      shapingProvisions:
+        description: Defines the parameters that are necessary to 'shape' a settlement, i.e. break it
+          down into smaller amounts.
+        range: ShapingProvision
+  SettlementTerms:
+    is_a: SettlementBase
+    description: Specifies the settlement terms, which can either be cash, physical, or fx-based cash-settlement.
+      This class can be used for the settlement of options and forwards, cash transactions (e.g. securities
+      or foreign exchange), or in case of credit event.
+    attributes:
+      cashSettlementTerms:
+        description: Specifies the parameters associated with the cash settlement procedure.
+        range: CashSettlementTerms
+        multivalued: true
+      physicalSettlementTerms:
+        description: Specifies the physical settlement terms which apply to the transaction.
+        range: PhysicalSettlementTerms
+    rules:
+      - description: From SettlementBase. SecuritySettlementCentre
+        preconditions:
+          slot_conditions:
+            securitySettlementCentre:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            securitySettlementCentre:
+              equals_string: SecuritySettlementCentre
+      - description: From SettlementBase. CashSettlementCentre
+        preconditions:
+          slot_conditions:
+            cashSettlementCentre:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            cashSettlementCentre:
+              equals_string: CashSettlementCentre
+      - description: 'OptionSettlementChoice: The option settlement cannot combine both physical and cash
+          terms specification.'
+        preconditions:
+          slot_conditions:
+            cashSettlementTerms:
+              value_presence: PRESENT
+            physicalSettlementTerms:
+              value_presence: PRESENT
+        postconditions:
+          any_of:
+            - slot_conditions:
+                settlementType:
+                  equals_string: Election
+            - slot_conditions:
+                settlementType:
+                  equals_string: CashOrPhysical
+    comments:
+      - 'Rosetta condition CashSettlementTerms is not stated in LinkML: if cashSettlementTerms exists
+        then settlementType <> SettlementTypeEnum -> Physical'
+      - 'Rosetta condition PhysicalSettlementTerms is not stated in LinkML: if physicalSettlementTerms
+        exists then settlementType <> SettlementTypeEnum -> Cash'
+  ShapingProvision:
+    description: Defines the applicable settlement limits that may require a settlement to be 'shaped',
+      i.e. broken-down into smaller amounts.
+    attributes:
+      shapeSchedule:
+        description: Defines applicable settlement limits in each currency.
+        range: Money
+        required: true
+        multivalued: true
+  ValuationDate:
+    description: A single object that represents the different methods to specify a valuation date, as
+      used for cash settlement. The Single / Multiple ValuationDate is used for the determination of recovery
+      in a credit event, the RelativeDateOffset is used for cash-settled option, and FxFixingDate is used
+      for cross-currency settlement.
+    attributes:
+      singleValuationDate:
+        description: 'Where single valuation date is specified as being applicable for cash settlement,
+          this element specifies the number of business days after satisfaction of all conditions to settlement
+          when such valuation date occurs. ISDA 2003 Term: Single Valuation Date.'
+        range: SingleValuationDate
+      multipleValuationDates:
+        description: 'Where multiple valuation dates are specified as being applicable for cash settlement,
+          this element specifies (a) the number of applicable valuation dates, and (b) the number of business
+          days after satisfaction of all conditions to settlement when the first such valuation date occurs,
+          and (c) the number of business days thereafter of each successive valuation date. ISDA 2003
+          Term: Multiple Valuation Dates.'
+        range: MultipleValuationDates
+      valuationDate:
+        description: The date on which the cash settlement amount will be determined according to the
+          cash settlement method if the parties have not otherwise been able to agree the cash settlement
+          amount. This attribute was formerly part of 'OptionCashSettlement', which is now being harmonised
+          into a common 'CashSettlementTerms' that includes a 'ValuationDate'.
+        range: RelativeDateOffset
+      fxFixingDate:
+        description: The date on which the currency rate will be determined for the purpose of specifying
+          the amount in deliverable currency. This attribute was formerly part of 'NonDeliverableSettlement',
+          which is now being harmonised into a common 'CashSettlementTerms' that includes a 'ValuationDate'.
+        range: FxFixingDate
+      fxFixingSchedule:
+        description: The date, when expressed as a schedule of date(s), on which the currency rate will
+          be determined for the purpose of specifying the amount in deliverable currency. This attribute
+          was formerly part of 'NonDeliverableSettlement', which is now being harmonised into a common
+          'CashSettlementTerms' that includes a 'ValuationDate'.
+        range: AdjustableDates
+    all_of:
+      - description: Unnamed condition (one-of)
+        exactly_one_of:
+          - slot_conditions:
+              singleValuationDate:
+                value_presence: PRESENT
+          - slot_conditions:
+              multipleValuationDates:
+                value_presence: PRESENT
+          - slot_conditions:
+              valuationDate:
+                value_presence: PRESENT
+          - slot_conditions:
+              fxFixingDate:
+                value_presence: PRESENT
+          - slot_conditions:
+              fxFixingSchedule:
+                value_presence: PRESENT

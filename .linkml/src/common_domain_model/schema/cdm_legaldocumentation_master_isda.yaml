@@ -1,0 +1,534 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master_isda
+name: cdm_legaldocumentation_master_isda
+title: CDM cdm.legaldocumentation.master.isda
+description: Enumerated options relevant to the ISDA master agreement
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_staticdata_party
+  - ./cdm_legaldocumentation_common
+  - ./cdm_legaldocumentation_csa
+  - ./cdm_legaldocumentation_master
+enums:
+  IsdaMasterCalculationAgentEnum:
+    description: The enumerated values to specify who the calculation agent in the ISDA Master Agreement.
+    permissible_values:
+      Party_A:
+        description: Party A
+      Party_B:
+        description: Party B
+      Party_A_Party_B:
+        description: Party A and Party B
+      Party_A_Or_Party_B:
+        description: Party A or Party B, as applicable
+      Demands_4c:
+        description: Party making the demand for the purposes of Paragraphs 3, 4(c) and 5 and the Secured
+          Party for the purposes of Paragraph 4(d)
+      Demands_4d:
+        description: Party making the demand for the purposes of Paragraphs 3, 4(d) and 5 and the Secured
+          Party for the purposes of Paragraph 4(e )
+      Other:
+        description: Other (to be specified)
+  IsdaMasterGoverningLawEnum:
+    description: The enumerated values to specify the law governing the ISDA Master Agreement.
+    permissible_values:
+      AUS:
+        description: Australian law
+      BE:
+        description: Belgian law
+      GBEN:
+        description: English law
+      FR:
+        description: French law
+      DE:
+        description: German law
+      IN:
+        description: Indian law
+      IE:
+        description: Irish law
+      JP:
+        description: Japanese law
+      MLT:
+        description: Maltese law
+      USNY:
+        description: New York law
+      NZ:
+        description: New Zealand law
+      NG:
+        description: Nigerian law
+      OTHER:
+        description: Other law to be specified
+  PayeeOfSubstituteCalculationAgentEnum:
+    description: The enumerated values to specify who bears the cost of the substitute Calculation Agent
+    permissible_values:
+      Party_A:
+        description: Party A
+      Party_B:
+        description: Party B
+      PartyA_Party_B:
+        description: Party A and Party B
+      Furthest_Estimate:
+        description: The party whose calculations were further away from those of the substitute
+      Other:
+        description: Other (to be specified)
+  SubstituteCalculationAgentAppointerEnum:
+    description: The enumerated values to specify who appoints a substitute Calculation Agent.
+    permissible_values:
+      Party_A:
+        description: Party A
+      Party_B:
+        description: Party B
+      PartyA_Party_B:
+        description: Party A and Party B
+      Third_Party:
+        description: A denoted third party (to be specified)
+      Other:
+        description: Other (to be specified)
+classes:
+  AdditionalTerminationEventElection:
+    description: A party specific election to determine whether Additional Early Termination Events apply,
+      and if so what they are.
+    attributes:
+      party:
+        description: The elective party.
+        range: CounterpartyRoleEnum
+        required: true
+      isApplicable:
+        description: Defines whether Additional Termination events apply (True) or not (False).
+        range: boolean
+        required: true
+      furtherDetails:
+        description: Further Details on the Additional Termination Events that apply to the party.
+        range: string
+  AutomaticEarlyTermination:
+    description: A class to specify the Automatic Early Termination provision applicable to a Master Agreement.
+    attributes:
+      fallbackAET:
+        description: Specifies whether automatic termination applies in the event of certain bankruptcy
+          events.
+        range: boolean
+        required: true
+      indemnity:
+        description: Specifies whether indemnity applies in the event AET is applicable to one or both
+          of the parties.
+        range: boolean
+        required: true
+      partyElection:
+        description: The party election specific to the Automatic Early Termination Clause.
+        range: AutomaticEarlyTerminationElection
+        multivalued: true
+        maximum_cardinality: 2
+    annotations:
+      doc_reference: ISDA ISDA_MA_1998 section 6(a) | ISDA ISDA_MA_2002 section 6(a)
+    comments:
+      - 'Rosetta condition FallbackAET is not stated in LinkML: if fallbackAET = True then partyElection
+        -> isApplicable all = False'
+      - 'Rosetta condition Indemnity is not stated in LinkML: if fallbackAET = False and partyElection
+        -> isApplicable all = False then indemnity = False'
+  AutomaticEarlyTerminationElection:
+    description: A class to specify the party elections specific to the Automatic Early Termination Clause.
+    attributes:
+      party:
+        description: The party for which the Automatic Early Termination provisions are being specified.
+        range: Party
+        required: true
+      isApplicable:
+        description: A boolean election to specify whether the Automatic Early Termination provisions
+          of Section 6(a) are applicable (True) or not applicable (False).
+        range: boolean
+        required: true
+  CreditEventUponMerger:
+    description: Specification of the Credit Event Upon Merger provision applicable to a Master Agreement.
+    attributes:
+      partyElection:
+        description: The party election specific to the Credit Event Upon Merger clause.
+        range: CreditEventUponMergerElection
+        multivalued: true
+        maximum_cardinality: 2
+  CreditEventUponMergerElection:
+    description: Defines whether Credit Event Upon Merger applies to either party, and specifies elections
+      specific to the Credit Event Upon Merger Clause.
+    attributes:
+      party:
+        description: The party for which the provisions are being specified.
+        range: CounterpartyRoleEnum
+        required: true
+      isApplicable:
+        description: Defines whether Credit Event Upon Merger are applicable to the respective party (True)
+          or not (False).
+        range: boolean
+        required: true
+      materiallyWeakerReferencesCreditRating:
+        description: Defines whether the definition of 'Materially Weaker' references a credit rating.
+        range: boolean
+        required: true
+  GoverningLaw:
+    description: A represenation of the governing law of the ISDA master agreement.
+    attributes:
+      governingLaw:
+        description: Selection from the enumerated list of governing laws specified.
+        range: IsdaMasterGoverningLawEnum
+        required: true
+      governingLawIfOther:
+        description: Specifies the governing law if the choice on the enumerated list is 'Other'.
+        range: string
+      includesNonContractualObligations:
+        description: Specifies if the governing law of the agreement extends to any non-contractual obligations.
+        range: boolean
+        required: true
+    rules:
+      - description: 'GoverningLawOtherThenProvided: A validation rule to ensure that if the value from
+          the Governing Law Enum is ''OTHER'', governingLawIfOther exists.'
+        preconditions:
+          slot_conditions:
+            governingLaw:
+              equals_string: OTHER
+        postconditions:
+          slot_conditions:
+            governingLawIfOther:
+              value_presence: PRESENT
+    comments:
+      - 'Rosetta condition GoverningLawDefinedNotOther is not stated in LinkML: if governingLaw <> OTHER
+        then governingLawIfOther is absent'
+  IsdaAdditionalTerminationEvent:
+    description: Elections to determine if Additional Termination Events apply to either party, and if
+      so, what they are.
+    attributes:
+      partyElection:
+        description: The party election specific to Additional Termination Events clause(s).
+        range: AdditionalTerminationEventElection
+        required: true
+        multivalued: true
+        minimum_cardinality: 2
+        maximum_cardinality: 2
+    aliases:
+      - AdditionalTerminationEvent
+    annotations:
+      rosetta_name: cdm.legaldocumentation.master.isda.AdditionalTerminationEvent
+  IsdaCalculationAgent:
+    description: The set of elections to define and categorise the Calculation Agent for the ISDA master
+      agreement.
+    attributes:
+      asSpecifiedInConfirmation:
+        description: Specifies if the calculation agent is provided in the confirmation related to the
+          relevant transaction (note this would override anything else in the calculation agent terms)
+        range: boolean
+        required: true
+      eventOfDefault:
+        description: Capturing the Calculation Agent in the Event of Default.
+        range: IsdaCalculationAgentElection
+      potentialEventOfDefault:
+        description: Capturing the Calculation in the potential of an event of default.
+        range: IsdaCalculationAgentElection
+      terminationEvent:
+        description: Capturing the Calculation Agent for a Termination Event.
+        range: IsdaCalculationAgentElection
+      noEvent:
+        description: Capturing the default Calculation Agent when no Event of Default or Termination Event
+          occurs.
+        range: IsdaCalculationAgentElection
+        required: true
+      substituteCalculationAgent:
+        description: Capturing the details regarding appointing a substitute Calculation Agent.
+        range: SubstituteCalculationAgentElection
+        required: true
+      otherComments:
+        description: Optional string to capture further information regarding the Calculation Agent.
+        range: string
+  IsdaCalculationAgentElection:
+    description: An election to determine who the Calculation Agent is for various events in an ISDA Master
+      Agreement.
+    attributes:
+      isApplicable:
+        description: Whether a Calculation Agent election is applicable for the event.
+        range: boolean
+        required: true
+      agent:
+        description: The determined Calculation Agent for the event.
+        range: IsdaMasterCalculationAgentEnum
+      agentIfOther:
+        description: The specified Calculation Agent if identified as other from the enumerated list.
+        range: string
+    rules:
+      - description: 'IsdaCalculationAgentElectionOtherThenProvided: A validation rule to determine if
+          agent is defined as ''Other'', then the agentIfOther exists.'
+        preconditions:
+          slot_conditions:
+            agent:
+              equals_string: Other
+        postconditions:
+          slot_conditions:
+            agentIfOther:
+              value_presence: PRESENT
+    comments:
+      - 'Rosetta condition IsdaCalculationAgentElectionDefined is not stated in LinkML: if isApplicable
+        then agent exists'
+      - 'Rosetta condition IsdaCalculationAgentElectionDefinedNotOther is not stated in LinkML: if agent
+        <> Other then agentIfOther is absent'
+  MasterAgreement:
+    is_a: MasterAgreementBase
+    description: The set of elections that define an ISDA Master Agreement.
+    attributes:
+      automaticEarlyTermination:
+        description: The specification of whether there is an automatic occurrence of an Early Termination
+          Date in respect of Transactions upon the occurrence of certain bankruptcy / insolvency related
+          events.
+        range: AutomaticEarlyTermination
+        required: true
+      terminationCurrency:
+        description: Specification of the currency in which the termination payment is made (including
+          the process by which such currency is determined).
+        range: TerminationCurrency
+        required: true
+      addressForNotices:
+        description: Specification of the address and other details for notices.
+        range: DemandsAndNotices
+        required: true
+      nonContractualObligations:
+        description: Specification of whether the Governing Law clause extends to Non-Contractual Obligations
+          (True) or does not extend to Non-Contractual Obligations (False).
+        range: boolean
+        required: true
+      creditSupportDocument:
+        description: Identification of party specific Credit Support Documents applicable to the document.
+        range: CreditSupportDocument
+        required: true
+      creditSupportProvider:
+        description: Identification of party specific Credit Support Providers applicable to the document.
+        range: CreditSupportProvider
+        required: true
+      specifiedEntities:
+        description: A provision that allows each party to specify its Specified Entities for certain
+          Events of Default and Termination Events.
+        range: SpecifiedEntities
+        required: true
+        multivalued: true
+        minimum_cardinality: 4
+        maximum_cardinality: 4
+      creditEventUponMerger:
+        description: Defines whether Credit Event Upon Merger is applicable to either party.
+        range: CreditEventUponMerger
+        required: true
+      governingLaw:
+        description: The specification of the governing law of the ISDA Master Agreement.
+        range: GoverningLaw
+        required: true
+      additionalTerminationEvent:
+        description: The specification of whether additional termination events apply to either party,
+          and if so, what they are.
+        range: IsdaAdditionalTerminationEvent
+        required: true
+      calculationAgent:
+        description: Defines the Calculation Agent for the ISDA Master Agreement.
+        range: IsdaCalculationAgent
+        required: true
+  PartyOptionTerminationCurrency:
+    description: Specifies mechanism for Termination currency to be selected by the Non-defaulting Party/party
+      which is not the Affected Party.
+    attributes:
+      bothAffectedTermCurrencyOption:
+        description: Specifies termination currency where there are two Affected Parties and they cannot
+          agree on the termination currency.
+        range: string
+      terminationCurrencySpecifiedCondition:
+        description: Specifies alternative conditions for selection of the termination currency.
+        range: string
+      terminationCurrencyCondition:
+        description: Specifies the enumerated conditions for selection of the termination currency.
+        range: TerminationCurrencyConditionEnum
+        required: true
+    rules:
+      - description: 'TerminationCurrencyCondition: A validation rule to ensure that Termination Currency
+          alternative conditions are specified when required.'
+        preconditions:
+          slot_conditions:
+            terminationCurrencyCondition:
+              equals_string: Specified
+        postconditions:
+          slot_conditions:
+            terminationCurrencySpecifiedCondition:
+              value_presence: PRESENT
+  PartyTerminationCurrencySelection:
+    description: Specifies the termination currency to be used by a party when it is the Non-Defaulting
+      Party or the Party which is not the Affected Party.
+    attributes:
+      party:
+        description: The elective party.
+        range: Party
+        required: true
+      statedPartyCurrency:
+        description: Specifies termination Currency.
+        range: string
+        required: true
+  SpecifiedEntities:
+    description: A provision that allows each party to specify its Specified Entities for certain Events
+      of Default and Termination Events.
+    attributes:
+      specifiedEntityClause:
+        description: The Event of Default or Termination event for which Specified Entities terms are
+          being defined.
+        range: SpecifiedEntityClauseEnum
+        required: true
+      specifiedEntity:
+        description: The party specific election of Specified Entities for the Event of Default or Termination
+          Event specified.
+        range: SpecifiedEntity
+        required: true
+        multivalued: true
+        minimum_cardinality: 2
+        maximum_cardinality: 2
+  SpecifiedEntity:
+    description: The party specific election of Specified Entities for the Event of Default or Termination
+      Event specified.
+    attributes:
+      party:
+        description: The elective party.
+        range: Party
+        required: true
+      specifiedEntityTerms:
+        description: The specified entity terms for the Event of Default or Termination Event specified.
+        range: SpecifiedEntityTermsEnum
+        required: true
+      specifiedEntity:
+        description: The specified entities for the Event of Default or Termination Event specified.
+        range: LegalEntity
+        multivalued: true
+      materialSubsidiaryTerms:
+        description: The meaning of Material Subsidiary for the Event of Default or Termination Event
+          specified.
+        range: string
+      otherSpecifiedEntityTerms:
+        description: The non standard terms for the Event of Default or Termination Event specified.
+        range: string
+    rules:
+      - description: 'SpecifiedEntity: A validation rule to ensure that a SpecifiedEntity is specified
+          when required.'
+        preconditions:
+          slot_conditions:
+            specifiedEntityTerms:
+              equals_string: NamedSpecifiedEntity
+        postconditions:
+          slot_conditions:
+            specifiedEntity:
+              value_presence: PRESENT
+      - description: 'MaterialSubsidiary: A validation rule to ensure that Material Subsidiary terms are
+          specified when required.'
+        preconditions:
+          slot_conditions:
+            specifiedEntityTerms:
+              equals_string: MaterialSubsidiary
+        postconditions:
+          slot_conditions:
+            materialSubsidiaryTerms:
+              value_presence: PRESENT
+      - description: 'OtherSpecifiedEntity: A validation rule to ensure that non standard Specified Entity
+          terms are provided when required.'
+        preconditions:
+          slot_conditions:
+            specifiedEntityTerms:
+              equals_string: OtherSpecifiedEntity
+        postconditions:
+          slot_conditions:
+            otherSpecifiedEntityTerms:
+              value_presence: PRESENT
+  SubstituteCalculationAgentElection:
+    description: An election to determine the characteristics around a substitution Calculation Agent.
+    attributes:
+      methodologyForSubstitutionExists:
+        description: A boolean to represent if the metholodgy exists for appointing a substitute Calculation
+          Agent (True), or not (False).
+        range: boolean
+        required: true
+      substituteCalculationAgentIsIndependent:
+        description: A boolean to represent that if a substitute Calculation Agent can be appointed, whether
+          they should be independent (True) or not (False).
+        range: boolean
+      substituteCalculationAgentAppointedBy:
+        description: A representation of who appoints the substitute Calculation Agent.
+        range: SubstituteCalculationAgentAppointerEnum
+      substituteCalculationAgentAppointedByIfOther:
+        description: A representation of who appoints the substitute Calculation Agent if 'Other' or 'Third
+          Party'.
+        range: string
+      costOfSubstituteCalculationAgentIsBoreBy:
+        description: A representation of who bears the cost of the substitute calculation agent.
+        range: PayeeOfSubstituteCalculationAgentEnum
+      costOfSubstituteCalculationAgentBoreByIfOther:
+        description: A representation of who bears the cost of the substitute calculation agent if 'Other'.
+        range: string
+    rules:
+      - description: 'SubstituteCalculationAgentElectionOtherThenProvided: A validation rule to determine
+          if appointed by is defined as ''Other'' then the substituteCalculationAgentAppointedByIfOther
+          exists.'
+        preconditions:
+          slot_conditions:
+            substituteCalculationAgentAppointedBy:
+              equals_string: Other
+        postconditions:
+          slot_conditions:
+            substituteCalculationAgentAppointedByIfOther:
+              value_presence: PRESENT
+      - description: 'SubstituteCalculationAgentIsBoreByElectionOtherThenProvided: A validation rule to
+          determine if the cost bore by is defined as ''Other'' then the costOfSubstituteCalculationAgentBoreByIfOther
+          exists.'
+        preconditions:
+          slot_conditions:
+            costOfSubstituteCalculationAgentIsBoreBy:
+              equals_string: Other
+        postconditions:
+          slot_conditions:
+            costOfSubstituteCalculationAgentBoreByIfOther:
+              value_presence: PRESENT
+    comments:
+      - 'Rosetta condition SubstituteCalculationAgentElectionDefined is not stated in LinkML: if methodologyForSubstitutionExists
+        then substituteCalculationAgentIsIndependent exists and substituteCalculationAgentAppointedBy
+        exists and costOfSubstituteCalculationAgentIsBoreBy exists'
+      - 'Rosetta condition SubstituteCalculationAgentElectionOmitted is not stated in LinkML: if methodologyForSubstitutionExists
+        = False then substituteCalculationAgentIsIndependent is absent and substituteCalculationAgentAppointedBy
+        is absent and substituteCalculationAgentAppointedByIfOther is absent and costOfSubstituteCalculationAgentIsBoreBy
+        is absent and costOfSubstituteCalculationAgentBoreByIfOther is absent'
+      - 'Rosetta condition SubstituteCalculationAgentElectionDefinedNotOther is not stated in LinkML:
+        if substituteCalculationAgentAppointedBy <> Other then substituteCalculationAgentAppointedByIfOther
+        is absent'
+      - 'Rosetta condition SubstituteCalculationAgentIsBoreByElectionDefinedNotOther is not stated in
+        LinkML: if costOfSubstituteCalculationAgentIsBoreBy <> Other then costOfSubstituteCalculationAgentBoreByIfOther
+        is absent'
+  TerminationCurrency:
+    description: Specifies how the Termination Currency for the agreement will be determined.
+    attributes:
+      statedTerminationCurrency:
+        description: Allows for specific Termination Currency(ies) and a fallback Termination Currency
+          to be selected.
+        range: TerminationCurrencySelection
+      partyOptionTerminationCurrency:
+        description: Provides that the Termination Currency will be determined by reference to a contractual
+          mechanism when closing out the Agreement.
+        range: PartyOptionTerminationCurrency
+  TerminationCurrencySelection:
+    description: Specifies Termination Currency where a currency is stated at the time the agreement is
+      entered into.
+    attributes:
+      statedCurrency:
+        description: Specifies a single Termination Currency for the agreement.
+        range: string
+      fallbackCurrency:
+        description: Specifies a single fallback Termination Currency should the stated currency not be
+          freely available.
+        range: string
+      partyElection:
+        description: Specifies different termination currencies to apply depending on which party or parties
+          are the Defaulting Party Affected Party(ies).
+        range: PartyTerminationCurrencySelection
+        multivalued: true
+        maximum_cardinality: 2
+      bothAffected:
+        description: Specifies fallback Termination Currency where both parties are Affected Parties.
+        range: string

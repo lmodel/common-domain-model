@@ -1,0 +1,274 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_base_staticdata_asset_commodity
+name: cdm_base_staticdata_asset_commodity
+title: CDM cdm.base.staticdata.asset.commodity
+description: The CDM's cdm.base.staticdata.asset.commodity namespace.
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+enums:
+  ProductGradeEnum:
+    description: Identifies the grade of physical commodity product to be delivered.
+    permissible_values:
+      0.1-Percent:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - _0_1_Percent
+      0.5-Percent:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - _0_5_Percent
+      1.0-Percent:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - _1_0_Percent
+      10-PPM:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - _10_PPM
+      10-PPM-95-R:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - _10_PPM_95_R
+      10-PPM-Premium-Unleaded:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - _10_PPM_Premium_Unleaded
+      10-PPM-Regular-Unleaded:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - _10_PPM_Regular_Unleaded
+      180-CST:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - _180_CST
+      3.5-Percent:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - _3_5_Percent
+      380-CST:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - _380_CST
+      50-PPM:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - _50_PPM
+      '54':
+        description: Applies to Oil Product Type Jet Fuel.
+        aliases:
+          - _54
+      '55':
+        description: Applies to Oil Product Type Jet Fuel.
+        aliases:
+          - _55
+      87-M:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - _87_M
+      87-Unleaded:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - _87_Unleaded
+      87-Unleaded-ULS-30:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - _87_Unleaded_ULS_30
+      92-Unleaded:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - _92_Unleaded
+      93-Unleaded:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - _93_Unleaded
+      95-Unleaded:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - _95_Unleaded
+      97-Unleaded:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - _97_Unleaded
+      98-Unleaded:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - _98_Unleaded
+      Arabian-Light:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Arabian_Light
+      Brass-Blend:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Brass_Blend
+      Brent:
+        description: Applies to Oil Product Type Oil.
+      CARBOB:
+        description: Applies to Oil Product Type Gasoline.
+      CBOB:
+        description: Applies to Oil Product Type Gasoline.
+      Cold-Lake:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Cold_Lake
+      Dubai:
+        description: Applies to Oil Product Type Oil.
+      Edmonton-High-Sulphur-Sour:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Edmonton_High_Sulphur_Sour
+      EUROBOB:
+        description: Applies to Oil Product Type Gasoline.
+      German-10PPM:
+        description: Applies to Oil Product Type Diesel Fuel.
+        aliases:
+          - German_10PPM
+      Gulf-Coast-Sweet:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Gulf_Coast_Sweet
+      Hardisty-Light:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Hardisty_Light
+      Iranian-Light:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Iranian_Light_1
+          - Iranian_Light
+        comments:
+          - The CDM gives Iranian_Light the same display name as another value of this enumeration.
+      Jet:
+        description: Applies to Oil Product Type Jet Fuel.
+      Kirkuk-Light:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Kirkuk_Light
+      Kuwait:
+        description: Applies to Oil Product Type Oil.
+      Light-Louisiana-Sweet:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Light_Louisiana_Sweet
+      Low-Sulphur:
+        description: Applies to Oil Product Type Diesel Fuel.
+        aliases:
+          - Low_Sulphur
+      Low-Sulphur-Jet:
+        description: Applies to Oil Product Type Jet Fuel.
+        aliases:
+          - Low_Sulphur_Jet
+      Mars:
+        description: Applies to Oil Product Type Oil.
+      Mixed-Sour-Blend:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Mixed_Sour_Blend
+      Mixed-Sweet-Blend:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Mixed_Sweet_Blend
+      Murban:
+        description: Applies to Oil Product Type Oil.
+      Natural-Gasoline:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - Natural_Gasoline
+      No.-2:
+        description: Applies to Oil Product Type Diesel Fuel.
+        aliases:
+          - No__2
+      No.-6-0.3-Percent:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - No__6_0_3_Percent
+      No.-6-0.3-Percent-HP:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - No__6_0_3_Percent_HP
+      No.-6-0.3-Percent-LP:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - No__6_0_3_Percent_LP
+      No.-6-0.7-Percent:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - No__6_0_7_Percent
+      No.-6-1.0-Percent:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - No__6_1_0_Percent
+      No.-6-2.2-Percent:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - No__6_2_2_Percent
+      No.-6-3-Percent:
+        description: Applies to Oil Product Type Fuel Oil.
+        aliases:
+          - No__6_3_Percent
+      Normal-Butane:
+        description: Applies to Oil Product Type Butane.
+        aliases:
+          - Normal_Butane
+      North-Dakota-Light:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - North_Dakota_Light
+      Oman:
+        description: Applies to Oil Product Type Oil.
+      Polymer-Grade:
+        description: Applies to Oil Product Type Propylene.
+        aliases:
+          - Polymer_Grade
+      RBOB:
+        description: Applies to Oil Product Type Gasoline.
+      Saharan:
+        description: Applies to Oil Product Type Oil.
+      Sour:
+        description: Applies to Oil Product Type Oil.
+      Southern-Green-Canyon:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Southern_Green_Canyon
+      Tapis:
+        description: Applies to Oil Product Type Oil.
+      Thunder-Horse:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Thunder_Horse
+      Ultra-Low-Sulphur:
+        description: Applies to Oil Product Type Diesel Fuel.
+        aliases:
+          - Ultra_Low_Sulphur
+      Urals:
+        description: Applies to Oil Product Type Oil.
+      Urals-Sour:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Urals_Sour
+      US-Regular-Unleaded:
+        description: Applies to Oil Product Type Gasoline.
+        aliases:
+          - US_Regular_Unleaded
+      Western-Canadian-Select:
+        description: Applies to Oil Product Type Oil.
+        aliases:
+          - Western_Canadian_Select
+      WTI:
+        description: Applies to Oil Product Type Oil.
+      WTS:
+        description: Applies to Oil Product Type Oil.
+      Zuetina:
+        description: Applies to Oil Product Type Oil.
+    annotations:
+      doc_reference: ISDA FpML_Coding_Scheme schemeLocation http://www.fpml.org/coding-scheme/commodity-oil-product-grade
+    see_also:
+      - http://www.fpml.org/coding-scheme/commodity-oil-product-grade

@@ -1,0 +1,146 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_product_asset_floatingrate
+name: cdm_product_asset_floatingrate
+title: CDM cdm.product.asset.floatingrate
+description: Product-related, asset class-specific floating-rate index concepts, such as rate definitions
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_math
+  - ./cdm_observable_asset
+  - ./cdm_observable_asset_calculatedrate
+  - ./cdm_product_asset
+  - ./cdm_product_common_schedule
+enums:
+  FloatingRateIndexProcessingTypeEnum:
+    description: This enumeration provides guidance on how to process a given floating rate index. It's
+      based on the ISDA Floating Rate Index information, but transforms it into the specific categories
+      needed for calculation
+    permissible_values:
+      Screen:
+        description: These values are just looked up from the screen and applied.
+      CompoundIndex:
+        description: A published index calculated using compounding; the implied rate must be backed out.
+      OIS:
+        description: These are calculated by the calculation agent based on a standard OIS FRO definition.
+      OvernightAvg:
+        description: These are calculated by the calculation agent based on a standard overnight averaging
+          FRO definition.
+      Modular:
+        description: These are calculated by the calculation agent based on deal-specific parameters (e.g.
+          lookback compound based on an RFR).
+      RefBanks:
+        description: These must be looked up using a manual process
+classes:
+  FloatingAmountCalculationDetails:
+    description: Type for reporting the detailed results of calculating a cash flow for a calculation
+      period. This is enhanced relative to the FpML-based cashflows structure to allow more information
+      to be returned about daily compounded rates.
+    attributes:
+      calculationPeriod:
+        description: The calculation period for which the floating calculation was performed.
+        range: CalculationPeriodBase
+        required: true
+      calculationPeriodNotionalAmount:
+        description: The notional in effect during the calculation period.
+        range: Money
+        required: true
+      floatingRate:
+        description: The details of the floating rate setting. (If it is a calculated rate, details of
+          that calculation will be inside that.
+        range: FloatingRateSettingDetails
+      processingDetails:
+        description: Details fo the floating rate treatment after the rate is observed or calculated.
+          This will include details of things like multipliers, spreads, caps and floors, and the raw
+          and treated rates.
+        range: FloatingRateProcessingDetails
+      appliedRate:
+        description: The rate that was actually applied, after all calculations and treatments.
+        range: decimal
+        required: true
+      yearFraction:
+        description: The fraction of a year that this calculation represents, according to the day count
+          fraction method.
+        range: decimal
+        required: true
+      calculatedAmount:
+        description: The amount of the cash flow that was computed, including any spreads and other processing.
+        range: decimal
+        required: true
+      spreadExclusiveCalculatedAMount:
+        description: The amount of the cash flow excluding any spread, for subsequent processing.
+        range: decimal
+        required: true
+  FloatingRateProcessingDetails:
+    description: Type for reporting the details of the rate treatment. This could potentially be replaced
+      by the existing FloatingRateDefinition type , but this is slightly more detailed.
+    attributes:
+      rawRate:
+        description: The raw or untreated rate, prior to any of the rate treatments.
+        range: decimal
+        required: true
+      processingParameters:
+        range: FloatingRateProcessingParameters
+      processedRate:
+        description: The value of the rate after processing.
+        range: decimal
+        required: true
+      spreadExclusiveRate:
+        description: The value of the processed rate without the spread applied, for subsequent compounding,
+          etc.
+        range: decimal
+        required: true
+  FloatingRateProcessingParameters:
+    description: Type to hold the processing parameters that should be or were used to calculate a floating
+      amount. These parameters can vary over a schedule so this type holds the acutal values applicable
+      to this calculation.
+    attributes:
+      initialRate:
+        description: The rate to be applied for the initial period.
+        range: Price
+      multiplier:
+        description: floating rate multiplier.
+        range: decimal
+      spread:
+        description: spread to be added to the floating rate.
+        range: decimal
+      treatment:
+        description: US rate treatment (Bond Equivalent Yield or Money Market Yield, if applicable.
+        range: RateTreatmentEnum
+      capRate:
+        description: capt to be applied to the floating rate.
+        range: decimal
+      floorRate:
+        description: floor to be applied to the floating rate.
+        range: decimal
+      rounding:
+        description: THe final rate rounding to be applied.
+        range: Rounding
+      negativeTreatment:
+        description: How to handle negative interest rates.
+        range: NegativeInterestRateTreatmentEnum
+  FloatingRateSettingDetails:
+    description: Type for reporting the raw (untreated) observed or calculated rate for a calculation
+      period. If this is a calculated rate, it allows details of the observations and the resulting rate
+      to be returned.
+    attributes:
+      calculationDetails:
+        description: Calculated rate details (observation dates, values, and weights).
+        range: CalculatedRateDetails
+      observationDate:
+        description: The day upon which the rate was observed (for term rates).
+        range: date
+      resetDate:
+        description: The day for which the rate is needed (e.g. period beginning or end date).
+        range: date
+      floatingRate:
+        description: The resulting rate that was observed or calculated.
+        range: decimal
+        required: true

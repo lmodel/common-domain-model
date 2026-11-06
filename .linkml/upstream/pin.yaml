@@ -1,0 +1,7 @@
+# The FINOS release this repository's tree and schema hold. The schema header
+# takes its version and source from here, scripts/check_upstream_release.py
+# compares FINOS's tags with it, and a test holds the three to one another.
+edition: 8.0.0-dev.13
+tag: 8.0.0-dev.13
+commit: dafe7bab2c015f40a486685508fc5c2e6a629def
+date: "2026-10-27"

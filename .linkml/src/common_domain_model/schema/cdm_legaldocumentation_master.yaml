@@ -1,0 +1,580 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_master
+name: cdm_legaldocumentation_master
+title: CDM cdm.legaldocumentation.master
+description: Master agreement concepts.
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_legaldocumentation_master_icma
+  - ./cdm_legaldocumentation_master_isda
+  - ./cdm_legaldocumentation_master_isla
+enums:
+  MasterAgreementTypeEnum:
+    description: The enumerated values to specify the type of the master agreement governing the transaction.
+    permissible_values:
+      AFB:
+        description: AFB Master Agreement for Foreign Exchange and Derivatives Transactions
+      Bespoke:
+        description: A Bespoke (custom) Master Agreement, including one-off agreements for transactions
+      CMA:
+        description: Clearing Master Agreement
+      CMOF:
+        description: Contrato Marco de Operaciones Financieras
+      CCPClearingConditions:
+        description: CCP Clearing Conditions
+      EEIPower:
+        description: EEI Master Power Purchase and Sale Agreement
+      EFETElectricity:
+        description: EFET General Agreement Concerning the Delivery and Acceptance of Electricity
+      EFETGas:
+        description: EFET General Agreement Concerning The Delivery And Acceptance of Natural Gas
+      EMA:
+        description: European Master Agreement and the Derivatives Annex (Banking Federation of the European
+          Union)
+      FBF:
+        description: Master Agreement Relating to transactions on Forward Financial Instruments (Federation
+          Bancaire Francaise)
+      FOA-FPCA:
+        description: Futures and Options Association Professional Client Agreement
+        aliases:
+          - FOA_FPCA
+      GasEDI:
+        description: GasEDI Base Contract for Short-term Sale and Purchase of Natural Gas
+      German:
+        description: German Master Agreement for Financial derivatives and Addendum for Options on Stock
+          Exchange Indices or Securities
+      GMRA:
+        description: ICMA Global Master Agreement for REPO Trades
+      GMSLA:
+        description: ISLA Global Master Agreement for Securities Lending
+      GTMA:
+        description: FOA Grid Trade Master Agreement
+      ICOM:
+        description: International Currency Options Market Master Agreement
+      IETA-ERPA:
+        description: International Emissions Trading Association Emissions Reduction Purchase Agreement
+        aliases:
+          - IETA_ERPA
+      IETA-ETMA:
+        description: International Emissions Trading Association Emissions Trading Master Agreement
+        aliases:
+          - IETA_ETMA
+      IETA-IETMA:
+        description: International Emissions Trading Association International Emissions Trading Master
+          Agreement
+        aliases:
+          - IETA_IETMA
+      IFEMA:
+        description: International Foreign Exchange Master Agreement
+      IFEOMA:
+        description: International Foreign Exchange and Options Master Agreement
+      ISDAMaster:
+        description: ISDA Master Agreement
+      ISDAFIA-CDEA:
+        description: ISDA-FIA Cleared Derivatives Execution Agreement
+        aliases:
+          - ISDAFIA_CDEA
+      ISDAIIFM-TMA:
+        description: ISDA/IIFM Tahawwut (Hedging) Master Agreement (TMA)
+        aliases:
+          - ISDAIIFM_TMA
+      JSCC:
+        description: Master agreement of Japan Securities Clearing Corporation
+      LBMA:
+        description: International Bullion Master Agreement Terms published by the London Bullion Market
+          Association
+      LEAP:
+        description: Leadership in Energy Automated Processing
+      MCPSA:
+        description: CTA Master Coal Purchase and Sales Agreement
+      NAESBGas:
+        description: NAESB Base Contract for Sale and Purchase of Natural Gas
+      NBP:
+        description: Short Term Flat NBP Trading Terms and Conditions
+      RussianDerivatives:
+        description: Standard Documentation for Derivative Transactions on the Russian Financial Markets
+      RussianRepo:
+        description: Master Agreement and Contractual Terms for Repurchase Agreements on the Russian Financial
+          Market
+      SCoTA:
+        description: globalCOAL Standard Coal Trading Agreement
+      Swiss:
+        description: Swiss Master Agreement for OTC Derivatives Instruments
+      TTF:
+        description: TTF Hub Natural Gas Trading Terms and Conditions
+      ZBT:
+        description: Zeebrugge Hub Natural Gas Trading Terms and Conditions
+  MasterConfirmationAnnexTypeEnum:
+    description: The enumerated values to specify the type of annex to be used with master confirmation
+      agreement governing the transaction.
+    permissible_values:
+      ISDA2004IndexVarianceSwapAmericasInterdealer:
+        description: The Index Variance Swap 2004 Annex to the ISDA 2004 Americas Interdealer Master Equity
+          Derivatives Confirmation Agreement and to the Revised ISDA 2004 Americas Interdealer Master
+          Equity Derivatives Confirmation Agreement applies.
+      ISDA2004ShareVarianceSwapAmericasInterdealer:
+        description: The Share Variance Swap 2004 Annex to the ISDA 2004 Americas Interdealer Master Equity
+          Derivatives Confirmation Agreement and to the Revised ISDA 2004 Americas Interdealer Master
+          Equity Derivatives Confirmation Agreement applies.
+      ISDA2007DispersionVarianceSwapEuropean:
+        description: The Dispersion Variance Swap Annex to the Revised 2007 ISDA European Variance Swap
+          Master Confirmation Agreement applies.
+      ISDA2007EquityFinanceSwapEuropean:
+        description: The EFS (Equity Share Finance Swap) 2007 Annex to the ISDA 2007 European Master Equity
+          Derivatives Confirmation Agreement applies.
+      ISDA2007IndexVarianceSwapAmericasInterdealer:
+        description: The Index Variance Swap 2007 Annex to the Revised ISDA 2004 Americas Interdealer
+          Master Equity Derivatives Confirmation Agreement applies.
+      ISDA2007ShareVarianceSwapAmericasInterdealer:
+        description: The Share Variance Swap 2007 Annex to the Revised ISDA 2004 Americas Interdealer
+          Master Equity Derivatives Confirmation Agreement applies.
+      ISDA2007VarianceOptionEuropean:
+        description: The Variance Option Standard Terms Appendix to the Revised ISDA 2007 European Variance
+          Swap Master Confirmation Agreement applies.
+      ISDA2008EquityFinanceSwapAsiaExcludingJapan:
+        description: The Cash-settled Open Market EFS (Equity Finance Share Swap) 2008 Annex to the ISDA
+          2008 AEJ (Asia Excluding Japan) Master Equity Derivatives Confirmation Agreement applies.
+      ISDA2008EquityFinanceSwapAsiaExcludingJapanRev1:
+        description: The Cash-settled Open Market EFS (Equity Finance Share Swap) Annex to the Revised
+          ISDA 2008 AEJ (Asia Excluding Japan) Master Equity Derivatives Confirmation Agreement applies.
+      ISDA2008EquityOptionAsiaExcludingJapan:
+        description: The Open Market Equity Option 2008 Annex to the ISDA 2008 AEJ (Asia Excluding Japan)
+          Master Equity Derivatives Confirmation Agreement applies.
+      ISDA2008EquityOptionAsiaExcludingJapanRev1:
+        description: The Open Market Equity Option Annex to the Revised ISDA 2008 AEJ (Asia Excluding
+          Japan) Master Equity Derivatives Confirmation Agreement applies.
+      ISDA2008EquityOptionJapan:
+        description: The Equity Option 2008 Annex to the ISDA 2008 Japanese Master Equity Derivatives
+          Confirmation Agreement applies.
+      ISDA2009ClosedMarketsOptionsAsiaExcludingJapan:
+        description: The Cash-settled Closed Market Index and Share Options 2009 Annex to the Revised
+          ISDA 2008 AEJ (Asia Excluding Japan) Master Equity Derivatives Confirmation Agreement applies.
+      ISDA2009EquityEuropeanInterdealerSS:
+        description: The Interdealer Share Swap 2009 Annex to the ISDA 2009 European Interdealer Master
+          Equity Derivatives Confirmation Agreement applies.
+      ISDA2009EquityEuropeanIS:
+        description: The Index Swap 2009 Annex to the ISDA 2007 European Master Equity Derivatives Confirmation
+          Agreement applies.
+      ISDA2009IndexShareOptionAmericas:
+        description: The Index and Share Options 2009 Annex to the ISDA 2009 Americas Master Equity Derivatives
+          Confirmation Agreement applies.
+      ISDA2009IndexSwapEuropeanInterdealer:
+        description: The Interdealer Index Swap 2009 Annex to the ISDA 2009 European Interdealer Master
+          Equity Derivatives Confirmation Agreement applies.
+      ISDA2009IndexSwapPanAsiaInterdealer:
+        description: The Index Swap 2009 Annex to the ISDA 2009 Pan-Asia Interdealer Master Equity Derivatives
+          Confirmation Agreement applies.
+      ISDA2009ShareSwapPanAsia:
+        description: The Share Swap 2009 Annex to the ISDA 2009 Pan-Asia Interdealer Master Equity Derivatives
+          Confirmation Agreement applies.
+      ISDA2010FairValueShareSwapEuropeanInterdealer:
+        description: The Fair Value Interdealer Share Swap 2010 Annex to the ISDA 2009 European Interdealer
+          Master Equity Derivatives Confirmation Agreement applies.
+      ISDA2010IndexShareOptionEMEAInterdealer:
+        description: The Cash-settled Index Option/Cash/Physically-settled Share Option 2010 Annex to
+          the ISDA 2010 EMEA EM Interdealer Master Equity Derivatives Confirmation Agreement applies.
+    annotations:
+      doc_reference: ISDA FpML_Coding_Scheme schemeLocation http://www.fpml.org/coding-scheme/master-confirmation-annex-type
+    see_also:
+      - http://www.fpml.org/coding-scheme/master-confirmation-annex-type
+  MasterConfirmationTypeEnum:
+    description: The enumerated values to specify the type of master confirmation agreement governing
+      the transaction. While FpML positions the date a prefix, the CDM positions it as the suffix to handle
+      grammar type constraints.
+    permissible_values:
+      2003CreditIndex:
+        description: Used for CDS Index trades. Relevant Master Confirmation determined by the contents
+          of the creditDefaultSwap element. Best practice is to use the most specific code that applies.
+        aliases:
+          - _2003CreditIndex
+      2004EquityEuropeanInterdealer:
+        description: A privately negotiated European Interdealer Master Confirmation Agreement applies.
+        aliases:
+          - _2004EquityEuropeanInterdealer
+      2005VarianceSwapEuropeanInterdealer:
+        description: A privately negotiated European Interdealer Master Confirmation Agreement applies.
+        aliases:
+          - _2005VarianceSwapEuropeanInterdealer
+      2006DividendSwapEuropean:
+        description: A European Interdealer Master Confirmation Agreement not defined by ISDA, and modified
+          by the parties to the transaction applies.
+        aliases:
+          - _2006DividendSwapEuropean
+      2006DividendSwapEuropeanInterdealer:
+        description: A European Interdealer Master Confirmation Agreement not defined by ISDA applies.
+        aliases:
+          - _2006DividendSwapEuropeanInterdealer
+      2014CreditAsia:
+        description: Dummy MCA value mirroring the matrix term value AsiaCorporate.
+        aliases:
+          - _2014CreditAsia
+      2014CreditAsiaFinancial:
+        description: Dummy MCA value mirroring the matrix term value AsiaFinancialCorporate.
+        aliases:
+          - _2014CreditAsiaFinancial
+      2014CreditAustraliaNewZealand:
+        description: Dummy MCA value mirroring the matrix term value AustraliaCorporate/NewZealandCorporate.
+        aliases:
+          - _2014CreditAustraliaNewZealand
+      2014CreditAustraliaNewZealandFinancial:
+        description: Dummy MCA value mirroring the matrix term value AustraliaFinancialCorporate/NewZealandFinancialCorporate.
+        aliases:
+          - _2014CreditAustraliaNewZealandFinancial
+      2014CreditEuropean:
+        description: Dummy MCA value mirroring the matrix term value EuropeanCorporate.
+        aliases:
+          - _2014CreditEuropean
+      2014CreditEuropeanCoCoFinancial:
+        description: Dummy MCA value mirroring the matrix term value EuropeanCoCoFinancialCorporate.
+        aliases:
+          - _2014CreditEuropeanCoCoFinancial
+      2014CreditEuropeanFinancial:
+        description: Dummy MCA value mirroring the matrix term value EuropeanFinancialCorporate.
+        aliases:
+          - _2014CreditEuropeanFinancial
+      2014CreditJapan:
+        description: Dummy MCA value mirroring the matrix term value JapanCorporate.
+        aliases:
+          - _2014CreditJapan
+      2014CreditJapanFinancial:
+        description: Dummy MCA value mirroring the matrix term value JapanFinancialCorporate.
+        aliases:
+          - _2014CreditJapanFinancial
+      2014CreditNorthAmerican:
+        description: Dummy MCA value mirroring the matrix term value NorthAmericanCorporate.
+        aliases:
+          - _2014CreditNorthAmerican
+      2014CreditNorthAmericanFinancial:
+        description: Dummy MCA value mirroring the matrix term value NorthAmericanFinancialCorporate.
+        aliases:
+          - _2014CreditNorthAmericanFinancial
+      2014CreditSingapore:
+        description: Dummy MCA value mirroring the matrix term values SingaporeCorporate.
+        aliases:
+          - _2014CreditSingapore
+      2014CreditSingaporeFinancial:
+        description: Dummy MCA value mirroring the matrix term values SingaporeFinancialCorporate.
+        aliases:
+          - _2014CreditSingaporeFinancial
+      2014CreditSovereignAsia:
+        description: Dummy MCA value mirroring the matrix term value AsiaSovereign.
+        aliases:
+          - _2014CreditSovereignAsia
+      2014CreditSovereignEmergingEuropeanAndMiddleEastern:
+        description: Dummy MCA value mirroring the matrix term value EmergingEuropeanAndMiddleEasternSovereign.
+        aliases:
+          - _2014CreditSovereignEmergingEuropeanAndMiddleEastern
+      2014CreditSovereignJapan:
+        description: Dummy MCA value mirroring the matrix term value JapanSovereign.
+        aliases:
+          - _2014CreditSovereignJapan
+      2014CreditSovereignLatinAmerican:
+        description: Dummy MCA value mirroring the matrix term value LatinAmericaSovereign.
+        aliases:
+          - _2014CreditSovereignLatinAmerican
+      2014CreditSovereignWesternEuropean:
+        description: Dummy MCA value mirroring the matrix term value WesternEuropeanSovereign.
+        aliases:
+          - _2014CreditSovereignWesternEuropean
+      2014StandardCreditAsia:
+        description: Dummy MCA value mirroring the matrix term values StandardAsiaCorporate.
+        aliases:
+          - _2014StandardCreditAsia
+      2014StandardCreditAsiaFinancial:
+        description: Dummy MCA value mirroring the matrix term values StandardAsiaFinancialCorporate.
+        aliases:
+          - _2014StandardCreditAsiaFinancial
+      2014StandardCreditAustraliaNewZealand:
+        description: Dummy MCA value mirroring the matrix term values StandardAustraliaCorporate and StandardNewZealandCorporate.
+        aliases:
+          - _2014StandardCreditAustraliaNewZealand
+      2014StandardCreditAustraliaNewZealandFinancial:
+        description: Dummy MCA value mirroring the matrix term values StandardAustraliaFinancialCorporate
+          and StandardNewZealandFinancialCorporate.
+        aliases:
+          - _2014StandardCreditAustraliaNewZealandFinancial
+      2014StandardCreditEuropean:
+        description: Dummy MCA value mirroring the matrix term value StandardEuropeanCorporate.
+        aliases:
+          - _2014StandardCreditEuropean
+      2014StandardCreditEuropeanCoCoFinancial:
+        description: Dummy MCA value mirroring the matrix term value StandardEuropeanCoCoFinancialCorporate.
+        aliases:
+          - _2014StandardCreditEuropeanCoCoFinancial
+      2014StandardCreditEuropeanFinancial:
+        description: Dummy MCA value mirroring the matrix term value StandardEuropeanFinancialCorporate.
+        aliases:
+          - _2014StandardCreditEuropeanFinancial
+      2014StandardCreditJapan:
+        description: Dummy MCA value mirroring the matrix term values StandardJapanCorporate.
+        aliases:
+          - _2014StandardCreditJapan
+      2014StandardCreditJapanFinancial:
+        description: Dummy MCA value mirroring the matrix term value StandardJapanFinancialCorporate.
+        aliases:
+          - _2014StandardCreditJapanFinancial
+      2014StandardCreditNorthAmerican:
+        description: Dummy MCA value mirroring the matrix term value StandardNorthAmericanCorporate.
+        aliases:
+          - _2014StandardCreditNorthAmerican
+      2014StandardCreditNorthAmericanFinancial:
+        description: Dummy MCA value mirroring the matrix term value standardNorthAmericanFinancialCorporate.
+        aliases:
+          - _2014StandardCreditNorthAmericanFinancial
+      2014StandardCreditSingapore:
+        description: Dummy MCA value mirroring the matrix term values StandardSingaporeCorporate.
+        aliases:
+          - _2014StandardCreditSingapore
+      2014StandardCreditSingaporeFinancial:
+        description: Dummy MCA value mirroring the matrix term value StandardSingaporeFinancialCorporate.
+        aliases:
+          - _2014StandardCreditSingaporeFinancial
+      2014StandardCreditSovereignAsia:
+        description: Dummy MCA value mirroring the matrix term value StandardAsiaSovereign.
+        aliases:
+          - _2014StandardCreditSovereignAsia
+      2014StandardCreditSovereignEmergingEuropeanAndMiddleEastern:
+        description: Dummy MCA value mirroring the matrix term value StandardEmergingEuropeanAndMiddleEasternSovereign.
+        aliases:
+          - _2014StandardCreditSovereignEmergingEuropeanAndMiddleEastern
+      2014StandardCreditSovereignJapan:
+        description: Dummy MCA value mirroring the matrix term values StandardJapanSovereign.
+        aliases:
+          - _2014StandardCreditSovereignJapan
+      2014StandardCreditSovereignLatinAmerican:
+        description: Dummy MCA value mirroring the matrix term value StandardLatinAmericaSovereign.
+        aliases:
+          - _2014StandardCreditSovereignLatinAmerican
+      2014StandardCreditSovereignWesternEuropean:
+        description: Dummy MCA value mirroring the matrix term value StandardWesternEuropeanSovereign.
+        aliases:
+          - _2014StandardCreditSovereignWesternEuropean
+      DJ.CDX.EM:
+        description: Used for CDS Index trades executed under the Dow Jones CDX Emerging Markets Master
+          Confirmation.
+        aliases:
+          - DJ_CDX_EM
+      DJ.CDX.EM.DIV:
+        description: Used for CDS Index trades executed under the Dow Jones CDX Emerging Markets Diversified
+          Master Confirmation.
+        aliases:
+          - DJ_CDX_EM_DIV
+      DJ.CDX.NA:
+        description: Used for CDS Index trades executed under the Dow Jones CDX Master Confirmation that
+          covers CDX.NA.IG, CDX.NA.HY, and CDX.NA.XO.
+        aliases:
+          - DJ_CDX_NA
+      DJ.iTraxx.Europe:
+        description: Used for CDS Index trades executed under the Dow Jones iTraxx Europe Master Confirmation
+          Agreement.
+        aliases:
+          - DJ_iTraxx_Europe
+      EquityAmericas:
+        description: A general reference to the types of Americas Master Confirmation Agreements. Use
+          the more specific values to reference a specific type of Americas Master Confirmation Agreement.
+      EquityAsia:
+        description: A general reference to the types of Asia Master Confirmation Agreements. Use the
+          more specific values to reference a specific type of Asia Master Confirmation Agreement.
+      EquityEuropean:
+        description: A general reference to the types of European Master Confirmation Agreements. Use
+          the more specific values to reference a specific type of European Master Confirmation Agreement.
+      ISDA1999Credit:
+        description: ISDA 1999 Master Credit Derivatives Confirmation Agreement
+      ISDA2003CreditAsia:
+        description: ISDA 2003 Master Credit Derivatives Confirmation Agreement interpreted as if Asia
+          had been specified as the relevant Transaction Type in the Transaction Supplement.
+      ISDA2003CreditAustraliaNewZealand:
+        description: ISDA 2003 Master Credit Derivatives Confirmation Agreement interpreted as if Australia
+          and New Zealand had been specified as the relevant Transaction Type in the Transaction Supplement.
+      ISDA2003CreditEuropean:
+        description: ISDA 2003 Master Credit Derivatives Confirmation Agreement interpreted as if European
+          had been specified as the relevant Transaction Type in the Transaction Supplement.
+      ISDA2003CreditJapan:
+        description: ISDA 2003 Master Credit Derivatives Confirmation Agreement interpreted as if Japan
+          had been specified as the relevant Transaction Type in the Transaction Supplement.
+      ISDA2003CreditNorthAmerican:
+        description: ISDA 2003 Master Credit Derivatives Confirmation Agreement interpreted as if North
+          American had been specified as the relevant Transaction Type in the Transaction Supplement.
+      ISDA2003CreditSingapore:
+        description: ISDA 2003 Master Credit Derivatives Confirmation Agreement interpreted as if Singapore
+          had been specified as the relevant Transaction Type in the Transaction Supplement.
+      ISDA2003CreditSovereignAsia:
+        description: ISDA Sovereign 2003 Master Credit Derivatives Confirmation Agreement interpreted
+          as if Asia had been specified as the relevant Transaction Type in the Transaction Supplement.
+          The 2003 Sovereign Master Confirmation has been superceded by the 2004.
+      ISDA2003CreditSovereignCentralAndEasternEurope:
+        description: ISDA Sovereign 2003 Master Credit Derivatives Confirmation Agreement interpreted
+          as if Central and Eastern Europe had been specified as the relevant Transaction Type in the
+          Transaction Supplement. The 2003 Sovereign Master Confirmation has been superceded by the 2004.
+      ISDA2003CreditSovereignJapan:
+        description: ISDA Sovereign 2003 Master Credit Derivatives Confirmation Agreement interpreted
+          as if Japan had been specified as the relevant Transaction Type in the Transaction Supplement.
+          The 2003 Sovereign Master Confirmation has been superceded by the 2004.
+      ISDA2003CreditSovereignLatinAmerica:
+        description: ISDA Sovereign 2003 Master Credit Derivatives Confirmation Agreement interpreted
+          as if Latin America had been specified as the relevant Transaction Type in the Transaction Supplement.
+          The 2003 Sovereign Master Confirmation has been superceded by the 2004.
+      ISDA2003CreditSovereignMiddleEast:
+        description: ISDA Sovereign 2003 Master Credit Derivatives Confirmation Agreement interpreted
+          as if Middle East had been specified as the relevant Transaction Type in the Transaction Supplement.
+          The 2003 Sovereign Master Confirmation has been superceded by the 2004.
+      ISDA2003CreditSovereignWesternEurope:
+        description: ISDA Sovereign 2003 Master Credit Derivatives Confirmation Agreement interpreted
+          as if Western Europe had been specified as the relevant Transaction Type in the Transaction
+          Supplement. The 2003 Sovereign Master Confirmation has been superceded by the 2004.
+      ISDA2003StandardCreditAsia:
+        description: Dummy MCA value mirroring the matrix term values StandardAsiaCorporate.
+      ISDA2003StandardCreditAustraliaNewZealand:
+        description: Dummy MCA value mirroring the matrix term values StandardAustraliaCorporate/Sovereign
+          and StandardNewZealandCorporate/Sovereign.
+      ISDA2003StandardCreditEuropean:
+        description: Dummy MCA value mirroring the matrix term value StandardEuropeanCorporate.
+      ISDA2003StandardCreditJapan:
+        description: Dummy MCA value mirroring the matrix term values StandardJapanCorporate.
+      ISDA2003StandardCreditNorthAmerican:
+        description: Dummy MCA value mirroring the matrix term value StandardNorthAmericanCorporate.
+      ISDA2003StandardCreditSingapore:
+        description: Dummy MCA value mirroring the matrix term values StandardSingaporeCorporate/Sovereign.
+      ISDA2004CreditSovereignAsia:
+        description: ISDA Sovereign 2004 Master Credit Derivatives Confirmation Agreement interpreted
+          as if Asia had been specified as the relevant Transaction Type in the Transaction Supplement.
+      ISDA2004CreditSovereignEmergingEuropeanAndMiddleEastern:
+        description: ISDA Sovereign 2004 Master Credit Derivatives Confirmation Agreement interpreted
+          as if Emerging European and Middle Eastern had been specified as the relevant Transaction Type
+          in the Transaction Supplement.
+      ISDA2004CreditSovereignJapan:
+        description: ISDA Sovereign 2004 Master Credit Derivatives Confirmation Agreement interpreted
+          as if Japan had been specified as the relevant Transaction Type in the Transaction Supplement.
+      ISDA2004CreditSovereignLatinAmerican:
+        description: ISDA Sovereign 2004 Master Credit Derivatives Confirmation Agreement interpreted
+          as if Latin American had been specified as the relevant Transaction Type in the Transaction
+          Supplement.
+      ISDA2004CreditSovereignWesternEuropean:
+        description: ISDA Sovereign 2004 Master Credit Derivatives Confirmation Agreement interpreted
+          as if Western European had been specified as the relevant Transaction Type in the Transaction
+          Supplement.
+      ISDA2004EquityAmericasInterdealer:
+        description: The ISDA 2004 Americas Interdealer Master Equity Derivatives Confirmation Agreement
+          applies.
+      ISDA2004EquityAmericasInterdealerRev1:
+        description: The Revised ISDA 2004 Americas Interdealer Master Equity Derivatives Confirmation
+          Agreement applies.
+      ISDA2004StandardCreditSovereignAsia:
+        description: Dummy MCA value mirroring the matrix term values StandardAsiaSovereign.
+      ISDA2004StandardCreditSovereignEmergingEuropeanAndMiddleEastern:
+        description: Dummy MCA value mirroring the matrix term value StandardEmergingEuropeanAndMiddleEasternSovereign.
+      ISDA2004StandardCreditSovereignJapan:
+        description: Dummy MCA value mirroring the matrix term values StandardJapanSovereign.
+      ISDA2004StandardCreditSovereignLatinAmerican:
+        description: Dummy MCA value mirroring the matrix term value StandardLatinAmericaSovereign.
+      ISDA2004StandardCreditSovereignWesternEuropean:
+        description: Dummy MCA value mirroring the matrix term value StandardWesternEuropeanSovereign.
+      ISDA2005EquityAsiaExcludingJapanInterdealer:
+        description: ISDA 2005 AEJ (Asia Excluding Japan) Interdealer Master Equity Derivatives Confirmation
+          Agreement applies.
+      ISDA2005EquityAsiaExcludingJapanInterdealerRev2:
+        description: Second Revised ISDA 2005 AEJ (Asia Excluding Japan) Interdealer Master Equity Derivatives
+          Confirmation Agreement applies.
+      ISDA2005EquityJapaneseInterdealer:
+        description: The ISDA 2005 Japanese Interdealer Master Equity Derivatives Confirmation Agreement
+          applies.
+      ISDA2006VarianceSwapJapanese:
+        description: ISDA 2006 Variance Swap Japanese Confirmation Agreement applies.
+      ISDA2006VarianceSwapJapaneseInterdealer:
+        description: ISDA 2006 Variance Swap Japanese Interdealer Confirmation Agreement applies.
+      ISDA2007EquityEuropean:
+        description: The ISDA 2007 European Master Equity Derivatives Confirmation Agreement applies.
+      ISDA2007VarianceSwapAmericas:
+        description: The ISDA 2007 Americas Master Variance Swap Confirmation Agreement applies.
+      ISDA2007VarianceSwapAsiaExcludingJapan:
+        description: The ISDA 2007 AEJ Master Variance Swap Confirmation Agreement applies.
+      ISDA2007VarianceSwapAsiaExcludingJapanRev1:
+        description: The Revised ISDA 2007 AEJ Master Variance Swap Confirmation Agreement applies.
+      ISDA2007VarianceSwapAsiaExcludingJapanRev2:
+        description: The Second Revised ISDA 2007 AEJ Master Variance Swap Confirmation Agreement applies.
+      ISDA2007VarianceSwapEuropean:
+        description: The ISDA 2007 European Variance Swap Master Confirmation Agreement applies.
+      ISDA2007VarianceSwapEuropeanRev1:
+        description: The Revised ISDA 2007 European Variance Swap Master Confirmation Agreement applies.
+      ISDA2008DividendSwapJapan:
+        description: The ISDA 2008 Japanese Dividend Swap Master Confirmation Agreement applies.
+      ISDA2008DividendSwapJapaneseRev1:
+        description: The Revised ISDA 2008 Japanese Dividend Swap Master Confirmation Agreement applies.
+      ISDA2008EquityAmericas:
+        description: The ISDA 2008 Americas Master Designated/Exchange-Traded Contract Option Confirmation
+          Agreement applies.
+      ISDA2008EquityAsiaExcludingJapan:
+        description: The ISDA 2008 AEJ (Asia Excluding Japan) Master Equity Derivatives Confirmation Agreement
+          applies.
+      ISDA2008EquityAsiaExcludingJapanRev1:
+        description: The Revised ISDA 2008 AEJ (Asia Excluding Japan) Master Equity Derivatives Confirmation
+          Agreement applies.
+      ISDA2008EquityJapan:
+        description: The ISDA 2008 Japanese Master Equity Derivatives Confirmation Agreement applies.
+      ISDA2009EquityAmericas:
+        description: The ISDA 2009 Americas Master Equity Derivatives Confirmation Agreement applies.
+      ISDA2009EquityEuropeanInterdealer:
+        description: The ISDA 2009 European Interdealer Master Equity Derivatives Confirmation Agreement
+          applies.
+      ISDA2009EquityPanAsia:
+        description: 2009 Pan-Asia Interdealer Master Equity Derivatives Confirmation Agreement applies.
+      ISDA2010EquityEMEAInterdealer:
+        description: The ISDA 2010 EMEA EM Interdealer Master Equity Derivatives Confirmation Agreement
+          applies.
+      ISDA2013VolatilitySwapAmericas:
+        description: The ISDA 2013 Americas Master Volatility Swap Confirmation Agreement applies.
+      ISDA2013VolatilitySwapAsiaExcludingJapan:
+        description: The ISDA 2013 AEJ Master Volatility Swap Confirmation Agreement applies.
+      ISDA2013VolatilitySwapEuropean:
+        description: The ISDA 2013 European Volatility Swap Master Confirmation Agreement applies.
+      ISDA2013VolatilitySwapJapanese:
+        description: The ISDA 2013 Volatility Swap Japanese Confirmation Agreement applies.
+    annotations:
+      doc_reference: ISDA FpML_Coding_Scheme schemeLocation http://www.fpml.org/coding-scheme/master-confirmation-type
+    see_also:
+      - http://www.fpml.org/coding-scheme/master-confirmation-type
+  NationalizationOrInsolvencyOrDelistingEventEnum:
+    description: Defines the consequences of nationalization, insolvency and delisting events relating
+      to the underlying.
+    permissible_values:
+      NegotiatedCloseout:
+        description: The parties may, but are not obliged, to terminate the transaction on mutually acceptable
+          terms and if the terms are not agreed then the transaction continues.
+      CancellationAndPayment:
+        description: The trade is terminated.
+classes:
+  MasterAgreementBase:
+    description: A set of elections that can be shared across master agreement types - this should be
+      built upon for specific contracts.
+  MasterAgreementElections:
+    description: A representation of a master agreement extended from a base agreement of shared elections.
+    attributes:
+      islaGmsla:
+        description: The set of elections that define a GMSLA.
+        range: GlobalMasterSecuritiesLendingAgreement
+      icmaGmra:
+        description: The set of elections that define a GMRA.
+        range: GlobalMasterRepoAgreement
+      isdaMaster:
+        description: The set of elections that define an ISDA Master Agreement.
+        range: MasterAgreement
+    all_of:
+      - description: Unnamed condition (one-of)
+        exactly_one_of:
+          - slot_conditions:
+              islaGmsla:
+                value_presence: PRESENT
+          - slot_conditions:
+              icmaGmra:
+                value_presence: PRESENT
+          - slot_conditions:
+              isdaMaster:
+                value_presence: PRESENT

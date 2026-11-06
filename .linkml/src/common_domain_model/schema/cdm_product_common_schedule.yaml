@@ -1,0 +1,994 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_product_common_schedule
+name: cdm_product_common_schedule
+title: CDM cdm.product.common.schedule
+description: 'Common product schedule concepts: calculation period, reset, fixing and payment dates, stub,
+  notional schedule, roll convention.'
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_math
+  - ./cdm_observable_asset
+  - ./cdm_observable_common
+  - ./cdm_observable_event
+  - ./cdm_product_asset
+  - ./cdm_product_template
+enums:
+  PayRelativeToEnum:
+    description: The enumerated values to specify whether payments occur relative to the calculation period
+      start date or end date, each reset date, valuation date or the last pricing date.
+    permissible_values:
+      CalculationPeriodStartDate:
+        description: Payments will occur relative to the first day of each calculation period.
+      CalculationPeriodEndDate:
+        description: Payments will occur relative to the last day of each calculation period.
+      LastPricingDate:
+        description: Payments will occur relative to the last Pricing Date of each Calculation Period.
+      ResetDate:
+        description: Payments will occur relative to the reset date.
+      ValuationDate:
+        description: Payments will occur relative to the valuation date.
+  ResetRelativeToEnum:
+    description: The enumerated values to specify whether resets occur relative to the first or last day
+      of a calculation period.
+    permissible_values:
+      CalculationPeriodStartDate:
+        description: Resets occur relative to the first day of a calculation period.
+      CalculationPeriodEndDate:
+        description: Resets occur relative to the last day of a calculation period.
+  StubPeriodTypeEnum:
+    description: The enumerated values to specify how to deal with a non standard calculation period within
+      a swap stream.
+    permissible_values:
+      ShortInitial:
+        description: If there is a non regular period remaining it is left shorter than the streams calculation
+          period frequency and placed at the start of the stream.
+      ShortFinal:
+        description: If there is a non regular period remaining it is left shorter than the streams calculation
+          period frequency and placed at the end of the stream.
+      LongInitial:
+        description: If there is a non regular period remaining it is placed at the start of the stream
+          and combined with the adjacent calculation period to give a long first calculation period.
+      LongFinal:
+        description: If there is a non regular period remaining it is placed at the end of the stream
+          and combined with the adjacent calculation period to give a long last calculation period.
+  WeeklyRollConventionEnum:
+    description: The enumerated values to specify the weekly roll day.
+    permissible_values:
+      MON:
+        description: Monday
+      TUE:
+        description: Tuesday
+      WED:
+        description: Wednesday
+      THU:
+        description: Thursday
+      FRI:
+        description: Friday
+      SAT:
+        description: Saturday
+      SUN:
+        description: Sunday
+      TBILL:
+        description: 13-week and 26-week U.S. Treasury Bill Auction Dates. Each Monday except for U.S.
+          (New York) holidays when it will occur on a Tuesday
+    annotations:
+      rosetta_extends: DayOfWeekEnum
+classes:
+  AmountScheduleWithInitialValue:
+    is_a: ScheduleWithInitialValue
+    description: A class to specify a currency amount or a currency amount schedule.
+    attributes:
+      currency:
+        description: The currency in which the amount schedule is denominated. The currency is specified
+          outside of the actual schedule in order to be applied uniformly to it. The list of valid currencies
+          is not presently positioned as an enumeration as part of the CDM because that scope is limited
+          to the values specified by ISDA and FpML. As a result, implementers have to make reference to
+          the relevant standard, such as the ISO 4217 standard for currency codes.
+        range: string
+        required: true
+        multivalued: true
+        annotations:
+          rosetta_metadata: scheme
+    all_of:
+      - description: 'From Schedule. ValueExists: A schedule may be specified as a single value or as
+          a set of date-value pairs. Both attributes may be specified, in which case the single amount
+          number is the initial value.'
+        any_of:
+          - slot_conditions:
+              value:
+                value_presence: PRESENT
+          - slot_conditions:
+              datedValue:
+                value_presence: PRESENT
+  AveragingObservationList:
+    description: An unordered list of weighted averaging observations.
+    attributes:
+      averagingObservation:
+        description: A single weighted averaging observation.
+        range: WeightedAveragingObservation
+        required: true
+        multivalued: true
+  AveragingPeriod:
+    description: Period over which an average value is taken.
+    attributes:
+      schedule:
+        description: A schedule for generating averaging observation dates.
+        range: AveragingSchedule
+        multivalued: true
+      averagingDateTimes:
+        description: An unweighted list of averaging observation date and times.
+        range: DateTimeList
+      averagingObservations:
+        description: A weighted list of averaging observation date and times.
+        range: AveragingObservationList
+      marketDisruption:
+        description: The market disruption event as defined by ISDA 2002 Definitions.
+        range: MarketDisruptionEnum
+        annotations:
+          rosetta_metadata: scheme
+    all_of:
+      - description: 'AveragingPeriodChoice: Choice rule to represent an FpML choice construct between
+          unweighted and weighted averaging date and times.'
+        exactly_one_of:
+          - slot_conditions:
+              averagingDateTimes:
+                value_presence: PRESENT
+          - slot_conditions:
+              averagingObservations:
+                value_presence: PRESENT
+          - all_of:
+              - slot_conditions:
+                  averagingDateTimes:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  averagingObservations:
+                    value_presence: ABSENT
+  CalculationPeriod:
+    is_a: CalculationPeriodBase
+    description: 'A data defining: the parameters used in the calculation of a fixed or floating rate
+      calculation period amount. This data forms: part of cashflows representation of a swap stream.'
+    attributes:
+      unadjustedStartDate:
+        description: The calculation start date, unadjusted.
+        range: date
+      unadjustedEndDate:
+        description: The calculation end date, unadjusted.
+        range: date
+      calculationPeriodNumberOfDays:
+        description: The number of days from the adjusted effective / start date to the adjusted termination
+          / end date calculated in accordance with the applicable day count fraction.
+        range: integer
+      notionalAmount:
+        description: The amount that a cashflow will accrue interest on.
+        range: decimal
+      fxLinkedNotionalAmount:
+        description: The amount that a cashflow will accrue interest on. This is the calculated amount
+          of the FX linked - i.e. the other currency notional amount multiplied by the appropriate FX
+          spot rate.
+        range: FxLinkedNotionalAmount
+      floatingRateDefinition:
+        description: The floating rate reset information for the calculation period.
+        range: FloatingRateDefinition
+      fixedRate:
+        description: The calculation period fixed rate. A per annum rate, expressed as a decimal. A fixed
+          rate of 5% would be represented as 0.05.
+        range: decimal
+      dayCountYearFraction:
+        description: The year fraction value of the calculation period, result of applying the ISDA rules
+          for day count fraction defined in the ISDA Annex.
+        range: decimal
+      forecastAmount:
+        description: The amount representing the forecast of the accrued value of the calculation period.
+          An intermediate value used to generate the forecastPaymentAmount in the PaymentCalculationPeriod.
+        range: Money
+      forecastRate:
+        description: A value representing the forecast rate used to calculate the forecast future value
+          of the accrual period. This is a calculated rate determined based on averaging the rates in
+          the rateObservation elements, and incorporates all of the rate treatment and averaging rules.
+          A value of 1% should be represented as 0.01.
+        range: decimal
+    all_of:
+      - description: 'NotionalChoice: condition to represent an FpML choice construct.'
+        exactly_one_of:
+          - slot_conditions:
+              notionalAmount:
+                value_presence: PRESENT
+          - slot_conditions:
+              fxLinkedNotionalAmount:
+                value_presence: PRESENT
+      - description: 'RateChoice: condition to represent an FpML choice construct.'
+        exactly_one_of:
+          - slot_conditions:
+              floatingRateDefinition:
+                value_presence: PRESENT
+          - slot_conditions:
+              fixedRate:
+                value_presence: PRESENT
+      - description: 'StartDateChoice: FpML validation rule ird-30 - Context: CalculationPeriod (complex
+          type). unadjustedStartDate exists or adjustedStartDate exists.'
+        exactly_one_of:
+          - slot_conditions:
+              adjustedStartDate:
+                value_presence: PRESENT
+          - slot_conditions:
+              unadjustedStartDate:
+                value_presence: PRESENT
+      - description: 'EndDateChoice: FpML validation rule ird-31 - Context: CalculationPeriod (complex
+          type). unadjustedEndDate exists or adjustedEndDate exists.'
+        exactly_one_of:
+          - slot_conditions:
+              adjustedEndDate:
+                value_presence: PRESENT
+          - slot_conditions:
+              unadjustedEndDate:
+                value_presence: PRESENT
+  CalculationPeriodBase:
+    description: The calculation period adjusted start and end dates, which are the baseline arguments
+      needed to compute an interest accrual calculation.
+    attributes:
+      adjustedStartDate:
+        description: The calculation period start date, adjusted according to any relevant business day
+          convention.
+        range: date
+      adjustedEndDate:
+        description: The calculation period end date, adjusted according to any relevant business day
+          convention.
+        range: date
+    annotations:
+      rosetta_metadata: key
+  CalculationPeriodData:
+    attributes:
+      startDate:
+        range: date
+        required: true
+      endDate:
+        range: date
+        required: true
+      daysInPeriod:
+        range: integer
+        required: true
+      daysInLeapYearPeriod:
+        range: integer
+        required: true
+      isFirstPeriod:
+        range: boolean
+        required: true
+      isLastPeriod:
+        range: boolean
+        required: true
+  CalculationPeriodDates:
+    description: 'A data for: defining the parameters used to generate the calculation period dates schedule,
+      including the specification of any initial or final stub calculation periods. A calculation period
+      schedule consists of an optional initial stub calculation period, one or more regular calculation
+      periods and an optional final stub calculation period. In the absence of any initial or final stub
+      calculation periods, the regular part of the calculation period schedule is assumed to be between
+      the effective date and the termination date. No implicit stubs are allowed, i.e. stubs must be explicitly
+      specified using an appropriate combination of firstPeriodStartDate, firstRegularPeriodStartDate
+      and lastRegularPeriodEndDate.'
+    attributes:
+      effectiveDate:
+        description: The first day of the terms of the trade. This day may be subject to adjustment in
+          accordance with a business day convention.
+        range: AdjustableOrRelativeDate
+      terminationDate:
+        description: The last day of the terms of the trade. This date may be subject to adjustments in
+          accordance with the business day convention. It can also be specified in relation to another
+          scheduled date (e.g. the last payment date).
+        range: AdjustableOrRelativeDate
+      calculationPeriodDatesAdjustments:
+        description: The specification of the business day convention and financial business centers used
+          for adjusting any calculation period date if it would otherwise fall on a day that is not a
+          business day in the specified business center.
+        range: BusinessDayAdjustments
+      firstPeriodStartDate:
+        description: The start date of the calculation period. FpML specifies that for interest rate swaps
+          this date must only be specified if it is not equal to the effective date. It is always specified
+          in the case of equity swaps and credit default swaps with periodic payments. This date may be
+          subject to adjustment in accordance with a business day convention.
+        range: AdjustableOrRelativeDate
+      firstRegularPeriodStartDate:
+        description: The start date of the regular part of the calculation period schedule. It must only
+          be specified if there is an initial stub calculation period. This day may be subject to adjustment
+          in accordance with any adjustments specified in calculationPeriodDatesAdjustments.
+        range: date
+      firstCompoundingPeriodEndDate:
+        description: The end date of the initial compounding period when compounding is applicable. It
+          must only be specified when the compoundingMethod element is present and not equal to a value
+          of None. This date may be subject to adjustment in accordance with any adjustments specified
+          in calculationPeriodDatesAdjustments.
+        range: date
+      lastRegularPeriodEndDate:
+        description: The end date of the regular part of the calculation period schedule. It must only
+          be specified if there is a final stub calculation period. This day may be subject to adjustment
+          in accordance with any adjustments specified in calculationPeriodDatesAdjustments.
+        range: date
+      stubPeriodType:
+        description: Method to allocate any irregular period remaining after regular periods have been
+          allocated between the effective and termination date. The multiplicity of 2 allows the possibility
+          of expressing the type for both an initial and final stub at the same time.
+        range: StubPeriodTypeEnum
+        multivalued: true
+        maximum_cardinality: 2
+      calculationPeriodFrequency:
+        description: The frequency at which calculation period end dates occur with the regular part of
+          the calculation period schedule and their roll date convention.
+        range: CalculationPeriodFrequency
+    annotations:
+      rosetta_metadata: key
+    comments:
+      - 'Rosetta condition FpML_ird_16 is not stated in LinkML: if firstRegularPeriodStartDate exists
+        then terminationDate -> adjustableDate -> unadjustedDate > firstRegularPeriodStartDate'
+      - 'Rosetta condition FpML_ird_17 is not stated in LinkML: if lastRegularPeriodEndDate exists then
+        terminationDate -> adjustableDate -> unadjustedDate > lastRegularPeriodEndDate'
+      - 'Rosetta condition FpML_ird_18 is not stated in LinkML: if firstRegularPeriodStartDate exists
+        and lastRegularPeriodEndDate exists then lastRegularPeriodEndDate > firstRegularPeriodStartDate'
+      - 'Rosetta condition FpML_ird_20 is not stated in LinkML: if lastRegularPeriodEndDate exists then
+        lastRegularPeriodEndDate > effectiveDate -> adjustableDate -> unadjustedDate'
+      - 'Rosetta condition FpML_ird_21 is not stated in LinkML: if firstPeriodStartDate exists and effectiveDate
+        exists then firstPeriodStartDate -> adjustableDate -> unadjustedDate < effectiveDate -> adjustableDate
+        -> unadjustedDate'
+      - 'Rosetta condition FpML_ird_22 is not stated in LinkML: if firstPeriodStartDate exists and firstRegularPeriodStartDate
+        exists then firstPeriodStartDate -> adjustableDate -> unadjustedDate < firstRegularPeriodStartDate'
+  DateRelativeToCalculationPeriodDates:
+    description: 'A data to: provide the ability to point to multiple payment nodes in the document through
+      the unbounded paymentDatesReference.'
+    attributes:
+      calculationPeriodDatesReference:
+        description: A set of href pointers to calculation period dates defined somewhere else in the
+          document.
+        range: CalculationPeriodDates
+        required: true
+        multivalued: true
+        annotations:
+          rosetta_metadata: reference
+  DateRelativeToPaymentDates:
+    description: 'A data to: provide the ability to point to multiple payment nodes in the document through
+      the unbounded paymentDatesReference.'
+    attributes:
+      paymentDatesReference:
+        description: A set of href pointers to payment dates defined somewhere else in the document.
+        range: PaymentDates
+        required: true
+        multivalued: true
+        annotations:
+          rosetta_metadata: reference
+  DateRelativeToValuationDates:
+    description: 'A data to: provide the ability to point to multiple payment nodes in the document through
+      the unbounded paymentDatesReference.'
+    attributes:
+      valuationDatesReference:
+        description: A set of href pointers to valuation period dates defined somewhere else in the document.
+        range: PerformanceValuationDates
+        required: true
+        multivalued: true
+        annotations:
+          rosetta_metadata: reference
+  FinalCalculationPeriodDateAdjustment:
+    description: 'A data to: define business date convention adjustment to final payment period per leg.'
+    attributes:
+      relevantUnderlyingDateReference:
+        description: Reference to the unadjusted cancellation effective dates.
+        range: AdjustableOrRelativeDates
+        required: true
+        annotations:
+          rosetta_metadata: reference
+      swapStreamReference:
+        description: Reference to the leg, where date adjustments may apply.
+        range: Payout
+        required: true
+        annotations:
+          rosetta_metadata: reference
+      businessDayConvention:
+        description: Override business date convention. This takes precedence over leg level information.
+        range: BusinessDayConventionEnum
+        required: true
+    comments:
+      - 'Rosetta condition IsInterestRatePayout is not stated in LinkML: if swapStreamReference exists
+        then swapStreamReference switch InterestRatePayout then item exists, default False'
+  FxLinkedNotionalAmount:
+    description: 'A data to: describe the cashflow representation for FX linked notionals.'
+    attributes:
+      resetDate:
+        description: The reset date.
+        range: date
+      adjustedFxSpotFixingDate:
+        description: The date on which the FX spot rate is observed. This date should already be adjusted
+          for any applicable business day convention.
+        range: date
+      observedFxSpotRate:
+        description: The actual observed FX spot rate.
+        range: decimal
+      notionalAmount:
+        description: The calculation period notional amount.
+        range: decimal
+  FxLinkedNotionalSchedule:
+    description: 'A data to: describe a notional schedule where each notional that applies to a calculation
+      period is calculated with reference to a notional amount or notional amount schedule in a different
+      currency by means of a spot currency exchange rate which is normally observed at the beginning of
+      each period.'
+    attributes:
+      varyingNotionalCurrency:
+        description: The currency of the varying notional amount, i.e. the notional amount being determined
+          periodically based on observation of a spot currency exchange rate. The list of valid currencies
+          is not presently positioned as an enumeration as part of the CDM because that scope is limited
+          to the values specified by ISDA and FpML. As a result, implementers have to make reference to
+          the relevant standard, such as the ISO 4217 standard for currency codes.
+        range: string
+        required: true
+        annotations:
+          rosetta_metadata: scheme
+      varyingNotionalFixingDates:
+        description: The dates on which spot currency exchange rates are observed for purposes of determining
+          the varying notional currency amount that will apply to a calculation period.
+        range: RelativeDateOffset
+        required: true
+      fxSpotRateSource:
+        description: The information source and time at which the spot currency exchange rate will be
+          observed.
+        range: FxSpotRateSource
+        required: true
+      fixingTime:
+        description: The time at which the spot currency exchange rate will be observed. It is specified
+          as a time in a business day calendar location, e.g. 11:00am London time.
+        range: BusinessCenterTime
+      varyingNotionalInterimExchangePaymentDates:
+        description: The dates on which interim exchanges of notional are paid. Interim exchanges will
+          arise as a result of changes in the spot currency exchange amount or changes in the constant
+          notional schedule (e.g. amortisation).
+        range: RelativeDateOffset
+        required: true
+  InitialFixingDate:
+    description: A CDM class which purpose is to specify the initial fixing date either alongside the
+      FpML interest rate specification as an offset of another date, or alongside the credit derivative
+      specification as an unadjusted date.
+    attributes:
+      relativeDateOffset:
+        range: RelativeDateOffset
+      initialFixingDate:
+        range: date
+    all_of:
+      - description: Unnamed condition (one-of)
+        exactly_one_of:
+          - slot_conditions:
+              relativeDateOffset:
+                value_presence: PRESENT
+          - slot_conditions:
+              initialFixingDate:
+                value_presence: PRESENT
+  Lag:
+    description: The pricing period per calculation period if the pricing days do not wholly fall within
+      the respective calculation period.
+    attributes:
+      lagDuration:
+        description: Defines the offset of the series of pricing dates relative to the calculation period.
+        range: Offset
+        required: true
+      firstObservationDateOffset:
+        description: Defines the offset of the series of pricing dates relative to the calculation period.
+        range: Offset
+  ObservationDate:
+    description: Specifies a single date on which market observations take place and specifies optional
+      associated weighting.
+    attributes:
+      unadjustedDate:
+        description: A date subject to adjustment.
+        range: date
+      adjustedDate:
+        description: The date once the adjustment has been performed. (Note that this date may change
+          if the business center holidays change).
+        range: date
+      weight:
+        description: Specifies the degree of importance of the observation.
+        range: decimal
+      observationReference:
+        description: Specifies an identification key for the market observation. This attribute can be
+          used as a reference to assign weights to a series of dates defined in a parametricSchedule.
+        range: string
+    all_of:
+      - description: 'ObservationDate: Either an unadjusted date or an adjusted date needs to be specified.'
+        exactly_one_of:
+          - slot_conditions:
+              unadjustedDate:
+                value_presence: PRESENT
+          - slot_conditions:
+              adjustedDate:
+                value_presence: PRESENT
+    annotations:
+      rosetta_metadata: key
+  ObservationDates:
+    description: Describes date details for a set of observation dates in parametric or non-parametric
+      form.
+    attributes:
+      observationSchedule:
+        description: Specifies a schedule of dates (non-parametric) on which market observations take
+          place, and allows for the optional definition of weights where applicable. When no weight is
+          specified, then weight of each date is assumed to be 1.0
+        range: ObservationSchedule
+      periodicSchedule:
+        description: Specifies the date range and frequency on which market observations take place. Weights
+          can be assigned to dates in the schedule by assigning the weight and corresponding observationReference
+          in the observationSchedule.
+        range: PeriodicDates
+      parametricDates:
+        description: Specifies parametric terms to determine which days within a given calculation period
+          the price would be observed. Typically associated with Commodities.
+        range: ParametricDates
+  ObservationSchedule:
+    description: Specifies a single date on which market observations take place and specifies optional
+      associated weighting.
+    attributes:
+      observationDate:
+        description: Specifies an adjusted or unadjusted date for a market observation.
+        range: ObservationDate
+        multivalued: true
+      dateAdjustments:
+        description: The business day convention and financial business centers used for adjusting the
+          date if it would otherwise fall on a day that is not a business date in the specified business
+          centers.
+        range: BusinessDayAdjustments
+    comments:
+      - 'Rosetta condition AdjustedDate is not stated in LinkML: if observationDate -> adjustedDate is
+        absent then observationDate -> unadjustedDate exists and dateAdjustments exists'
+  ObservationTerms:
+    description: Class containing terms that are associated with observing a price/benchmark/index across
+      either single or multiple observations.
+    attributes:
+      observationTime:
+        description: Defines time in respect to a business calendar location that the price/benchmark/index
+          is observed
+        range: BusinessCenterTime
+      observationTimeType:
+        description: The enumerated values to specify points in the day when option exercise and valuation
+          can occur.
+        range: TimeTypeEnum
+      informationSource:
+        description: The information source where a published or displayed market rate will be obtained,
+          e.g. Telerate Page 3750.
+        range: FxSpotRateSource
+      precision:
+        description: Defines rounding rules and precision to be used in the rounding of observations.
+        range: Rounding
+      calculationPeriodDates:
+        description: Defines parameters used to generate the calculation period dates schedule, including
+          the specification of any initial or final stub calculation periods. A calculation period schedule
+          consists of an optional initial stub calculation period, one or more regular calculation periods
+          and an optional final stub calculation period. In the absence of any initial or final stub calculation
+          periods, the regular part of the calculation period schedule is assumed to be between the effective
+          date and the termination date. No implicit stubs are allowed, i.e. stubs must be explicitly
+          specified using an appropriate combination of firstPeriodStartDate, firstRegularPeriodStartDate
+          and lastRegularPeriodEndDate.
+        range: CalculationPeriodDates
+      observationDates:
+        description: Describes date details for a set of observation dates in parametric or non-parametric
+          form.
+        range: ObservationDates
+        required: true
+      numberOfObservationDates:
+        description: The number of observation dates between observation start date and observation end
+          date.
+        range: integer
+    rules:
+      - description: 'ObservationTime: Checks that an observation time is specified either explicitly
+          (through the observation time) or implicitly (through a observation time type different to Specific
+          Time). If Specific Time is defined as observation time type (i.e. no implicit time value), the
+          condition checks that an explicit observation time is provided.'
+        preconditions:
+          slot_conditions:
+            observationTimeType:
+              equals_string: SpecificTime
+        postconditions:
+          slot_conditions:
+            observationTime:
+              value_presence: PRESENT
+  ParametricDates:
+    description: Defines rules for the dates on which the price will be determined.
+    attributes:
+      dayType:
+        description: Denotes the enumerated values to specify the day type classification used in counting
+          the number of days between two dates.
+        range: DayTypeEnum
+        required: true
+      dayDistribution:
+        description: Denotes the method by which the pricing days are distributed across the pricing period.
+        range: DayDistributionEnum
+      dayOfWeek:
+        description: Indicates the days of the week on which the price will be determined.
+        range: DayOfWeekEnum
+        multivalued: true
+        maximum_cardinality: 7
+      dayFrequency:
+        description: Defines the occurrence of the dayOfWeek within the pricing period on which pricing
+          will take place, e.g. the 3rd Friday within each Calculation Period. If omitted, every dayOfWeek
+          will be a pricing day.
+        range: decimal
+      lag:
+        description: The pricing period per calculation period if the pricing days do not wholly fall
+          within the respective calculation period.
+        range: Lag
+      businessCenters:
+        description: The enumerated values to specify the business centers.
+        range: BusinessCenters
+        required: true
+    all_of:
+      - description: ParametricDatesChoice
+        exactly_one_of:
+          - slot_conditions:
+              dayDistribution:
+                value_presence: PRESENT
+          - slot_conditions:
+              dayOfWeek:
+                value_presence: PRESENT
+    rules:
+      - description: DayOfWeekMethod
+        preconditions:
+          slot_conditions:
+            dayOfWeek:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            dayFrequency:
+              value_presence: PRESENT
+  PaymentCalculationPeriod:
+    description: 'A data defining: the adjusted payment date and associated calculation period parameters
+      required to calculate the actual or projected payment amount. This data forms: part of the cashflow
+      representation of a swap stream.'
+    attributes:
+      unadjustedPaymentDate:
+        description: The unadjusted payment date.
+        range: date
+      adjustedPaymentDate:
+        description: The adjusted payment date. This date should already be adjusted for any applicable
+          business day convention. This component is not intended for use in trade confirmation but may
+          be specified to allow the fee structure to also serve as a cashflow type component.
+        range: date
+      calculationPeriod:
+        description: The parameters used in the calculation of a fixed or floating rate calculation period
+          amount. A list of calculation period elements may be ordered in the document by ascending start
+          date. An FpML document which contains an unordered list of calculation periods is still regarded
+          as a conformant document.
+        range: CalculationPeriod
+        required: true
+        multivalued: true
+      fixedPaymentAmount:
+        description: A known fixed payment amount.
+        range: Money
+      discountFactor:
+        description: A decimal value representing the discount factor used to calculate the present value
+          of cash flow.
+        range: decimal
+      forecastPaymentAmount:
+        description: A monetary amount representing the forecast of the future value of the payment.
+        range: Money
+      presentValueAmount:
+        description: A monetary amount representing the present value of the forecast payment.
+        range: Money
+    all_of:
+      - description: 'PaymentCalculationPeriodChoice: condition to represent an FpML choice construct.'
+        exactly_one_of:
+          - slot_conditions:
+              calculationPeriod:
+                value_presence: PRESENT
+          - slot_conditions:
+              fixedPaymentAmount:
+                value_presence: PRESENT
+      - description: 'FpML_ird_34: FpML validation rule ird-34 - Either unadjustedPaymentDate or adjustedPaymentDate
+          must exist.'
+        any_of:
+          - slot_conditions:
+              unadjustedPaymentDate:
+                value_presence: PRESENT
+          - slot_conditions:
+              adjustedPaymentDate:
+                value_presence: PRESENT
+    annotations:
+      rosetta_metadata: key
+    comments:
+      - 'Rosetta condition CalculationPeriodNumberOfDays is not stated in LinkML: if calculationPeriod
+        -> calculationPeriodNumberOfDays exists then calculationPeriod -> calculationPeriodNumberOfDays
+        all >= 0'
+  PaymentDateSchedule:
+    description: The payment dates when specified as relative to a set of dates specified somewhere else
+      in the instance document/transaction, e.g. the valuation dates as typically the case for equity
+      swaps, or when specified as a calculation period schedule.
+    attributes:
+      interimPaymentDates:
+        range: AdjustableRelativeOrPeriodicDates
+        multivalued: true
+      finalPaymentDate:
+        description: The last payment when specified as an adjustable or relative date, as in the FpML
+          total return construct.
+        range: AdjustableOrRelativeDate
+  PaymentDates:
+    description: Specifies the parameters to generate the payment date schedule, either through a parametric
+      representation or by reference to specified dates.
+    attributes:
+      paymentFrequency:
+        description: The frequency at which regular payment dates occur. If the payment frequency is equal
+          to the frequency defined in the calculation period dates component then one calculation period
+          contributes to each payment amount. If the payment frequency is less frequent than the frequency
+          defined in the calculation period dates component then more than one calculation period will
+          contribute to the payment amount. A payment frequency more frequent than the calculation period
+          frequency or one that is not a multiple of the calculation period frequency is invalid. If the
+          payment frequency is of value T (term), the period is defined by the effectiveDate and the terminationDate.
+        range: Frequency
+      firstPaymentDate:
+        description: The first unadjusted payment date. This day may be subject to adjustment in accordance
+          with any business day convention specified in paymentDatesAdjustments. This element must only
+          be included if there is an initial stub. This date will normally correspond to an unadjusted
+          calculation period start or end date. This is true even if early or delayed payment is specified
+          to be applicable since the actual first payment date will be the specified number of days before
+          or after the applicable adjusted calculation period start or end date with the resulting payment
+          date then being adjusted in accordance with any business day convention specified in paymentDatesAdjustments.
+        range: date
+      lastRegularPaymentDate:
+        description: The last regular payment date when specified as a date, as in the FpML interest rate
+          construct. FpML specifies that this date may be subject to adjustment in accordance with any
+          business day convention specified in the paymentDatesAdjustments attribute.
+        range: date
+      paymentDateSchedule:
+        description: The payment dates when specified as relative to a set of dates specified somewhere
+          else in the instance document/transaction, e.g. the valuation dates as typically the case for
+          equity swaps, or when specified as a calculation period schedule.
+        range: PaymentDateSchedule
+      payRelativeTo:
+        description: Specifies whether the payments occur relative to each adjusted calculation period
+          start date or end date, each reset date, valuation date or the last pricing date. Calculation
+          period start date means relative to the start of the first calculation period contributing to
+          a given payment. Similarly, calculation period end date means the end of the last calculation
+          period contributing to a given payment. The valuation date is applicable for Brazilian-CDI and
+          equity swaps.
+        range: PayRelativeToEnum
+      paymentDaysOffset:
+        description: If early payment or delayed payment is required, specifies the number of days offset
+          that the payment occurs relative to what would otherwise be the unadjusted payment date. The
+          offset can be specified in terms of either calendar or business days. Even in the case of a
+          calendar days offset, the resulting payment date, adjusted for the specified calendar days offset,
+          will still be adjusted in accordance with the specified payment dates adjustments. This element
+          should only be included if early or delayed payment is applicable, i.e. if the periodMultiplier
+          element value is not equal to zero. An early payment would be indicated by a negative periodMultiplier
+          element value and a delayed payment (or payment lag) would be indicated by a positive periodMultiplier
+          element value.
+        range: Offset
+      paymentDatesAdjustments:
+        description: The definition of the business day convention and financial business centers used
+          for adjusting the payment date if it would otherwise fall on a day that is not a business day
+          in the specified business center.
+        range: BusinessDayAdjustments
+    annotations:
+      rosetta_metadata: key
+    comments:
+      - 'Rosetta condition FpML_ird_35_cd_31 is not stated in LinkML: if firstPaymentDate exists and lastRegularPaymentDate
+        exists then firstPaymentDate < lastRegularPaymentDate'
+      - 'Rosetta condition NonZeroPeriodMultiplier is not stated in LinkML: if paymentDaysOffset exists
+        then paymentDaysOffset -> periodMultiplier <> 0'
+  RateSchedule:
+    description: A class defining a schedule of rates or amounts in terms of an initial value and then
+      a series of step date and value pairs. On each step date the rate or amount changes to the new step
+      value. The series of step date and value pairs are optional. If not specified, this implies that
+      the initial value remains unchanged over time.
+    attributes:
+      price:
+        description: The initial rate. An initial rate of 5% would be represented as 0.05.
+        range: PriceSchedule
+        required: true
+        annotations:
+          rosetta_metadata: address
+  ResetDates:
+    description: 'A data defining: the parameters used to generate the reset dates schedule and associated
+      fixing dates. The reset dates are the dates on which the new index value (which is observed on the
+      fixing date) is applied for each period and on which the interest rate hence begins to accrue.'
+    attributes:
+      calculationPeriodDatesReference:
+        description: A pointer style reference to the associated calculation period dates component defined
+          elsewhere in the document.
+        range: CalculationPeriodDates
+        annotations:
+          rosetta_metadata: reference
+      resetRelativeTo:
+        description: Specifies whether the reset dates are determined with respect to each adjusted calculation
+          period start date or adjusted calculation period end date. If the reset frequency is specified
+          as daily this element must not be included.
+        range: ResetRelativeToEnum
+      initialFixingDate:
+        description: The initial fixing date.
+        range: InitialFixingDate
+      fixingDates:
+        description: The fixing dates are the dates on which the index values are observed. The fixing
+          dates are specified by reference to the reset date through business days offset and an associated
+          set of financial business centers. Normally these offset calculation rules will be those specified
+          in the ISDA definition for the relevant floating rate index (ISDA's Floating Rate Option). However,
+          non-standard offset calculation rules may apply for a trade if mutually agreed by the principal
+          parties to the transaction.
+        range: RelativeDateOffset
+      finalFixingDate:
+        description: This attribute is not part of the FpML ResetDate, and has been added as part of the
+          CDM to support the credit derivatives final fixing date.
+        range: AdjustableDate
+      rateCutOffDaysOffset:
+        description: Specifies the number of business days before the period end date when the rate cut-off
+          date is assumed to apply. The financial business centers associated with determining the rate
+          cut-off date are those specified in the reset dates adjustments. The rate cut-off number of
+          days must be a negative integer (a value of zero would imply no rate cut off applies in which
+          case the rateCutOffDaysOffset element should not be included). The relevant rate for each reset
+          date in the period from, and including, a rate cut-off date to, but excluding, the next applicable
+          period end date (or, in the case of the last calculation period, the termination date) will
+          (solely for purposes of calculating the floating amount payable on the next applicable payment
+          date) be deemed to be the relevant rate in effect on that rate cut-off date. For example, if
+          rate cut-off days for a daily averaging deal is -2 business days, then the refix rate applied
+          on (period end date - 2 days) will also be applied as the reset on (period end date - 1 day),
+          i.e. the actual number of reset dates remains the same but from the rate cut-off date until
+          the period end date, the same refix rate is applied. Note that in the case of several calculation
+          periods contributing to a single payment, the rate cut-off is assumed only to apply to the final
+          calculation period contributing to that payment. The day type associated with the offset must
+          imply a business days offset.
+        range: Offset
+      resetFrequency:
+        description: The frequency at which the reset dates occur. In the case of a weekly reset frequency,
+          also specifies the day of the week that the reset occurs. If the reset frequency is greater
+          than the calculation period frequency then this implies that more than one reset is established
+          for each calculation period and some form of rate averaging is applicable.
+        range: ResetFrequency
+      resetDatesAdjustments:
+        description: The definition of the business day convention and financial business centers used
+          for adjusting the reset date if it would otherwise fall on a day that is not a business day
+          in the specified business center.
+        range: BusinessDayAdjustments
+    annotations:
+      rosetta_metadata: key
+    comments:
+      - 'Rosetta condition RateCutOffDaysOffset is not stated in LinkML: if rateCutOffDaysOffset exists
+        then rateCutOffDaysOffset -> periodMultiplier < 0'
+      - 'Rosetta condition WeeklyPeriod is not stated in LinkML: if resetFrequency -> period = PeriodExtendedEnum
+        -> W then resetFrequency -> weeklyRollConvention exists'
+      - 'Rosetta condition NonWeeklyPeriod is not stated in LinkML: if resetFrequency -> period <> PeriodExtendedEnum
+        -> W then resetFrequency -> weeklyRollConvention is absent'
+  ResetFrequency:
+    is_a: Frequency
+    description: A class defining the reset frequency. In the case of a weekly reset, also specifies the
+      day of the week that the reset occurs. If the reset frequency is greater than the calculation period
+      frequency the this implies that more or more reset dates is established for each calculation period
+      and some form of rate averaging is applicable. The specific averaging method of calculation is specified
+      in FloatingRateCalculation. In case the reset frequency is of value T (term), the period is defined
+      by the swap/swapStream/calculationPerioDates/effectiveDate and the swap/swapStream/calculationPerioDates/terminationDate.
+    attributes:
+      weeklyRollConvention:
+        description: The day of the week on which a weekly reset date occurs. This element must be included
+          if the reset frequency is defined as weekly and not otherwise.
+        range: WeeklyRollConventionEnum
+    all_of:
+      - description: 'From Frequency. PositivePeriodMultiplier: FpML specifies periodMultiplier as a positive
+          integer.'
+        slot_conditions:
+          periodMultiplier:
+            minimum_value: 1
+    rules:
+      - description: 'From Frequency. TermPeriod: FpML specifies that if period value is T (Term) then
+          periodMultiplier must contain the value 1.'
+        preconditions:
+          slot_conditions:
+            period:
+              equals_string: T
+        postconditions:
+          slot_conditions:
+            periodMultiplier:
+              equals_number: 1
+      - description: 'FpML_ird_49: FpML validation rule ird-49 - WeeklyRollConvention should exist if
+          and only if the period is ''W''.'
+        preconditions:
+          slot_conditions:
+            weeklyRollConvention:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            period:
+              equals_string: W
+  StubCalculationPeriodAmount:
+    description: 'A data defining: how the initial or final stub calculation period amounts is calculated.
+      For example, the rate to be applied to the initial or final stub calculation period may be the linear
+      interpolation of two different tenors for the floating rate index specified in the calculation period
+      amount component, e.g. A two month stub period may used the linear interpolation of a one month
+      and three month floating rate. The different rate tenors would be specified in this component. Note
+      that a maximum of two rate tenors can be specified. If a stub period uses a single index tenor and
+      this is the same as that specified in the calculation period amount component then the initial stub
+      or final stub component, as the case may be, must not be included.'
+    attributes:
+      calculationPeriodDatesReference:
+        description: A pointer style reference to the associated calculation period dates component defined
+          elsewhere in the document.
+        range: CalculationPeriodDates
+        required: true
+        annotations:
+          rosetta_metadata: reference
+      initialStub:
+        description: Specifies how the initial stub amount is calculated. A single floating rate tenor
+          different to that used for the regular part of the calculation periods schedule may be specified,
+          or two floating tenors may be specified. If two floating rate tenors are specified then Linear
+          Interpolation (in accordance with the 2000 ISDA Definitions, Section 8.3. Interpolation) is
+          assumed to apply. Alternatively, an actual known stub rate or stub amount may be specified.
+        range: StubValue
+      finalStub:
+        description: Specifies how the final stub amount is calculated. A single floating rate tenor different
+          to that used for the regular part of the calculation periods schedule may be specified, or two
+          floating tenors may be specified. If two floating rate tenors are specified then Linear Interpolation
+          (in accordance with the 2000 ISDA Definitions, Section 8.3. Interpolation) is assumed to apply.
+          Alternatively, an actual known stub rate or stub amount may be specified.
+        range: StubValue
+  StubPeriod:
+    description: A class defining how the initial or final stub calculation period amounts is calculated.
+      For example, the rate to be applied to the initial or final stub calculation period may be the linear
+      interpolation of two different tenors for the floating rate index specified in the calculation period
+      amount component, e.g. A two month stub period may used the linear interpolation of a one month
+      and three month floating rate. The different rate tenors would be specified in this component. Note
+      that a maximum of two rate tenors can be specified. If a stub period uses a single index tenor and
+      this is the same as that specified in the calculation period amount component then the initial stub
+      or final stub component, as the case may be, must not be included.
+    attributes:
+      calculationPeriodDatesReference:
+        description: A pointer style reference to the associated calculation period dates component defined
+          elsewhere in the document.
+        range: CalculationPeriodDates
+        required: true
+        annotations:
+          rosetta_metadata: reference
+      initialStub:
+        description: Specifies how the initial stub amount is calculated. A single floating rate tenor
+          different to that used for the regular part of the calculation periods schedule may be specified,
+          or two floating tenors may be specified. If two floating rate tenors are specified then Linear
+          Interpolation (in accordance with the 2000 ISDA Definitions, Section 8.3. Interpolation) is
+          assumed to apply. Alternatively, an actual known stub rate or stub amount may be specified.
+        range: StubValue
+      finalStub:
+        description: Specifies how the final stub amount is calculated. A single floating rate tenor different
+          to that used for the regular part of the calculation periods schedule may be specified, or two
+          floating tenors may be specified. If two floating rate tenors are specified then Linear Interpolation
+          (in accordance with the 2000 ISDA Definitions, Section 8.3. Interpolation) is assumed to apply.
+          Alternatively, an actual known stub rate or stub amount may be specified.
+        range: StubValue
+  WeightedAveragingObservation:
+    description: A single weighted averaging observation.
+    attributes:
+      dateTime:
+        description: Observation date time, which should be used when literal observation dates are required.
+          The CDM specifies that the zoned date time is to be expressed in accordance with ISO 8601, either
+          as UTC as an offset to UTC.
+        range: datetime
+      observationNumber:
+        description: Observation number, which should be unique, within a series generated by a date schedule.
+        range: integer
+      weight:
+        description: Observation weight, which is used as a multiplier for the observation value.
+        range: decimal
+        required: true
+    all_of:
+      - description: 'WeightedAveragingObservationChoice: Choice rule to represent an FpML choice construct
+          between date times for literal date values, and observation numbers for schedule generated observations.'
+        exactly_one_of:
+          - slot_conditions:
+              dateTime:
+                value_presence: PRESENT
+          - slot_conditions:
+              observationNumber:
+                value_presence: PRESENT
+      - description: 'PositiveWeight: FpML specifies observationNumber as a non-negative decimal.'
+        slot_conditions:
+          weight:
+            minimum_value: 0
+    rules:
+      - description: 'PositiveObservationNumber: FpML specifies observationNumber as a positive integer.'
+        preconditions:
+          slot_conditions:
+            observationNumber:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            observationNumber:
+              minimum_value: 0

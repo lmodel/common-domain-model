@@ -1,0 +1,602 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction_additionalterms
+name: cdm_legaldocumentation_transaction_additionalterms
+title: CDM cdm.legaldocumentation.transaction.additionalterms
+description: The CDM's cdm.legaldocumentation.transaction.additionalterms namespace.
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_math
+  - ./cdm_base_staticdata_party
+  - ./cdm_legaldocumentation_transaction
+  - ./cdm_observable_asset
+  - ./cdm_observable_event
+enums:
+  DeterminationRoleEnum:
+    description: Defines the enumerated values to specify the determination roles to the transaction.
+      Such roles mostly address any determination that would be required when some Extraordinary Events
+      would happen, for instance qualifying the effectiveness of such event, or when a calculation is
+      required, etc. else any other kind of determination as need be.
+    permissible_values:
+      CalculationAgent:
+        description: 'Specifies the party responsible for performing calculation agent duties as defined
+          in the applicable product definition. As an indication, the role of Calculation Agent is key
+          in regards of other roles, for mainly two reasons : first is that it is a fallback role i.e.
+          whenever another role is not defined, then such role would be assumed by the Calculation Agent
+          ; second is that related determination are not limited to Extraordinary Event per se i.e. any
+          determinationr required in regards of Payout calculations for instance would fall on Calculation
+          Agent, unless otherwise specified in Calculation Agent attached to Economic Terms.'
+      HedgingParty:
+        description: Specifies the party responsible for performing related HedgingParty duties as defined
+          in the applicable product definition, notably in regards of particular Extraordinary Events
+          or Price Determination Methods which involve hedging considerations.
+      DeterminingParty:
+        description: Specifies the party responsible for performing related HedgingParty duties as defined
+          in the applicable product definition, notably in regards of particular Disruption Events or
+          Early Termination Terms which may involve the calculation of a liquidation or compensation value
+          amount.
+  FxForceMajeureOrActOfSStateEnum:
+    description: The enumerated values to specify whether such terms i.e. Force Majeure or Act Of State
+      shall be treated either as defined per the documents applicable to the FX transaction.
+    permissible_values:
+      ToBeTreatedAsDisruptionEvent: {}
+      ToBeTreatedAsForceMajeureOrActOfSState: {}
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(c).(ii)
+  FxIllegalityOrImpossibilityEnum:
+    description: The enumerated values to specify whether such terms i.e. Illegality or Impossibility
+      shall be treated either as defined per the documents applicable to the FX transaction.
+    permissible_values:
+      ToBeTreatedAsDisruptionEvent: {}
+      ToBeTreatedAsIllegalityOrImpossibility: {}
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(c).(i)
+  FxSubstitutionProvisionTypeEnum:
+    permissible_values:
+      LocalAssetSubstituteGross:
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c) paragraph (vi)
+      LocalAssetSubstituteNet:
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c) paragraph (vii)
+      LocalCurrencySubstitute:
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c) paragraph (viii)
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c)
+  SpecifiedValueEnum:
+    permissible_values:
+      OutstandingPrincipalBalance: {}
+      StatedPrincipalBalance: {}
+      FaceValue: {}
+      MarketValue: {}
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.4.(w)
+classes:
+  DeterminationRolesAndTerms:
+    description: Defines the roles and related terms which document the agreement of parties about any
+      determination requirements ; mostly about Extraordinary Events, without being necessarily restricted
+      to such scope, as further specified in the particular product at stake e.g. for instance when Calculation
+      Agent is mentioned as the Price Determination Method enumarated value, etc.
+    attributes:
+      determinationRole:
+        description: Defines the enumerated values to specify the determination roles to the transaction.
+          Such roles mostly address any determination that would be required when some Extraordinary Events
+          would happen, for instance qualifying the effectiveness of such event, or when a calculation
+          is required, etc. else any other kind of determination as need be. Yet for clarity, other kinds
+          of determination may be covered by such roles, which are not necessarily restricted to the scope
+          of Extarordinary Events, depending on particular product specifications e.g. for instance when
+          Calculation Agent is mentioned as the Price Determination Method enumarated value, etc.
+        range: DeterminationRoleEnum
+        required: true
+      whoToDetermine:
+        description: Designates which Counterparty to the transaction is granted with the particular role
+          ; cardinality of this object is 2, in case parties are both having the same role e.g. jointly
+          CalculationAgent, jointly Determining Party, etc.
+        range: CounterpartyRoleEnum
+        required: true
+        multivalued: true
+        maximum_cardinality: 2
+      disputingParty:
+        description: Where the party who is not granted with the determination role at least has a right
+          to dispute the determination given by the counterparty with such role. As an example, a given
+          PartyA is the unique Counterparty with the Role of CalculationAgent, yet Party B could be Disputing
+          Party in regard of such Role.
+        range: CounterpartyRoleEnum
+      fallbackLanguageBespokeTerms:
+        description: 'Where parties may optionnaly describe any extra bespoke agreements about fallback
+          procedure attached to a particular determination role. This fallback bespoke paragraph would
+          typically address topics such as : delay for the Disputing Party to notify a disagreement when
+          receiving a determination from the Calculation Agent ; Independent Third Party Dealers election
+          terms e.g. number of Dealers to be jointly elected by the counterparties ; delay for joint election
+          of Dealers by the counterparties ; further fallback election procedure in case of disagreement
+          between parties to jointly elect all the Dealers e.g. typically each party designates 1 Dealer,
+          each a Party Representant, which thus result in 2 Dealers in charge of joint election of 3 other
+          Dealers who will be the final ones to provide the response, each a Final Dealer ; delay for
+          joint election of the Final Dealers by the Party Representants ; fees repartition e.g. typically
+          cost and fees incurred by the election of Dealers are equally shared by the parties ; etc.'
+        range: Clause
+    comments:
+      - 'Rosetta condition DisputingPartyCannotHaveOriginalRole is not stated in LinkML: whoToDetermine
+        all <> disputingParty'
+  EquityCorporateEvents:
+    description: A class for defining the merger events and their treatment.
+    attributes:
+      shareForShare:
+        description: Shall occur if a Merger Event occurs and the consideration for the relevant Security
+          consists solely of Combined Consideration.
+        range: ShareExtraordinaryEventEnum
+        required: true
+      shareForOther:
+        description: Shall occur if a Merger Event occurs and the consideration for the relevant Security
+          consists solely of Other Consideration.
+        range: ShareExtraordinaryEventEnum
+        required: true
+      shareForCombined:
+        description: Shall occur if a Merger Event occurs and the consideration for the relevant Security
+          consists solely of Combined Consideration.
+        range: ShareExtraordinaryEventEnum
+        required: true
+    annotations:
+      doc_reference: ISDA SecurityEquitySwapConfirmation_2018
+  EscrowArrangement:
+    description: Refers to the segregation deposit procedure parties may want to commmit into during the
+      time a Disruption Event is effective
+    attributes:
+      escrowArrangementIsApplicable:
+        range: boolean
+        required: true
+      maximumDaysOfDisruption:
+        range: ValuationPostponement
+      bespokeEscrowArrangements:
+        range: Clause
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c).(iv)
+    comments:
+      - 'Rosetta condition SettlementPostponementExistence is not stated in LinkML: if escrowArrangementIsApplicable
+        = False then maximumDaysOfDisruption is absent and if escrowArrangementIsApplicable = True then
+        maximumDaysOfDisruption exists'
+  EventCurrency:
+    description: Defines the currency referenced as such in any terms related to FX Disruption Events
+    attributes:
+      eventCurrency:
+        description: Defines the currency referenced as such in any terms related to FX Disruption Events
+        range: string
+        required: true
+        annotations:
+          rosetta_metadata: scheme
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.4.(c)
+      eventCurrentAmount:
+        description: Defines the Event Currency Amount to be exchanged on the Settlement Date.
+        range: Quantity
+      eventCurrencyBuyerSeller:
+        description: Unless otherwised specified, the Buyer is the party to which the Event Currency Amount
+          is owed on the Settlement Date and the Seller is the party which owes the Event Currency Amount
+          on the Settlement Date.
+        range: BuyerSeller
+        multivalued: true
+        maximum_cardinality: 2
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.4.(c)
+  FxAdditionalTerms:
+    description: TransactionAdditionalTerms which apply to the CurrencyPair asset class.
+    attributes:
+      disruptionEvents:
+        range: FxDisruptionEvents
+      determinationTerms:
+        range: DeterminationRolesAndTerms
+      noFaultTermination:
+        range: boolean
+    comments:
+      - 'Rosetta condition SpecificDeterminationRetrictionsForFx is not stated in LinkML: determinationTerms
+        -> determinationRole = DeterminationRoleEnum -> CalculationAgent'
+      - 'Rosetta condition NoFaultTerminationOrDisruptionTerms is not stated in LinkML: (disruptionEvents
+        exists and noFaultTermination is absent or noFaultTermination = False) or (disruptionEvents is
+        absent and noFaultTermination = True)'
+  FxBenchmarkObligationDefault:
+    attributes:
+      benchmarkObligationDefaultIsApplicable:
+        range: boolean
+        required: true
+      localSubstituteProvisionType:
+        range: FxSubstitutionProvisionTypeEnum
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c) paragraph (vi) paragraph
+            (vii) paragraph (viii)
+      specifiedValue:
+        range: SpecifiedValueEnum
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.4.(w)
+      escrowArrangement:
+        range: EscrowArrangement
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(i)
+  FxDisruptionEvents:
+    description: Additional Provisions for a Confirmation of an FX or Currency Option Transaction
+    attributes:
+      illegalityOrImpossibility:
+        range: FxIllegalityOrImpossibilityEnum
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(c).(i)
+      forceMajeureOrActOfSState:
+        range: FxForceMajeureOrActOfSStateEnum
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(c).(ii)
+      eventCurrency:
+        description: Additional Provisions for a Confirmation of an FX or Currency Option Transaction.
+        range: EventCurrency
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998
+      priceSourceDisruption:
+        range: FxPriceSourceDisruption
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(xi)
+      benchmarkObligationDefault:
+        range: FxBenchmarkObligationDefault
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(i)
+      dualExchangeRate:
+        range: FxDualExchangeRate
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(ii)
+      inconvertibilityOrNonTransferability:
+        range: FxInconvertibilityOrNonTransferability
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(vii)
+      governmentalAuthorityDefault:
+        range: GovernmentalAuthorityDefault
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(v)
+      illiquidity:
+        range: Illiquidity
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(vi)
+      materialChangeInCircumstance:
+        range: MaterialChangeInCircumstance
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(viii)
+      nationalization:
+        range: Nationalization
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(ix)
+      priceMateriality:
+        range: PriceMateriality
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(x)
+      fallbackLanguageBespokeTerms:
+        description: Where parties may optionaly describe any extra bespoke agreements about fallback
+          procedure attached to a particular determination role.
+        range: Clause
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 exhibit II-E
+  FxDualExchangeRate:
+    attributes:
+      dualExchangeRateIsApplicable:
+        range: boolean
+        required: true
+      fallbackReferencePrice:
+        description: The method, prioritised by the order it is listed in this element, to get a replacement
+          rate for the disrupted settlement rate option.
+        range: FallbackReferencePrice
+      escrowArrangement:
+        range: EscrowArrangement
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(ii)
+  FxInconvertibilityOrNonTransferability:
+    attributes:
+      generalInconvertibility:
+        range: GeneralInconvertibility
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(iii)
+      generalNonTransferability:
+        range: GeneralNonTransferability
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(iv)
+      specificInconvertibility:
+        range: SpecificInconvertibility
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(xii)
+      specificNonTransferability:
+        range: SpecificNonTransferability
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(xiii)
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(vii)
+  FxPriceSourceDisruption:
+    attributes:
+      priceSourceDisruptionIsApplicable:
+        range: boolean
+        required: true
+      fallbackReferencePrice:
+        description: The method, prioritised by the order it is listed in this element, to get a replacement
+          rate for the disrupted settlement rate option.
+        range: AssetSettlementRateOption
+      escrowArrangement:
+        range: EscrowArrangement
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(xi)
+  GeneralInconvertibility:
+    attributes:
+      generalInconvertibilityIsApplicable:
+        range: boolean
+        required: true
+      localSubstituteProvisionType:
+        range: FxSubstitutionProvisionTypeEnum
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c) paragraph (vi) paragraph
+            (vii) paragraph (viii)
+      maximumDaysOfDisruption:
+        description: Specifies how long to wait to get a quote from a settlement rate option upon a price
+          source disruption.
+        range: ValuationPostponement
+      nonDeliverableSubstitute:
+        range: NonDeliverableSubstitute
+      escrowArrangement:
+        description: Refers to the segregation deposit procedure parties may want to commmit into during
+          the time a Disruption Event is effective
+        range: EscrowArrangement
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c).(iv)
+    rules:
+      - description: SettlementPostponementExistence
+        preconditions:
+          slot_conditions:
+            localSubstituteProvisionType:
+              equals_string: LocalCurrencySubstitute
+        postconditions:
+          slot_conditions:
+            maximumDaysOfDisruption:
+              value_presence: PRESENT
+    comments:
+      - 'Rosetta condition SubstituteTermsChoice is not stated in LinkML: if localSubstituteProvisionType
+        exists then nonDeliverableSubstitute is absent or if nonDeliverableSubstitute exists then localSubstituteProvisionType
+        is absent'
+  GeneralNonTransferability:
+    attributes:
+      generalNonTransferabilityIsApplicable:
+        range: boolean
+        required: true
+      localSubstituteProvisionType:
+        range: FxSubstitutionProvisionTypeEnum
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c) paragraph (vi) paragraph
+            (vii) paragraph (viii)
+      maximumDaysOfDisruption:
+        description: Specifies how long to wait to get a quote from a settlement rate option upon a price
+          source disruption.
+        range: ValuationPostponement
+      nonDeliverableSubstitute:
+        range: NonDeliverableSubstitute
+      escrowArrangement:
+        description: Refers to the segregation deposit procedure parties may want to commmit into during
+          the time a Disruption Event is effective
+        range: EscrowArrangement
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c).(iv)
+    rules:
+      - description: SettlementPostponementExistence
+        preconditions:
+          slot_conditions:
+            localSubstituteProvisionType:
+              equals_string: LocalCurrencySubstitute
+        postconditions:
+          slot_conditions:
+            maximumDaysOfDisruption:
+              value_presence: PRESENT
+    comments:
+      - 'Rosetta condition SubstituteTermsChoice is not stated in LinkML: if localSubstituteProvisionType
+        exists then nonDeliverableSubstitute is absent or if nonDeliverableSubstitute exists then localSubstituteProvisionType
+        is absent'
+  GovernmentalAuthorityDefault:
+    attributes:
+      governmentalAuthorityDefaultIsApplicable:
+        range: boolean
+        required: true
+      escrowArrangement:
+        range: EscrowArrangement
+      localSubstituteProvisionType:
+        range: FxSubstitutionProvisionTypeEnum
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c) paragraph (vi) paragraph
+            (vii) paragraph (viii)
+      specifiedValue:
+        range: SpecifiedValueEnum
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.4.(w)
+      maximumDaysOfDisruption:
+        range: ValuationPostponement
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(v)
+  Illiquidity:
+    attributes:
+      illiquidityIsApplicable:
+        range: boolean
+        required: true
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(vi)
+      escrowArrangement:
+        range: EscrowArrangement
+      minimumAmount:
+        range: Quantity
+      fallbackReferencePrice:
+        description: The method, prioritised by the order it is listed in this element, to get a replacement
+          rate for the disrupted settlement rate option.
+        range: AssetSettlementRateOption
+      illiquidityValuationDate:
+        range: AdjustedRelativeDateOffset
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(vi)
+  IndexAdjustmentEvents:
+    description: Defines the specification of the consequences of Index Events
+    attributes:
+      indexModification:
+        description: Consequence of index modification.
+        range: IndexEventConsequenceEnum
+        required: true
+      indexCancellation:
+        description: Consequence of index cancellation.
+        range: IndexEventConsequenceEnum
+        required: true
+      indexDisruption:
+        description: Consequence of index disruption.
+        range: IndexEventConsequenceEnum
+        required: true
+    annotations:
+      doc_reference: ISDA EquityDerivativesDefinitions_2002
+  MaterialChangeInCircumstance:
+    attributes:
+      materialChangeInCircumstanceIsApplicable:
+        range: boolean
+        required: true
+      escrowArrangement:
+        range: EscrowArrangement
+      maximumDaysOfDisruption:
+        range: ValuationPostponement
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(viii)
+  Nationalization:
+    attributes:
+      nationalizationIsApplicable:
+        range: boolean
+        required: true
+      relevantAffiliate:
+        range: AncillaryEntity
+        multivalued: true
+      escrowArrangement:
+        range: EscrowArrangement
+      assignmentOfClaim:
+        range: boolean
+      maximumDaysOfDisruption:
+        range: ValuationPostponement
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(ix)
+    comments:
+      - 'Rosetta condition AssignmentOfClaim is not stated in LinkML: if nationalizationIsApplicable =
+        False then assignmentOfClaim is absent'
+  NonDeliverableSubstitute:
+    attributes:
+      nonDeliverableSubstituteIsApplicable:
+        range: boolean
+        required: true
+      valuationDate:
+        range: AdjustedRelativeDateOffset
+      settlementDate:
+        range: AdjustedRelativeDateOffset
+      settlementRateOption:
+        range: AssetSettlementRateOption
+  PriceMateriality:
+    attributes:
+      priceMaterialityIsApplicable:
+        range: boolean
+        required: true
+      escrowArrangement:
+        range: EscrowArrangement
+      fallbackReferencePrice:
+        description: The method, prioritised by the order it is listed in this element, to get a replacement
+          rate for the disrupted settlement rate option.
+        range: AssetSettlementRateOption
+    annotations:
+      doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.1.(d).(x)
+  Representations:
+    attributes:
+      nonReliance:
+        description: If true, then non reliance is applicable.
+        range: boolean
+        required: true
+      agreementsRegardingHedging:
+        description: If true, then agreements regarding hedging are applicable.
+        range: boolean
+        required: true
+      indexDisclaimer:
+        description: If present and true, then index disclaimer is applicable.
+        range: boolean
+      additionalAcknowledgements:
+        description: If true, then additional acknowledgements are applicable.
+        range: boolean
+      additionalBespokeTerms:
+        range: Clause
+        multivalued: true
+  SpecificInconvertibility:
+    attributes:
+      specificInconvertibilityIsApplicable:
+        range: boolean
+        required: true
+      minimumAmount:
+        range: Quantity
+      relevantClass:
+        range: string
+        multivalued: true
+      localSubstituteProvisionType:
+        range: FxSubstitutionProvisionTypeEnum
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c) paragraph (vi) paragraph
+            (vii) paragraph (viii)
+      maximumDaysOfDisruption:
+        description: Specifies how long to wait to get a quote from a settlement rate option upon a price
+          source disruption.
+        range: ValuationPostponement
+      nonDeliverableSubstitute:
+        range: NonDeliverableSubstitute
+      escrowArrangement:
+        description: Refers to the segregation deposit procedure parties may want to commmit into during
+          the time a Disruption Event is effective
+        range: EscrowArrangement
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c).(iv)
+    rules:
+      - description: SettlementPostponementExistence
+        preconditions:
+          slot_conditions:
+            localSubstituteProvisionType:
+              equals_string: LocalCurrencySubstitute
+        postconditions:
+          slot_conditions:
+            maximumDaysOfDisruption:
+              value_presence: PRESENT
+    comments:
+      - 'Rosetta condition SubstituteTermsChoice is not stated in LinkML: if localSubstituteProvisionType
+        exists then nonDeliverableSubstitute is absent or if nonDeliverableSubstitute exists then localSubstituteProvisionType
+        is absent'
+  SpecificNonTransferability:
+    attributes:
+      specificNonTransferabilityIsApplicable:
+        range: boolean
+        required: true
+      relevantClass:
+        range: string
+        multivalued: true
+      localSubstituteProvisionType:
+        range: FxSubstitutionProvisionTypeEnum
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c) paragraph (vi) paragraph
+            (vii) paragraph (viii)
+      maximumDaysOfDisruption:
+        range: ValuationPostponement
+      nonDeliverableSubstitute:
+        range: NonDeliverableSubstitute
+      escrowArrangement:
+        range: EscrowArrangement
+        annotations:
+          doc_reference: ISDA FXandCurrencyOptionsDefintions_1998 section 5.2.(c).(iv)
+    rules:
+      - description: SettlementPostponementExistence
+        preconditions:
+          slot_conditions:
+            localSubstituteProvisionType:
+              equals_string: LocalCurrencySubstitute
+        postconditions:
+          slot_conditions:
+            maximumDaysOfDisruption:
+              value_presence: PRESENT
+    comments:
+      - 'Rosetta condition SubstituteTermsChoice is not stated in LinkML: if localSubstituteProvisionType
+        exists then nonDeliverableSubstitute is absent or if nonDeliverableSubstitute exists then localSubstituteProvisionType
+        is absent'

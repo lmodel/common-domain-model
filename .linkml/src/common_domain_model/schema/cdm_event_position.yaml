@@ -1,0 +1,338 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_event_position
+name: cdm_event_position
+title: CDM cdm.event.position
+description: 'Position concepts: portfolio and portfolio aggregation.'
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_math
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_base_staticdata_identifier
+  - ./cdm_base_staticdata_party
+  - ./cdm_event_common
+  - ./cdm_event_workflow
+  - ./cdm_observable_asset
+  - ./cdm_product_collateral
+  - ./cdm_product_template
+enums:
+  AvailableInventoryTypeEnum:
+    description: Enumeration to describe the type of AvailableInventory
+    permissible_values:
+      AvailableToLend:
+        description: Where a lender is broadcasting the securities that they have available to lend
+      RequestToBorrow:
+        description: Where a party is asking a lender if they have specific securities available for them
+          to borrow
+  PositionStatusEnum:
+    description: Enumeration to describe the different (risk) states of a Position, whether executed,
+      settled, matured...etc
+    permissible_values:
+      Executed:
+        description: The position has been executed, which is the point at which risk has been transferred.
+      Formed:
+        description: Contract has been formed, in case position is on a contractual product.
+      Settled:
+        description: The position has settled, in case product is subject to settlement after execution,
+          such as securities.
+      Cancelled:
+        description: The position has been cancelled, in case of a cancellation event following an execution.
+      Closed:
+        description: The position has been closed, in case of a termination event.
+classes:
+  AggregationParameters:
+    description: Parameters to be used to filter events that are relevant to a given portfolio in order
+      to calculate the state of this portfolio. The attributes correspond to all the possible aggregation
+      criteria that can be used and these criteria can be combined. All the attributes are optional.
+    attributes:
+      dateTime:
+        description: To aggregate as of a particular date
+        range: datetime
+        required: true
+      totalPosition:
+        description: Specifies whether to calculate total position to given date, or only daily position
+          for the given date.
+        range: boolean
+      positionStatus:
+        description: To aggregate based on position status (EXECUTED, SETTLED etc)
+        range: PositionStatusEnum
+      party:
+        description: To aggregate based on a selection of party(ies) / legal entity(ies).
+        range: Party
+        multivalued: true
+        annotations:
+          rosetta_metadata: reference
+      product:
+        description: To aggregate based on a selection of products.
+        range: NonTransferableProduct
+        multivalued: true
+      productQualifier:
+        description: To aggregate based on a selection of product type(s).
+        range: string
+        multivalued: true
+      tradeReference:
+        range: Trade
+        multivalued: true
+        annotations:
+          rosetta_metadata: reference
+  AvailableInventory:
+    description: A data type that can be used to describe the inventory of securities that a party holds.
+      The securities are held in the AvailableInventoryRecord, with each item in the array being an individual
+      security and its associated criteria. Criteria can include the quantity available, the rate at which
+      the security is available to borrow at, as well as other details that can affect the decision as
+      to whether a party wants to utilise the securities listed.
+    attributes:
+      availableInventoryType:
+        description: Defines the purpose of this inventory.
+        range: AvailableInventoryTypeEnum
+        required: true
+      identifier:
+        description: Unique identifier for this group. This can be used to uniquely identify a group of
+          inventory records.
+        range: AssignedIdentifier
+      comment:
+        description: Optional comments for this group of inventory records.
+        range: string
+      messageInformation:
+        description: Allows details related to the availability messaging use case to be defined
+        range: MessageInformation
+      party:
+        description: Defines all parties involved for the list of inventory records in this set of inventory.
+          For example, when used to describe securities lending availability, this could hold the sender
+          of the availability, the intended recipient, the beneficial owner(s), the lender (which may
+          differ from the sender as the lender may have the same piece of availability going through multiple
+          agents), an agent or a venue.
+        range: Party
+        multivalued: true
+      partyRole:
+        description: Defines the role(s) that party(ies) may have in relation to the inventory.
+        range: PartyRole
+        multivalued: true
+      availableInventoryRecord:
+        description: An array holding the list of inventory being described. Each element in the inventoryRecord
+          array represents an individual piece of inventory i.e. a security.
+        range: AvailableInventoryRecord
+        multivalued: true
+    annotations:
+      rosetta_root_type: 'true'
+    comments:
+      - 'Rosetta condition ValidPartyRole is not stated in LinkML: IsValidPartyRole (partyRole, [PartyRoleEnum
+        -> AgentLender, PartyRoleEnum -> BeneficialOwner, PartyRoleEnum -> Borrower, PartyRoleEnum ->
+        Custodian, PartyRoleEnum -> Lender])'
+  AvailableInventoryRecord:
+    is_a: InventoryRecord
+    description: An individual piece of available inventory. This represents a single security and its
+      associated criteria. The criteria are used to describe any restrictions on the securities.
+    attributes:
+      expirationDateTime:
+        description: There may be a set period/time restriction associated to the security.
+        range: datetime
+      collateral:
+        description: The type of collateral can often be required when determining if the piece of availability
+          being described is suitable for a party.
+        range: CollateralProvisions
+        multivalued: true
+      partyRole:
+        description: An individual security may be held by several agents. Including the party role at
+          this level allows us to reference the party holding this specific item.
+        range: PartyRole
+        multivalued: true
+      quantity:
+        description: The quantity of the security
+        range: Quantity
+      interestRate:
+        description: An optional element which can be used to hold a rate associated to this piece of
+          availability.
+        range: Price
+      dividendTerms:
+        description: Specifies the dividend requirements if applicable.
+        range: DividendTerms
+      comment:
+        description: Optional comment for this specific piece of inventory.
+        range: string
+    comments:
+      - 'Rosetta condition InterestRate is not stated in LinkML: if interestRate exists then interestRate
+        -> priceType = PriceTypeEnum -> InterestRate'
+      - 'Rosetta condition ValidPartyRole is not stated in LinkML: IsValidPartyRole (partyRole, [PartyRoleEnum
+        -> AgentLender, PartyRoleEnum -> BeneficialOwner, PartyRoleEnum -> Custodian, PartyRoleEnum ->
+        Lender])'
+  ContractBase:
+    description: Encapsulates data features common to trade and position.
+    attributes:
+      contractDetails:
+        description: Represents information specific to trades or positions involving contractual products.
+        range: ContractDetails
+        annotations:
+          rosetta_metadata: reference
+      executionDetails:
+        description: Defines specific attributes that relate to trade or position executions.
+        range: ExecutionDetails
+        annotations:
+          rosetta_metadata: reference
+      collateral:
+        description: Represents the collateral obligations of a party.
+        range: Collateral
+        annotations:
+          rosetta_metadata: reference
+  CounterpartyPosition:
+    is_a: ContractBase
+    description: A Position describes the accumulated effect of a set of securities or financial transactions.
+    attributes:
+      positionIdentifier:
+        description: Represents the identifier(s) that uniquely identify a position for an identity issuer.
+          A position can include multiple identifiers, for example an internal position identifer and
+          a UTI (Unique Trade Identifier).
+        range: PositionIdentifier
+        multivalued: true
+      openDateTime:
+        description: The date and time when the position was opened.
+        range: datetime
+      tradeReference:
+        description: Reference to all the trades that constitute the position.
+        range: TradeState
+        multivalued: true
+        annotations:
+          rosetta_metadata: reference
+      party:
+        description: The parties involved in the position, including the Clearing Organization.
+        range: Party
+        multivalued: true
+      partyRole:
+        description: Represents the role each specified party takes in the position.
+        range: PartyRole
+        multivalued: true
+      positionBase:
+        description: Encapsulates the core constituents that characterize a position.
+        range: TradableProduct
+        required: true
+  Inventory:
+    description: A data type that can be used to describe an inventory of securities.
+    attributes:
+      inventoryRecord:
+        description: An array holding the list of inventory being described. Each element in the inventoryRecord
+          array represents an individual piece of inventory i.e. a security.
+        range: InventoryRecord
+        multivalued: true
+  InventoryRecord:
+    description: An individual piece of inventory. This represents a single security.
+    attributes:
+      identifier:
+        description: Unique identifier for this record. This can be used to uniquely identify a specific
+          piece of inventory.
+        range: AssignedIdentifier
+        required: true
+      security:
+        description: The security details.
+        range: Security
+        required: true
+  Portfolio:
+    description: 'A Portfolio represents an aggregation of multiple Positions, by describing the parameters
+      that this Portfolio should be aggregated based on. The resulting PortfolioState is calculated using
+      these aggregation parameters as inputs, by aggregating all the Events that are relevant to this
+      Portfolio. The concept of Portfolio works at all levels in the model: from the highest for a given
+      LegalEntity for instance, to the lowest to account for security substitutions in a secutity financing
+      transaction. As such, Portfolio can be used either above or below the Contract level.'
+    attributes:
+      aggregationParameters:
+        description: Describes the portfolio by describing how to aggregate all its relevant Events.
+        range: AggregationParameters
+        required: true
+      portfolioState:
+        description: Describes the state of the Portfolio as a list of Positions resulting from the aggregation.
+        range: PortfolioState
+        required: true
+  PortfolioState:
+    description: State-full representation of a Portfolio that describes all the positions held at a given
+      time, in various states which can be either traded, settled, etc., with lineage information to the
+      previous state
+    attributes:
+      positions:
+        description: The list of positions, each containing a Quantity and a Product.
+        range: Position
+        multivalued: true
+      lineage:
+        description: Pointer to the previous PortfolioState and new Event(s) leading to the current (new)
+          state. Previous PortfolioState in the Lineage can be Null in case this is the start of the chain
+          of Events.
+        range: Lineage
+        required: true
+    annotations:
+      rosetta_metadata: key
+    comments:
+      - 'Rosetta condition Initialisation is not stated in LinkML: if lineage -> portfolioStateReference
+        is absent then positions is absent and lineage -> eventReference is absent'
+      - 'Rosetta condition NonTransferable is not stated in LinkML: positions -> product as NonTransferableProduct
+        exists'
+  Position:
+    is_a: PositionBase
+    description: A Position describes how much of a given Product is being held and constitutes the atomic
+      element of a Portfolio.
+    slot_usage:
+      product:
+        description: The product underlying the position.
+        range: Product
+        required: true
+    all_of:
+      - description: 'From PositionBase. ProductOrAsset: A Position must either refer to a grouping by
+          product or a grouping by asset.'
+        exactly_one_of:
+          - slot_conditions:
+              product:
+                value_presence: PRESENT
+          - slot_conditions:
+              asset:
+                value_presence: PRESENT
+  PositionBase:
+    description: Base class to describe a Position, which could be a group of products (e.g. trade portfolio)
+      or a group of assets (e.g. collateral portfolio).
+    attributes:
+      priceQuantity:
+        description: Position with many price quantities.
+        range: PriceQuantity
+        required: true
+        multivalued: true
+      product:
+        description: The product underlying the position.
+        range: Product
+      asset:
+        description: The asset that underlies the position.
+        range: Asset
+      cashBalance:
+        description: The aggregate cost of proceeds.
+        range: Money
+      tradeReference:
+        description: Reference to the Contract, in case product is contractual and the contract has been
+          formed.
+        range: TradeState
+        annotations:
+          rosetta_metadata: reference
+    all_of:
+      - description: 'ProductOrAsset: A Position must either refer to a grouping by product or a grouping
+          by asset.'
+        exactly_one_of:
+          - slot_conditions:
+              product:
+                value_presence: PRESENT
+          - slot_conditions:
+              asset:
+                value_presence: PRESENT
+  SecurityLocate:
+    is_a: AvailableInventory
+    description: A locate is an approval from a broker that needs to be obtained prior to effecting a
+      short sale in an equity security. Similar to security availability, a borrower can request a single
+      or multiple securities, but at least one must be requested.
+    all_of:
+      - description: 'RequestOneSecurityMinimum: A locate must request the availability of at least one
+          security.'
+        slot_conditions:
+          availableInventoryRecord:
+            value_presence: PRESENT
+    annotations:
+      rosetta_root_type: 'true'

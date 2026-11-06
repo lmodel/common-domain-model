@@ -1,0 +1,75 @@
+---
+id: https://w3id.org/lmodel/common-domain-model
+name: common_domain_model
+title: FINOS Common Domain Model
+description: 'A LinkML rendering of the FINOS Common Domain Model (CDM): every type, choice, enumeration
+  and type alias its Rosetta source declares, one module per Rosetta namespace, with the conditions LinkML
+  can state.'
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+keywords:
+  - CDM
+  - Common Domain Model
+  - derivatives
+  - FINOS
+  - financial products
+  - trade lifecycle
+  - Rosetta
+see_also:
+  - https://lmodel.github.io/common-domain-model
+  - https://cdm.finos.org/
+  - https://github.com/finos/common-domain-model
+annotations:
+  upstream_tag: 8.0.0-dev.13
+  upstream_commit: dafe7bab2c015f40a486685508fc5c2e6a629def
+  upstream_license: Community-Spec-1.0
+comments:
+  - Written by scripts/rosetta_to_linkml.py from FINOS's Rosetta files at the tag in source; edit the
+    script, never the modules. The descriptions are the CDM's own, carried under the Community Specification
+    License 1.0 with the attribution NOTICE gives.
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_datetime_daycount
+  - ./cdm_base_math
+  - ./cdm_base_staticdata_asset_commodity
+  - ./cdm_base_staticdata_asset_common
+  - ./cdm_base_staticdata_asset_credit
+  - ./cdm_base_staticdata_asset_rates
+  - ./cdm_base_staticdata_codelist
+  - ./cdm_base_staticdata_identifier
+  - ./cdm_base_staticdata_party
+  - ./cdm_event_common
+  - ./cdm_event_instructioncomposition
+  - ./cdm_event_instructioncomposition_reset
+  - ./cdm_event_position
+  - ./cdm_event_workflow
+  - ./cdm_legaldocumentation_clauselibrary
+  - ./cdm_legaldocumentation_common
+  - ./cdm_legaldocumentation_confirmation
+  - ./cdm_legaldocumentation_csa
+  - ./cdm_legaldocumentation_master
+  - ./cdm_legaldocumentation_master_icma
+  - ./cdm_legaldocumentation_master_isda
+  - ./cdm_legaldocumentation_master_isla
+  - ./cdm_legaldocumentation_transaction
+  - ./cdm_legaldocumentation_transaction_additionalterms
+  - ./cdm_margin_schedule
+  - ./cdm_observable_asset
+  - ./cdm_observable_asset_calculatedrate
+  - ./cdm_observable_asset_fro
+  - ./cdm_observable_common
+  - ./cdm_observable_event
+  - ./cdm_product_asset
+  - ./cdm_product_asset_floatingrate
+  - ./cdm_product_collateral
+  - ./cdm_product_common
+  - ./cdm_product_common_schedule
+  - ./cdm_product_common_settlement
+  - ./cdm_product_template

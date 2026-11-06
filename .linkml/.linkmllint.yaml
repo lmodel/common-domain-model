@@ -1,12 +1,122 @@
-# linkml-lint configuration for the Fluxnova BPM Platform schemas.
-#
-# Rationale: the platform root schema imports the BPMN Model API schema
-# (./fluxnova_bpmn_model), which defines short coordinate slots ``x`` and
-# ``y`` on the Point class (matching the BPMN-DI / DC specs). The default
-# ``standard_naming`` rule warns on these names, but renaming them would
-# diverge from the OMG specification. We keep the spec-aligned names and
-# silence the warning project-wide.
+# Written by scripts/rosetta_to_linkml.py; edit the script, not this file.
+# linkml-lint reads it from the directory `just lint` runs in.
+# The recommended rules apply, fitted to the CDM's own names and words, so
+# that the schema keeps the keys CDM documents carry:
+# - Attributes keep the CDM's camelCase names (tradeDate, payerReceiver), and
+#   enumeration values its spelling (MODFOLLOWING, ACT/360), so the naming
+#   rule leaves slots and permissible values out. Three enumerations keep the
+#   names the CDM gives them after regulations.
+# - A description is the CDM's own words. The CDM describes most attributes
+#   but not all, so the recommended rule leaves slots out, and it names the
+#   classes, enumerations and types the CDM leaves undescribed below.
 extends: recommended
 rules:
   standard_naming:
-    level: disabled
+    level: error
+    exclude_type:
+      - slot_definition
+      - permissible_value
+    exclude:
+      - EU_EMIR_EligibleCollateralEnum
+      - UK_EMIR_EligibleCollateralEnum
+      - US_CFTC_PR_EligibleCollateralEnum
+  recommended:
+    level: error
+    exclude_type:
+      - slot_definition
+    exclude:
+      - AssetAgencyRating
+      - AssetAncillaryPartyRole
+      - AssetCountryOfOrigin
+      - AssetMaturity
+      - AssetPartyRole
+      - BoundedVariance
+      - BusinessCenter
+      - CalculationPeriodData
+      - CodelistFloatingRateIndex
+      - CodelistSettlementRateOption
+      - CollateralAssetDefinitionsEnum
+      - CommodityBusinessCalendar
+      - CommodityBusinessCalendarEnum
+      - CommodityReferencePrice
+      - CompareOp
+      - ContractualDefinition
+      - ContractualDefinitionIdentifier
+      - ContractualMatrix
+      - CorrelationReturnTerms
+      - CounterpartyOwnIssuePermitted
+      - CreditEventNotice
+      - CreditEventType
+      - CreditLimitUtilisationPosition
+      - CreditRatingAgency
+      - CreditSeniority
+      - DeliveryNearbyTypeEnum
+      - DepositaryReceiptTypeEnum
+      - DeterminationMethod
+      - DomesticCurrencyIssued
+      - EquityType
+      - EquityUnderlierProvisions
+      - FailureToPay
+      - FloatingAmountProvisions
+      - FloatingRate
+      - FloatingRateIndexDefinition
+      - FloatingRateIndexIdentification
+      - FpMLCodingScheme
+      - FxBenchmarkObligationDefault
+      - FxDualExchangeRate
+      - FxInconvertibilityOrNonTransferability
+      - FxPriceSourceDisruption
+      - FxSubstitutionProvisionTypeEnum
+      - GeneralInconvertibility
+      - GeneralNonTransferability
+      - GovernmentalAuthorityDefault
+      - GracePeriodExtension
+      - Illiquidity
+      - InflationRateIndex
+      - InformationProvider
+      - InterpolationMethod
+      - IssuerAgencyRating
+      - IssuerCountryOfOrigin
+      - IssuerName
+      - LimitApplicable
+      - MasterAgreementType
+      - MasterConfirmationAnnexType
+      - MasterConfirmationType
+      - MaterialChangeInCircumstance
+      - MoneyMarketTypeEnum
+      - MultipleValuationDates
+      - Nationalization
+      - NonDeliverableSubstitute
+      - PaymentDetail
+      - PhysicalSettlementPeriod
+      - PositionEventIntentEnum
+      - PriceMateriality
+      - PriceOperandEnum
+      - PriceReturnTerms
+      - PriceTimingEnum
+      - PubliclyAvailableInformation
+      - ReferencePair
+      - RelatedParty
+      - Representations
+      - Restructuring
+      - SecuredDebt
+      - SovereignAgencyRating
+      - SpecificInconvertibility
+      - SpecificNonTransferability
+      - SpecifiedCurrency
+      - SpecifiedValueEnum
+      - StandardizedSchedule
+      - StandardizedScheduleAssetClassEnum
+      - StandardizedScheduleInitialMargin
+      - StandardizedScheduleProductClassEnum
+      - StandardizedScheduleTradeInfo
+      - TaxonomyClassification
+      - TerminationCurrencyConditionEnum
+      - UmbrellaPartyRoleEnum
+      - ValuationTerms
+      - VarianceCapFloor
+      - VarianceReturnTerms
+      - Velocity
+      - VolatilityReturnTerms
+      - WarehouseIdentityEnum
+      - WorkflowStatusEnum

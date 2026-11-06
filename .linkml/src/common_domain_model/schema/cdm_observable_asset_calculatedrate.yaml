@@ -1,0 +1,225 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_observable_asset_calculatedrate
+name: cdm_observable_asset_calculatedrate
+title: CDM cdm.observable.asset.calculatedrate
+description: Support for calculated floating rates such as lookback compound or observation shift compound
+  rates
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_datetime
+  - ./cdm_base_staticdata_asset_rates
+enums:
+  CalculationMethodEnum:
+    description: What calculation type is required, averaging or compounding. This enumeration is used
+      to represent the definitions of modular calculated rates as described in the 2021 ISDA Definitions,
+      section 7.
+    permissible_values:
+      Averaging:
+        description: Averaging, i.e. arithmetic averaging.
+      Compounding:
+        description: Compounding, i.e. geometric averaging following an ISDA defined formula.
+      CompoundedIndex:
+        description: A rate based on an index that is computed by a rate administrator. The user is responsible
+          for backing out the rate by applying a simple formula.
+  CalculationShiftMethodEnum:
+    description: the specific calculation method, e.g. lookback. This enumeration is used to represent
+      the definitions of modular calculated rates as described in the 2021 ISDA Definitions, section 7.
+    permissible_values:
+      Lookback:
+        description: Calculations and weighting are done with respect to the calculation period, but observations
+          are shifted back by several days.
+      ObservationPeriodShift:
+        description: the observation period is shifted by several days prior to rate setting, and weightings
+          are done with respect to the obseration period.
+      RateCutOff:
+        description: Calculations cut the rate off several business days prior to rate setting (Lockout).
+      NoShift:
+        description: calculations occur without any shifting, e.g. OIS Compounding/Basic Averaging style.
+  InflationCalculationMethodEnum:
+    description: Indicates how to use the inflation index to calculate the payment (e.g. Ratio, Return,
+      Spread). Added for Inflation Asset Swap
+    permissible_values:
+      Ratio:
+        description: (Inflation Index Final / Inflation Index Base). Inflation Index Final is inflation
+          index for Reference Month that is the Lag number of months prior to Payment Date (subject to
+          interpolation). Inflation Index Base subject to the Calculation Style. Used in inflation asset
+          swaps to calculate the inflation coupons and principal exchange.
+      Return:
+        description: (Inflation Index Final / Inflation Index Base -1). Inflation Index Final is the inflation
+          index for Reference Month that is the Lag number of months prior to Payment Date (subject to
+          interp). Inflation Index Base subject to the Calculation Style. Used in market standard ZC Inflation
+          swaps.
+      Spread:
+        description: Inflation Index Final - Inflation Index Base). Inflation Index Final is Index for
+          Ref month the Lag months prior to Payment Date (subject to interp). Inflation Index Base subject
+          to the Calculation Style. Typically used for fixing locks.
+  InflationCalculationStyleEnum:
+    description: Indicates the style of how the inflation index calculates the payment (e.g. YearOnYear,
+      ZeroCoupon).
+    permissible_values:
+      YearOnYear:
+        description: YearOnYear means Inflation Index Base is the inflation index for Reference Month
+          that is 12 months prior to Inflation Index Final (subject to interpolation). Inflation Index
+          Base is cashflow dependent.
+      ZeroCoupon:
+        description: ZeroCoupon means Inflation Index Base used in the CalculationMethod is the inflation
+          index for the Reference Month that is the lag number of months prior to Effective Date in the
+          case of a swap, or Bond Interest Accrual Date in the case of an Asset Swap (subject to interpolation).
+          Inflation Index Base has the same value for each inflation cashflow and Principal Exchange calculation
+          within the trade.
+  ObservationPeriodDatesEnum:
+    description: The enumerated values to specify whether rate calculations occur relative to the first
+      or last day of a calculation period. Done in uppercase due to a bug in code generation. This enumeration
+      is used to represent the definitions of modular calculated rates as described in the 2021 ISDA Definitions,
+      section 7.
+    permissible_values:
+      SetInAdvance:
+        description: Calculations occur relative to the first day of a calculation period.
+      Standard:
+        description: Calculations occur relative to the last day of a calculation period (set in arrears).
+      FixingDate:
+        description: Calculations occur relative to a previously defined reset date, e.g. for a fallback
+          rate.
+classes:
+  CalculatedRateDetails:
+    description: Type for reporting details of calculated rates, including the observations that went
+      into the final reported rate.
+    attributes:
+      observations:
+        description: The observation dates and weights for each observation date.
+        range: CalculatedRateObservations
+      weightedRates:
+        description: The weighted value of each observation.
+        range: decimal
+        multivalued: true
+      growthFactor:
+        description: The daily growth factors, showing the weighted rates divided by the day count basis
+          plus one, giving how much the value grows for each step in the calculation.
+        range: decimal
+        multivalued: true
+      compoundedGrowth:
+        description: The compounding curve, showing how the initial value grew during the calculation
+          period.
+        range: decimal
+        multivalued: true
+      aggregateValue:
+        description: The total sum or product of all the individual terms that went into the calculated
+          rate.
+        range: decimal
+      aggregateWeight:
+        description: The total weight of all the terms that went into the calculated rate.
+        range: decimal
+      calculatedRate:
+        description: The resulting calculated weight.
+        range: decimal
+  CalculatedRateObservationDatesAndWeights:
+    description: Type for reporting the observations dates and the corresponding weights going into a
+      daily calculated rate
+    attributes:
+      observationDates:
+        description: The observation date upon which the rate is observed.
+        range: date
+        multivalued: true
+      weights:
+        description: The corresponding weight for each date.
+        range: decimal
+        multivalued: true
+  CalculatedRateObservations:
+    description: Type for reporting observations that went into the final reported rate.
+    attributes:
+      observationDates:
+        description: The observation date upon which the rate is observed.
+        range: date
+        multivalued: true
+      weights:
+        description: The corresponding weight for each date.
+        range: decimal
+        multivalued: true
+      observedRates:
+        description: The value observed for that date
+        range: decimal
+        multivalued: true
+      processedRates:
+        description: The value after any processing, such as application of caps or floors.
+        range: decimal
+        multivalued: true
+  FallbackRateParameters:
+    description: Defines the structure needed to represent fallback rate parameters. This type is used
+      to represent modular computed rates in interestRatePayouts.
+    attributes:
+      floatingRateIndex:
+        description: The floating rate index that is used as the basis of the fallback rate.
+        range: FloatingRateIndexEnum
+        required: true
+      effectiveDate:
+        description: The date the fallback rate takes effect.
+        range: date
+      calculationParameters:
+        description: Support for modular calculated rates, such such as lockout compound calculations.
+        range: FloatingRateCalculationParameters
+      spreadAdjustment:
+        description: The economic spread applied to the underlying fallback rate to replicate the original
+          risky rate.
+        range: decimal
+  FloatingRateCalculationParameters:
+    description: Defines the structures needed to represent the calculation parameters for daily averaged
+      and compounded modular rates as defined in the 2021 ISDA Definitions in Section 7. This type is
+      used to represent modular computed rates in interestRatePayouts.
+    attributes:
+      calculationMethod:
+        description: calculation type (averaging or compounding).
+        range: CalculationMethodEnum
+        required: true
+      observationShiftCalculation:
+        description: any obervation shift parameters if applicable.
+        range: ObservationShiftCalculation
+      lookbackCalculation:
+        description: any lookback parameters if applicable.
+        range: OffsetCalculation
+      lockoutCalculation:
+        description: any lockout parameters if applicable.
+        range: OffsetCalculation
+      applicableBusinessDays:
+        description: the business days that are applicable for the calculation.
+        range: BusinessCenters
+      observationParameters:
+        description: any applicable observation parameters, such as daily caps or floors.
+        range: ObservationParameters
+  ObservationParameters:
+    description: Parameters on daily observed computed rates, specifically daily caps and floors. This
+      type is used to represent modular computed rates in interestRatePayouts.
+    attributes:
+      observationCapRate:
+        description: A daily observation cap rate.
+        range: decimal
+      observationFloorRate:
+        description: A daily observation floor rate.
+        range: decimal
+  ObservationShiftCalculation:
+    description: Parameters to describe the observation shift for a daily compounded or averaged floating
+      rate. This type is used to represent modular computed rates in interestRatePayouts.
+    attributes:
+      offsetDays:
+        description: The number of days of observation shift.
+        range: integer
+      calculationBase:
+        description: Whether the rate is calculated in advance, in arrears, or relative to a reset date.
+        range: ObservationPeriodDatesEnum
+      additionalBusinessDays:
+        description: Any additional business days that be applicable.
+        range: BusinessCenters
+  OffsetCalculation:
+    description: Defines business day shifts for daily componded or averaged rates. This type is used
+      for lookback and lockout rates. This type is used to represent modular computed rates in interestRatePayouts.
+    attributes:
+      offsetDays:
+        description: The number of business days offset.
+        range: integer

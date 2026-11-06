@@ -1,0 +1,222 @@
+---
+id: https://w3id.org/lmodel/common-domain-model/cdm_legaldocumentation_transaction
+name: cdm_legaldocumentation_transaction
+title: CDM cdm.legaldocumentation.transaction
+description: The CDM's cdm.legaldocumentation.transaction namespace.
+version: 8.0.0-dev.13
+source: https://github.com/finos/common-domain-model/tree/8.0.0-dev.13
+license: Apache-2.0
+prefixes:
+  common_domain_model: https://w3id.org/lmodel/common-domain-model/
+  linkml: https://w3id.org/linkml/
+default_prefix: common_domain_model
+default_range: string
+imports:
+  - linkml:types
+  - ./cdm_base_staticdata_party
+  - ./cdm_legaldocumentation_master
+  - ./cdm_legaldocumentation_transaction_additionalterms
+classes:
+  AdditionalDisruptionEvents:
+    description: A type for defining the Additional Disruption Events.
+    attributes:
+      changeInLaw:
+        range: boolean
+      failureToDeliver:
+        range: boolean
+      insolvencyFiling:
+        range: boolean
+      hedgingDisruption:
+        range: boolean
+      increasedCostOfHedging:
+        range: boolean
+      foreignOwnershipEvent:
+        range: boolean
+      lossOfStockBorrow:
+        range: boolean
+      maximumStockLoanRate:
+        description: Specifies the maximum stock loan rate for Loss of Stock Borrow. A percentage of 5%
+          is represented as 0.05.
+        range: decimal
+      increasedCostOfStockBorrow:
+        range: boolean
+      initialStockLoanRate:
+        description: Specifies the initial stock loan per ISDA Def. A percentage of 5% is represented
+          as 0.05.
+        range: decimal
+      determiningParty:
+        description: Specifies the party which determines additional disruption events.
+        range: AncillaryRoleEnum
+      additionalBespokeTerms:
+        description: Where parties may optionnaly describe any extra bespoke agreements, in regards of
+          the standardized Extraordinary Events.
+        range: Clause
+        multivalued: true
+    rules:
+      - description: 'MaximumStockLoanRate: FpML specifies the maximumStockLoanRate as a RestrictedPercentage,
+          meaning that its value is comprised between 0 and 1.'
+        preconditions:
+          slot_conditions:
+            maximumStockLoanRate:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            maximumStockLoanRate:
+              minimum_value: 0
+              maximum_value: 1
+      - description: 'InitialStockLoanRate: FpML specifies the initialStockLoanRate as a RestrictedPercentage,
+          meaning that its value is comprised between 0 and 1.'
+        preconditions:
+          slot_conditions:
+            initialStockLoanRate:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            initialStockLoanRate:
+              minimum_value: 0
+              maximum_value: 1
+      - description: DisruptionEventsDeterminingParty
+        preconditions:
+          slot_conditions:
+            determiningParty:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            determiningParty:
+              equals_string: DisruptionEventsDeterminingParty
+    annotations:
+      doc_reference: ISDA EquityDerivativesDefinitions_2002
+  Clause:
+    description: A type for documenting additional clause that cannot yet be represented with the model
+      and yet needed for a digital representation of the agreement.
+    attributes:
+      identifier:
+        description: The name or identifier associated to this clause.
+        range: string
+      terms:
+        description: Content of this bespoke clause.
+        range: string
+      subcomponents:
+        description: Additional hierarchical components of the clause if relevant.
+        range: Clause
+        multivalued: true
+    all_of:
+      - description: 'Unnamed condition (optional choice terms, subcomponents): The Clause should describe
+          at least the additional terms, additional subcomponents or both.'
+        exactly_one_of:
+          - slot_conditions:
+              terms:
+                value_presence: PRESENT
+          - slot_conditions:
+              subcomponents:
+                value_presence: PRESENT
+          - all_of:
+              - slot_conditions:
+                  terms:
+                    value_presence: ABSENT
+              - slot_conditions:
+                  subcomponents:
+                    value_presence: ABSENT
+  EquityAdditionalTerms:
+    description: Transaction AdditionalTerms that apply to Equity asset class.
+    attributes:
+      extraordinaryEvents:
+        range: ExtraordinaryEvents
+      determinationTerms:
+        range: DeterminationRolesAndTerms
+        required: true
+        multivalued: true
+      substitutionProvision:
+        range: UnderlierSubstitutionProvision
+  ExtraordinaryEvents:
+    description: Where the underlying is shares, defines market events affecting the issuer of those shares
+      that may require the terms of the transaction to be adjusted.
+    attributes:
+      additionalBespokeTerms:
+        description: Where parties may optionally describe any extra bespoke agreements, in regards of
+          the standardized Extraordinary Events.
+        range: Clause
+        multivalued: true
+      mergerEvents:
+        range: EquityCorporateEvents
+      tenderOfferEvents:
+        range: EquityCorporateEvents
+      compositionOfCombinedConsideration:
+        range: boolean
+      indexAdjustmentEvents:
+        range: IndexAdjustmentEvents
+        annotations:
+          doc_reference: ISDA EquityDerivativesDefinitions_2002 section Adjustment to Indices
+      additionalDisruptionEvents:
+        range: AdditionalDisruptionEvents
+      failureToDeliver:
+        description: If true, failure to deliver is applicable.
+        range: boolean
+      representations:
+        range: Representations
+      nationalizationOrInsolvency:
+        range: NationalizationOrInsolvencyOrDelistingEventEnum
+      delisting:
+        range: NationalizationOrInsolvencyOrDelistingEventEnum
+    all_of:
+      - description: 'ExtraordinaryEventsChoice: condition to represent an FpML choice construct.'
+        exactly_one_of:
+          - slot_conditions:
+              additionalDisruptionEvents:
+                value_presence: PRESENT
+          - slot_conditions:
+              failureToDeliver:
+                value_presence: PRESENT
+    annotations:
+      doc_reference: ISDA SecurityEquitySwapConfirmation_2018 | ISDA EquityDerivativesDefinitions_2002
+  TransactionAdditionalTerms:
+    description: Additional specification for the extraordinary events that may affect a trade and the
+      related contractual rights and obligation of the parties when this happens. Such terms are typically
+      required to extend the economics terms, for the purpose of producing the final legal contractual
+      form of the Transaction.
+    attributes:
+      equityAdditionalTerms:
+        range: EquityAdditionalTerms
+      foreignExchangeAdditionalTerms:
+        range: FxAdditionalTerms
+      commoditiesAdditionalTerms:
+        range: string
+      creditAdditionalTerms:
+        range: string
+      interestRateAdditionalTerms:
+        range: string
+      digitalAssetAdditionalTerms:
+        range: string
+  UnderlierSubstitutionProvision:
+    description: Where parties describe any substitution terms.
+    attributes:
+      whoMaySubstitute:
+        description: Designates which Counterparty to the transaction who has the right to trigger a substitution
+          or to provide related determination e.g. for instance to qualify the effectiveness of an Event
+          which may be a trigger for substitution, determine the replacement Share to substitute, etc.
+          ; cardinality of this object is 2, in case parties jointly have this role.
+        range: CounterpartyRoleEnum
+        required: true
+        multivalued: true
+        maximum_cardinality: 2
+      substitutionBeSpokeTerms:
+        description: Where parties describe any substitution terms e.g. for instance the election criteria
+          for an Asset to be eligible as the Substitute Asset to the prior Affected Asset in terms of
+          sector of activity, currency, market capitalisation, liquidity, volatility, or any additional
+          features that parties would agree to take into considerations, etc.
+        range: Clause
+        multivalued: true
+      substitutionTriggerEvents:
+        description: Where the parties may optionnally explictly specify the list of Events to be considered
+          as a trigger for a Substitution.
+        range: ExtraordinaryEvents
+        multivalued: true
+      disputingParty:
+        description: Where the party who is not granted with the substitution role at least has a right
+          to dispute the determination given by the counterparty with such role. As an example, a given
+          PartyA is the unique Counterparty with the Role of WhoMaySubstitute, yet PartyB could be Disputing
+          Party in regard of such Role.
+        range: CounterpartyRoleEnum
+    comments:
+      - 'Rosetta condition DisputingPartyCannotHaveOriginalRole is not stated in LinkML: whoMaySubstitute
+        all <> disputingParty'
