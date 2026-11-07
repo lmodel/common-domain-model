@@ -251,7 +251,11 @@ function folderOption(name, value) {
   const build = option.build ?? null;
   if (build !== null && typeof build !== "string") fail(`${name}.build must be a command, or null`);
   if (build === null && !isDir(dir)) fail(`${name} names ${dir}, which is not in the repository, and no build command to write it`);
-  return { dir, build };
+  // The overview's file name in the folder. gen-doc's --index-name changes it,
+  // which a schema needs when one of its elements is itself named index.
+  const index = option.index ?? "index.md";
+  if (typeof index !== "string" || !/^[^/\\]+\.md$/.test(index)) fail(`${name}.index must be a Markdown file name in the folder`);
+  return { dir, build, index };
 }
 
 // The schema's pages: LinkML's gen-doc writes one per class, slot,
@@ -418,7 +422,8 @@ let schemaPagesRead = null;
 
 /**
  * The schema's pages, its index left out: each page's name, the file name
- * without `.md` and so its address under /schema/; its label, the element's
+ * without `.md`; its route, the address under /schema/, which is the name
+ * unless the name is index; its label, the element's
  * name from its title; its kind; and its file from the repository root. A
  * page of no kind, the schema's own, has a page and no place in the sidebar.
  * The folder is read once it exists, since the sync builds it first.
@@ -434,12 +439,16 @@ export function schemaPages() {
   if (!SCHEMA || !isDir(SCHEMA.dir)) return [];
   const markdownIn = (dir) => (isDir(dir) ? readdirSync(resolve(REPO_ROOT, dir)).filter((name) => name.endsWith(".md") && isFile(`${dir}/${name}`)) : []);
   const pages = markdownIn(SCHEMA.dir)
-    .filter((name) => name !== "index.md")
+    .filter((name) => name !== SCHEMA.index)
     .map((name) => {
       const file = `${SCHEMA.dir}/${name}`;
       // A type's title follows its frontmatter's closing line with no line break: "---# Type: String".
       const m = readFileSync(resolve(REPO_ROOT, file), "utf8").match(/^(?:---)?# (Class|Slot|Enum|Type|Subset): *(.+?) *$/m);
-      return { name: name.slice(0, -3), label: m ? m[2] : name.slice(0, -3), kind: m ? m[1] : null, file };
+      const base = name.slice(0, -3);
+      // Astro reads the address schema/index as schema/, the overview's, so an
+      // element named index takes its kind as well: schema/index-slot/.
+      const route = base.toLowerCase() === "index" ? `${base}-${(m ? m[1] : "page").toLowerCase()}` : base;
+      return { name: base, route, label: m ? m[2] : base, kind: m ? m[1] : null, file };
     })
     .sort((a, b) => a.label.localeCompare(b.label, "en", { sensitivity: "base" }) || (a.name < b.name ? -1 : 1));
   const nested = ["classes", "slots", "enums", "types", "subsets", "schemas"].filter((sub) => markdownIn(`${SCHEMA.dir}/${sub}`).length > 0);
@@ -469,7 +478,7 @@ export function redirects() {
     if (slug !== to.endsWith("/[...slug]")) fail(`REDIRECTS: ${from} to ${to}; both ends close with /[...slug], or neither does`);
     if (slug && !SCHEMA) fail(`REDIRECTS: ${from} stands for the schema's pages, and the site shows no schema`);
     if (!slug) map[from] = BASE + to;
-    else for (const page of schemaPages()) map[from.replace("[...slug]", page.name)] = `${BASE}${to.replace("[...slug]", page.name)}/`;
+    else for (const page of schemaPages()) map[from.replace("[...slug]", page.name)] = `${BASE}${to.replace("[...slug]", page.route)}/`;
   }
   return map;
 }

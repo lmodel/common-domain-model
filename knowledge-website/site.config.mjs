@@ -60,6 +60,10 @@ export const DOCS = { dir: ".linkml/docs", exclude: ["templates-linkml", "schema
 //   export const REDIRECTS = { "/elements": "/schema/", "/elements/[...slug]": "/schema/[...slug]", "/about": "/docs/about/" };
 export const REDIRECTS = {
   "/about": "/docs/about/",
+  // w3id.org/lmodel/common-domain-model/<Term> sends a browser to
+  // elements/<Term>/, where gen-doc's mkdocs site kept each element.
+  "/elements": "/schema/",
+  "/elements/[...slug]": "/schema/[...slug]",
 };
 
 // A Keep a Changelog file, read as a page per release. "auto" takes
@@ -86,11 +90,11 @@ export const PAGES = [];
 // and .linkml/ whose justfile has a gen-doc recipe, else the sidecar's
 // domain schema. null shows no schema.
 //   export const SCHEMA = { dir: "docs/elements", build: "just gen-doc" };
-// null: the CDM's schema has 2,871 gen-doc pages, and each would carry the
-// schema sidebar's 2,871 links, about 540 KB a page and 1.5 GB in all, over
-// GitHub Pages' 1 GB limit. The schema's files and docs/about.md stay linked
-// from the README and the docs.
-export const SCHEMA = null;
+// The CDM's schema has 2,871 gen-doc pages, so the Schema sidebar lists only
+// the overview, which links every element (SCHEMA_SIDEBAR_LIMIT in
+// astro.config.mjs). The schema has a slot named index, so gen-doc writes its
+// overview to overview.md (--index-name in .linkml/config.public.mk).
+export const SCHEMA = { dir: ".linkml/docs/elements", build: "just --justfile .linkml/justfile gen-doc", index: "overview.md" };
 
 // The data: a folder of SQLite databases and their Datasette metadata, served
 // under /browse/ with a page that opens each in Datasette Lite, and the

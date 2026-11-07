@@ -44,16 +44,20 @@ const docsSidebar = !DOCS
     : [{ label: "Guides", items: [{ autogenerate: { directory: "docs" } }] }];
 
 // The schema's pages in the sidebar: the overview, then a group per kind in
-// gen-doc's own order, each page under its element's name.
+// gen-doc's own order, each page under its element's name. Every page carries
+// the whole sidebar, so a schema of more than SCHEMA_SIDEBAR_LIMIT pages lists
+// only the overview, whose own page links every element. The CDM's 2,871
+// pages would otherwise carry 2,871 links each, about 540 KB a page.
+const SCHEMA_SIDEBAR_LIMIT = 500;
 const schemaSidebar = [
   { label: "Overview", link: "/schema/" },
-  ...Object.entries(SCHEMA_KINDS)
+  ...(schemaPages().length > SCHEMA_SIDEBAR_LIMIT ? [] : Object.entries(SCHEMA_KINDS))
     .map(([kind, label]) => ({
       label,
       collapsed: true,
       items: schemaPages()
         .filter((page) => page.kind === kind)
-        .map((page) => ({ label: page.label, link: `/schema/${page.name}/` })),
+        .map((page) => ({ label: page.label, link: `/schema/${page.route}/` })),
     }))
     .filter((group) => group.items.length > 0),
 ];
