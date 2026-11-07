@@ -6,6 +6,8 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-07
+
 ### Added
 
 - **The schema's pages on the knowledge website**, one per class, slot, enumeration and type. The Schema sidebar lists only the overview, which links every element, so each page stays small and the site about 200 MB.
