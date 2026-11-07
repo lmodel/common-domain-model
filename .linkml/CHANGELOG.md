@@ -6,6 +6,8 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-11-07
+
 ### Added
 
 - **A schema written from the CDM's own Rosetta files**, at FINOS's release 8.0.0-dev.13: every type, choice, enumeration and type alias, one module per Rosetta namespace, with the conditions LinkML can state. `scripts/rosetta_to_linkml.py` writes it, and `docs/about.md` says what each Rosetta construct becomes and what LinkML cannot state. A `<>` condition is a `none_of`, a comparison on an optional attribute also requires it, as Rune reads an absent value, and an ancestor's rules are left to the generator, which applies them to a subclass itself.
