@@ -66,8 +66,3 @@ website/.schema-temp
 
 # CVE scan reports
 /reports/
-
-# Agent skills are installed at run time, never committed.
-.agents/
-.claude/
-skills-lock.json
