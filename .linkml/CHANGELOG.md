@@ -27,6 +27,10 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 - **The old converter, its patched generators and its schema.** It wrote functions into comments, read an optional choice as "at least one", and named FpML classes as guessed close mappings.
 - **The six SSSOM sets.** The sets to gist, iso29100, oscal and spdx were guessed, the construct set mapped Rosetta names to the same LinkML names, and the FpML set restated what the schema now states in `enum_uri` and its values.
 
+### Fixed
+
+- **The knowledge librarian workflow can install its skill.** The root `.gitignore` now ignores `.agents/`, `.claude/` and `skills-lock.json`, where the workflow installs the ktl-librarian skill. While git did not ignore them, the workflow stopped before the agent ran.
+
 ## [0.0.0] - 2026-11-06
 
 ### Added
