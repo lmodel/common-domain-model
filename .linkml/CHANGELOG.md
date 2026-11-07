@@ -6,6 +6,11 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 
 ## [Unreleased]
 
+### Added
+
+- **The schema's pages on the knowledge website**, one per class, slot, enumeration and type. The Schema sidebar lists only the overview, which links every element, so each page stays small and the site about 200 MB.
+- **The merged schema and the schema as RDF Turtle**, in `project/linkml/` and `project/rdf/`, from `just gen-merged-schema` and `just gen-rdf`.
+
 ## [0.1.0] - 2026-11-07
 
 ### Added
