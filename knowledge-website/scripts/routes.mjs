@@ -10,14 +10,14 @@ const ABSOLUTE = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
 const DOC_PAGES = new Set(docsPages());
 // The schema's pages, read the first time a link needs them after the folder
 // exists, since the sync builds the folder after this module loads.
-let schemaNames = null;
-function isSchemaPage(name) {
-  if (!schemaNames) {
+let schemaRoutes = null;
+function schemaRoute(name) {
+  if (!schemaRoutes) {
     const pages = schemaPages();
-    if (pages.length === 0) return false;
-    schemaNames = new Set(pages.map((p) => p.name));
+    if (pages.length === 0) return undefined;
+    schemaRoutes = new Map(pages.map((p) => [p.name, p.route]));
   }
-  return schemaNames.has(name);
+  return schemaRoutes.get(name);
 }
 
 function isDirectory(repoPath) {
@@ -36,10 +36,11 @@ export function route(repoPath) {
   if (extra) return `${BASE}/${extra.slug}/`;
   if (p === ".lokf/knowledge" || p === ".lokf/knowledge/index.md") return `${BASE}/knowledge/`;
   if (ASSETS && p === ASSETS) return `${REPO_URL}/tree/${REF}/${ASSETS}`;
-  if (SCHEMA && (p === SCHEMA.dir || p === `${SCHEMA.dir}/index.md`)) return `${BASE}/schema/`;
+  if (SCHEMA && (p === SCHEMA.dir || p === `${SCHEMA.dir}/${SCHEMA.index}`)) return `${BASE}/schema/`;
   if (SCHEMA && p.startsWith(`${SCHEMA.dir}/`) && p.endsWith(".md")) {
     const name = p.slice(SCHEMA.dir.length + 1, -3);
-    if (isSchemaPage(name)) return `${BASE}/schema/${name}/`;
+    const to = schemaRoute(name);
+    if (to) return `${BASE}/schema/${to}/`;
   }
   if (DOCS && p.startsWith(`${DOCS.dir}/`) && p.endsWith(".md")) {
     const name = p.slice(DOCS.dir.length + 1, -3);

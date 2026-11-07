@@ -1465,11 +1465,12 @@ function genDocDescription(body) {
 
 function writeSchemaPages() {
   if (!SCHEMA) return 0;
-  const index = `${SCHEMA.dir}/index.md`;
+  const index = `${SCHEMA.dir}/${SCHEMA.index}`;
   const overview = takeTitle(fromGenDoc(repoFile(index)));
   const summary = describe(overview.body);
+  // Beside the folder, not in it, so that an element named index keeps its page.
   page(
-    resolve(CONTENT, "schema", "index.md"),
+    resolve(CONTENT, "schema.md"),
     {
       title: overview.title ?? "Schema",
       ...(summary ? { description: summary } : {}),
@@ -1491,7 +1492,7 @@ function writeSchemaPages() {
       {
         title: title ?? p.label,
         ...(description ? { description } : {}),
-        slug: `schema/${p.name}`,
+        slug: `schema/${p.route}`,
         pagefind: false,
         ktlSource: p.file,
         editUrl: false,
@@ -1598,7 +1599,7 @@ for (const dir of [CONTENT, GENERATED, PUBLIC]) {
 
 if (!existsSync(resolve(BUNDLE_DIR, "index.md"))) throw new Error(`no bundle at ${BUNDLE_DIR}`);
 // First, since a concept may cite one of the schema's pages.
-buildFolder("SCHEMA", SCHEMA, (dir) => existsSync(resolve(REPO_ROOT, dir, "index.md")));
+buildFolder("SCHEMA", SCHEMA, (dir) => existsSync(resolve(REPO_ROOT, dir, SCHEMA.index)));
 buildFolder("BROWSE", BROWSE, () => browseFiles().databases.length > 0);
 const exported = lokfExport();
 const labels = readLabels();
