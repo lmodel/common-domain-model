@@ -35,12 +35,10 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      # Only this project's scripts: FINOS's stay as FINOS writes them. The
+      # runner image ships ShellCheck.
       - name: ShellCheck
-        uses: ludeeus/action-shellcheck@00cae500b08a931fb5698e11e79bfbd38e612a38 # 2.0.0
-        with:
-          scandir: '.'
-          # FINOS's own files stay as FINOS writes them.
-          ignore_paths: ./python ./rosetta-source
+        run: git ls-files -z '.linkml/*.sh' '.lokf/*.sh' '.github/scripts/*.sh' | xargs -0 -r shellcheck
 
   lint-workflows:
     name: Lint GitHub Actions workflows
