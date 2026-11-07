@@ -17,7 +17,8 @@ LINKML_SCHEMA_SOURCE_DIR="src/common_domain_model/schema"
 LINKML_GENERATORS_CONFIG_YAML=generators.yaml
 
 ## pass args if gendoc ignores config.yaml (i.e. --no-mergeimports)
-LINKML_GENERATORS_DOC_ARGS=
+## The schema has a slot named index, so the overview takes another name.
+LINKML_GENERATORS_DOC_ARGS="--index-name overview"
 
 ## pass args to workaround genowl rdfs config bug (linkml#1453)
 ##   (i.e. --no-type-objects --no-metaclasses --metadata-profile=rdfs)
