@@ -60,6 +60,10 @@ export const DOCS = { dir: ".linkml/docs", exclude: ["templates-linkml", "schema
 //   export const REDIRECTS = { "/elements": "/schema/", "/elements/[...slug]": "/schema/[...slug]", "/about": "/docs/about/" };
 export const REDIRECTS = {
   "/about": "/docs/about/",
+  // w3id.org/lmodel/common-domain-model/<Term> sends a browser to
+  // elements/<Term>/, where gen-doc's mkdocs site kept each element.
+  "/elements": "/schema/",
+  "/elements/[...slug]": "/schema/[...slug]",
 };
 
 // A Keep a Changelog file, read as a page per release. "auto" takes
