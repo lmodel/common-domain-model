@@ -74,8 +74,7 @@ sources:
   - resource: .github/workflows/windows-build.yml
 generated:
   by: process:ktl-librarian
-  at: "2026-11-06T08:54:53Z"
-  revision: dafe7bab2c015f40a486685508fc5c2e6a629def
+  at: "2026-11-15T03:47:48Z"
 status: draft
 ---
 
@@ -83,6 +82,6 @@ status: draft
 
 This project reads FINOS's files and changes none of them. `.linkml/tests/upstream_tree.tsv` lists each file of the pinned release with its git object hash, and `.linkml/tests/test_upstream_tree.py` holds the tree to it byte for byte.[^test_upstream_tree.py]
 
-FINOS's own site sits in `website/`, so this project's site sits in `knowledge-website/`.
+FINOS's own site sits in `website/`, so this project's site sits in `ktl-website/`.
 
 [^test_upstream_tree.py]: .linkml/tests/test_upstream_tree.py, the docstring

@@ -26,7 +26,7 @@ sources:
   - resource: .github/workflows/knowledge-release.yaml
   - resource: .github/workflows/knowledge-sync.yaml
   - resource: .github/workflows/knowledge-website.yaml
-  - resource: knowledge-website/README.md
+  - resource: ktl-website/README.md
   - resource: rosetta-source/src/main/rosetta
   - resource: rosetta-source/src/main/resources
 exclusions:
@@ -34,7 +34,7 @@ exclusions:
     reason: The Contributor Covenant as the template ships it, with the maintainer's address; it states no fact about this project's knowledge.
 generated:
   by: process:ktl-librarian
-  at: "2026-11-06T08:54:53Z"
+  at: "2026-11-15T03:47:48Z"
 status: draft
 ---
 
@@ -46,7 +46,7 @@ status: draft
 | `.linkml/tests/`, `.linkml/upstream/` | datasets | `just test` |
 | `.linkml/README.md`, `CONTRIBUTING.md`, `NOTICE`, `AI_COVENANT.md`, `.github/SECURITY.md` | playbooks, policies | read them |
 | `.github/workflows/` (this project's) | one Service per workflow | read the header comment |
-| `knowledge-website/` | the documentation site | `npm run build` |
+| `ktl-website/` | the documentation site | `bash ktl-website/scripts/build.sh` |
 | `rosetta-source/` | the Rosetta model, the code lists, the samples | `just check-linkml` and `tests/test_finos_samples.py` |
 
 The rest of FINOS's tree has one concept, on FINOS's tree, because this project only holds it to its hashes.

@@ -18,7 +18,7 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for common-domain-model.
 
 # Services
 
-* [Documentation site](services/documentation-site.md) - The knowledge website in `knowledge-website/`, built from the bundle, the README, the docs, the changelog and the schema's pages, and published to `https://lmodel.github.io/common-domain-model/`.
+* [Documentation site](services/documentation-site.md) - The knowledge website in `ktl-website/`, built with Hugo from the bundle, the README, the docs, the changelog and the schema's pages, and published to `https://lmodel.github.io/common-domain-model/`.
 
 # References
 
@@ -39,7 +39,7 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for common-domain-model.
 
 # Explanations
 
-* [The fork's layout](explanations/fork-layout.md) - Why FINOS's tree sits unchanged at the root and this project sits beside it: the LinkML project in `.linkml/`, the knowledge bundle in `.lokf/`, the site in `knowledge-website/`, and the `linkml_schema` and `knowledge_bundle` doorways.
+* [The fork's layout](explanations/fork-layout.md) - Why FINOS's tree sits unchanged at the root and this project sits beside it: the LinkML project in `.linkml/`, the knowledge bundle in `.lokf/`, the site in `ktl-website/`, and the `linkml_schema` and `knowledge_bundle` doorways.
 * [What each Rosetta construct becomes](explanations/rosetta-to-linkml.md) - How the converter writes the CDM in LinkML: a namespace as a module, a type as a class, a choice as a class that holds exactly one option, an enumeration keyed by display name, a code-list alias as an enumeration, and conditions as class expressions or rules.
 * [What LinkML cannot state](explanations/what-linkml-cannot-state.md) - The CDM conditions and constructs the schema does not state: paths into another type, comparisons of two attributes, list conditions, boolean equality, strict decimal bounds, function calls, metadata, subtypes in place of a parent and one meaning per attribute name.
 * [Reading a CDM document](explanations/reading-a-cdm-document.md) - How a CDM document that Rune wrote, with its `@type`, `@key`, `@ref` and `@data` keys, is put in the form the schema states, so that the generated JSON Schema can judge it.
@@ -77,4 +77,4 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for common-domain-model.
 * [Knowledge registrar (knowledge-registrar.yaml)](workflows/knowledge-registrar.md) - The validation of the bundle's records on every change to `.lokf/` and weekly: `lokf validate --check-refs`, the conventions script, and the provenance check of a person's events.
 * [Knowledge release (knowledge-release.yaml)](workflows/knowledge-release.md) - The job that attaches the bundle, the Microsoft 365 skill zips and the adapt copy to a GitHub release, each with its checksum.
 * [Knowledge sync (knowledge-sync.yaml)](workflows/knowledge-sync.md) - The weekly job that keeps the sidecar's copies and the skills pin at the newest Knowledge Trust Ladder release, in one pull request.
-* [Knowledge website (knowledge-website.yaml)](workflows/knowledge-website.md) - The workflow that builds the site in `knowledge-website/` on every change and weekly, and publishes the default branch's build once `KNOWLEDGE_WEBSITE_ENABLED` is `true`.
+* [Knowledge website (knowledge-website.yaml)](workflows/knowledge-website.md) - The workflow that builds the site in `ktl-website/` on every change and weekly, and publishes the default branch's build once `KNOWLEDGE_WEBSITE_ENABLED` is `true`.
