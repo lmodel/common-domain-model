@@ -1,6 +1,6 @@
 # Explanations
 
-* [The fork's layout](fork-layout.md) - Why FINOS's tree sits unchanged at the root and this project sits beside it: the LinkML project in `.linkml/`, the knowledge bundle in `.lokf/`, the site in `ktl-website/`, and the `linkml_schema` and `knowledge_bundle` doorways.
+* [The fork's layout](fork-layout.md) - Why FINOS's tree sits at the root, unchanged but for its Dependabot settings, and this project sits beside it: the LinkML project in `.linkml/`, the knowledge bundle in `.lokf/`, the site in `ktl-website/`, and the `linkml_schema` and `knowledge_bundle` doorways.
 * [What each Rosetta construct becomes](rosetta-to-linkml.md) - How the converter writes the CDM in LinkML: a namespace as a module, a type as a class, a choice as a class that holds exactly one option, an enumeration keyed by display name, a code-list alias as an enumeration, and conditions as class expressions or rules.
 * [What LinkML cannot state](what-linkml-cannot-state.md) - The CDM conditions and constructs the schema does not state: paths into another type, comparisons of two attributes, list conditions, boolean equality, strict decimal bounds, function calls, metadata, subtypes in place of a parent and one meaning per attribute name.
 * [Reading a CDM document](reading-a-cdm-document.md) - How a CDM document that Rune wrote, with its `@type`, `@key`, `@ref` and `@data` keys, is put in the form the schema states, so that the generated JSON Schema can judge it.

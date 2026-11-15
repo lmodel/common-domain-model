@@ -2,6 +2,7 @@
 
 ## 2026-11-15
 
+* **Changed**: FINOS's tree is unchanged but for `.github/dependabot.yml`, which now holds this project's Dependabot settings.
 * **Changed**: the site moved from `knowledge-website/` to `ktl-website/`, and Hugo builds it.
 
 ## 2026-11-06
