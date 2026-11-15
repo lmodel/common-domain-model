@@ -12,11 +12,10 @@ sources:
   - id: semantic-release.yml
     resource: .github/workflows/semantic-release.yml
   - resource: .github/scripts/changelog-release.mjs
-  - resource: .github/release
+  - resource: .release
 generated:
   by: process:ktl-librarian
-  at: "2026-11-06T08:54:53Z"
-  revision: 8c441655ad587d8324d373d13661a2030f425383
+  at: "2026-11-15T21:01:32Z"
 status: draft
 ---
 

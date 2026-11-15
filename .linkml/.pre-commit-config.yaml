@@ -25,7 +25,7 @@ exclude: >-
     \.linkml/tests/neighbours/|
     \.lokf/(scripts|m365)/|
     \.lokf/schema/(lokf|common-domain-model)\.yaml$|
-    \.github/release/package-lock\.json$|
+    \.release/package-lock\.json$|
     ktl-website/(?!site\.toml$|README\.md$|assets/css/custom\.css$)
   )
 repos:
