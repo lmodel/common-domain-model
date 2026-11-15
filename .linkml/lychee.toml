@@ -15,8 +15,8 @@ exclude = [
   # This schema's namespace. A term IRI is an identifier that merely looks
   # like a URL; a 404 on one is valid by design.
   '^https://w3id\.org/lmodel/common-domain-model/',
-  # The documentation site, which answers once the knowledge-website
-  # workflow first deploys it to Pages. Drop this then.
+  # The documentation site, which answers once knowledge-website.yaml
+  # first deploys it to Pages. Drop this then.
   '^https://lmodel\.github\.io/common-domain-model',
   # Development-only addresses printed in setup instructions.
   '^http://localhost',
@@ -48,9 +48,9 @@ exclude_path = [
   "(^|/)project/",
   "(^|/)docs/elements/",
   # The site's build writes these from the repository's own Markdown, with
-  # links that only resolve once the site is served. knowledge-website/'s own link check
+  # links that only resolve once the site is served. ktl-website/'s own link check
   # covers them, and the files they come from are checked where they are.
-  "(^|/)knowledge-website/(dist|public|src/content|src/generated|node_modules)/",
+  "(^|/)ktl-website/(dist|generated|resources|\\.venv)/",
 ]
 
 # github.com answers automated clients with 503 or 429 on a file page

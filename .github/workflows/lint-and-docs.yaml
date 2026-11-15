@@ -124,7 +124,7 @@ jobs:
             .lokf/**/*.md
             .github/SECURITY.md
             .github/PULL_REQUEST_TEMPLATE/knowledge-sync.md
-            knowledge-website/*.md
+            ktl-website/*.md
           config: .linkml/.markdownlint-cli2.jsonc
       # The remap checks this repository's own links on `master` (the bundle and
       # the issue templates use them) against this checkout, so a pull request

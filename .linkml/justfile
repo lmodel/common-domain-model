@@ -236,7 +236,7 @@ _add-artifacts:
 
 # Run the website's development server
 _serve:
-  cd ../knowledge-website && npm ci --ignore-scripts && npm run dev
+  bash ../ktl-website/scripts/build.sh serve
 
 # Initialize git repository
 _git-init:
