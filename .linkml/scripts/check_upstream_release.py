@@ -64,6 +64,10 @@ READ_FOLDERS = (
 )
 READ_FILES: set[str] = set()
 LICENCES = {"LICENSE.md", "NOTICE.md"}
+# FINOS's files this project replaces with its own. FINOS's Dependabot settings
+# ask for Maven updates on FINOS's tree, which the tests hold to the pin, and name
+# none of this project's folders. The tree test and the copy check leave these out.
+REPLACED = {".github/dependabot.yml"}
 
 
 def read_pin() -> dict[str, str]:
@@ -144,14 +148,15 @@ def _is_read(path: str) -> bool:
 
 def check_copy() -> tuple[list[str], bool]:
     """Report each pinned file that differs here or is gone, offline."""
-    pinned = pins()
+    pinned = {path: sha for path, sha in pins().items() if path not in REPLACED}
     differing = sorted(
         path
         for path, sha in pinned.items()
         if not (TREE / path).is_file() or blob_sha(TREE / path) != sha
     )
     report = [
-        f"- {len(pinned) - len(differing)} of {len(pinned)} of FINOS's files here match the pin."
+        f"- {len(pinned) - len(differing)} of {len(pinned)} of FINOS's files here match the pin;"
+        f" this project replaces {', '.join(_code(p) for p in sorted(REPLACED))}."
     ]
     if differing:
         report.append(

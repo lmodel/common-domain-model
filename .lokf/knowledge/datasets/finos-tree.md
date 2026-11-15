@@ -2,7 +2,7 @@
 type: Dataset
 id: https://w3id.org/lmodel/common-domain-model/knowledge/datasets/finos-tree
 title: FINOS's tree
-description: "Every file of FINOS's CDM release, unchanged at the repository's root: the Rosetta model, its resources and samples, the Java build, FINOS's documentation site in `website/` and its governance files."
+description: "Every file of FINOS's CDM release at the repository's root, unchanged but for `.github/dependabot.yml`: the Rosetta model, its resources and samples, the Java build, FINOS's documentation site in `website/` and its governance files."
 genre: reference
 resource: rosetta-source
 isPartOf:
@@ -74,13 +74,13 @@ sources:
   - resource: .github/workflows/windows-build.yml
 generated:
   by: process:ktl-librarian
-  at: "2026-11-15T03:47:48Z"
+  at: "2026-11-15T18:41:27Z"
 status: draft
 ---
 
 # FINOS's tree
 
-This project reads FINOS's files and changes none of them. `.linkml/tests/upstream_tree.tsv` lists each file of the pinned release with its git object hash, and `.linkml/tests/test_upstream_tree.py` holds the tree to it byte for byte.[^test_upstream_tree.py]
+This project reads FINOS's files and changes one of them: `.github/dependabot.yml` holds this project's Dependabot settings in place of FINOS's. `.linkml/tests/upstream_tree.tsv` lists each file of the pinned release with its git object hash, and `.linkml/tests/test_upstream_tree.py` holds every other file to it byte for byte.[^test_upstream_tree.py]
 
 FINOS's own site sits in `website/`, so this project's site sits in `ktl-website/`.
 

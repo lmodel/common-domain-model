@@ -1,72 +1,108 @@
+# Please see the documentation for all configuration options:
+# https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
+#
+# This file is this project's, in place of FINOS's: FINOS's weekly Maven
+# updates would open pull requests on FINOS's tree, which the tests hold to
+# the pin, and named none of this project's folders. REPLACED in
+# .linkml/scripts/check_upstream_release.py names it, so the tree test and
+# the watch leave it out; a merge from FINOS keeps this copy.
+
 version: 2
-
-# No `registries:` block is needed. Every dependency resolves from Maven
-# Central.
-
 updates:
-  # ---------------------------------------------------------------- master --
-  # Maven: the root pom drives the whole reactor (rosetta-source, tests,
-  # examples), so one entry at "/" covers all four poms.
-  - package-ecosystem: maven
-    directory: "/"
-    schedule:
-      interval: weekly
-      day: monday
-      time: "06:00"
-      timezone: Europe/London
-    open-pull-requests-limit: 3
-    labels:
-      - dependencies
-      - java
-    # Rune/CDM versions are bumped deliberately as part of release
-    # coordination, not by a bot.
-    # jackson-bom, xtext-dev-bom and guava are kept off minor/major bumps
-    # entirely - only patch updates are allowed through, and standalone
-    # rather than grouped.
-    ignore:
-      - dependency-name: com.regnosys*
-      - dependency-name: org.finos.rune*
-      - dependency-name: com.fasterxml.jackson*
-        update-types:
-          - version-update:semver-major
-          - version-update:semver-minor
-      - dependency-name: org.eclipse.xtext:xtext-dev-bom
-        update-types:
-          - version-update:semver-major
-          - version-update:semver-minor
-      - dependency-name: com.google.guava:guava
-        update-types:
-          - version-update:semver-major
-          - version-update:semver-minor
-      # Guice stays on major version 6 - minor/patch updates are fine.
-      - dependency-name: com.google.inject*
-        update-types:
-          - version-update:semver-major
-      # plexus-utils.version overrides the version transitively pulled in via
-      # rune-maven-plugin's maven-plugin-api dependency, to fix
-      # CVE-2025-67030 - a major bump needs a human to confirm the fix still
-      # applies, not a bot.
-      - dependency-name: org.codehaus.plexus:plexus-utils
-        update-types:
-          - version-update:semver-major
-          - version-update:semver-minor
-    # One PR for routine minor/patch drift; majors still come through
-    # individually so they get read properly.
-    groups:
-      maven-minor-and-patch:
-        exclude-patterns:
-          - com.fasterxml.jackson*
-          - org.eclipse.xtext:xtext-dev-bom
-          - com.google.guava:guava
-          - org.codehaus.plexus:plexus-utils
-        update-types:
-          - minor
-          - patch
-
+  # This project's own workflows. Every action is pinned to a commit SHA with
+  # its version in a trailing comment; Dependabot bumps both together. FINOS's
+  # workflows stay as FINOS writes them, since a test holds them to the pin;
+  # exclude-paths names each of them and none of this project's.
   - package-ecosystem: github-actions
     directory: "/"
+    exclude-paths:
+      - ".github/workflows/close-blank-issues.yml"
+      - ".github/workflows/cve-scanning-schedule.yml"
+      - ".github/workflows/cve-scanning.yml"
+      - ".github/workflows/license-scanning.yml"
+      - ".github/workflows/pmd-code-scan.yml"
+      - ".github/workflows/windows-build.yml"
     schedule:
       interval: monthly
-    open-pull-requests-limit: 3
-    labels:
-      - dependencies
+    commit-message:
+      prefix: "chore(actions)"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  # The package's own tree (pyproject.toml + uv.lock): linkml-runtime at
+  # runtime and the LinkML toolchain for development. main.yaml is the gate
+  # that has to stay green.
+  - package-ecosystem: uv
+    directory: "/.linkml"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "chore(deps)"
+    groups:
+      python:
+        patterns:
+          - "*"
+
+  # The .lokf/ sidecar's toolchain (the `lokf` package), kept apart from the
+  # package tree. A major bump can require concept frontmatter changes, so
+  # these want a human read, not a rubber stamp.
+  - package-ecosystem: uv
+    directory: "/.lokf"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "chore(lokf)"
+
+  # The website's build tools, Hugo and Pagefind (ktl-website/pyproject.toml
+  # and uv.lock).
+  - package-ecosystem: uv
+    directory: "/ktl-website"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "chore(website)"
+    groups:
+      website:
+        patterns:
+          - "*"
+
+  # The release job's tools, which .github/release/package-lock.json pins
+  # with every package they pull in.
+  - package-ecosystem: npm
+    directory: "/.github/release"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "ci(release)"
+    groups:
+      release-tools:
+        patterns:
+          - "*"
+
+  # FINOS's manifests. FINOS's tree stays byte for byte as FINOS writes it,
+  # so a Dependabot pull request on it can only fail the build: FINOS fixes
+  # its own dependencies, and the next FINOS merge brings the fix here. An
+  # `ignore` of every dependency stops security updates as well as version
+  # updates; `open-pull-requests-limit: 0` stops version updates only.
+  # tests/test_upstream_tree.py holds both lists to FINOS's tree.
+  - package-ecosystem: npm
+    directories:
+      - "/website"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 0
+    ignore:
+      - dependency-name: "*"
+  - package-ecosystem: maven
+    directories:
+      - "/"
+      - "/examples"
+      - "/rosetta-source"
+      - "/tests"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 0
+    ignore:
+      - dependency-name: "*"

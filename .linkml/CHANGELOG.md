@@ -6,6 +6,10 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 
 ## [Unreleased]
 
+### Fixed
+
+- **Dependabot updates this project's folders and leaves FINOS's tree alone.** `.github/dependabot.yml` held FINOS's settings, whose weekly Maven updates the tree test would fail and which named none of `.linkml/`, `.lokf/`, `ktl-website/` or `.github/release/`. It is now this project's own, ignores every dependency in FINOS's Maven and npm folders, and the tree test and the watch leave it out by name.
+
 ## [0.3.0] - 2026-11-15
 
 ### Added

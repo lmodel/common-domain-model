@@ -19,13 +19,13 @@ Do not submit anything you cannot fully stand behind.
 
 ## A note specific to this project
 
-This repository is a fork of the Common Domain Model (CDM) that FINOS publishes for financial products and their lifecycle. FINOS's tree sits unchanged at the repository's root, and this project adds a LinkML schema of it under `.linkml/`.
+This repository is a fork of the Common Domain Model (CDM) that FINOS publishes for financial products and their lifecycle. FINOS's tree sits at the repository's root, unchanged but for `.github/dependabot.yml`, and this project adds a LinkML schema of it under `.linkml/`.
 
 Two failure modes are worse here than elsewhere. One is a type, attribute or condition that a model produced, presented as the CDM's. A reader cannot tell it from the real thing, and a firm may build trade processing on it. The other is a condition stated more loosely or more strictly than the CDM states it, which passes or refuses real trades wrongly.
 
 So:
 
-- **FINOS's files stay FINOS's.** A change to a file `.linkml/tests/upstream_tree.tsv` lists goes to [FINOS](https://github.com/finos/common-domain-model) first, and `.linkml/tests/test_upstream_tree.py` fails on an edit here.
+- **FINOS's files stay FINOS's.** A change to a file `.linkml/tests/upstream_tree.tsv` lists goes to [FINOS](https://github.com/finos/common-domain-model) first, and `.linkml/tests/test_upstream_tree.py` fails on an edit here. The one exception, `.github/dependabot.yml`, holds this project's Dependabot settings; `REPLACED` in `.linkml/scripts/check_upstream_release.py` names it.
 - **The schema is written, not edited.** Every module under `.linkml/src/common_domain_model/schema/` is what `.linkml/scripts/rosetta_to_linkml.py` writes from FINOS's Rosetta files, and `.linkml/tests/test_converter.py` fails on an edit by hand. Change the converter, and say which Rosetta construct the change reads.
 - **A condition is stated only as the CDM states it.** One the converter cannot state exactly stays a comment naming it, never an approximation.
 - **No mapping is guessed.** The schema names the FpML code lists the CDM names, and nothing else.
