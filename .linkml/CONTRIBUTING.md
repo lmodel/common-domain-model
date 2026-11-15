@@ -4,7 +4,7 @@
 
 ## What this project is
 
-A LinkML schema of the Common Domain Model (CDM) that FINOS publishes, in a fork of FINOS's repository. FINOS's tree sits unchanged at the repository's root, and this project sits beside it in `.linkml/`.
+A LinkML schema of the Common Domain Model (CDM) that FINOS publishes, in a fork of FINOS's repository. FINOS's tree sits at the repository's root, unchanged but for `.github/dependabot.yml`, and this project sits beside it in `.linkml/`.
 
 | Path | Holds |
 | --- | --- |
@@ -41,7 +41,7 @@ npx skills add noelmcloughlin/knowledge-trust-ladder --skill ktl-curator --yes  
 
 ## Before opening a pull request
 
-- **Leave FINOS's files alone.** A change to one goes to [FINOS](https://github.com/finos/common-domain-model). `.linkml/tests/test_upstream_tree.py` holds every file `.linkml/tests/upstream_tree.tsv` lists to its hash.
+- **Leave FINOS's files alone.** A change to one goes to [FINOS](https://github.com/finos/common-domain-model). `.linkml/tests/test_upstream_tree.py` holds every file `.linkml/tests/upstream_tree.tsv` lists to its hash, but for those `REPLACED` in `scripts/check_upstream_release.py` names.
 - **Change the converter, never the schema.** From `.linkml/`, run `just gen-linkml`, `just gen-project`, `just gen-doc` and `just lokf-adapt`, and commit the output. `.linkml/tests/test_converter.py` fails on a module edited by hand.
 - **State a condition only as the CDM states it.** One the converter cannot state exactly stays a comment that names it.
 - **Guess no mapping.** The schema names the FpML code lists the CDM names, and nothing else.
@@ -59,7 +59,7 @@ npx skills add noelmcloughlin/knowledge-trust-ladder --skill ktl-curator --yes  
 
 ## Taking a new release from FINOS
 
-The weekly watch opens an issue when FINOS releases from master. On a branch, merge the release's tag, rewrite `.linkml/tests/upstream_tree.tsv` from `git ls-tree -r -z`, move the pin in `.linkml/upstream/pin.yaml`, and run `just gen-linkml`. Merge with a merge commit: a squash loses FINOS's history, and the next merge conflicts on every file.
+The weekly watch opens an issue when FINOS releases from master. On a branch, merge the release's tag, keeping this project's `.github/dependabot.yml`, rewrite `.linkml/tests/upstream_tree.tsv` from `git ls-tree -r -z`, move the pin in `.linkml/upstream/pin.yaml`, and run `just gen-linkml`. Merge with a merge commit: a squash loses FINOS's history, and the next merge conflicts on every file.
 
 ## Code of conduct
 

@@ -67,7 +67,9 @@ def test_nothing_moved(watch, monkeypatch, capsys):
     assert watch.main([]) == 0
     out = capsys.readouterr().out
     assert "is the pin" in out
-    assert "3231 of 3231" in out
+    kept = len(watch.pins()) - len(watch.REPLACED)
+    assert f"{kept} of {kept}" in out
+    assert "replaces `.github/dependabot.yml`" in out
 
 
 def test_a_release_from_another_branch_is_not_ours(watch, monkeypatch, capsys):

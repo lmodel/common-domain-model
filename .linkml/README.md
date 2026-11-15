@@ -16,7 +16,7 @@ FINOS Common Domain Model (LinkML)
 
 The schema models the [Common Domain Model](https://cdm.finos.org/) (CDM) that FINOS publishes for financial products, trades and their lifecycle events, at release 8.0.0-dev.13, the newest on FINOS's master branch. [scripts/rosetta_to_linkml.py](scripts/rosetta_to_linkml.py) writes it from the CDM's Rosetta files: every type, choice, enumeration and type alias, one module per Rosetta namespace, with the conditions LinkML can state. [docs/about.md](docs/about.md) says what each Rosetta construct becomes and what LinkML cannot state.
 
-This repository is a fork of [finos/common-domain-model](https://github.com/finos/common-domain-model). FINOS's tree sits unchanged at the repository's root, and this project sits beside it, in this folder, `.lokf/` and `ktl-website/`. [tests/upstream_tree.tsv](tests/upstream_tree.tsv) pins every file of the release, and a weekly workflow opens an issue when FINOS releases from master again.
+This repository is a fork of [finos/common-domain-model](https://github.com/finos/common-domain-model). FINOS's tree sits at the repository's root, unchanged but for `.github/dependabot.yml`, and this project sits beside it, in this folder, `.lokf/` and `ktl-website/`. [tests/upstream_tree.tsv](tests/upstream_tree.tsv) pins every file of the release, and a weekly workflow opens an issue when FINOS releases from master again.
 
 The attributes and values keep the CDM's names, so the JSON Schema can check a CDM document's shape once [tests/rune_json.py](tests/rune_json.py) has taken out the keys Rune adds for metadata. `tests/test_finos_samples.py` checks the CDM documents in FINOS's tree that way.
 
