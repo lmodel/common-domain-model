@@ -8,4 +8,4 @@
 * [Knowledge registrar (knowledge-registrar.yaml)](knowledge-registrar.md) - The validation of the bundle's records on every change to `.lokf/` and weekly: `lokf validate --check-refs`, the conventions script, and the provenance check of a person's events.
 * [Knowledge release (knowledge-release.yaml)](knowledge-release.md) - The job that attaches the bundle, the Microsoft 365 skill zips and the adapt copy to a GitHub release, each with its checksum.
 * [Knowledge sync (knowledge-sync.yaml)](knowledge-sync.md) - The weekly job that keeps the sidecar's copies and the skills pin at the newest Knowledge Trust Ladder release, in one pull request.
-* [Knowledge website (knowledge-website.yaml)](knowledge-website.md) - The workflow that builds the site in `knowledge-website/` on every change and weekly, and publishes the default branch's build once `KNOWLEDGE_WEBSITE_ENABLED` is `true`.
+* [Knowledge website (knowledge-website.yaml)](knowledge-website.md) - The workflow that builds the site in `ktl-website/` on every change and weekly, and publishes the default branch's build once `KNOWLEDGE_WEBSITE_ENABLED` is `true`.

@@ -2,7 +2,7 @@
 type: Explanation
 id: https://w3id.org/lmodel/common-domain-model/knowledge/explanations/fork-layout
 title: The fork's layout
-description: "Why FINOS's tree sits unchanged at the root and this project sits beside it: the LinkML project in `.linkml/`, the knowledge bundle in `.lokf/`, the site in `knowledge-website/`, and the `linkml_schema` and `knowledge_bundle` doorways."
+description: "Why FINOS's tree sits unchanged at the root and this project sits beside it: the LinkML project in `.linkml/`, the knowledge bundle in `.lokf/`, the site in `ktl-website/`, and the `linkml_schema` and `knowledge_bundle` doorways."
 genre: explanation
 resource: .linkml/README.md
 about:
@@ -19,8 +19,7 @@ sources:
   - resource: llms.txt
 generated:
   by: process:ktl-librarian
-  at: "2026-11-06T08:54:53Z"
-  revision: bdbcffe4754db3ce411ddc9f0d492297e6a3defd
+  at: "2026-11-15T03:47:48Z"
 status: draft
 ---
 

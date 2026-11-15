@@ -79,7 +79,7 @@ def test_this_project_adds_files_and_changes_none_of_finos():
         ".github/release/",
         ".github/PULL_REQUEST_TEMPLATE/knowledge-sync.md",
         ".github/SECURITY.md",
-        "knowledge-website/",
+        "ktl-website/",
         "knowledge_bundle",
         "linkml_schema",
         "llms.txt",

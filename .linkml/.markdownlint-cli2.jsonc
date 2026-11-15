@@ -22,11 +22,11 @@
     ".linkml/project/**",
     ".linkml/examples/output/**",
     ".linkml/.venv/**",
-    // What knowledge-website/ generates from the files above, which are linted where they are.
-    "knowledge-website/dist/**",
-    "knowledge-website/public/**",
-    "knowledge-website/src/content/**",
-    "knowledge-website/src/generated/**",
+    // What ktl-website/'s build writes from the files above, which are linted where they are.
+    "ktl-website/dist/**",
+    "ktl-website/generated/**",
+    "ktl-website/resources/**",
+    "ktl-website/.venv/**",
     // linkml_schema is a symlink to the schema folder, linted at its real path.
     "linkml_schema/**"
   ],

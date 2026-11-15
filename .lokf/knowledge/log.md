@@ -1,5 +1,9 @@
 # Change Log
 
+## 2026-11-15
+
+* **Changed**: the site moved from `knowledge-website/` to `ktl-website/`, and Hugo builds it.
+
 ## 2026-11-06
 
 * **Changed**: the adapt copy moved to `.lokf/schema/common-domain-model.yaml`, beside `.lokf/schema/lokf.yaml`.
