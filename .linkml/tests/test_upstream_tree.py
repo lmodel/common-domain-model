@@ -85,7 +85,7 @@ def test_this_project_adds_files_and_changes_none_of_finos():
         ".lokf/",
         ".github/workflows/",
         ".github/scripts/",
-        ".github/release/",
+        ".release/",
         ".github/PULL_REQUEST_TEMPLATE/knowledge-sync.md",
         ".github/SECURITY.md",
         "ktl-website/",

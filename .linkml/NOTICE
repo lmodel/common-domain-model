@@ -8,7 +8,7 @@ The schema project, everything under .linkml/ and what this project adds beside
 FINOS's tree (.lokf/, knowledge_bundle, linkml_schema, ktl-website/,
 llms.txt, .releaserc.json, .github/SECURITY.md,
 .github/PULL_REQUEST_TEMPLATE/knowledge-sync.md, .github/scripts/,
-.github/release/ and the workflows FINOS's tree does not hold), is licensed under
+.release/ and the workflows FINOS's tree does not hold), is licensed under
 the Apache License, Version 2.0 (see LICENSE beside this file), except for what
 the section below lists.
 
